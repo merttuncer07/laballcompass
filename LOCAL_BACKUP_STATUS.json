@@ -18,5 +18,17 @@
     "__pycache__",
     "node_modules"
   ],
-  "scope": "File recovery and local migration. Existing project scientific claims and incomplete engineering repairs are preserved, not newly validated."
+  "scope": "File recovery and local migration. Existing project scientific claims and incomplete engineering repairs are preserved, not newly validated.",
+  "related_strategy_document": {
+    "original": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-strategy/LAB_STRATEGY.md",
+    "local": "LAB_STRATEGY.md",
+    "original_sha256": "8c4ac952ba79518f2bd49f0f43194a862ac97d20ec1bc6f784537133f155a231",
+    "change": "Relative links adjusted to the new repository; original bytes preserved locally."
+  },
+  "smoke_check": {
+    "command": "lab.py workbench analyze examples/public-tables/StructuredReferences.xlsx",
+    "resolved_formulas": 9,
+    "total_formulas": 9,
+    "environment_doctor": "PASS"
+  }
 }
