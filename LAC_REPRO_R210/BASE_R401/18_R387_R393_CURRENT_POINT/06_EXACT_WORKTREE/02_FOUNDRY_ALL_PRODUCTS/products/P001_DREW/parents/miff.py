@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from collections import deque
 import math
+from numbers import Integral
 from typing import Sequence
 
 import numpy as np
@@ -57,7 +58,7 @@ def _paths(modules: tuple[str, ...], flows: Sequence[InformationFlow], sources: 
 
 
 def _minimum_cut(modules: tuple[str, ...], flows: Sequence[InformationFlow], sources: set[str], targets: set[str]) -> tuple[int, ...]:
-    """Exact minimum cut for the supplied finite binary floating-point costs.
+    """Exact minimum cut for supplied integers and finite binary float costs.
 
     Scale their exact integer ratios to a common power-of-two denominator.
     Integer residuals avoid an absolute epsilon changing the optimizer, and
@@ -69,7 +70,8 @@ def _minimum_cut(modules: tuple[str, ...], flows: Sequence[InformationFlow], sou
     index = {module: i for i, module in enumerate(modules)}
     super_source, super_sink = n, n + 1
     size = n + 2
-    ratios = [float(flow.cut_cost).as_integer_ratio() for flow in flows]
+    ratios = [(int(flow.cut_cost), 1) if isinstance(flow.cut_cost, Integral)
+              else float(flow.cut_cost).as_integer_ratio() for flow in flows]
     denominator = max((d for _, d in ratios), default=1)
     costs = [numerator * (denominator // d) for numerator, d in ratios]
     infinite = sum(costs) + 1

@@ -186,6 +186,12 @@
       "tests": 69,
       "record": "restoration/20260915-structured-tables/validation.json",
       "scope": "Saved table metadata -> static potential formula lineage. No formula evaluation, inferred provenance, real-client efficacy or real-browser visual verification."
+    },
+    "miff_precision_20260915": {
+      "status": "PASS",
+      "tests": 35,
+      "receipt": "runs/20260915T073011Z-miff/receipt.json",
+      "scope": "35 tests cover MIFF numerical cut optimization and its DREW consumer. Exhaustive partition references and one upstream graph; no novel algorithm, posterior inference or real-pipeline/audit validation."
     }
   },
   "recovery_limits": {

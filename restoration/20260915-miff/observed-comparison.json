@@ -1,0 +1,334 @@
+{
+  "cases": [
+    {
+      "case": "ordinary_chain",
+      "scale": 1.0,
+      "expected_cut_label": "cheap",
+      "before": {
+        "modules": [
+          "s",
+          "mid",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "mid",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "mid",
+            "target": "t",
+            "gain": 0.5,
+            "cut_cost": 1.0,
+            "label": "cheap"
+          }
+        ],
+        "total_cut_cost": 1.0,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.25
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      },
+      "after": {
+        "modules": [
+          "s",
+          "mid",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "mid",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "mid",
+            "target": "t",
+            "gain": 0.5,
+            "cut_cost": 1.0,
+            "label": "cheap"
+          }
+        ],
+        "total_cut_cost": 1.0,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.25
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      }
+    },
+    {
+      "case": "tiny_chain",
+      "scale": 1e-13,
+      "expected_cut_label": "cheap",
+      "before": {
+        "modules": [
+          "s",
+          "mid",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "mid",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "s",
+            "target": "mid",
+            "gain": 0.5,
+            "cut_cost": 5e-13,
+            "label": "expensive"
+          }
+        ],
+        "total_cut_cost": 5e-13,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.25
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      },
+      "after": {
+        "modules": [
+          "s",
+          "mid",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "mid",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "mid",
+            "target": "t",
+            "gain": 0.5,
+            "cut_cost": 1e-13,
+            "label": "cheap"
+          }
+        ],
+        "total_cut_cost": 1e-13,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.25
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      }
+    },
+    {
+      "case": "large_single",
+      "scale": 1e+16,
+      "expected_cut_label": "only",
+      "before": {
+        "modules": [
+          "s",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "t"
+          ]
+        ],
+        "cut_edges": [],
+        "total_cut_cost": 0.0,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.5
+        ],
+        "firewalled_protected_contamination": [
+          0.5
+        ],
+        "contamination_reduction_fraction": 0.0,
+        "status": "FIREWALL_INCOMPLETE"
+      },
+      "after": {
+        "modules": [
+          "s",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "s",
+            "target": "t",
+            "gain": 0.5,
+            "cut_cost": 1e+16,
+            "label": "only"
+          }
+        ],
+        "total_cut_cost": 1e+16,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.5
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      }
+    },
+    {
+      "case": "subnormal_chain",
+      "scale": 5e-324,
+      "expected_cut_label": "cheap",
+      "before": {
+        "modules": [
+          "s",
+          "mid",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "mid",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "s",
+            "target": "mid",
+            "gain": 0.5,
+            "cut_cost": 2.5e-323,
+            "label": "expensive"
+          }
+        ],
+        "total_cut_cost": 2.5e-323,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.25
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      },
+      "after": {
+        "modules": [
+          "s",
+          "mid",
+          "t"
+        ],
+        "suspect_sources": [
+          "s"
+        ],
+        "protected_targets": [
+          "t"
+        ],
+        "exposed_paths": [
+          [
+            "s",
+            "mid",
+            "t"
+          ]
+        ],
+        "cut_edges": [
+          {
+            "source": "mid",
+            "target": "t",
+            "gain": 0.5,
+            "cut_cost": 5e-324,
+            "label": "cheap"
+          }
+        ],
+        "total_cut_cost": 5e-324,
+        "full_loop_spectral_radius": 0.0,
+        "firewalled_loop_spectral_radius": 0.0,
+        "full_protected_contamination": [
+          0.25
+        ],
+        "firewalled_protected_contamination": [
+          0.0
+        ],
+        "contamination_reduction_fraction": 1.0,
+        "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+      }
+    }
+  ],
+  "source_sha256": "e319ccb062290d4bb4ea16fc980bb5fbde7121aa128fffe001ef52e41baefc87",
+  "scope": "Declared synthetic linear-flow models and actual old/new code executions; not posterior inference or real pipeline enforcement."
+}

@@ -63,6 +63,12 @@ def test_one_float_step_cost_difference_is_not_erased():
     assert evaluate(['s', 'm', 't'], flows).cut_edges == (flows[1],)
 
 
+def test_integer_costs_do_not_round_to_float_before_optimization():
+    flows = [InformationFlow('s', 'm', .1, 2**53 + 1, 'larger'),
+             InformationFlow('m', 't', .1, 2**53, 'smaller')]
+    assert evaluate(['s', 'm', 't'], flows).cut_edges == (flows[1],)
+
+
 def test_mixed_extreme_capacities_preserve_a_small_but_real_edge():
     flows = [InformationFlow('s', 'm', .1, 1e308),
              InformationFlow('m', 't', .1, 5e-324)]

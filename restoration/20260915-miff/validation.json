@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "receipt": "runs/20260915T073011Z-miff/receipt.json",
+  "tests": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 35
+  },
+  "tested_code_hashes": {
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R027_S426_S427_MIFF/miff.py": "e319ccb062290d4bb4ea16fc980bb5fbde7121aa128fffe001ef52e41baefc87",
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R027_S426_S427_MIFF/test_miff_cut_precision.py": "b65f6d22fc302c6bb91ccbf04cd5a3e1f67145f912df27dab1c5621041be1d3c",
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/miff.py": "e319ccb062290d4bb4ea16fc980bb5fbde7121aa128fffe001ef52e41baefc87",
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_firewall_precision.py": "faaac1a599a2ac2e7f16649f5b0edf109ba6c20d12fc36d86b60836a023bf55c"
+  },
+  "copies_identical": true,
+  "observations": "observed-comparison.json",
+  "scope": "35 tests cover MIFF numerical cut optimization and its DREW consumer. Exhaustive partition references and one upstream graph; no novel algorithm, posterior inference or real-pipeline/audit validation.",
+  "deployment": "Prepared patch applied to primary Developer/lab repository after scoped write permission was granted on 2026-09-15. GitHub connector available; Git remote backup verification recorded separately."
+}

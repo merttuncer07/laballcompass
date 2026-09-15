@@ -54,3 +54,9 @@ python real_data_pilot_digits.py
 ```
 
 See `PARENT_PROVENANCE.md` for exact source snapshots.
+
+## 2026-09-15 minimum-cut repair
+
+MIFF now optimizes declared integer/binary-float cut costs with exact integer residuals. Small costs no longer disappear under a fixed epsilon, and large costs cannot make a super-terminal edge look cheaper than the real cut. Parallel/reverse flows and multiple terminals remain supported; unrepresentable floating-point totals raise an explicit error. DREW's embedded MIFF copy is identical to the canonical parent.
+
+Fresh scope: 24 MIFF tests and 11 DREW tests pass. Includes an exhaustive vertex-partition oracle on small graphs and NetworkX's independently specified directed-graph cut of 23. This is a known graph algorithm repair. Gains, suspect labels and costs remain declared model inputs; no calibrated probability, real pipeline enforcement or audit-field benefit is established. Full observations, preserved originals and proof are in `restoration/20260915-miff` at the repository root.

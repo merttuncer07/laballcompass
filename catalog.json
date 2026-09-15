@@ -1732,7 +1732,7 @@
       "python_sources": [
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R027_S426_S427_MIFF/miff.py",
-          "sha256": "15b115afd094d7a02b47c811b7627c42d46d0fa21c7436115d102253eb974c8f"
+          "sha256": "e319ccb062290d4bb4ea16fc980bb5fbde7121aa128fffe001ef52e41baefc87"
         }
       ],
       "public_api": [
@@ -1748,11 +1748,12 @@
         "demo_firewall.py"
       ],
       "direct_test_files": [
-        "test_miff.py"
+        "test_miff.py",
+        "test_miff_cut_precision.py"
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
+        "receipt": "runs/20260915T073011Z-miff/receipt.json",
         "scope": "All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
@@ -2625,11 +2626,12 @@
       ],
       "demo_entries": [],
       "direct_test_files": [
-        "test_drew.py"
+        "test_drew.py",
+        "test_firewall_precision.py"
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
+        "receipt": "runs/20260915T073011Z-miff/receipt.json",
         "scope": "All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"

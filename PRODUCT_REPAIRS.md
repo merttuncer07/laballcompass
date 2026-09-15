@@ -116,3 +116,9 @@ Hodge projeksiyonu işaretli bir doğrusal cebir ayrıştırmasıdır; yönlü d
 [Bir auditor tartışmasında](https://www.reddit.com/r/Accounting/comments/1ebs6me), fiyatı destekleyen belge yerine elle girilen sayıların bölündüğü Excel gönderilmesinden yakınılıyor. Bu tekil anlatı yaygınlık ölçümü değildir; kaynak bağlantısı ile kaynağın doğruluğunun farklı işler olduğunu somutlaştırır.
 
 Açık Excel bağlantıları artık verilen dosyalar arasında izlenebilir. Formülsüz kopyaların kökenini bulma hâlâ eksiktir. Mevcut Excel uygulamasının sınırları ve R207'nin güçlü toplu referansa üstünlük göstermeyen sonucu [WORKBENCH.md](WORKBENCH.md) içinde korunur.
+
+## MIFF ve DREW: maliyet ölçeği doğru kesintiyi bozmuyor
+
+MIFF, tanımlanmış şüpheli kaynaktan korunan sonuçlara giden bütün yolları en düşük toplam bağlantı kesme maliyetiyle ayırır. Önceki sürüm iki bağlantılı örnekte 1e-13 yerine 5e-13 maliyetli kesintiyi seçiyor, tek bağlantı 1e16 olduğunda hiç kesinti seçemiyordu. Tamsayı artık kapasite hesabı her iki hatayı ve büyük tamsayıların erken yuvarlanmasını giderdi. DREW içindeki gerçek MIFF kopyası da güncellendi.
+
+24 motor + 11 ürün testi geçti. Küçük ağlarda bütün olası düğüm bölmeleriyle sonuç karşılaştırıldı; NetworkX'in yayımladığı yönlü ağda beklenen kesinti maliyeti 23 yeniden elde edildi. [Önce/sonra hesapları](restoration/20260915-miff/observed-comparison.json), [test kaydı](restoration/20260915-miff/validation.json), [incelenen gerçek algoritma](research/miff-mincut/OBSERVATIONS.md). Bu, bilinen minimum-kesinti hesabının onarımıdır; gerçek sistemde bağlantıları otomatik kesmez veya denetim görüşü üretmez.
