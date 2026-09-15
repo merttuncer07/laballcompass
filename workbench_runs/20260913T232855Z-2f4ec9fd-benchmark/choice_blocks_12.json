@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "id": "choice_blocks_12",
+  "mode": "declared_support",
+  "bases": {
+    "a0": "a0",
+    "b0": "b0",
+    "a1": "a1",
+    "b1": "b1",
+    "a2": "a2",
+    "b2": "b2",
+    "a3": "a3",
+    "b3": "b3",
+    "a4": "a4",
+    "b4": "b4",
+    "a5": "a5",
+    "b5": "b5",
+    "a6": "a6",
+    "b6": "b6",
+    "a7": "a7",
+    "b7": "b7",
+    "a8": "a8",
+    "b8": "b8",
+    "a9": "a9",
+    "b9": "b9",
+    "a10": "a10",
+    "b10": "b10",
+    "a11": "a11",
+    "b11": "b11"
+  },
+  "rules": [
+    {
+      "head": "c0",
+      "body": [
+        "a0"
+      ]
+    },
+    {
+      "head": "c0",
+      "body": [
+        "b0"
+      ]
+    },
+    {
+      "head": "c1",
+      "body": [
+        "a1"
+      ]
+    },
+    {
+      "head": "c1",
+      "body": [
+        "b1"
+      ]
+    },
+    {
+      "head": "c2",
+      "body": [
+        "a2"
+      ]
+    },
+    {
+      "head": "c2",
+      "body": [
+        "b2"
+      ]
+    },
+    {
+      "head": "c3",
+      "body": [
+        "a3"
+      ]
+    },
+    {
+      "head": "c3",
+      "body": [
+        "b3"
+      ]
+    },
+    {
+      "head": "c4",
+      "body": [
+        "a4"
+      ]
+    },
+    {
+      "head": "c4",
+      "body": [
+        "b4"
+      ]
+    },
+    {
+      "head": "c5",
+      "body": [
+        "a5"
+      ]
+    },
+    {
+      "head": "c5",
+      "body": [
+        "b5"
+      ]
+    },
+    {
+      "head": "c6",
+      "body": [
+        "a6"
+      ]
+    },
+    {
+      "head": "c6",
+      "body": [
+        "b6"
+      ]
+    },
+    {
+      "head": "c7",
+      "body": [
+        "a7"
+      ]
+    },
+    {
+      "head": "c7",
+      "body": [
+        "b7"
+      ]
+    },
+    {
+      "head": "c8",
+      "body": [
+        "a8"
+      ]
+    },
+    {
+      "head": "c8",
+      "body": [
+        "b8"
+      ]
+    },
+    {
+      "head": "c9",
+      "body": [
+        "a9"
+      ]
+    },
+    {
+      "head": "c9",
+      "body": [
+        "b9"
+      ]
+    },
+    {
+      "head": "c10",
+      "body": [
+        "a10"
+      ]
+    },
+    {
+      "head": "c10",
+      "body": [
+        "b10"
+      ]
+    },
+    {
+      "head": "c11",
+      "body": [
+        "a11"
+      ]
+    },
+    {
+      "head": "c11",
+      "body": [
+        "b11"
+      ]
+    },
+    {
+      "head": "target",
+      "body": [
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "c10",
+        "c11"
+      ]
+    }
+  ],
+  "targets": [
+    "target"
+  ],
+  "metadata": {
+    "family": "factored_choices",
+    "synthetic": true,
+    "analytical_minimal_support_count": 4096
+  }
+}

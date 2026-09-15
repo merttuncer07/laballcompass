@@ -1,0 +1,4669 @@
+[
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0332-TR__BENCH_IM223_IM227_CONSTRAINT_PRESSURE_RESULTS__r01.tsv",
+    "bytes": 13420,
+    "lines": 129,
+    "columns": [
+      "rho",
+      "seed",
+      "model",
+      "auc",
+      "logloss",
+      "brier",
+      "n_test",
+      "event_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0332-TR__BENCH_IM223_IM227_CONSTRAINT_PRESSURE_SUMMARY__r01.tsv",
+    "bytes": 2267,
+    "lines": 17,
+    "columns": [
+      "rho",
+      "model",
+      "auc_median",
+      "auc_p10",
+      "auc_p90",
+      "logloss_median",
+      "brier_median",
+      "event_rate_median",
+      "n_test_median"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0346-TR__BENCH_IM280_IM453_COVERAGE_FEEDBACK_RESULTS__r01.tsv",
+    "bytes": 102191,
+    "lines": 801,
+    "columns": [
+      "seed",
+      "sigma_after",
+      "model",
+      "pre_coverage",
+      "post_coverage",
+      "post_abs_coverage_error",
+      "pre_mean_halfwidth",
+      "post_mean_halfwidth",
+      "post_width_ratio_vs_oracle"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0346-TR__BENCH_IM280_IM453_COVERAGE_FEEDBACK_SUMMARY__r01.tsv",
+    "bytes": 920,
+    "lines": 9,
+    "columns": [
+      "sigma_after",
+      "model",
+      "pre_coverage_median",
+      "post_coverage_median",
+      "post_abs_coverage_error_median",
+      "post_mean_halfwidth_median",
+      "post_width_ratio_vs_oracle_median"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0352-TR__BENCH_IM292_IM050_MEMORY_KERNEL_CLOSURE_RESULTS__r01.tsv",
+    "bytes": 103927,
+    "lines": 481,
+    "columns": [
+      "regime",
+      "seed",
+      "horizon",
+      "ar1_rmse",
+      "ar2_rmse",
+      "relative_rmse_gain",
+      "ar1_resid_acf1",
+      "ar2_resid_acf1",
+      "ar1_phi",
+      "ar2_phi1",
+      "ar2_phi2",
+      "true_phi1",
+      "true_phi2"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0352-TR__BENCH_IM292_IM050_MEMORY_KERNEL_CLOSURE_SUMMARY__r01.tsv",
+    "bytes": 2391,
+    "lines": 13,
+    "columns": [
+      "regime",
+      "horizon",
+      "ar1_rmse_med",
+      "ar2_rmse_med",
+      "relative_rmse_gain_med",
+      "relative_rmse_gain_p10",
+      "ar1_resid_acf1_med",
+      "ar2_resid_acf1_med",
+      "ar2_phi2_med",
+      "true_phi2"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX076_REPAIR_DEBT_RESULTS__r01.tsv",
+    "bytes": 3945,
+    "lines": 37,
+    "columns": [
+      "shell",
+      "seed",
+      "model",
+      "n",
+      "prevalence",
+      "auc",
+      "logloss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX076_REPAIR_DEBT_SUMMARY__r01.tsv",
+    "bytes": 631,
+    "lines": 7,
+    "columns": [
+      "shell",
+      "model",
+      "prevalence",
+      "auc",
+      "logloss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX088_PERSISTENCE_TRANSIENT_RESULTS__r01.tsv",
+    "bytes": 1634,
+    "lines": 17,
+    "columns": [
+      "seed",
+      "shell",
+      "n",
+      "positive_rate",
+      "auc_global_growth",
+      "auc_fixed_location_persistence",
+      "convective_false_alarm_at_90pct_tpr",
+      "score_gap"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX088_PERSISTENCE_TRANSIENT_SUMMARY__r01.tsv",
+    "bytes": 286,
+    "lines": 3,
+    "columns": [
+      "shell",
+      "positive_rate",
+      "auc_global_growth",
+      "auc_fixed_location_persistence",
+      "convective_false_alarm_at_90pct_tpr",
+      "score_gap"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX091_VARIANCE_CAPACITY_RESULTS__r01.tsv",
+    "bytes": 3834,
+    "lines": 31,
+    "columns": [
+      "cv2",
+      "seed",
+      "planner",
+      "capacity",
+      "analytic_mean_wait",
+      "sim_mean_wait",
+      "q95_wait",
+      "p_wait_gt2",
+      "sla_target",
+      "sla_met"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX091_VARIANCE_CAPACITY_SUMMARY__r01.tsv",
+    "bytes": 756,
+    "lines": 7,
+    "columns": [
+      "cv2",
+      "planner",
+      "capacity",
+      "analytic_mean_wait",
+      "sim_mean_wait",
+      "q95_wait",
+      "p_wait_gt2"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0356-TR__BENCH_IM190_IM040_POLICY_AWARE_TIMING_RESULTS__r01.tsv",
+    "bytes": 37285,
+    "lines": 271,
+    "columns": [
+      "model",
+      "policy_multiplier",
+      "q_train",
+      "q_test",
+      "seed",
+      "auc",
+      "logloss",
+      "brier",
+      "ece",
+      "scenario"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0356-TR__BENCH_IM190_IM040_POLICY_AWARE_TIMING_SUMMARY__r01.tsv",
+    "bytes": 1102,
+    "lines": 10,
+    "columns": [
+      "scenario",
+      "model",
+      "auc_med",
+      "logloss_med",
+      "brier_med",
+      "ece_med"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX062_MODULAR_RISK_FIREWALL_RESULTS__r01.tsv",
+    "bytes": 13052,
+    "lines": 121,
+    "columns": [
+      "seed",
+      "regime",
+      "method",
+      "stable_rate",
+      "failure_rate",
+      "capped_mse",
+      "median_abs_error",
+      "p95_abs_error",
+      "mean_feedback_weight"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX062_MODULAR_RISK_FIREWALL_SUMMARY__r01.tsv",
+    "bytes": 1136,
+    "lines": 11,
+    "columns": [
+      "regime",
+      "method",
+      "median_stable_rate",
+      "median_failure_rate",
+      "median_capped_mse",
+      "median_abs_error",
+      "median_p95_abs_error",
+      "median_feedback_weight"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX128_DETECTABILITY_AWARE_SENSING_RESULTS__r01.tsv",
+    "bytes": 7546,
+    "lines": 62,
+    "columns": [
+      "scenario",
+      "beta",
+      "n",
+      "p",
+      "k",
+      "seed",
+      "broad_auc",
+      "targeted_auc",
+      "wrong_subspace_auc",
+      "broad_bbp_ratio",
+      "target_bbp_ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX128_DETECTABILITY_AWARE_SENSING_SUMMARY__r01.tsv",
+    "bytes": 673,
+    "lines": 5,
+    "columns": [
+      "scenario",
+      "broad_auc",
+      "broad_auc",
+      "targeted_auc",
+      "targeted_auc",
+      "wrong_subspace_auc",
+      "wrong_subspace_auc",
+      "broad_bbp_ratio",
+      "target_bbp_ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX143_SUPPORT_FUNCTION_ACTIVE_SENSING_RESULTS__r01.tsv",
+    "bytes": 6008,
+    "lines": 49,
+    "columns": [
+      "regime",
+      "seed",
+      "strategy",
+      "prevalence",
+      "auc",
+      "logloss",
+      "brier",
+      "accuracy"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX143_SUPPORT_FUNCTION_ACTIVE_SENSING_SUMMARY__r01.tsv",
+    "bytes": 1074,
+    "lines": 9,
+    "columns": [
+      "regime",
+      "strategy",
+      "median_auc",
+      "median_logloss",
+      "median_brier",
+      "median_accuracy",
+      "median_prevalence"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX145_BOUNDARY_ACCESSIBILITY_RESULTS__r01.tsv",
+    "bytes": 1704,
+    "lines": 25,
+    "columns": [
+      "test",
+      "budget_fraction",
+      "true_radius",
+      "design_angle_deg",
+      "harmonic_detection",
+      "uniform_length_detection",
+      "gain_ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX145_BOUNDARY_ACCESSIBILITY_SUMMARY__r01.tsv",
+    "bytes": 266,
+    "lines": 6,
+    "columns": [
+      "true_radius",
+      "harmonic_detection",
+      "uniform_length_detection",
+      "gain_ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0426-TR__BENCH_RX098_LIE_REACHABILITY_TRANSIENT_RESULTS__r01.tsv",
+    "bytes": 15694,
+    "lines": 201,
+    "columns": [
+      "seed",
+      "regime",
+      "method",
+      "auc",
+      "rmse",
+      "fnr",
+      "event_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0426-TR__BENCH_RX098_LIE_REACHABILITY_TRANSIENT_SUMMARY__r01.tsv",
+    "bytes": 794,
+    "lines": 11,
+    "columns": [
+      "regime",
+      "method",
+      "auc",
+      "rmse",
+      "fnr",
+      "event_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0426-TR__BENCH_RX113_COLLECTIVE_DEPENDENCE_RESULTS__r01.tsv",
+    "bytes": 1292,
+    "lines": 13,
+    "columns": [
+      "N",
+      "beta_mean_field",
+      "pairwise_corr",
+      "variance_inflation_vs_independence",
+      "effective_independent_count",
+      "naive_95pct_CI_true_coverage",
+      "collective_guard_95pct_CI_coverage",
+      "pairwise_threshold_0p01_says_safe",
+      "mc_naive_coverage",
+      "mc_guard_coverage"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0426-TR__BENCH_RX113_COLLECTIVE_DEPENDENCE_SUMMARY__r01.tsv",
+    "bytes": 347,
+    "lines": 10,
+    "columns": [
+      "metric",
+      "value"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0430-TR__BENCH_RX024_BACKREACTION_AWARE_SENSING_RESULTS__r01.tsv",
+    "bytes": 7897,
+    "lines": 89,
+    "columns": [
+      "q_true",
+      "seed",
+      "model",
+      "q_assumed",
+      "correct_location_rate",
+      "true_detection_rate",
+      "brier_next_state",
+      "action_switch_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0430-TR__BENCH_RX024_BACKREACTION_AWARE_SENSING_SUMMARY__r01.tsv",
+    "bytes": 458,
+    "lines": 14,
+    "columns": [
+      "metric",
+      "value"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__BENCH_RX074_INVARIANT_AWARE_ALLOCATOR_RESULTS__r01.tsv",
+    "bytes": 25138,
+    "lines": 196,
+    "columns": [
+      "regime",
+      "trial",
+      "singular_gap",
+      "invariant_alignment",
+      "baseline_true_violation",
+      "learned_true_violation",
+      "oracle_true_violation",
+      "baseline_objective",
+      "learned_objective",
+      "oracle_objective",
+      "learned_to_oracle_objective",
+      "gate_activated",
+      "objective_difference"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__BENCH_RX140_DYKSTRA_LEDGER_RESULTS__r01.tsv",
+    "bytes": 33700,
+    "lines": 201,
+    "columns": [
+      "case",
+      "input_x",
+      "input_y",
+      "redundant_weight_x",
+      "redundant_weight_y",
+      "max_final_projection_spread",
+      "max_total_correction_spread",
+      "max_ledger_L1_spread",
+      "median_ledger_L1_spread",
+      "top_constraint_changes_across_orders",
+      "number_of_distinct_top_constraints"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__BENCH_RX200_DYNAMIC_BOUNDARY_ACCESSIBILITY_RESULTS__r01.tsv",
+    "bytes": 3060,
+    "lines": 33,
+    "columns": [
+      "regime",
+      "radius",
+      "lag_deg",
+      "strategy",
+      "mean_capture",
+      "min_capture",
+      "max_capture"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__BENCH_RX201_RARE_WEAK_LAYER_MISMATCH_RESULTS__r01.tsv",
+    "bytes": 2101,
+    "lines": 16,
+    "columns": [
+      "regime",
+      "shell",
+      "statistic",
+      "critical_value",
+      "rejection_rate",
+      "mean_statistic",
+      "median_statistic",
+      "mean_support_recall",
+      "reps"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__BENCH_RX201_RARE_WEAK_LAYER_MISMATCH_RESULTS__r02.tsv",
+    "bytes": 2367,
+    "lines": 16,
+    "columns": [
+      "regime",
+      "shell",
+      "statistic",
+      "rejection_rate",
+      "median_empirical_p",
+      "mean_statistic",
+      "median_statistic",
+      "mean_support_recall",
+      "calibration_reps",
+      "test_reps"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__BENCH_RX201_SYMMETRY_QUOTIENT_RESULTS__r01.tsv",
+    "bytes": 1339,
+    "lines": 19,
+    "columns": [
+      "regime",
+      "statistic",
+      "rejection_rate",
+      "mean_statistic",
+      "median_selected_support_offset",
+      "reps"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0646-TR__BENCH_RX033_LIQUIDITY_LOAD_SHARING_RESULTS__r01.tsv",
+    "bytes": 2772,
+    "lines": 13,
+    "columns": [
+      "redistribution",
+      "shock_scale",
+      "scenarios",
+      "mean_independent_defaults",
+      "mean_cascade_defaults",
+      "median_incremental_defaults",
+      "p95_independent_defaults",
+      "p95_cascade_defaults",
+      "P_defaults_ge_10_independent",
+      "P_defaults_ge_10_cascade",
+      "systemic10_underestimate_pp",
+      "P_defaults_ge_20_independent",
+      "P_defaults_ge_20_cascade",
+      "systemic20_underestimate_pp",
+      "mean_cascade_rounds",
+      "mean_redistributed_burden"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0646-TR__BENCH_RX033_LIQUIDITY_LOAD_SHARING_SEED_RESULTS__r01.tsv",
+    "bytes": 2120,
+    "lines": 13,
+    "columns": [
+      "seed",
+      "mean_ind",
+      "mean_cascade",
+      "p10_ind",
+      "p10_cascade",
+      "p20_ind",
+      "p20_cascade",
+      "delta_mean_defaults",
+      "delta_p10_pp",
+      "delta_p20_pp"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0654-TR__BENCH_RX037_PIPELINE_RISK_STATE_RESULTS__r01.tsv",
+    "bytes": 3060,
+    "lines": 33,
+    "columns": [
+      "control",
+      "seed",
+      "model",
+      "auc",
+      "logloss",
+      "brier",
+      "positive_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0702-TR__BENCH_RX037_PIPELINE_RISK_STATE_RESULTS__r02.tsv",
+    "bytes": 3692,
+    "lines": 33,
+    "columns": [
+      "control",
+      "seed",
+      "model",
+      "auc",
+      "logloss",
+      "brier",
+      "positive_rate",
+      "test_n"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0710-TR__BENCH_RX013_LINKAGE_UNCERTAINTY_PROPAGATION_RESULTS__r01.tsv",
+    "bytes": 6307,
+    "lines": 33,
+    "columns": [
+      "regime",
+      "seed",
+      "hard_link_accuracy",
+      "mean_p_map",
+      "mean_link_entropy",
+      "hard_change_rmse",
+      "marginal_change_rmse",
+      "rmse_improvement_pct",
+      "rmse_absolute_reduction",
+      "hard_change_mae",
+      "marginal_change_mae",
+      "mae_improvement_pct"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0718-TR__BENCH_RX042_RARE_PATH_IMPORTANCE_SAMPLING_REPS__r01.tsv",
+    "bytes": 136373,
+    "lines": 721,
+    "columns": [
+      "rep",
+      "T",
+      "threshold",
+      "z",
+      "N",
+      "truth",
+      "crude",
+      "tilted_or_gated",
+      "crude_sqerr",
+      "tilted_sqerr",
+      "crude_var_est",
+      "tilted_var_est",
+      "gate_used_tilt",
+      "crude_zero_estimate",
+      "regime"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0718-TR__BENCH_RX042_RARE_PATH_IMPORTANCE_SAMPLING_RESULTS__r01.tsv",
+    "bytes": 809,
+    "lines": 4,
+    "columns": [
+      "regime",
+      "truth",
+      "z",
+      "N",
+      "reps",
+      "crude_mean",
+      "tilted_mean",
+      "crude_rmse",
+      "tilted_rmse",
+      "rmse_reduction_pct",
+      "rmse_ratio_crude_to_tilted",
+      "median_var_ratio_crude_to_tilted",
+      "crude_zero_rate",
+      "gate_used_tilt"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0738-TR__BENCH_RX070_COLOR_CODING_EXACT_RESULTS__r01.tsv",
+    "bytes": 630,
+    "lines": 7,
+    "columns": [
+      "seed",
+      "exact_score",
+      "beam_score",
+      "color_score",
+      "beam_matches_exact",
+      "color_matches_exact",
+      "exact_runtime_s",
+      "beam_runtime_s",
+      "color_runtime_s",
+      "exact_expanded",
+      "exact_recall",
+      "beam_recall",
+      "color_recall"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0738-TR__BENCH_RX070_COLOR_CODING_NULL_RESULTS__r01.tsv",
+    "bytes": 1224,
+    "lines": 21,
+    "columns": [
+      "seed",
+      "beam_score",
+      "color_score",
+      "edge_sum",
+      "beam_runtime_s",
+      "color_runtime_s",
+      "edge_runtime_s"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0738-TR__BENCH_RX070_COLOR_CODING_SCALING_RESULTS__r01.tsv",
+    "bytes": 642,
+    "lines": 16,
+    "columns": [
+      "n",
+      "seed",
+      "beam_runtime_s",
+      "color_runtime_s",
+      "ratio",
+      "beam_recall",
+      "color_recall"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0738-TR__BENCH_RX070_COLOR_CODING_SIGNAL_RESULTS__r01.tsv",
+    "bytes": 2359,
+    "lines": 25,
+    "columns": [
+      "shell",
+      "seed",
+      "beam_score",
+      "color_score",
+      "edge_sum",
+      "beam_detect",
+      "color_detect",
+      "edge_detect",
+      "beam_recall",
+      "color_recall",
+      "topedge_recall",
+      "beam_runtime_s",
+      "color_runtime_s",
+      "edge_runtime_s"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0752-TR__BENCH_RX025_ZERO_CAUSE_METADATA_RESULTS__r01.tsv",
+    "bytes": 15014,
+    "lines": 121,
+    "columns": [
+      "regime",
+      "seed",
+      "target",
+      "model",
+      "metadata_shuffled",
+      "auc",
+      "logloss",
+      "brier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0804-TR__BENCH_RX047_RELIABILITY_TEMPERED_EVIDENCE_RAW__r01.tsv",
+    "bytes": 145359,
+    "lines": 1441,
+    "columns": [
+      "seed",
+      "t",
+      "model",
+      "mse",
+      "decision_regret",
+      "decision_accuracy",
+      "proxy_weight_tempered",
+      "regime"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0804-TR__BENCH_RX047_RELIABILITY_TEMPERED_EVIDENCE_RESULTS__r01.tsv",
+    "bytes": 11485,
+    "lines": 121,
+    "columns": [
+      "regime",
+      "t",
+      "model",
+      "median_mse",
+      "median_regret",
+      "median_accuracy",
+      "median_proxy_weight"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0816-TR__BENCH_RX047_RELIABILITY_TEMPERED_EVIDENCE_RAW__r02.tsv",
+    "bytes": 65105,
+    "lines": 577,
+    "columns": [
+      "seed",
+      "t",
+      "model",
+      "mse",
+      "regret",
+      "accuracy",
+      "proxy_weight",
+      "regime"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0816-TR__BENCH_RX047_RELIABILITY_TEMPERED_EVIDENCE_RESULTS__r02.tsv",
+    "bytes": 5224,
+    "lines": 49,
+    "columns": [
+      "regime",
+      "t",
+      "model",
+      "median_mse",
+      "median_regret",
+      "median_accuracy",
+      "median_proxy_weight"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0828-TR__BENCH_RX058_OPTION_VALUE_CAPACITY_RAW__r01.tsv",
+    "bytes": 23227,
+    "lines": 145,
+    "columns": [
+      "seed",
+      "informative_signal",
+      "v_high",
+      "flip_test_signal",
+      "policy",
+      "static_reserve",
+      "reserve_if_signal0",
+      "reserve_if_signal1",
+      "mean_revenue",
+      "p10_revenue",
+      "mean_high_served",
+      "mean_high_lost",
+      "mean_low_accepted",
+      "high_regime_high_service_rate",
+      "regime"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0828-TR__BENCH_RX058_OPTION_VALUE_CAPACITY_RESULTS__r01.tsv",
+    "bytes": 1564,
+    "lines": 13,
+    "columns": [
+      "regime",
+      "policy",
+      "mean_revenue",
+      "p10_revenue",
+      "high_service_rate",
+      "mean_high_lost",
+      "static_reserve",
+      "reserve_s0",
+      "reserve_s1"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0830-TR__BENCH_RH003_EVIDENCE_FLOW_RESULTS__r01.tsv",
+    "bytes": 3076949,
+    "lines": 30001,
+    "columns": [
+      "seed",
+      "collusive_case",
+      "node",
+      "label",
+      "net_balance_abs",
+      "gross_flow",
+      "cycle_flow",
+      "reciprocal_evidence",
+      "evidence_cycle_score"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0830-TR__BENCH_RX014_SET_VALUED_ABSTENTION_RESULTS__r01.tsv",
+    "bytes": 693,
+    "lines": 11,
+    "columns": [
+      "regime",
+      "coverage",
+      "conditional_error",
+      "overall_error_if_forced",
+      "abstain_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0830-TR__BENCH_RX059_VALIDATION_BLINDSPOT_RESULTS__r01.tsv",
+    "bytes": 105949,
+    "lines": 4001,
+    "columns": [
+      "rep",
+      "corrupted",
+      "harmful",
+      "ordinary_pass",
+      "random_probe_detect",
+      "nullspace_probe_detect",
+      "downstream_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0842-TR__BENCH_RX029_CLUSTER_CAUSE_FAILURE_CONTROL__r01.tsv",
+    "bytes": 347,
+    "lines": 11,
+    "columns": [
+      "seed",
+      "median_p_direct_interaction",
+      "false_latent_classification_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0842-TR__BENCH_RX029_CLUSTER_CAUSE_INVARIANCE_RESULTS__r01.tsv",
+    "bytes": 4305,
+    "lines": 41,
+    "columns": [
+      "seed",
+      "regime",
+      "model",
+      "auc",
+      "logloss",
+      "brier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0850-TR__BENCH_RX059_VALIDATION_BLINDSPOT_RESULTS__r02.tsv",
+    "bytes": 325531,
+    "lines": 12001,
+    "columns": [
+      "rep",
+      "corrupted",
+      "harmful",
+      "ordinary_pass",
+      "random_detect",
+      "nullspace_detect",
+      "downstream_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0905-TR__BENCH_RX073_BOTTLENECK_FRAGMENTATION_RESULTS__r01.tsv",
+    "bytes": 25635,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "rmse_static",
+      "rmse_regime",
+      "improvement",
+      "estimated_break_load",
+      "static_capacity"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0908-TR__BENCH_RX040_HIDDEN_MASS_LINKAGE_RAW__r01.tsv",
+    "bytes": 160479,
+    "lines": 721,
+    "columns": [
+      "N_true",
+      "n1",
+      "n2",
+      "m_true",
+      "hard_m",
+      "posterior_mean_m",
+      "hard_N",
+      "posterior_median_N",
+      "posterior_p10_N",
+      "posterior_p90_N",
+      "true_unseen",
+      "hard_unseen",
+      "posterior_median_unseen",
+      "hard_link_accuracy",
+      "posterior_brier",
+      "regime",
+      "rep"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0908-TR__BENCH_RX040_HIDDEN_MASS_LINKAGE_RESULTS__r01.tsv",
+    "bytes": 1013,
+    "lines": 5,
+    "columns": [
+      "regime",
+      "reps",
+      "median_hard_link_accuracy",
+      "median_posterior_brier",
+      "hard_N_rmse",
+      "posterior_N_rmse",
+      "N_rmse_improvement_pct",
+      "hard_unseen_rmse",
+      "posterior_unseen_rmse",
+      "unseen_rmse_improvement_pct",
+      "median_linkage_only_N_interval_width"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0915-TR__BENCH_RX056_STRATEGIC_CAPACITY_RESULTS__r01.tsv",
+    "bytes": 97320,
+    "lines": 501,
+    "columns": [
+      "rep",
+      "demand",
+      "a",
+      "fixed_cost",
+      "cross_cost",
+      "eq_before",
+      "eq_after",
+      "eq_change",
+      "system_opt_before",
+      "system_opt_after",
+      "system_opt_change",
+      "paradox",
+      "solver_ok"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0915-TR__BENCH_RX165_MEASUREMENT_INVARIANCE_RESULTS__r01.tsv",
+    "bytes": 8304,
+    "lines": 61,
+    "columns": [
+      "regime",
+      "seed",
+      "alpha_g0",
+      "alpha_g1",
+      "auc_naive",
+      "auc_group_z",
+      "auc_invariance_corrected",
+      "mean_bias_naive_g1_minus_g0_at_theta0"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0920-TR__BENCH_RH001_RESIDUAL_GUIDED_CLOSURE_RESULTS__r01.tsv",
+    "bytes": 18121,
+    "lines": 193,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "rmse",
+      "mae"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0924-TR__BENCH_RX072_DYNAMIC_NETWORK_TWIN_RAW__r01.tsv",
+    "bytes": 18086,
+    "lines": 281,
+    "columns": [
+      "seed",
+      "total_demand",
+      "initial_supplier_failures",
+      "truth_expected_loss",
+      "no_rewire_pred",
+      "optimistic_flow_pred",
+      "dynamic_twin_pred",
+      "truth_tail_prob",
+      "dynamic_tail_prob",
+      "regime"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0924-TR__BENCH_RX072_DYNAMIC_NETWORK_TWIN_RESULTS__r01.tsv",
+    "bytes": 895,
+    "lines": 10,
+    "columns": [
+      "regime",
+      "model",
+      "scenarios",
+      "mae",
+      "rmse",
+      "median_error",
+      "p90_abs_error",
+      "tail_brier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0928-TR__BENCH_RX045_SOLVER_CERTIFICATE_RESULTS__r01.tsv",
+    "bytes": 40935,
+    "lines": 661,
+    "columns": [
+      "type",
+      "rep",
+      "truth",
+      "limited_solver",
+      "certificate_audit",
+      "full_solver",
+      "limited_correct",
+      "certificate_correct",
+      "full_correct",
+      "limited_unknown"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0928-TR__BENCH_RX136_DELAYED_VERIFICATION_RESULTS__r01.tsv",
+    "bytes": 6057588,
+    "lines": 60001,
+    "columns": [
+      "regime",
+      "agent",
+      "policy",
+      "misreport",
+      "claim_quality",
+      "nominal_reward_gain",
+      "agent_utility"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0928-TR__BENCH_RX188_RISK_SHIFT_CONTRACT_RESULTS__r01.tsv",
+    "bytes": 41046,
+    "lines": 361,
+    "columns": [
+      "seed",
+      "contract",
+      "risk_cost",
+      "sigma",
+      "utility",
+      "shortfall_rate",
+      "expected_transfer_cost",
+      "wealth_mean"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0935-TR__BENCH_RX005_CYCLE_RESIDUAL_LOCALIZATION_RESULTS__r01.tsv",
+    "bytes": 193853,
+    "lines": 3151,
+    "columns": [
+      "seed",
+      "fault_type",
+      "method",
+      "auc",
+      "topk_recall",
+      "max_score"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0935-TR__BENCH_RX028_TIMESCALE_DEADZONE_RESULTS__r01.tsv",
+    "bytes": 602,
+    "lines": 11,
+    "columns": [
+      "regime",
+      "horizon",
+      "event_rate",
+      "brier_nominal",
+      "brier_timescale",
+      "timescale_pred"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0935-TR__BENCH_RX134_EFFECTIVE_COMPLEXITY_RESULTS__r01.tsv",
+    "bytes": 161760,
+    "lines": 1711,
+    "columns": [
+      "seed",
+      "alpha",
+      "nominal_params",
+      "effective_df",
+      "train_mse",
+      "test_mse",
+      "optimism"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0940-TR__BENCH_RX082_DIRECTIONAL_NETWORK_RESULTS__r01.tsv",
+    "bytes": 56523,
+    "lines": 481,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "bias",
+      "horizon",
+      "boundary_mass_truth",
+      "boundary_mass_pred",
+      "boundary_abs_error",
+      "distribution_l1"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0940-TR__BENCH_RX095_ENDOGENOUS_HOTSPOT_RESULTS__r01.tsv",
+    "bytes": 56538171,
+    "lines": 697601,
+    "columns": [
+      "regime",
+      "seed",
+      "t",
+      "site",
+      "model",
+      "y",
+      "p"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0940-TR__BENCH_RX146_PROCESS_VISIBILITY_RESULTS__r01.tsv",
+    "bytes": 111291,
+    "lines": 1601,
+    "columns": [
+      "regime",
+      "rep",
+      "policy",
+      "missed_process_mass",
+      "important_region_capture"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0942-TR__BENCH_RX050_CAUSAL_EDGE_INVALID_CONTROL__r01.tsv",
+    "bytes": 1457,
+    "lines": 25,
+    "columns": [
+      "seed",
+      "true_world",
+      "accuracy",
+      "classified_as_direct",
+      "classified_as_confounded",
+      "classified_as_mediated",
+      "mean_max_probability"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0942-TR__BENCH_RX050_CAUSAL_EDGE_VALIDATOR_RESULTS__r01.tsv",
+    "bytes": 944,
+    "lines": 17,
+    "columns": [
+      "seed",
+      "model",
+      "accuracy",
+      "logloss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0955-TR__BENCH_RX028_TIMESCALE_DEADZONE_RESULTS__r02.tsv",
+    "bytes": 629,
+    "lines": 11,
+    "columns": [
+      "regime",
+      "horizon",
+      "event_rate",
+      "timescale_pred",
+      "brier_nominal",
+      "brier_timescale"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0955-TR__BENCH_RX053_INFORMATION_PRODUCTION_RESULTS__r01.tsv",
+    "bytes": 963025,
+    "lines": 18901,
+    "columns": [
+      "seed",
+      "copy_friction",
+      "equilibrium_discoveries",
+      "equilibrium_accessible_info",
+      "naive_fixed_production_accessible",
+      "abs_error_naive"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0955-TR__BENCH_RX069_SPECIFICATION_RISK_RESULTS__r01.tsv",
+    "bytes": 188289,
+    "lines": 1401,
+    "columns": [
+      "seed",
+      "pref_source",
+      "pref_target",
+      "pref_se",
+      "spec_spread",
+      "spec_range",
+      "sign_disagree",
+      "z_fragility",
+      "sign_flip",
+      "large_shift"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0958-TR__BENCH_RH009_CONSEQUENCE_COVERAGE_RAW__r01.tsv",
+    "bytes": 1569755,
+    "lines": 21001,
+    "columns": [
+      "regime",
+      "rep",
+      "policy",
+      "critical_weighted_miss",
+      "uncovered_critical_regions",
+      "worst_critical_miss_probability",
+      "mean_critical_miss_probability"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0958-TR__BENCH_RH009_CONSEQUENCE_COVERAGE_RESULTS__r01.tsv",
+    "bytes": 826,
+    "lines": 8,
+    "columns": [
+      "regime",
+      "policy",
+      "median_weighted_miss",
+      "mean_weighted_miss",
+      "median_uncovered",
+      "any_uncovered_rate",
+      "median_worst_miss",
+      "median_mean_miss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1005-TR__BENCH_RX073_BOTTLENECK_FRAGMENTATION_RESULTS__r02.tsv",
+    "bytes": 21225,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "rmse",
+      "mae",
+      "switch_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1014-TR__BENCH_RX077_PERIMETER_MIGRATION_RESULTS__r01.tsv",
+    "bytes": 11414,
+    "lines": 73,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "mae",
+      "rmse",
+      "mean_predicted_incidents",
+      "mean_actual_incidents",
+      "mean_regulated_count",
+      "mean_substitute_count"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX022_SACRIFICIAL_DEFLECTION_RESULTS__r01.tsv",
+    "bytes": 101200,
+    "lines": 961,
+    "columns": [
+      "regime",
+      "seed",
+      "architecture",
+      "failure_rate",
+      "mean_excess_damage",
+      "p95_effective_energy"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX055_ATOMIC_PACKAGE_RESULTS__r01.tsv",
+    "bytes": 40380,
+    "lines": 361,
+    "columns": [
+      "regime",
+      "seed",
+      "separate_mean_surplus",
+      "atomic_mean_surplus",
+      "separate_loss_rate",
+      "atomic_loss_rate",
+      "partial_exposure_rate",
+      "atomic_execution_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX079_LEADING_EDGE_RESULTS__r01.tsv",
+    "bytes": 2249210,
+    "lines": 36001,
+    "columns": [
+      "regime",
+      "seed",
+      "accelerating",
+      "method",
+      "score"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX095_ENDOGENOUS_HOTSPOT_RESULTS__r02.tsv",
+    "bytes": 66132633,
+    "lines": 800641,
+    "columns": [
+      "regime",
+      "seed",
+      "t",
+      "model",
+      "y",
+      "p"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX150_GREEDY_EXACTNESS_RESULTS__r01.tsv",
+    "bytes": 107915,
+    "lines": 1501,
+    "columns": [
+      "regime",
+      "seed",
+      "greedy_value",
+      "oracle_value",
+      "ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1020-TR__BENCH_RX014_SET_VALUED_ABSTENTION_RESULTS__r02.tsv",
+    "bytes": 2516,
+    "lines": 21,
+    "columns": [
+      "regime",
+      "coverage_target",
+      "model",
+      "actual_coverage",
+      "conditional_error",
+      "overall_forced_error",
+      "mean_observation_width"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX016_CALIBRATION_SHARPNESS_RESULTS__r01.tsv",
+    "bytes": 24755,
+    "lines": 161,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "picked",
+      "decision_cost",
+      "validation_corr",
+      "validation_sharpness",
+      "cal_intercept",
+      "cal_slope"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX095_ENDOGENOUS_HOTSPOT_RESULTS__r03.tsv",
+    "bytes": 29676639,
+    "lines": 400321,
+    "columns": [
+      "regime",
+      "seed",
+      "t",
+      "y",
+      "p_const",
+      "p_state"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX124_EXPONENTIAL_TAIL_RESULTS__r01.tsv",
+    "bytes": 769599,
+    "lines": 5001,
+    "columns": [
+      "regime",
+      "seed",
+      "sigma",
+      "true_value",
+      "ordinary_estimate",
+      "adaptive_estimate",
+      "mode",
+      "pilot_cv2_est",
+      "ordinary_rel_error",
+      "adaptive_rel_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX150_GREEDY_EXACTNESS_RESULTS__r01.tsv",
+    "bytes": 105823,
+    "lines": 1501,
+    "columns": [
+      "regime",
+      "seed",
+      "greedy_value",
+      "oracle_value",
+      "ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX172_DISTRIBUTED_CAPACITY_RESULTS__r01.tsv",
+    "bytes": 88711,
+    "lines": 1261,
+    "columns": [
+      "n",
+      "seed",
+      "comm_every",
+      "central_value",
+      "distributed_value",
+      "value_ratio",
+      "capacity_violation"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1040-TR__BENCH_RX055_ATOMIC_PACKAGE_RESULTS__r02.tsv",
+    "bytes": 30634,
+    "lines": 361,
+    "columns": [
+      "regime",
+      "seed",
+      "separate_mean_surplus",
+      "atomic_mean_surplus",
+      "separate_loss_rate",
+      "atomic_loss_rate",
+      "partial_exposure_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1040-TR__BENCH_RX079_LEADING_EDGE_RESULTS__r02.tsv",
+    "bytes": 2203439,
+    "lines": 36001,
+    "columns": [
+      "regime",
+      "seed",
+      "accelerating",
+      "method",
+      "score"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1040-TR__BENCH_RX130_COMPRESSION_TOPOLOGY_RESULTS__r01.tsv",
+    "bytes": 278596,
+    "lines": 5001,
+    "columns": [
+      "regime",
+      "seed",
+      "metric_audit_pass",
+      "topology_guard_fail",
+      "sampled_max_relative_distortion",
+      "seam_to_local_edge_ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RH010_OBSERVATION_POLICY_RESULTS__r01.tsv",
+    "bytes": 13198,
+    "lines": 101,
+    "columns": [
+      "regime",
+      "seed",
+      "true_backaction",
+      "naive_effect",
+      "policy_aware_effect",
+      "naive_abs_error",
+      "policy_aware_abs_error",
+      "observation_metadata_auc_for_high_state"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX020_MICRO_MEMORY_RESULTS__r01.tsv",
+    "bytes": 13305,
+    "lines": 161,
+    "columns": [
+      "regime",
+      "seed",
+      "macro_auc",
+      "variance_auc",
+      "autocorrelation_auc"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX105_CLOCK_STATE_RESULTS__r01.tsv",
+    "bytes": 12768,
+    "lines": 181,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "logloss",
+      "auc"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX118_EVENT_INNOVATION_RESULTS__r01.tsv",
+    "bytes": 21322,
+    "lines": 321,
+    "columns": [
+      "regime",
+      "seed",
+      "auc_raw",
+      "auc_innovation"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX154_DECISION_SUFFICIENT_COMPRESSION_RESULTS__r01.tsv",
+    "bytes": 8165,
+    "lines": 71,
+    "columns": [
+      "regime",
+      "seed",
+      "fullstate_logloss",
+      "decision_logloss",
+      "fullstate_decision_cost",
+      "decision_compressor_cost",
+      "fullstate_reconstruction_mse"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX010_ADMISSIBLE_ROBUST_RESULTS__r01.tsv",
+    "bytes": 141464,
+    "lines": 1201,
+    "columns": [
+      "seed",
+      "ambient_line_payoff",
+      "structured_line_payoff",
+      "ambient_ball_payoff",
+      "structured_ball_payoff",
+      "line_gain",
+      "ball_regret"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX127_DEPENDENT_STREAM_RESULTS__r01.tsv",
+    "bytes": 979145,
+    "lines": 14001,
+    "columns": [
+      "regime",
+      "alt",
+      "seed",
+      "alarm_iid",
+      "alarm_freedman",
+      "vhat",
+      "Vfinal",
+      "delay_iid",
+      "delay_freedman"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX131_SMALL_CONFLICT_RESULTS__r01.tsv",
+    "bytes": 7941,
+    "lines": 117,
+    "columns": [
+      "regime",
+      "m",
+      "rep",
+      "deletion_support",
+      "deletion_solver_calls",
+      "deletion_runtime_s",
+      "farkas_support",
+      "farkas_solver_calls",
+      "farkas_runtime_s",
+      "farkas_valid",
+      "contains_true_pair",
+      "same_min_size"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX133_SURE_TUNER_RESULTS__r01.tsv",
+    "bytes": 143858,
+    "lines": 1401,
+    "columns": [
+      "regime",
+      "seed",
+      "oracle_risk",
+      "sure_risk",
+      "universal_risk",
+      "oracle_threshold",
+      "sure_threshold"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RH005_LIQUIDITY_STATE_RESULTS__r01.tsv",
+    "bytes": 5767,
+    "lines": 61,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "auc",
+      "logloss",
+      "brier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RH010_OBSERVATION_POLICY_RESULTS__r02.tsv",
+    "bytes": 15883,
+    "lines": 121,
+    "columns": [
+      "regime",
+      "seed",
+      "true_effect",
+      "naive_effect",
+      "structural_effect",
+      "naive_abs_error",
+      "structural_abs_error",
+      "metadata_auc_high_state"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX015_VALIDATOR_NOT_ORACLE_RESULTS__r01.tsv",
+    "bytes": 50184,
+    "lines": 701,
+    "columns": [
+      "seed",
+      "true_numeric_winner",
+      "single_reference_pick",
+      "dual_reference_pick",
+      "ranking_winner",
+      "rank_numeric_disagree"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX021_COMPETING_EXIT_EXPOSURE_RESULTS__r01.tsv",
+    "bytes": 10317,
+    "lines": 73,
+    "columns": [
+      "regime",
+      "seed",
+      "metric",
+      "truth_mean",
+      "approx_mean",
+      "truth_p95",
+      "approx_p95",
+      "mean_relative_error",
+      "p95_relative_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX090_LOAD_AWARE_CONNECTIVITY_RESULTS__r01.tsv",
+    "bytes": 83259,
+    "lines": 1001,
+    "columns": [
+      "regime",
+      "seed",
+      "demand",
+      "physical_connected",
+      "widest_path_capacity",
+      "maxflow_capacity",
+      "feasible"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX118_EVENT_INNOVATION_RESULTS__r02.tsv",
+    "bytes": 24030,
+    "lines": 361,
+    "columns": [
+      "regime",
+      "seed",
+      "auc_raw",
+      "auc_innovation"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1105-TR__BENCH_RX065_GUARANTEE_TRANSPORT_RESULTS__r01.tsv",
+    "bytes": 130547,
+    "lines": 2001,
+    "columns": [
+      "seed",
+      "kind",
+      "coverage",
+      "failure",
+      "marginal_shift_score",
+      "invariant_residual_score"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1105-TR__BENCH_RX078_BRANCH_CHANGE_RESULTS__r01.tsv",
+    "bytes": 1821363,
+    "lines": 16001,
+    "columns": [
+      "a",
+      "b",
+      "gap",
+      "disc",
+      "branch_change",
+      "fixed_gap_risk",
+      "discriminant_risk"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1105-TR__BENCH_RX104_REGENERATIVE_RATE_RESULTS__r01.tsv",
+    "bytes": 1256415,
+    "lines": 12000,
+    "columns": [
+      "regime",
+      "seed",
+      "naive_rate",
+      "cycle_ratio",
+      "naive_abs_error",
+      "cycle_abs_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1110-TR__BENCH_RH002_MECHANISM_DISCRIMINATOR_RESULTS__r01.tsv",
+    "bytes": 126271,
+    "lines": 1001,
+    "columns": [
+      "regime",
+      "seed",
+      "source_mse_X",
+      "source_mse_W",
+      "target_mse_X",
+      "target_mse_W",
+      "source_pick_correct",
+      "invariance_pick_correct",
+      "proxy_target_penalty"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1110-TR__BENCH_RX061_CERTIFICATE_GEOMETRY_RESULTS__r01.tsv",
+    "bytes": 141893,
+    "lines": 3001,
+    "columns": [
+      "regime",
+      "seed",
+      "truth_valid_certificate",
+      "naive_kkt_accept",
+      "cq_geometry_accept",
+      "active_gradient_norm",
+      "objective_curvature"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1120-TR__BENCH_RH005_LIQUIDITY_STATE_RESULTS__r02.tsv",
+    "bytes": 8434,
+    "lines": 61,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "threshold",
+      "recall",
+      "fpr",
+      "decision_loss_per_case",
+      "auc",
+      "logloss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1120-TR__BENCH_RX043_QUERY_PRESERVING_COMPRESSION_RESULTS__r01.tsv",
+    "bytes": 980,
+    "lines": 7,
+    "columns": [
+      "seed",
+      "n",
+      "m",
+      "compressed_edges",
+      "compression_ratio",
+      "max_cut_abs_error",
+      "mean_original_query_s",
+      "mean_tree_query_s",
+      "build_s",
+      "break_even_queries",
+      "shortest_path_median_relative_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__BENCH_RH002_MECHANISM_DISCRIMINATOR_RESULTS__r02.tsv",
+    "bytes": 120702,
+    "lines": 1401,
+    "columns": [
+      "regime",
+      "seed",
+      "source_mse_gap",
+      "source_pick_correct",
+      "invariance_pick_correct",
+      "target_mse_X",
+      "target_mse_W",
+      "proxy_target_penalty"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__BENCH_RX107_CANDIDATE_SET_RESULTS__r01.tsv",
+    "bytes": 42645,
+    "lines": 481,
+    "columns": [
+      "regime",
+      "seed",
+      "point_accuracy",
+      "list_coverage",
+      "median_list_size",
+      "p90_list_size",
+      "mean_list_size"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__BENCH_RX139_LOOPY_EVIDENCE_RESULTS__r01.tsv",
+    "bytes": 25272,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "brier_naive",
+      "brier_guard",
+      "logloss_naive",
+      "logloss_guard",
+      "mean_copy_multiplier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1135-TR__BENCH_RX107_CANDIDATE_SET_RESULTS__r02.tsv",
+    "bytes": 32826,
+    "lines": 541,
+    "columns": [
+      "regime",
+      "seed",
+      "point_accuracy",
+      "list_coverage",
+      "median_list_size",
+      "p90_list_size",
+      "mean_list_size"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX023_FORECAST_PARTIAL_ORDER_RESULTS__r01.tsv",
+    "bytes": 117396,
+    "lines": 541,
+    "columns": [
+      "seed",
+      "loss_regime",
+      "scalar_pick",
+      "partial_pick",
+      "scalar_cost",
+      "partial_cost",
+      "oracle_cost",
+      "partial_regret",
+      "scalar_regret",
+      "A_ece",
+      "B_ece",
+      "C_ece",
+      "A_sharp",
+      "B_sharp",
+      "C_sharp"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX048_ADAPTIVE_REGIME_MEMORY_RESULTS__r01.tsv",
+    "bytes": 6040,
+    "lines": 61,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "best_fixed_window",
+      "best_adaptive_c",
+      "mse",
+      "p90_abs_error",
+      "median_selected_window"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX106_CODED_BOTTLENECK_RESULTS__r01.tsv",
+    "bytes": 228994,
+    "lines": 3001,
+    "columns": [
+      "seed",
+      "erasure",
+      "routing_mean_receivers",
+      "coding_mean_receivers",
+      "coded_gain_ratio",
+      "no_side_routing_mean",
+      "no_side_coding_mean"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX127_DEPENDENT_STREAM_RESULTS__r02.tsv",
+    "bytes": 3815892,
+    "lines": 48001,
+    "columns": [
+      "regime",
+      "alt",
+      "iid_alarm",
+      "freedman_alarm",
+      "S",
+      "vhat",
+      "V"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1145-TR__BENCH_RX107_CANDIDATE_SET_RESULTS__r03.tsv",
+    "bytes": 32251,
+    "lines": 541,
+    "columns": [
+      "regime",
+      "seed",
+      "point_accuracy",
+      "list_coverage",
+      "median_list_size",
+      "p90_list_size",
+      "mean_list_size"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1145-TR__BENCH_RX139_LOOPY_EVIDENCE_RESULTS__r01.tsv",
+    "bytes": 25290,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "brier_naive",
+      "brier_guard",
+      "logloss_naive",
+      "logloss_guard",
+      "mean_copy_multiplier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1150-TR__BENCH_RX133_SURE_TUNER_RESULTS__r02.tsv",
+    "bytes": 186451,
+    "lines": 1801,
+    "columns": [
+      "regime",
+      "seed",
+      "oracle_risk",
+      "sure_risk",
+      "universal_risk",
+      "oracle_threshold",
+      "sure_threshold"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1200-TR__BENCH_RH008_TRIGGER_QUALITY_RESULTS__r01.tsv",
+    "bytes": 14639,
+    "lines": 121,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "auc",
+      "logloss",
+      "brier",
+      "decision_cost_per_case",
+      "false_pay_rate",
+      "miss_rate",
+      "verify_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1200-TR__BENCH_RX172_DISTRIBUTED_CAPACITY_RESULTS__r02.tsv",
+    "bytes": 45085,
+    "lines": 721,
+    "columns": [
+      "comm_every",
+      "seed",
+      "average_ratio",
+      "postshock_ratio",
+      "postshock_min_ratio"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX121_DECISION_WEIGHTED_CALIBRATION_RESULTS__r01.tsv",
+    "bytes": 461930,
+    "lines": 3601,
+    "columns": [
+      "regime",
+      "seed",
+      "decision_error_raw_mse_alloc",
+      "decision_error_consequence_alloc",
+      "raw_bias_mse_raw_alloc",
+      "raw_bias_mse_consequence_alloc",
+      "decision_shift_raw",
+      "decision_shift_consequence"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX161_IRREVERSIBLE_EXPLORATION_RESULTS__r01.tsv",
+    "bytes": 2055444,
+    "lines": 18001,
+    "columns": [
+      "regime",
+      "seed",
+      "fixed_selected",
+      "adaptive_selected",
+      "oracle_max",
+      "fixed_fraction_oracle",
+      "adaptive_fraction_oracle",
+      "fixed_commit_time",
+      "adaptive_commit_time"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX183_TESTING_WEALTH_RESULTS__r01.tsv",
+    "bytes": 375097,
+    "lines": 7201,
+    "columns": [
+      "mode",
+      "seed",
+      "policy",
+      "discoveries",
+      "true_discoveries",
+      "false_discoveries",
+      "fdp"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX190_POSTTREATMENT_CONFOUNDING_RESULTS__r01.tsv",
+    "bytes": 30575,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "true_cde",
+      "within_adjusted_estimate",
+      "gcomp_estimate",
+      "within_abs_error",
+      "gcomp_abs_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1210-TR__BENCH_RX155_DECISION_RATE_DISTORTION_RESULTS__r01.tsv",
+    "bytes": 18927,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "bits",
+      "generic_decision_error",
+      "decision_distortion_error",
+      "generic_reconstruction_mse"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1210-TR__BENCH_RX196_SELECTION_AWARE_RESULTS__r01.tsv",
+    "bytes": 960623,
+    "lines": 20001,
+    "columns": [
+      "K",
+      "seed",
+      "naive_cover",
+      "selection_cover",
+      "naive_width",
+      "selection_width"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RH006_EFFECTIVE_REDUNDANCY_RESULTS__r01.tsv",
+    "bytes": 4570,
+    "lines": 49,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "catastrophic_error",
+      "escalation_rate",
+      "decision_cost"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RX035_DESIGN_AWARE_INFERENCE_RESULTS__r01.tsv",
+    "bytes": 40739,
+    "lines": 1201,
+    "columns": [
+      "rep",
+      "p_design_aware",
+      "p_wrong_complete",
+      "reject_design_aware",
+      "reject_wrong_complete"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RX097_OBSERVABILITY_COVERAGE_RESULTS__r01.tsv",
+    "bytes": 227569,
+    "lines": 3001,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "rank",
+      "rmse",
+      "condition_number"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RX116_MARKOVIZATION_RESULTS__r01.tsv",
+    "bytes": 6749,
+    "lines": 89,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "logloss",
+      "brier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX081_EFFECTIVE_REDUNDANCY_RESULTS__r01.tsv",
+    "bytes": 449503,
+    "lines": 4001,
+    "columns": [
+      "regime",
+      "seed",
+      "K",
+      "measured_gain",
+      "nominal_route_count",
+      "covariance_effective_gain",
+      "nominal_abs_error",
+      "effective_abs_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX160_CONSUMABLE_SAFEGUARD_RESULTS__r01.tsv",
+    "bytes": 3753205,
+    "lines": 66001,
+    "columns": [
+      "regime",
+      "seed",
+      "t",
+      "remaining_capacity",
+      "fail",
+      "p_static",
+      "p_state"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX175_SEARCH_TIPPING_RESULTS__r01.tsv",
+    "bytes": 37645,
+    "lines": 323,
+    "columns": [
+      "regime",
+      "cost",
+      "q_high_init",
+      "q_low_init",
+      "info_high",
+      "gap"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX180_SCREENING_DEGRADATION_RESULTS__r01.tsv",
+    "bytes": 262986,
+    "lines": 1401,
+    "columns": [
+      "regime",
+      "seed",
+      "thetaL",
+      "thetaH",
+      "piH",
+      "pool_quality",
+      "pool_profit",
+      "qL",
+      "qH",
+      "screen_profit",
+      "profit_gain",
+      "degradation_fraction"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX186_MODE_CONVERSION_RESULTS__r01.tsv",
+    "bytes": 299460,
+    "lines": 2401,
+    "columns": [
+      "regime",
+      "seed",
+      "theta",
+      "true_delivered",
+      "single_channel_pred",
+      "conversion_pred",
+      "single_abs_error",
+      "conversion_abs_error",
+      "recovered_fraction_vs_single"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1255-TR__BENCH_RH006_EFFECTIVE_REDUNDANCY_RESULTS__r02.tsv",
+    "bytes": 27173,
+    "lines": 321,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "err",
+      "escal",
+      "escalation_cost",
+      "decision_cost"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1255-TR__BENCH_RX035_DESIGN_AWARE_INFERENCE_RESULTS__r02.tsv",
+    "bytes": 42092,
+    "lines": 1001,
+    "columns": [
+      "regime",
+      "rep",
+      "p_design_aware",
+      "p_wrong_complete",
+      "reject_design",
+      "reject_wrong"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1310-TR__BENCH_RX163_REACH_AVOID_RESULTS__r01.tsv",
+    "bytes": 12417,
+    "lines": 321,
+    "columns": [
+      "regime",
+      "seed",
+      "static_collision",
+      "reachavoid_collision",
+      "static_steps",
+      "reachavoid_steps",
+      "reachavoid_found"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1315-TR__BENCH_RX160_CONSUMABLE_SAFEGUARD_RESULTS__r02.tsv",
+    "bytes": 7188383,
+    "lines": 128001,
+    "columns": [
+      "regime",
+      "seed",
+      "t",
+      "pre_capacity",
+      "post_capacity",
+      "fail",
+      "p_static",
+      "p_state"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1315-TR__BENCH_RX175_SEARCH_TIPPING_RESULTS__r02.tsv",
+    "bytes": 61905,
+    "lines": 643,
+    "columns": [
+      "regime",
+      "cost",
+      "q_up",
+      "q_down",
+      "hysteresis_gap"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1315-TR__BENCH_RX180_SCREENING_DEGRADATION_RESULTS__r02.tsv",
+    "bytes": 216236,
+    "lines": 1401,
+    "columns": [
+      "regime",
+      "seed",
+      "pool_profit",
+      "screen_profit",
+      "qL",
+      "qH",
+      "profit_gain",
+      "quality_gap",
+      "relative_degradation"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1320-TR__BENCH_RX030_SPECTRAL_RELATION_RESULTS__r01.tsv",
+    "bytes": 2436,
+    "lines": 28,
+    "columns": [
+      "n",
+      "regime",
+      "method",
+      "threshold",
+      "detection_rate",
+      "median_statistic"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1320-TR__BENCH_RX057_CONTROL_RANK_AUDIT_RESULTS__r01.tsv",
+    "bytes": 163752,
+    "lines": 3001,
+    "columns": [
+      "controllability_rank",
+      "sensor_rank",
+      "target_rank",
+      "target_aligned",
+      "true_feasible",
+      "sensor_rank_pred",
+      "control_rank_only_pred",
+      "controllability_projection_pred",
+      "min_tracking_residual",
+      "regime",
+      "seed",
+      "r_requested"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1325-TR__BENCH_RX163_REACH_AVOID_RESULTS__r02.tsv",
+    "bytes": 621177,
+    "lines": 8001,
+    "columns": [
+      "regime",
+      "seed",
+      "endpoint_safe",
+      "endpoint_length",
+      "viability_safe",
+      "viability_length",
+      "extra_length",
+      "endpoint_min_clearance",
+      "viability_min_clearance"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1345-TR__BENCH_RX030_SPECTRAL_RELATION_RESULTS__r02.tsv",
+    "bytes": 2721,
+    "lines": 28,
+    "columns": [
+      "n",
+      "regime",
+      "method",
+      "threshold",
+      "detection_rate",
+      "median_statistic"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1345-TR__BENCH_RX160_CONSUMABLE_SAFEGUARD_RESULTS__r03.tsv",
+    "bytes": 15748075,
+    "lines": 240001,
+    "columns": [
+      "regime",
+      "seed",
+      "age",
+      "remaining_capacity",
+      "fail",
+      "p_state",
+      "p_static"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1345-TR__BENCH_RX180_SCREENING_DEGRADATION_RESULTS__r03.tsv",
+    "bytes": 247209,
+    "lines": 1801,
+    "columns": [
+      "regime",
+      "seed",
+      "pool_profit",
+      "screen_profit",
+      "qL",
+      "qH",
+      "profit_gain",
+      "quality_gap",
+      "relative_degradation"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1405-TR__BENCH_RH004_ACTIVE_SENSING_RESULTS__r01.tsv",
+    "bytes": 665901,
+    "lines": 11801,
+    "columns": [
+      "budget",
+      "accuracy",
+      "seed",
+      "policy",
+      "correct",
+      "abs_error",
+      "posterior_mass_true",
+      "posterior_entropy"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1450-TR__BENCH_RX046_TARGET_ANCHOR_RESULTS__r01.tsv",
+    "bytes": 5963,
+    "lines": 49,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "auc",
+      "logloss",
+      "brier",
+      "calibration_bias"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1450-TR__BENCH_RX052_ATOMIC_SETTLEMENT_RESULTS__r01.tsv",
+    "bytes": 2421,
+    "lines": 33,
+    "columns": [
+      "regime",
+      "seed",
+      "independent_throughput",
+      "atomic_throughput",
+      "partial_rate",
+      "stranded_rate",
+      "independent_value",
+      "atomic_value"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1510-TR__BENCH_RX046_TARGET_ANCHOR_RESULTS__r02.tsv",
+    "bytes": 8183,
+    "lines": 65,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "logloss",
+      "portfolio_actual_loss",
+      "portfolio_predicted_loss",
+      "reserve_relative_error",
+      "calibration_bias"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1510-TR__BENCH_RX052_ATOMIC_SETTLEMENT_RESULTS__r02.tsv",
+    "bytes": 4797,
+    "lines": 50,
+    "columns": [
+      "regime",
+      "leg_success",
+      "reversal_success",
+      "stranded_cost",
+      "independent_value",
+      "atomic_value",
+      "value_gain_pct",
+      "partial_rate",
+      "stranded_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1530-TR__BENCH_RH007_MULTIFIDELITY_RESULTS__r01.tsv",
+    "bytes": 611,
+    "lines": 5,
+    "columns": [
+      "rho",
+      "adaptive_rmse",
+      "fine_only_rmse",
+      "oracle_static_rmse",
+      "gain_vs_fine_pct",
+      "adaptive_oracle_ratio",
+      "multifidelity_use_rate",
+      "median_nf",
+      "median_nc"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1530-TR__BENCH_RX031_BARRIER_TRANSITION_RESULTS__r01.tsv",
+    "bytes": 99501,
+    "lines": 1081,
+    "columns": [
+      "regime",
+      "seed",
+      "planner",
+      "success_within_H",
+      "expected_transition_time",
+      "path_length",
+      "max_barrier"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1550-TR__BENCH_RX036_RESILIENT_REROUTING_RESULTS__r01.tsv",
+    "bytes": 17561,
+    "lines": 241,
+    "columns": [
+      "block_probability",
+      "seed",
+      "base_flow",
+      "blocked_edges",
+      "frozen_throughput",
+      "rerouted_throughput",
+      "oracle_maxflow",
+      "reroute_recovery_fraction",
+      "reroute_cost_per_unit",
+      "arbitrary_maxflow_cost_per_unit"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1630-TR__BENCH_RX060_TARGET_SENSOR_PLACEMENT_RESULTS__r01.tsv",
+    "bytes": 732,
+    "lines": 9,
+    "columns": [
+      "control",
+      "model",
+      "budget",
+      "target_rmse",
+      "target_mae",
+      "predicted_target_variance",
+      "unique_sensor_locations"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1630-TR__BENCH_RX068_DECISION_FLIP_MARGIN_RESULTS__r01.tsv",
+    "bytes": 2688,
+    "lines": 31,
+    "columns": [
+      "seed",
+      "flip_rate",
+      "auc_margin_ratio",
+      "auc_z_fragility",
+      "auc_gap_fragility",
+      "brier_pflip"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1630-TR__BENCH_RX084_BURST_AWARE_SENSING_RESULTS__r01.tsv",
+    "bytes": 24285,
+    "lines": 271,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "weighted_consequence_capture",
+      "critical_coverage",
+      "yield_per_measurement"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1700-TR__BENCH_RX041_TREATMENT_CONFOUNDER_FEEDBACK_RESULTS__r01.tsv",
+    "bytes": 28612,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "method",
+      "truth",
+      "estimate",
+      "abs_error",
+      "sq_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1725-TR__BENCH_RX049_HIDDEN_STATE_MEMORY_AUDIT_RESULTS__r01.tsv",
+    "bytes": 15617,
+    "lines": 121,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "rmse",
+      "residual_acf1",
+      "max_abs_resid_acf_1_5",
+      "current_input_coefficient"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1745-TR__BENCH_RX049_HIDDEN_STATE_MEMORY_AUDIT_RESULTS__r02.tsv",
+    "bytes": 11125,
+    "lines": 121,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "rmse",
+      "acfmax_1_5"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1835-TR__BENCH_RX085_UNIVERSALITY_TRANSFER_GATE_RESULTS__r01.tsv",
+    "bytes": 153523,
+    "lines": 1201,
+    "columns": [
+      "seed",
+      "matched",
+      "ac1",
+      "lag_gain",
+      "transfer_rmse",
+      "local_rmse",
+      "p_mismatch",
+      "gate_reject",
+      "gated_rmse"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1835-TR__BENCH_RX086_SCALE_AWARE_GATE_RESULTS__r01.tsv",
+    "bytes": 46835,
+    "lines": 321,
+    "columns": [
+      "regime",
+      "seed",
+      "scale",
+      "a_fixed",
+      "a_local",
+      "discrepancy",
+      "rmse_fixed",
+      "rmse_scaleaware",
+      "gate_switch",
+      "gated_rmse"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1835-TR__BENCH_RX087_ACTIVE_SET_MAP_RESULTS__r01.tsv",
+    "bytes": 296,
+    "lines": 2,
+    "columns": [
+      "rmse_blackbox",
+      "rmse_active_set",
+      "boundary_rmse_blackbox",
+      "boundary_rmse_active_set",
+      "active_set_accuracy",
+      "gain_pct",
+      "boundary_gain_pct",
+      "no_kink_linear_rmse"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1905-TR__BENCH_RX089_TIMESCALE_BOTTLENECK_RESULTS__r01.tsv",
+    "bytes": 1545492,
+    "lines": 12001,
+    "columns": [
+      "true_bottleneck",
+      "true_throughput",
+      "capacity_idx",
+      "capacity_pred",
+      "pilot_idx",
+      "pilot_pred",
+      "timescale_idx",
+      "timescale_pred",
+      "min_completion_prob",
+      "max_completion_prob",
+      "regime",
+      "rep"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1905-TR__BENCH_RX093_COUPLING_DISTANCE_RESULTS__r01.tsv",
+    "bytes": 447690,
+    "lines": 4001,
+    "columns": [
+      "candidate",
+      "accuracy",
+      "total_variation",
+      "jensen_shannon",
+      "frobenius",
+      "max_task_loss_gap",
+      "mean_task_loss_gap"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1925-TR__BENCH_RX089_TIMESCALE_BOTTLENECK_RESULTS__r02.tsv",
+    "bytes": 1817026,
+    "lines": 20001,
+    "columns": [
+      "true_idx",
+      "true_thr",
+      "capacity_idx",
+      "capacity_pred",
+      "pilot_idx",
+      "pilot_pred",
+      "timescale_idx",
+      "timescale_pred",
+      "regime",
+      "rep"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2015-TR__BENCH_RX011_CONSEQUENCE_RESOLUTION_RESULTS__r01.tsv",
+    "bytes": 2688425,
+    "lines": 30001,
+    "columns": [
+      "regime",
+      "rep",
+      "policy",
+      "expected_undetected_loss",
+      "max_region_loss",
+      "sampled_regions"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2015-TR__BENCH_RX012_SELF_AVERAGING_CERTIFICATE_RESULTS__r01.tsv",
+    "bytes": 597,
+    "lines": 5,
+    "columns": [
+      "cluster_size",
+      "naive_coverage",
+      "certified_coverage",
+      "cluster_coverage",
+      "median_design_effect",
+      "reject_rate",
+      "median_naive_width",
+      "median_certified_width"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2045-TR__BENCH_RX011_CONSEQUENCE_RESOLUTION_RESULTS__r01.tsv",
+    "bytes": 2598431,
+    "lines": 30001,
+    "columns": [
+      "regime",
+      "rep",
+      "policy",
+      "expected_undetected_loss",
+      "max_region_loss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2055-TR__BENCH_RX012_SELF_AVERAGING_CERTIFICATE_RESULTS__r01.tsv",
+    "bytes": 461,
+    "lines": 5,
+    "columns": [
+      "cluster_size",
+      "naive_coverage",
+      "certified_coverage",
+      "median_design_effect",
+      "reject_rate",
+      "median_naive_width",
+      "median_certified_width"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2110-TR__BENCH_RX019_INTERNAL_CLOCK_RESULTS__r01.tsv",
+    "bytes": 448,
+    "lines": 5,
+    "columns": [
+      "regime",
+      "model",
+      "auc",
+      "logloss",
+      "brier",
+      "positive_rate"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2125-TR__BENCH_RX017_EFFECTIVE_TOPOLOGY_RESULTS__r01.tsv",
+    "bytes": 1258423,
+    "lines": 18001,
+    "columns": [
+      "regime",
+      "rep",
+      "policy",
+      "cost",
+      "success"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2145-TR__BENCH_RX038_INTERFACE_WIDTH_OPTIMIZER_RESULTS__r01.tsv",
+    "bytes": 3545,
+    "lines": 27,
+    "columns": [
+      "n",
+      "pathwidth",
+      "rep",
+      "edges",
+      "dp_objective",
+      "milp_objective",
+      "objective_abs_gap",
+      "dp_runtime_s",
+      "milp_runtime_s",
+      "speedup_milp_over_dp",
+      "dp_peak_states",
+      "milp_success"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2225-TR__BENCH_RX026_SELECTION_WITHIN_RESULTS__r01.tsv",
+    "bytes": 27931,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "true_trend",
+      "aggregate_slope",
+      "within_slope",
+      "aggregate_abs_error",
+      "within_abs_error"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2225-TR__BENCH_RX032_ARRIVAL_FRONTIER_RESULTS__r01.tsv",
+    "bytes": 190147,
+    "lines": 3001,
+    "columns": [
+      "regime",
+      "rep",
+      "policy",
+      "ownership_accuracy",
+      "mean_excess_arrival"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2225-TR__BENCH_RX075_BURDEN_RELIEF_RESULTS__r01.tsv",
+    "bytes": 65141,
+    "lines": 641,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "mean_throughput",
+      "p10_throughput",
+      "collapse_rate",
+      "final_burden"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2250-TR__BENCH_RX018_VERIFICATION_STATE_LIQUIDITY_RESULTS__r01.tsv",
+    "bytes": 6388,
+    "lines": 41,
+    "columns": [
+      "regime",
+      "seed",
+      "model",
+      "deployable_rmse",
+      "deployable_mae",
+      "shortfall_auc",
+      "shortfall_brier",
+      "shortfall_logloss"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2250-TR__BENCH_RX075_BURDEN_RELIEF_RESULTS__r02.tsv",
+    "bytes": 93082,
+    "lines": 801,
+    "columns": [
+      "regime",
+      "seed",
+      "policy",
+      "mean_throughput",
+      "p10_throughput",
+      "mean_burden",
+      "p95_burden"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2315-TR__BENCH_RX066_SAFE_KERNELIZATION_RESULTS__r01.tsv",
+    "bytes": 8277,
+    "lines": 37,
+    "columns": [
+      "regime",
+      "seed",
+      "n_original",
+      "n_reduced",
+      "edge_original",
+      "edge_reduced",
+      "fixed_fraction",
+      "full_objective",
+      "restored_objective",
+      "objective_abs_gap",
+      "full_milp_s",
+      "kernelization_s",
+      "reduced_milp_s",
+      "kernelized_total_s",
+      "speedup",
+      "full_success",
+      "reduced_success"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2340-TR__BENCH_RX066_SAFE_KERNELIZATION_RESULTS__r02.tsv",
+    "bytes": 10603,
+    "lines": 49,
+    "columns": [
+      "regime",
+      "seed",
+      "n_original",
+      "n_reduced",
+      "fixed_fraction",
+      "full_objective",
+      "restored_objective",
+      "objective_abs_gap",
+      "full_milp_s",
+      "kernelization_s",
+      "reduced_milp_s",
+      "kernelized_total_s",
+      "speedup",
+      "full_success",
+      "reduced_success"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM011_IM347_INVARIANCE_GATE_RESULTS.tsv",
+    "bytes": 827,
+    "lines": 7,
+    "columns": [
+      "environment",
+      "rho_XW",
+      "model",
+      "rmse",
+      "residual_mean",
+      "residual_sd",
+      "corr_resid_X",
+      "rmse_inflation_vs_train"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM043_IM320_CYCLE_FLOW_RESULTS.tsv",
+    "bytes": 740,
+    "lines": 6,
+    "columns": [
+      "edge_noise_sigma",
+      "auc_balance_only",
+      "auc_cycle_projection",
+      "mean_cycle_score_normal",
+      "mean_cycle_score_anomaly",
+      "mean_balance_score_normal",
+      "mean_balance_score_anomaly",
+      "graph_nodes",
+      "graph_edges",
+      "cycle_dimension"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM050_IM314_CLOSURE_FINDER_RESULTS.tsv",
+    "bytes": 2858,
+    "lines": 25,
+    "columns": [
+      "scenario",
+      "horizon",
+      "rmse_y_only",
+      "rmse_raw_linear_xy",
+      "rmse_lifted_y_x2",
+      "gain_vs_y_only_pct",
+      "gain_vs_raw_linear_pct"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM058_IM069_POLYMATROID_ALLOCATOR_RESULTS.tsv",
+    "bytes": 2031,
+    "lines": 13,
+    "columns": [
+      "seed",
+      "n",
+      "R",
+      "greedy_obj",
+      "lp_obj",
+      "relative_obj_gap",
+      "greedy_worst_constraint_violation",
+      "naive_independent_worst_violation",
+      "naive_max_load_to_capacity_ratio",
+      "greedy_seconds",
+      "lp_seconds"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM058_IM069_POLYMATROID_ALLOCATOR_SCALE.tsv",
+    "bytes": 291,
+    "lines": 4,
+    "columns": [
+      "n",
+      "R",
+      "seconds",
+      "objective",
+      "allocated",
+      "rank_all"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM074_IM435_DISCREPANCY_RANDOMIZATION_RESULTS.tsv",
+    "bytes": 25982,
+    "lines": 185,
+    "columns": [
+      "max_abs_smd",
+      "mean_abs_smd",
+      "n_smd_gt_010",
+      "abs_null_outcome_diff",
+      "abs_prognostic_diff",
+      "treated",
+      "control",
+      "rep",
+      "scenario",
+      "method",
+      "runtime_s",
+      "mip_status",
+      "mip_message"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM074_IM435_DISCREPANCY_RANDOMIZATION_SCALE.tsv",
+    "bytes": 269,
+    "lines": 4,
+    "columns": [
+      "n",
+      "d",
+      "candidates",
+      "runtime_s",
+      "max_abs_smd",
+      "mean_abs_smd"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM074_IM435_DISCREPANCY_RANDOMIZATION_SUMMARY.tsv",
+    "bytes": 1173,
+    "lines": 8,
+    "columns": [
+      "scenario",
+      "method",
+      "max_abs_smd_median",
+      "max_abs_smd_p90",
+      "mean_abs_smd_median",
+      "n_bad_median",
+      "abs_outcome_diff_median",
+      "abs_prognostic_diff_median",
+      "n"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM154_IM282_DEEP_TAIL_RESULTS.tsv",
+    "bytes": 29847,
+    "lines": 181,
+    "columns": [
+      "regime",
+      "rep",
+      "method",
+      "log_pearson_corr",
+      "train_ratio_p05",
+      "multiscale_slope",
+      "estimate_target_ratio",
+      "holdout_true_target_ratio",
+      "abs_pct_error",
+      "underestimate_factor"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM154_IM282_DEEP_TAIL_SUMMARY.tsv",
+    "bytes": 1366,
+    "lines": 7,
+    "columns": [
+      "regime",
+      "method",
+      "median_log_corr",
+      "median_train_ratio_p05",
+      "median_multiscale_slope",
+      "median_est_target_ratio",
+      "median_true_target_ratio",
+      "median_abs_pct_error",
+      "mean_abs_pct_error",
+      "median_underestimate_factor",
+      "p90_underestimate_factor"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM190_OBSERVATION_TIMING_RESULTS.tsv",
+    "bytes": 17797,
+    "lines": 201,
+    "columns": [
+      "rep",
+      "scenario",
+      "model",
+      "auc",
+      "logloss",
+      "accuracy"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM204_TO_IM127_DECISION_SCALE_RESULTS.tsv",
+    "bytes": 1390,
+    "lines": 17,
+    "columns": [
+      "scenario",
+      "N",
+      "gap",
+      "aggregate_sd",
+      "fluctuation_gap_ratio",
+      "analytic_flip_probability",
+      "analytic_mse",
+      "naive_iid_sd",
+      "naive_iid_flip_probability"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BRIDGE_BENCHMARK_IM361_TO_IM449_RESULTS.tsv",
+    "bytes": 797,
+    "lines": 6,
+    "columns": [
+      "threshold",
+      "disclosure_rate",
+      "mean_true_q_disclosed",
+      "mean_true_q_missing",
+      "process_aware_missing_prediction",
+      "mse_MAR_baseline",
+      "mse_process_aware",
+      "mse_reduction_pct"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BRIDGE_BENCHMARK_IM414_TO_IM337_RESULTS.tsv",
+    "bytes": 3640,
+    "lines": 43,
+    "columns": [
+      "n_components",
+      "rho_common_mode",
+      "rmse_naive_independence",
+      "rmse_theory_dependence",
+      "rmse_simulation",
+      "underestimate_factor",
+      "effective_independent_count"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0353-TR__REGISTRY_PROVENANCE_001_455_COMPLETE__r13.tsv",
+    "bytes": 326295,
+    "lines": 456,
+    "columns": [
+      "im_id",
+      "canonical_primitive",
+      "family_status",
+      "source_ids",
+      "source_mapping_status",
+      "source_concepts",
+      "constraint_shells_exact_if_mapped",
+      "nearest_existing",
+      "why_distinct",
+      "primitive_graph_signature_v1",
+      "semantic_tags",
+      "state_types",
+      "time_structure",
+      "information_structure",
+      "intervention_role",
+      "guarantee_type",
+      "ontology_annotation_status",
+      "source_evidence_raw",
+      "historical_shell_note",
+      "source_mapping_confidence",
+      "source_domain_span"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__NOVELTY_AWARE_PAIR_PREFILTER__r01.tsv",
+    "bytes": 556611,
+    "lines": 1001,
+    "columns": [
+      "prefilter_rank",
+      "prefilter_score",
+      "donor_im",
+      "target_im",
+      "donor_domain",
+      "target_domain",
+      "cosine",
+      "primitive_jaccard",
+      "source_concept_jaccard",
+      "donor_primitive",
+      "target_primitive",
+      "donor_sources",
+      "target_sources",
+      "donor_shell",
+      "target_shell",
+      "donor_role",
+      "donor_guarantee",
+      "screen_reason"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r26.tsv",
+    "bytes": 163020,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__NOVELTY_AWARE_TOP50_ADJUDICATION__r02.tsv",
+    "bytes": 33162,
+    "lines": 51,
+    "columns": [
+      "prefilter_rank",
+      "prefilter_score",
+      "donor_im",
+      "target_im",
+      "donor_domain",
+      "target_domain",
+      "cosine",
+      "primitive_jaccard",
+      "source_concept_jaccard",
+      "donor_primitive",
+      "target_primitive",
+      "donor_sources",
+      "target_sources",
+      "donor_shell",
+      "target_shell",
+      "donor_role",
+      "donor_guarantee",
+      "screen_reason",
+      "manual_status",
+      "manual_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0632-TR__POSTQUEUE50_VALUE_FIRST_REVIEW__r01.tsv",
+    "bytes": 38771,
+    "lines": 51,
+    "columns": [
+      "prefilter_rank",
+      "prefilter_score",
+      "donor_im",
+      "target_im",
+      "donor_domain",
+      "target_domain",
+      "cosine",
+      "primitive_jaccard",
+      "source_concept_jaccard",
+      "donor_primitive",
+      "target_primitive",
+      "donor_sources",
+      "target_sources",
+      "donor_shell",
+      "target_shell",
+      "donor_role",
+      "donor_guarantee",
+      "screen_reason",
+      "manual_status",
+      "manual_note",
+      "value_first_status",
+      "value_first_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0632-TR__VALUE_FIRST_RESCORING_ALL_211__r01.tsv",
+    "bytes": 198424,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0728-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r28.tsv",
+    "bytes": 163900,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0728-TR__VALUE_FIRST_RESCORING_ALL_211__r02.tsv",
+    "bytes": 198606,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0856-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r29.tsv",
+    "bytes": 165473,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0856-TR__VALUE_FIRST_RESCORING_ALL_211__r03.tsv",
+    "bytes": 198933,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0900-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r38.tsv",
+    "bytes": 179629,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0900-TR__VALUE_FIRST_RESCORING_ALL_211__r12.tsv",
+    "bytes": 201366,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0906-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r39.tsv",
+    "bytes": 181183,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0906-TR__VALUE_FIRST_RESCORING_ALL_211__r13.tsv",
+    "bytes": 201653,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0917-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r40.tsv",
+    "bytes": 182679,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-0917-TR__VALUE_FIRST_RESCORING_ALL_211__r14.tsv",
+    "bytes": 201890,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1005-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r41.tsv",
+    "bytes": 184387,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1005-TR__VALUE_FIRST_RESCORING_ALL_211__r15.tsv",
+    "bytes": 202145,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1018-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r42.tsv",
+    "bytes": 185853,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1018-TR__VALUE_FIRST_RESCORING_ALL_211__r16.tsv",
+    "bytes": 202364,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1032-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r30.tsv",
+    "bytes": 167195,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1032-TR__VALUE_FIRST_RESCORING_ALL_211__r04.tsv",
+    "bytes": 199225,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r49.tsv",
+    "bytes": 197084,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__VALUE_FIRST_RESCORING_ALL_211__r23.tsv",
+    "bytes": 204134,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1115-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r45.tsv",
+    "bytes": 191008,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1115-TR__VALUE_FIRST_RESCORING_ALL_211__r19.tsv",
+    "bytes": 203067,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r46.tsv",
+    "bytes": 192818,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__VALUE_FIRST_RESCORING_ALL_211__r20.tsv",
+    "bytes": 203302,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1155-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r48.tsv",
+    "bytes": 195789,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1155-TR__VALUE_FIRST_RESCORING_ALL_211__r22.tsv",
+    "bytes": 203819,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1215-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r47.tsv",
+    "bytes": 194419,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1215-TR__VALUE_FIRST_RESCORING_ALL_211__r21.tsv",
+    "bytes": 203551,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r31.tsv",
+    "bytes": 168895,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r43.tsv",
+    "bytes": 187511,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__VALUE_FIRST_RESCORING_ALL_211__r05.tsv",
+    "bytes": 199469,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__VALUE_FIRST_RESCORING_ALL_211__r17.tsv",
+    "bytes": 202618,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1405-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r44.tsv",
+    "bytes": 189268,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1405-TR__VALUE_FIRST_RESCORING_ALL_211__r18.tsv",
+    "bytes": 202804,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1420-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r32.tsv",
+    "bytes": 170645,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1420-TR__VALUE_FIRST_RESCORING_ALL_211__r06.tsv",
+    "bytes": 199699,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1605-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r33.tsv",
+    "bytes": 172319,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1605-TR__VALUE_FIRST_RESCORING_ALL_211__r07.tsv",
+    "bytes": 199925,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1805-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r34.tsv",
+    "bytes": 173432,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1805-TR__VALUE_FIRST_RESCORING_ALL_211__r08.tsv",
+    "bytes": 200179,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1945-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r35.tsv",
+    "bytes": 175004,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-1945-TR__VALUE_FIRST_RESCORING_ALL_211__r09.tsv",
+    "bytes": 200513,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-2205-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r36.tsv",
+    "bytes": 176056,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-2205-TR__VALUE_FIRST_RESCORING_ALL_211__r10.tsv",
+    "bytes": 200811,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-2355-TR__CROSS_DOMAIN_TRANSFER_QUEUE_ADJUDICATED__r37.tsv",
+    "bytes": 177685,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "arity",
+      "interaction_class",
+      "working_hypothesis",
+      "destructive_test",
+      "transfer_score",
+      "product_score",
+      "downstream_product_surfaces",
+      "status",
+      "member_primitives",
+      "source_ids",
+      "commodity_prior_art",
+      "benchmark_artifact",
+      "adjudication_note"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/registries_queues/LABCOMPASS__LCB-7F3A91__20260825-2355-TR__VALUE_FIRST_RESCORING_ALL_211__r11.tsv",
+    "bytes": 201058,
+    "lines": 212,
+    "columns": [
+      "edge_id",
+      "members",
+      "downstream_product_surfaces",
+      "status",
+      "value_action",
+      "product_form",
+      "potential_rank",
+      "potential_value_0_100",
+      "validated_rank",
+      "validated_value_0_100",
+      "money_impact_1_5",
+      "humanity_impact_1_5",
+      "market_breadth_1_5",
+      "deployability_1_5",
+      "measured_or_expected_performance_1_5",
+      "evidence_1_5",
+      "robustness_1_5",
+      "value_capture_path",
+      "revived_under_value_first_logic",
+      "legacy_product_score",
+      "transfer_score",
+      "working_hypothesis",
+      "destructive_test",
+      "commodity_prior_art",
+      "adjudication_note",
+      "benchmark_artifact",
+      "arity",
+      "interaction_class",
+      "member_primitives",
+      "source_ids"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1120-TR__BENCH_RX149_SUBMODULAR_ALLOCATOR_RESULTS__r01.tsv",
+    "bytes": 121683,
+    "lines": 1801,
+    "columns": [
+      "regime",
+      "seed",
+      "naive_value",
+      "greedy_value",
+      "gain"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1128-TR__BENCH_RX067_REPRESENTATIVE_DP_RESULTS__r01.tsv",
+    "bytes": 30093,
+    "lines": 561,
+    "columns": [
+      "regime",
+      "w",
+      "seed",
+      "full_states",
+      "representative_states",
+      "reduction",
+      "optimality_gap"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1134-TR__BENCH_RX039_FIBER_SAMPLER_RESULTS__r01.tsv",
+    "bytes": 10074,
+    "lines": 241,
+    "columns": [
+      "regime",
+      "seed",
+      "fiber_size",
+      "mcmc_tv_to_exact_uniform",
+      "naive_single_cell_valid_rate"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1142-TR__BENCH_RX137_RENEGOTIATION_RESULTS__r01.tsv",
+    "bytes": 464902,
+    "lines": 4401,
+    "columns": [
+      "regime",
+      "seed",
+      "nominal_value",
+      "actual_value",
+      "aware_value",
+      "nominal_abs_error",
+      "aware_abs_error",
+      "renegotiation_rate"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1150-TR__BENCH_RX138_IMPLEMENTABILITY_IRONER_RESULTS__r01.tsv",
+    "bytes": 231690,
+    "lines": 2401,
+    "columns": [
+      "regime",
+      "seed",
+      "raw_violations",
+      "ironed_violations",
+      "raw_unconstrained_objective",
+      "ironed_objective",
+      "optimal_monotone_objective",
+      "ironed_regret",
+      "raw_changed_fraction"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1210-TR__BENCH_RX138_IMPLEMENTABILITY_IRONER_RESULTS__r02.tsv",
+    "bytes": 265735,
+    "lines": 3001,
+    "columns": [
+      "regime",
+      "seed",
+      "raw_violations",
+      "ironed_violations",
+      "raw_changed_fraction",
+      "ironed_regret",
+      "simple_repair_regret",
+      "ironed_objective",
+      "optimal_monotone_objective"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__BENCH_RX138_IMPLEMENTABILITY_IRONER_RESULTS__r02.tsv",
+    "bytes": 136175,
+    "lines": 1801,
+    "columns": [
+      "regime",
+      "seed",
+      "raw_violations",
+      "ironed_violations",
+      "ironed_objective",
+      "optimal_monotone_objective",
+      "ironed_regret",
+      "changed_fraction"
+    ]
+  }
+]

@@ -1,0 +1,222 @@
+{
+  "product": "TRIGGER_POLICY_DESIGNER_V1",
+  "source_csv": "example_machine_history.csv",
+  "rows": 30,
+  "partition": {
+    "method": "chronological",
+    "calibration_rows": 20,
+    "evaluation_rows": 10
+  },
+  "event_definition": {
+    "loss_column": "observed_loss",
+    "loss_at_least": 50.0
+  },
+  "objective": {
+    "false_negative_cost": 12.0,
+    "false_positive_cost": 2.0,
+    "manipulation_cost_weight": 1.0
+  },
+  "selected": {
+    "candidate": {
+      "column": "temperature_c",
+      "direction": "high",
+      "verification_cost_per_trigger": 0.3,
+      "manipulation_exposure": 0.05
+    },
+    "threshold": 76.0,
+    "calibration": {
+      "rows": 20,
+      "events": 8,
+      "triggers": 8,
+      "true_positives": 8,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "true_negatives": 12,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "trigger_rate": 0.4,
+      "average_cost_per_row": 0.16999999999999998,
+      "total_cost": 3.4
+    },
+    "evaluation": {
+      "rows": 10,
+      "events": 5,
+      "triggers": 5,
+      "true_positives": 5,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "true_negatives": 5,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "trigger_rate": 0.5,
+      "average_cost_per_row": 0.2,
+      "total_cost": 2.0
+    }
+  },
+  "candidate_results": [
+    {
+      "candidate": {
+        "column": "temperature_c",
+        "direction": "high",
+        "verification_cost_per_trigger": 0.3,
+        "manipulation_exposure": 0.05
+      },
+      "threshold": 76.0,
+      "calibration": {
+        "rows": 20,
+        "events": 8,
+        "triggers": 8,
+        "true_positives": 8,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "true_negatives": 12,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "trigger_rate": 0.4,
+        "average_cost_per_row": 0.16999999999999998,
+        "total_cost": 3.4
+      },
+      "evaluation": {
+        "rows": 10,
+        "events": 5,
+        "triggers": 5,
+        "true_positives": 5,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "true_negatives": 5,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "trigger_rate": 0.5,
+        "average_cost_per_row": 0.2,
+        "total_cost": 2.0
+      }
+    },
+    {
+      "candidate": {
+        "column": "vibration_rms",
+        "direction": "high",
+        "verification_cost_per_trigger": 0.5,
+        "manipulation_exposure": 0.1
+      },
+      "threshold": 5.5,
+      "calibration": {
+        "rows": 20,
+        "events": 8,
+        "triggers": 8,
+        "true_positives": 8,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "true_negatives": 12,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "trigger_rate": 0.4,
+        "average_cost_per_row": 0.3,
+        "total_cost": 6.0
+      },
+      "evaluation": {
+        "rows": 10,
+        "events": 5,
+        "triggers": 4,
+        "true_positives": 4,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "true_negatives": 5,
+        "false_negative_rate": 0.2,
+        "false_positive_rate": 0.0,
+        "precision": 1.0,
+        "recall": 0.8,
+        "trigger_rate": 0.4,
+        "average_cost_per_row": 1.5,
+        "total_cost": 15.0
+      }
+    },
+    {
+      "candidate": {
+        "column": "operator_health_score",
+        "direction": "low",
+        "verification_cost_per_trigger": 0.2,
+        "manipulation_exposure": 0.4
+      },
+      "threshold": 61.0,
+      "calibration": {
+        "rows": 20,
+        "events": 8,
+        "triggers": 8,
+        "true_positives": 8,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "true_negatives": 12,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "trigger_rate": 0.4,
+        "average_cost_per_row": 0.48,
+        "total_cost": 9.6
+      },
+      "evaluation": {
+        "rows": 10,
+        "events": 5,
+        "triggers": 4,
+        "true_positives": 4,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "true_negatives": 5,
+        "false_negative_rate": 0.2,
+        "false_positive_rate": 0.0,
+        "precision": 1.0,
+        "recall": 0.8,
+        "trigger_rate": 0.4,
+        "average_cost_per_row": 1.6800000000000002,
+        "total_cost": 16.8
+      }
+    }
+  ],
+  "evaluation_baselines": {
+    "always_trigger": {
+      "rows": 10,
+      "events": 5,
+      "triggers": 10,
+      "true_positives": 5,
+      "false_negatives": 0,
+      "false_positives": 5,
+      "true_negatives": 0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 1.0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "trigger_rate": 1.0,
+      "average_cost_per_row": 1.0,
+      "total_cost": 10.0
+    },
+    "never_trigger": {
+      "rows": 10,
+      "events": 5,
+      "triggers": 0,
+      "true_positives": 0,
+      "false_negatives": 5,
+      "false_positives": 0,
+      "true_negatives": 5,
+      "false_negative_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "trigger_rate": 0.0,
+      "average_cost_per_row": 6.0,
+      "total_cost": 60.0
+    }
+  },
+  "evaluation_improvement_vs_best_baseline_percent": 80.0,
+  "warnings": [],
+  "boundary": "The threshold is calibrated on earlier rows and evaluated on later rows. This does not establish future stability or causal value."
+}

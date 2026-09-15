@@ -1,0 +1,10 @@
+{
+  "ambipolar_diffusion_coefficient_neutral_limit": 17.594594594594593,
+  "maximum_coupled_flux_mismatch": 3.552713678800501e-15,
+  "maximum_uncoupled_flux_mismatch": 17.43208094515425,
+  "maximum_relative_charge_imbalance": 0.0,
+  "initial_packet_variance": 1.0054314215730336,
+  "predicted_packet_variance": 2.764890881032493,
+  "predicted_rms_width": 1.662796103264767,
+  "status": "AMBIPOLAR_PACKET_TRANSPORT_VALID"
+}

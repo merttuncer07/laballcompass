@@ -1,0 +1,11 @@
+test_bound (test_hpdre.T.test_bound) ... ok
+test_comparator (test_hpdre.T.test_comparator) ... ok
+test_equal (test_hpdre.T.test_equal) ... ok
+test_explore (test_hpdre.T.test_explore) ... ok
+test_invalid (test_hpdre.T.test_invalid) ... ok
+test_skip (test_hpdre.T.test_skip) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

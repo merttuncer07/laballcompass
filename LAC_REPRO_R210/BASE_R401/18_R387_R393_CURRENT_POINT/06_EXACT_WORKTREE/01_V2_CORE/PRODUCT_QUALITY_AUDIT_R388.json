@@ -1,0 +1,127 @@
+{
+  "authority_scope": "PRODUCT_OVERLAY_ONLY_REGISTRY455_UNCHANGED",
+  "candidate_added_suite_ids": [
+    "V2P049"
+  ],
+  "candidate_distinct_product_ids": [
+    "V2P049"
+  ],
+  "candidate_family_variant_ids": [],
+  "model_version": "R388_RETRO50_PARENT_TO_PARENT_PRODUCT_QUALITY_AUDIT_V1",
+  "physical_candidate_suite_ids": [
+    "V2P001",
+    "V2P002",
+    "V2P003",
+    "V2P004",
+    "V2P005",
+    "V2P006",
+    "V2P007",
+    "V2P008",
+    "V2P009",
+    "V2P010",
+    "V2P011",
+    "V2P012",
+    "V2P013",
+    "V2P014",
+    "V2P015",
+    "V2P016",
+    "V2P017",
+    "V2P018",
+    "V2P019",
+    "V2P020",
+    "V2P021",
+    "V2P022",
+    "V2P023",
+    "V2P024",
+    "V2P025",
+    "V2P026",
+    "V2P027",
+    "V2P028",
+    "V2P029",
+    "V2P030",
+    "V2P031",
+    "V2P032",
+    "V2P033",
+    "V2P034",
+    "V2P035",
+    "V2P036",
+    "V2P037",
+    "V2P038",
+    "V2P039",
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P044",
+    "V2P045",
+    "V2P046",
+    "V2P048",
+    "V2P049"
+  ],
+  "prior_canonical_authority_release": "R387",
+  "prior_distinct_family_count": 34,
+  "prior_executable_suite_count": 47,
+  "prior_quality_audit": "PRODUCT_QUALITY_AUDIT_R386.json",
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "registry_family_count": 455,
+  "resulting_distinct_family_count": 35,
+  "resulting_executable_suite_count": 48,
+  "rows": [
+    {
+      "abstention": "optional held-out calibration gate returns ABSTAIN_SUPPORT_CONTRADICTED_BY_CALIBRATION instead of silently learning a support-aware policy; caller may explicitly choose ordinary CAPL/raw covariance as fallback",
+      "benchmark_present": true,
+      "benchmark_selected_shrinkage": null,
+      "benchmark_sweep_scenarios": 6,
+      "candidate_origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "difference_from_nearest": "Unlike V2P039, covariance geometry changes a constrained feature-conditioned portfolio policy objective rather than a discrete allocation covariance objective; unlike V2P040, the CAPL feasible set is held fixed while risk geometry changes; unlike V2P034, support geometry is inside the portfolio-policy risk objective rather than an identification guard.",
+      "directory": "V2P049_SACAPL",
+      "evidence_boundary": "synthetic mechanism benchmark only; no empirical trading-profit or out-of-sample market claim",
+      "external_prior_art": [
+        "Sparse/stable minimum-variance portfolio work already combines covariance estimation/sparsity and turnover constraints.",
+        "Large-scale portfolio allocation literature already combines covariance shrinkage/model uncertainty with transaction-cost or turnover control."
+      ],
+      "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART_INTERNAL_ARCHITECTURE_NOT_NEW_THEORY",
+      "failure_region": "misdeclared structural support can erase real covariance; the product abstains only when optional held-out calibration visibly contradicts off-support assumptions, otherwise support correctness remains external",
+      "family_id": "V2P049",
+      "mechanism_removing_comparator": "same CAPL action map, feasible set, evolutionary search, seed, returns, transaction cost and risk aversion with only SACPS support masking removed by substituting the raw sample covariance",
+      "nearest_existing_products": [
+        {
+          "difference": "same SACPS parent, but V2P039 changes a discrete time/frequency allocation objective through cross-region covariance coupling; V2P049 changes the risk geometry used to learn a feature-conditioned constrained portfolio policy",
+          "product": "V2P039_SCCATF"
+        },
+        {
+          "difference": "same CAPL parent, but V2P040 contracts CAPL's feasible turnover set from decision-tipping distance; V2P049 leaves that feasible set fixed and changes the covariance risk objective",
+          "product": "V2P040_BMCAPL"
+        },
+        {
+          "difference": "uses SACPS-style support geometry as an identification/conditioning guard for an observation-policy regression; V2P049 uses an executable SACPS covariance estimate inside a portfolio policy objective",
+          "product": "V2P034_SCOPG"
+        }
+      ],
+      "new_failure_mode": "A constrained policy learner can obey all action and turnover constraints yet optimize against finite-sample covariance edges that contradict declared dependency support, causing the learned action policy to exploit spurious diversification geometry.",
+      "non_additive_interaction": "SACPS support geometry enters inside CAPL policy scoring as the quadratic risk term, so it changes which policy coefficients are optimal while CAPL's cap and turnover feasible set are held fixed.",
+      "product_id": "V2P049",
+      "quality_accounting": "R388_DISTINCT_PRODUCT_CANDIDATE",
+      "short_name": "SACAPL",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_files": [
+        "test_sacapl.py"
+      ],
+      "test_methods": 10,
+      "verdict": "DISTINCT_PRODUCT_CANDIDATE_PENDING_FULL_REGRESSION_AND_PROMOTION",
+      "working_region": "declared support is approximately correct and finite-sample off-support covariance error is large enough to distort the raw-covariance policy risk objective"
+    }
+  ],
+  "rules": [
+    "visibility expansion is not itself product promotion",
+    "executable suite does not imply distinct family",
+    "new failure + non-additive interaction + nearest-family comparison + mechanism-removal control required",
+    "internal distinct-family accounting does not imply novel theory or external empirical validation",
+    "mechanics telemetry calibrates executable contracts only"
+  ],
+  "status": "CANDIDATE_OVERLAY_NOT_CANONICAL"
+}

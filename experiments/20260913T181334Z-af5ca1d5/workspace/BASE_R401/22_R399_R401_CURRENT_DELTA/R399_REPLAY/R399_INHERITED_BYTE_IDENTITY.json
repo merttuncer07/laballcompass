@@ -1,0 +1,22 @@
+{
+  "archive": "C:\\Users\\mertt\\Downloads\\LABALLCOMPASS_FINAL_RETIREMENT_HANDOFF_R398_2026-08-30.zip",
+  "archive_sha256": "ed3644144583921ac916c803511c08ba8caff72d030f5b1406580b2ff8f85abd",
+  "foundry": {
+    "archive_files": 1305,
+    "byte_identical": true,
+    "changed": [],
+    "extra": [],
+    "local_files": 1305,
+    "missing": []
+  },
+  "r392_canonical_products": {
+    "archive_files": 421,
+    "byte_identical": true,
+    "changed": [],
+    "extra": [],
+    "local_files": 421,
+    "missing": []
+  },
+  "schema_version": 1,
+  "status": "PASS"
+}

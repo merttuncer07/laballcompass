@@ -1,0 +1,9 @@
+{
+  "stop_time": 38.730000000000864,
+  "dissolved_particle_count": 235,
+  "initial_mean_radius": 1.0414854279371506,
+  "final_mean_radius": 1.2007100318361905,
+  "maximum_relative_volume_error": 1.1266653210384447e-07,
+  "target_mean_radius": 1.2,
+  "status": "TARGET_MEAN_RADIUS_REACHED"
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "problem": {
+    "schema_version": 1,
+    "id": "workbook_f460fced2f6b",
+    "mode": "static_formula_lineage",
+    "bases": {
+      "Tabelle1!A2": "Tabelle1!A2",
+      "Tabelle1!A3": "Tabelle1!A3",
+      "Tabelle1!B2": "Tabelle1!B2",
+      "Tabelle1!B3": "Tabelle1!B3"
+    },
+    "rules": [
+      {
+        "head": "Tabelle1!C3",
+        "body": [
+          "Tabelle1!A2",
+          "Tabelle1!A3",
+          "Tabelle1!B2",
+          "Tabelle1!B3"
+        ]
+      }
+    ],
+    "targets": [
+      "Tabelle1!C3"
+    ],
+    "metadata": {
+      "title": "evaluate_formula_with_structured_table_references.xlsx",
+      "input_sha256": "f460fced2f6bac1f5b4b7d400fd7f2e3ff379af478c01d26388744cefd37a93a",
+      "input_files": [
+        {
+          "name": "evaluate_formula_with_structured_table_references.xlsx",
+          "sha256": "f460fced2f6bac1f5b4b7d400fd7f2e3ff379af478c01d26388744cefd37a93a"
+        }
+      ],
+      "linked_workbooks": [],
+      "structured_references": [
+        {
+          "workbook": "evaluate_formula_with_structured_table_references.xlsx",
+          "token": "Table1[[A]:[B]]",
+          "formula_coordinate": "C3",
+          "sheet": "Tabelle1",
+          "referenced_cells": 4
+        }
+      ],
+      "origin": "Workbook formulas parsed automatically; workbook values were not recalculated.",
+      "labels": {
+        "Tabelle1!A1": "Tabelle1!A1",
+        "Tabelle1!B1": "Tabelle1!B1",
+        "Tabelle1!A2": "Tabelle1!A2",
+        "Tabelle1!B2": "Tabelle1!B2",
+        "Tabelle1!A3": "Tabelle1!A3",
+        "Tabelle1!B3": "Tabelle1!B3",
+        "Tabelle1!C3": "Tabelle1!C3"
+      },
+      "formula_text": {
+        "Tabelle1!C3": "=SUM(Table1[[A]:[B]])"
+      },
+      "formula_count": 1,
+      "resolved_formula_count": 1,
+      "unresolved": [],
+      "same_origin_groups": [],
+      "assumptions": [
+        "All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.",
+        "Distinct root cells are not evidence of statistically independent sources.",
+        "External links resolve only to uniquely named, explicitly supplied files. Saved table metadata resolves supported structured references. Missing files, unsupported dynamic references and cyclic paths remain unresolved; no external file was fetched.",
+        "Matching a referenced filename does not prove that the supplied file is the original version or is authentic.",
+        "Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion."
+      ]
+    }
+  },
+  "engine": "R207 compiled circuit + bitset evaluation",
+  "circuit_nodes": [
+    [
+      "false",
+      null
+    ],
+    [
+      "true",
+      null
+    ],
+    [
+      "var",
+      "Tabelle1!A2"
+    ],
+    [
+      "var",
+      "Tabelle1!A3"
+    ],
+    [
+      "var",
+      "Tabelle1!B2"
+    ],
+    [
+      "var",
+      "Tabelle1!B3"
+    ],
+    [
+      "and",
+      [
+        2,
+        3,
+        4,
+        5
+      ]
+    ]
+  ],
+  "roots": {
+    "Tabelle1!C3": 6
+  },
+  "source_impacts": {
+    "Tabelle1!A2": [
+      "Tabelle1!C3"
+    ],
+    "Tabelle1!A3": [
+      "Tabelle1!C3"
+    ],
+    "Tabelle1!B2": [
+      "Tabelle1!C3"
+    ],
+    "Tabelle1!B3": [
+      "Tabelle1!C3"
+    ]
+  },
+  "observed_cuts_up_to_two": {
+    "Tabelle1!C3": [
+      [
+        "Tabelle1!A2"
+      ],
+      [
+        "Tabelle1!A3"
+      ],
+      [
+        "Tabelle1!B2"
+      ],
+      [
+        "Tabelle1!B3"
+      ]
+    ]
+  },
+  "scenario_count": 12,
+  "cut_scope": "All single-source failures and at most 512 sampled source pairs. Pair lists are not exhaustive when the source count is large; larger cuts are not searched.",
+  "interpretation": "Potential static formula dependency; not a necessary value change or an audit conclusion.",
+  "mechanism_receipt": {
+    "id": "R207",
+    "source": "LAC_REPRO_R210/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "invoked_functions": [
+      "Rule",
+      "compile_circuit_acyclic"
+    ],
+    "extension": "R207Batch evaluates the compiled circuit over integer bitsets; it is a new adapter, not historical R207 code."
+  }
+}

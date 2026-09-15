@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    "5 aliases cross the illustrative threshold only under independence assumption",
+    "identity-preserving estimate remains 0.472 from 1 to 20 repetitions",
+    "slider updates displayed engine results",
+    "no script errors"
+  ],
+  "scope": "jsdom behavior, not real browser visual verification"
+}

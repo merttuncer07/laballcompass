@@ -1,0 +1,28 @@
+{
+  "scope": "Multi-workbook static lineage, automatic supplied-file resolution, and a folder launcher.",
+  "files": [
+    {
+      "path": "workbench/workbooks.py",
+      "before_sha256": "721be43e9f4dde104c52c1b8844a167338364dabfa111f8a564ce576fb3d2647",
+      "after_sha256": "0e44548ade67be55dd4faaf7e203cf7c6451b74a1eef0a39e89f00bd72b7decf"
+    },
+    {
+      "path": "workbench/cli.py",
+      "before_sha256": "ead6274d4bad64b5cbda8db24deadd8f854755463b364b47d1dcac3d72ceb534",
+      "after_sha256": "aba25eea477c547b1aa106d11b0ca38aabcd6b40aaf9c8961620e916c377cc26"
+    },
+    {
+      "path": "workbench/report.py",
+      "before_sha256": "cd8c2ca9198f7fa03474da8133f8b73dba2b563e9359f5e96bf00d2bc3bd0fed",
+      "after_sha256": "a37801dbc3894fa54d0735e2f0c6b31bec15a2dc829e9cf3ad1fa423a3229202"
+    },
+    {
+      "path": "tests/test_workbench.py",
+      "before_sha256": "f52c077b3f6a77ea61c3a81eac4d60712ab303bfbe0b423f1a7f7a5ca3d2349d",
+      "after_sha256": "ec5b68e7f234666e27e581eb0d43cd02e130cb0added9346a09e960adfa572de"
+    }
+  ],
+  "added_files": [
+    "Analyze-Workbook-Folder.command"
+  ]
+}

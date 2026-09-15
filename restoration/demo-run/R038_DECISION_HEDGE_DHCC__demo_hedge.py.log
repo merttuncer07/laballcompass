@@ -1,0 +1,135 @@
+{
+  "selected": {
+    "ridge": 0.003,
+    "hedge_coefficients": [
+      0.542167119609014,
+      0.3742847302397691,
+      0.1258903876472658
+    ],
+    "intercept": 0.021862324635139263,
+    "training_residual_variance": 0.09263586285893599,
+    "validation_residual_variance": 0.1572285273220941,
+    "turnover": 1.0423422374960487,
+    "validation_decision_loss": 0.1572285273220941,
+    "hedge_condition_number": 607.8917642136415
+  },
+  "candidates": [
+    {
+      "ridge": 0.0,
+      "hedge_coefficients": [
+        0.8120670777001073,
+        0.10157875998604268,
+        0.12913291274314392
+      ],
+      "intercept": 0.01964437881342479,
+      "training_residual_variance": 0.0925192962120603,
+      "validation_residual_variance": 0.16672329837332484,
+      "turnover": 1.042778750429294,
+      "validation_decision_loss": 0.16672329837332484,
+      "hedge_condition_number": 2633.2316215249634
+    },
+    {
+      "ridge": 0.001,
+      "hedge_coefficients": [
+        0.6275498619620008,
+        0.2884214986628275,
+        0.12698076240447567
+      ],
+      "intercept": 0.02101955258513688,
+      "training_residual_variance": 0.09257338118807243,
+      "validation_residual_variance": 0.15884273693618725,
+      "turnover": 1.042952123029304,
+      "validation_decision_loss": 0.15884273693618725,
+      "hedge_condition_number": 1247.079095106463
+    },
+    {
+      "ridge": 0.003,
+      "hedge_coefficients": [
+        0.542167119609014,
+        0.3742847302397691,
+        0.1258903876472658
+      ],
+      "intercept": 0.021862324635139263,
+      "training_residual_variance": 0.09263586285893599,
+      "validation_residual_variance": 0.1572285273220941,
+      "turnover": 1.0423422374960487,
+      "validation_decision_loss": 0.1572285273220941,
+      "hedge_condition_number": 607.8917642136415
+    },
+    {
+      "ridge": 0.01,
+      "hedge_coefficients": [
+        0.48898656892320147,
+        0.4255442196060741,
+        0.12485999996167808
+      ],
+      "intercept": 0.023156977704706927,
+      "training_residual_variance": 0.092698953690975,
+      "validation_residual_variance": 0.1572968341098122,
+      "turnover": 1.0393907884909537,
+      "validation_decision_loss": 0.1572968341098122,
+      "hedge_condition_number": 218.10714148030365
+    },
+    {
+      "ridge": 0.03,
+      "hedge_coefficients": [
+        0.46648805929288734,
+        0.44073508498903136,
+        0.12340507385140298
+      ],
+      "intercept": 0.025958001722617974,
+      "training_residual_variance": 0.09284385105231856,
+      "validation_residual_variance": 0.15889813706227593,
+      "turnover": 1.0306282181333217,
+      "validation_decision_loss": 0.15889813706227593,
+      "hedge_condition_number": 77.57993569475201
+    },
+    {
+      "ridge": 0.1,
+      "hedge_coefficients": [
+        0.44655704687596665,
+        0.43517806818843063,
+        0.11921789975923117
+      ],
+      "intercept": 0.03505300053734034,
+      "training_residual_variance": 0.09419184019560249,
+      "validation_residual_variance": 0.1654442241675191,
+      "turnover": 1.0009530148236285,
+      "validation_decision_loss": 0.1654442241675191,
+      "hedge_condition_number": 24.451577046542244
+    },
+    {
+      "ridge": 0.3,
+      "hedge_coefficients": [
+        0.411383276248142,
+        0.40454751275347745,
+        0.10911400222769481
+      ],
+      "intercept": 0.058438075863318284,
+      "training_residual_variance": 0.10411967256718324,
+      "validation_residual_variance": 0.18885858491080973,
+      "turnover": 0.9250447912293143,
+      "validation_decision_loss": 0.18885858491080973,
+      "hedge_condition_number": 8.863900719061053
+    },
+    {
+      "ridge": 1.0,
+      "hedge_coefficients": [
+        0.32553395732977874,
+        0.3211361377920725,
+        0.08500263923272297
+      ],
+      "intercept": 0.11889526987847496,
+      "training_residual_variance": 0.17222027639928839,
+      "validation_residual_variance": 0.29252197649654477,
+      "turnover": 0.7316727343545743,
+      "validation_decision_loss": 0.29252197649654477,
+      "hedge_condition_number": 3.364114237989321
+    }
+  ],
+  "unhedged_validation_variance": 1.2668491942496993,
+  "unregularized_validation_variance": 0.16672329837332484,
+  "variance_reduction_fraction_vs_unhedged": 0.8758900995984658,
+  "variance_reduction_fraction_vs_unregularized": 0.056949275499397545,
+  "status": "DECISION_FOCUSED_HEDGE_CALIBRATED"
+}

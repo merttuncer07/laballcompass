@@ -1,0 +1,116 @@
+{
+  "calibration": {
+    "attempt_count": 12,
+    "axis_observation_counts": {
+      "declared_executable_contract_case_coverage": 12
+    },
+    "calibration_id": "0a15a8188cf3671a62816f0a313c585ce2bbeb7d3cc1951837de8683430cc40f",
+    "compute_upper_seconds": 0.6681207950000498,
+    "event_ids": [
+      "R7::V2P003::000::p144invariantpreservationtests_test_uncertain_boundary_case_still_acquires",
+      "R7::V2P003::001::p144invariantpreservationtests_test_far_stable_case_still_skips",
+      "R7::V2P003::002::p144invariantpreservationtests_test_near_case_uncertainty_remains_material",
+      "R7::V2P003::003::p144invariantpreservationtests_test_far_case_remains_precise",
+      "R7::V2P003::004::p144invariantpreservationtests_test_action_label_preserved",
+      "R7::V2P003::005::p144invariantpreservationtests_test_status_contract_preserved",
+      "R7::V2P003::006::k048contrastivecompositiontests_test_high_correlation_near_boundary_uses_multifidelity",
+      "R7::V2P003::007::k048contrastivecompositiontests_test_low_correlation_near_boundary_routes_fine_only",
+      "R7::V2P003::008::k048contrastivecompositiontests_test_negative_value_cheap_channel_routes_fine_only",
+      "R7::V2P003::009::k048contrastivecompositiontests_test_budget_is_respected",
+      "R7::V2P003::010::k048contrastivecompositiontests_test_multifidelity_proxy_improves_on_fine_only_baseline",
+      "R7::V2P003::011::k048contrastivecompositiontests_test_invalid_budget_contract_rejected"
+    ],
+    "excluded_counts": {
+      "failed_or_censored": 0,
+      "invalid_measurement": 0,
+      "unadjusted_backreaction": 0,
+      "unknown_backreaction": 0
+    },
+    "expected_resolution_lower_by_axis": {
+      "declared_executable_contract_case_coverage": 0.08333333333333337
+    },
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f",
+    "reliability_lower_bound": 0.8159920848767768,
+    "target_generation": 2,
+    "test_id": "BOOTSTRAP_UNIT_CASE::V2P003",
+    "test_signature": "96292310081b6067cb4f8a8e0b32500dc2d3862e79a4ab4a50d52661749b0636",
+    "usable_count": 12
+  },
+  "calibration_target_generation": 2,
+  "claim_boundary": [
+    "Calibration is exact fixed suite/shell/signature only.",
+    "Finite-suite coverage is not scientific uncertainty or real-world validity.",
+    "P144 invariant preservation plus K048 contrastive behavior is development evidence only.",
+    "K048 acts only after P144 says persistence acquisition has positive decision value."
+  ],
+  "composition": {
+    "consumer_id": "FOUNDRY:P144",
+    "product_id": "V2P003",
+    "supplier_id": "LCB-K048"
+  },
+  "composition_order": "P144 persistence decision-value acquisition gate -> K048 fidelity-budget allocation",
+  "draft_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+  "event_namespace": "R7",
+  "future_plan": {
+    "blind_axes": [],
+    "contract_fingerprint": "682d7988fbbaa21fa8783c672536ab4dbe4ec0a672e7feaefc2fdfb9e18e4bd6",
+    "decision_id": "COMPOSITION::LCB-K048->FOUNDRY:P144",
+    "model_version": "LAB_EXPERIMENT_SELECTOR_R5_V1",
+    "ranked_routes": [
+      {
+        "compute_seconds": 0.6681207950000498,
+        "covered_axes": [
+          "declared_executable_contract_case_coverage"
+        ],
+        "expected_decision_progress": 0.0679993404063981,
+        "expected_progress_per_compute": 0.10177701534704219,
+        "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+        "reliability": 0.8159920848767768,
+        "status": "READY",
+        "test_id": "BOOTSTRAP_UNIT_CASE::V2P003",
+        "unknown_fields": []
+      }
+    ],
+    "schema_version": 2,
+    "search_generation": 2,
+    "selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P003",
+    "selection_round": 0,
+    "stop": false,
+    "stop_reason": "",
+    "unquantified_test_ids": [],
+    "unresolved_mass": 1.0
+  },
+  "model_version": "LABALLCOMPASS_R7_ADAPTER_BOOTSTRAP_V1",
+  "pilot_complete": 12,
+  "pilot_failed": 0,
+  "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f",
+  "source_hash": "115c51118477ed8fdf4c5a1fbf77cd048582de1bc2065e94f69920ddbaef8738",
+  "structural_questions": [
+    {
+      "decision_leverage": "UNKNOWN",
+      "numeric_uncertainty": "UNKNOWN",
+      "question_id": "decision",
+      "source": "composition_queue.addressed_weaknesses",
+      "source_text": "decision",
+      "status": "PRESERVED_UNQUANTIFIED"
+    },
+    {
+      "decision_leverage": "UNKNOWN",
+      "numeric_uncertainty": "UNKNOWN",
+      "question_id": "channel_model_may_be_misspecified",
+      "source": "foundry_product_evidence.weaknesses",
+      "source_text": "channel model may be misspecified",
+      "status": "PRESERVED_UNQUANTIFIED"
+    },
+    {
+      "decision_leverage": "UNKNOWN",
+      "numeric_uncertainty": "UNKNOWN",
+      "question_id": "route_persistence_identification_experiments_by_fidelity_budget",
+      "source": "composition_queue.curated_rationale",
+      "source_text": "Route persistence-identification experiments by fidelity budget",
+      "status": "PRESERVED_UNQUANTIFIED"
+    }
+  ],
+  "suite_case_count": 12,
+  "test_signature": "96292310081b6067cb4f8a8e0b32500dc2d3862e79a4ab4a50d52661749b0636"
+}

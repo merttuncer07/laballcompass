@@ -1,0 +1,10 @@
+{
+  "release": "R388",
+  "authority_status": "SHADOW_NO_CANONICAL_COUNT_CHANGE",
+  "wave": "CODE_ADJUDICATION_WAVE1",
+  "pairs_reviewed": 9,
+  "built_shadow_distinct_candidates": 2,
+  "no_build_interface_or_adapter": 6,
+  "deep_operator_collisions": 1,
+  "rule": "pair-local dispositions only; no component death and no canonical promotion"
+}

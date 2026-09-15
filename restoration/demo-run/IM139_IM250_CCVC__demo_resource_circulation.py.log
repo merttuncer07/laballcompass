@@ -1,0 +1,28 @@
+{
+  "vertex_certificate": {
+    "viable": true,
+    "vertex_count": 6,
+    "minimum_inward_margin": 0.247,
+    "maximum_conservation_residual": 3.469446951953614e-17
+  },
+  "unfiltered_nominal_control": {
+    "final_state": [
+      0.9199999999999189,
+      0.04000000000004008,
+      0.04000000000004039
+    ],
+    "maximum_safe_set_violation": 0.11999999999991884,
+    "maximum_conservation_error": 7.771561172376096e-16,
+    "filter_interventions": 0
+  },
+  "ccvc_filtered_control": {
+    "final_state": [
+      0.8000000000000002,
+      0.0999999987654299,
+      0.10000000123457041
+    ],
+    "maximum_safe_set_violation": 1.1102230246251565e-16,
+    "maximum_conservation_error": 4.440892098500626e-16,
+    "filter_interventions": 453
+  }
+}

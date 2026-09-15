@@ -1,0 +1,256 @@
+{
+  "base_registry_records": 310,
+  "baseline": "R12 product-generation accelerated batch 3",
+  "campaign_memory": {
+    "events": 32,
+    "evidence_levels": {
+      "INTERFACE_ADJUDICATION": 4,
+      "MECHANICS": 28
+    },
+    "failure_codes": {
+      "EXPLICIT_INTERFACE_REJECTION": 4
+    },
+    "fingerprint": "ec92dae151861e338e3e21d3ccd4578ccf39cdaf2805b5123382ac9cbeeed275",
+    "learning_eligible_events": 0,
+    "model_version": "LAB_CAMPAIGN_MEMORY_R12_V1",
+    "outcomes": {
+      "EXECUTABLE_CONTRACT_PASS": 28,
+      "REJECTED_CURRENT_INTERFACE": 4
+    },
+    "policy": "Mechanics/bootstrap events remain mechanics; only explicitly eligible non-protected empirical outcomes may train future relevance."
+  },
+  "completed_v2_products": 28,
+  "focused_core_tests": {
+    "passed": 86,
+    "total": 86
+  },
+  "focused_new_product_tests": {
+    "passed": 90,
+    "per_product": 6,
+    "total": 90
+  },
+  "interaction_map": {
+    "edges": 1057,
+    "fingerprint": "55e7f59409f151afcf78841cc812b7e4559c4ab7b1bd40295175104fc558b431",
+    "node_counts": {
+      "CAPABILITY": 310,
+      "PRIMITIVE": 4000
+    },
+    "nodes": 4310,
+    "path": "generated_search/INTERACTION_MAP_R12.json",
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 28,
+      "INFERRED_CANDIDATE": 972,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 4
+    }
+  },
+  "new_products": [
+    {
+      "benchmark_result": {
+        "boundary_crossed": false,
+        "selected_time": null,
+        "spent": 0.0,
+        "status": "ACTION_INVARIANT_SKIP_TIMING"
+      },
+      "consumer_id": "LCB-K012",
+      "product_id": "V2P014_BATS",
+      "supplier_id": "FOUNDRY:P079",
+      "title": "V2P014_BATS \u2014 Boundary-Aware Timing Sensor"
+    },
+    {
+      "benchmark_result": {
+        "spent": 0.0,
+        "status": "ACTION_INVARIANT_WEALTH_PRESERVED",
+        "test": false,
+        "wealth_after": 10,
+        "wealth_before": 10
+      },
+      "consumer_id": "LCB-K086",
+      "product_id": "V2P015_BGTW",
+      "supplier_id": "FOUNDRY:P079",
+      "title": "V2P015_BGTW \u2014 Boundary-Gated Testing Wealth"
+    },
+    {
+      "benchmark_result": {
+        "action": "hold",
+        "boundary_crossed": true,
+        "fallback_used": true,
+        "status": "BOUNDARY_TRIGGERED_VIABILITY_FALLBACK"
+      },
+      "consumer_id": "LCB-K091",
+      "product_id": "V2P016_BVRP",
+      "supplier_id": "FOUNDRY:P079",
+      "title": "V2P016_BVRP \u2014 Boundary-Viability Reach Planner"
+    },
+    {
+      "benchmark_result": {
+        "blocked": [
+          "high_info"
+        ],
+        "choice": "conserved",
+        "status": "CONSERVATION_FILTERED_DRE_CHOICE"
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P017_CCDRE",
+      "supplier_id": "FOUNDRY:P109",
+      "title": "V2P017_CCDRE \u2014 Conservation-Calibrated Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "choice": "near_flip",
+        "distance": 0.12,
+        "status": "WASSERSTEIN_TIP_PRIORITIZED_EXPLORATION"
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P018_WTDRE",
+      "supplier_id": "FOUNDRY:P062",
+      "title": "V2P018_WTDRE \u2014 Wasserstein-Tipped Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "ess_fraction": 0.42,
+        "selected": null,
+        "status": "SUPPORT_TIP_ABORTS_HOLDOUT_SELECTION"
+      },
+      "consumer_id": "PARENT:R014_S781_S792_ACSA",
+      "product_id": "V2P019_STHA",
+      "supplier_id": "FOUNDRY:P065",
+      "title": "V2P019_STHA \u2014 Support-Tipped Holdout Audit"
+    },
+    {
+      "benchmark_result": {
+        "choice": null,
+        "correctness": 0.6967346701436833,
+        "status": "PRIVACY_NOISE_BELOW_DECISION_ACCURACY_TARGET",
+        "usable": false
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P020_PADRE",
+      "supplier_id": "FOUNDRY:P092",
+      "title": "V2P020_PADRE \u2014 Privacy-Accuracy Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "approximation_error": 0.05,
+        "status": "BELIEF_APPROXIMATION_REACHES_DECISION_TIP",
+        "tipping_distance": 0.03,
+        "use_reduced": false
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P021_BMDRE",
+      "supplier_id": "FOUNDRY:P093",
+      "title": "V2P021_BMDRE \u2014 Belief-Metric Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "fidelity": 0.74,
+        "representation": "full",
+        "status": "CLOSURE_FIDELITY_TIP_FORCES_FULL_DRE"
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P022_CFDRE",
+      "supplier_id": "FOUNDRY:P141",
+      "title": "V2P022_CFDRE \u2014 Closure-Fidelity Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "choice": "moderate_supported",
+        "rejected": [
+          "high_gain_low_overlap"
+        ],
+        "status": "OVERLAP_GATED_DRE_CHOICE"
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P023_CODRE",
+      "supplier_id": "FOUNDRY:P023",
+      "title": "V2P023_CODRE \u2014 Causal-Overlap Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "action_margin": 0.08,
+        "explore_hidden": true,
+        "hidden_effect_bound": 0.12,
+        "status": "HIDDEN_POPULATION_CAN_TIP_DECISION"
+      },
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "product_id": "V2P024_HPDRE",
+      "supplier_id": "FOUNDRY:P071",
+      "title": "V2P024_HPDRE \u2014 Hidden-Population Decision-Relevant Explorer"
+    },
+    {
+      "benchmark_result": {
+        "blocked": [
+          "contaminated_high_value"
+        ],
+        "choice": "clean_decision_relevant",
+        "status": "DRE_RANKED_CLEAN_FIAC_CHANNEL"
+      },
+      "consumer_id": "FOUNDRY:P057",
+      "product_id": "V2P025_DRFIAC",
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "title": "V2P025_DRFIAC \u2014 Decision-Relevant Firewalled Information Acquisition"
+    },
+    {
+      "benchmark_result": {
+        "evaluate": "state_boundary",
+        "status": "FEASIBILITY_BOUNDARY_CYCLE_EVALUATION"
+      },
+      "consumer_id": "FOUNDRY:P035",
+      "product_id": "V2P026_DRSVCO",
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "title": "V2P026_DRSVCO \u2014 Decision-Relevant Stateful Cycle Explorer"
+    },
+    {
+      "benchmark_result": {
+        "audit_order": [
+          "aggressive",
+          "robust"
+        ],
+        "selected": "robust",
+        "status": "DRE_ORDER_FROZEN_BEFORE_PROTECTED_HOLDOUT"
+      },
+      "consumer_id": "FOUNDRY:P137",
+      "product_id": "V2P027_DRMPHA",
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "title": "V2P027_DRMPHA \u2014 Decision-Relevant Memory-Policy Holdout Audit"
+    },
+    {
+      "benchmark_result": {
+        "blocked_support": [
+          "clean_unsupported"
+        ],
+        "blocked_suspect": [
+          "suspect_supported"
+        ],
+        "choice": "safe_supported",
+        "status": "SUPPORT_AND_FIREWALL_GATED_ACQUISITION"
+      },
+      "consumer_id": "FOUNDRY:P057",
+      "product_id": "V2P028_SCFIAC",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "title": "V2P028_SCFIAC \u2014 Support-Constrained Firewalled Information Acquisition"
+    }
+  ],
+  "new_products_count": 15,
+  "nonclaims": [
+    "No empirical campaign outcome is learning-eligible.",
+    "All new benchmark results are deterministic synthetic mechanism evidence only.",
+    "Bootstrap telemetry is executable-mechanics calibration, not scientific validation."
+  ],
+  "pipeline_acceleration": {
+    "integrity_expectations": "dynamic completed-suite count rather than hard-coded 13-product checkpoint",
+    "parallel_fixed_pilot_runner": "01_V2_CORE/rapid_product_pilot.py"
+  },
+  "product_generation_continuation": true,
+  "status": "PASS",
+  "telemetry": {
+    "calibrated_completed_suites": 28,
+    "canonical_ledger": "search_data/EXPERIMENT_TELEMETRY.jsonl",
+    "completed_suites": 28,
+    "events": 234,
+    "exact_current_suite_matches": 234,
+    "unmatched_events": 0
+  },
+  "total_addressable_artifacts": 338
+}

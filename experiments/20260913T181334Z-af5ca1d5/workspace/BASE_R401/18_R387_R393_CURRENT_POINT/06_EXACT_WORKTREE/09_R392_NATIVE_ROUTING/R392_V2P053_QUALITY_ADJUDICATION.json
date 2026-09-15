@@ -1,0 +1,45 @@
+{
+  "canonical_authority_before_admission": "R391 / Products51 / Quality38",
+  "canonical_authority_mutated": false,
+  "evidence_sha256": {
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/BENCHMARK_RESULT.json": "231854283d1c53d6a47d479f60fef28eb3a65f508a34548a1a95f602b7f8069e",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/BENCHMARK_SWEEP_RESULT.json": "d8c38281dc3615ec83b39cc453e90742cab47d02f56c51561884775df3033172",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/COMPOSITION.json": "3ab256a80e38f85025d4e19022e6b9c0b95a3458dc501cc9b1051604035817e7",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/NOVELTY_REVIEW_R392.json": "a51cbe6562a79125f19080e5d68c503c74f7dbf3b531027e1582bed74a65cbc2",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/PRODUCT_RESULT.md": "890e97bfaf121dcb6f8e874cb4ab44c35b2b53ed1542cbcf7c287e2ccd049e4d",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/README.md": "f2fefdccce3b3168d00a5b1125ec0ea2e8c88fb75d9c39a27b5d0317bf24636f",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/benchmark_sweep.py": "1e82b47095753eeb1b410eac8896d4b61cb953e20df520719b522196b8bf78ea",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/swcapl.py": "c9198e5a13a1388dfb6b44f77ae281c382db8d79b3d5b1109c0606a2bcf58893",
+    "09_R392_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P053_SWCAPL/test_swcapl.py": "12f933ccd8f07bd2c8281d63d1d58a993954ea1bbb95231e6142a51589fa011c"
+  },
+  "next_gate": "copy exact shadow bytes into core candidate overlay; refresh; require 52 observed / 51 calibrated before fresh 12-case pilot; then require 52/52 exact-shell closure before promotion",
+  "prior_art_status": "CLOSE_PRIOR_ART_ON_IMPORTANCE_WEIGHTED_AND_DOMAIN_ADAPTIVE_POLICY_LEARNING; INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+  "product_id": "V2P053",
+  "quality_basis": {
+    "constraint_violations": 0,
+    "fragile_ess": "FAIL_CLOSED",
+    "hardened_tests": "12/12 PASS",
+    "mean_gain_target_share_0_20": -0.010384908258694609,
+    "mean_gain_target_share_0_80": 0.018415091741305394,
+    "sensitivity_cells": 5,
+    "sensitivity_runs": 15,
+    "target_share_0_20_positive_cases": 0,
+    "target_share_0_35_positive_cases": 0,
+    "target_share_0_50_positive_cases": 3,
+    "target_share_0_65_positive_cases": 3,
+    "target_share_0_80_positive_cases": 3,
+    "uniform_weights_collapse": "EXACT"
+  },
+  "registry455_unchanged": true,
+  "release": "R392",
+  "source_frontier": {
+    "fresh_unadjudicated_edges": 15579,
+    "mechanism_clusters": 650,
+    "pair": [
+      "FOUNDRY:P090",
+      "PARENT:R041_CONSTRAINED_POLICY_CAPL"
+    ],
+    "r392_diverse_cluster_selection_rank": 1
+  },
+  "verdict": "ADMIT_R392_CANDIDATE_OVERLAY_PENDING_TELEMETRY_CLOSURE_AND_REGRESSION"
+}

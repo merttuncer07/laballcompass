@@ -1,0 +1,141 @@
+{
+  "fixed_pilot_results": [
+    {
+      "calibration_id": "4903fe0f939c218f97b029f3cadcce7645cccd1c3a96defe9da29810db8795cd",
+      "case_count": 6,
+      "compute_upper_seconds": 0.7562820590000001,
+      "consumer_id": "FOUNDRY:P031",
+      "failed_or_censored_cases": 0,
+      "future_generation": 2,
+      "future_selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P001",
+      "passed_cases": 6,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d",
+      "product_id": "V2P001",
+      "reliability_lower_bound": 0.689177896916216,
+      "resolution_lower_bound": 0.16666666666666663,
+      "structural_questions": [
+        {
+          "decision_leverage": "UNKNOWN",
+          "numeric_uncertainty": "UNKNOWN",
+          "question_id": "financial_legal_eligibility_remains_external",
+          "source": "foundry_product_evidence.weaknesses",
+          "source_text": "financial/legal eligibility remains external",
+          "status": "PRESERVED_UNQUANTIFIED"
+        },
+        {
+          "decision_leverage": "UNKNOWN",
+          "numeric_uncertainty": "UNKNOWN",
+          "question_id": "scale_evlt_beyond_additive_audit_values_while_preserving_shared_capacity_accounting",
+          "source": "composition_queue.curated_rationale",
+          "source_text": "Scale EVLT beyond additive audit values while preserving shared-capacity accounting",
+          "status": "PRESERVED_UNQUANTIFIED"
+        }
+      ],
+      "supplier_id": "LCB-K003",
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P001",
+      "test_signature": "856c87a4279b837c24f88eb1dfa754b8c5e3568fd446bb53129f0a76eee1d4b1"
+    },
+    {
+      "calibration_id": "5f86de27d5c4d384be10ac013a6fd76bbb531fad9aa73d9aaa9589691fde8dc6",
+      "case_count": 6,
+      "compute_upper_seconds": 0.6805446129999382,
+      "consumer_id": "FOUNDRY:P136",
+      "failed_or_censored_cases": 0,
+      "future_generation": 2,
+      "future_selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P002",
+      "passed_cases": 6,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd",
+      "product_id": "V2P002",
+      "reliability_lower_bound": 0.689177896916216,
+      "resolution_lower_bound": 0.16666666666666663,
+      "structural_questions": [
+        {
+          "decision_leverage": "UNKNOWN",
+          "numeric_uncertainty": "UNKNOWN",
+          "question_id": "decision",
+          "source": "composition_queue.addressed_weaknesses",
+          "source_text": "decision",
+          "status": "PRESERVED_UNQUANTIFIED"
+        },
+        {
+          "decision_leverage": "UNKNOWN",
+          "numeric_uncertainty": "UNKNOWN",
+          "question_id": "channel_model_may_be_misspecified",
+          "source": "foundry_product_evidence.weaknesses",
+          "source_text": "channel model may be misspecified",
+          "status": "PRESERVED_UNQUANTIFIED"
+        },
+        {
+          "decision_leverage": "UNKNOWN",
+          "numeric_uncertainty": "UNKNOWN",
+          "question_id": "requires_a_declared_uncertainty_and_cost_model",
+          "source": "foundry_product_evidence.weaknesses",
+          "source_text": "requires a declared uncertainty and cost model",
+          "status": "PRESERVED_UNQUANTIFIED"
+        },
+        {
+          "decision_leverage": "UNKNOWN",
+          "numeric_uncertainty": "UNKNOWN",
+          "question_id": "allocate_quasineutral_measurements_across_fidelity_and_cost",
+          "source": "composition_queue.curated_rationale",
+          "source_text": "Allocate quasineutral measurements across fidelity and cost",
+          "status": "PRESERVED_UNQUANTIFIED"
+        }
+      ],
+      "supplier_id": "LCB-K048",
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P002",
+      "test_signature": "cbdb30c1a38e098e3bcfe2f8449c2882dc6dc6954eaffbf8d2c430d44340a7b6"
+    }
+  ],
+  "ledger_event_count": 12,
+  "ledger_path": "generated_search/EXPERIMENT_TELEMETRY_BOOTSTRAP_R6.jsonl",
+  "model_version": "LAB_EXPERIMENT_BOOTSTRAP_R6_V1",
+  "nonclaims": [
+    "coverage uncertainty is finite executable-suite case coverage, not scientific uncertainty",
+    "structural scientific questions remain unquantified",
+    "bootstrap pilots are fixed non-adaptive schedules and do not use expected information gain",
+    "calibration is exact-shell and exact-test-signature only"
+  ],
+  "queue_audit": {
+    "foundry_component_test_surfaces": 145,
+    "model_version": "LAB_EXPERIMENT_BOOTSTRAP_R6_V1",
+    "not_pilotable_existing_suite_rows": 998,
+    "pilotable_existing_suite_rows": 2,
+    "pilotable_rows": [
+      {
+        "case_count": 6,
+        "consumer_id": "FOUNDRY:P136",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd",
+        "product_id": "V2P002",
+        "queue_index": 0,
+        "supplier_id": "LCB-K048"
+      },
+      {
+        "case_count": 6,
+        "consumer_id": "FOUNDRY:P031",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d",
+        "product_id": "V2P001",
+        "queue_index": 4,
+        "supplier_id": "LCB-K003"
+      }
+    ],
+    "policy": "Completed composition suites can run fixed pilots now. Component-only suites are preserved as adapter/harness targets and are not counted as composition evidence.",
+    "queue_rows": 1000,
+    "status_counts": {
+      "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 124,
+      "FIXED_PILOT_SCHEDULE_AVAILABLE": 2,
+      "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+      "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 717
+    }
+  },
+  "search_to_foundry_bootstrap_opportunities": [
+    {
+      "case_count": 6,
+      "consumer_id": "FOUNDRY:P136",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd",
+      "product_id": "V2P002",
+      "status": "FIXED_NONADAPTIVE_PILOT_AVAILABLE_NUMERIC_ROUTING_STILL_UNKNOWN",
+      "supplier_id": "LCB-K048"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "mechanism_removing_comparator": "same CAPL shell with fixed base turnover independent of BMDT tipping distance",
+  "evidence_boundary": "synthetic regime-shift mechanism shell; BMDT-to-turnover mapping is declared, not empirically calibrated",
+  "result": {
+    "tipping_distance": 0.16000000000000003,
+    "turnover_factor": 0.1882352941176471,
+    "effective_turnover": 0.1505882352941177,
+    "base_turnover": 0.8,
+    "candidate_validation_objective": -0.0002731326367227712,
+    "control_validation_objective": 0.0023375961358405193,
+    "gain_vs_removed_mechanism": 0.0026107287725632903,
+    "candidate_average_turnover": 0.14432701601099018,
+    "control_average_turnover": 0.6387499670217647,
+    "candidate_status": "CONSTRAINT_CERTIFIED_POLICY_LEARNED",
+    "control_status": "CONSTRAINT_CERTIFIED_POLICY_LEARNED",
+    "status": "BELIEF_MARGIN_CHANGED_POLICY_FEASIBLE_SET"
+  }
+}

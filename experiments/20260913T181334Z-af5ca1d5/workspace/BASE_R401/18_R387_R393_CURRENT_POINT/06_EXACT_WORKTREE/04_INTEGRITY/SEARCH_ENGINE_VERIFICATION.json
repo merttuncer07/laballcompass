@@ -1,0 +1,10 @@
+{
+  "date": "2026-08-26",
+  "implementation": "independent mechanism implementation; donor runtime code not imported",
+  "focused_tests_passed": 19,
+  "focused_tests_failed": 0,
+  "search_corpus_documents": 4310,
+  "benchmark_updates": 60,
+  "benchmark_top_k_mismatches": 0,
+  "benchmark_exact_score_computation_reduction_fraction": 0.9775854855273668
+}

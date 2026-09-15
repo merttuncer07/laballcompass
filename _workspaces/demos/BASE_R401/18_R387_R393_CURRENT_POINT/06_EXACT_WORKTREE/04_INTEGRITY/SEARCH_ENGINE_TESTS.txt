@@ -1,0 +1,24 @@
+test_comparator_loss_narrows_region_but_does_not_delete_capability (test_core_v2.CoreV2Tests.test_comparator_loss_narrows_region_but_does_not_delete_capability) ... ok
+test_implementation_failure_is_not_theory_death (test_core_v2.CoreV2Tests.test_implementation_failure_is_not_theory_death) ... ok
+test_incompatible_pair_is_not_forced (test_core_v2.CoreV2Tests.test_incompatible_pair_is_not_forced) ... ok
+test_product_value_and_production_readiness_are_separate (test_core_v2.CoreV2Tests.test_product_value_and_production_readiness_are_separate) ... ok
+test_strength_can_fill_weakness_without_novelty_gate (test_core_v2.CoreV2Tests.test_strength_can_fill_weakness_without_novelty_gate) ... ok
+test_curated_evlt_route_is_in_queue (test_core_v2_foundry_integration.FoundryIntegrationTests.test_curated_evlt_route_is_in_queue) ... ok
+test_foundry_evidence_tiers_remain_distinct (test_core_v2_foundry_integration.FoundryIntegrationTests.test_foundry_evidence_tiers_remain_distinct) ... ok
+test_mfqa_routes_by_decision_value_and_correlation (test_core_v2_foundry_integration.FoundryIntegrationTests.test_mfqa_routes_by_decision_value_and_correlation) ... ok
+test_sava_removes_shared_capacity_double_count (test_core_v2_foundry_integration.FoundryIntegrationTests.test_sava_removes_shared_capacity_double_count) ... ok
+test_unified_registry_has_all_three_families (test_core_v2_foundry_integration.FoundryIntegrationTests.test_unified_registry_has_all_three_families) ... ok
+test_cumulative_updates_never_diverge (test_lab_search_engine.CertifiedSearchTests.test_cumulative_updates_never_diverge) ... ok
+test_full_matches_naive (test_lab_search_engine.CertifiedSearchTests.test_full_matches_naive) ... ok
+test_random_differential_against_naive (test_lab_search_engine.CertifiedSearchTests.test_random_differential_against_naive) ... ok
+test_relevant_small_change_is_certified_or_selective_and_exact (test_lab_search_engine.CertifiedSearchTests.test_relevant_small_change_is_certified_or_selective_and_exact) ... ok
+test_strong_query_shift_changes_frontier_correctly (test_lab_search_engine.CertifiedSearchTests.test_strong_query_shift_changes_frontier_correctly) ... ok
+test_top_k_change_fails_closed_to_full_search (test_lab_search_engine.CertifiedSearchTests.test_top_k_change_fails_closed_to_full_search) ... ok
+test_unrelated_feature_reuses_everything (test_lab_search_engine.CertifiedSearchTests.test_unrelated_feature_reuses_everything) ... ok
+test_core_entrypoint_returns_exact_top_k (test_search_corpus_integration.SearchCorpusIntegrationTests.test_core_entrypoint_returns_exact_top_k) ... ok
+test_corpus_contains_capabilities_and_primitives (test_search_corpus_integration.SearchCorpusIntegrationTests.test_corpus_contains_capabilities_and_primitives) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.236s
+
+OK

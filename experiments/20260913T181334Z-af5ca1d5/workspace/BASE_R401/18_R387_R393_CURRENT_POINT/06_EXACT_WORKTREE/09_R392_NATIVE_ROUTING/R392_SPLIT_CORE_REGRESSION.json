@@ -1,0 +1,19 @@
+{
+  "failed": [],
+  "parts": [
+    {
+      "name": "A",
+      "status": 0,
+      "tests": 80
+    },
+    {
+      "name": "B",
+      "status": 0,
+      "tests": 62
+    }
+  ],
+  "release": "R392",
+  "run_count": 16,
+  "status": "PASS",
+  "tests_counted": 142
+}

@@ -1,0 +1,30 @@
+{
+  "rows": 4000,
+  "feature_count_before": 12,
+  "feature_count_after": 3,
+  "certificate": {
+    "deleted_features": [
+      "detail_01",
+      "detail_02",
+      "detail_03",
+      "detail_04",
+      "detail_05",
+      "detail_06",
+      "detail_07",
+      "detail_08",
+      "detail_09"
+    ],
+    "retained_features": [
+      "core_demand",
+      "core_capacity",
+      "core_delay"
+    ],
+    "removable_cost_saved": 28.0,
+    "score_error_bound": 0.15650000000000003,
+    "protected_margin": 2.9999999999999987,
+    "remaining_margin_certificate": 2.843499999999999,
+    "action_invariant": true,
+    "actual_max_score_change_on_evaluation": 0.10226333730364434,
+    "observed_action_changes": 0
+  }
+}

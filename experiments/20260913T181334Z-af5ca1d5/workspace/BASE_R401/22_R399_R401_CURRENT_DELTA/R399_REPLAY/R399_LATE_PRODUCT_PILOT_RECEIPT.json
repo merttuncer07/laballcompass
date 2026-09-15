@@ -1,0 +1,58 @@
+{
+  "event_count": 69,
+  "evidence_boundary": "MECHANICS_EXACT_SHELL_NOT_EMPIRICAL_LEARNING",
+  "products": [
+    {
+      "complete": 15,
+      "consumer_id": "LCB-K090",
+      "events": 15,
+      "failures": [],
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P057::b6e1778b213dc2bf",
+      "product_id": "V2P057",
+      "supplier_id": "FOUNDRY:P017",
+      "test_signature": "cc44495a82593666ad97723d603beea5591e493137b8a24470b76025df449703"
+    },
+    {
+      "complete": 13,
+      "consumer_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "events": 13,
+      "failures": [],
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P054::3a95199592fd8c50",
+      "product_id": "V2P054",
+      "supplier_id": "PARENT:IM406_IM037_ACRA",
+      "test_signature": "6fed1d03de95c763a2ffb1d00c03d667f1c6c42dfab358e87e75abd229501ebf"
+    },
+    {
+      "complete": 14,
+      "consumer_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "events": 14,
+      "failures": [],
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P056::e1c382550fcd473c",
+      "product_id": "V2P056",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_signature": "df2d9bbfc07021658ecb8fea91f0fca0bb28c52dacd19ee640aa6a689cdae910"
+    },
+    {
+      "complete": 14,
+      "consumer_id": "PARENT:R045_TARGET_MEMORY_ATRC",
+      "events": 14,
+      "failures": [],
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P058::cfb1abffb47cadbe",
+      "product_id": "V2P058",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_signature": "67c45f42f7a2c5a3072db453b8811483c9a94a3c602a98a9662762a6b3ad0ec0"
+    },
+    {
+      "complete": 13,
+      "consumer_id": "PARENT:IM359_IM014_AICC",
+      "events": 13,
+      "failures": [],
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P055::6df163e6c18a3fae",
+      "product_id": "V2P055",
+      "supplier_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "test_signature": "8a02adc61ac26e34619b46631a357d3e83643836dbb199abbeb8df9b4f35dd68"
+    }
+  ],
+  "schema_version": 1,
+  "status": "PASS"
+}

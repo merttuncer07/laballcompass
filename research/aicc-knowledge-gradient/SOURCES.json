@@ -1,0 +1,27 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/INFORMSJoC/1080.0314/main/ckg/AffineBreakpoints.m",
+    "file": "AffineBreakpoints.m",
+    "sha256": "46f69f156fa7dd2be004ac6a09b947dd27c1f1d70396e71180ba2a9e159c74a4"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/INFORMSJoC/1080.0314/main/ckg/AffineBreakpointsPrep.m",
+    "file": "AffineBreakpointsPrep.m",
+    "sha256": "07b1f2819a0f6fb0fadc5315e3b6d210a2560443a0d5e605cf7abde82566058c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/INFORMSJoC/1080.0314/main/ckg/LogEmaxAffine.m",
+    "file": "LogEmaxAffine.m",
+    "sha256": "0026d0b40be2fd3e78a450676f3bab8920016848436394d6527bb5b75c60ee91"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/INFORMSJoC/1080.0314/main/belief/BayesUpdateNaive.m",
+    "file": "BayesUpdateNaive.m",
+    "sha256": "6037bba43dfae9663044c9d56a667dc1305d978fbb198e84b565c2417bbdf348"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/INFORMSJoC/1080.0314/main/LICENSE.md",
+    "file": "LICENSE.md",
+    "sha256": "05dd3a6475ab1f1a83afcb45b18a06ef274b6adf3e21156354d418c8bc65e4b0"
+  }
+]

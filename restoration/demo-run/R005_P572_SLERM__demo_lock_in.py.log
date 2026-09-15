@@ -1,0 +1,101 @@
+{
+  "windows": [
+    {
+      "start_time": 0.0,
+      "end_time": 20.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.0,
+      "relative_detuning": 0.3333333333333333,
+      "phase_locking_value": 0.14299999999999996,
+      "response_rms": 0.08485281374238571,
+      "mean_energy_transfer_rate": 6.996167131312348e-08,
+      "normalized_energy_transfer": 1.8570162471109018e-07,
+      "locked": false,
+      "dangerous": false
+    },
+    {
+      "start_time": 10.0,
+      "end_time": 30.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.0,
+      "relative_detuning": 0.3333333333333333,
+      "phase_locking_value": 0.14299999999999996,
+      "response_rms": 0.08485281374238571,
+      "mean_energy_transfer_rate": 6.996167130779441e-08,
+      "normalized_energy_transfer": 1.8570162469694505e-07,
+      "locked": false,
+      "dangerous": false
+    },
+    {
+      "start_time": 20.0,
+      "end_time": 40.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.0,
+      "relative_detuning": 0.3333333333333333,
+      "phase_locking_value": 0.14300000000000002,
+      "response_rms": 0.0848528137423857,
+      "mean_energy_transfer_rate": 6.996167127226727e-08,
+      "normalized_energy_transfer": 1.8570162460264408e-07,
+      "locked": false,
+      "dangerous": false
+    },
+    {
+      "start_time": 30.0,
+      "end_time": 50.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.5,
+      "relative_detuning": 0.0,
+      "phase_locking_value": 0.5386931021221365,
+      "response_rms": 0.6527633568147037,
+      "mean_energy_transfer_rate": 3.061605730194041,
+      "normalized_energy_transfer": 0.6705439296987553,
+      "locked": false,
+      "dangerous": false
+    },
+    {
+      "start_time": 40.0,
+      "end_time": 60.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.5,
+      "relative_detuning": 0.0,
+      "phase_locking_value": 0.9999999999991721,
+      "response_rms": 0.9192388155425117,
+      "mean_energy_transfer_rate": 6.117067392862904,
+      "normalized_energy_transfer": 0.9999977859320694,
+      "locked": true,
+      "dangerous": true
+    },
+    {
+      "start_time": 50.0,
+      "end_time": 70.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.5,
+      "relative_detuning": 0.0,
+      "phase_locking_value": 0.9999999999991721,
+      "response_rms": 0.9192388155425117,
+      "mean_energy_transfer_rate": 6.117067392862904,
+      "normalized_energy_transfer": 0.9999977859320694,
+      "locked": true,
+      "dangerous": true
+    },
+    {
+      "start_time": 60.0,
+      "end_time": 80.0,
+      "forcing_frequency": 1.5,
+      "response_frequency": 1.5,
+      "relative_detuning": 0.0,
+      "phase_locking_value": 0.9999999999991721,
+      "response_rms": 0.919238815542512,
+      "mean_energy_transfer_rate": 6.117067392862904,
+      "normalized_energy_transfer": 0.9999977859320693,
+      "locked": true,
+      "dangerous": true
+    }
+  ],
+  "locked_window_fraction": 0.42857142857142855,
+  "dangerous_window_fraction": 0.42857142857142855,
+  "maximum_consecutive_dangerous_duration": 30.0,
+  "peak_response_rms": 0.919238815542512,
+  "peak_mean_energy_transfer_rate": 6.117067392862904,
+  "status": "ENERGY_TRANSFERRING_LOCK_IN_DETECTED"
+}

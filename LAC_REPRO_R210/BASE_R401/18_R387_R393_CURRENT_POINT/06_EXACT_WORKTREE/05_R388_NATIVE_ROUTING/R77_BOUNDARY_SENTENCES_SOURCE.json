@@ -1,0 +1,1056 @@
+[
+  {
+    "product_dir": "P001_DREW",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Fresh-final regret reduction after validation correction: **99.8976%**."
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "but explicitly does not claim Markov/predictive closure."
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "`same action now` **does not imply** `same state for future decisions`."
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "CAPL adapter: zero sum/bound/turnover violations on validation."
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "context representation and improves the declared validation objective in the fixed construction."
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Unseen validation contexts are an explicit interface error for CAPL when complete coverage is"
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "DCPS closure is empirical on the PSCT observed context shell."
+  },
+  {
+    "product_dir": "P002_DCPS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "A real-data pilot should therefore report context coverage and unresolved rates alongside"
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "train / covariance-validation / fresh = 35 / 150 / 5000 observations;"
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Adversarial support-misspecification benchmark:"
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "correct support fresh variance = 0.0001178985;"
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "wrong diagonal support fresh variance = 0.0001529528;"
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "wrong support is **25.70% worse** than raw ENPC and **29.73% worse** than correct support."
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Interpretation: support-aware regularization can improve a constrained downstream decision, but the support assumption remains an external scientific/modeling claim."
+  },
+  {
+    "product_dir": "P003_SANP",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Numerical compliance is not evidence that the support graph is true."
+  },
+  {
+    "product_dir": "P004_BAMI",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Evidence label: **synthetic fixed-parameter benchmark; not real-world mortgage validation**."
+  },
+  {
+    "product_dir": "P005_CARF",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Evidence label: **synthetic benchmark; certificate-scope demonstration, not real-world validation**."
+  },
+  {
+    "product_dir": "P006_VPRL",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "liquidity coverage fraction = **80%**."
+  },
+  {
+    "product_dir": "P006_VPRL",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Evidence label: **synthetic accounting benchmark; no real-world credit calibration**."
+  },
+  {
+    "product_dir": "P007_VCPA",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Evidence label: **synthetic accounting/capital-market benchmark, not real-world financing validation**."
+  },
+  {
+    "product_dir": "P016_CATR",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "The chosen signal and threshold are then frozen for a fresh sequential segment; CWC may continue to update only from outcomes already observed."
+  },
+  {
+    "product_dir": "P016_CATR",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "The benchmark is prequential, not a frozen-feature i.i.d."
+  },
+  {
+    "product_dir": "P016_CATR",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "CATR does not claim that an upper endpoint is universally superior; DTTC is explicitly allowed to reject it."
+  },
+  {
+    "product_dir": "P017_RECS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL",
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "REL marginals are conditional on its enumerated non-empty culprit-set hypothesis space."
+  },
+  {
+    "product_dir": "P018_DPCG",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "It does not infer sensitivity, validate the neighboring-dataset definition, or turn a non-DP mechanism into a DP one."
+  },
+  {
+    "product_dir": "P019_DATC",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "The selected channel and threshold are frozen before evaluation on a fresh sequence."
+  },
+  {
+    "product_dir": "P019_DATC",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "DATC does not infer the protected failure event or physical fatigue law."
+  },
+  {
+    "product_dir": "P019_DATC",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Synthetic benchmark results are not material-life validation."
+  },
+  {
+    "product_dir": "P025_IDRE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "DFDPE derivative-free persistence identification -> DTRM finite-horizon decision envelope."
+  },
+  {
+    "product_dir": "P025_IDRE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Identification uncertainty can therefore revoke a decision certificate instead of disappearing between system identification and downstream robustness analysis."
+  },
+  {
+    "product_dir": "P026_DBTE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "The tipping point is conditional on the declared network, horizon, grid, active stock, edge capacities, lead times and conversion yields."
+  },
+  {
+    "product_dir": "P028_REIS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "REL discrepancy localization -> BICC empirical downstream replacement impact -> CSID safeguard portfolio."
+  },
+  {
+    "product_dir": "P028_REIS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Safeguard budget is allocated using posterior probability multiplied by an explicitly aligned empirical consequence scale."
+  },
+  {
+    "product_dir": "P028_REIS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "empirical BICC consequence: A `1.7464`, B `132.2120`, C `0.6021`"
+  },
+  {
+    "product_dir": "P028_REIS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL",
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "REL probabilities are conditional on its enumerated non-empty culprit-set hypothesis space."
+  },
+  {
+    "product_dir": "P028_REIS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "BICC replacement effects are empirical sensitivity measurements of the supplied scalar function, not causal effects."
+  },
+  {
+    "product_dir": "P029_RATR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "RATR preserves HMRM's current joint-alert classification, not the complete modal spectrum, every recovery time, or arbitrary future trajectories."
+  },
+  {
+    "product_dir": "P030_FPTE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "MFPA baseline multi-route architecture design -> TDSX frozen-architecture retention tipping surface."
+  },
+  {
+    "product_dir": "P030_FPTE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "It then freezes that allocation and asks how much declared mechanism/scenario retention can deteriorate before worst-case failure energy crosses the requirement."
+  },
+  {
+    "product_dir": "P030_FPTE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Retentions, activation thresholds, mass discretization and dissipation laws require physical calibration before engineering use."
+  },
+  {
+    "product_dir": "P030_FPTE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "The surface measures robustness of the built/frozen architecture, not redesign flexibility."
+  },
+  {
+    "product_dir": "P031_EVLT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL",
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "REL probabilities remain conditional on its enumerated non-empty culprit-set hypothesis space."
+  },
+  {
+    "product_dir": "P031_EVLT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Audit outcomes are modeled as: clean scenario -> successfully verified through the declared verifier; culprit scenario -> remains unverified."
+  },
+  {
+    "product_dir": "P032_SGOT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "SGOT composes OTE with OWS as a support gate rather than a reweighting repair."
+  },
+  {
+    "product_dir": "P032_SGOT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "SGOT withholds deployment because effective support is only **3.96/100**, one observation carries **50%** of normalized inverse-propensity mass, and minimum two-sided propensity is **0.01**."
+  },
+  {
+    "product_dir": "P032_SGOT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "A separate all-`p=0.99` test has uniform realized weights, so OWS relative ESS alone reports usable support."
+  },
+  {
+    "product_dir": "P032_SGOT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "The support gate does not prove causal identification, correct nuisance models, SUTVA, or no unmeasured confounding."
+  },
+  {
+    "product_dir": "P032_SGOT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "It only prevents OTE orthogonality from being misread as a cure for missing treatment support."
+  },
+  {
+    "product_dir": "P033_CATF",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The normalization scales, consequence weights, and sample cost are declared inputs."
+  },
+  {
+    "product_dir": "P033_CATF",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "The reported gain is conditional on those declared operational weights."
+  },
+  {
+    "product_dir": "P034_UGIM",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "NO_INFERENCE"
+    ],
+    "text": "The local-property-to-company mapping is an operator input; UGIM does not infer it from company names, voting control, or geography."
+  },
+  {
+    "product_dir": "P034_UGIM",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "If the supplied investor set does not span all ultimate owners, the residual remains unassigned."
+  },
+  {
+    "product_dir": "P037_MCST",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The declared grid spans `-2.4` to `-1.6`."
+  },
+  {
+    "product_dir": "P037_MCST",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Robustness is conditional on the supplied payoff builder and finite assumption grid."
+  },
+  {
+    "product_dir": "P037_MCST",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "MCST does not extrapolate a global theorem beyond that surface."
+  },
+  {
+    "product_dir": "P038_LIDA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The RMS baseline/scale and endurance normalized-energy-transfer level are explicit operator inputs."
+  },
+  {
+    "product_dir": "P040_BAPC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "BAPC does not infer sender welfare from information dominance."
+  },
+  {
+    "product_dir": "P042_HPMD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "Akaike weights are used as a declared decision-weighting convention; HPMD does not claim they are literal Bayesian posterior probabilities."
+  },
+  {
+    "product_dir": "P042_HPMD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Capacity loss parameters are operator inputs."
+  },
+  {
+    "product_dir": "P043_DABR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Validation decision regret fell from **0.0227174** to **0.0000970** (about **99.57% lower**) while the BRED theoretical error bound tightened from **0.47920** to **0.03390**."
+  },
+  {
+    "product_dir": "P043_DABR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE",
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "The full model is the protected reference for this model-reduction audit; DABR does not prove that the full model is physically true."
+  },
+  {
+    "product_dir": "P046_DTRC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "On untouched validation data q80 regret is **35.6071** versus **37.3856** for mean, despite mean having lower prediction RMSE (**54.9297** vs **57.4415**)."
+  },
+  {
+    "product_dir": "P057_FIAC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "Boundary: suspect-source and flow semantics are operator-declared; FIAC does not prove a source is malicious and never trades protected-path isolation for information value."
+  },
+  {
+    "product_dir": "P060_PFVT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Changing repayment alone does not solve the protection constraint on the declared grid."
+  },
+  {
+    "product_dir": "P062_WDTG",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Measures where a downstream decision first flips along a declared Wasserstein displacement path and reports W2 distance from the source."
+  },
+  {
+    "product_dir": "P065_SWTE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Stress-tests positive importance weights along a declared concentration path and finds the nearest ESS support failure."
+  },
+  {
+    "product_dir": "P066_PDRE",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Computes exploration value internally and privately releases only the selected measurement arm using the exponential mechanism and an externally supplied sensitivity bound."
+  },
+  {
+    "product_dir": "P068_RECT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Turns REL marginal culprit posterior and raw discrepancy into competing trigger signals; DTTC selects and freezes the lower-cost escalation rule before validation."
+  },
+  {
+    "product_dir": "P075_DLAG",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "DLAG adds a declared utility matrix and regret tolerance; it does not claim a partition is decision-safe for unmodeled actions or utilities."
+  },
+  {
+    "product_dir": "P076_MCFS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "The tipping point is conditional on the declared offer stack, fixed offer prices/quantities, scarcity-price rule, and finite demand grid."
+  },
+  {
+    "product_dir": "P077_DGMC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "DGMC does not infer strategic availability, forced outages, or offer-price changes unless explicitly represented upstream."
+  },
+  {
+    "product_dir": "P078_IARA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Global concentration claims still require valid caller-supplied bounds; IARA uses the empirical influence audit for allocation."
+  },
+  {
+    "product_dir": "P079_CBIA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "Uses a frozen calibrated uncertainty interval as an action-boundary gate."
+  },
+  {
+    "product_dir": "P079_CBIA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "The interval is a calibration object, not a posterior probability of action change."
+  },
+  {
+    "product_dir": "P080_RAMR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Mode identity and consequence projection remain conditional on the supplied transition and consequence model."
+  },
+  {
+    "product_dir": "P081_AHSA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "It does not guarantee future market performance or model transaction costs beyond the supplied DHCC loss contract."
+  },
+  {
+    "product_dir": "P082_CDTS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Blackwell dominance is exact only on the declared binary experiment family; the tipping surface does not extrapolate beyond the supplied channel grid."
+  },
+  {
+    "product_dir": "P084_CAVT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "This is not a global nonlinear safety certificate."
+  },
+  {
+    "product_dir": "P086_FPSD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "Failure consequence is the drop in worst-case dissipation energy under a fixed optimized architecture."
+  },
+  {
+    "product_dir": "P086_FPSD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "CALIBRATION_REQUIRED",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Safeguard probabilities/coverage are declared inputs and require empirical calibration."
+  },
+  {
+    "product_dir": "P087_EVTS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The surface uses DRE Gaussian-arm assumptions and the declared cost/horizon grid."
+  },
+  {
+    "product_dir": "P088_LFTS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The perturbation is a declared stochastic-matrix path."
+  },
+  {
+    "product_dir": "P088_LFTS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Exceeding the error budget means the chosen aggregation certificate fails on that path, not that all possible aggregations fail."
+  },
+  {
+    "product_dir": "P090_SWDL",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "NO_INFERENCE",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Target importance weights must be externally justified; usable ESS does not prove transportability."
+  },
+  {
+    "product_dir": "P091_DCBT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "The result is conditional on the supplied beliefs, utilities, and declared tolerance grid."
+  },
+  {
+    "product_dir": "P092_PDAT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "At margin=1 and sensitivity=1, baseline epsilon 0.1 gives correctness 0.5476; the declared 0.90 target first clears on-grid at epsilon 2.0 (Laplace scale 0.50)."
+  },
+  {
+    "product_dir": "P093_BMDT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Finds the nearest point on a declared belief-approximation path where a small metric move changes the downstream action."
+  },
+  {
+    "product_dir": "P093_BMDT",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Path-local result; it is not a global adversarial belief radius."
+  },
+  {
+    "product_dir": "P094_OCGS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Failure probabilities and safeguard coverages are declared inputs, not estimated by OWNM."
+  },
+  {
+    "product_dir": "P095_GSSA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Separates geometric Wasserstein shift from importance-weight support fragility."
+  },
+  {
+    "product_dir": "P095_GSSA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Density-ratio audit requires common discrete support and positive source mass in every represented target bin."
+  },
+  {
+    "product_dir": "P100_WICA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Separates statistical support concentration from downstream consequence by applying BICC replacement influence to the exact weighted target audited by OWS."
+  },
+  {
+    "product_dir": "P100_WICA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "BICC global bounds remain assumption-conditional and observed replacement effects are not proof of worst-case global influence."
+  },
+  {
+    "product_dir": "P101_PRSW",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Reweights PRIU scenarios to a declared target law only after OWS audits importance-weight support, then compares protected-financing conclusions under source and target scenario distributions."
+  },
+  {
+    "product_dir": "P101_PRSW",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Fragile support blocks the target financing claim."
+  },
+  {
+    "product_dir": "P103_CFAI",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "LOCAL_NOT_GLOBAL",
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "The current benchmark uses empirical influence only because no global edge-flow bound is supplied."
+  },
+  {
+    "product_dir": "P104_SGPR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Product:** Support-Gated Private Release"
+  },
+  {
+    "product_dir": "P104_SGPR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Enforces statistical-support validity before spending privacy budget."
+  },
+  {
+    "product_dir": "P104_SGPR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "A fragile target reweighting is blocked before DTPR executes; usable support can release only the declared private action."
+  },
+  {
+    "product_dir": "P104_SGPR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "Privacy does not certify statistical validity, and OWS does not certify the externally declared global sensitivity of the DTPR score."
+  },
+  {
+    "product_dir": "P105_PRAS",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The utility-sensitivity bound is caller-supplied and must be valid under the neighboring-dataset definition."
+  },
+  {
+    "product_dir": "P115_PAAC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Derives the first funded-asset value on a declared grid that permits protected financing, then values appraisal channels only by their ability to resolve that financing boundary."
+  },
+  {
+    "product_dir": "P115_PAAC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "The threshold is grid-relative and uses the declared single-scenario appraisal adapter; measurement costs must be expressed in the same utility scale."
+  },
+  {
+    "product_dir": "P117_MFAC",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "The shortage threshold is grid-relative and conditional on fixed offer quantities/prices and the declared scarcity-price convention."
+  },
+  {
+    "product_dir": "P120_PCAR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Product:** Private Calibration Action Release"
+  },
+  {
+    "product_dir": "P120_PCAR",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Runs calibration-width control internally, counts coverage misses with sensitivity one, and releases only a private HOLD/WIDEN action rather than raw calibration data."
+  },
+  {
+    "product_dir": "P121_MSGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "NO_INFERENCE"
+    ],
+    "text": "Offer-outage probabilities and shortage unit cost are declared scenario inputs; this does not infer physical outage rates."
+  },
+  {
+    "product_dir": "P123_SCGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Product:** Support-Covariance Guard Designer"
+  },
+  {
+    "product_dir": "P123_SCGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Deletes each declared covariance-support edge, re-solves the minimum-variance portfolio, measures protected holdout-risk damage, and safeguards the most consequential support relation."
+  },
+  {
+    "product_dir": "P123_SCGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "The holdout covariance is treated as protected evaluation evidence; support-edge failure probabilities remain declared inputs."
+  },
+  {
+    "product_dir": "P124_HCGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Removes each hedge instrument, recalibrates the hedge, and converts the resulting validation decision-loss increase into safeguard consequence."
+  },
+  {
+    "product_dir": "P126_TRGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "DTRM indices are local to the declared linear shell, horizon, uncertainty radius, and decision gap; safeguard failure probabilities are declared inputs."
+  },
+  {
+    "product_dir": "P127_HPSG",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "DECLARED_EXTERNAL"
+    ],
+    "text": "Source degradation is a declared stress scenario, not an inferred real-world list failure probability."
+  },
+  {
+    "product_dir": "P129_LIGD",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "Counterfactual signal traces are declared failure scenarios; the product does not infer mitigation reliability from monitoring data."
+  },
+  {
+    "product_dir": "P132_CARA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Product:** Calibration-Aware Resolution Allocator"
+  },
+  {
+    "product_dir": "P132_CARA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Scarce measurement resolution is routed to streams with the largest calibrated coverage-deficit consequence."
+  },
+  {
+    "product_dir": "P132_CARA",
+    "source": "HISTORICAL_PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Calibration consequence uses the declared target, window, and interval-score scaling; it is not a universal loss function."
+  },
+  {
+    "product_dir": "P134_REIG",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "REL assigns C marginal suspect mass **0.972495** within its enumerated culprit hypothesis space; A and B each receive **0.026488**."
+  },
+  {
+    "product_dir": "P134_REIG",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "LOCAL_NOT_GLOBAL"
+    ],
+    "text": "It is conditional on REL's declared one-or-more-culprit hypothesis space and consistency model."
+  },
+  {
+    "product_dir": "P137_MPHA",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "Claim boundary: this audits policy selection across declared streams; it does not prove either retention policy is universally optimal."
+  },
+  {
+    "product_dir": "P138_SPIA",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "FIXED_REFERENCE_OR_POLICY"
+    ],
+    "text": "For each fixed ISPO policy, one-hot target distributions recover the complete location-specific detection-time vector."
+  },
+  {
+    "product_dir": "P139_PAOS",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE"
+    ],
+    "text": "Claim boundary: the protected operator family must represent a real deployment distribution; the audit does not infer it automatically."
+  },
+  {
+    "product_dir": "P140_BOSA",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "OWS then asks whether the original cohort still has adequate effective support for the late survivor population."
+  },
+  {
+    "product_dir": "P140_BOSA",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Claim boundary: this is a support/selection audit, not an estimator of causal mortgage effects."
+  },
+  {
+    "product_dir": "P142_BMSA",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "CALIBRATION_REQUIRED"
+    ],
+    "text": "Claim boundary: the benchmark demonstrates temporal model-selection risk; parameter choices are synthetic and not a mortgage-market calibration."
+  },
+  {
+    "product_dir": "P144_DPAI",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "AICC acquires an additional identification experiment only when expected action improvement exceeds cost."
+  },
+  {
+    "product_dir": "P144_DPAI",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Benchmark: noisy/short identification gives persistence 0.02027 with SE 0.08260; the declared experiment has net VOI +0.03414 and is selected."
+  },
+  {
+    "product_dir": "P144_DPAI",
+    "source": "PRODUCT_RESULT.md",
+    "categories": [
+      "NO_INFERENCE",
+      "SUPPORT_IDENTIFICATION"
+    ],
+    "text": "Claim boundary: the identification experiment's measurement-noise variance is declared; DPAI does not infer experiment sensitivity from DFDPE."
+  }
+]

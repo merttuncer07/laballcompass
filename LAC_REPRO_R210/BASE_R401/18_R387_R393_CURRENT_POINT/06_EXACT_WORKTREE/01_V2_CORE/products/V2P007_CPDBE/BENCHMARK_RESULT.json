@@ -1,0 +1,62 @@
+{
+  "model_version": "V2P007_CPDBE_DEV_V1",
+  "tipping": {
+    "baseline_deployable": 40.0,
+    "target": 70,
+    "tipping_edge": "b",
+    "tipping_capacity": 80.0,
+    "tipping_deployable": 80.0,
+    "status": "DEPLOYABLE_TARGET_TIPPING_POINT_FOUND"
+  },
+  "edge_pressure": [
+    {
+      "edge_name": "s0",
+      "incoming_amount": 100.0,
+      "capacity": 200.0,
+      "minimum_cap_correction": 0.0,
+      "output_after_yield": 100.0
+    },
+    {
+      "edge_name": "s1",
+      "incoming_amount": 100.0,
+      "capacity": 150.0,
+      "minimum_cap_correction": 0.0,
+      "output_after_yield": 100.0
+    },
+    {
+      "edge_name": "b",
+      "incoming_amount": 100.0,
+      "capacity": 40.0,
+      "minimum_cap_correction": 60.0,
+      "output_after_yield": 40.0
+    },
+    {
+      "edge_name": "s2",
+      "incoming_amount": 40.0,
+      "capacity": 120.0,
+      "minimum_cap_correction": 0.0,
+      "output_after_yield": 40.0
+    },
+    {
+      "edge_name": "s3",
+      "incoming_amount": 40.0,
+      "capacity": 200.0,
+      "minimum_cap_correction": 0.0,
+      "output_after_yield": 40.0
+    }
+  ],
+  "scanned_edges": [
+    "b"
+  ],
+  "pruned_edges": [
+    "s0",
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "full_grid_points": 20,
+  "scanned_grid_points": 4,
+  "pruning_fraction": 0.8,
+  "certificate_applicable": true,
+  "status": "PRESSURE_ZERO_EDGES_PRUNED_EXACTLY_FOR_SINGLE_EDGE_CAPACITY_INCREASE_SHELL"
+}

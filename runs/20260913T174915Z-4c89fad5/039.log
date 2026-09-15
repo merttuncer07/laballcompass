@@ -1,0 +1,11 @@
+test_comparator_diff (test_wtdre.T.test_comparator_diff) ... ok
+test_leverage (test_wtdre.T.test_leverage) ... ok
+test_nearest (test_wtdre.T.test_nearest) ... ok
+test_negative_radius (test_wtdre.T.test_negative_radius) ... ok
+test_radius (test_wtdre.T.test_radius) ... ok
+test_zero_leverage (test_wtdre.T.test_zero_leverage) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

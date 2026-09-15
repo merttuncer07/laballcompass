@@ -1,0 +1,268 @@
+{
+  "validation": "FROZEN_CHRONOLOGICAL_WINDOW_LMDE_DTEC_V1",
+  "generated_at_utc": "2026-08-30T23:39:18.724252+00:00",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "windows": [
+    {
+      "symbol": "BTCUSDT",
+      "window": 1,
+      "source_rows": [
+        0,
+        3500
+      ],
+      "start_utc": "2025-09-10T20:00:00+00:00",
+      "end_utc": "2025-12-03T02:00:00+00:00",
+      "net_return": -0.004805810126522814,
+      "maximum_drawdown": 0.07480502250886722,
+      "buy_hold_return": -0.1877435900461133,
+      "dtec_removed_net_return": -0.11853819807822796,
+      "dtec_contribution": 0.11373238795170515,
+      "position_changes": 39
+    },
+    {
+      "symbol": "BTCUSDT",
+      "window": 2,
+      "source_rows": [
+        2000,
+        5500
+      ],
+      "start_utc": "2025-12-03T04:00:00+00:00",
+      "end_utc": "2026-02-24T10:00:00+00:00",
+      "net_return": -0.1186951683011459,
+      "maximum_drawdown": 0.12552845957390224,
+      "buy_hold_return": -0.31716782589798376,
+      "dtec_removed_net_return": -0.18037828967557656,
+      "dtec_contribution": 0.06168312137443066,
+      "position_changes": 56
+    },
+    {
+      "symbol": "BTCUSDT",
+      "window": 3,
+      "source_rows": [
+        4000,
+        7500
+      ],
+      "start_utc": "2026-02-24T12:00:00+00:00",
+      "end_utc": "2026-05-18T18:00:00+00:00",
+      "net_return": -0.013568797762362639,
+      "maximum_drawdown": 0.0608526870831948,
+      "buy_hold_return": 0.2131881403404332,
+      "dtec_removed_net_return": -0.05639412913068853,
+      "dtec_contribution": 0.04282533136832589,
+      "position_changes": 50
+    },
+    {
+      "symbol": "BTCUSDT",
+      "window": 4,
+      "source_rows": [
+        6000,
+        9500
+      ],
+      "start_utc": "2026-05-18T20:00:00+00:00",
+      "end_utc": "2026-08-10T02:00:00+00:00",
+      "net_return": -0.07282017970719257,
+      "maximum_drawdown": 0.09707103740128886,
+      "buy_hold_return": -0.15258423460898507,
+      "dtec_removed_net_return": -0.18068097152483176,
+      "dtec_contribution": 0.10786079181763919,
+      "position_changes": 33
+    },
+    {
+      "symbol": "BTCUSDT",
+      "window": 5,
+      "source_rows": [
+        6500,
+        10000
+      ],
+      "start_utc": "2026-06-08T16:00:00+00:00",
+      "end_utc": "2026-08-30T22:00:00+00:00",
+      "net_return": 0.15230891658082246,
+      "maximum_drawdown": 0.06850957405498304,
+      "buy_hold_return": 0.23329896221811608,
+      "dtec_removed_net_return": -0.10685724168874144,
+      "dtec_contribution": 0.2591661582695639,
+      "position_changes": 39
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 1,
+      "source_rows": [
+        0,
+        3500
+      ],
+      "start_utc": "2025-09-10T20:00:00+00:00",
+      "end_utc": "2025-12-03T02:00:00+00:00",
+      "net_return": -0.07367665631967113,
+      "maximum_drawdown": 0.11344980424976814,
+      "buy_hold_return": -0.30232654978011475,
+      "dtec_removed_net_return": -0.09512878732025509,
+      "dtec_contribution": 0.021452131000583963,
+      "position_changes": 65
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 2,
+      "source_rows": [
+        2000,
+        5500
+      ],
+      "start_utc": "2025-12-03T04:00:00+00:00",
+      "end_utc": "2026-02-24T10:00:00+00:00",
+      "net_return": -0.04424182588401726,
+      "maximum_drawdown": 0.07679044290697568,
+      "buy_hold_return": -0.3971274342239848,
+      "dtec_removed_net_return": -0.09241100679442693,
+      "dtec_contribution": 0.04816918091040967,
+      "position_changes": 54
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 3,
+      "source_rows": [
+        4000,
+        7500
+      ],
+      "start_utc": "2026-02-24T12:00:00+00:00",
+      "end_utc": "2026-05-18T18:00:00+00:00",
+      "net_return": 0.03518588231352804,
+      "maximum_drawdown": 0.04997579371674965,
+      "buy_hold_return": 0.15407691254960998,
+      "dtec_removed_net_return": -0.06242199093938605,
+      "dtec_contribution": 0.09760787325291409,
+      "position_changes": 60
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 4,
+      "source_rows": [
+        6000,
+        9500
+      ],
+      "start_utc": "2026-05-18T20:00:00+00:00",
+      "end_utc": "2026-08-10T02:00:00+00:00",
+      "net_return": 0.02632231525251094,
+      "maximum_drawdown": 0.050240953397432175,
+      "buy_hold_return": -0.09403925517747658,
+      "dtec_removed_net_return": -0.1264357047095197,
+      "dtec_contribution": 0.15275801996203064,
+      "position_changes": 39
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 5,
+      "source_rows": [
+        6500,
+        10000
+      ],
+      "start_utc": "2026-06-08T16:00:00+00:00",
+      "end_utc": "2026-08-30T22:00:00+00:00",
+      "net_return": 0.2711095581263565,
+      "maximum_drawdown": 0.0634479287403773,
+      "buy_hold_return": 0.46700441596367925,
+      "dtec_removed_net_return": -0.08666070775700851,
+      "dtec_contribution": 0.357770265883365,
+      "position_changes": 33
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 1,
+      "source_rows": [
+        0,
+        3500
+      ],
+      "start_utc": "2025-09-10T20:00:00+00:00",
+      "end_utc": "2025-12-03T02:00:00+00:00",
+      "net_return": -0.08312124644359586,
+      "maximum_drawdown": 0.1491116851312636,
+      "buy_hold_return": -0.3722822402025041,
+      "dtec_removed_net_return": -0.1109008242959163,
+      "dtec_contribution": 0.027779577852320436,
+      "position_changes": 63
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 2,
+      "source_rows": [
+        2000,
+        5500
+      ],
+      "start_utc": "2025-12-03T04:00:00+00:00",
+      "end_utc": "2026-02-24T10:00:00+00:00",
+      "net_return": -0.08536325253769628,
+      "maximum_drawdown": 0.10110986738736794,
+      "buy_hold_return": -0.4537875008907575,
+      "dtec_removed_net_return": -0.14745874827155936,
+      "dtec_contribution": 0.06209549573386308,
+      "position_changes": 64
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 3,
+      "source_rows": [
+        4000,
+        7500
+      ],
+      "start_utc": "2026-02-24T12:00:00+00:00",
+      "end_utc": "2026-05-18T18:00:00+00:00",
+      "net_return": -0.02702311345065489,
+      "maximum_drawdown": 0.0802511625319593,
+      "buy_hold_return": 0.09937483719718676,
+      "dtec_removed_net_return": -0.10554553651280119,
+      "dtec_contribution": 0.0785224230621463,
+      "position_changes": 62
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 4,
+      "source_rows": [
+        6000,
+        9500
+      ],
+      "start_utc": "2026-05-18T20:00:00+00:00",
+      "end_utc": "2026-08-10T02:00:00+00:00",
+      "net_return": -0.03872842831444567,
+      "maximum_drawdown": 0.08209826338423631,
+      "buy_hold_return": -0.0951764705882353,
+      "dtec_removed_net_return": -0.13962111940997646,
+      "dtec_contribution": 0.10089269109553078,
+      "position_changes": 55
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 5,
+      "source_rows": [
+        6500,
+        10000
+      ],
+      "start_utc": "2026-06-08T16:00:00+00:00",
+      "end_utc": "2026-08-30T22:00:00+00:00",
+      "net_return": 0.22151808056304545,
+      "maximum_drawdown": 0.04909828414409789,
+      "buy_hold_return": 0.5546956392320286,
+      "dtec_removed_net_return": -0.046821964868526744,
+      "dtec_contribution": 0.2683400454315722,
+      "position_changes": 47
+    }
+  ],
+  "aggregate": {
+    "window_count": 15,
+    "positive_window_count": 5,
+    "dtec_positive_contribution_count": 15,
+    "beat_buy_hold_count": 9,
+    "mean_net_return": 0.009626684932597225,
+    "median_net_return": -0.02702311345065489,
+    "worst_net_return": -0.1186951683011459,
+    "mean_maximum_drawdown": 0.08282273108083095,
+    "worst_maximum_drawdown": 0.1491116851312636
+  },
+  "protocol": {
+    "same_parameters_in_every_window": true,
+    "each_window_retrains_only_on_its_own_prefix": true,
+    "live_orders": false
+  },
+  "boundary": "Historical chronological-window evidence; correlated assets/windows are not independent trials."
+}

@@ -1,0 +1,8 @@
+{
+  "consumer_id": "FOUNDRY:P033",
+  "r386_external_prior_art_status": "KNOWN_CLOSE_OPERATOR_NOT_NOVEL_THEORY",
+  "r386_family_id": "V2P039",
+  "r386_quality_verdict": "DISTINCT_PRODUCT",
+  "status": "SHADOW_RETRO_SWEEP",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+}

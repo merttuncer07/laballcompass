@@ -1,0 +1,562 @@
+{
+  "model_version": "R387_DIFF_FROM_R386_CANDIDATE_OVERLAY_V1",
+  "original_files": 2067,
+  "same_files": 2001,
+  "changed_files": 66,
+  "missing_files": 0,
+  "added_files": 21,
+  "changed": [
+    {
+      "path": "01_V2_CORE/__pycache__/audit_experiment_readiness.cpython-313.pyc",
+      "old_size": 4715,
+      "new_size": 4637,
+      "old_crc32": "763da6c2",
+      "new_crc32": "532f7d5d",
+      "new_sha256": "c24142199728765b48e1080fb781304c2f231ed1461fc064232f24849f6325d6"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/campaign_memory.cpython-313.pyc",
+      "old_size": 14932,
+      "new_size": 14854,
+      "old_crc32": "105f760d",
+      "new_crc32": "78e90e08",
+      "new_sha256": "802818d13fd1be3a570a1eacbbb11815bb6274086a93396a98a572237695bfbc"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/core_v2.cpython-313.pyc",
+      "old_size": 21841,
+      "new_size": 21763,
+      "old_crc32": "1c2f9e40",
+      "new_crc32": "618a991e",
+      "new_sha256": "01b136f61fbe8c85d08a26af7e7303041849404d02c274146e6430967f2eeff2"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/experiment_contract_bootstrap.cpython-313.pyc",
+      "old_size": 28564,
+      "new_size": 28486,
+      "old_crc32": "723977f6",
+      "new_crc32": "a3bd4146",
+      "new_sha256": "7dbfb9c3f65e4ca353d9e3d57fc2ef6d168bb9ddec86a463aa57ea475a9ed614"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/experiment_selector.cpython-313.pyc",
+      "old_size": 28752,
+      "new_size": 28674,
+      "old_crc32": "4c7e3b7e",
+      "new_crc32": "254edf95",
+      "new_sha256": "a64502768a7c63d62a7a8392d10bace56e2a3b9366e42624f307299415f22a59"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/experiment_telemetry.cpython-313.pyc",
+      "old_size": 33424,
+      "new_size": 33346,
+      "old_crc32": "89c41449",
+      "new_crc32": "afdcc455",
+      "new_sha256": "4e92ba092cb75709fa35cf68da3f663335894a595ea6049766a7058a53267bc4"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/interaction_map.cpython-313.pyc",
+      "old_size": 22490,
+      "new_size": 22412,
+      "old_crc32": "ed4e6b15",
+      "new_crc32": "302eed28",
+      "new_sha256": "808a65c06e540c5f8387f3f87e001f4297b3ab29f57a2692a9e0c82ec049a1e6"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/lab_search_engine.cpython-313.pyc",
+      "old_size": 59879,
+      "new_size": 59801,
+      "old_crc32": "6a5e7ca2",
+      "new_crc32": "863c726a",
+      "new_sha256": "80a247971504a8678419c0ee9041ad066d08fffa69707634b167cab433bcdeae"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/relevance_learning.cpython-313.pyc",
+      "old_size": 24064,
+      "new_size": 23986,
+      "old_crc32": "beabc47d",
+      "new_crc32": "00c9b3a5",
+      "new_sha256": "548e72c29dfac7153e237e03cc10211cde0d5d6d2100d57de96308ca76fbf175"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/search_to_foundry.cpython-313.pyc",
+      "old_size": 20519,
+      "new_size": 20441,
+      "old_crc32": "deb93a01",
+      "new_crc32": "07f2d717",
+      "new_sha256": "a85241b1685b29acc408acad848e2477141fcbf5100affe152706270cd242b03"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/simple_lexicon.cpython-313.pyc",
+      "old_size": 3972,
+      "new_size": 3894,
+      "old_crc32": "47f6d72c",
+      "new_crc32": "41225e0d",
+      "new_sha256": "0655ff363743424ed44c877ec8e4a9af50aba43f0a7b41a7eb08b3e8d102488b"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/telemetry_registry.cpython-313.pyc",
+      "old_size": 13712,
+      "new_size": 13634,
+      "old_crc32": "8019a440",
+      "new_crc32": "a7a6b5c5",
+      "new_sha256": "ec1bf073bdd2c07a81d0699802c7112401b7ec37f26fe34e242a2fba3e0a70bb"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_core_v2.cpython-313.pyc",
+      "old_size": 5473,
+      "new_size": 5395,
+      "old_crc32": "50e6862e",
+      "new_crc32": "7d81f250",
+      "new_sha256": "fe1b569c49ce7d5cb31d55cbb2c95a8a6677404da1fad127e5963316c3ab5c01"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_core_v2_foundry_integration.cpython-313.pyc",
+      "old_size": 13492,
+      "new_size": 13414,
+      "old_crc32": "4c232147",
+      "new_crc32": "0719a0a2",
+      "new_sha256": "a485fc6fff9d9cf4f4073f93d649972f120b153cf89eee5aad6617ce25a7a2be"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_experiment_contract_bootstrap.cpython-313.pyc",
+      "old_size": 8774,
+      "new_size": 8696,
+      "old_crc32": "2fc5c63f",
+      "new_crc32": "750d8a8e",
+      "new_sha256": "0b7eb4cdf57dc14f1641d72e31d314ce6729a3476bdde672ccff5530cff75d4f"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_experiment_integration.cpython-313.pyc",
+      "old_size": 9246,
+      "new_size": 9168,
+      "old_crc32": "e3085661",
+      "new_crc32": "079cb3a1",
+      "new_sha256": "972ffa7a542312ac0ae9bb52515329219a6c30138c2e937672cf6270c6e131b8"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_experiment_selector.cpython-313.pyc",
+      "old_size": 10153,
+      "new_size": 10075,
+      "old_crc32": "a343a1c4",
+      "new_crc32": "459abef0",
+      "new_sha256": "f99c1037d76cb5c9b34d281fa0819bbac721a45e6aad5610eee4440941b74c1f"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_experiment_telemetry.cpython-313.pyc",
+      "old_size": 11313,
+      "new_size": 11235,
+      "old_crc32": "ec5ec62e",
+      "new_crc32": "bbf3391f",
+      "new_sha256": "b675bb78bc472a44f6938b0c0fb05d1f6923ab010c49b94f026cedf2df61f6b3"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_lab_search_engine.cpython-313.pyc",
+      "old_size": 15133,
+      "new_size": 15055,
+      "old_crc32": "4e14059c",
+      "new_crc32": "102709c4",
+      "new_sha256": "097c36f341cd71ca050f5aadc3f8106694c000d3f0f25dafdbe838bfc0a2e7b0"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_r12_closure.cpython-313.pyc",
+      "old_size": 24257,
+      "new_size": 24179,
+      "old_crc32": "8c5d2ed4",
+      "new_crc32": "dce6268e",
+      "new_sha256": "401d25543280bd38abee48d8b44ab7a9e7a376d5916a6802f60f9ccb744ff833"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_relevance_learning.cpython-313.pyc",
+      "old_size": 9019,
+      "new_size": 8941,
+      "old_crc32": "cf6612f6",
+      "new_crc32": "227d4176",
+      "new_sha256": "916c92373507b551464de03cea7cd20da42ea66b930c225cee0341237474ef87"
+    },
+    {
+      "path": "01_V2_CORE/__pycache__/test_search_corpus_integration.cpython-313.pyc",
+      "old_size": 3809,
+      "new_size": 3731,
+      "old_crc32": "39b0cee8",
+      "new_crc32": "f9377c34",
+      "new_sha256": "ddb10100991454552e82bf6a9494459b542146c7e4e9bf9144e22af0966a6862"
+    },
+    {
+      "path": "01_V2_CORE/generated_search/EXPERIMENT_TELEMETRY_INDEX_R12.json",
+      "old_size": 75344,
+      "new_size": 75356,
+      "old_crc32": "515351f2",
+      "new_crc32": "fcb1e334",
+      "new_sha256": "e53e9514b3f47a9926d5e1532841aea668ecf11a9534688ceecca776c3e3981b"
+    },
+    {
+      "path": "01_V2_CORE/generated_search/INTERACTION_MAP_R12.json",
+      "old_size": 2923694,
+      "new_size": 2920526,
+      "old_crc32": "23fc9172",
+      "new_crc32": "50726e5e",
+      "new_sha256": "abfdca5fb8dc73b29d284f347f6d49d68d066f674bc60b3a7f74f72ffe959e2a"
+    },
+    {
+      "path": "01_V2_CORE/generated_search/LAB_STATE_R12.json",
+      "old_size": 2329,
+      "new_size": 2329,
+      "old_crc32": "fb88c95f",
+      "new_crc32": "25c90c2a",
+      "new_sha256": "624b9585076c33586847654ab5337ff0271d9cc3d6d5c74d14bcee5cdd551ab6"
+    },
+    {
+      "path": "01_V2_CORE/generated_v2_foundry/CORE_V2_FOUNDRY_COMPOSITION_QUEUE.json",
+      "old_size": 1224050,
+      "new_size": 1225230,
+      "old_crc32": "485b8954",
+      "new_crc32": "422fa9d5",
+      "new_sha256": "6604fb10cb6ff6d29f38b9442522fa89a8e38fa29b94b52affcfb6214e4b3bec"
+    },
+    {
+      "path": "01_V2_CORE/generated_v2_foundry/CORE_V2_FOUNDRY_COMPOSITION_QUEUE.tsv",
+      "old_size": 209111,
+      "new_size": 209363,
+      "old_crc32": "4898c21f",
+      "new_crc32": "5ea08d03",
+      "new_sha256": "d415775d6d59fed40a0ab054779ee9d5cdc3703543e6e58671dd68b468bd18da"
+    },
+    {
+      "path": "01_V2_CORE/generated_v2_foundry/CORE_V2_FOUNDRY_COUNTS.json",
+      "old_size": 834,
+      "new_size": 834,
+      "old_crc32": "f7e65b96",
+      "new_crc32": "859dd280",
+      "new_sha256": "ce55ac67aaf198766d0f7b4f9ce56e86942ebacbe4a8e331e6410f01f8f0537e"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P001_SAVA/__pycache__/sava.cpython-313.pyc",
+      "old_size": 10534,
+      "new_size": 10456,
+      "old_crc32": "2381e8dd",
+      "new_crc32": "d670808b",
+      "new_sha256": "7596052a0d70ea6d1872e57819878c08c627834656b277d59db4a416b95beaef"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P002_MFQA/__pycache__/mfqa.cpython-313.pyc",
+      "old_size": 5871,
+      "new_size": 5793,
+      "old_crc32": "1b2144ef",
+      "new_crc32": "4534246f",
+      "new_sha256": "7ef24fdc803534d3704c9ca5f228590b24dafad691c941a8abdde47807511236"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P002_MFQA/__pycache__/test_mfqa.cpython-313.pyc",
+      "old_size": 3653,
+      "new_size": 3575,
+      "old_crc32": "d4d99c0c",
+      "new_crc32": "258b1b47",
+      "new_sha256": "55af277b11a17f2150ebbed7a83f0bbc3a0f5a7563cb881580a156250005dc37"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P039_SCCATF/__pycache__/sccatf.cpython-313.pyc",
+      "old_size": 4999,
+      "new_size": 4996,
+      "old_crc32": "6d16d37d",
+      "new_crc32": "d5fe9d75",
+      "new_sha256": "2d7bee1162bb7de92b0e6ec1b5fd3635ed108e9ffdebe2c39e0cf3362e02ad8d"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P040_BMCAPL/__pycache__/bmcapl.cpython-313.pyc",
+      "old_size": 3042,
+      "new_size": 3039,
+      "old_crc32": "27931ffc",
+      "new_crc32": "f3027e33",
+      "new_sha256": "57298b430d5c435e4c0fa655338bbbfdddf18c385918c8043504a084d0c2d8f0"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P040_BMCAPL/__pycache__/test_bmcapl.cpython-313.pyc",
+      "old_size": 6023,
+      "new_size": 6032,
+      "old_crc32": "a3e05be5",
+      "new_crc32": "b07ba7b9",
+      "new_sha256": "e51ecfc4d02b1028a98314f35d9240c3cc2421086cde28034557896235797677"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P040_BMCAPL/test_bmcapl.py",
+      "old_size": 2452,
+      "new_size": 2385,
+      "old_crc32": "cd14c4b0",
+      "new_crc32": "23a0072a",
+      "new_sha256": "bb7f95b1834bb249fef519bce02379240fdbda8e80ad9adc1a3799e403bbf6ec"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P041_CDTDLEW/__pycache__/cdtdlew.cpython-313.pyc",
+      "old_size": 4656,
+      "new_size": 4653,
+      "old_crc32": "25a35ee4",
+      "new_crc32": "0c67a4a4",
+      "new_sha256": "1bbd4b9b12ea4cfa7cd83b2965d7728606fe449668d17cd6e3e3d17f78418b72"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P041_CDTDLEW/__pycache__/test_cdtdlew.cpython-313.pyc",
+      "old_size": 6318,
+      "new_size": 6327,
+      "old_crc32": "4f50fabc",
+      "new_crc32": "033d5a6c",
+      "new_sha256": "5362ab5a3c3f53e47349b9ec421fd58596326cba373545dbeae5f9ae2b5bfaa4"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P041_CDTDLEW/test_cdtdlew.py",
+      "old_size": 2559,
+      "new_size": 2492,
+      "old_crc32": "c954eb15",
+      "new_crc32": "187e7e60",
+      "new_sha256": "3f16b9b0b2d14c736ae5470ff7b7b2b297d020f8fdc77f4efbbf4d3eae06ba02"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P042_ATSCWC/__pycache__/atscwc.cpython-313.pyc",
+      "old_size": 4389,
+      "new_size": 4386,
+      "old_crc32": "c662086c",
+      "new_crc32": "00dc5ce5",
+      "new_sha256": "a0d7a3b535c54a130af0806a0b1df7eea5e3cb0d391b297740251d941d250b1c"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P042_ATSCWC/__pycache__/test_atscwc.cpython-313.pyc",
+      "old_size": 4700,
+      "new_size": 4700,
+      "old_crc32": "30283285",
+      "new_crc32": "a52292e8",
+      "new_sha256": "6e3de580a99a2049d19507d8dc3cfe7f78b852c5d07eb0bf4830151cc5086304"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P042_ATSCWC/test_atscwc.py",
+      "old_size": 1852,
+      "new_size": 1778,
+      "old_crc32": "44ae1515",
+      "new_crc32": "7ce14038",
+      "new_sha256": "355bc51b3e203365de9ee0f23f1245ebd563804becc6b8b1c73e4d5e464a4d7b"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P043_CBSCG/__pycache__/cbscg.cpython-313.pyc",
+      "old_size": 3721,
+      "new_size": 3718,
+      "old_crc32": "cca75520",
+      "new_crc32": "8e4981f4",
+      "new_sha256": "b98ad69a6abf181018ce862f9ea5e0edb67378beb6b363ca3868350bec16d3a2"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P043_CBSCG/__pycache__/test_cbscg.cpython-313.pyc",
+      "old_size": 4998,
+      "new_size": 4998,
+      "old_crc32": "a0910747",
+      "new_crc32": "369b7abb",
+      "new_sha256": "6803c39b25dbe11b6c804c2d02170c6cd3d45f0f52e14296fb2b8153d3da4b8d"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P043_CBSCG/test_cbscg.py",
+      "old_size": 2186,
+      "new_size": 2112,
+      "old_crc32": "e8718773",
+      "new_crc32": "54edf027",
+      "new_sha256": "6b85123b2ca93386e5f48b9a27ebb3d559839caccaf34d17b84e1749f3da6a68"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P044_PIPEG/__pycache__/pipeg.cpython-313.pyc",
+      "old_size": 3744,
+      "new_size": 3741,
+      "old_crc32": "3c550b36",
+      "new_crc32": "afa1c58e",
+      "new_sha256": "ccf83824408adfb5cc5cdbd16e9aef650cff5a9257f7a4da78c9a2dd43cc581a"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P044_PIPEG/__pycache__/test_pipeg.cpython-313.pyc",
+      "old_size": 4745,
+      "new_size": 4745,
+      "old_crc32": "e23fa576",
+      "new_crc32": "7f33e0fb",
+      "new_sha256": "267f2a01b8c74d415ebb81d47e867564878693f106fc9f8dd541445596157aee"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P044_PIPEG/test_pipeg.py",
+      "old_size": 2092,
+      "new_size": 2018,
+      "old_crc32": "f58a03fd",
+      "new_crc32": "45fda49f",
+      "new_sha256": "edf713129aa858f4e5726c79f1cf27e724659f46199efcc225cfc81d9f1735f2"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P045_FPTWC/__pycache__/fptwc.cpython-313.pyc",
+      "old_size": 2408,
+      "new_size": 2405,
+      "old_crc32": "55413862",
+      "new_crc32": "96cea4f2",
+      "new_sha256": "dda8ec6a9d0dc8ebe425aaabea9edd6bdb882b9e758bd651546260ec785104c7"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P045_FPTWC/__pycache__/test_fptwc.cpython-313.pyc",
+      "old_size": 5148,
+      "new_size": 5148,
+      "old_crc32": "c3ba249c",
+      "new_crc32": "704818df",
+      "new_sha256": "ae19e919f4cfb2c66726392ff314cd554cd79b08b5d4a5357283e1501aca1a28"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P045_FPTWC/test_fptwc.py",
+      "old_size": 2218,
+      "new_size": 2144,
+      "old_crc32": "7772cc5b",
+      "new_crc32": "731c7fef",
+      "new_sha256": "3b8a17eec7e26b32ae2da5404cce50bb2a4147b43386ca28befe56d2629ec152"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P046_MTCWC/__pycache__/mtcwc.cpython-313.pyc",
+      "old_size": 5292,
+      "new_size": 5289,
+      "old_crc32": "9a88602f",
+      "new_crc32": "b731abab",
+      "new_sha256": "6064a2374aff69af5bdc908455069480197787b5771ad6d7f22a677cc35dae65"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P046_MTCWC/__pycache__/test_mtcwc.cpython-313.pyc",
+      "old_size": 4758,
+      "new_size": 4758,
+      "old_crc32": "ae33a802",
+      "new_crc32": "c95db438",
+      "new_sha256": "c2b9a70052771fe4d7127178145926bfaaf357757e20794040d5d96597427426"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P046_MTCWC/test_mtcwc.py",
+      "old_size": 1680,
+      "new_size": 1606,
+      "old_crc32": "1620a67e",
+      "new_crc32": "5fe19f3d",
+      "new_sha256": "d65f14f93e83cca9e1269abd5907d80763f62e4d67c47cc47184e63cbcbeda6a"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P048_CBIACCVC/__pycache__/cbiaccvc.cpython-313.pyc",
+      "old_size": 4244,
+      "new_size": 4241,
+      "old_crc32": "00cf94a5",
+      "new_crc32": "2441788c",
+      "new_sha256": "c3fff2826ea5035084f0ded77920fcc34bfb769c2d7e5b7c84508bbca80b4603"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P048_CBIACCVC/__pycache__/test_cbiaccvc.cpython-313.pyc",
+      "old_size": 4565,
+      "new_size": 4565,
+      "old_crc32": "93c0950a",
+      "new_crc32": "e821f048",
+      "new_sha256": "941ffb9f3af8cdefafd962fa9e5eda3372246da1f40c1443fb7eec552c02b194"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P048_CBIACCVC/test_cbiaccvc.py",
+      "old_size": 1703,
+      "new_size": 1629,
+      "old_crc32": "8880f408",
+      "new_crc32": "e4822d30",
+      "new_sha256": "defe3d6d82a1bc9de45325895f02d3c791349b9deb0b5c2883bbcd87be097489"
+    },
+    {
+      "path": "01_V2_CORE/search_data/CAMPAIGN_MEMORY.jsonl",
+      "old_size": 29220,
+      "new_size": 33668,
+      "old_crc32": "40f499e7",
+      "new_crc32": "b0af9074",
+      "new_sha256": "a13c2f71cde99acd826daa3f2ca0abbc4cd884bde81274b53fbc42c2240673af"
+    },
+    {
+      "path": "01_V2_CORE/search_data/EXPERIMENT_TELEMETRY.jsonl",
+      "old_size": 506836,
+      "new_size": 507289,
+      "old_crc32": "2283e55c",
+      "new_crc32": "c5906973",
+      "new_sha256": "e297039dedcde1cb24ec1cdcc6814bdc7dd37713fccbcde09aa81468b1a75f1b"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM139_IM250_CCVC/__pycache__/ccvc.cpython-313.pyc",
+      "old_size": 15395,
+      "new_size": 15317,
+      "old_crc32": "018a7431",
+      "new_crc32": "afabc5b8",
+      "new_sha256": "2103276bdd5439f89d6aba74754aff1c50d1bb68d5694d850c267479005f3dd9"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM340_IM280_CWC/__pycache__/cwc.cpython-313.pyc",
+      "old_size": 8274,
+      "new_size": 8196,
+      "old_crc32": "308a5851",
+      "new_crc32": "44178320",
+      "new_sha256": "176241618eccccb2b4e9cce38188dd172baee0d99dab6373f859150c801272da"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R001_C313_BPISD/__pycache__/bpisd.cpython-313.pyc",
+      "old_size": 7079,
+      "new_size": 7001,
+      "old_crc32": "3deb5ce2",
+      "new_crc32": "ed86f379",
+      "new_sha256": "189cd8a7556f9cd53d95b8d37d9397c77d9dbdc10f0c330206df86a965bde0cf"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/products/P030_FPTE/__pycache__/fpte.cpython-313.pyc",
+      "old_size": 2561,
+      "new_size": 2483,
+      "old_crc32": "d66e727a",
+      "new_crc32": "fca3c189",
+      "new_sha256": "4a2337a1e805fcf9813029375ff1d61fb55ded5fdb6e9fe3b927248ca9e73857"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/products/P079_CBIA/__pycache__/cbia.cpython-313.pyc",
+      "old_size": 1012,
+      "new_size": 934,
+      "old_crc32": "fa50c948",
+      "new_crc32": "67eaa739",
+      "new_sha256": "f1a8420c957f43bf62954e7f26e312460022f63211984285d77fead3922814b7"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/products/__pycache__/shared_foundry.cpython-313.pyc",
+      "old_size": 21845,
+      "new_size": 21767,
+      "old_crc32": "37e91647",
+      "new_crc32": "5b1c23ab",
+      "new_sha256": "6ad03f073b9722b5c2f11d04644eb371af974422ab6a832c574039fcae814700"
+    },
+    {
+      "path": "02_FOUNDRY_ALL_PRODUCTS/products/__pycache__/spec_runtime.cpython-313.pyc",
+      "old_size": 5480,
+      "new_size": 5402,
+      "old_crc32": "beb82e76",
+      "new_crc32": "be9b3055",
+      "new_sha256": "9526492c92035bb10563935a1a160827fcdd9f734c99811f1497e1a75b3bf326"
+    },
+    {
+      "path": "03_LCB_EXECUTABLE_AND_EVIDENCE/prototypes/__pycache__/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__PRODUCT_PROTOTYPES__r38.cpython-313.pyc",
+      "old_size": 193359,
+      "new_size": 193281,
+      "old_crc32": "7a1c3606",
+      "new_crc32": "a48a15c8",
+      "new_sha256": "a97033ef6834684bdb56ef41d1992e302d8fda4987c7a8ad7dc9742b517bb973"
+    }
+  ],
+  "missing": [],
+  "added": [
+    "01_V2_CORE/__pycache__/build_core_v2_foundry.cpython-313.pyc",
+    "01_V2_CORE/__pycache__/build_search_corpus.cpython-313.pyc",
+    "02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R041_CONSTRAINED_POLICY_CAPL/__pycache__/capl.cpython-313.pyc",
+    "02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R044_DECISION_LOSS_DLEW/__pycache__/dlew.cpython-313.pyc",
+    "05_R387_INTEGRATION/R386_PRE_PORTABILITY_TELEMETRY_INDEX.json",
+    "05_R387_INTEGRATION/R386_SUPERSEDED_ABSOLUTE_PATH_TELEMETRY.jsonl",
+    "05_R387_INTEGRATION/R387_CORE_CLOSURE_REGRESSION.log",
+    "05_R387_INTEGRATION/R387_EXPERIMENT_INTEGRATION.log",
+    "05_R387_INTEGRATION/R387_EXPERIMENT_REGRESSION.log",
+    "05_R387_INTEGRATION/R387_FAST_PRODUCT_REGRESSION.log",
+    "05_R387_INTEGRATION/R387_PORTABILITY_PATCH.json",
+    "05_R387_INTEGRATION/R387_PORTABLE_TELEMETRY_EVENTS.jsonl",
+    "05_R387_INTEGRATION/R387_PORTABLE_TELEMETRY_REBUILD_SUMMARY.json",
+    "05_R387_INTEGRATION/R387_REFRESH_AFTER_PORTABILITY.json",
+    "05_R387_INTEGRATION/R387_REFRESH_AFTER_PORTABILITY.stderr",
+    "05_R387_INTEGRATION/R387_RETAINED_TELEMETRY_BASE.jsonl",
+    "05_R387_INTEGRATION/R387_SLOW_PRODUCT_REGRESSION.log",
+    "05_R387_INTEGRATION/R387_SLOW_PRODUCT_REGRESSION.status",
+    "05_R387_INTEGRATION/R387_TELEMETRY_REBUILD.log",
+    "05_R387_INTEGRATION/R387_TELEMETRY_REBUILD.status",
+    "05_R387_INTEGRATION/rebuild_portable_telemetry.py"
+  ]
+}

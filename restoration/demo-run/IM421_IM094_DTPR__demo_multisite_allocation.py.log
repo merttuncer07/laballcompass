@@ -1,0 +1,19 @@
+{
+  "full_count_dashboard": {
+    "mean_unserved_priority_regret": 6.97128,
+    "exact_top_two_rate": 0.23052,
+    "captured_priority_fraction": 0.8612161365844336,
+    "released_private_counts": 8,
+    "released_actions": 2
+  },
+  "dtpr_action_only": {
+    "mean_unserved_priority_regret": 3.20968,
+    "exact_top_two_rate": 0.41082,
+    "captured_priority_fraction": 0.9361018649763494,
+    "released_private_counts": 0,
+    "released_actions": 2
+  },
+  "regret_reduction": 0.5395852698500132
+}
+
+Saved reproducible results to /Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/_workspaces/demos/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM421_IM094_DTPR/multisite_evaluation_results.json

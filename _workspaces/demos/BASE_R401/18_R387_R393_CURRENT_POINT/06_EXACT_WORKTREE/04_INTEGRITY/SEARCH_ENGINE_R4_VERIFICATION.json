@@ -1,0 +1,38 @@
+{
+  "crypto_anchor_ranks": {
+    "FOUNDRY:P137": 1,
+    "LCB-K011": 12,
+    "LCB-K069": 17,
+    "LCB-K071": 3,
+    "LCB-K089": 9
+  },
+  "crypto_packet_experiment_status": "NOT_READY_WITHOUT_DECLARED_EXPERIMENT_CONTRACT",
+  "donor_runtime_dependency": false,
+  "experiment_not_ready_rows": 1000,
+  "experiment_ready_rows": 0,
+  "focused_regression": "46/46 PASS",
+  "foundry_source_path_fix": "02_FOUNDRY_ALL_PRODUCTS/audit/PRODUCT_EVIDENCE_INVENTORY.jsonl",
+  "inventory_status": "INVENTORY_COMPLETE",
+  "queue_rows": 1000,
+  "queue_schema_first_row": {
+    "decision_id": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "test_channels": null,
+    "uncertainty_axes": null
+  },
+  "status": "PASS",
+  "synthetic_replay": {
+    "claim_scope": "SYNTHETIC MECHANICS REPLAY ONLY; declared resolution/cost values are constructed test data, not Lab empirical estimates",
+    "exhaustive_single_test_compute_seconds": 20.0,
+    "final_unresolved_mass": 0.3999999999999999,
+    "initial_unresolved_mass": 5.0,
+    "protected_validation_selected": false,
+    "selected_compute_seconds": 6.0,
+    "selected_tests": [
+      "T_C",
+      "T_AB",
+      "T_DE"
+    ],
+    "unquantified_test_selected": false
+  }
+}

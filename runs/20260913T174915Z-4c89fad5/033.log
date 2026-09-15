@@ -1,0 +1,17 @@
+test_exact_floor_usable (test_sarcp.T.test_exact_floor_usable) ... ok
+test_fragile_status (test_sarcp.T.test_fragile_status) ... ok
+test_fragile_support_inflates (test_sarcp.T.test_fragile_support_inflates) ... ok
+test_healthy_support_no_inflation (test_sarcp.T.test_healthy_support_no_inflation) ... ok
+test_inflation_capped (test_sarcp.T.test_inflation_capped) ... ok
+test_invalid_ess_high (test_sarcp.T.test_invalid_ess_high) ... ok
+test_invalid_ess_zero (test_sarcp.T.test_invalid_ess_zero) ... ok
+test_lower_ess_more_reserve (test_sarcp.T.test_lower_ess_more_reserve) ... ok
+test_mechanism_removing_comparator_shortfall (test_sarcp.T.test_mechanism_removing_comparator_shortfall) ... ok
+test_negative_sigma_rejected (test_sarcp.T.test_negative_sigma_rejected) ... ok
+test_usable_status (test_sarcp.T.test_usable_status) ... ok
+test_zero_sigma_stays_mean (test_sarcp.T.test_zero_sigma_stays_mean) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.000s
+
+OK

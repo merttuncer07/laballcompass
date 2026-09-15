@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "problem_suite": "dependency-v1",
+  "started_at": "2026-09-13T23:28:55.886390+00:00",
+  "scope": "Synthetic engineering fixtures. Timing repeats are not independent statistical evidence. No audit field or novelty validation.",
+  "semantics": "Source availability in declared acyclic AND/OR support rules; not probabilities.",
+  "timing": "Median of paired repetitions of construction plus all queries. Python and R207 import warmed once; input parsing and oracle computation excluded for every method.",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.4-arm64-arm-64bit"
+  },
+  "mechanism": {
+    "id": "R207",
+    "source": "LAC_REPRO_R210/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "invoked_functions": [
+      "Rule",
+      "compile_circuit_acyclic",
+      "MonotoneCircuit.evaluate"
+    ],
+    "extension": "R207Batch evaluates the compiled circuit over integer bitsets; it is a new adapter, not historical R207 code."
+  },
+  "cases": [
+    {
+      "id": "shared_source_and_alternative_route",
+      "family": "shared_source_and_alternative_route",
+      "input_sha256": "78be4f869713717b0fb5935aee5fe759f722bb342849b64bf5b079ff54035159",
+      "sources": 3,
+      "rules": 4,
+      "queries": 8,
+      "target_checks": 24,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 24,
+          "total_ms_median": 0.084708,
+          "timing_repeats_ms": [
+            0.084708,
+            0.098,
+            0.05975
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 24,
+          "total_ms_median": 0.029375,
+          "timing_repeats_ms": [
+            0.0405,
+            0.029375,
+            0.026959
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 24,
+          "total_ms_median": 0.079084,
+          "timing_repeats_ms": [
+            0.104041,
+            0.079084,
+            0.067792
+          ],
+          "compiled_nodes": 7
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 24,
+          "total_ms_median": 0.043042,
+          "timing_repeats_ms": [
+            0.049916,
+            0.043042,
+            0.041042
+          ],
+          "compiled_nodes": 7
+        }
+      }
+    },
+    {
+      "id": "empty_body_axiom",
+      "family": "axiom",
+      "input_sha256": "eeb2035ae5467a207a7b06402cf3ef68daca1dcad392bc70278135475f203cdf",
+      "sources": 1,
+      "rules": 1,
+      "queries": 2,
+      "target_checks": 2,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 0.013041,
+          "timing_repeats_ms": [
+            0.029875,
+            0.013041,
+            0.009625
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 0.009625,
+          "timing_repeats_ms": [
+            0.012834,
+            0.009625,
+            0.009292
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 0.015041,
+          "timing_repeats_ms": [
+            0.022959,
+            0.015041,
+            0.012583
+          ],
+          "compiled_nodes": 3
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 0.012084,
+          "timing_repeats_ms": [
+            0.013459,
+            0.012084,
+            0.011083
+          ],
+          "compiled_nodes": 3
+        }
+      }
+    },
+    {
+      "id": "shared_mandatory",
+      "family": "shared_mandatory",
+      "input_sha256": "24a703c606f7a7f1e95c37b2f8ad5b29fb43e8815d3f0850ee75eaafab305030",
+      "sources": 3,
+      "rules": 2,
+      "queries": 8,
+      "target_checks": 8,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 8,
+          "total_ms_median": 0.027166,
+          "timing_repeats_ms": [
+            0.035667,
+            0.027166,
+            0.024083
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 8,
+          "total_ms_median": 0.045667,
+          "timing_repeats_ms": [
+            0.0195,
+            0.063167,
+            0.045667
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 8,
+          "total_ms_median": 0.049917,
+          "timing_repeats_ms": [
+            0.065583,
+            0.049917,
+            0.04725
+          ],
+          "compiled_nodes": 8
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 8,
+          "total_ms_median": 0.024667,
+          "timing_repeats_ms": [
+            0.028916,
+            0.024667,
+            0.0235
+          ],
+          "compiled_nodes": 8
+        }
+      }
+    },
+    {
+      "id": "choice_blocks_4",
+      "family": "factored_choices",
+      "input_sha256": "81208349f474b27d8dc0906c8870a20cdb8db2d694a21c7b80882b5e80891828",
+      "sources": 8,
+      "rules": 9,
+      "queries": 38,
+      "target_checks": 38,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 38,
+          "total_ms_median": 0.261292,
+          "timing_repeats_ms": [
+            0.261708,
+            0.244916,
+            0.261292
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 38,
+          "total_ms_median": 0.064625,
+          "timing_repeats_ms": [
+            0.079875,
+            0.064625,
+            0.059291
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 38,
+          "total_ms_median": 0.278333,
+          "timing_repeats_ms": [
+            0.294125,
+            0.276584,
+            0.278333
+          ],
+          "compiled_nodes": 15
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 38,
+          "total_ms_median": 0.096917,
+          "timing_repeats_ms": [
+            0.087708,
+            0.122625,
+            0.096917
+          ],
+          "compiled_nodes": 15
+        }
+      }
+    },
+    {
+      "id": "choice_blocks_12",
+      "family": "factored_choices",
+      "input_sha256": "a0ab8d86336892c1991be12b2138aea332c848b948a6b7c62a625d1ebbbf0ee3",
+      "sources": 24,
+      "rules": 25,
+      "queries": 302,
+      "target_checks": 302,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 302,
+          "total_ms_median": 3.940959,
+          "timing_repeats_ms": [
+            3.657792,
+            3.955625,
+            3.940959
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 302,
+          "total_ms_median": 0.359042,
+          "timing_repeats_ms": [
+            0.380041,
+            0.348541,
+            0.359042
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 302,
+          "total_ms_median": 5.454042,
+          "timing_repeats_ms": [
+            5.454042,
+            5.568958,
+            5.083417
+          ],
+          "compiled_nodes": 39
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 302,
+          "total_ms_median": 0.40825,
+          "timing_repeats_ms": [
+            0.468125,
+            0.40825,
+            0.388375
+          ],
+          "compiled_nodes": 39
+        }
+      }
+    },
+    {
+      "id": "choice_blocks_24",
+      "family": "factored_choices",
+      "input_sha256": "2757777a607968dbb293c4808e888db815eb9ae95ad5c131c5fed9218382788c",
+      "sources": 48,
+      "rules": 49,
+      "queries": 562,
+      "target_checks": 562,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 562,
+          "total_ms_median": 15.617209,
+          "timing_repeats_ms": [
+            15.617209,
+            15.20875,
+            15.738875
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 562,
+          "total_ms_median": 0.761292,
+          "timing_repeats_ms": [
+            0.822125,
+            0.761292,
+            0.692875
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 562,
+          "total_ms_median": 18.062167,
+          "timing_repeats_ms": [
+            18.062167,
+            18.830417,
+            17.624708
+          ],
+          "compiled_nodes": 75
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 562,
+          "total_ms_median": 0.880084,
+          "timing_repeats_ms": [
+            0.880084,
+            0.778125,
+            1.061125
+          ],
+          "compiled_nodes": 75
+        }
+      }
+    },
+    {
+      "id": "random_dag_0",
+      "family": "random_dag",
+      "input_sha256": "845edc7aa4f016618185f728cc3575b60a23c6bc2cf9cc842395928cc1017b33",
+      "sources": 12,
+      "rules": 121,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 5.426,
+          "timing_repeats_ms": [
+            5.308333,
+            5.426,
+            6.715709
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.43925,
+          "timing_repeats_ms": [
+            0.483375,
+            0.43925,
+            0.42875
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.740417,
+          "timing_repeats_ms": [
+            6.740417,
+            8.166292,
+            6.6415
+          ],
+          "compiled_nodes": 131
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.936958,
+          "timing_repeats_ms": [
+            0.936958,
+            0.798375,
+            0.946292
+          ],
+          "compiled_nodes": 131
+        }
+      }
+    },
+    {
+      "id": "random_dag_1",
+      "family": "random_dag",
+      "input_sha256": "49ef816d0697d8a24ad8dd13be42e332308fb52e228490ea95a4ea5dbf903bbc",
+      "sources": 12,
+      "rules": 122,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.490916,
+          "timing_repeats_ms": [
+            6.490916,
+            6.664208,
+            5.949166
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.45225,
+          "timing_repeats_ms": [
+            0.8855,
+            0.45225,
+            0.42325
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 7.348666,
+          "timing_repeats_ms": [
+            7.348666,
+            7.26625,
+            8.731167
+          ],
+          "compiled_nodes": 126
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.982792,
+          "timing_repeats_ms": [
+            0.991292,
+            0.838167,
+            0.982792
+          ],
+          "compiled_nodes": 126
+        }
+      }
+    },
+    {
+      "id": "random_dag_2",
+      "family": "random_dag",
+      "input_sha256": "ec3679958239830de6294f795dc8e9ec862710187e3ad70488899979110506f9",
+      "sources": 12,
+      "rules": 129,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.400666,
+          "timing_repeats_ms": [
+            6.945375,
+            6.400666,
+            6.388833
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.467834,
+          "timing_repeats_ms": [
+            0.54175,
+            0.467834,
+            0.46625
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 12.583375,
+          "timing_repeats_ms": [
+            13.862292,
+            11.993084,
+            12.583375
+          ],
+          "compiled_nodes": 139
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 1.008125,
+          "timing_repeats_ms": [
+            0.944459,
+            1.0905,
+            1.008125
+          ],
+          "compiled_nodes": 139
+        }
+      }
+    },
+    {
+      "id": "random_dag_3",
+      "family": "random_dag",
+      "input_sha256": "66812e403824194e166f19dfdf582cb87d97ae42162178f15a349dc884672bec",
+      "sources": 12,
+      "rules": 131,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.323375,
+          "timing_repeats_ms": [
+            6.323375,
+            6.1715,
+            6.462125
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.445,
+          "timing_repeats_ms": [
+            0.606959,
+            0.445,
+            0.430625
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 7.993875,
+          "timing_repeats_ms": [
+            7.852667,
+            8.035166,
+            7.993875
+          ],
+          "compiled_nodes": 141
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 1.002583,
+          "timing_repeats_ms": [
+            1.002583,
+            1.1375,
+            0.885917
+          ],
+          "compiled_nodes": 141
+        }
+      }
+    },
+    {
+      "id": "random_dag_4",
+      "family": "random_dag",
+      "input_sha256": "9363045b75eaff022d6e58a554acd6e8ed24bebd2532e6e0d6419883bc25edcc",
+      "sources": 12,
+      "rules": 118,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.270958,
+          "timing_repeats_ms": [
+            6.409292,
+            6.270958,
+            5.909791
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.49075,
+          "timing_repeats_ms": [
+            0.49075,
+            0.493333,
+            0.469583
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 7.021917,
+          "timing_repeats_ms": [
+            7.244708,
+            6.825625,
+            7.021917
+          ],
+          "compiled_nodes": 131
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.812833,
+          "timing_repeats_ms": [
+            0.913459,
+            0.812833,
+            0.781125
+          ],
+          "compiled_nodes": 131
+        }
+      }
+    },
+    {
+      "id": "random_dag_5",
+      "family": "random_dag",
+      "input_sha256": "a53ce4de2d2c8e04d7ff91a7d48d631a8d717bb61992f35cb441566fb35fa580",
+      "sources": 12,
+      "rules": 122,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.23025,
+          "timing_repeats_ms": [
+            6.866625,
+            6.220959,
+            6.23025
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.457792,
+          "timing_repeats_ms": [
+            0.515667,
+            0.457792,
+            0.431666
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 13.800667,
+          "timing_repeats_ms": [
+            13.800667,
+            13.999333,
+            13.695625
+          ],
+          "compiled_nodes": 144
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.845541,
+          "timing_repeats_ms": [
+            0.89225,
+            0.845541,
+            0.801416
+          ],
+          "compiled_nodes": 144
+        }
+      }
+    },
+    {
+      "id": "random_dag_6",
+      "family": "random_dag",
+      "input_sha256": "3178f4ee57c348abd74ebb831c7ee9b072d124611705ffe421f84ac0ba599879",
+      "sources": 12,
+      "rules": 137,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.091708,
+          "timing_repeats_ms": [
+            6.09125,
+            6.279459,
+            6.091708
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.501125,
+          "timing_repeats_ms": [
+            0.501125,
+            0.45825,
+            0.605083
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 11.907375,
+          "timing_repeats_ms": [
+            12.696542,
+            11.907375,
+            11.71775
+          ],
+          "compiled_nodes": 143
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.854333,
+          "timing_repeats_ms": [
+            1.016167,
+            0.854333,
+            0.853458
+          ],
+          "compiled_nodes": 143
+        }
+      }
+    },
+    {
+      "id": "random_dag_7",
+      "family": "random_dag",
+      "input_sha256": "21e20000dcaa0bdbc65483b2222cc7e3ae748116773abfcfe293ed6e2f6c284d",
+      "sources": 12,
+      "rules": 132,
+      "queries": 80,
+      "target_checks": 320,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 6.28775,
+          "timing_repeats_ms": [
+            6.076125,
+            6.42425,
+            6.28775
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 0.496583,
+          "timing_repeats_ms": [
+            0.496583,
+            0.450041,
+            0.577042
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 10.109583,
+          "timing_repeats_ms": [
+            10.109583,
+            43.255,
+            9.318583
+          ],
+          "compiled_nodes": 139
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 320,
+          "total_ms_median": 1.61075,
+          "timing_repeats_ms": [
+            1.61075,
+            2.574333,
+            1.488125
+          ],
+          "compiled_nodes": 139
+        }
+      }
+    },
+    {
+      "id": "deep_chain_1200",
+      "family": "deep_chain",
+      "input_sha256": "6df898161cbad3fdf48d0d57001678c7bb11094fcded8add8aac7a57c4788494",
+      "sources": 1,
+      "rules": 1200,
+      "queries": 2,
+      "target_checks": 2,
+      "methods": {
+        "and_or_forward": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 8.0975,
+          "timing_repeats_ms": [
+            7.63675,
+            9.172834,
+            8.0975
+          ]
+        },
+        "and_or_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 5.304833,
+          "timing_repeats_ms": [
+            5.304833,
+            4.879125,
+            11.718125
+          ]
+        },
+        "r207_scalar": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 7.753667,
+          "timing_repeats_ms": [
+            8.115083,
+            7.753667,
+            7.557125
+          ],
+          "compiled_nodes": 3
+        },
+        "r207_bitset": {
+          "false_supported": 0,
+          "false_unsupported": 0,
+          "correct": 2,
+          "total_ms_median": 7.5485,
+          "timing_repeats_ms": [
+            7.5485,
+            7.463292,
+            7.578333
+          ],
+          "compiled_nodes": 3
+        }
+      }
+    }
+  ],
+  "summary": {
+    "and_or_forward": {
+      "correct": 3498,
+      "errors": 0,
+      "sum_case_median_ms": 77.563498
+    },
+    "and_or_bitset": {
+      "correct": 3498,
+      "errors": 0,
+      "sum_case_median_ms": 10.325043
+    },
+    "r207_scalar": {
+      "correct": 3498,
+      "errors": 0,
+      "sum_case_median_ms": 109.198126
+    },
+    "r207_bitset": {
+      "correct": 3498,
+      "errors": 0,
+      "sum_case_median_ms": 17.067459
+    }
+  },
+  "finished_at": "2026-09-13T23:28:56.882544+00:00",
+  "source_hashes": {
+    "workbench/__init__.py": "3fc7664b43e6b219e1fbb5ae5fbb594a7e1d16960659d9bfb0fa2d086aac86b3",
+    "workbench/benchmark.py": "fd592724b91fda439222ed81deb422aba707dc78313b0acc543f812d1a3164a8",
+    "workbench/cli.py": "ead6274d4bad64b5cbda8db24deadd8f854755463b364b47d1dcac3d72ceb534",
+    "workbench/contracts.py": "96150930e7ca00677b0b692a9b9ca0c61d32662dc12de3e25176b326ef3320f4",
+    "workbench/methods.py": "a98f9acfbf67ca663107a56756c6f9af989add47ebda484200b8308cc8ec9970",
+    "workbench/problems.py": "4db7a5a73fa155814c28e5dd35517bd56a9d2556b70aae038c2c6870711d23ee",
+    "workbench/report.py": "cd8c2ca9198f7fa03474da8133f8b73dba2b563e9359f5e96bf00d2bc3bd0fed",
+    "workbench/workbooks.py": "721be43e9f4dde104c52c1b8844a167338364dabfa111f8a564ce576fb3d2647"
+  }
+}

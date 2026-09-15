@@ -1,0 +1,13 @@
+{
+  "base_registry_records": 310,
+  "completed_v2_product_directories": 4,
+  "family_counts": {
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145,
+    "LCB_KERNEL": 96
+  },
+  "foundry_parent_test_files": 69,
+  "foundry_product_directories": 145,
+  "status": "INVENTORY_COMPLETE",
+  "total_addressable_artifacts_including_v2_composites": 314
+}

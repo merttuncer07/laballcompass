@@ -1,0 +1,22 @@
+{
+  "at_utc": "2026-09-15T00:39:24.987354+00:00",
+  "source": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored",
+  "local_primary": "/Users/mertalituncer/Developer/lab",
+  "repository": "https://github.com/merttuncer07/laballcompass",
+  "source_files": 10187,
+  "verified_local_files": 10187,
+  "verified_bytes": 1440503294,
+  "empty_original_files_preserved": 192,
+  "missing_files": [],
+  "cloud_placeholders_in_local_copy": 0,
+  "hash_mismatches": [],
+  "manifest_identical_recoveries": 3069,
+  "excluded_reinstallable": [
+    ".git",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules"
+  ],
+  "scope": "File recovery and local migration. Existing project scientific claims and incomplete engineering repairs are preserved, not newly validated."
+}

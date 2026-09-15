@@ -1,0 +1,23 @@
+{
+  "truth": [
+    -0.42,
+    1.35,
+    0.22
+  ],
+  "estimate": {
+    "persistence": -0.4310324179312821,
+    "input_gain": 1.3711540379505864,
+    "drift": 0.22918490587225496,
+    "validation_rollout_rmse": 0.015586950057018132
+  },
+  "finite_difference_baseline": {
+    "persistence": -0.41574717748521023,
+    "input_gain": 1.3557110625372637,
+    "drift": 0.20696563160732556,
+    "validation_rollout_rmse": 0.02593970714482938
+  },
+  "windows": 73,
+  "design_rank": 3,
+  "condition_number": 5.717632180945205,
+  "status": "DYNAMIC_PARAMETERS_ESTIMATED_WITHOUT_DATA_DIFFERENTIATION"
+}

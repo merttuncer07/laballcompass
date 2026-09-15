@@ -1,0 +1,104 @@
+{
+  "selected": {
+    "alpha": 0.5,
+    "converged": true,
+    "iterations": 1,
+    "final_state": [
+      3.0,
+      -2.0
+    ],
+    "final_fixed_point_residual": 0.0,
+    "minimum_fixed_point_residual": 0.0,
+    "maximum_state_norm": 22.360679774997898,
+    "late_residual_ratio": 0.0,
+    "status": "FIXED_POINT_CONVERGED"
+  },
+  "runs": [
+    {
+      "alpha": 1.0,
+      "converged": false,
+      "iterations": 100,
+      "final_state": [
+        20.0,
+        10.0
+      ],
+      "final_fixed_point_residual": 41.617304093369626,
+      "minimum_fixed_point_residual": 41.617304093369626,
+      "maximum_state_norm": 22.360679774997898,
+      "late_residual_ratio": 1.0,
+      "status": "MAXIMUM_ITERATIONS_REACHED"
+    },
+    {
+      "alpha": 0.8,
+      "converged": true,
+      "iterations": 53,
+      "final_state": [
+        2.9999999999703197,
+        -2.000000000020951
+      ],
+      "final_fixed_point_residual": 7.265957914143236e-11,
+      "minimum_fixed_point_residual": 7.265957914143236e-11,
+      "maximum_state_norm": 22.360679774997898,
+      "late_residual_ratio": 0.5999999793981361,
+      "status": "FIXED_POINT_CONVERGED"
+    },
+    {
+      "alpha": 0.5,
+      "converged": true,
+      "iterations": 1,
+      "final_state": [
+        3.0,
+        -2.0
+      ],
+      "final_fixed_point_residual": 0.0,
+      "minimum_fixed_point_residual": 0.0,
+      "maximum_state_norm": 22.360679774997898,
+      "late_residual_ratio": 0.0,
+      "status": "FIXED_POINT_CONVERGED"
+    },
+    {
+      "alpha": 0.25,
+      "converged": true,
+      "iterations": 39,
+      "final_state": [
+        3.000000000030923,
+        -1.9999999999781721
+      ],
+      "final_fixed_point_residual": 7.570143514998495e-11,
+      "minimum_fixed_point_residual": 7.570143514998495e-11,
+      "maximum_state_norm": 22.360679774997898,
+      "late_residual_ratio": 0.5,
+      "status": "FIXED_POINT_CONVERGED"
+    },
+    {
+      "alpha": 0.1,
+      "converged": false,
+      "iterations": 100,
+      "final_state": [
+        3.0000000034629615,
+        -1.9999999975555571
+      ],
+      "final_fixed_point_residual": 8.477594732179241e-09,
+      "minimum_fixed_point_residual": 8.477594732179241e-09,
+      "maximum_state_norm": 22.360679774997898,
+      "late_residual_ratio": 0.8000000033511752,
+      "status": "MAXIMUM_ITERATIONS_REACHED"
+    }
+  ],
+  "direct_iteration": {
+    "alpha": 1.0,
+    "converged": false,
+    "iterations": 100,
+    "final_state": [
+      20.0,
+      10.0
+    ],
+    "final_fixed_point_residual": 41.617304093369626,
+    "minimum_fixed_point_residual": 41.617304093369626,
+    "maximum_state_norm": 22.360679774997898,
+    "late_residual_ratio": 1.0,
+    "status": "MAXIMUM_ITERATIONS_REACHED"
+  },
+  "direct_to_selected_residual_ratio": null,
+  "status": "CONVERGENT_AVERAGING_PARAMETER_SELECTED"
+}

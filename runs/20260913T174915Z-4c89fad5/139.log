@@ -1,0 +1,9 @@
+test_deterministic_completion_selects_no_restart (test_rto.RTOTests.test_deterministic_completion_selects_no_restart) ... ok
+test_heavy_tail_can_benefit_from_restart (test_rto.RTOTests.test_heavy_tail_can_benefit_from_restart) ... ok
+test_no_success_before_threshold_is_infeasible (test_rto.RTOTests.test_no_success_before_threshold_is_infeasible) ... ok
+test_two_point_formula (test_rto.RTOTests.test_two_point_formula) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK

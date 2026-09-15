@@ -1,0 +1,20 @@
+{
+  "seed": 20260825,
+  "search_rows": 500,
+  "validation_rows": 900,
+  "fresh_final_rows": 1200,
+  "baseline_train_rmse_selected": "adaptive_decoy",
+  "dlew_train_decision_selected": "adaptive_decoy",
+  "drew_protected_best_candidate": "stable_decision",
+  "adaptive_selection_status": "ADAPTIVE_SELECTION_REGRET_DETECTED",
+  "adaptive_selection_protected_regret": 0.01622100715919323,
+  "final_mean_decision_regret": {
+    "train_rmse_selected": 0.015227063638660754,
+    "train_decision_selected": 0.015227063638660754,
+    "validation_corrected": 1.55899178499276e-05
+  },
+  "final_regret_reduction_vs_train_decision_selection": 0.9989761704410071,
+  "dlew_seconds": 0.06356409299996812,
+  "drew_seconds": 0.13675094000006993,
+  "status": "DECISION_SELECTION_FAILS_PROTECTED_AUDIT"
+}

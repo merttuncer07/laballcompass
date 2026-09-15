@@ -1,0 +1,38 @@
+{
+  "training_samples": 120000,
+  "validation_samples": 120000,
+  "restart_overhead": 1.0,
+  "trained_policy": {
+    "threshold": 6.039572143160295,
+    "expected_completion_time": 11.420361914408636,
+    "success_probability_per_attempt": 0.44555833333333333,
+    "expected_failed_attempts": 1.24437503506836,
+    "expected_restart_overhead": 1.24437503506836,
+    "improvement_vs_no_restart": 0.4642072134194535
+  },
+  "validation_policy": {
+    "threshold": 6.039572143160295,
+    "expected_completion_time": 11.475106501191565,
+    "success_probability_per_attempt": 0.44429166666666664,
+    "expected_failed_attempts": 1.2507737034605646,
+    "expected_restart_overhead": 1.2507737034605646,
+    "improvement_vs_no_restart": 0.45895721484386953
+  },
+  "validation_no_restart": {
+    "threshold": null,
+    "expected_completion_time": 21.20924040763275,
+    "success_probability_per_attempt": 1.0,
+    "expected_failed_attempts": 0.0,
+    "expected_restart_overhead": 0.0,
+    "improvement_vs_no_restart": 0.0
+  },
+  "validation_median_restart": {
+    "threshold": 7.359153746853643,
+    "expected_completion_time": 11.52976990530432,
+    "success_probability_per_attempt": 0.49796666666666667,
+    "expected_failed_attempts": 1.008166543945378,
+    "expected_restart_overhead": 1.008166543945378,
+    "improvement_vs_no_restart": 0.4563798757660833
+  },
+  "validated_time_reduction": 0.45895721484386953
+}

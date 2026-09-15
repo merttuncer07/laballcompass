@@ -1,0 +1,41 @@
+{
+  "claim_scope": "actual 4,310-document Lab search corpus; deterministic query-edit replay; correctness vs full exact scoring. Wall time is local Python only, not a production latency claim.",
+  "documents": 4310,
+  "updates": 60,
+  "top_k": 20,
+  "top_k_mismatches_vs_naive_full_search": 0,
+  "initial_exact_score_computations": 4310,
+  "incremental_exact_rescores_after_initial": 1583,
+  "actual_exact_score_computations_total": 5893,
+  "naive_exact_score_computations_total": 262910,
+  "exact_score_computation_reduction_fraction": 0.9775854855273668,
+  "mean_exact_rescores_per_update": 26.383333333333333,
+  "mean_documents_affected_by_query_delta": 70.98333333333333,
+  "status_counts": {
+    "COMPETITIVE_FRONTIER_EXACT_REFRESH": 48,
+    "TOP_K_MEMBERSHIP_REUSED_ORDER_REFRESHED": 12
+  },
+  "replay_wall_seconds_including_naive_verification": 16.962426486999902,
+  "initial_top_ids": [
+    "FOUNDRY:P137",
+    "PARENT:R044_DECISION_LOSS_DLEW",
+    "PARENT:R018_M866_M880_MCSC",
+    "PARENT:IM334_IM094_DRE",
+    "FOUNDRY:P057",
+    "PARENT:R045_TARGET_MEMORY_ATRC",
+    "FOUNDRY:P145",
+    "LCB-R50-149",
+    "PARENT:IM139_IM250_CCVC",
+    "FOUNDRY:P140",
+    "FOUNDRY:P138",
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+    "PARENT:IM359_IM014_AICC",
+    "PARENT:IM406_IM037_ACRA",
+    "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+    "FOUNDRY:P010",
+    "FOUNDRY:P035",
+    "FOUNDRY:P110",
+    "FOUNDRY:P091",
+    "FOUNDRY:P059"
+  ]
+}

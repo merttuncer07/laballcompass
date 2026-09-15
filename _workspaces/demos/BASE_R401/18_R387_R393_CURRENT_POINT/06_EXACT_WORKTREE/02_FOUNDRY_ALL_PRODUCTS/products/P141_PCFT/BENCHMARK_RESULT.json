@@ -1,0 +1,35 @@
+{
+  "surface": {
+    "parameter_names": [
+      "merge_tolerance"
+    ],
+    "grid_shape": [
+      7
+    ],
+    "evaluated_points": 7,
+    "baseline_parameters": {
+      "merge_tolerance": 0.05
+    },
+    "baseline_metric": 0.07253662781980656,
+    "decision_threshold": 0.0,
+    "baseline_decision": true,
+    "robust_surface_share": 0.42857142857142855,
+    "tipping_point": {
+      "parameters": {
+        "merge_tolerance": 0.1
+      },
+      "metric": -0.1575,
+      "normalized_euclidean_distance": 0.05,
+      "normalized_manhattan_distance": 0.05
+    },
+    "one_way_tipping_values": {
+      "merge_tolerance": 0.1
+    },
+    "metric_minimum": -0.1575,
+    "metric_maximum": 0.07253662781980656,
+    "status": "TIPPING_POINT_FOUND"
+  },
+  "baseline_state_count": 4,
+  "baseline_compression_fraction": 0.0,
+  "status": "PREDICTIVE_CLOSURE_FIDELITY_TIPPING_AUDITED"
+}

@@ -1,0 +1,9 @@
+test_below_threshold_does_not_control (test_ownm.OWNMTests.test_below_threshold_does_not_control) ... ok
+test_cross_ownership_cycle_is_reported (test_ownm.OWNMTests.test_cross_ownership_cycle_is_reported) ... ok
+test_dual_class_control_uses_votes_not_cash (test_ownm.OWNMTests.test_dual_class_control_uses_votes_not_cash) ... ok
+test_pyramid_propagates_control_beyond_cash_majority (test_ownm.OWNMTests.test_pyramid_propagates_control_beyond_cash_majority) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK

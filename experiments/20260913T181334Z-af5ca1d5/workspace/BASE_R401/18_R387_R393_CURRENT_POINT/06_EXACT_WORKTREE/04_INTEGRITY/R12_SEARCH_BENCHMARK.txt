@@ -1,0 +1,44 @@
+{
+  "engine_version": "R12 typed-map + simple-lexicon corpus",
+  "claim_scope": "actual Lab search surfaces (310 capabilities + 4,000 primitives), 60 deterministic query edits, every incremental top-k checked against exact full scoring of the same transparent scoring function; no production latency claim.",
+  "updates": 60,
+  "top_k": 20,
+  "capability_surface": {
+    "documents": 310,
+    "mismatches": 0,
+    "initial_exact": 310,
+    "incremental_exact": 1284,
+    "actual_exact": 1594,
+    "naive_exact": 18910,
+    "reduction": 0.9157059756742464,
+    "mean_rescore": 21.4,
+    "mean_affected": 67.98333333333333,
+    "statuses": {
+      "COMPETITIVE_FRONTIER_EXACT_REFRESH": 40,
+      "QUERY_DELTA_NO_DOCUMENT_DEPENDENCY_REUSE": 11,
+      "TOP_K_ORDER_REUSE_CERTIFIED": 8,
+      "TOP_K_MEMBERSHIP_REUSED_ORDER_REFRESHED": 1
+    }
+  },
+  "primitive_surface": {
+    "documents": 4000,
+    "mismatches": 0,
+    "initial_exact": 4000,
+    "incremental_exact": 1659,
+    "actual_exact": 5659,
+    "naive_exact": 244000,
+    "reduction": 0.9768073770491803,
+    "mean_rescore": 27.65,
+    "mean_affected": 65.31666666666666,
+    "statuses": {
+      "COMPETITIVE_FRONTIER_EXACT_REFRESH": 38,
+      "QUERY_DELTA_NO_DOCUMENT_DEPENDENCY_REUSE": 15,
+      "TOP_K_MEMBERSHIP_REUSED_ORDER_REFRESHED": 7
+    }
+  },
+  "combined_documents": 4310,
+  "combined_actual_exact_score_computations": 7253,
+  "combined_naive_exact_score_computations": 262910,
+  "combined_reduction_fraction": 0.9724126126811456,
+  "wall_seconds_including_naive_verification": 5.463842346000092
+}

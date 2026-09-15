@@ -1,0 +1,37 @@
+{
+  "bootstrap_ledger_event_count": 12,
+  "bootstrap_queue_status_counts": {
+    "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 124,
+    "FIXED_PILOT_SCHEDULE_AVAILABLE": 2,
+    "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+    "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 717
+  },
+  "bootstrap_real_pilot_products": [
+    "V2P001",
+    "V2P002"
+  ],
+  "date": "2026-08-26",
+  "donor_runtime_dependency": false,
+  "focused_failures": 0,
+  "focused_tests": 61,
+  "foundry_identity": {
+    "changed": [],
+    "only_r5": [],
+    "only_r6": [],
+    "r5_files": 1353,
+    "r6_files": 1353,
+    "same_files": 1353
+  },
+  "inventory": {
+    "base_registry_records": 310,
+    "completed_v2_products": 2,
+    "total_addressable_artifacts": 312
+  },
+  "monolithic_foundry_rerun_performed": false,
+  "reason": "Foundry subtree is byte-identical R5->R6; R6 verification targets changed engine boundaries and reruns completed V2 products.",
+  "release": "R6",
+  "v2p001_failures": 0,
+  "v2p001_tests": 6,
+  "v2p002_failures": 0,
+  "v2p002_tests": 6
+}

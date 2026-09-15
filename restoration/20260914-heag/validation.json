@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "tests": 13,
+  "receipt": "runs/20260914T192829Z-heag/receipt.json",
+  "cli_matches_api": true,
+  "ui_check": "restoration/20260914-heag/ui-check.json",
+  "scope": "New native EBC -> AICC composition. Thirteen product tests and independent closed-form/GLS numerical references. Public observations use hypothetical acquisition utilities and future measurement precision; no field benefit, calibrated adaptive posterior, scientific novelty or original historical equivalence.",
+  "manifest_scope": "Touched product entries updated only; original manifest preserved; no whole-package rescan."
+}

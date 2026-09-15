@@ -1,0 +1,23 @@
+{
+  "selected_by_prediction_rmse": "lowest_rmse",
+  "selected_by_decision_loss": "decision_boundary",
+  "ranking_diverges": true,
+  "validation": {
+    "decision_boundary": {
+      "prediction_rmse": 0.03025510600565901,
+      "mean_realized_payoff": 0.00864537115977204,
+      "mean_decision_regret": 9.682391372363194e-06,
+      "oracle_action_agreement": 0.984,
+      "total_turnover": 1019.0
+    },
+    "lowest_rmse": {
+      "prediction_rmse": 0.006061348431195299,
+      "mean_realized_payoff": 0.007941365965641775,
+      "mean_decision_regret": 0.0007130777014614679,
+      "oracle_action_agreement": 0.859,
+      "total_turnover": 1035.0
+    }
+  },
+  "validation_regret_reduction": 0.0007033953100891047,
+  "status": "DECISION_AND_PREDICTION_SELECTION_DIVERGE"
+}

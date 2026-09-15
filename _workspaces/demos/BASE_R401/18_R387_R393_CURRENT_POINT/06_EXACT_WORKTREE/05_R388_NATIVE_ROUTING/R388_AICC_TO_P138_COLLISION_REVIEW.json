@@ -1,0 +1,42 @@
+{
+  "release": "R388_ROUTING",
+  "pair": {
+    "supplier_id": "PARENT:IM359_IM014_AICC",
+    "consumer_id": "FOUNDRY:P138"
+  },
+  "native_queue_rank_before_adjudication": 837,
+  "collision_class": "EXACT_EXISTING_PARENT_REINJECTION",
+  "evidence": {
+    "supplier_aicc_sha256": "92b441bb6da18416eefb7adbf8293d1a9783b1ddb2a86e94a6b4b6f3504c7e46",
+    "p138_vendored_aicc_sha256": "92b441bb6da18416eefb7adbf8293d1a9783b1ddb2a86e94a6b4b6f3504c7e46",
+    "byte_identical": true,
+    "p138_parent_provenance": [
+      "# Parent provenance",
+      "- R030_P428_P429_ISPO / `ispo.py`",
+      "- IM359_IM014_AICC / `aicc.py`",
+      "Vendored unchanged."
+    ],
+    "p138_imports_adaptive_information_controller": true,
+    "existing_interaction_relations": [
+      {
+        "relation": "INFERRED_CANDIDATE",
+        "active": true,
+        "provenance": [
+          "composition_queue.inferred"
+        ]
+      },
+      {
+        "relation": "PARENT_OF",
+        "active": true,
+        "provenance": [
+          "/mnt/data/LAB_R387_WORK/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA/PARENT_PROVENANCE.md"
+        ]
+      }
+    ]
+  },
+  "non_additive_mechanism_found": false,
+  "new_failure_mode_found": false,
+  "mechanism_removing_comparator": "Not applicable at build stage: no additional mechanism is specified beyond a byte-identical parent already executed inside P138. Removing the proposed extra supplier leaves the existing P138 implementation unchanged.",
+  "decision": "REJECT_CURRENT_DIRECT_COMPOSITION_EDGE_PRESERVE_PARENT_LINEAGE",
+  "does_not_imply": "AICC or P138 is invalid or globally down-ranked. Reopen only if a second AICC stage has a distinct state/role/parameterization and a concrete non-additive failure-mode contract."
+}

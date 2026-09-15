@@ -1,0 +1,10 @@
+{
+  "product_id":"V2P050",
+  "short_name":"SCIG",
+  "supplier_id":"PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "consumer_id":"PARENT:IM445_IM085_CSID",
+  "operator":"support-aware covariance -> safeguard evidence-independence partition -> CSID portfolio coverage",
+  "status":"R388_SHADOW_PARENT_PARENT_EXPANSION",
+  "authority":"SHADOW_ONLY_NOT_CANONICAL",
+  "source_cluster":"R388C0017"
+}

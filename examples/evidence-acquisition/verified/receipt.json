@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "cases": 2,
+  "independent_references": [
+    {
+      "case": "declared_copies",
+      "model": "dependency_preserved",
+      "closed_form_information_value": 0.16286750396764002
+    },
+    {
+      "case": "declared_copies",
+      "model": "independence_assumed",
+      "closed_form_information_value": 0.11516471649044517
+    },
+    {
+      "case": "public_clustered_estimates",
+      "model": "dependency_preserved",
+      "independent_gls_mean": 0.1847223765341092,
+      "independent_gls_variance": 0.007152466779138008,
+      "closed_form_information_value": 0.014995441429762592,
+      "actual_information_value": 0.014995441429762574
+    },
+    {
+      "case": "public_clustered_estimates",
+      "model": "independence_assumed",
+      "independent_gls_mean": 0.12759696754928038,
+      "independent_gls_variance": 0.002098026056924824,
+      "closed_form_information_value": 3.305791447499939e-07,
+      "actual_information_value": 3.3057914474999363e-07
+    }
+  ],
+  "copy_sensitivity": [
+    {
+      "copies": 1,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.16286750396763996
+    },
+    {
+      "copies": 2,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 3,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 4,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 5,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 6,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 7,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 8,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 9,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044516
+    },
+    {
+      "copies": 10,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 11,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044516
+    },
+    {
+      "copies": 12,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 13,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 14,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 15,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 16,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 17,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 18,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044516
+    },
+    {
+      "copies": 19,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044518
+    },
+    {
+      "copies": 20,
+      "dependency_preserved": 0.16286750396763996,
+      "independence_assumed": 0.11516471649044516
+    }
+  ],
+  "source_hashes": {
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/heag.py": "7c2f0f254fbd4570a7853f07732095e2c578eac150df995c58c45fa3b0cb5345",
+    "examples/correlated-evidence/report/input.json": "2dc2716f4a4921e9e153bc5982bfe4bdc6ca3b74f4a3ba6ff59d2fbca6873dd3",
+    "examples/evidence-acquisition/reproduce.py": "8e141ba3cb49d4cd0dadd168a2e4297997935b3b2e3012ce334db5379cf737d6"
+  },
+  "scope": "Numerical composition behavior; one synthetic identity case and existing public clustered estimates with hypothetical utilities and next-measurement precision. Full powers and published rounded covariance parameters held fixed; no refitting or real-world acquisition benefit claimed.",
+  "public_sources": [
+    "https://wviechtb.github.io/metadat/reference/dat.konstantopoulos2011.html",
+    "https://www.metafor-project.org/doku.php/tips:weights_in_rma.mv_models"
+  ],
+  "original_data_acquisition": "See examples/correlated-evidence/SOURCES.json: numeric table transcribed from official HTML; no new raw data collection here."
+}

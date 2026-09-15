@@ -1,0 +1,3810 @@
+{
+  "contract": {
+    "diagnosed_failure": "support relations can appear well supported because evidence sources are correlated; nominal diversity overstates independent information",
+    "mechanism_needs": [
+      "effective independent evidence count",
+      "support mask gate",
+      "raw covariance fallback",
+      "portfolio constraint preservation"
+    ],
+    "objective": "construct a support-aware constrained portfolio without trusting nominally many correlated evidence sources for the support mask",
+    "problem_id": "R9_SUPPORT_EFFECTIVE_DIVERSITY_SMOKE",
+    "search_generation": 0
+  },
+  "counts": {
+    "capabilities_returned": 32,
+    "interaction_expansions_returned": 51,
+    "primitive_donors_returned": 12
+  },
+  "direct_capabilities": [
+    {
+      "document_id": "LCB-K019",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "EffectiveDiversityGuardV0",
+      "rank": 1,
+      "score": 18.022737,
+      "score_explanation": {
+        "document_id": "LCB-K019",
+        "feature_contributions": [
+          {
+            "contribution": 2.401688224062935,
+            "dependency_coefficient": 5.003517133464448,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 2.401688224062935,
+            "dependency_coefficient": 5.003517133464448,
+            "feature": "tok:diversity"
+          },
+          {
+            "contribution": 1.3723932708931057,
+            "dependency_coefficient": 2.8591526476939704,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.3723932708931057,
+            "dependency_coefficient": 2.8591526476939704,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.3723932708931057,
+            "dependency_coefficient": 2.8591526476939704,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 1.3403408778751313,
+            "dependency_coefficient": 2.792376828906524,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 1.2678410833182825,
+            "dependency_coefficient": 2.6413355902464217,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 0.8005627413543117,
+            "dependency_coefficient": 5.003517133464448,
+            "feature": "root:diver"
+          },
+          {
+            "contribution": 0.7704257879750332,
+            "dependency_coefficient": 4.815161174843958,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.5798145091398597,
+            "dependency_coefficient": 1.2079468940413742,
+            "feature": "tok:gate"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R037_SUPPORT_COVARIANCE_SACPS",
+          "test_methods": 4
+        }
+      },
+      "name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "rank": 2,
+      "score": 13.263405,
+      "score_explanation": {
+        "document_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "feature_contributions": [
+          {
+            "contribution": 3.8160940814577544,
+            "dependency_coefficient": 7.9501960030369885,
+            "feature": "tok:covariance"
+          },
+          {
+            "contribution": 2.4185453058027826,
+            "dependency_coefficient": 5.0386360537557975,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 1.6497633510858496,
+            "dependency_coefficient": 3.4370069814288535,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.2720313604859181,
+            "dependency_coefficient": 7.9501960030369885,
+            "feature": "root:covar"
+          },
+          {
+            "contribution": 0.9212797458484646,
+            "dependency_coefficient": 1.919332803850968,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.8014704551691805,
+            "dependency_coefficient": 5.009190344807378,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.3142203882035258,
+            "dependency_coefficient": 1.9638774262720364,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "PARENT:R035_M007_ENPC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R035_M007_ENPC",
+          "test_methods": 4
+        }
+      },
+      "name": "R035_M007_ENPC",
+      "rank": 3,
+      "score": 11.607997,
+      "score_explanation": {
+        "document_id": "PARENT:R035_M007_ENPC",
+        "feature_contributions": [
+          {
+            "contribution": 2.336393376230261,
+            "dependency_coefficient": 4.867486200479711,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 2.336393376230261,
+            "dependency_coefficient": 4.867486200479711,
+            "feature": "tok:construct"
+          },
+          {
+            "contribution": 2.2818266566697734,
+            "dependency_coefficient": 4.753805534728695,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 0.7787977920767537,
+            "dependency_coefficient": 4.867486200479711,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.7389533157950468,
+            "dependency_coefficient": 4.618458223719042,
+            "feature": "root:indep"
+          },
+          {
+            "contribution": 0.728966539690705,
+            "dependency_coefficient": 4.556040873066906,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.33666603377893056,
+            "dependency_coefficient": 2.104162711118316,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "PARENT:IM445_IM085_CSID",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM445_IM085_CSID",
+          "test_methods": 4
+        }
+      },
+      "name": "IM445_IM085_CSID",
+      "rank": 4,
+      "score": 11.37018,
+      "score_explanation": {
+        "document_id": "PARENT:IM445_IM085_CSID",
+        "feature_contributions": [
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.4556640583067963,
+            "dependency_coefficient": 3.032633454805826,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.2194266607914335,
+            "dependency_coefficient": 2.5404722099821533,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.8128885956855297,
+            "dependency_coefficient": 1.693517907678187,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.4041001169277412,
+            "dependency_coefficient": 2.5256257307983825,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.277251476821829,
+            "dependency_coefficient": 1.7328217301364313,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R041_CONSTRAINED_POLICY_CAPL",
+          "test_methods": 4
+        }
+      },
+      "name": "R041_CONSTRAINED_POLICY_CAPL",
+      "rank": 5,
+      "score": 11.228036,
+      "score_explanation": {
+        "document_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "feature_contributions": [
+          {
+            "contribution": 3.180049041038605,
+            "dependency_coefficient": 6.625102168830427,
+            "feature": "tok:constrained"
+          },
+          {
+            "contribution": 1.8171708805934885,
+            "dependency_coefficient": 3.7857726679031014,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.151677607859717,
+            "dependency_coefficient": 2.399328349707744,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.9921913702875493,
+            "dependency_coefficient": 6.201196064297183,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.767726033419633,
+            "dependency_coefficient": 1.5994292362909022,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.6057236268644962,
+            "dependency_coefficient": 3.7857726679031014,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.381649074079718,
+            "dependency_coefficient": 2.3853067129982373,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.2618479059613988,
+            "dependency_coefficient": 1.6365494122587423,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "LCB-K072",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "EffectiveRedundancyAuditV0",
+      "rank": 6,
+      "score": 11.143589,
+      "score_explanation": {
+        "document_id": "LCB-K072",
+        "feature_contributions": [
+          {
+            "contribution": 3.094097909340463,
+            "dependency_coefficient": 6.446037311125965,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 1.7680559481945501,
+            "dependency_coefficient": 3.68344989207198,
+            "feature": "tok:covariance"
+          },
+          {
+            "contribution": 1.7680559481945501,
+            "dependency_coefficient": 3.68344989207198,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 0.9925404954698499,
+            "dependency_coefficient": 6.203378096686562,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.7469757492086098,
+            "dependency_coefficient": 1.556199477517937,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5893519827315168,
+            "dependency_coefficient": 3.68344989207198,
+            "feature": "root:covar"
+          },
+          {
+            "contribution": 0.31451103401612646,
+            "dependency_coefficient": 1.9656939626007903,
+            "feature": "root:prese"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P017",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P017 RECS v0.1 \u2014 Relational Evidence-Conditioned Safeguards"
+        }
+      },
+      "name": "P017 RECS",
+      "rank": 7,
+      "score": 10.785802,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P017",
+        "feature_contributions": [
+          {
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "tok:correlated"
+          },
+          {
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "tok:because"
+          },
+          {
+            "contribution": 1.5710647194451157,
+            "dependency_coefficient": 3.273051498843991,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 0.6796227244640408,
+            "dependency_coefficient": 1.4158806759667517,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5362115177054012,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.5362115177054012,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "root:corre"
+          },
+          {
+            "contribution": 0.5362115177054012,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "root:becau"
+          },
+          {
+            "contribution": 0.5087781231624884,
+            "dependency_coefficient": 3.1798632697655522,
+            "feature": "root:indep"
+          },
+          {
+            "contribution": 0.23179855768603258,
+            "dependency_coefficient": 1.4487409855377036,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P059",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "CSID \u2192 TDSX. At each budget, CSID chooses its economically preferred safeguard portfolio. TDSX finds the nearest budget where the selected portfolio reaches a declared residual-loss target.",
+          "title": "P059 SBTE v0.1 \u2014 Safeguard Budget Tipping Explorer"
+        }
+      },
+      "name": "P059 SBTE",
+      "rank": 8,
+      "score": 10.744762,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P059",
+        "feature_contributions": [
+          {
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.8082177175469614,
+            "dependency_coefficient": 3.767120244889503,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 1.400730755530689,
+            "dependency_coefficient": 2.9181890740222687,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.1734083960769555,
+            "dependency_coefficient": 2.444600825160324,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.7822121115783521,
+            "dependency_coefficient": 1.6296085657882338,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.617152912077423,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.617152912077423,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "root:appea"
+          },
+          {
+            "contribution": 0.5855784330308366,
+            "dependency_coefficient": 3.659865206442728,
+            "feature": "root:indep"
+          },
+          {
+            "contribution": 0.3888503386919077,
+            "dependency_coefficient": 2.430314616824423,
+            "feature": "root:suppo"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "PARENT:IM141_IM023_CDBL",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM141_IM023_CDBL",
+          "test_methods": 3
+        }
+      },
+      "name": "IM141_IM023_CDBL",
+      "rank": 9,
+      "score": 10.617651,
+      "score_explanation": {
+        "document_id": "PARENT:IM141_IM023_CDBL",
+        "feature_contributions": [
+          {
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "tok:constrained"
+          },
+          {
+            "contribution": 1.4860849420799311,
+            "dependency_coefficient": 3.0960102959998568,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.2170208543478744,
+            "dependency_coefficient": 2.5354601132247385,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.019512481648553,
+            "dependency_coefficient": 2.123984336767819,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.5362115177054012,
+            "dependency_coefficient": 3.3513219856587573,
+            "feature": "root:nomin"
+          },
+          {
+            "contribution": 0.5019021093545738,
+            "dependency_coefficient": 3.136888183466086,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.33785148897440453,
+            "dependency_coefficient": 2.111571806090028,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.23179855768603258,
+            "dependency_coefficient": 1.4487409855377036,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "LCB-K066",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "EffectiveComplexityMeterV0",
+      "rank": 10,
+      "score": 10.124131,
+      "score_explanation": {
+        "document_id": "LCB-K066",
+        "feature_contributions": [
+          {
+            "contribution": 3.1222273470138604,
+            "dependency_coefficient": 6.504640306278876,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 1.7841299125793488,
+            "dependency_coefficient": 3.7169373178736436,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.7841299125793488,
+            "dependency_coefficient": 3.7169373178736436,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 1.0015639998396884,
+            "dependency_coefficient": 6.2597749989980525,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.5947099708597829,
+            "dependency_coefficient": 3.7169373178736436,
+            "feature": "root:nomin"
+          },
+          {
+            "contribution": 0.3173703548224413,
+            "dependency_coefficient": 1.983564717640258,
+            "feature": "root:prese"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.52
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P123",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "SACPS + CSID",
+          "title": "Product result \u2014 P123_SCGD v0.1"
+        }
+      },
+      "name": "P123 SCGD",
+      "rank": 11,
+      "score": 9.364516,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P123",
+        "feature_contributions": [
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:covariance"
+          },
+          {
+            "contribution": 1.2194266607914335,
+            "dependency_coefficient": 2.5404722099821533,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.8128885956855297,
+            "dependency_coefficient": 1.693517907678187,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:covar"
+          },
+          {
+            "contribution": 0.4041001169277412,
+            "dependency_coefficient": 2.5256257307983825,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.277251476821829,
+            "dependency_coefficient": 1.7328217301364313,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "PARENT:R050_M583_S745_CBAC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R050_M583_S745_CBAC",
+          "test_methods": 4
+        }
+      },
+      "name": "R050_M583_S745_CBAC",
+      "rank": 12,
+      "score": 8.933765,
+      "score_explanation": {
+        "document_id": "PARENT:R050_M583_S745_CBAC",
+        "feature_contributions": [
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:covariance"
+          },
+          {
+            "contribution": 1.4556640583067963,
+            "dependency_coefficient": 3.032633454805826,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:covar"
+          },
+          {
+            "contribution": 0.277251476821829,
+            "dependency_coefficient": 1.7328217301364313,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "LCB-K049",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "BarrierAwareTransitionPlannerV0",
+      "rank": 13,
+      "score": 8.902839,
+      "score_explanation": {
+        "document_id": "LCB-K049",
+        "feature_contributions": [
+          {
+            "contribution": 2.2399526001591172,
+            "dependency_coefficient": 4.6665679169981615,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.69184336469107,
+            "dependency_coefficient": 3.5246736764397295,
+            "feature": "tok:portfolio"
+          },
+          {
+            "contribution": 1.072248152295055,
+            "dependency_coefficient": 2.233850317281365,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.7147771348379679,
+            "dependency_coefficient": 1.4891190309124331,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5639477882303567,
+            "dependency_coefficient": 3.5246736764397295,
+            "feature": "root:portf"
+          },
+          {
+            "contribution": 0.35532731704977516,
+            "dependency_coefficient": 2.2207957315610947,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.3009539412854374,
+            "dependency_coefficient": 1.8809621330339836,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.2437886535548919,
+            "dependency_coefficient": 1.5236790847180743,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "LCB-K042",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "EffectiveRedundancyBackstopV0",
+      "rank": 14,
+      "score": 8.689012,
+      "score_explanation": {
+        "document_id": "LCB-K042",
+        "feature_contributions": [
+          {
+            "contribution": 3.0393326983517293,
+            "dependency_coefficient": 6.331943121566103,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 1.6961992885870096,
+            "dependency_coefficient": 3.5337485178896033,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 0.9749726319949491,
+            "dependency_coefficient": 6.093578949968432,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.5493020624011249,
+            "dependency_coefficient": 3.4331378900070306,
+            "feature": "root:indep"
+          },
+          {
+            "contribution": 0.3089442214455929,
+            "dependency_coefficient": 1.9309013840349558,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.25026120424969467,
+            "dependency_coefficient": 1.5641325265605917,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:IM139_IM250_CCVC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM139_IM250_CCVC",
+          "test_methods": 3
+        }
+      },
+      "name": "IM139_IM250_CCVC",
+      "rank": 15,
+      "score": 8.668798,
+      "score_explanation": {
+        "document_id": "PARENT:IM139_IM250_CCVC",
+        "feature_contributions": [
+          {
+            "contribution": 1.5955556933142272,
+            "dependency_coefficient": 3.3240743610713066,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.5955556933142272,
+            "dependency_coefficient": 3.3240743610713066,
+            "feature": "tok:constrained"
+          },
+          {
+            "contribution": 1.4740024609634836,
+            "dependency_coefficient": 3.070838460340591,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 0.6740971125006004,
+            "dependency_coefficient": 1.404368984376251,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5318518977714091,
+            "dependency_coefficient": 3.3240743610713066,
+            "feature": "root:nomin"
+          },
+          {
+            "contribution": 0.49782143900601733,
+            "dependency_coefficient": 3.111383993787608,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.22991394018083036,
+            "dependency_coefficient": 1.4369621261301897,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P138",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": false,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P138 SPIA \u2014 Search-Policy Information Acquisition"
+        }
+      },
+      "name": "P138 SPIA",
+      "rank": 16,
+      "score": 8.256819,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P138",
+        "feature_contributions": [
+          {
+            "contribution": 2.4174267464898067,
+            "dependency_coefficient": 5.036305721853764,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 1.6584494410312436,
+            "dependency_coefficient": 3.4551030021484244,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 1.1055479435396072,
+            "dependency_coefficient": 2.303224882374182,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.8058089154966023,
+            "dependency_coefficient": 5.036305721853764,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.5495858296262869,
+            "dependency_coefficient": 3.4349114351642926,
+            "feature": "root:suppo"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P097",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "UNEXTRACTED",
+          "title": "P097_BDSD \u2014 Blackwell-Deduplicated Safeguard Design"
+        }
+      },
+      "name": "P097 BDSD",
+      "rank": 17,
+      "score": 8.114335,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P097",
+        "feature_contributions": [
+          {
+            "contribution": 2.0833961947553146,
+            "dependency_coefficient": 4.340408739073572,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 1.9707041187367593,
+            "dependency_coefficient": 4.105633580701582,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 0.9012508399512098,
+            "dependency_coefficient": 1.8776059165650205,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.6746930235603888,
+            "dependency_coefficient": 4.21683139725243,
+            "feature": "root:indep"
+          },
+          {
+            "contribution": 0.6569013729122531,
+            "dependency_coefficient": 4.105633580701582,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.3073891400243626,
+            "dependency_coefficient": 1.921182125152266,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "LCB-K045",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "BandSpecificRelationGateV0",
+      "rank": 18,
+      "score": 8.063031,
+      "score_explanation": {
+        "document_id": "LCB-K045",
+        "feature_contributions": [
+          {
+            "contribution": 1.7680559481945501,
+            "dependency_coefficient": 3.68344989207198,
+            "feature": "tok:trusting"
+          },
+          {
+            "contribution": 1.7680559481945501,
+            "dependency_coefficient": 3.68344989207198,
+            "feature": "tok:raw"
+          },
+          {
+            "contribution": 1.307207561115067,
+            "dependency_coefficient": 2.72334908565639,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5893519827315168,
+            "dependency_coefficient": 3.68344989207198,
+            "feature": "root:trust"
+          },
+          {
+            "contribution": 0.44584858091922314,
+            "dependency_coefficient": 2.7865536307451446,
+            "feature": "root:relat"
+          },
+          {
+            "contribution": 0.31451103401612646,
+            "dependency_coefficient": 1.9656939626007903,
+            "feature": "root:prese"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P120",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "CWC + DTPR",
+          "title": "Product result \u2014 P120_PCAR v0.1"
+        }
+      },
+      "name": "P120 PCAR",
+      "rank": 19,
+      "score": 7.945353,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P120",
+        "feature_contributions": [
+          {
+            "contribution": 2.002605913880352,
+            "dependency_coefficient": 4.1720956539174,
+            "feature": "tok:well"
+          },
+          {
+            "contribution": 2.002605913880352,
+            "dependency_coefficient": 4.1720956539174,
+            "feature": "tok:raw"
+          },
+          {
+            "contribution": 2.002605913880352,
+            "dependency_coefficient": 4.1720956539174,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 0.667535304626784,
+            "dependency_coefficient": 4.1720956539174,
+            "feature": "root:trust"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.27
+      }
+    },
+    {
+      "document_id": "PARENT:IM359_IM014_AICC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM359_IM014_AICC",
+          "test_methods": 3
+        }
+      },
+      "name": "IM359_IM014_AICC",
+      "rank": 20,
+      "score": 7.901926,
+      "score_explanation": {
+        "document_id": "PARENT:IM359_IM014_AICC",
+        "feature_contributions": [
+          {
+            "contribution": 1.5108540534677093,
+            "dependency_coefficient": 3.147612611391061,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 1.5108540534677093,
+            "dependency_coefficient": 3.147612611391061,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.0365050622905716,
+            "dependency_coefficient": 2.159385546438691,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.6909502404675032,
+            "dependency_coefficient": 1.4394796676406316,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5036180178225698,
+            "dependency_coefficient": 3.147612611391061,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.34348258106475393,
+            "dependency_coefficient": 2.146766131654712,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.23566202748663215,
+            "dependency_coefficient": 1.472887671791451,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "LCB-K048",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "MultiFidelityBudgetControllerV0",
+      "rank": 21,
+      "score": 7.878786,
+      "score_explanation": {
+        "document_id": "LCB-K048",
+        "feature_contributions": [
+          {
+            "contribution": 1.5108540534677093,
+            "dependency_coefficient": 3.147612611391061,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 1.2373053779635976,
+            "dependency_coefficient": 2.5777195374241617,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.0365050622905716,
+            "dependency_coefficient": 2.159385546438691,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.6909502404675032,
+            "dependency_coefficient": 1.4394796676406316,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5451487476263677,
+            "dependency_coefficient": 3.407179672664798,
+            "feature": "root:corre"
+          },
+          {
+            "contribution": 0.5036180178225698,
+            "dependency_coefficient": 3.147612611391061,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.34348258106475393,
+            "dependency_coefficient": 2.146766131654712,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.2909217264594711,
+            "dependency_coefficient": 1.8182607903716943,
+            "feature": "root:prese"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "LCB-K054",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "TimescaleBottleneckDetectorV0",
+      "rank": 22,
+      "score": 7.596221,
+      "score_explanation": {
+        "document_id": "LCB-K054",
+        "feature_contributions": [
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:nomin"
+          },
+          {
+            "contribution": 0.6172125020721826,
+            "dependency_coefficient": 3.8575781379511414,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.3422633640246512,
+            "dependency_coefficient": 2.1391460251540697,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.277251476821829,
+            "dependency_coefficient": 1.7328217301364313,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P119",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "CBAC + TDSX",
+          "title": "Product result \u2014 P119_RAPT v0.1"
+        }
+      },
+      "name": "P119 RAPT",
+      "rank": 23,
+      "score": 7.574521,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P119",
+        "feature_contributions": [
+          {
+            "contribution": 2.0878277065920385,
+            "dependency_coefficient": 4.34964105540008,
+            "feature": "tok:diversity"
+          },
+          {
+            "contribution": 2.0878277065920385,
+            "dependency_coefficient": 4.34964105540008,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 0.8820742731261543,
+            "dependency_coefficient": 1.8376547356794881,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.6959425688640128,
+            "dependency_coefficient": 4.34964105540008,
+            "feature": "root:diver"
+          },
+          {
+            "contribution": 0.3008485986748614,
+            "dependency_coefficient": 1.8803037417178838,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "LCB-K012",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "PolicyAwareTimingSensorV0",
+      "rank": 24,
+      "score": 7.542704,
+      "score_explanation": {
+        "document_id": "LCB-K012",
+        "feature_contributions": [
+          {
+            "contribution": 2.078669580545706,
+            "dependency_coefficient": 4.3305616261368876,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.4504174809554344,
+            "dependency_coefficient": 3.021703085323822,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 0.9950432061882657,
+            "dependency_coefficient": 2.073006679558887,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.6633111285264499,
+            "dependency_coefficient": 1.3818981844301041,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.3297427298398275,
+            "dependency_coefficient": 2.060892061498922,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.2792843932728479,
+            "dependency_coefficient": 1.745527457955299,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.22623517041867383,
+            "dependency_coefficient": 1.4139698151167115,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.52
+      }
+    },
+    {
+      "document_id": "PARENT:R001_C313_BPISD",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R001_C313_BPISD",
+          "test_methods": 4
+        }
+      },
+      "name": "R001_C313_BPISD",
+      "rank": 25,
+      "score": 7.398347,
+      "score_explanation": {
+        "document_id": "PARENT:R001_C313_BPISD",
+        "feature_contributions": [
+          {
+            "contribution": 1.9823765526271353,
+            "dependency_coefficient": 4.129951151306532,
+            "feature": "tok:constraint"
+          },
+          {
+            "contribution": 1.8313543860441373,
+            "dependency_coefficient": 3.815321637591953,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 0.6185115018020716,
+            "dependency_coefficient": 3.8656968862629477,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.6104514620147125,
+            "dependency_coefficient": 3.815321637591953,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.2856534598236903,
+            "dependency_coefficient": 1.7853341238980642,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P032",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P032 SGOT v0.1 \u2014 Support-Gated Orthogonal Target"
+        }
+      },
+      "name": "P032 SGOT",
+      "rank": 26,
+      "score": 7.210081,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P032",
+        "feature_contributions": [
+          {
+            "contribution": 1.2420986593362944,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 1.2420986593362944,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "tok:because"
+          },
+          {
+            "contribution": 0.7872111687388388,
+            "dependency_coefficient": 1.6400232682059142,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.5247670909940259,
+            "dependency_coefficient": 1.0932647729042206,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.41403288644543146,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "root:corre"
+          },
+          {
+            "contribution": 0.41403288644543146,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "root:becau"
+          },
+          {
+            "contribution": 0.3984467379129809,
+            "dependency_coefficient": 2.4902921119561308,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.38754105830918373,
+            "dependency_coefficient": 2.422131614432398,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.26087023973030665,
+            "dependency_coefficient": 1.6304389983144165,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.17898202993350065,
+            "dependency_coefficient": 1.118637687084379,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P067",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "UNEXTRACTED",
+          "title": "Deployability-Aware Resolution Allocator"
+        }
+      },
+      "name": "P067 DARA",
+      "rank": 27,
+      "score": 7.023643,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P067",
+        "feature_contributions": [
+          {
+            "contribution": 2.1519015206644143,
+            "dependency_coefficient": 4.483128168050864,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 1.802672856227629,
+            "dependency_coefficient": 3.7555684504742275,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 1.2016894936742182,
+            "dependency_coefficient": 2.503519778487955,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.5973793549103348,
+            "dependency_coefficient": 3.733620968189592,
+            "feature": "root:suppo"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.27
+      }
+    },
+    {
+      "document_id": "LCB-K074",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "InformationSearchTippingGuardV0",
+      "rank": 28,
+      "score": 6.997434,
+      "score_explanation": {
+        "document_id": "LCB-K074",
+        "feature_contributions": [
+          {
+            "contribution": 2.8583821623653165,
+            "dependency_coefficient": 5.954962838261077,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 0.9527940541217723,
+            "dependency_coefficient": 5.954962838261077,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.7469757492086098,
+            "dependency_coefficient": 1.556199477517937,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.31451103401612646,
+            "dependency_coefficient": 1.9656939626007903,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.25477061766812753,
+            "dependency_coefficient": 1.592316360425797,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "LCB-K065",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "InformationProductionEquilibriumGuardV0",
+      "rank": 29,
+      "score": 6.862495,
+      "score_explanation": {
+        "document_id": "LCB-K065",
+        "feature_contributions": [
+          {
+            "contribution": 2.783158289527854,
+            "dependency_coefficient": 5.798246436516362,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 0.927719429842618,
+            "dependency_coefficient": 5.798246436516362,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.7273176329808484,
+            "dependency_coefficient": 1.515245068710101,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.30623406589747904,
+            "dependency_coefficient": 1.913962911859244,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.2480658345224301,
+            "dependency_coefficient": 1.5504114657651882,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:R014_S781_S792_ACSA",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R014_S781_S792_ACSA",
+          "test_methods": 4
+        }
+      },
+      "name": "R014_S781_S792_ACSA",
+      "rank": 30,
+      "score": 6.800495,
+      "score_explanation": {
+        "document_id": "PARENT:R014_S781_S792_ACSA",
+        "feature_contributions": [
+          {
+            "contribution": 1.9625517987700265,
+            "dependency_coefficient": 4.0886495807708885,
+            "feature": "tok:many"
+          },
+          {
+            "contribution": 1.243816409918509,
+            "dependency_coefficient": 2.5912841873302273,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.829147178144407,
+            "dependency_coefficient": 1.7273899544675146,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.41218252220145635,
+            "dependency_coefficient": 2.5761407637591023,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.2827967828104703,
+            "dependency_coefficient": 1.7674798925654394,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "PARENT:R048_MORTGAGE_BURNOUT_MBPF",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R048_MORTGAGE_BURNOUT_MBPF",
+          "test_methods": 4
+        }
+      },
+      "name": "R048_MORTGAGE_BURNOUT_MBPF",
+      "rank": 31,
+      "score": 6.789702,
+      "score_explanation": {
+        "document_id": "PARENT:R048_MORTGAGE_BURNOUT_MBPF",
+        "feature_contributions": [
+          {
+            "contribution": 2.0443290371261944,
+            "dependency_coefficient": 4.259018827346239,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 1.2956447851435435,
+            "dependency_coefficient": 2.699259969049049,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.6557902868190594,
+            "dependency_coefficient": 4.098689292619121,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.4293576858763413,
+            "dependency_coefficient": 2.683485536727133,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.2945805940345833,
+            "dependency_coefficient": 1.8411287127161455,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "LCB-K003",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "SharedCapacityAllocatorV0",
+      "rank": 32,
+      "score": 6.78631,
+      "score_explanation": {
+        "document_id": "LCB-K003",
+        "feature_contributions": [
+          {
+            "contribution": 1.2527340443564308,
+            "dependency_coefficient": 2.6098625924092307,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 0.9704268946169231,
+            "dependency_coefficient": 2.02172269711859,
+            "feature": "tok:aware"
+          },
+          {
+            "contribution": 0.8129378622024812,
+            "dependency_coefficient": 1.6936205462551692,
+            "feature": "tok:support"
+          },
+          {
+            "contribution": 0.5419169011414597,
+            "dependency_coefficient": 1.1289935440447079,
+            "feature": "tok:gate"
+          },
+          {
+            "contribution": 0.40568900059987906,
+            "dependency_coefficient": 2.535556253749244,
+            "feature": "root:indep"
+          },
+          {
+            "contribution": 0.40020621145693275,
+            "dependency_coefficient": 2.5012888216058298,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.269395688755732,
+            "dependency_coefficient": 1.683723054723325,
+            "feature": "root:suppo"
+          },
+          {
+            "contribution": 0.2281718584698211,
+            "dependency_coefficient": 1.4260741154363819,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.18483130647130247,
+            "dependency_coefficient": 1.1551956654456403,
+            "feature": "root:relat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    }
+  ],
+  "engine": "LABALLCOMPASS_SEARCH_TO_FOUNDRY_R9",
+  "experiment_bootstrap_opportunities": [
+    {
+      "case_count": 12,
+      "consumer_id": "FOUNDRY:P003",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e",
+      "product_id": "V2P005",
+      "status": "FIXED_NONADAPTIVE_PILOT_AVAILABLE_NUMERIC_ROUTING_STILL_UNKNOWN",
+      "supplier_id": "LCB-K019"
+    }
+  ],
+  "experiment_selection": {
+    "policy": "do not infer information gain, reliability, or compute cost from prose",
+    "required_fields": [
+      "decision_id",
+      "uncertainty_axes",
+      "test_channels[*].test_signature",
+      "test_channels[*].expected_resolution_by_axis",
+      "test_channels[*].compute_seconds",
+      "test_channels[*].reliability",
+      "test_channels[*].calibration_id",
+      "test_channels[*].measurement_backreaction",
+      "test_channels[*].backreaction_adjusted",
+      "test_channels[*].evidence_role",
+      "test_channels[*].selection_generation"
+    ],
+    "status": "NOT_READY_WITHOUT_DECLARED_EXPERIMENT_CONTRACT"
+  },
+  "interaction_expansions": [
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P003",
+        "curated": true,
+        "curated_rationale": "Gate SANP support masks with effective rather than nominal diversity",
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 12,
+        "experiment_bootstrap_problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e",
+        "experiment_bootstrap_product_id": "V2P005",
+        "experiment_bootstrap_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 52,
+        "shared_domains": [],
+        "supplier_id": "LCB-K019",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P003",
+      "neighbor_name": "P003 SANP",
+      "seed_id": "LCB-K019",
+      "seed_name": "EffectiveDiversityGuardV0",
+      "seed_rank": 1
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P035",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P035",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 34.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P035",
+      "neighbor_name": "P035 SVCO",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P057",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P057",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 35.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P057",
+      "neighbor_name": "P057 FIAC",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P137",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P137",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 31.0,
+        "shared_domains": [
+          "audit",
+          "calibration",
+          "support",
+          "transfer",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P137",
+      "neighbor_name": "P137 MPHA",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P138",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P138",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 36.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P138",
+      "neighbor_name": "P138 SPIA",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K003",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 31.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K003",
+      "neighbor_name": "SharedCapacityAllocatorV0",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K010",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 31.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K010",
+      "neighbor_name": "CoverageFeedbackControllerV0",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K012",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 34.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K012",
+      "neighbor_name": "PolicyAwareTimingSensorV0",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K015",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 31.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K015",
+      "neighbor_name": "VarianceAwareCapacityPlannerV0",
+      "seed_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_rank": 2
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "PARENT:R035_M007_ENPC",
+      "seed_name": "R035_M007_ENPC",
+      "seed_rank": 3
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "PARENT:R035_M007_ENPC",
+      "seed_name": "R035_M007_ENPC",
+      "seed_rank": 3
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "PARENT:R035_M007_ENPC",
+      "seed_name": "R035_M007_ENPC",
+      "seed_rank": 3
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:IM445_IM085_CSID",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P065",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 26.0,
+        "shared_domains": [
+          "calibration",
+          "support",
+          "transfer"
+        ],
+        "supplier_id": "FOUNDRY:P065",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P065",
+      "neighbor_name": "P065 SWTE",
+      "seed_id": "PARENT:IM445_IM085_CSID",
+      "seed_name": "IM445_IM085_CSID",
+      "seed_rank": 4
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:IM445_IM085_CSID",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P079",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "evidence"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "calibration",
+          "transfer",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P079",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "PARENT:IM445_IM085_CSID",
+      "seed_name": "IM445_IM085_CSID",
+      "seed_rank": 4
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:IM445_IM085_CSID",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P109",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "evidence"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 26.0,
+        "shared_domains": [
+          "audit",
+          "calibration",
+          "transfer",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P109",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "PARENT:IM445_IM085_CSID",
+      "seed_name": "IM445_IM085_CSID",
+      "seed_rank": 4
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:IM445_IM085_CSID",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P140",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 30.0,
+        "shared_domains": [
+          "audit",
+          "calibration",
+          "support",
+          "transfer"
+        ],
+        "supplier_id": "FOUNDRY:P140",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P140",
+      "neighbor_name": "P140 BOSA",
+      "seed_id": "PARENT:IM445_IM085_CSID",
+      "seed_name": "IM445_IM085_CSID",
+      "seed_rank": 4
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:IM445_IM085_CSID",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 26.0,
+        "shared_domains": [
+          "calibration",
+          "incentive",
+          "uncertainty"
+        ],
+        "supplier_id": "LCB-R50-137",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-R50-137",
+      "neighbor_name": "renegotiation-aware commitment valuation",
+      "seed_id": "PARENT:IM445_IM085_CSID",
+      "seed_name": "IM445_IM085_CSID",
+      "seed_rank": 4
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P023",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 30.0,
+        "shared_domains": [
+          "calibration",
+          "support"
+        ],
+        "supplier_id": "FOUNDRY:P023",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P023",
+      "neighbor_name": "P023 COST",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P065",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 33.0,
+        "shared_domains": [
+          "calibration",
+          "support"
+        ],
+        "supplier_id": "FOUNDRY:P065",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P065",
+      "neighbor_name": "P065 SWTE",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P079",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "evidence",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 37.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P079",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P091",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 33.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P091",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P091",
+      "neighbor_name": "P091 DCBT",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P109",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "evidence",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 30.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P109",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P140",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 34.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support"
+        ],
+        "supplier_id": "FOUNDRY:P140",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P140",
+      "neighbor_name": "P140 BOSA",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P141",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 32.0,
+        "shared_domains": [
+          "calibration",
+          "decision"
+        ],
+        "supplier_id": "FOUNDRY:P141",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P141",
+      "neighbor_name": "P141 PCFT",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 30.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "control",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "LCB-R50-149",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-R50-149",
+      "neighbor_name": "overlap-aware marginal allocation",
+      "seed_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "seed_name": "R041_CONSTRAINED_POLICY_CAPL",
+      "seed_rank": 5
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "LCB-K072",
+      "seed_name": "EffectiveRedundancyAuditV0",
+      "seed_rank": 6
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "LCB-K072",
+      "seed_name": "EffectiveRedundancyAuditV0",
+      "seed_rank": 6
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "LCB-K072",
+      "seed_name": "EffectiveRedundancyAuditV0",
+      "seed_rank": 6
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "FOUNDRY:P017",
+      "seed_name": "P017 RECS",
+      "seed_rank": 7
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "FOUNDRY:P017",
+      "seed_name": "P017 RECS",
+      "seed_rank": 7
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P017",
+      "seed_name": "P017 RECS",
+      "seed_rank": 7
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K003",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K003",
+      "neighbor_name": "SharedCapacityAllocatorV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K010",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K010",
+      "neighbor_name": "CoverageFeedbackControllerV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K015",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K015",
+      "neighbor_name": "VarianceAwareCapacityPlannerV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K035",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K035",
+      "neighbor_name": "ConsequenceCoverageAllocatorV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K048",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K048",
+      "neighbor_name": "MultiFidelityBudgetControllerV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K049",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K049",
+      "neighbor_name": "BarrierAwareTransitionPlannerV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K055",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K055",
+      "neighbor_name": "InterfaceWidthOptimizerV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K056",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P059",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P059",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K056",
+      "neighbor_name": "BurdenReliefControllerV0",
+      "seed_id": "FOUNDRY:P059",
+      "seed_name": "P059 SBTE",
+      "seed_rank": 8
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "PARENT:IM141_IM023_CDBL",
+      "seed_name": "IM141_IM023_CDBL",
+      "seed_rank": 9
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-R50-149",
+      "neighbor_name": "overlap-aware marginal allocation",
+      "seed_id": "PARENT:IM141_IM023_CDBL",
+      "seed_name": "IM141_IM023_CDBL",
+      "seed_rank": 9
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "PARENT:IM141_IM023_CDBL",
+      "seed_name": "IM141_IM023_CDBL",
+      "seed_rank": 9
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "LCB-K066",
+      "seed_name": "EffectiveComplexityMeterV0",
+      "seed_rank": 10
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "LCB-K066",
+      "seed_name": "EffectiveComplexityMeterV0",
+      "seed_rank": 10
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "LCB-K066",
+      "seed_name": "EffectiveComplexityMeterV0",
+      "seed_rank": 10
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "FOUNDRY:P123",
+      "seed_name": "P123 SCGD",
+      "seed_rank": 11
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "FOUNDRY:P123",
+      "seed_name": "P123 SCGD",
+      "seed_rank": 11
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P123",
+      "seed_name": "P123 SCGD",
+      "seed_rank": 11
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "PARENT:R050_M583_S745_CBAC",
+      "seed_name": "R050_M583_S745_CBAC",
+      "seed_rank": 12
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "FOUNDRY:P109",
+      "neighbor_name": "P109 CCIA",
+      "seed_id": "PARENT:R050_M583_S745_CBAC",
+      "seed_name": "R050_M583_S745_CBAC",
+      "seed_rank": 12
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "PARENT:R050_M583_S745_CBAC",
+      "seed_name": "R050_M583_S745_CBAC",
+      "seed_rank": 12
+    }
+  ],
+  "primitive_donors": [
+    {
+      "document_id": "PRIMITIVE:S-958",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Unequal integration weights",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Huge nonprobability $n$ extreme weights/model dependence y\u00fcz\u00fcnden nominal sample size kadar information ta\u015f\u0131mayabilir",
+        "primitive_id": "S-958"
+      },
+      "name": "Integration effective sample size",
+      "rank": 1,
+      "score": 9.490948,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-958",
+        "feature_contributions": [
+          {
+            "contribution": 3.3043318321283692,
+            "dependency_coefficient": 6.8840246502674365,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 1.10144394404279,
+            "dependency_coefficient": 6.8840246502674365,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "root:nomin"
+          },
+          {
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "root:infor"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-694",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Correlated labeling errors",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "\u0130ki sources ayn\u0131 underlying heuristic\u2019i kopyal\u0131yorsa iki independent votes san\u0131p evidence\u2019i double-count etme",
+        "primitive_id": "S-694"
+      },
+      "name": "Label-source dependency correction",
+      "rank": 2,
+      "score": 9.23083,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-694",
+        "feature_contributions": [
+          {
+            "contribution": 1.6692418225984658,
+            "dependency_coefficient": 3.4775871304134705,
+            "feature": "tok:sources"
+          },
+          {
+            "contribution": 1.6692418225984658,
+            "dependency_coefficient": 3.4775871304134705,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 1.6692418225984658,
+            "dependency_coefficient": 3.4775871304134705,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 1.6692418225984658,
+            "dependency_coefficient": 3.4775871304134705,
+            "feature": "tok:correlated"
+          },
+          {
+            "contribution": 0.9737243965157717,
+            "dependency_coefficient": 6.085777478223573,
+            "feature": "root:sourc"
+          },
+          {
+            "contribution": 0.9737243965157717,
+            "dependency_coefficient": 6.085777478223573,
+            "feature": "root:corre"
+          },
+          {
+            "contribution": 0.5564139408661553,
+            "dependency_coefficient": 3.4775871304134705,
+            "feature": "root:indep"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:M-271",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Divergence geometry",
+        "domain": "Mathematics",
+        "kind": "primitive",
+        "primitive": "Bir distribution\u2019\u0131 constraint family i\u00e7indeki en yak\u0131n distribution\u2019a project et",
+        "primitive_id": "M-271"
+      },
+      "name": "Information projection",
+      "rank": 3,
+      "score": 9.083941,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-271",
+        "feature_contributions": [
+          {
+            "contribution": 3.952349192511038,
+            "dependency_coefficient": 8.23406081773133,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 2.2584852528634505,
+            "dependency_coefficient": 4.705177610132188,
+            "feature": "tok:constraint"
+          },
+          {
+            "contribution": 1.3174497308370128,
+            "dependency_coefficient": 8.23406081773133,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.7528284176211502,
+            "dependency_coefficient": 4.705177610132188,
+            "feature": "root:diver"
+          },
+          {
+            "contribution": 0.7528284176211502,
+            "dependency_coefficient": 4.705177610132188,
+            "feature": "root:const"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:M-041",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Linear independence",
+        "domain": "Mathematics",
+        "kind": "primitive",
+        "primitive": "Count how many independent directions survive a transformation",
+        "primitive_id": "M-041"
+      },
+      "name": "Rank",
+      "rank": 4,
+      "score": 7.885615,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-041",
+        "feature_contributions": [
+          {
+            "contribution": 2.350684489210075,
+            "dependency_coefficient": 4.897259352520989,
+            "feature": "tok:many"
+          },
+          {
+            "contribution": 2.350684489210075,
+            "dependency_coefficient": 4.897259352520989,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 2.350684489210075,
+            "dependency_coefficient": 4.897259352520989,
+            "feature": "tok:count"
+          },
+          {
+            "contribution": 0.7835614964033583,
+            "dependency_coefficient": 4.897259352520989,
+            "feature": "root:indep"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:E-071",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Complementary ownership",
+        "domain": "Economics / Econometrics",
+        "kind": "primitive",
+        "primitive": "One necessary participant can demand disproportionate value because everyone else\u2019s agreement is useless without them",
+        "primitive_id": "E-071"
+      },
+      "name": "Holdout problem",
+      "rank": 5,
+      "score": 6.35328,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-071",
+        "feature_contributions": [
+          {
+            "contribution": 1.7190763266117568,
+            "dependency_coefficient": 3.5814090137744934,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.7190763266117568,
+            "dependency_coefficient": 3.5814090137744934,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.7190763266117568,
+            "dependency_coefficient": 3.5814090137744934,
+            "feature": "tok:because"
+          },
+          {
+            "contribution": 0.5730254422039189,
+            "dependency_coefficient": 3.5814090137744934,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.5730254422039189,
+            "dependency_coefficient": 3.5814090137744934,
+            "feature": "root:becau"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:E-787",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Verifiable counterparty data",
+        "domain": "Economics / Econometrics",
+        "kind": "primitive",
+        "primitive": "Taxpayer\u2019\u0131n own declaration\u2019\u0131n\u0131 independent employer/bank/customer record ile cross-check edilebilir hale getir",
+        "primitive_id": "E-787"
+      },
+      "name": "Third-party information reporting",
+      "rank": 6,
+      "score": 5.835141,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-787",
+        "feature_contributions": [
+          {
+            "contribution": 2.7610900660164863,
+            "dependency_coefficient": 5.75227097086768,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 1.5777657520094208,
+            "dependency_coefficient": 3.28701198335296,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 0.9203633553388287,
+            "dependency_coefficient": 5.75227097086768,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.5259219173364736,
+            "dependency_coefficient": 3.28701198335296,
+            "feature": "root:indep"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:P-478",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Boundary-modified fluctuations",
+        "domain": "Physics",
+        "kind": "primitive",
+        "primitive": "Constrained fluctuation spectrum boundaries aras\u0131nda effective force olu\u015fturabilir",
+        "primitive_id": "P-478"
+      },
+      "name": "Fluctuation-induced force",
+      "rank": 7,
+      "score": 5.438571,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-478",
+        "feature_contributions": [
+          {
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "tok:constrained"
+          },
+          {
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "root:const"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:P-027",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Distribution of velocities/phase mixing",
+        "domain": "Physics",
+        "kind": "primitive",
+        "primitive": "Collective field decays without ordinary collisions because particles dephase",
+        "primitive_id": "P-027"
+      },
+      "name": "Landau damping",
+      "rank": 8,
+      "score": 5.255881,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-027",
+        "feature_contributions": [
+          {
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "tok:because"
+          },
+          {
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "root:becau"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-387",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Reweighting",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Nominal sample b\u00fcy\u00fck olsa da target population\u2019a benzeyen usable sample \u00e7ok k\u00fc\u00e7\u00fck olabilir",
+        "primitive_id": "S-387"
+      },
+      "name": "Effective-overlap diagnostic",
+      "rank": 9,
+      "score": 8.018567,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-387",
+        "feature_contributions": [
+          {
+            "contribution": 3.803179760698775,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "tok:effective"
+          },
+          {
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "tok:nominal"
+          },
+          {
+            "contribution": 1.2677265868995917,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "root:effec"
+          },
+          {
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "root:nomin"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-472",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Cross-outcome covariance",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Studies birka\u00e7 correlated outcomes estimate ediyorsa ortak information\u2019\u0131 birlikte kullan",
+        "primitive_id": "S-472"
+      },
+      "name": "Multivariate meta-analysis",
+      "rank": 10,
+      "score": 7.602758,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-472",
+        "feature_contributions": [
+          {
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "tok:information"
+          },
+          {
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "tok:covariance"
+          },
+          {
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "tok:correlated"
+          },
+          {
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "root:infor"
+          },
+          {
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "root:covar"
+          },
+          {
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392,
+            "feature": "root:corre"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-079",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Correct qualitative shape",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Estimate without choosing full functional form, but impose properties like monotonicity/convexity",
+        "primitive_id": "S-079"
+      },
+      "name": "Shape-constrained inference",
+      "rank": 11,
+      "score": 7.362956,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-079",
+        "feature_contributions": [
+          {
+            "contribution": 3.199418102468518,
+            "dependency_coefficient": 6.665454380142746,
+            "feature": "tok:constrained"
+          },
+          {
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.0664727008228394,
+            "dependency_coefficient": 6.665454380142746,
+            "feature": "root:const"
+          },
+          {
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "root:corre"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:M-285",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Obedience inequalities",
+        "domain": "Mathematics",
+        "kind": "primitive",
+        "primitive": "Oyuncular independent randomization yerine ortak bir signal \u00fczerinden coordinated actions se\u00e7ebilir",
+        "primitive_id": "M-285"
+      },
+      "name": "Correlated equilibrium",
+      "rank": 12,
+      "score": 7.208086,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-285",
+        "feature_contributions": [
+          {
+            "contribution": 3.4163593928545826,
+            "dependency_coefficient": 7.117415401780381,
+            "feature": "tok:correlated"
+          },
+          {
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "tok:independent"
+          },
+          {
+            "contribution": 1.1387864642848609,
+            "dependency_coefficient": 7.117415401780381,
+            "feature": "root:corre"
+          },
+          {
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "root:indep"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    }
+  ],
+  "problem_id": "R9_SUPPORT_EFFECTIVE_DIVERSITY_SMOKE",
+  "relevance_snapshot": null,
+  "relevance_snapshot_fingerprint": null,
+  "search_generation": 0,
+  "semantics": {
+    "capabilities": "direct problem relevance only; interaction graph not allowed to inflate first-stage relevance",
+    "experiment_selection": "next-test routing uses declared contracts; R5 calibration may fill only UNKNOWN fields from frozen prior-generation exact-shell/test-signature telemetry; R6-R9 may bootstrap a fixed non-adaptive pilot only when an executable composition suite exists; R7-R9 create such suites by independently validating a real adapter against consumer invariants plus contrastive composition cases; scientific weakness axes remain unquantified",
+    "interaction_expansions": "directly relevant capability is identity-seeded, then active known composition interactions are used to retrieve possible complements/repairs; edges rejected by explicit adjudication are suppressed without deleting either component",
+    "primitives": "direct donor retrieval with max two selected donors per source domain",
+    "promotion": "none; this packet is a search/frontier artifact, not product evidence",
+    "relevance_learning": "optional frozen prior from closed earlier search generations; same-generation and protected-validation outcomes are excluded by construction"
+  }
+}

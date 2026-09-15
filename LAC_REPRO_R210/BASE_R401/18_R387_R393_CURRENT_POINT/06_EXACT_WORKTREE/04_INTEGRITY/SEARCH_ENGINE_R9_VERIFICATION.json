@@ -1,0 +1,148 @@
+{
+  "bootstrap": {
+    "calibration": {
+      "attempt_count": 12,
+      "axis_observation_counts": {
+        "declared_executable_contract_case_coverage": 12
+      },
+      "calibration_id": "a70bc443e7832356a2d0a58f92ff51ce0c1fe405904abfee91a1e09df1e420a3",
+      "compute_upper_seconds": 1.113314972000353,
+      "event_ids": [
+        "R9::V2P005::000::edsanptests_test_p003_covariance_is_consumed_and_constraints_hold_when_gate_passes",
+        "R9::V2P005::001::edsanptests_test_p003_factor_neutrality_is_preserved",
+        "R9::V2P005::002::edsanptests_test_p003_fresh_risk_improvement_remains_possible",
+        "R9::V2P005::003::edsanptests_test_p003_no_validation_segment_still_feasible",
+        "R9::V2P005::004::edsanptests_test_p003_dimension_mismatch_is_rejected",
+        "R9::V2P005::005::edsanptests_test_p003_invalid_support_is_not_silently_repaired",
+        "R9::V2P005::006::edsanptests_test_nominally_many_but_correlated_evidence_routes_to_raw_fallback",
+        "R9::V2P005::007::edsanptests_test_same_nominal_count_with_low_dependence_allows_structured_path",
+        "R9::V2P005::008::edsanptests_test_pairwise_small_can_still_fail_collective_variance_gate",
+        "R9::V2P005::009::edsanptests_test_missing_support_evidence_fails_closed_without_editing_mask",
+        "R9::V2P005::010::edsanptests_test_diagonal_evidence_key_is_rejected",
+        "R9::V2P005::011::edsanptests_test_diagonal_only_mask_still_requires_evidence_for_absence_decisions"
+      ],
+      "excluded_counts": {
+        "failed_or_censored": 0,
+        "invalid_measurement": 0,
+        "unadjusted_backreaction": 0,
+        "unknown_backreaction": 0
+      },
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e",
+      "reliability_lower_bound": 0.8159920848767768,
+      "target_generation": 2,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P005",
+      "test_signature": "0f6c2d67758b1cf548ee5d2d5a9891b4ef88c732184587402e379f84743f59c9",
+      "usable_count": 12
+    },
+    "cumulative_events": 48,
+    "future_selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P005",
+    "queue_counts": {
+      "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 120,
+      "FIXED_PILOT_SCHEDULE_AVAILABLE": 5,
+      "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+      "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 718
+    },
+    "v2p005_complete_cases": 12,
+    "v2p005_failed_cases": 0
+  },
+  "claim_boundary": "development adapter/bootstrap mechanics only; no scientific promotion or protected validation",
+  "edge_adjudication": {
+    "k058_to_p143": {
+      "active_for_build": false,
+      "addressed_weaknesses": [],
+      "adjudication_does_not_imply": "Do not delete or globally down-rank K058 or P143; only this direct composition edge is rejected until an exact encoding/certificate is supplied.",
+      "adjudication_generation": "R9",
+      "adjudication_reason": "DLIC certifies integrality of a constrained LP relaxation under TU + integer RHS; K058 fixes variables in an unconstrained binary QUBO. No exact theorem-preserving constrained-integer-to-QUBO encoding and penalty certificate exists in the current Lab package, so mapping DLIC allocations to K058 binary variables would fabricate an interface.",
+      "adjudication_scope": "CURRENT_INTERFACE_ONLY",
+      "adjudication_state": "REJECTED_CURRENT_INTERFACE",
+      "consumer_id": "FOUNDRY:P143",
+      "curated": true,
+      "curated_rationale": "Reduce liquidity allocation only when integrality meaning survives",
+      "decision_id": null,
+      "experiment_bootstrap_case_count": 6,
+      "experiment_bootstrap_problem_shell": null,
+      "experiment_bootstrap_product_id": "P143",
+      "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+      "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+      "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+      "interface_matches": [
+        "representation"
+      ],
+      "recommended_next": "HOLD_REJECTED_INTERFACE_NO_BUILD",
+      "score": 67.0,
+      "shared_domains": [],
+      "supplier_id": "LCB-K058",
+      "test_channels": null,
+      "uncertainty_axes": null
+    },
+    "rejected_current_interface_edges": 1
+  },
+  "focused_engine_tests": {
+    "failed": 0,
+    "passed": 65
+  },
+  "foundry_r8_r9_identity": {
+    "byte_identical": true,
+    "changed": [],
+    "r8_files": 1305,
+    "r9_files": 1305,
+    "same_paths": true
+  },
+  "inventory": {
+    "base_registry_records": 310,
+    "candidate_directed_edges": 15704,
+    "completed_v2_composite_ids": [
+      "V2P001_SAVA",
+      "V2P002_MFQA",
+      "V2P003_MFPD",
+      "V2P004_OPIA",
+      "V2P005_EDSANP"
+    ],
+    "completed_v2_composites_not_yet_folded_into_base_registry": 5,
+    "families": {
+      "FOUNDRY_PARENT": 69,
+      "FOUNDRY_PRODUCT": 145,
+      "LCB_KERNEL": 96
+    },
+    "ranked_working_queue_rows": 1000,
+    "rejected_current_interface_edges_preserved_separately": 1,
+    "total_addressable_artifacts_in_handoff": 315
+  },
+  "original_consumer_tests": {
+    "P003_SANP": {
+      "failed": 0,
+      "passed": 6
+    },
+    "P143_DLIC": {
+      "failed": 0,
+      "passed": 6
+    }
+  },
+  "search_smoke": {
+    "k019_direct_rank": 1,
+    "packet": "01_V2_CORE/generated_search/R9_P003_SEARCH_PACKET.json",
+    "rejected_k058_p143_surfaced": false,
+    "v2p005_bootstrap_surfaced": true
+  },
+  "status": "PASS",
+  "v2_product_tests": {
+    "V2P001": 6,
+    "V2P002": 6,
+    "V2P003": 12,
+    "V2P004": 12,
+    "V2P005": 12
+  },
+  "v2p005_boundary_benchmark": {
+    "high_dependence_effective_count": null,
+    "high_dependence_route": "RAW_COVARIANCE_ENPC_FALLBACK",
+    "low_dependence_effective_count": null,
+    "low_dependence_fresh_variance_change_fraction_vs_raw": null,
+    "low_dependence_route": "SUPPORT_AWARE_SANP",
+    "pairwise_small_collective_route": "RAW_COVARIANCE_ENPC_FALLBACK",
+    "pairwise_small_collective_vif": null
+  },
+  "version": "R9"
+}

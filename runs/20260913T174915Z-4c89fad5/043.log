@@ -1,0 +1,11 @@
+test_comparator (test_cfdre.T.test_comparator) ... ok
+test_equal (test_cfdre.T.test_equal) ... ok
+test_full (test_cfdre.T.test_full) ... ok
+test_invalid (test_cfdre.T.test_invalid) ... ok
+test_reduced (test_cfdre.T.test_reduced) ... ok
+test_zero (test_cfdre.T.test_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

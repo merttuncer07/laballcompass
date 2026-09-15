@@ -1,0 +1,13 @@
+
+==================================== ERRORS ====================================
+_ ERROR collecting LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py _
+ImportError while importing test module '/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py:5: in <module>
+    from rel import ConsistencyRelation, EvidenceRecord, RelationalEvidenceLocalizer
+E   ModuleNotFoundError: No module named 'rel'
+=========================== short test summary info ============================
+ERROR LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 23.99s

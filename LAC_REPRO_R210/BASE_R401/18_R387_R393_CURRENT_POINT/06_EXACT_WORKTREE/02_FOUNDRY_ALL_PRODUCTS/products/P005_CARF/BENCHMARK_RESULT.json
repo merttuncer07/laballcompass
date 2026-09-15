@@ -1,0 +1,25 @@
+{
+  "benchmark_type": "synthetic_certificate_mismatch_benchmark",
+  "action_to_causal": {
+    "deleted_features": [
+      "confounder"
+    ],
+    "observed_action_changes": 0,
+    "full_causal_target": 1.9777189189497635,
+    "full_standard_error": 0.013880270793647717,
+    "reduced_causal_target": 3.4434781241645687,
+    "causal_target_drift": 1.4657592052148052,
+    "drift_in_full_standard_errors": 105.60018799385438,
+    "status": "ACTION_CERTIFICATE_NOT_PROMOTED_TO_CAUSAL_CERTIFICATE"
+  },
+  "linear_route": {
+    "audit_status": "REDUCIBLE_REALIZATION",
+    "balanced_selected_order": 1,
+    "balanced_io_error_bound": 2.8047617285231055,
+    "target_weighted_retained_states": [
+      "state_0"
+    ],
+    "target_relative_error": 0.0
+  },
+  "evidence_label": "synthetic benchmark; certificate-scope demonstration, not real-world validation"
+}

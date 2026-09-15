@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "shared_source_and_alternative_route",
+  "mode": "declared_support",
+  "bases": {
+    "ledger": "client_ledger",
+    "extract": "client_ledger",
+    "slide": "client_ledger",
+    "confirmation": "external_confirmation",
+    "receipt": "receipt_record"
+  },
+  "rules": [
+    {
+      "head": "reconciliation",
+      "body": [
+        "ledger",
+        "extract"
+      ]
+    },
+    {
+      "head": "summary_check",
+      "body": [
+        "slide"
+      ]
+    },
+    {
+      "head": "claim",
+      "body": [
+        "reconciliation",
+        "summary_check"
+      ]
+    },
+    {
+      "head": "claim",
+      "body": [
+        "confirmation",
+        "receipt"
+      ]
+    }
+  ],
+  "targets": [
+    "claim",
+    "reconciliation",
+    "summary_check"
+  ],
+  "metadata": {
+    "origin": "Synthetic, explicitly declared support rules; not extracted audit assertions.",
+    "title": "\u00dc\u00e7 g\u00f6r\u00fcn\u00fcm, bir kaynak; ikinci bir destek yolu",
+    "labels": {
+      "client_ledger": "M\u00fc\u015fteri defteri (3 t\u00fcrev g\u00f6r\u00fcn\u00fcm)",
+      "external_confirmation": "Harici teyit kayd\u0131",
+      "receipt_record": "Tahsilat kayd\u0131",
+      "claim": "\u00d6rnek iddia",
+      "reconciliation": "Mutabakat",
+      "summary_check": "\u00d6zet kontrol\u00fc"
+    },
+    "assumptions": [
+      "Either declared route suffices only in this synthetic example.",
+      "Distinct source IDs do not prove statistical independence."
+    ]
+  }
+}

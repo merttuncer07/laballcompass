@@ -1,0 +1,13 @@
+test_bad_covariance_asymmetry (test_sccatf.T.test_bad_covariance_asymmetry) ... ok
+test_bad_covariance_indefinite (test_sccatf.T.test_bad_covariance_indefinite) ... ok
+test_budget (test_sccatf.T.test_budget) ... ok
+test_high_coupling_changes_allocation (test_sccatf.T.test_high_coupling_changes_allocation) ... ok
+test_low_coupling_collapses_to_control (test_sccatf.T.test_low_coupling_collapses_to_control) ... ok
+test_negative_penalty_rejected (test_sccatf.T.test_negative_penalty_rejected) ... ok
+test_no_feasible_allocation_rejected (test_sccatf.T.test_no_feasible_allocation_rejected) ... ok
+test_zero_offdiagonal_reduces_to_control (test_sccatf.T.test_zero_offdiagonal_reduces_to_control) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

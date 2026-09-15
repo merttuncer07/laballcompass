@@ -1,0 +1,1024 @@
+{
+  "schema_version": 1,
+  "problem": {
+    "schema_version": 1,
+    "id": "workbook_31612d513b5e",
+    "mode": "static_formula_lineage",
+    "bases": {
+      "Label!B10": "Label!B10",
+      "Label!B11": "Label!B11",
+      "Label!B12": "Label!B12",
+      "Label!B13": "Label!B13",
+      "Label!B14": "Label!B14",
+      "Label!B15": "Label!B15",
+      "Label!B16": "Label!B16",
+      "Label!B17": "Label!B17",
+      "Label!B18": "Label!B18",
+      "Label!B19": "Label!B19",
+      "Label!B2": "Label!B2",
+      "Label!B20": "Label!B20",
+      "Label!B21": "Label!B21",
+      "Label!B22": "Label!B22",
+      "Label!B23": "Label!B23",
+      "Label!B24": "Label!B24",
+      "Label!B25": "Label!B25",
+      "Label!B26": "Label!B26",
+      "Label!B27": "Label!B27",
+      "Label!B28": "Label!B28",
+      "Label!B29": "Label!B29",
+      "Label!B3": "Label!B3",
+      "Label!B30": "Label!B30",
+      "Label!B31": "Label!B31",
+      "Label!B32": "Label!B32",
+      "Label!B33": "Label!B33",
+      "Label!B34": "Label!B34",
+      "Label!B35": "Label!B35",
+      "Label!B36": "Label!B36",
+      "Label!B37": "Label!B37",
+      "Label!B38": "Label!B38",
+      "Label!B39": "Label!B39",
+      "Label!B4": "Label!B4",
+      "Label!B40": "Label!B40",
+      "Label!B41": "Label!B41",
+      "Label!B5": "Label!B5",
+      "Label!B6": "Label!B6",
+      "Label!B7": "Label!B7",
+      "Label!B8": "Label!B8",
+      "Label!B9": "Label!B9"
+    },
+    "rules": [
+      {
+        "head": "Label!A10",
+        "body": [
+          "Label!B10"
+        ]
+      },
+      {
+        "head": "Label!A11",
+        "body": [
+          "Label!B11"
+        ]
+      },
+      {
+        "head": "Label!A12",
+        "body": [
+          "Label!B12"
+        ]
+      },
+      {
+        "head": "Label!A13",
+        "body": [
+          "Label!B13"
+        ]
+      },
+      {
+        "head": "Label!A14",
+        "body": [
+          "Label!B14"
+        ]
+      },
+      {
+        "head": "Label!A15",
+        "body": [
+          "Label!B15"
+        ]
+      },
+      {
+        "head": "Label!A16",
+        "body": [
+          "Label!B16"
+        ]
+      },
+      {
+        "head": "Label!A17",
+        "body": [
+          "Label!B17"
+        ]
+      },
+      {
+        "head": "Label!A18",
+        "body": [
+          "Label!B18"
+        ]
+      },
+      {
+        "head": "Label!A19",
+        "body": [
+          "Label!B19"
+        ]
+      },
+      {
+        "head": "Label!A2",
+        "body": [
+          "Label!B2"
+        ]
+      },
+      {
+        "head": "Label!A20",
+        "body": [
+          "Label!B20"
+        ]
+      },
+      {
+        "head": "Label!A21",
+        "body": [
+          "Label!B21"
+        ]
+      },
+      {
+        "head": "Label!A22",
+        "body": [
+          "Label!B22"
+        ]
+      },
+      {
+        "head": "Label!A23",
+        "body": [
+          "Label!B23"
+        ]
+      },
+      {
+        "head": "Label!A24",
+        "body": [
+          "Label!B24"
+        ]
+      },
+      {
+        "head": "Label!A25",
+        "body": [
+          "Label!B25"
+        ]
+      },
+      {
+        "head": "Label!A26",
+        "body": [
+          "Label!B26"
+        ]
+      },
+      {
+        "head": "Label!A27",
+        "body": [
+          "Label!B27"
+        ]
+      },
+      {
+        "head": "Label!A28",
+        "body": [
+          "Label!B28"
+        ]
+      },
+      {
+        "head": "Label!A29",
+        "body": [
+          "Label!B29"
+        ]
+      },
+      {
+        "head": "Label!A3",
+        "body": [
+          "Label!B3"
+        ]
+      },
+      {
+        "head": "Label!A30",
+        "body": [
+          "Label!B30"
+        ]
+      },
+      {
+        "head": "Label!A31",
+        "body": [
+          "Label!B31"
+        ]
+      },
+      {
+        "head": "Label!A32",
+        "body": [
+          "Label!B32"
+        ]
+      },
+      {
+        "head": "Label!A33",
+        "body": [
+          "Label!B33"
+        ]
+      },
+      {
+        "head": "Label!A34",
+        "body": [
+          "Label!B34"
+        ]
+      },
+      {
+        "head": "Label!A35",
+        "body": [
+          "Label!B35"
+        ]
+      },
+      {
+        "head": "Label!A36",
+        "body": [
+          "Label!B36"
+        ]
+      },
+      {
+        "head": "Label!A37",
+        "body": [
+          "Label!B37"
+        ]
+      },
+      {
+        "head": "Label!A38",
+        "body": [
+          "Label!B38"
+        ]
+      },
+      {
+        "head": "Label!A39",
+        "body": [
+          "Label!B39"
+        ]
+      },
+      {
+        "head": "Label!A4",
+        "body": [
+          "Label!B4"
+        ]
+      },
+      {
+        "head": "Label!A40",
+        "body": [
+          "Label!B40"
+        ]
+      },
+      {
+        "head": "Label!A41",
+        "body": [
+          "Label!B41"
+        ]
+      },
+      {
+        "head": "Label!A5",
+        "body": [
+          "Label!B5"
+        ]
+      },
+      {
+        "head": "Label!A6",
+        "body": [
+          "Label!B6"
+        ]
+      },
+      {
+        "head": "Label!A7",
+        "body": [
+          "Label!B7"
+        ]
+      },
+      {
+        "head": "Label!A8",
+        "body": [
+          "Label!B8"
+        ]
+      },
+      {
+        "head": "Label!A9",
+        "body": [
+          "Label!B9"
+        ]
+      }
+    ],
+    "targets": [
+      "Label!A10",
+      "Label!A11",
+      "Label!A12",
+      "Label!A13",
+      "Label!A14",
+      "Label!A15",
+      "Label!A16",
+      "Label!A17",
+      "Label!A18",
+      "Label!A19",
+      "Label!A2",
+      "Label!A20",
+      "Label!A21",
+      "Label!A22",
+      "Label!A23",
+      "Label!A24",
+      "Label!A25",
+      "Label!A26",
+      "Label!A27",
+      "Label!A28",
+      "Label!A29",
+      "Label!A3",
+      "Label!A30",
+      "Label!A31",
+      "Label!A32",
+      "Label!A33",
+      "Label!A34",
+      "Label!A35",
+      "Label!A36",
+      "Label!A37",
+      "Label!A38",
+      "Label!A39",
+      "Label!A4",
+      "Label!A40",
+      "Label!A41",
+      "Label!A5",
+      "Label!A6",
+      "Label!A7",
+      "Label!A8",
+      "Label!A9"
+    ],
+    "metadata": {
+      "title": "shared_formulas.xlsx",
+      "input_sha256": "31612d513b5ea5aaa69764779f87ac52588687770f3ccbf4b420ec21bc70561f",
+      "origin": "Workbook formulas parsed automatically; workbook values were not recalculated.",
+      "labels": {
+        "Label!A1": "Label!A1",
+        "Label!A2": "Label!A2",
+        "Label!B2": "Label!B2",
+        "Label!A3": "Label!A3",
+        "Label!B3": "Label!B3",
+        "Label!A4": "Label!A4",
+        "Label!B4": "Label!B4",
+        "Label!A5": "Label!A5",
+        "Label!B5": "Label!B5",
+        "Label!A6": "Label!A6",
+        "Label!B6": "Label!B6",
+        "Label!A7": "Label!A7",
+        "Label!B7": "Label!B7",
+        "Label!A8": "Label!A8",
+        "Label!B8": "Label!B8",
+        "Label!A9": "Label!A9",
+        "Label!B9": "Label!B9",
+        "Label!A10": "Label!A10",
+        "Label!B10": "Label!B10",
+        "Label!A11": "Label!A11",
+        "Label!B11": "Label!B11",
+        "Label!A12": "Label!A12",
+        "Label!B12": "Label!B12",
+        "Label!A13": "Label!A13",
+        "Label!B13": "Label!B13",
+        "Label!A14": "Label!A14",
+        "Label!B14": "Label!B14",
+        "Label!A15": "Label!A15",
+        "Label!B15": "Label!B15",
+        "Label!A16": "Label!A16",
+        "Label!B16": "Label!B16",
+        "Label!A17": "Label!A17",
+        "Label!B17": "Label!B17",
+        "Label!A18": "Label!A18",
+        "Label!B18": "Label!B18",
+        "Label!A19": "Label!A19",
+        "Label!B19": "Label!B19",
+        "Label!A20": "Label!A20",
+        "Label!B20": "Label!B20",
+        "Label!A21": "Label!A21",
+        "Label!B21": "Label!B21",
+        "Label!A22": "Label!A22",
+        "Label!B22": "Label!B22",
+        "Label!A23": "Label!A23",
+        "Label!B23": "Label!B23",
+        "Label!A24": "Label!A24",
+        "Label!B24": "Label!B24",
+        "Label!A25": "Label!A25",
+        "Label!B25": "Label!B25",
+        "Label!A26": "Label!A26",
+        "Label!B26": "Label!B26",
+        "Label!A27": "Label!A27",
+        "Label!B27": "Label!B27",
+        "Label!A28": "Label!A28",
+        "Label!B28": "Label!B28",
+        "Label!A29": "Label!A29",
+        "Label!B29": "Label!B29",
+        "Label!A30": "Label!A30",
+        "Label!B30": "Label!B30",
+        "Label!A31": "Label!A31",
+        "Label!B31": "Label!B31",
+        "Label!A32": "Label!A32",
+        "Label!B32": "Label!B32",
+        "Label!A33": "Label!A33",
+        "Label!B33": "Label!B33",
+        "Label!A34": "Label!A34",
+        "Label!B34": "Label!B34",
+        "Label!A35": "Label!A35",
+        "Label!B35": "Label!B35",
+        "Label!A36": "Label!A36",
+        "Label!B36": "Label!B36",
+        "Label!A37": "Label!A37",
+        "Label!B37": "Label!B37",
+        "Label!A38": "Label!A38",
+        "Label!B38": "Label!B38",
+        "Label!A39": "Label!A39",
+        "Label!B39": "Label!B39",
+        "Label!A40": "Label!A40",
+        "Label!B40": "Label!B40",
+        "Label!A41": "Label!A41",
+        "Label!B41": "Label!B41"
+      },
+      "formula_text": {
+        "Label!A10": "=B10",
+        "Label!A11": "=B11",
+        "Label!A12": "=B12",
+        "Label!A13": "=B13",
+        "Label!A14": "=B14",
+        "Label!A15": "=B15",
+        "Label!A16": "=B16",
+        "Label!A17": "=B17",
+        "Label!A18": "=B18",
+        "Label!A19": "=B19",
+        "Label!A2": "=B2",
+        "Label!A20": "=B20",
+        "Label!A21": "=B21",
+        "Label!A22": "=B22",
+        "Label!A23": "=B23",
+        "Label!A24": "=B24",
+        "Label!A25": "=B25",
+        "Label!A26": "=B26",
+        "Label!A27": "=B27",
+        "Label!A28": "=B28",
+        "Label!A29": "=B29",
+        "Label!A3": "=B3",
+        "Label!A30": "=B30",
+        "Label!A31": "=B31",
+        "Label!A32": "=B32",
+        "Label!A33": "=B33",
+        "Label!A34": "=B34",
+        "Label!A35": "=B35",
+        "Label!A36": "=B36",
+        "Label!A37": "=B37",
+        "Label!A38": "=B38",
+        "Label!A39": "=B39",
+        "Label!A4": "=B4",
+        "Label!A40": "=B40",
+        "Label!A41": "=B41",
+        "Label!A5": "=B5",
+        "Label!A6": "=B6",
+        "Label!A7": "=B7",
+        "Label!A8": "=B8",
+        "Label!A9": "=B9"
+      },
+      "formula_count": 40,
+      "resolved_formula_count": 40,
+      "unresolved": [],
+      "same_origin_groups": [],
+      "assumptions": [
+        "All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.",
+        "Distinct root cells are not evidence of statistically independent sources.",
+        "External links, dynamic references, table references and cyclic paths are unresolved; no external file was fetched.",
+        "Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion."
+      ]
+    }
+  },
+  "engine": "R207 compiled circuit + bitset evaluation",
+  "circuit_nodes": [
+    [
+      "false",
+      null
+    ],
+    [
+      "true",
+      null
+    ],
+    [
+      "var",
+      "Label!B10"
+    ],
+    [
+      "var",
+      "Label!B11"
+    ],
+    [
+      "var",
+      "Label!B12"
+    ],
+    [
+      "var",
+      "Label!B13"
+    ],
+    [
+      "var",
+      "Label!B14"
+    ],
+    [
+      "var",
+      "Label!B15"
+    ],
+    [
+      "var",
+      "Label!B16"
+    ],
+    [
+      "var",
+      "Label!B17"
+    ],
+    [
+      "var",
+      "Label!B18"
+    ],
+    [
+      "var",
+      "Label!B19"
+    ],
+    [
+      "var",
+      "Label!B2"
+    ],
+    [
+      "var",
+      "Label!B20"
+    ],
+    [
+      "var",
+      "Label!B21"
+    ],
+    [
+      "var",
+      "Label!B22"
+    ],
+    [
+      "var",
+      "Label!B23"
+    ],
+    [
+      "var",
+      "Label!B24"
+    ],
+    [
+      "var",
+      "Label!B25"
+    ],
+    [
+      "var",
+      "Label!B26"
+    ],
+    [
+      "var",
+      "Label!B27"
+    ],
+    [
+      "var",
+      "Label!B28"
+    ],
+    [
+      "var",
+      "Label!B29"
+    ],
+    [
+      "var",
+      "Label!B3"
+    ],
+    [
+      "var",
+      "Label!B30"
+    ],
+    [
+      "var",
+      "Label!B31"
+    ],
+    [
+      "var",
+      "Label!B32"
+    ],
+    [
+      "var",
+      "Label!B33"
+    ],
+    [
+      "var",
+      "Label!B34"
+    ],
+    [
+      "var",
+      "Label!B35"
+    ],
+    [
+      "var",
+      "Label!B36"
+    ],
+    [
+      "var",
+      "Label!B37"
+    ],
+    [
+      "var",
+      "Label!B38"
+    ],
+    [
+      "var",
+      "Label!B39"
+    ],
+    [
+      "var",
+      "Label!B4"
+    ],
+    [
+      "var",
+      "Label!B40"
+    ],
+    [
+      "var",
+      "Label!B41"
+    ],
+    [
+      "var",
+      "Label!B5"
+    ],
+    [
+      "var",
+      "Label!B6"
+    ],
+    [
+      "var",
+      "Label!B7"
+    ],
+    [
+      "var",
+      "Label!B8"
+    ],
+    [
+      "var",
+      "Label!B9"
+    ]
+  ],
+  "roots": {
+    "Label!A10": 2,
+    "Label!A11": 3,
+    "Label!A12": 4,
+    "Label!A13": 5,
+    "Label!A14": 6,
+    "Label!A15": 7,
+    "Label!A16": 8,
+    "Label!A17": 9,
+    "Label!A18": 10,
+    "Label!A19": 11,
+    "Label!A2": 12,
+    "Label!A20": 13,
+    "Label!A21": 14,
+    "Label!A22": 15,
+    "Label!A23": 16,
+    "Label!A24": 17,
+    "Label!A25": 18,
+    "Label!A26": 19,
+    "Label!A27": 20,
+    "Label!A28": 21,
+    "Label!A29": 22,
+    "Label!A3": 23,
+    "Label!A30": 24,
+    "Label!A31": 25,
+    "Label!A32": 26,
+    "Label!A33": 27,
+    "Label!A34": 28,
+    "Label!A35": 29,
+    "Label!A36": 30,
+    "Label!A37": 31,
+    "Label!A38": 32,
+    "Label!A39": 33,
+    "Label!A4": 34,
+    "Label!A40": 35,
+    "Label!A41": 36,
+    "Label!A5": 37,
+    "Label!A6": 38,
+    "Label!A7": 39,
+    "Label!A8": 40,
+    "Label!A9": 41
+  },
+  "source_impacts": {
+    "Label!B10": [
+      "Label!A10"
+    ],
+    "Label!B11": [
+      "Label!A11"
+    ],
+    "Label!B12": [
+      "Label!A12"
+    ],
+    "Label!B13": [
+      "Label!A13"
+    ],
+    "Label!B14": [
+      "Label!A14"
+    ],
+    "Label!B15": [
+      "Label!A15"
+    ],
+    "Label!B16": [
+      "Label!A16"
+    ],
+    "Label!B17": [
+      "Label!A17"
+    ],
+    "Label!B18": [
+      "Label!A18"
+    ],
+    "Label!B19": [
+      "Label!A19"
+    ],
+    "Label!B2": [
+      "Label!A2"
+    ],
+    "Label!B20": [
+      "Label!A20"
+    ],
+    "Label!B21": [
+      "Label!A21"
+    ],
+    "Label!B22": [
+      "Label!A22"
+    ],
+    "Label!B23": [
+      "Label!A23"
+    ],
+    "Label!B24": [
+      "Label!A24"
+    ],
+    "Label!B25": [
+      "Label!A25"
+    ],
+    "Label!B26": [
+      "Label!A26"
+    ],
+    "Label!B27": [
+      "Label!A27"
+    ],
+    "Label!B28": [
+      "Label!A28"
+    ],
+    "Label!B29": [
+      "Label!A29"
+    ],
+    "Label!B3": [
+      "Label!A3"
+    ],
+    "Label!B30": [
+      "Label!A30"
+    ],
+    "Label!B31": [
+      "Label!A31"
+    ],
+    "Label!B32": [
+      "Label!A32"
+    ],
+    "Label!B33": [
+      "Label!A33"
+    ],
+    "Label!B34": [
+      "Label!A34"
+    ],
+    "Label!B35": [
+      "Label!A35"
+    ],
+    "Label!B36": [
+      "Label!A36"
+    ],
+    "Label!B37": [
+      "Label!A37"
+    ],
+    "Label!B38": [
+      "Label!A38"
+    ],
+    "Label!B39": [
+      "Label!A39"
+    ],
+    "Label!B4": [
+      "Label!A4"
+    ],
+    "Label!B40": [
+      "Label!A40"
+    ],
+    "Label!B41": [
+      "Label!A41"
+    ],
+    "Label!B5": [
+      "Label!A5"
+    ],
+    "Label!B6": [
+      "Label!A6"
+    ],
+    "Label!B7": [
+      "Label!A7"
+    ],
+    "Label!B8": [
+      "Label!A8"
+    ],
+    "Label!B9": [
+      "Label!A9"
+    ]
+  },
+  "observed_cuts_up_to_two": {
+    "Label!A10": [
+      [
+        "Label!B10"
+      ]
+    ],
+    "Label!A11": [
+      [
+        "Label!B11"
+      ]
+    ],
+    "Label!A12": [
+      [
+        "Label!B12"
+      ]
+    ],
+    "Label!A13": [
+      [
+        "Label!B13"
+      ]
+    ],
+    "Label!A14": [
+      [
+        "Label!B14"
+      ]
+    ],
+    "Label!A15": [
+      [
+        "Label!B15"
+      ]
+    ],
+    "Label!A16": [
+      [
+        "Label!B16"
+      ]
+    ],
+    "Label!A17": [
+      [
+        "Label!B17"
+      ]
+    ],
+    "Label!A18": [
+      [
+        "Label!B18"
+      ]
+    ],
+    "Label!A19": [
+      [
+        "Label!B19"
+      ]
+    ],
+    "Label!A2": [
+      [
+        "Label!B2"
+      ]
+    ],
+    "Label!A20": [
+      [
+        "Label!B20"
+      ]
+    ],
+    "Label!A21": [
+      [
+        "Label!B21"
+      ]
+    ],
+    "Label!A22": [
+      [
+        "Label!B22"
+      ]
+    ],
+    "Label!A23": [
+      [
+        "Label!B23"
+      ]
+    ],
+    "Label!A24": [
+      [
+        "Label!B24"
+      ]
+    ],
+    "Label!A25": [
+      [
+        "Label!B25"
+      ]
+    ],
+    "Label!A26": [
+      [
+        "Label!B26"
+      ]
+    ],
+    "Label!A27": [
+      [
+        "Label!B27"
+      ]
+    ],
+    "Label!A28": [
+      [
+        "Label!B28"
+      ]
+    ],
+    "Label!A29": [
+      [
+        "Label!B29"
+      ]
+    ],
+    "Label!A3": [
+      [
+        "Label!B3"
+      ]
+    ],
+    "Label!A30": [
+      [
+        "Label!B30"
+      ]
+    ],
+    "Label!A31": [
+      [
+        "Label!B31"
+      ]
+    ],
+    "Label!A32": [
+      [
+        "Label!B32"
+      ]
+    ],
+    "Label!A33": [
+      [
+        "Label!B33"
+      ]
+    ],
+    "Label!A34": [
+      [
+        "Label!B34"
+      ]
+    ],
+    "Label!A35": [
+      [
+        "Label!B35"
+      ]
+    ],
+    "Label!A36": [
+      [
+        "Label!B36"
+      ]
+    ],
+    "Label!A37": [
+      [
+        "Label!B37"
+      ]
+    ],
+    "Label!A38": [
+      [
+        "Label!B38"
+      ]
+    ],
+    "Label!A39": [
+      [
+        "Label!B39"
+      ]
+    ],
+    "Label!A4": [
+      [
+        "Label!B4"
+      ]
+    ],
+    "Label!A40": [
+      [
+        "Label!B40"
+      ]
+    ],
+    "Label!A41": [
+      [
+        "Label!B41"
+      ]
+    ],
+    "Label!A5": [
+      [
+        "Label!B5"
+      ]
+    ],
+    "Label!A6": [
+      [
+        "Label!B6"
+      ]
+    ],
+    "Label!A7": [
+      [
+        "Label!B7"
+      ]
+    ],
+    "Label!A8": [
+      [
+        "Label!B8"
+      ]
+    ],
+    "Label!A9": [
+      [
+        "Label!B9"
+      ]
+    ]
+  },
+  "scenario_count": 554,
+  "cut_scope": "All single-source failures and at most 512 sampled source pairs. Pair lists are not exhaustive when the source count is large; larger cuts are not searched.",
+  "interpretation": "Potential static formula dependency; not a necessary value change or an audit conclusion.",
+  "mechanism_receipt": {
+    "id": "R207",
+    "source": "LAC_REPRO_R210/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "invoked_functions": [
+      "Rule",
+      "compile_circuit_acyclic"
+    ],
+    "extension": "R207Batch evaluates the compiled circuit over integer bitsets; it is a new adapter, not historical R207 code."
+  }
+}

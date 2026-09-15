@@ -1,0 +1,108 @@
+{
+  "release": "R11",
+  "focused_engine_tests": {
+    "passed": 69,
+    "failed": 0
+  },
+  "original_consumer_tests": {
+    "P002_DCPS": "7/7 PASS",
+    "P026_DBTE": "4/4 PASS"
+  },
+  "v2_product_tests": {
+    "V2P001": "6/6",
+    "V2P002": "6/6",
+    "V2P003": "12/12",
+    "V2P004": "12/12",
+    "V2P005": "12/12",
+    "V2P006": "12/12",
+    "V2P007": "12/12"
+  },
+  "foundry_identity": {
+    "from": "R10",
+    "to": "R11",
+    "old_files": 1305,
+    "new_files": 1305,
+    "identical_files": 1305,
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "status": "BYTE_IDENTICAL"
+  },
+  "inventory": {
+    "base": 310,
+    "v2": 7,
+    "total": 317
+  },
+  "rejected_current_interface_edges": 4,
+  "r11_rejected_edge": "LCB-K087->FOUNDRY:P002",
+  "r11_accepted_narrow_composition": "LCB-K009->FOUNDRY:P026->V2P007_CPDBE",
+  "bootstrap": {
+    "prior_events": 60,
+    "new_events": 12,
+    "cumulative_events": 72,
+    "pilot_statuses": {
+      "COMPLETE": 12,
+      "FAILED": 0,
+      "CENSORED": 0
+    },
+    "pilotable_queue_rows": 7,
+    "calibration": {
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P007",
+      "test_signature": "a255acefb8f9c40aa8c2df54222eabf3e3c5087e9da2e292b93727c7290e180b",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023",
+      "target_generation": 2,
+      "attempt_count": 12,
+      "usable_count": 12,
+      "reliability_lower_bound": 0.8159920848767768,
+      "compute_upper_seconds": 0.8027996860000712,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "axis_observation_counts": {
+        "declared_executable_contract_case_coverage": 12
+      },
+      "excluded_counts": {
+        "failed_or_censored": 0,
+        "invalid_measurement": 0,
+        "unknown_backreaction": 0,
+        "unadjusted_backreaction": 0
+      },
+      "event_ids": [
+        "R11::V2P007::000::cpdbetests_test_true_bottleneck_flip_is_preserved",
+        "R11::V2P007::001::cpdbetests_test_wide_slack_expansion_is_pruned",
+        "R11::V2P007::002::cpdbetests_test_late_route_remains_zero",
+        "R11::V2P007::003::cpdbetests_test_yield_constraint_is_preserved",
+        "R11::V2P007::004::cpdbetests_test_zero_pressure_capacity_increase_cannot_change_output",
+        "R11::V2P007::005::cpdbetests_test_equal_incoming_capacity_is_safely_pruned",
+        "R11::V2P007::006::cpdbetests_test_positive_pressure_is_not_overclaimed_as_unique_bottleneck",
+        "R11::V2P007::007::cpdbetests_test_decreasing_grid_fails_closed_to_full_scan",
+        "R11::V2P007::008::cpdbetests_test_target_already_met_fails_closed_to_full_scan",
+        "R11::V2P007::009::cpdbetests_test_random_monotone_grids_match_full_p026_exactly",
+        "R11::V2P007::010::cpdbetests_test_many_slack_edges_reduce_grid_without_changing_result",
+        "R11::V2P007::011::cpdbetests_test_unknown_edge_and_duplicate_names_are_rejected"
+      ],
+      "calibration_id": "9a22fc9da8b78e8ed76622a7d4a8842a8c12cc2b8cea4e1a728c12b13f466a3b"
+    }
+  },
+  "development_benchmark": {
+    "full_grid_points": 20,
+    "scanned_grid_points": 4,
+    "pruning_fraction": 0.8,
+    "tipping": {
+      "baseline_deployable": 40.0,
+      "target": 70,
+      "tipping_edge": "b",
+      "tipping_capacity": 80.0,
+      "tipping_deployable": 80.0,
+      "status": "DEPLOYABLE_TARGET_TIPPING_POINT_FOUND"
+    }
+  },
+  "search_smoke": {
+    "engine": "LABALLCOMPASS_SEARCH_TO_FOUNDRY_R11",
+    "P026_rank": 1,
+    "K009_rank": 2,
+    "V2P007_bootstrap_surface": true,
+    "K087_P002_suppressed": true
+  },
+  "status": "PASS"
+}

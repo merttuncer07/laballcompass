@@ -1,0 +1,80 @@
+[
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/parents/sacps.py",
+    "before_sha256": "0a660f9ffcce8820e4203e2c7d10af23b2d1c3763bca808b4621418e03191a8f",
+    "after_sha256": "004cfb64c91860c34fcc8606bd72fc9e4e9b5105124490ffca5e340e53beb134",
+    "repair": "sacps"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R037_SUPPORT_COVARIANCE_SACPS/sacps.py",
+    "before_sha256": "0a660f9ffcce8820e4203e2c7d10af23b2d1c3763bca808b4621418e03191a8f",
+    "after_sha256": "004cfb64c91860c34fcc8606bd72fc9e4e9b5105124490ffca5e340e53beb134",
+    "repair": "sacps"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/rel.py",
+    "before_sha256": "07db695d72874ab62967b05e13a7c7ebfd58cbd543ccd1d4750b32542a7312db",
+    "after_sha256": "1396d10d679b03fe3bca9644a04bfe33e5b99cb2c4dfc6247b13ac230c3c8664",
+    "repair": "rel"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/rel.py",
+    "before_sha256": "07db695d72874ab62967b05e13a7c7ebfd58cbd543ccd1d4750b32542a7312db",
+    "after_sha256": "1396d10d679b03fe3bca9644a04bfe33e5b99cb2c4dfc6247b13ac230c3c8664",
+    "repair": "rel"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/rel.py",
+    "before_sha256": "07db695d72874ab62967b05e13a7c7ebfd58cbd543ccd1d4750b32542a7312db",
+    "after_sha256": "1396d10d679b03fe3bca9644a04bfe33e5b99cb2c4dfc6247b13ac230c3c8664",
+    "repair": "rel"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/csid.py",
+    "before_sha256": "8c77e797d55ac801510c4dc7d8115b467f0f9322c4a02861e0b74cd3c40ba4db",
+    "after_sha256": "d6123bcfeea56b1430f1e898f23b0d4e0768fa394ef8be045f8b7404940619fd",
+    "repair": "csid"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM445_IM085_CSID/csid.py",
+    "before_sha256": "8c77e797d55ac801510c4dc7d8115b467f0f9322c4a02861e0b74cd3c40ba4db",
+    "after_sha256": "d6123bcfeea56b1430f1e898f23b0d4e0768fa394ef8be045f8b7404940619fd",
+    "repair": "csid"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P144_DPAI/parents/aicc.py",
+    "before_sha256": "92b441bb6da18416eefb7adbf8293d1a9783b1ddb2a86e94a6b4b6f3504c7e46",
+    "after_sha256": "a0ba224f13a295518e35dba00c58e284cc2ca16ba61fe309425a2681ffc5ca85",
+    "repair": "aicc"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA/parents/aicc.py",
+    "before_sha256": "92b441bb6da18416eefb7adbf8293d1a9783b1ddb2a86e94a6b4b6f3504c7e46",
+    "after_sha256": "a0ba224f13a295518e35dba00c58e284cc2ca16ba61fe309425a2681ffc5ca85",
+    "repair": "aicc"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/parents/aicc.py",
+    "before_sha256": "92b441bb6da18416eefb7adbf8293d1a9783b1ddb2a86e94a6b4b6f3504c7e46",
+    "after_sha256": "a0ba224f13a295518e35dba00c58e284cc2ca16ba61fe309425a2681ffc5ca85",
+    "repair": "aicc"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py",
+    "before_sha256": "92b441bb6da18416eefb7adbf8293d1a9783b1ddb2a86e94a6b4b6f3504c7e46",
+    "after_sha256": "a0ba224f13a295518e35dba00c58e284cc2ca16ba61fe309425a2681ffc5ca85",
+    "repair": "aicc"
+  },
+  {
+    "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R002_C326_HFAD/hfad.py",
+    "before_sha256": "f1fad1b7bc654c13bf5ae3a0046e308834b51eefb3e6772197a9577cd3ffcdd9",
+    "after_sha256": "f6015b90ed4ee96706f2f79d5247b0642daf45d239f05be902c8ca3564098487",
+    "repair": "hfad"
+  },
+  {
+    "path": "ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "before_sha256": "d70658a18c784f6da41f906be15bd6bd8b0969834fe8817498f89d6df6aaa2a7",
+    "after_sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "repair": "symbolic_favorable"
+  }
+]

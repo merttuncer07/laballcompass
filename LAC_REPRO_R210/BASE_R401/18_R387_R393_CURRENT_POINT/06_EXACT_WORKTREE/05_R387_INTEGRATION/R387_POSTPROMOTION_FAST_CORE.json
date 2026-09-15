@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "runs": [
+    {
+      "script": "test_core_v2.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK"
+    },
+    {
+      "script": "test_core_v2_foundry_integration.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.127s\n\nOK"
+    },
+    {
+      "script": "test_lab_search_engine.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.048s\n\nOK"
+    },
+    {
+      "script": "test_search_corpus_integration.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 1.623s\n\nOK"
+    },
+    {
+      "script": "test_relevance_learning.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.004s\n\nOK"
+    },
+    {
+      "script": "test_experiment_selector.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.003s\n\nOK"
+    },
+    {
+      "script": "test_experiment_telemetry.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nOK"
+    },
+    {
+      "script": "test_r12_closure.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 5.795s\n\nOK"
+    },
+    {
+      "script": "test_r387_product_overlay_closure.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.149s\n\nOK"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "PARENT:IM340_IM280_CWC",
+  "difference_from_nearest": "QDRA allocates a declared resolution budget by decision-boundary value; ATSCWC changes the sequential measurement policy itself and thereby the stochastic stream seen by an online calibration-width controller.",
+  "directory": "V2P042_ATSCWC",
+  "diversified_selected_rank": 13,
+  "external_prior_art": [
+    "Yang & Zhang (2026), Conformalized Rate-Adaptive Sensing, jointly adapts sensing/acquisition rate and conformal calibration/coverage."
+  ],
+  "external_prior_art_status": "VERY_CLOSE_CURRENT_PRIOR_ART",
+  "family_id": "V2P042",
+  "mechanism_removing_comparator": "same CWC and same query budget with ActiveThresholdSensing selection replaced by a frozen evenly-spaced query schedule",
+  "nearest_existing_product": "V2P031_QDRA",
+  "new_failure_mode": "A calibration controller receives a needlessly noisy/wide posterior stream when measurement locations are frozen even though the same measurement budget can be targeted adaptively.",
+  "non_additive_interaction": "Active sensing changes the data-generating measurement locations that create the center/scale stream subsequently controlled for coverage; the acquisition policy and calibration state form a closed loop.",
+  "product_id": "V2P042",
+  "quality_accounting": "R386_DISTINCT_PRODUCT",
+  "raw_native_rank": 310,
+  "short_name": "ATSCWC",
+  "supplier_id": "LCB-K041",
+  "test_files": [
+    "test_atscwc.py"
+  ],
+  "verdict": "DISTINCT_PRODUCT"
+}

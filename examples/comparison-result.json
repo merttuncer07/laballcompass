@@ -1,0 +1,29 @@
+{
+  "scope": "declared_metric_on_declared_cases_only",
+  "candidate": "candidate",
+  "baseline": "baseline",
+  "metric": "illustrative_loss",
+  "unit": "synthetic_units",
+  "direction": "minimize",
+  "cases": 2,
+  "replication_blocks": 5,
+  "replication_kind": "deterministic",
+  "mean_gain": 0.0,
+  "per_case_mean_gain": {
+    "easy": 2.0,
+    "hard": -2.0
+  },
+  "worsened_cases": [
+    "hard"
+  ],
+  "promotion": "NOT_ASSESSED",
+  "spec_sha256": "413f5d8a58c115858911e5f7304d1fcfab7ef7b97321e9137cdf464b2534ef24",
+  "data_sha256": "bc8240615335b24879e420b14746993671e5c8ecfc0fc9057a213f14d44fe3b4",
+  "interval": null,
+  "interval_note": "Uncertainty withheld: deterministic/timing repetitions or fewer than five declared independent blocks.",
+  "limits": [
+    "Manifest hashes bind supplied inputs; they do not prove preregistration or that omitted runs do not exist.",
+    "No generalization to untested cases, scientific novelty, or audit effectiveness is established.",
+    "Replicate IDs do not prove independence; this is a declared experimental design assumption."
+  ]
+}

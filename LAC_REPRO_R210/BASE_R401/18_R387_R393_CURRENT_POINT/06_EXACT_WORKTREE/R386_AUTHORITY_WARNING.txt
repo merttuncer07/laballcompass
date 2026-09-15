@@ -1,0 +1,7 @@
+HISTORICAL R386 AUTHORITY WARNING — SUPERSEDED BY R387 PROMOTION
+
+At the R386 archive checkpoint, the product overlay was not canonical and R12 / Registry455 / Products38 / Quality28 remained authority.
+
+R387 subsequently repaired portability/control-plane closure, obtained a clean terminal full-package regression receipt, and explicitly promoted the accepted overlay. Current product authority is now `01_V2_CORE/CURRENT_PRODUCT_AUTHORITY.json`: Registry455 unchanged, Products47 / Quality34. V2P047 remains quarantined.
+
+This file is retained so a reader understands why the R386 archive originally warned against treating its shadow overlay as canonical.

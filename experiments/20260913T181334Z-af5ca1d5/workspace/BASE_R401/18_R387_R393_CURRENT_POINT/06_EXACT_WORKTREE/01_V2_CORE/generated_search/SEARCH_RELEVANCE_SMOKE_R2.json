@@ -1,0 +1,56 @@
+{
+  "claim_scope": "case-specific retrieval smoke test against mechanisms explicitly called for by the frozen Crypto V1 problem contract; not a general relevance benchmark",
+  "problem_id": "CRYPTO_V1_HARMFUL_FRESH_LONG_LOCALIZATION",
+  "capability_anchor_ranks": [
+    {
+      "document_id": "FOUNDRY:P137",
+      "name": "P137 MPHA",
+      "rank": 1
+    },
+    {
+      "document_id": "LCB-K071",
+      "name": "GuaranteeTransportGateV0",
+      "rank": 3
+    },
+    {
+      "document_id": "LCB-K089",
+      "name": "SelectionAwareReferenceLawV0",
+      "rank": 9
+    },
+    {
+      "document_id": "LCB-K011",
+      "name": "MemoryKernelClosureV0",
+      "rank": 16
+    },
+    {
+      "document_id": "LCB-K069",
+      "name": "PredictableVarianceAlarmV0",
+      "rank": 17
+    }
+  ],
+  "capability_anchors_in_top20": 5,
+  "primitive_anchor_ranks": [
+    {
+      "document_id": "PRIMITIVE:S-397",
+      "name": "Drift detector",
+      "rank": 6
+    },
+    {
+      "document_id": "PRIMITIVE:S-739",
+      "name": "Treatment-effect decision boundary",
+      "rank": 11
+    },
+    {
+      "document_id": "PRIMITIVE:S-740",
+      "name": "Regime transportability",
+      "rank": 2
+    },
+    {
+      "document_id": "PRIMITIVE:P-422",
+      "name": "Fractional diffusion",
+      "rank": 7
+    }
+  ],
+  "direct_search_uses_interaction_graph": false,
+  "interaction_graph_used_only_after_direct_hit": true
+}

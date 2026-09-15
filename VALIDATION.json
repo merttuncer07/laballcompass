@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "release": "LabAllCompass restored 2026-09-14",
+  "scope": "Software restoration. No claim of full historical algorithm recovery, scientific breakthrough, or audit field validation.",
+  "components": {
+    "total": 293,
+    "by_layer": {
+      "parent": 69,
+      "foundry": 145,
+      "V2": 52,
+      "ACTIVE_RESEARCH": 18,
+      "ACTIVE_PRODUCTS": 2,
+      "R401_material": 2,
+      "recovered_V2": 5
+    }
+  },
+  "source_changes": {
+    "modified_original_files": 75,
+    "added_source_files": [
+      "LAC_REPRO_R210/lab_kernels.py"
+    ],
+    "hash_change_record": "restoration/source-changes.json",
+    "original_file_diff": "restoration/source.patch",
+    "working_manifest_files": 2910,
+    "original_manifest": "restoration/ORIGINAL_MANIFEST.tsv",
+    "final_package_check_log": "restoration/final-integrity.log",
+    "subsequent_product_repairs": "restoration/20260914-product-repairs/changes.json",
+    "final_package_check_scope": "The final-integrity.log is the initial restoration check. The later product repair updated touched manifest entries; no whole-package rescan is claimed."
+  },
+  "validation": {
+    "existing_tests": {
+      "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
+      "status": "PASS",
+      "counts": {
+        "tests": 1514,
+        "passed": 1514,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "targets": 306,
+      "passed_by_layer": {
+        "active": 98,
+        "material": 14,
+        "V2": 447,
+        "core": 142,
+        "parent": 271,
+        "foundry": 541,
+        "recovered": 1
+      },
+      "environment": {
+        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+        "executable": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/../lab-maintenance/.venv/bin/python",
+        "platform": "macOS-26.4-arm64-arm-64bit",
+        "packages": {
+          "numpy": "2.3.5",
+          "scipy": "1.18.1",
+          "pytest": "9.0.2",
+          "iniconfig": "2.3.0",
+          "packaging": "26.3",
+          "pluggy": "1.6.0",
+          "Pygments": "2.21.0"
+        }
+      }
+    },
+    "repair_tests": {
+      "receipt": "runs/20260913T181149Z-5abdffd7/receipt.json",
+      "status": "PASS",
+      "counts": {
+        "tests": 31,
+        "passed": 31,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      }
+    },
+    "maintenance_tests": {
+      "log": "restoration/maintenance-final.log",
+      "status": "PASS",
+      "tests": 23
+    },
+    "parent_demos": {
+      "receipt": "restoration/demo-run/receipt.json",
+      "executed": 69,
+      "total": 69,
+      "scope": "Shipped parent demo execution; not independent scientific validation"
+    },
+    "local_demo": {
+      "receipt": "experiments/20260913T181334Z-af5ca1d5/receipt.json",
+      "status": "EXECUTED"
+    },
+    "native_foundry_entry": {
+      "log": "restoration/native-foundry-check.log",
+      "status": "PASS",
+      "receipt": "runs/20260913T221204Z-93b459d3/receipt.json",
+      "counts": {
+        "tests": 12,
+        "passed": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      }
+    },
+    "explorer": {
+      "status": "PASS",
+      "report": "restoration/explorer-check.json",
+      "scope": "JavaScript syntax, execution, filters and link resolution; not real-browser visual validation"
+    },
+    "product_repairs_20260914": {
+      "receipt": "runs/20260914T131915Z-product-repairs/receipt.json",
+      "status": "PASS",
+      "counts": {
+        "tests": 36,
+        "passed": 36,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      }
+    },
+    "workbook_collection": {
+      "status": "PASS",
+      "tests": 26,
+      "record": "restoration/20260914-workbook-bundle/validation.json"
+    },
+    "acra_consumers": {
+      "status": "PASS",
+      "tests": 20,
+      "log": "restoration/20260914-product-repairs/acra-consumers.log",
+      "components": [
+        "V2P008_TGCARS",
+        "V2P031_QDRA"
+      ]
+    },
+    "rel_and_content_20260914": {
+      "status": "PASS",
+      "tests": 55,
+      "scope": "8 REL, 12 REL consumer, 35 workbook/content tests; not whole-lab scientific or field validation",
+      "receipt": "runs/20260914T154500Z-rel-content/receipt.json",
+      "observed_public_report": "examples/content-review-verified/index.html",
+      "ui_check": "restoration/20260914-rel-content/ui-check.json",
+      "catalog": "293 entries regenerated successfully"
+    },
+    "ebc_identity_20260914": {
+      "status": "PASS",
+      "tests": 34,
+      "scope": "EBC/BAMI/REIG; observation-identity invariance, not general covariance or calibrated uncertainty",
+      "receipt": "runs/20260914T170000Z-ebc/receipt.json",
+      "example": "examples/borrowing/index.html"
+    },
+    "joint_covariance_20260914": {
+      "status": "PASS",
+      "tests": 49,
+      "receipt": "runs/20260914T190000Z-correlated-ebc/receipt.json",
+      "public_reference": "examples/correlated-evidence/report/receipt.json",
+      "scope": "Joint covariance software behavior, diagonal EBC reduction, independent GLS reference, published fixed-covariance examples; not audit efficacy, inferred covariance or calibrated adaptive intervals"
+    },
+    "record_alignment_20260914": {
+      "status": "PASS",
+      "tests": 40,
+      "receipt": "restoration/20260914-row-matching/validation.json",
+      "public_observations": "examples/public-spending/verified/receipt.json",
+      "scope": "Record/value matching and formula impact in supplied Excel files. Five controlled public-data cases, two header baselines; no field accuracy, provenance or new R207 advantage."
+    },
+    "aicc_20260914": {
+      "status": "PASS",
+      "tests": 36,
+      "receipt": "runs/20260914T191000Z-aicc/receipt.json",
+      "scope": "Targeted AICC analytic information-value and finite correlated-observation behavior plus its three full consumer test suites; not whole-lab, audit efficacy or novel acquisition policy validation."
+    },
+    "heag_20260914": {
+      "status": "PASS",
+      "tests": 13,
+      "receipt": "runs/20260914T192829Z-heag/receipt.json",
+      "scope": "New native EBC -> AICC composition. Thirteen product tests and independent closed-form/GLS numerical references. Public observations use hypothetical acquisition utilities and future measurement precision; no field benefit, calibrated adaptive posterior, scientific novelty or original historical equivalence."
+    },
+    "structured_tables_20260915": {
+      "status": "PASS",
+      "tests": 69,
+      "record": "restoration/20260915-structured-tables/validation.json",
+      "scope": "Saved table metadata -> static potential formula lineage. No formula evaluation, inferred provenance, real-client efficacy or real-browser visual verification."
+    }
+  },
+  "recovery_limits": {
+    "generic_foundry_count": 89,
+    "shared_reference_foundry_count": 20,
+    "recovered_V2_count": 5,
+    "component_list": "RECOVERY_LIMITS.md",
+    "frozen_results": "Historical outputs retained, not regenerated or represented as results of repaired algorithms.",
+    "unvalidated_scope": [
+      "Full historical algorithm equivalence for missing-source products",
+      "All historical scientific claims and research experiment reruns",
+      "Every kernel beyond the tested surfaces",
+      "All pilot and report-building scripts",
+      "Real engagement auditor value or calibrated audit opinion probabilities"
+    ],
+    "native_reimplementation_foundry_count": 2
+  }
+}

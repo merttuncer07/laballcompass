@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "external_dataset_rows": 56,
+  "external_groups": 11,
+  "published_estimate": 0.1847132,
+  "published_se_rounded": 0.0846,
+  "published_diagonal_estimate": 0.127597,
+  "joint_estimate": 0.18472237653410917,
+  "joint_se": 0.08457225773939116,
+  "diagonal_estimate": 0.1275969675492804,
+  "diagonal_se": 0.045804214401349845,
+  "inverse_matrix_gls_baseline": {
+    "estimate": 0.18472237653410914,
+    "standard_error": 0.08457225773939116
+  },
+  "scope": "Fixed published rounded covariance parameters; no REML refit, adaptive-coverage, audit efficacy or superiority claim",
+  "references": [
+    "https://www.metafor-project.org/doku.php/tips:weights_in_rma.mv_models",
+    "https://wviechtb.github.io/metadat/reference/dat.konstantopoulos2011.html",
+    "https://wviechtb.github.io/metadat/reference/dat.linde2015.html"
+  ],
+  "source_hashes": {
+    "examples/correlated-evidence/reproduce.py": "f05774ac88d119c34bcfa95737cbf28fea2c90756377f1ee890ee1a53f7a3a1c",
+    "examples/correlated-evidence/dat.konstantopoulos2011.csv": "0145ae037fd65822ef8394973030b8d251a348b06e7cf6bd8ef8111454191244",
+    "examples/correlated-evidence/shared-control.json": "aa70cb6a57577b4ec17c94c0e156cee971e5ed35eb36b29f7ab04cf3ff4d5f43",
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py": "58e22f32e1bda54f39a935974e8f5c5ad09affe3183178bb4a1daf0e190e11fb",
+    "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/correlated.py": "a136c68b7bb4994c15b616e8178c2358bf093caaa9e8c24a920c158aed5688be"
+  }
+}

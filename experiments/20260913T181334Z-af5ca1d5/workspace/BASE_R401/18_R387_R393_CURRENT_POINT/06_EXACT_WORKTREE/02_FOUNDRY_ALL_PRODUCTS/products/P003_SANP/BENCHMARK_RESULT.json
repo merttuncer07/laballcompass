@@ -1,0 +1,42 @@
+{
+  "product": "SANP v0.1",
+  "route": "C / SACPS -> ENPC",
+  "primary_sparse_support_benchmark": {
+    "seed": 20260825,
+    "train_cases": 35,
+    "covariance_validation_cases": 150,
+    "fresh_cases": 5000,
+    "selected_shrinkage": 0.25,
+    "raw_sample_condition_number": 9.271620884669309,
+    "structured_condition_number": 4.303145275216425,
+    "sanp_fresh_variance": 0.00012410024222104894,
+    "raw_enpc_fresh_variance": 0.00015349222665883469,
+    "fresh_variance_change_fraction_vs_raw_enpc": -0.19148842307900682,
+    "fresh_variance_reduction_fraction_vs_raw_enpc": 0.19148842307900682,
+    "sanp_factor_exposure": [
+      -1.1934897514720433e-15
+    ],
+    "sanp_max_constraint_residual": 1.1934897514720433e-15,
+    "sanp_min_weight": 0.0666869393825365,
+    "sanp_max_weight": 0.20943910587742692,
+    "sacps_native_factor_exposure": -0.07179016181471191,
+    "sacps_native_min_weight": 0.07205945325993932,
+    "sacps_native_max_weight": 0.20314801201792537
+  },
+  "support_misspecification_adversarial_benchmark": {
+    "seed": 20260825,
+    "train_cases": 25,
+    "covariance_validation_cases": 80,
+    "fresh_cases": 10000,
+    "correct_support_selected_shrinkage": 0.05,
+    "wrong_diagonal_support_selected_shrinkage": 0.0,
+    "correct_support_fresh_variance": 0.00011789853105100802,
+    "wrong_support_fresh_variance": 0.0001529527632566363,
+    "raw_enpc_fresh_variance": 0.00012167909338088306,
+    "correct_support_change_fraction_vs_raw": -0.031069941637722698,
+    "wrong_support_change_fraction_vs_raw": 0.25701761088784236,
+    "wrong_vs_correct_fraction": 0.29732543648455034,
+    "interpretation": "Support compliance is not support correctness; a misspecified mask can degrade fresh risk even while all numerical and ENPC constraints pass."
+  },
+  "evidence_label": "SYNTHETIC_FIXED_SEED_BENCHMARK_NOT_REAL_WORLD_PROOF"
+}

@@ -1,0 +1,128 @@
+{
+  "problem_id": "CRYPTO_V1_HARMFUL_FRESH_LONG_LOCALIZATION",
+  "objective": "Distinguish harmful fresh or renewed LMDE long theses from profitable DTEC persistence, using only information available causally at decision time, and intervene locally without erasing V1's existing gains.",
+  "diagnosed_failure": [
+    "loss is concentrated in a small number of bad 192-bar blocks",
+    "fresh or renewed LMDE long theses are the target state; stale DTEC persistence is often profitable",
+    "confidence, high volatility, blanket faster exit, and blanket below-MA192 filters are poor global separators",
+    "most negative episode loss occurs after the first eight bars",
+    "global sizing or gating often removes more profitable exposure than harmful exposure"
+  ],
+  "mechanism_needs": [
+    "adaptive policy selection holdout audit",
+    "selection-aware reference law",
+    "temporal drift or regime-shift detection",
+    "sequential predictable-variance alarm",
+    "memory-order closure or lag validation",
+    "residual-law or guarantee transport gate",
+    "decision-boundary or action-flip sensitivity",
+    "localized routing or abstention",
+    "support and effective-diversity diagnostics"
+  ],
+  "preferred_strength_tags": [
+    "audit",
+    "selection",
+    "dynamics",
+    "decision",
+    "boundary",
+    "calibration",
+    "support",
+    "uncertainty",
+    "transport",
+    "resilience",
+    "control"
+  ],
+  "available_input_types": [
+    "state",
+    "evidence",
+    "representation",
+    "metric",
+    "boundary",
+    "gate"
+  ],
+  "preferred_output_types": [
+    "gate",
+    "report",
+    "representation",
+    "boundary",
+    "action"
+  ],
+  "causal_observables": [
+    "closed prices and returns through decision time",
+    "LMDE selected memory lag and block diagnostics",
+    "LMDE proxy/direct evidence and expected-return estimates",
+    "LMDE aggregate estimation uncertainty",
+    "DTEC current state and whether a position is fresh/aligned or stale/persistent",
+    "recent realized residuals and forecast errors computed without future bars",
+    "transaction cost and declared decision horizon"
+  ],
+  "allowed_interventions": [
+    "fresh-entry inhibit mask",
+    "fresh-thesis router",
+    "block-local policy reselection",
+    "evidence reweighting",
+    "fresh-entry-only local sizing",
+    "abstention when a validity shell fails"
+  ],
+  "forbidden_or_penalized_interventions": [
+    "lookahead or future-bar features",
+    "global risk-off filter applied to all long exposure",
+    "automatic liquidation of pre-existing profitable DTEC persistence",
+    "reselecting a winner on the same external validation markets used to report it",
+    "calling lower exposure an improvement without accounting for lost profitable exposure",
+    "treating one failed shell as global product invalidation"
+  ],
+  "search_terms": [
+    "holdout",
+    "selection",
+    "reference law",
+    "memory",
+    "lag",
+    "drift",
+    "shift",
+    "residual",
+    "transport",
+    "predictable variance",
+    "alarm",
+    "early warning",
+    "decision loss",
+    "decision flip",
+    "tipping",
+    "boundary",
+    "support",
+    "diversity",
+    "router",
+    "gate",
+    "abstain",
+    "invariance",
+    "regime",
+    "nonstationary"
+  ],
+  "candidate_family_limit": 8,
+  "source_verification_required": true,
+  "validation_contract": {
+    "development": "five original V1 environments",
+    "selection_rule": "declare mechanism family before parameter selection; freeze the chosen implementation before external validation",
+    "external": "untouched markets or future periods evaluated once for the frozen winner",
+    "cost_per_side": 0.0012,
+    "preserve_existing_dtec_long_by_default": true
+  },
+  "priority_phrases": {
+    "memory-policy holdout": 10.0,
+    "memory policy": 7.0,
+    "selection-aware reference": 10.0,
+    "selected interval": 6.0,
+    "predictable variance": 9.0,
+    "cumulative surprise": 7.0,
+    "residual shift": 8.0,
+    "guarantee transport": 7.0,
+    "decision fluctuation": 6.0,
+    "memory kernel closure": 8.0,
+    "temporal model-selection": 7.0,
+    "holdout regret": 6.0,
+    "adaptive selection regret": 6.0,
+    "fresh entry": 5.0,
+    "lag": 3.0
+  },
+  "historical_route_file": "CATALOG_TO_CRYPTO_HISTORY.json"
+}

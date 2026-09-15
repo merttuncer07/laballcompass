@@ -1,0 +1,10 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P021_BMDRE_V1",
+  "result": {
+    "approximation_error": 0.05,
+    "status": "BELIEF_APPROXIMATION_REACHES_DECISION_TIP",
+    "tipping_distance": 0.03,
+    "use_reduced": false
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "claim_boundary": "variance_proxy is K048 program-design proxy only; not persistence uncertainty, action loss, or scientific validation",
+  "composition": "LCB-K048 MultiFidelityBudgetControllerV0 -> FOUNDRY:P144 DPAI",
+  "far_stable_case": {
+    "acquisition_family": null,
+    "cheap_net_value": -0.000999999999999889,
+    "current_action": "STABLE_SIDE",
+    "fine_net_value": -0.005,
+    "mode": "no_measurement",
+    "n_cheap": 0,
+    "n_fine": 0,
+    "persistence_estimate": -0.49675564339363215,
+    "persistence_standard_error": 0.008100149232686262,
+    "spent_budget": 0.0,
+    "status": "PERSISTENCE_DECISION_VALUE_DOES_NOT_JUSTIFY_ACQUISITION",
+    "validation_rollout_rmse": null,
+    "variance_proxy": null
+  },
+  "multifidelity_variance_proxy_reduction_vs_fine_only": 0.29600000000000015,
+  "near_boundary_high_correlation": {
+    "acquisition_family": "identification_experiment",
+    "cheap_net_value": 0.024109620050813112,
+    "current_action": "UNSTABLE_SIDE",
+    "fine_net_value": 0.03413639432286878,
+    "mode": "multifidelity",
+    "n_cheap": 50,
+    "n_fine": 10,
+    "persistence_estimate": 0.020272880515952902,
+    "persistence_standard_error": 0.08259726356495987,
+    "spent_budget": 0.1,
+    "status": "PERSISTENCE_DECISION_GATED_MULTIFIDELITY_PROGRAM_ALLOCATED",
+    "validation_rollout_rmse": null,
+    "variance_proxy": 0.035199999999999995
+  },
+  "near_boundary_low_correlation": {
+    "acquisition_family": "identification_experiment",
+    "cheap_net_value": 0.024109620050813112,
+    "current_action": "UNSTABLE_SIDE",
+    "fine_net_value": 0.03413639432286878,
+    "mode": "fine_only",
+    "n_cheap": 0,
+    "n_fine": 20,
+    "persistence_estimate": 0.020272880515952902,
+    "persistence_standard_error": 0.08259726356495987,
+    "spent_budget": 0.1,
+    "status": "PERSISTENCE_FINE_ONLY_ROUTER_USED_CHEAP_CHANNEL_NOT_QUALIFIED",
+    "validation_rollout_rmse": null,
+    "variance_proxy": 0.05
+  },
+  "product_id": "V2P003_MFPD"
+}

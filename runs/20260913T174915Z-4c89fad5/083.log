@@ -1,0 +1,12 @@
+test_authority_transition_is_explicit_not_inferred_from_candidate_state (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_authority_transition_is_explicit_not_inferred_from_candidate_state) ... ok
+test_candidate_overlay_is_48_suites_35_internal_families_without_registry_mutation (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_candidate_overlay_is_48_suites_35_internal_families_without_registry_mutation) ... ok
+test_control_plane_closes_over_48_candidate_suites (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_control_plane_closes_over_48_candidate_suites) ... ok
+test_full_candidate_universe_is_preserved_beyond_operational_top1000 (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_full_candidate_universe_is_preserved_beyond_operational_top1000) ... ok
+test_mechanics_events_remain_nonlearning (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_mechanics_events_remain_nonlearning) ... ok
+test_parent_provenance_bucket_no_longer_hides_parent_pairs (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_parent_provenance_bucket_no_longer_hides_parent_pairs) ... ok
+test_v2p049_is_exactly_calibrated (test_r388_retro50_parent_integration_closure.R388Retro50ParentIntegrationClosureTests.test_v2p049_is_exactly_calibrated) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.067s
+
+OK

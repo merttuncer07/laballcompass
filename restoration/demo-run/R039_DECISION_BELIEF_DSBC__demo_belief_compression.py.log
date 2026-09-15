@@ -1,0 +1,19 @@
+{
+  "beliefs": 120,
+  "hidden_states": 8,
+  "compressed_decision_states": 3,
+  "compression_fraction": 0.975,
+  "maximum_decision_regret": 0.0,
+  "actions": [
+    0,
+    1,
+    2
+  ],
+  "members_per_cluster": [
+    40,
+    40,
+    40
+  ],
+  "certificate": "NO_REMAINING_PAIRWISE_MERGE_WITHIN_TOLERANCE",
+  "status": "DECISION_SUFFICIENT_BELIEF_COMPRESSION_CERTIFIED"
+}

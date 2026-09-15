@@ -1,0 +1,8 @@
+{
+  "baseline": "R391 archive-of-record",
+  "byte_identical": true,
+  "matched": 412,
+  "mismatch": [],
+  "release": "R392",
+  "scope": "51 prior canonical product trees, non-pycache files"
+}

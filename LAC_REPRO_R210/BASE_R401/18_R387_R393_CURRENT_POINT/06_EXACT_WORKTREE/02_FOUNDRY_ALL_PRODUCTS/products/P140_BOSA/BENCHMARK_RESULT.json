@@ -1,0 +1,51 @@
+{
+  "points": [
+    {
+      "month": 1,
+      "class_survival_ratios": [
+        0.994,
+        0.97,
+        0.85
+      ],
+      "effective_sample_fraction": 0.9958816477366239,
+      "max_normalized_weight": 0.00010560985975350617,
+      "support_status": "SUPPORT_USABLE"
+    },
+    {
+      "month": 6,
+      "class_survival_ratios": [
+        0.9645356993933908,
+        0.832972004929,
+        0.377149515625
+      ],
+      "effective_sample_fraction": 0.9031182875566743,
+      "max_normalized_weight": 0.00013110548936402536,
+      "support_status": "SUPPORT_USABLE"
+    },
+    {
+      "month": 12,
+      "class_survival_ratios": [
+        0.9303291154042975,
+        0.693842360995438,
+        0.14224175713617213
+      ],
+      "effective_sample_fraction": 0.7837177898004501,
+      "max_normalized_weight": 0.00015523383558599776,
+      "support_status": "SUPPORT_FRAGILE"
+    },
+    {
+      "month": 24,
+      "class_survival_ratios": [
+        0.8655122629689425,
+        0.4814172219117238,
+        0.02023271747318577
+      ],
+      "effective_sample_fraction": 0.6613844185947971,
+      "max_normalized_weight": 0.0001888567369660134,
+      "support_status": "SUPPORT_FRAGILE"
+    }
+  ],
+  "first_fragile_month": 12,
+  "naive_overprediction_fraction": 0.414886152462169,
+  "status": "BURNOUT_SURVIVOR_SUPPORT_AUDITED"
+}

@@ -1,0 +1,33 @@
+{
+  "release": "R388_SHADOW_RETRO50_NATIVE_INTEGRATION",
+  "authority_status": "SHADOW_ONLY_NO_PRODUCT_PROMOTION",
+  "registry_record_count_unchanged": 310,
+  "retro50_record_count": 50,
+  "current_nonretro_parent_count": 19,
+  "candidate_count_involving_retro50": 6409,
+  "legacy_policy_eligible_candidate_count": 5597,
+  "new_same_parent_family_candidate_count": 812,
+  "retro_to_retro_candidate_count": 422,
+  "retro_to_current_parent_candidate_count": 250,
+  "current_parent_to_retro_candidate_count": 140,
+  "carried_r386_disposition_count": 288,
+  "current_adjudication_count": 0,
+  "completed_suite_pair_count": 10,
+  "fresh_adjudication_count": 6115,
+  "fresh_same_parent_family_count": 812,
+  "fresh_existing_native_space_count": 5303,
+  "candidate_origin_counts": {
+    "R388_RETRO50_EXISTING_NATIVE_SPACE": 5597,
+    "R388_RETRO50_SAME_PARENT_EXPANSION": 812
+  },
+  "counterpart_family_counts": {
+    "FOUNDRY_PRODUCT": 3615,
+    "FOUNDRY_PARENT": 812,
+    "LCB_KERNEL": 1982
+  },
+  "nonclaims": [
+    "candidate generation is not product-family promotion",
+    "R386 static collapse labels are carried as triage provenance, not certified equivalence",
+    "Retro50 standalone products remain a separate reservoir and do not increment Quality34 automatically"
+  ]
+}

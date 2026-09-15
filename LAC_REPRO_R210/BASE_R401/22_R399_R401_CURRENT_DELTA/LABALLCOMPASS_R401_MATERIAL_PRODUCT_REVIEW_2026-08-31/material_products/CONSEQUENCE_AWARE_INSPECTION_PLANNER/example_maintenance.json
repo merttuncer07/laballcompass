@@ -1,0 +1,76 @@
+{
+  "name": "Plant weekly inspection allocation",
+  "budget": 18,
+  "baseline_mode": "balanced_review",
+  "budget_scenarios": [8, 12, 15, 18, 22, 27],
+  "targets": [
+    {
+      "name": "high_pressure_pump",
+      "urgency_weight": 9,
+      "diagnostic_weight": 4,
+      "consequence": 10
+    },
+    {
+      "name": "boiler_feed_valve",
+      "urgency_weight": 5,
+      "diagnostic_weight": 8,
+      "consequence": 8,
+      "cost_multiplier": 1.2
+    },
+    {
+      "name": "refrigeration_compressor",
+      "urgency_weight": 7,
+      "diagnostic_weight": 6,
+      "consequence": 7
+    },
+    {
+      "name": "warehouse_fan",
+      "urgency_weight": 2,
+      "diagnostic_weight": 2,
+      "consequence": 1
+    },
+    {
+      "name": "backup_generator",
+      "urgency_weight": 8,
+      "diagnostic_weight": 3,
+      "consequence": 6,
+      "allowed_modes": ["quick_screen", "balanced_review", "full_diagnostic"]
+    }
+  ],
+  "modes": [
+    {
+      "name": "quick_screen",
+      "cost": 1,
+      "delay_error": 1,
+      "diagnostic_error": 5
+    },
+    {
+      "name": "deep_spectrum",
+      "cost": 4,
+      "delay_error": 3,
+      "diagnostic_error": 1
+    },
+    {
+      "name": "balanced_review",
+      "cost": 3,
+      "delay_error": 2,
+      "diagnostic_error": 2
+    },
+    {
+      "name": "full_diagnostic",
+      "cost": 7,
+      "delay_error": 0.7,
+      "diagnostic_error": 0.7
+    }
+  ],
+  "stress_cases": [
+    {
+      "name": "backup generator becomes mission critical",
+      "consequence_multipliers": {"backup_generator": 2.5}
+    },
+    {
+      "name": "warehouse ventilation outage matters more",
+      "consequence_multipliers": {"warehouse_fan": 5.0}
+    }
+  ]
+}

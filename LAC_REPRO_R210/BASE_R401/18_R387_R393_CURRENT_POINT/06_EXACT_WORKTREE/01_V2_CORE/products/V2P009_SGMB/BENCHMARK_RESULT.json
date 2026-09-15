@@ -1,0 +1,29 @@
+{
+  "model_version": "V2P009_SGMB_DEV_V1",
+  "mechanism_removing_comparator": "K048 allocation using pilot correlation without BOSA support gate",
+  "month": 24,
+  "effective_sample_fraction": 0.6613844185947971,
+  "support_status": "SUPPORT_FRAGILE",
+  "blind_k048": {
+    "mode": "multifidelity",
+    "n_fine": 17,
+    "n_cheap": 115,
+    "variance_proxy": 0.013583120204603583
+  },
+  "guarded": {
+    "month": 24,
+    "effective_sample_fraction": 0.6613844185947971,
+    "max_normalized_weight": 0.0001888567369660134,
+    "support_status": "SUPPORT_FRAGILE",
+    "pilot_correlation": 0.95,
+    "mode": "fine_only",
+    "n_fine": 40,
+    "n_cheap": 0,
+    "spent_budget": 200.0,
+    "variance_proxy": 0.025,
+    "support_gate_open": false,
+    "status": "SUPPORT_FRAGILE_CHEAP_CHANNEL_DISABLED_FINE_ONLY_FALLBACK"
+  },
+  "unsupported_cheap_acquisitions_comparator": 115,
+  "unsupported_cheap_acquisitions_guarded": 0
+}

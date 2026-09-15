@@ -1,0 +1,12 @@
+{
+  "consumer_id": "LCB-K081",
+  "difference_from_nearest": "OPIA corrects SPIA beliefs for observation-policy backaction after an estimate exists; SCOPG certifies that the backaction estimate itself has effective support",
+  "mechanism_removing_comparator": "weighted passive-state regression with no ESS/eigenvalue/conditioning gate",
+  "nearest_existing_product": "V2P004_OPIA",
+  "new_failure_mode": "passive-state-adjusted backaction regression returns a precise-looking policy coefficient from effectively unsupported or collinear weighted data",
+  "non_additive_interaction": "SACPS support covariance determines whether the K081 backaction coefficient exists at all",
+  "product_id": "V2P034",
+  "short_name": "SCOPG",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "verdict": "DISTINCT_PRODUCT"
+}

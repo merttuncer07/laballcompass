@@ -1,0 +1,24 @@
+{
+  "product_id":"V2P050",
+  "short_name":"SCIG",
+  "supplier_id":"PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "consumer_id":"PARENT:IM445_IM085_CSID",
+  "new_failure_mode":"CSID can avoid double-counting safeguards that share the same declared evidence_family yet still overstate independence when differently named evidence families are driven by a common supported covariance channel.",
+  "non_additive_interaction":"SACPS covariance changes CSID's equivalence partition over safeguard evidence families; that changes multiplicative coverage, residual-loss evaluation and the selected portfolio while costs, coverage inputs and budget are fixed.",
+  "mechanism_removing_comparator":"same CSID problem using only the original declared evidence_family labels, with covariance-based cross-family merging removed",
+  "nearest_existing_products":[
+    {"product":"V2P039_SCCATF","difference":"SCCATF adds covariance cross-terms to an allocation objective; SCIG changes the independence/equivalence partition that determines how safeguard coverage composes before portfolio evaluation."},
+    {"product":"V2P034_SCOPG","difference":"SCOPG uses support geometry as an identification guard; SCIG uses an executable SACPS covariance estimate to revise common-mode evidence structure inside a safeguard portfolio."}
+  ],
+  "strengths":["directly addresses a documented CSID product boundary/common-mode assumption","mechanism-removing control revalues the control portfolio under the candidate dependence reality","exact collapse when no supported cross-family dependence exists","near-threshold ambiguity abstains"],
+  "weaknesses":["dependence support and correlation threshold are externally supplied/calibrated","grouping by a hard dependence component is conservative and does not model graded copula dependence","synthetic benchmark only"],
+  "working_region":"cross-family evidence channels have strong supported dependence that invalidates label-only independence",
+  "failure_region":"wrong support or poorly calibrated threshold can merge genuinely independent safeguards or miss common-mode dependence; ambiguous threshold cases abstain",
+  "router_fallback_abstention":"ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS preserves the original CSID partition as an explicit caller-selected fallback rather than silently choosing a merge",
+  "standalone_role":"design a safeguard portfolio after correcting nominal evidence-family independence with support-aware covariance",
+  "component_role":"emit a dependence-adjusted evidence-family map and audited portfolio for downstream contract/control selection",
+  "parent_evidence_tiers":{"PARENT:R037_SUPPORT_COVARIANCE_SACPS":"ORIGINAL_EXECUTABLE_PARENT","PARENT:IM445_IM085_CSID":"ORIGINAL_EXECUTABLE_PARENT"},
+  "quality_accounting":"R388_DISTINCT_PRODUCT_CANDIDATE_PENDING_FULL_REGRESSION_AND_PROMOTION",
+  "verdict":"SHADOW_DISTINCT_CANDIDATE",
+  "evidence_boundary":"mechanism-shell evidence only"
+}

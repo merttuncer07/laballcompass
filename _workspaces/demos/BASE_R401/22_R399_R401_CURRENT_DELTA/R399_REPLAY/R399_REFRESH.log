@@ -1,0 +1,155 @@
+{
+  "records": 310,
+  "families": {
+    "LCB_KERNEL": 96,
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145
+  },
+  "evidence_tiers": {
+    "BENCHMARKED_WITH_NARROW_OR_LOSING_SHELL": 1,
+    "PROTOTYPE_ONLY_OR_PENDING": 1,
+    "MECHANISM_BENCHMARKED": 86,
+    "EXECUTABLE_PROTOTYPE_PROVENANCE_LINK_INCOMPLETE": 3,
+    "SAVED_RESULT_REANALYZED_SOURCE_CODE_ABSENT": 5,
+    "ORIGINAL_EXECUTABLE_PARENT": 69,
+    "ORIGINAL_EXECUTABLE_MATERIAL": 19,
+    "SALVAGED_SOURCE_WITH_REBUILT_TESTS": 3,
+    "NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID": 28,
+    "MECHANISM_RECONSTRUCTED_FROM_RESULTS": 32,
+    "SPEC_EXECUTABLE_FROM_RESULTS": 63
+  },
+  "candidate_edges": 16594,
+  "candidate_universe_rows": 16594,
+  "active_candidate_rows": 16589,
+  "queue_rows": 1000,
+  "queue_pinned_rows": 57,
+  "queue_completed_suite_rows": 57,
+  "curated_edges": 12,
+  "rejected_current_interface_edges": 5,
+  "standardized_telemetry_events": 516,
+  "calibrated_completed_suites": 57
+}
+top {'supplier_id': 'LCB-K048', 'consumer_id': 'FOUNDRY:P136', 'score': 71.0, 'interface_matches': [], 'addressed_weaknesses': ['decision'], 'shared_domains': ['decision', 'uncertainty'], 'curated': True, 'recommended_next': 'ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK', 'curated_rationale': 'Allocate quasineutral measurements across fidelity and cost', 'adjudication_state': 'UNADJUDICATED', 'active_for_build': True, 'decision_id': None, 'uncertainty_axes': None, 'test_channels': None, 'experiment_routing_status': 'BOOTSTRAP_CHANNEL_CALIBRATED_SCIENTIFIC_CONTRACT_STILL_REQUIRED', 'experiment_telemetry_status': 'STANDARDIZED_TELEMETRY_AVAILABLE', 'experiment_bootstrap_status': 'FIXED_PILOT_SCHEDULE_AVAILABLE', 'experiment_bootstrap_product_id': 'V2P002', 'experiment_bootstrap_case_count': 6, 'experiment_bootstrap_problem_shell': 'BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd', 'experiment_telemetry_event_count': 6, 'experiment_telemetry_complete_count': 6, 'experiment_telemetry_usable_count': 6, 'experiment_calibration_status': 'CALIBRATED_EXACT_SHELL', 'experiment_calibration_id': '695fd98e4bdd5b879a16c7e44712d990ee6c0ff706be5a553aeb60d11f7789ca', 'experiment_calibration_target_generation': 400, 'candidate_universe_rank': 1, 'active_candidate_rank': 1, 'operational_queue_rank': 1}
+rejected_edges 5
+{"documents": 4310, "capabilities": 310, "primitives": 4000, "capabilities_with_rich_text": 266}
+{
+  "engine": "LABALLCOMPASS_R12",
+  "telemetry": {
+    "canonical_ledger": "search_data\\EXPERIMENT_TELEMETRY.jsonl",
+    "events": 516,
+    "completed_suites": 57,
+    "calibrated_completed_suites": 57,
+    "exact_current_suite_matches": 516,
+    "unmatched_events": 0
+  },
+  "interaction_map": {
+    "path": "generated_search\\INTERACTION_MAP_R12.json",
+    "nodes": 4310,
+    "node_counts": {
+      "CAPABILITY": 310,
+      "PRIMITIVE": 4000
+    },
+    "edges": 16647,
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 57,
+      "INFERRED_CANDIDATE": 16532,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 5
+    },
+    "fingerprint": "cce2d0e0654edbf3a4d972dc6b30e7082fdba64ab7ec0bfead44e1d9bb58d726"
+  },
+  "candidate_universe": {
+    "rows": 16594,
+    "active_rows": 16589,
+    "rejected_rows": 5,
+    "persistence": "FULL_RANKED_UNIVERSE"
+  },
+  "queue": {
+    "rows": 1000,
+    "role": "TOP_1000_OPERATIONAL_PRIORITY_WINDOW",
+    "rows_with_standardized_telemetry": 57,
+    "rows_with_exact_calibration": 57,
+    "fixed_pilotable": 57
+  },
+  "simple_lexicon": {
+    "primitives": 4000,
+    "canonical_identity_fields": [
+      "primitive",
+      "constraint_shell"
+    ],
+    "provenance_only_fields": [
+      "domain",
+      "source_concept"
+    ],
+    "search_documents": 4310
+  },
+  "campaign_memory": {
+    "model_version": "LAB_CAMPAIGN_MEMORY_R12_V1",
+    "events": 62,
+    "outcomes": {
+      "REJECTED_CURRENT_INTERFACE": 5,
+      "EXECUTABLE_CONTRACT_PASS": 57
+    },
+    "evidence_levels": {
+      "INTERFACE_ADJUDICATION": 5,
+      "MECHANICS": 57
+    },
+    "failure_codes": {
+      "EXPLICIT_INTERFACE_REJECTION": 5
+    },
+    "learning_eligible_events": 0,
+    "policy": "Mechanics/bootstrap events remain mechanics; only explicitly eligible non-protected empirical outcomes may train future relevance.",
+    "fingerprint": "cc8ea6c359817118436bc7db15ef193b8de0e784fed3e98ec1c8a8ce73e3625e"
+  },
+  "product_quality": {
+    "policy": "PRODUCT_QUALITY_POLICY.md",
+    "base_authority": {
+      "audit": "PRODUCT_QUALITY_AUDIT_V1.json",
+      "executable_suites": 38,
+      "distinct_families": 28,
+      "distinct_families_pre_quality_batch": 18,
+      "new_distinct_products_batch4": 10
+    },
+    "candidate_overlay": {
+      "audit": "PRODUCT_QUALITY_AUDIT_R399.json",
+      "state": "R399_PRODUCT_OVERLAY_STATE.json",
+      "status": "R399_REHYDRATED_OVERLAY_PENDING_PROMOTION",
+      "executable_suites": 57,
+      "distinct_families": 44,
+      "promoted_product_ids": [],
+      "candidate_added_suite_ids": [
+        "V2P054",
+        "V2P055",
+        "V2P056",
+        "V2P057",
+        "V2P058"
+      ],
+      "candidate_distinct_product_ids": [
+        "V2P054",
+        "V2P055",
+        "V2P056",
+        "V2P057",
+        "V2P058"
+      ],
+      "quarantined_product_ids": [
+        "V2P047"
+      ]
+    },
+    "canonical_product_authority": {
+      "authority_file": "CURRENT_PRODUCT_AUTHORITY.json",
+      "authority_release": "R392",
+      "status": "PROMOTED_CANONICAL_PRODUCT_AUTHORITY",
+      "registry_family_count": 455,
+      "registry455_unchanged": true,
+      "executable_suites": 52,
+      "distinct_families": 39
+    },
+    "observed_executable_suites": 57,
+    "observed_matches_candidate_overlay": true
+  },
+  "nonclaims": [
+    "bootstrap telemetry is mechanics/channel calibration, not scientific validation",
+    "inferred composition queue rows are hypotheses, not known interaction-map truths",
+    "domain/source labels remain searchable provenance aliases but do not define canonical primitive identity"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "campaign_memory": {
+    "events": 57,
+    "evidence_levels": {
+      "INTERFACE_ADJUDICATION": 5,
+      "MECHANICS": 52
+    },
+    "failure_codes": {
+      "EXPLICIT_INTERFACE_REJECTION": 5
+    },
+    "fingerprint": "05258ab8047832856a63798629937a0ad1c72b7f035b4e7018ee7430f75a55bb",
+    "learning_eligible_events": 0,
+    "model_version": "LAB_CAMPAIGN_MEMORY_R12_V1",
+    "outcomes": {
+      "EXECUTABLE_CONTRACT_PASS": 52,
+      "REJECTED_CURRENT_INTERFACE": 5
+    },
+    "policy": "Mechanics/bootstrap events remain mechanics; only explicitly eligible non-protected empirical outcomes may train future relevance."
+  },
+  "candidate_universe": {
+    "active_rows": 16589,
+    "persistence": "FULL_RANKED_UNIVERSE",
+    "rejected_rows": 5,
+    "rows": 16594
+  },
+  "engine": "LABALLCOMPASS_R12",
+  "interaction_map": {
+    "edges": 16647,
+    "fingerprint": "f4a8f6490f8e63a03b5c382624aea2c2ac409873bf5d1477a44e50cba82761f1",
+    "node_counts": {
+      "CAPABILITY": 310,
+      "PRIMITIVE": 4000
+    },
+    "nodes": 4310,
+    "path": "generated_search/INTERACTION_MAP_R12.json",
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 52,
+      "INFERRED_CANDIDATE": 16537,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 5
+    }
+  },
+  "nonclaims": [
+    "bootstrap telemetry is mechanics/channel calibration, not scientific validation",
+    "inferred composition queue rows are hypotheses, not known interaction-map truths",
+    "domain/source labels remain searchable provenance aliases but do not define canonical primitive identity"
+  ],
+  "product_quality": {
+    "base_authority": {
+      "audit": "PRODUCT_QUALITY_AUDIT_V1.json",
+      "distinct_families": 28,
+      "distinct_families_pre_quality_batch": 18,
+      "executable_suites": 38,
+      "new_distinct_products_batch4": 10
+    },
+    "candidate_overlay": {
+      "audit": "PRODUCT_QUALITY_AUDIT_R392.json",
+      "candidate_added_suite_ids": [
+        "V2P053"
+      ],
+      "candidate_distinct_product_ids": [
+        "V2P053"
+      ],
+      "distinct_families": 39,
+      "executable_suites": 52,
+      "promoted_product_ids": [],
+      "quarantined_product_ids": [
+        "V2P047"
+      ],
+      "state": "R392_PRODUCT_OVERLAY_STATE.json",
+      "status": "PROMOTED_TO_R392_PRODUCT_AUTHORITY"
+    },
+    "canonical_product_authority": {
+      "authority_file": "CURRENT_PRODUCT_AUTHORITY.json",
+      "authority_release": "R392",
+      "distinct_families": 39,
+      "executable_suites": 52,
+      "registry455_unchanged": true,
+      "registry_family_count": 455,
+      "status": "PROMOTED_CANONICAL_PRODUCT_AUTHORITY"
+    },
+    "observed_executable_suites": 52,
+    "observed_matches_candidate_overlay": true,
+    "policy": "PRODUCT_QUALITY_POLICY.md"
+  },
+  "queue": {
+    "fixed_pilotable": 52,
+    "role": "TOP_1000_OPERATIONAL_PRIORITY_WINDOW",
+    "rows": 1000,
+    "rows_with_exact_calibration": 52,
+    "rows_with_standardized_telemetry": 52
+  },
+  "simple_lexicon": {
+    "canonical_identity_fields": [
+      "primitive",
+      "constraint_shell"
+    ],
+    "primitives": 4000,
+    "provenance_only_fields": [
+      "domain",
+      "source_concept"
+    ],
+    "search_documents": 4310
+  },
+  "telemetry": {
+    "calibrated_completed_suites": 52,
+    "canonical_ledger": "search_data/EXPERIMENT_TELEMETRY.jsonl",
+    "completed_suites": 52,
+    "events": 447,
+    "exact_current_suite_matches": 447,
+    "unmatched_events": 0
+  }
+}

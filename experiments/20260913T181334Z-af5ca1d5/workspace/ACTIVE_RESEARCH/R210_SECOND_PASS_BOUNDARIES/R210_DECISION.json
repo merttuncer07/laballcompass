@@ -1,0 +1,16 @@
+{
+  "round": "R210",
+  "global_breakthrough_claimed": false,
+  "tests_passed": 3,
+  "gdr_thinning_tomography": {
+    "decision": "strong_form_killed",
+    "theorem": "for even K, nonnegative spectrum pairs exist with inverse L1 amplification at least 2^(3K/2) under the entire real-retention void curve",
+    "retained_scope": "low-order aggregates or additional non-void observations only"
+  },
+  "zhuravlev_corrector": {
+    "decision": "retain_scoped_not_breakthrough",
+    "theorem": "degree-d Boolean corrector representability compiles by GF(2) elimination in sum_{s<=d} C(r,s) empirical generator features",
+    "boundary": "unbounded degree is exponential; full control-sample rank permits memorization; ANF/Reed-Muller collision is direct"
+  },
+  "next": "return_to_breadth_first_new_historical_candidates"
+}

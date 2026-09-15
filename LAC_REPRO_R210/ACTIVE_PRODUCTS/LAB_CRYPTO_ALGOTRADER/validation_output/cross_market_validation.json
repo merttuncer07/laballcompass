@@ -1,0 +1,88 @@
+{
+  "validation": "FROZEN_CROSS_MARKET_LMDE_DTEC_V1",
+  "generated_at_utc": "2026-08-30T23:36:39.818406+00:00",
+  "markets": [
+    {
+      "symbol": "BTCUSDT",
+      "interval": "1h",
+      "net_return": 0.15230891658082246,
+      "maximum_drawdown": 0.06850957405498304,
+      "buy_hold_return": 0.23329896221811608,
+      "dtec_removed_net_return": -0.10685724168874144,
+      "dtec_contribution": 0.2591661582695639,
+      "position_changes": 39,
+      "cost_drag": 0.031405163210328046,
+      "latest_paper_exposure": 0.5918271111207795,
+      "data_sha256": "eb4238d5432235ed47e6ff0754620e08642c5f65b8ff3840c7b12679b5742b19"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "interval": "1h",
+      "net_return": 0.2711095581263565,
+      "maximum_drawdown": 0.0634479287403773,
+      "buy_hold_return": 0.46700441596367925,
+      "dtec_removed_net_return": -0.08666070775700851,
+      "dtec_contribution": 0.357770265883365,
+      "position_changes": 33,
+      "cost_drag": 0.024170510777091536,
+      "latest_paper_exposure": 0.4689774667295493,
+      "data_sha256": "452db15644eb207c53d2ae2a6a38a443cc25efefc622f2bc433f8beaae8c6687"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "interval": "1h",
+      "net_return": 0.22151808056304545,
+      "maximum_drawdown": 0.04909828414409789,
+      "buy_hold_return": 0.5546956392320286,
+      "dtec_removed_net_return": -0.046821964868526744,
+      "dtec_contribution": 0.2683400454315722,
+      "position_changes": 47,
+      "cost_drag": 0.028998788445137924,
+      "latest_paper_exposure": 0.25828345611837855,
+      "data_sha256": "8b6a20228364707200e3f28ac49c640fd6c389ef64355c13c2d06c6056334b36"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "interval": "1h",
+      "net_return": 0.09526258333526849,
+      "maximum_drawdown": 0.06637797869046336,
+      "buy_hold_return": 0.15340692805481537,
+      "dtec_removed_net_return": -0.13115088726986412,
+      "dtec_contribution": 0.22641347060513262,
+      "position_changes": 39,
+      "cost_drag": 0.02946541484751375,
+      "latest_paper_exposure": 0.5452820208927555,
+      "data_sha256": "22dcf52a767dca598955ffc46743a2774ac36d781de30e7a5b6f82a0dc5ac383"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "interval": "1h",
+      "net_return": 0.17905415912350775,
+      "maximum_drawdown": 0.06695232140130902,
+      "buy_hold_return": 0.1915456874466268,
+      "dtec_removed_net_return": -0.030885800869286828,
+      "dtec_contribution": 0.20993995999279458,
+      "position_changes": 47,
+      "cost_drag": 0.029160535700583745,
+      "latest_paper_exposure": 0.30395672983264127,
+      "data_sha256": "ac5cf0377daf19e1ee6c9aede21f125c1b578749ab3999a679f95120c42bc71a"
+    }
+  ],
+  "aggregate": {
+    "market_count": 5,
+    "positive_market_count": 5,
+    "dtec_positive_contribution_count": 5,
+    "beat_buy_hold_count": 0,
+    "mean_net_return": 0.18385065954580013,
+    "worst_net_return": 0.09526258333526849,
+    "mean_maximum_drawdown": 0.06287721740624612,
+    "worst_maximum_drawdown": 0.06850957405498304,
+    "mean_dtec_contribution": 0.26432598003648566
+  },
+  "protocol": {
+    "same_parameters_across_markets": true,
+    "symbol_is_the_only_config_change": true,
+    "live_orders": false
+  },
+  "boundary": "Cross-market historical paper validation, not a future-profit claim."
+}

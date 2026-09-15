@@ -1,0 +1,286 @@
+{
+  "bootstrap": {
+    "calibration": {
+      "attempt_count": 12,
+      "axis_observation_counts": {
+        "declared_executable_contract_case_coverage": 12
+      },
+      "calibration_id": "5eceea1d085094688f58ffb648dde2dd17d18962d080f4b4c6225749b60846c2",
+      "compute_upper_seconds": 4.708320531000027,
+      "event_ids": [
+        "R10::V2P006::000::idasrotests_test_p025_uncertainty_can_revoke_certificate",
+        "R10::V2P006::001::idasrotests_test_p025_stable_system_survives",
+        "R10::V2P006::002::idasrotests_test_p025_zero_rate_limit_preserved",
+        "R10::V2P006::003::idasrotests_test_p025_invalid_gap_rejected",
+        "R10::V2P006::004::idasrotests_test_exact_radius_mapping_from_scalar_identification_interval",
+        "R10::V2P006::005::idasrotests_test_directional_robust_solution_soft_thresholds_parallel_component",
+        "R10::V2P006::006::idasrotests_test_orthogonal_component_is_unchanged",
+        "R10::V2P006::007::idasrotests_test_missing_sensitivity_certificate_fails_closed",
+        "R10::V2P006::008::idasrotests_test_certified_shell_requires_provenance",
+        "R10::V2P006::009::idasrotests_test_zero_sensitivity_exactly_reuses_nominal_action",
+        "R10::V2P006::010::idasrotests_test_larger_identification_se_never_increases_parallel_exposure",
+        "R10::V2P006::011::idasrotests_test_invalid_vector_or_z_contract_is_rejected"
+      ],
+      "excluded_counts": {
+        "failed_or_censored": 0,
+        "invalid_measurement": 0,
+        "unadjusted_backreaction": 0,
+        "unknown_backreaction": 0
+      },
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+      "reliability_lower_bound": 0.8159920848767768,
+      "target_generation": 2,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+      "test_signature": "9576e8d17fc50fd4ec4737feb885db51465683cb01931f78e9099579908a76f0",
+      "usable_count": 12
+    },
+    "cumulative_events": 60,
+    "future_selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+    "queue_counts": {
+      "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 117,
+      "FIXED_PILOT_SCHEDULE_AVAILABLE": 6,
+      "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+      "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 720
+    }
+  },
+  "claim_boundary": "development adapter/bootstrap evidence only; no scientific promotion, real-system sensitivity calibration, or protected-validation use",
+  "edge_adjudication": {
+    "k058_to_p143": {
+      "active_for_build": false,
+      "addressed_weaknesses": [],
+      "adjudication_does_not_imply": "Do not delete or globally down-rank K058 or P143; only this direct composition edge is rejected until an exact encoding/certificate is supplied.",
+      "adjudication_generation": "R9",
+      "adjudication_reason": "DLIC certifies integrality of a constrained LP relaxation under TU + integer RHS; K058 fixes variables in an unconstrained binary QUBO. No exact theorem-preserving constrained-integer-to-QUBO encoding and penalty certificate exists in the current Lab package, so mapping DLIC allocations to K058 binary variables would fabricate an interface.",
+      "adjudication_scope": "CURRENT_INTERFACE_ONLY",
+      "adjudication_state": "REJECTED_CURRENT_INTERFACE",
+      "consumer_id": "FOUNDRY:P143",
+      "curated": true,
+      "curated_rationale": "Reduce liquidity allocation only when integrality meaning survives",
+      "decision_id": null,
+      "experiment_bootstrap_case_count": 6,
+      "experiment_bootstrap_problem_shell": null,
+      "experiment_bootstrap_product_id": "P143",
+      "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+      "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+      "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+      "interface_matches": [
+        "representation"
+      ],
+      "recommended_next": "HOLD_REJECTED_INTERFACE_NO_BUILD",
+      "score": 67.0,
+      "shared_domains": [],
+      "supplier_id": "LCB-K058",
+      "test_channels": null,
+      "uncertainty_axes": null
+    },
+    "k089_to_p137": {
+      "active_for_build": false,
+      "addressed_weaknesses": [],
+      "adjudication_does_not_imply": "Do not delete or globally down-rank K089 or P137. A future dependence-aware simultaneous law or an explicitly independent holdout-family shell could reopen this edge.",
+      "adjudication_generation": "R10",
+      "adjudication_reason": "P137 selects a policy on a selection stream and evaluates that fixed selected index on a separate untouched holdout, so the selected policy's holdout mean is not selected using the holdout and does not require a family-size multiplicity correction merely because upstream selection occurred. P137's genuinely holdout-selected quantities (holdout_best_candidate and regret against the holdout minimum) are computed from candidate loss columns paired on the same holdout cases. K089's current Sidak primitive accepts only one estimate, one standard error, and family size and carries no dependence/covariance certificate for those paired candidate estimates. Applying it would therefore either correct a quantity that is already protected by sample separation or claim an unsupported simultaneous law for a dependent family.",
+      "adjudication_scope": "CURRENT_INTERFACE_ONLY",
+      "adjudication_state": "REJECTED_CURRENT_INTERFACE",
+      "consumer_id": "FOUNDRY:P137",
+      "curated": true,
+      "curated_rationale": "Protect memory-policy selection with reference-law-aware holdout routing",
+      "decision_id": null,
+      "experiment_bootstrap_case_count": 6,
+      "experiment_bootstrap_problem_shell": null,
+      "experiment_bootstrap_product_id": "P137",
+      "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+      "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+      "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+      "interface_matches": [],
+      "recommended_next": "HOLD_REJECTED_INTERFACE_NO_BUILD",
+      "score": 52,
+      "shared_domains": [],
+      "supplier_id": "LCB-K089",
+      "test_channels": null,
+      "uncertainty_axes": null
+    },
+    "k089_to_p142": {
+      "active_for_build": false,
+      "addressed_weaknesses": [],
+      "adjudication_does_not_imply": "Do not delete or globally down-rank K089 or P142. Reopen only if a valid simultaneous-family dependence contract or a different temporal-reference mechanism is supplied.",
+      "adjudication_generation": "R10",
+      "adjudication_reason": "P142 uses the same selection-stream versus untouched-holdout ACSA structure as P137, so the fixed selected model's later-holdout mean is not selected using that holdout and needs no Sidak family correction solely because the early stream selected it. The holdout-best/regret quantities are based on paired candidate losses on the same later months, while K089 has no dependence/covariance contract. In addition, P142's demonstrated failure is temporal regime reversal/reference-law drift; K089 controls multiplicity for a selected family estimate and does not model temporal nonstationarity. The curated bridge would therefore conflate temporal drift with family multiplicity and overstate the available guarantee.",
+      "adjudication_scope": "CURRENT_INTERFACE_ONLY",
+      "adjudication_state": "REJECTED_CURRENT_INTERFACE",
+      "consumer_id": "FOUNDRY:P142",
+      "curated": true,
+      "curated_rationale": "Protect burnout-model selection against temporal reference-law drift",
+      "decision_id": null,
+      "experiment_bootstrap_case_count": 6,
+      "experiment_bootstrap_problem_shell": null,
+      "experiment_bootstrap_product_id": "P142",
+      "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+      "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+      "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+      "interface_matches": [],
+      "recommended_next": "HOLD_REJECTED_INTERFACE_NO_BUILD",
+      "score": 52,
+      "shared_domains": [],
+      "supplier_id": "LCB-K089",
+      "test_channels": null,
+      "uncertainty_axes": null
+    },
+    "rejected_current_interface_edges": 3
+  },
+  "focused_engine_tests": {
+    "failed": 0,
+    "passed": 67
+  },
+  "foundry_r9_r10_identity": {
+    "byte_identical": true,
+    "changed": [],
+    "only_r10": [],
+    "only_r9": [],
+    "r10_files": 1305,
+    "r9_files": 1305,
+    "same_paths": true
+  },
+  "inventory": {
+    "base_registry_records": 310,
+    "candidate_directed_edges": 15704,
+    "completed_v2_composite_ids": [
+      "V2P001_SAVA",
+      "V2P002_MFQA",
+      "V2P003_MFPD",
+      "V2P004_OPIA",
+      "V2P005_EDSANP",
+      "V2P006_IDASRO"
+    ],
+    "completed_v2_composites_not_yet_folded_into_base_registry": 6,
+    "families": {
+      "FOUNDRY_PARENT": 69,
+      "FOUNDRY_PRODUCT": 145,
+      "LCB_KERNEL": 96
+    },
+    "ranked_working_queue_rows": 1000,
+    "rejected_current_interface_edges_preserved_separately": 3,
+    "total_addressable_artifacts_in_handoff": 316
+  },
+  "original_consumer_tests": {
+    "P025_IDRE": {
+      "failed": 0,
+      "passed": 4
+    },
+    "P137_MPHA": {
+      "failed": 0,
+      "passed": 6
+    },
+    "P142_BMSA": {
+      "failed": 0,
+      "passed": 6
+    }
+  },
+  "search_smoke": {
+    "k068_direct_rank": 2,
+    "packet": "01_V2_CORE/generated_search/R10_P025_SEARCH_PACKET.json",
+    "rejected_k089_p137_surfaced": false,
+    "rejected_k089_p142_surfaced": false,
+    "v2p006_bootstrap_surfaced": true
+  },
+  "status": "PASS",
+  "v2_product_tests": {
+    "V2P001": 6,
+    "V2P002": 6,
+    "V2P003": 12,
+    "V2P004": 12,
+    "V2P005": 12,
+    "V2P006": 12
+  },
+  "v2p006": {
+    "benchmark": {
+      "claim_scope": "deterministic declared-affine development shell only; no real-system sensitivity or uncertainty-set calibration claim",
+      "declared_affine_shift_decision": {
+        "mean_space_radius": 0.1764,
+        "nominal_decision": [
+          0.12,
+          0.5
+        ],
+        "nominal_worst_case_objective": 0.11103200000000002,
+        "normalized_shift_direction": [
+          1.0,
+          0.0
+        ],
+        "persistence_radius": 0.0588,
+        "robust_decision": [
+          0.0,
+          0.5
+        ],
+        "robust_worst_case_objective": 0.125,
+        "sensitivity_provenance": "DECLARED_SYNTHETIC_AFFINE_MAP_V1",
+        "sensitivity_shell_certified": true,
+        "status": "DIRECTIONAL_ROBUST_ACTION_CERTIFIED_FOR_DECLARED_AFFINE_SHIFT_SHELL",
+        "worst_case_objective_gain": 0.01396799999999998
+      },
+      "model_version": "V2P006_IDASRO_DEV_V1",
+      "near_boundary_identification_envelope": {
+        "conservative_certified": false,
+        "conservative_flip_index": 1.054562683954644,
+        "nominal_certified": true,
+        "nominal_flip_index": 0.877913830205879,
+        "persistence": -0.2,
+        "persistence_se": 0.03,
+        "status": "IDENTIFICATION_UNCERTAINTY_REVOKES_ACTION_CERTIFICATE"
+      },
+      "zero_sensitivity_control": {
+        "mean_space_radius": 0.0,
+        "nominal_decision": [
+          0.12,
+          0.5
+        ],
+        "nominal_worst_case_objective": 0.1322,
+        "normalized_shift_direction": null,
+        "persistence_radius": 0.0588,
+        "robust_decision": [
+          0.12,
+          0.5
+        ],
+        "robust_worst_case_objective": 0.1322,
+        "sensitivity_provenance": "DECLARED_SYNTHETIC_ZERO_MAP_CONTROL",
+        "sensitivity_shell_certified": true,
+        "status": "CERTIFIED_ZERO_DECISION_SENSITIVITY_NOMINAL_ACTION_EXACT",
+        "worst_case_objective_gain": 0.0
+      }
+    },
+    "composition": {
+      "consumer_id": "FOUNDRY:P025",
+      "product_id": "V2P006",
+      "supplier_id": "LCB-K068"
+    },
+    "pilot_complete_cases": 12,
+    "pilot_failed_cases": 0,
+    "suite": {
+      "cases": [
+        "IDASROTests.test_p025_uncertainty_can_revoke_certificate",
+        "IDASROTests.test_p025_stable_system_survives",
+        "IDASROTests.test_p025_zero_rate_limit_preserved",
+        "IDASROTests.test_p025_invalid_gap_rejected",
+        "IDASROTests.test_exact_radius_mapping_from_scalar_identification_interval",
+        "IDASROTests.test_directional_robust_solution_soft_thresholds_parallel_component",
+        "IDASROTests.test_orthogonal_component_is_unchanged",
+        "IDASROTests.test_missing_sensitivity_certificate_fails_closed",
+        "IDASROTests.test_certified_shell_requires_provenance",
+        "IDASROTests.test_zero_sensitivity_exactly_reuses_nominal_action",
+        "IDASROTests.test_larger_identification_se_never_increases_parallel_exposure",
+        "IDASROTests.test_invalid_vector_or_z_contract_is_rejected"
+      ],
+      "consumer_id": "FOUNDRY:P025",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+      "product_dir": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R10_2026-08-26/01_V2_CORE/products/V2P006_IDASRO",
+      "product_id": "V2P006",
+      "source_hash": "340a498ca5804b752d52ce9bb85e82423eee788f2b1c84d872ce4ff51ead389a",
+      "supplier_id": "LCB-K068",
+      "test_file": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R10_2026-08-26/01_V2_CORE/products/V2P006_IDASRO/test_idasro.py",
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+      "test_signature": "9576e8d17fc50fd4ec4737feb885db51465683cb01931f78e9099579908a76f0"
+    }
+  },
+  "version": "R10"
+}

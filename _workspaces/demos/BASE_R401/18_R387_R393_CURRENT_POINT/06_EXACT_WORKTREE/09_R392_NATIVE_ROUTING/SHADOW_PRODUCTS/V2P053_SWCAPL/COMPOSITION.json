@@ -1,0 +1,8 @@
+{
+  "product_id": "V2P053",
+  "short_name": "SWCAPL",
+  "supplier_id": "FOUNDRY:P090",
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "status": "R392_SHADOW_CANDIDATE",
+  "operator": "externally-justified target importance weights and OWS support gate reweight CAPL's realized-action training objective before constrained policy optimization"
+}

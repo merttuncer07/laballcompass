@@ -1,0 +1,22 @@
+{
+  "candidate_identity": "R400_JARB_NATIVE_HIGHER_ORDER_EXPERIMENT",
+  "verdict": "REJECT_AS_PRODUCT_NARROW_TRANSFER_REGION",
+  "direct_tests": {"passed": 13, "failed": 0},
+  "native_parent_sensitivity": {
+    "shells": 2000,
+    "decision_changed_fraction": 0.2245,
+    "median_declared_gain_when_changed": 0.13905716666925017,
+    "permuted_truth_harm_fraction": 0.018
+  },
+  "independent_transfer_tournament": {
+    "cells": 21,
+    "common_random_trials_per_cell": 100000,
+    "candidate_wins": 3,
+    "removal_control_wins": 18,
+    "candidate_win_region": "coarse quantization step exactly 3.0 in the tested grid"
+  },
+  "reason": "The analytical coupling is executable and preserves exact parent decisions, but its advantage did not transfer across ordinary noisy-estimation/quantization cells. The extra REOC sensor dominated except under extremely coarse representation.",
+  "negative_knowledge": "Do not promote generic acquisition/representation interaction-credit routing from V2P054+V2P057 without an independently justified severe representation-loss regime.",
+  "promoted": false,
+  "next_action": "Return to a different frontier cluster; do not tune the tournament to force a win."
+}

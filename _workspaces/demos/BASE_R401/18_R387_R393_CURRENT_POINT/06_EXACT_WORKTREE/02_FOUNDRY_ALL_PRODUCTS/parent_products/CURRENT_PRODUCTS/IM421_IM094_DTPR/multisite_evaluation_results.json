@@ -1,0 +1,26 @@
+{
+  "scenario": {
+    "seed": 20260825,
+    "scenarios": 50000,
+    "sites": 8,
+    "teams": 2,
+    "total_epsilon": 1.0
+  },
+  "summary": {
+    "full_count_dashboard": {
+      "mean_unserved_priority_regret": 6.97128,
+      "exact_top_two_rate": 0.23052,
+      "captured_priority_fraction": 0.8612161365844336,
+      "released_private_counts": 8,
+      "released_actions": 2
+    },
+    "dtpr_action_only": {
+      "mean_unserved_priority_regret": 3.20968,
+      "exact_top_two_rate": 0.41082,
+      "captured_priority_fraction": 0.9361018649763494,
+      "released_private_counts": 0,
+      "released_actions": 2
+    },
+    "regret_reduction": 0.5395852698500132
+  }
+}

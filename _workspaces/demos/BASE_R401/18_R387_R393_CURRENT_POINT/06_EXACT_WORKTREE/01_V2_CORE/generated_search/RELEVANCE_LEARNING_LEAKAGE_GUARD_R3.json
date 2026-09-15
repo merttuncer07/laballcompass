@@ -1,0 +1,46 @@
+{
+  "benchmark": "R3 leakage-resistant relevance learning on real Lab search corpus",
+  "documents": 4310,
+  "target_generation": 1,
+  "problem_shell": "crypto_algo_v1",
+  "quarantine_only_top30_identical_to_baseline": true,
+  "quarantine_only_document_offsets": {},
+  "quarantine_reasons": [
+    {
+      "event_id": "protected_validation_k071",
+      "reason": "PROTECTED_VALIDATION_NEVER_TRAINS"
+    },
+    {
+      "event_id": "same_generation_k069",
+      "reason": "SAME_OR_FUTURE_GENERATION_QUARANTINE"
+    },
+    {
+      "event_id": "unrelated_shell_p137",
+      "reason": "OUT_OF_SCOPE_SHELL"
+    }
+  ],
+  "eligible_learning_events": [
+    "k011_development_pass_g0"
+  ],
+  "learned_document_offsets": {
+    "LCB-K011": 0.5333333333333333
+  },
+  "anchor_ranks_before": {
+    "FOUNDRY:P137": 1,
+    "LCB-K071": 3,
+    "LCB-K089": 9,
+    "LCB-K011": 16,
+    "LCB-K069": 17
+  },
+  "anchor_ranks_after": {
+    "FOUNDRY:P137": 1,
+    "LCB-K071": 3,
+    "LCB-K089": 9,
+    "LCB-K011": 12,
+    "LCB-K069": 17
+  },
+  "k011_prior": 0.5333333333333333,
+  "k011_rank_before": 16,
+  "k011_rank_after": 12,
+  "claim_scope": "Mechanics/leakage guard only. Rank movement after feeding a known development outcome is expected behavior, not independent evidence that learned relevance improves external discovery quality."
+}

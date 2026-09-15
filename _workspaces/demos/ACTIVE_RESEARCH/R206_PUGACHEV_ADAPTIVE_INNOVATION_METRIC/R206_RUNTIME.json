@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "dimension": 2,
+      "updates": 1400,
+      "legacy_seconds": 0.01871579999988171,
+      "compound_seconds": 0.027380699999412172,
+      "full_shared_seconds": 0.02935189999971044,
+      "compound_overhead_ratio": 1.4629724617481072,
+      "full_shared_overhead_ratio": 1.5682952371737224
+    },
+    {
+      "dimension": 4,
+      "updates": 1400,
+      "legacy_seconds": 0.03198979999979201,
+      "compound_seconds": 0.04783990000032645,
+      "full_shared_seconds": 0.0495082999996157,
+      "compound_overhead_ratio": 1.4954735572162843,
+      "full_shared_overhead_ratio": 1.5476276813214709
+    },
+    {
+      "dimension": 8,
+      "updates": 1400,
+      "legacy_seconds": 0.17333770000004733,
+      "compound_seconds": 0.22709820000000036,
+      "full_shared_seconds": 0.23580110000057175,
+      "compound_overhead_ratio": 1.3101489174019174,
+      "full_shared_overhead_ratio": 1.3603566910170573
+    },
+    {
+      "dimension": 16,
+      "updates": 1400,
+      "legacy_seconds": 0.8775754999996934,
+      "compound_seconds": 1.0648025000000416,
+      "full_shared_seconds": 1.0631358000000546,
+      "compound_overhead_ratio": 1.2133457463208734,
+      "full_shared_overhead_ratio": 1.2114465365093101
+    }
+  ]
+}

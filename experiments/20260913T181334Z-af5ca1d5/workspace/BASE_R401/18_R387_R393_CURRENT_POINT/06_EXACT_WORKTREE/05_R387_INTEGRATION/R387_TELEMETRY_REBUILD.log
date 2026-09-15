@@ -1,0 +1,129 @@
+{
+  "model_version": "R387_PORTABLE_TELEMETRY_REBUILD_V1",
+  "old_event_count": 388,
+  "superseded_event_count": 64,
+  "retained_event_count": 324,
+  "fresh_event_count": 64,
+  "new_event_count": 388,
+  "changed_products": [
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P044",
+    "V2P045",
+    "V2P046",
+    "V2P048"
+  ],
+  "per_product": [
+    {
+      "product_id": "V2P040",
+      "pair": [
+        "FOUNDRY:P093",
+        "PARENT:R041_CONSTRAINED_POLICY_CAPL"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "b947d39542f571d7d9af6d6ba02d675e7a3f8956809d477022ff3046766c155a",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P040::bc13000cb49b8c65"
+    },
+    {
+      "product_id": "V2P041",
+      "pair": [
+        "FOUNDRY:P082",
+        "PARENT:R044_DECISION_LOSS_DLEW"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "67d10d537ffcd9f5bd897c5dde4cd545f171229283574a9aa8d6e1b99c3f700e",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P041::874eb56cb81520e5"
+    },
+    {
+      "product_id": "V2P042",
+      "pair": [
+        "LCB-K041",
+        "PARENT:IM340_IM280_CWC"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "c16445b73c6a094316a4cd2ccd0c358cfa4896e2c5b0a492dee01154089e0c04",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P042::b248a38d4707ad42"
+    },
+    {
+      "product_id": "V2P043",
+      "pair": [
+        "FOUNDRY:P079",
+        "LCB-K064"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "ef5c54bbc4f3020feaa5941d6c53f4c28f35bd18af12cb34812747ffedffd52d",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P043::ce10b4e09d5ad71e"
+    },
+    {
+      "product_id": "V2P044",
+      "pair": [
+        "PARENT:R001_C313_BPISD",
+        "LCB-K065"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "b9483460ff10e8ac7f0995527e152dade13c930d4059e15fec16f54db034acac",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P044::43460a4ccc76d73c"
+    },
+    {
+      "product_id": "V2P045",
+      "pair": [
+        "FOUNDRY:P030",
+        "LCB-K086"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "a730caad11e619169111c39ee23871f3f53f583baa2ba309d4853cb33b73aa2c",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P045::6e7adfe22335004d"
+    },
+    {
+      "product_id": "V2P046",
+      "pair": [
+        "FOUNDRY:P037",
+        "PARENT:IM340_IM280_CWC"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "d63335733ad51dce2effe958701bf69211332e2f0e985d5d89e400c5b0fcd6d1",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P046::44f87b6e79e50567"
+    },
+    {
+      "product_id": "V2P048",
+      "pair": [
+        "FOUNDRY:P079",
+        "PARENT:IM139_IM250_CCVC"
+      ],
+      "cases": 8,
+      "statuses": {
+        "COMPLETE": 8
+      },
+      "test_signature": "1bf9bed6cf2fdd5eec97d989e94fd8ea9071ddccec432eb6d06382e4c5283834",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P048::6eb7ec93196a73f8"
+    }
+  ],
+  "policy": [
+    "R386 telemetry tied to pre-portability exact suite fingerprints is preserved separately, not treated as current calibration.",
+    "R387 current ledger keeps unaffected exact-match telemetry and replaces only superseded exact-shell events for modified suites.",
+    "These are mechanics/channel calibration events, not empirical or scientific validation."
+  ]
+}

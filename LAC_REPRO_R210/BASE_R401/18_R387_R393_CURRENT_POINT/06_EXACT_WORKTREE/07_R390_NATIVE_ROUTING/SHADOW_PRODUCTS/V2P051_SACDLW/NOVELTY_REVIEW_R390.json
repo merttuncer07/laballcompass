@@ -1,0 +1,26 @@
+{
+  "collapse_regions": [
+    "risk_aversion=0 -> parent DLEW semantics",
+    "dense support + shrinkage=0 -> SACPS covariance equals raw covariance removal control"
+  ],
+  "evidence_boundary": "internal deterministic mechanics only; no empirical or deployment claim",
+  "external_prior_art_examples": [
+    "decision-focused learning / predict-then-optimize literature evaluates predictors by downstream regret",
+    "decision-focused covariance estimation for minimum-variance portfolios directly links covariance estimates to downstream decision quality",
+    "mean-variance predict-and-optimize literature places covariance inside downstream risk-aware decision objectives"
+  ],
+  "mechanism_removing_comparator": "same DLEW shell with raw sample covariance substituted for SACPS covariance",
+  "nearest_existing_products": {
+    "V2P030_PCFDLW": "changes which candidate models are admissible through closure/fidelity certification; SACDLW keeps the candidate set and changes the action/regret geometry",
+    "V2P041_CDTDLEW": "changes DLEW selection over a channel-tipping ambiguity set; SACDLW changes within-regime finite-action risk geometry from covariance support",
+    "V2P049_SACAPL": "also injects SACPS covariance into a risk objective, but learns a constrained continuous portfolio policy; SACDLW does not learn a policy and instead changes retrospective finite-action model selection/regret inside DLEW"
+  },
+  "new_failure_mode": "DLEW can select a prediction model and finite action sequence using a risk geometry contaminated by finite-sample covariance edges that contradict declared dependency support.",
+  "non_additive_interaction": "SACPS covariance enters DLEW before argmax action selection and therefore changes the induced action path, oracle comparison, training model ranking, and validation decision regret rather than appending a covariance report.",
+  "prior_art_status": "STRONG_CLOSE_PRIOR_ART_ON_DECISION_FOCUSED_LEARNING_AND_COVARIANCE_AWARE_PORTFOLIO_DECISIONS; INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+  "product_id": "V2P051",
+  "sensitivity_boundary": "benefit is not universal across random shells; strong nuisance cells are favorable on average but contain losing seeds, so candidate must expose its working/failure region rather than claim dominance",
+  "short_name": "SACDLW",
+  "verdict": "DISTINCT_PRODUCT_CANDIDATE_PENDING_TELEMETRY_CLOSURE_AND_PROMOTION",
+  "working_region": "declared support is correct, a small separate risk-estimation sample contains strong unsupported covariance nuisance, and risk aversion makes finite-action DLEW decisions sensitive to that nuisance"
+}

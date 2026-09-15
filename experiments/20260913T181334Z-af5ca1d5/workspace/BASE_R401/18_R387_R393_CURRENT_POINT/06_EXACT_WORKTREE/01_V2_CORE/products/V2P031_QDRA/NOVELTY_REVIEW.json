@@ -1,0 +1,12 @@
+{
+  "consumer_id": "PARENT:IM406_IM037_ACRA",
+  "difference_from_nearest": "BIVCP buys one information channel before a capacity commitment; QDRA allocates heterogeneous resolution across multiple regions under a shared budget",
+  "mechanism_removing_comparator": "ACRA with raw consequence weights independent of validity-boundary distance",
+  "nearest_existing_product": "V2P011_BIVCP",
+  "new_failure_mode": "resolution budget is spent on high-consequence regions where extra precision cannot change the validity decision",
+  "non_additive_interaction": "QAIG-style boundary decision value becomes ACRA region consequence weight inside a shared discrete budget optimization",
+  "product_id": "V2P031",
+  "short_name": "QDRA",
+  "supplier_id": "FOUNDRY:P136",
+  "verdict": "DISTINCT_PRODUCT"
+}

@@ -1,0 +1,6559 @@
+{
+  "schema_version": 2,
+  "method": "typed_anchor_translation_and_record_alignment_v2",
+  "input_files": [
+    {
+      "name": "published.xlsx",
+      "sha256": "8e0b50f92186ecbddf72e8b6f83f1d4f4d3c06aa49c670a599782d1a1f63c457"
+    },
+    {
+      "name": "derived.xlsx",
+      "sha256": "7d5afdbbd79b4283b07cae3c166cde39a3c1afb81474ef4a81c04c5e18b3e179"
+    }
+  ],
+  "sheet_count": 4,
+  "populated_cells": 1534,
+  "blocks": [
+    {
+      "kind": "row_alignment",
+      "left": {
+        "workbook": "published.xlsx",
+        "sheet": "Published data",
+        "range": "B1:I85"
+      },
+      "right": {
+        "workbook": "derived.xlsx",
+        "sheet": "Transformed data",
+        "range": "B1:I85"
+      },
+      "matching_rows": 85,
+      "row_mapping": [
+        {
+          "left": 1,
+          "right": 1
+        },
+        {
+          "left": 2,
+          "right": 80
+        },
+        {
+          "left": 3,
+          "right": 23
+        },
+        {
+          "left": 4,
+          "right": 58
+        },
+        {
+          "left": 5,
+          "right": 43
+        },
+        {
+          "left": 6,
+          "right": 14
+        },
+        {
+          "left": 7,
+          "right": 54
+        },
+        {
+          "left": 8,
+          "right": 37
+        },
+        {
+          "left": 9,
+          "right": 73
+        },
+        {
+          "left": 10,
+          "right": 45
+        },
+        {
+          "left": 11,
+          "right": 30
+        },
+        {
+          "left": 12,
+          "right": 8
+        },
+        {
+          "left": 13,
+          "right": 47
+        },
+        {
+          "left": 14,
+          "right": 67
+        },
+        {
+          "left": 15,
+          "right": 68
+        },
+        {
+          "left": 16,
+          "right": 10
+        },
+        {
+          "left": 17,
+          "right": 50
+        },
+        {
+          "left": 18,
+          "right": 62
+        },
+        {
+          "left": 19,
+          "right": 19
+        },
+        {
+          "left": 20,
+          "right": 44
+        },
+        {
+          "left": 21,
+          "right": 16
+        },
+        {
+          "left": 22,
+          "right": 71
+        },
+        {
+          "left": 23,
+          "right": 34
+        },
+        {
+          "left": 24,
+          "right": 3
+        },
+        {
+          "left": 25,
+          "right": 5
+        },
+        {
+          "left": 26,
+          "right": 76
+        },
+        {
+          "left": 27,
+          "right": 48
+        },
+        {
+          "left": 28,
+          "right": 20
+        },
+        {
+          "left": 29,
+          "right": 31
+        },
+        {
+          "left": 30,
+          "right": 69
+        },
+        {
+          "left": 31,
+          "right": 57
+        },
+        {
+          "left": 32,
+          "right": 61
+        },
+        {
+          "left": 33,
+          "right": 35
+        },
+        {
+          "left": 34,
+          "right": 52
+        },
+        {
+          "left": 35,
+          "right": 12
+        },
+        {
+          "left": 36,
+          "right": 49
+        },
+        {
+          "left": 37,
+          "right": 36
+        },
+        {
+          "left": 38,
+          "right": 78
+        },
+        {
+          "left": 39,
+          "right": 2
+        },
+        {
+          "left": 40,
+          "right": 32
+        },
+        {
+          "left": 41,
+          "right": 46
+        },
+        {
+          "left": 42,
+          "right": 11
+        },
+        {
+          "left": 43,
+          "right": 24
+        },
+        {
+          "left": 44,
+          "right": 9
+        },
+        {
+          "left": 45,
+          "right": 70
+        },
+        {
+          "left": 46,
+          "right": 82
+        },
+        {
+          "left": 47,
+          "right": 29
+        },
+        {
+          "left": 48,
+          "right": 72
+        },
+        {
+          "left": 49,
+          "right": 38
+        },
+        {
+          "left": 50,
+          "right": 26
+        },
+        {
+          "left": 51,
+          "right": 18
+        },
+        {
+          "left": 52,
+          "right": 56
+        },
+        {
+          "left": 53,
+          "right": 21
+        },
+        {
+          "left": 54,
+          "right": 85
+        },
+        {
+          "left": 55,
+          "right": 63
+        },
+        {
+          "left": 56,
+          "right": 64
+        },
+        {
+          "left": 57,
+          "right": 39
+        },
+        {
+          "left": 58,
+          "right": 28
+        },
+        {
+          "left": 59,
+          "right": 60
+        },
+        {
+          "left": 60,
+          "right": 33
+        },
+        {
+          "left": 61,
+          "right": 83
+        },
+        {
+          "left": 62,
+          "right": 25
+        },
+        {
+          "left": 63,
+          "right": 17
+        },
+        {
+          "left": 64,
+          "right": 6
+        },
+        {
+          "left": 65,
+          "right": 27
+        },
+        {
+          "left": 66,
+          "right": 66
+        },
+        {
+          "left": 67,
+          "right": 53
+        },
+        {
+          "left": 68,
+          "right": 7
+        },
+        {
+          "left": 69,
+          "right": 77
+        },
+        {
+          "left": 70,
+          "right": 41
+        },
+        {
+          "left": 71,
+          "right": 75
+        },
+        {
+          "left": 72,
+          "right": 55
+        },
+        {
+          "left": 73,
+          "right": 15
+        },
+        {
+          "left": 74,
+          "right": 4
+        },
+        {
+          "left": 75,
+          "right": 81
+        },
+        {
+          "left": 76,
+          "right": 42
+        },
+        {
+          "left": 77,
+          "right": 59
+        },
+        {
+          "left": 78,
+          "right": 74
+        },
+        {
+          "left": 79,
+          "right": 65
+        },
+        {
+          "left": 80,
+          "right": 22
+        },
+        {
+          "left": 81,
+          "right": 84
+        },
+        {
+          "left": 82,
+          "right": 79
+        },
+        {
+          "left": 83,
+          "right": 40
+        },
+        {
+          "left": 84,
+          "right": 51
+        },
+        {
+          "left": 85,
+          "right": 13
+        }
+      ],
+      "column_mapping": [
+        {
+          "left": "B",
+          "right": "B"
+        },
+        {
+          "left": "C",
+          "right": "E"
+        },
+        {
+          "left": "D",
+          "right": "G"
+        },
+        {
+          "left": "E",
+          "right": "I"
+        },
+        {
+          "left": "F",
+          "right": "F"
+        },
+        {
+          "left": "G",
+          "right": "H"
+        },
+        {
+          "left": "H",
+          "right": "C"
+        },
+        {
+          "left": "I",
+          "right": "D"
+        }
+      ],
+      "matching_cells": 679,
+      "compared_positions": 680,
+      "match_fraction": 0.9985294117647059,
+      "different_or_uncompared_cells": 1,
+      "cells": [
+        {
+          "left": "B1",
+          "right": "B1",
+          "left_value": "Entity",
+          "right_value": "Entity",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C1",
+          "right": "E1",
+          "left_value": "Payment Date",
+          "right_value": "Payment Date",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D1",
+          "right": "G1",
+          "left_value": "Account Code Description",
+          "right_value": "Account Code Description",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E1",
+          "right": "I1",
+          "left_value": "Cost Centre Description",
+          "right_value": "Cost Centre Description",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F1",
+          "right": "F1",
+          "left_value": "Supplier",
+          "right_value": "Supplier",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G1",
+          "right": "H1",
+          "left_value": "Voucher Number",
+          "right_value": "Voucher Number",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H1",
+          "right": "C1",
+          "left_value": "Amount",
+          "right_value": "Amount",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "I1",
+          "right": "D1",
+          "left_value": "Publication Description",
+          "right_value": "Publication Description",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B2",
+          "right": "B80",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C2",
+          "right": "E80",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D2",
+          "right": "G80",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E2",
+          "right": "I80",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F2",
+          "right": "F80",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G2",
+          "right": "H80",
+          "left_value": "348404",
+          "right_value": "348404",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H2",
+          "right": "C80",
+          "left_value": "651.32",
+          "right_value": "651.32",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I2",
+          "right": "D80",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B3",
+          "right": "B23",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C3",
+          "right": "E23",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D3",
+          "right": "G23",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E3",
+          "right": "I23",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F3",
+          "right": "F23",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G3",
+          "right": "H23",
+          "left_value": "348404",
+          "right_value": "348404",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H3",
+          "right": "C23",
+          "left_value": "1721.7",
+          "right_value": "1721.7",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I3",
+          "right": "D23",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B4",
+          "right": "B58",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C4",
+          "right": "E58",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D4",
+          "right": "G58",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E4",
+          "right": "I58",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F4",
+          "right": "F58",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G4",
+          "right": "H58",
+          "left_value": "348404",
+          "right_value": "348404",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H4",
+          "right": "C58",
+          "left_value": "3256.62",
+          "right_value": "3256.62",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I4",
+          "right": "D58",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B5",
+          "right": "B43",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C5",
+          "right": "E43",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D5",
+          "right": "G43",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E5",
+          "right": "I43",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F5",
+          "right": "F43",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G5",
+          "right": "H43",
+          "left_value": "348404",
+          "right_value": "348404",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H5",
+          "right": "C43",
+          "left_value": "6887.7",
+          "right_value": "6887.7",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I5",
+          "right": "D43",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B6",
+          "right": "B14",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C6",
+          "right": "E14",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D6",
+          "right": "G14",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E6",
+          "right": "I14",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F6",
+          "right": "F14",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G6",
+          "right": "H14",
+          "left_value": "348404",
+          "right_value": "348404",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H6",
+          "right": "C14",
+          "left_value": "8608.5",
+          "right_value": "8608.5",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I6",
+          "right": "D14",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B7",
+          "right": "B54",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C7",
+          "right": "E54",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D7",
+          "right": "G54",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E7",
+          "right": "I54",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F7",
+          "right": "F54",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G7",
+          "right": "H54",
+          "left_value": "348404",
+          "right_value": "348404",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H7",
+          "right": "C54",
+          "left_value": "34438.5",
+          "right_value": "34438.5",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I7",
+          "right": "D54",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B8",
+          "right": "B37",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C8",
+          "right": "E37",
+          "left_value": "03-Sep-25",
+          "right_value": "03-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D8",
+          "right": "G37",
+          "left_value": "Telephony\u00a0\u00a0 ",
+          "right_value": "Telephony\u00a0\u00a0 ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E8",
+          "right": "I37",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F8",
+          "right": "F37",
+          "left_value": "North PB Ltd",
+          "right_value": "North PB Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G8",
+          "right": "H37",
+          "left_value": "348434",
+          "right_value": "348434",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H8",
+          "right": "C37",
+          "left_value": "42181.97",
+          "right_value": "42305.42",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": false
+        },
+        {
+          "left": "I8",
+          "right": "D37",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B9",
+          "right": "B73",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C9",
+          "right": "E73",
+          "left_value": "10-Sep-25",
+          "right_value": "10-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D9",
+          "right": "G73",
+          "left_value": "DMO - Banking Costs - AME",
+          "right_value": "DMO - Banking Costs - AME",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E9",
+          "right": "I73",
+          "left_value": "Settlements",
+          "right_value": "Settlements",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F9",
+          "right": "F73",
+          "left_value": "Bank of England (Crest Charges)",
+          "right_value": "Bank of England (Crest Charges)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G9",
+          "right": "H73",
+          "left_value": "348566",
+          "right_value": "348566",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H9",
+          "right": "C73",
+          "left_value": "33008.53",
+          "right_value": "33008.53",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I9",
+          "right": "D73",
+          "left_value": "Banking costs",
+          "right_value": "Banking costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B10",
+          "right": "B45",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C10",
+          "right": "E45",
+          "left_value": "10-Sep-25",
+          "right_value": "10-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D10",
+          "right": "G45",
+          "left_value": "DMO - Banking Costs - AME",
+          "right_value": "DMO - Banking Costs - AME",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E10",
+          "right": "I45",
+          "left_value": "Settlements",
+          "right_value": "Settlements",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F10",
+          "right": "F45",
+          "left_value": "Bank of England (FAO FRP HO- 5 & Secondments)",
+          "right_value": "Bank of England (FAO FRP HO- 5 & Secondments)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G10",
+          "right": "H45",
+          "left_value": "348568",
+          "right_value": "348568",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H10",
+          "right": "C45",
+          "left_value": "69251.4",
+          "right_value": "69251.4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I10",
+          "right": "D45",
+          "left_value": "Banking costs",
+          "right_value": "Banking costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B11",
+          "right": "B30",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C11",
+          "right": "E30",
+          "left_value": "10-Sep-25",
+          "right_value": "10-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D11",
+          "right": "G30",
+          "left_value": "DMO - Banking Costs - AME",
+          "right_value": "DMO - Banking Costs - AME",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E11",
+          "right": "I30",
+          "left_value": "Settlements",
+          "right_value": "Settlements",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F11",
+          "right": "F30",
+          "left_value": "Bank of England (FAO FRP HO- 5 & Secondments)",
+          "right_value": "Bank of England (FAO FRP HO- 5 & Secondments)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G11",
+          "right": "H30",
+          "left_value": "348568",
+          "right_value": "348568",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H11",
+          "right": "C30",
+          "left_value": "92500.0",
+          "right_value": "92500.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I11",
+          "right": "D30",
+          "left_value": "Banking costs",
+          "right_value": "Banking costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B12",
+          "right": "B8",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C12",
+          "right": "E8",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D12",
+          "right": "G8",
+          "left_value": "DMO Market Data Services - 587067",
+          "right_value": "DMO Market Data Services - 587067",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E12",
+          "right": "I8",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F12",
+          "right": "F8",
+          "left_value": "Refinitiv Limited",
+          "right_value": "Refinitiv Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G12",
+          "right": "H8",
+          "left_value": "348629",
+          "right_value": "348629",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H12",
+          "right": "C8",
+          "left_value": "11649.54",
+          "right_value": "11649.54",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I12",
+          "right": "D8",
+          "left_value": "Market Data Systems and Services",
+          "right_value": "Market Data Systems and Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B13",
+          "right": "B47",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C13",
+          "right": "E47",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D13",
+          "right": "G47",
+          "left_value": "DMO Market Data Services - 587067",
+          "right_value": "DMO Market Data Services - 587067",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E13",
+          "right": "I47",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F13",
+          "right": "F47",
+          "left_value": "Refinitiv Limited",
+          "right_value": "Refinitiv Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G13",
+          "right": "H47",
+          "left_value": "348629",
+          "right_value": "348629",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H13",
+          "right": "C47",
+          "left_value": "58247.71",
+          "right_value": "58247.71",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I13",
+          "right": "D47",
+          "left_value": "Market Data Systems and Services",
+          "right_value": "Market Data Systems and Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B14",
+          "right": "B67",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C14",
+          "right": "E67",
+          "left_value": "15-Sep-25",
+          "right_value": "15-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D14",
+          "right": "G67",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E14",
+          "right": "I67",
+          "left_value": "Policy & Research",
+          "right_value": "Policy & Research",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F14",
+          "right": "F67",
+          "left_value": "The Mathworks Ltd",
+          "right_value": "The Mathworks Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G14",
+          "right": "H67",
+          "left_value": "348648",
+          "right_value": "348648",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H14",
+          "right": "C67",
+          "left_value": "30598.75",
+          "right_value": "30598.75",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I14",
+          "right": "D67",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B15",
+          "right": "B68",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C15",
+          "right": "E68",
+          "left_value": "19-Sep-25",
+          "right_value": "19-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D15",
+          "right": "G68",
+          "left_value": "Facilities Service Charges Non-recoverable",
+          "right_value": "Facilities Service Charges Non-recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E15",
+          "right": "I68",
+          "left_value": "Facilities",
+          "right_value": "Facilities",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F15",
+          "right": "F68",
+          "left_value": "ESR Europe Property Management Ltd",
+          "right_value": "ESR Europe Property Management Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G15",
+          "right": "H68",
+          "left_value": "348735",
+          "right_value": "348735",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H15",
+          "right": "C68",
+          "left_value": "15203.61",
+          "right_value": "15203.61",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I15",
+          "right": "D68",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B16",
+          "right": "B10",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C16",
+          "right": "E10",
+          "left_value": "19-Sep-25",
+          "right_value": "19-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D16",
+          "right": "G10",
+          "left_value": "Facilities Service Charges Non-recoverable",
+          "right_value": "Facilities Service Charges Non-recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E16",
+          "right": "I10",
+          "left_value": "Facilities",
+          "right_value": "Facilities",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F16",
+          "right": "F10",
+          "left_value": "ESR Europe Property Management Ltd",
+          "right_value": "ESR Europe Property Management Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G16",
+          "right": "H10",
+          "left_value": "348735",
+          "right_value": "348735",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H16",
+          "right": "C10",
+          "left_value": "76018.06",
+          "right_value": "76018.06",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I16",
+          "right": "D10",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B17",
+          "right": "B50",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C17",
+          "right": "E50",
+          "left_value": "19-Sep-25",
+          "right_value": "19-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D17",
+          "right": "G50",
+          "left_value": "Rent",
+          "right_value": "Rent",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E17",
+          "right": "I50",
+          "left_value": "Facilities",
+          "right_value": "Facilities",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F17",
+          "right": "F50",
+          "left_value": "ESR Europe Property Management Ltd",
+          "right_value": "ESR Europe Property Management Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G17",
+          "right": "H50",
+          "left_value": "348725",
+          "right_value": "348725",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H17",
+          "right": "C50",
+          "left_value": "47843.1",
+          "right_value": "47843.1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I17",
+          "right": "D50",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B18",
+          "right": "B62",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C18",
+          "right": "E62",
+          "left_value": "19-Sep-25",
+          "right_value": "19-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D18",
+          "right": "G62",
+          "left_value": "Rent",
+          "right_value": "Rent",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E18",
+          "right": "I62",
+          "left_value": "Facilities",
+          "right_value": "Facilities",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F18",
+          "right": "F62",
+          "left_value": "ESR Europe Property Management Ltd",
+          "right_value": "ESR Europe Property Management Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G18",
+          "right": "H62",
+          "left_value": "348725",
+          "right_value": "348725",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H18",
+          "right": "C62",
+          "left_value": "239215.5",
+          "right_value": "239215.5",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I18",
+          "right": "D62",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B19",
+          "right": "B19",
+          "left_value": "DMO",
+          "right_value": "DMO",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C19",
+          "right": "E19",
+          "left_value": "23-Sep-25",
+          "right_value": "23-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D19",
+          "right": "G19",
+          "left_value": "DMO Market Data Services - 587067",
+          "right_value": "DMO Market Data Services - 587067",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E19",
+          "right": "I19",
+          "left_value": "Business Delivery",
+          "right_value": "Business Delivery",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F19",
+          "right": "F19",
+          "left_value": "Bloomberg Finance L.P.",
+          "right_value": "Bloomberg Finance L.P.",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G19",
+          "right": "H19",
+          "left_value": "348771",
+          "right_value": "348771",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H19",
+          "right": "C19",
+          "left_value": "134880.04",
+          "right_value": "134880.04",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I19",
+          "right": "D19",
+          "left_value": "Market Data Systems and Services",
+          "right_value": "Market Data Systems and Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B20",
+          "right": "B44",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C20",
+          "right": "E44",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D20",
+          "right": "G44",
+          "left_value": "Contracted Audit Staff for Operations (Rec)",
+          "right_value": "Contracted Audit Staff for Operations (Rec)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E20",
+          "right": "I44",
+          "left_value": "Ministry of Defence",
+          "right_value": "Ministry of Defence",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F20",
+          "right": "F44",
+          "left_value": "Deloitte LLP",
+          "right_value": "Deloitte LLP",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G20",
+          "right": "H44",
+          "left_value": "347566",
+          "right_value": "347566",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H20",
+          "right": "C44",
+          "left_value": "1700.14",
+          "right_value": "1700.14",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I20",
+          "right": "D44",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B21",
+          "right": "B16",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C21",
+          "right": "E16",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D21",
+          "right": "G16",
+          "left_value": "Contracted Audit Staff for Operations (Rec)",
+          "right_value": "Contracted Audit Staff for Operations (Rec)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E21",
+          "right": "I16",
+          "left_value": "Ministry of Defence",
+          "right_value": "Ministry of Defence",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F21",
+          "right": "F16",
+          "left_value": "Deloitte LLP",
+          "right_value": "Deloitte LLP",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G21",
+          "right": "H16",
+          "left_value": "347566",
+          "right_value": "347566",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H21",
+          "right": "C16",
+          "left_value": "3033.96",
+          "right_value": "3033.96",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I21",
+          "right": "D16",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B22",
+          "right": "B71",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C22",
+          "right": "E71",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D22",
+          "right": "G71",
+          "left_value": "Contracted Audit Staff for Operations (Rec)",
+          "right_value": "Contracted Audit Staff for Operations (Rec)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E22",
+          "right": "I71",
+          "left_value": "Ministry of Defence",
+          "right_value": "Ministry of Defence",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F22",
+          "right": "F71",
+          "left_value": "Deloitte LLP",
+          "right_value": "Deloitte LLP",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G22",
+          "right": "H71",
+          "left_value": "347566",
+          "right_value": "347566",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H22",
+          "right": "C71",
+          "left_value": "3150.65",
+          "right_value": "3150.65",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I22",
+          "right": "D71",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B23",
+          "right": "B34",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C23",
+          "right": "E34",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D23",
+          "right": "G34",
+          "left_value": "Contracted Audit Staff for Operations (Rec)",
+          "right_value": "Contracted Audit Staff for Operations (Rec)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E23",
+          "right": "I34",
+          "left_value": "Ministry of Defence",
+          "right_value": "Ministry of Defence",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F23",
+          "right": "F34",
+          "left_value": "Deloitte LLP",
+          "right_value": "Deloitte LLP",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G23",
+          "right": "H34",
+          "left_value": "347566",
+          "right_value": "347566",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H23",
+          "right": "C34",
+          "left_value": "4142.52",
+          "right_value": "4142.52",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I23",
+          "right": "D34",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B24",
+          "right": "B3",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C24",
+          "right": "E3",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D24",
+          "right": "G3",
+          "left_value": "Contracted Audit Staff for Operations (Rec)",
+          "right_value": "Contracted Audit Staff for Operations (Rec)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E24",
+          "right": "I3",
+          "left_value": "Ministry of Defence",
+          "right_value": "Ministry of Defence",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F24",
+          "right": "F3",
+          "left_value": "Deloitte LLP",
+          "right_value": "Deloitte LLP",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G24",
+          "right": "H3",
+          "left_value": "347566",
+          "right_value": "347566",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H24",
+          "right": "C3",
+          "left_value": "40407.86",
+          "right_value": "40407.86",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I24",
+          "right": "D3",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B25",
+          "right": "B5",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C25",
+          "right": "E5",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D25",
+          "right": "G5",
+          "left_value": "Internal Training",
+          "right_value": "Internal Training",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E25",
+          "right": "I5",
+          "left_value": "HR",
+          "right_value": "HR",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F25",
+          "right": "F5",
+          "left_value": "4C Associates Ltd",
+          "right_value": "4C Associates Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G25",
+          "right": "H5",
+          "left_value": "348370",
+          "right_value": "348370",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H25",
+          "right": "C5",
+          "left_value": "90000.0",
+          "right_value": "90000.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I25",
+          "right": "D5",
+          "left_value": "Training and Development costs",
+          "right_value": "Training and Development costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B26",
+          "right": "B76",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C26",
+          "right": "E76",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D26",
+          "right": "G76",
+          "left_value": "Hotel Accommodation - UK",
+          "right_value": "Hotel Accommodation - UK",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E26",
+          "right": "I76",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F26",
+          "right": "F76",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G26",
+          "right": "H76",
+          "left_value": "348451",
+          "right_value": "348451",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H26",
+          "right": "C76",
+          "left_value": "7904.21",
+          "right_value": "7904.21",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I26",
+          "right": "D76",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B27",
+          "right": "B48",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C27",
+          "right": "E48",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D27",
+          "right": "G48",
+          "left_value": "UK air travel \u2013 all classes",
+          "right_value": "UK air travel \u2013 all classes",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E27",
+          "right": "I48",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F27",
+          "right": "F48",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G27",
+          "right": "H48",
+          "left_value": "348451",
+          "right_value": "348451",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H27",
+          "right": "C48",
+          "left_value": "491.18",
+          "right_value": "491.18",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I27",
+          "right": "D48",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B28",
+          "right": "B20",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C28",
+          "right": "E20",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D28",
+          "right": "G20",
+          "left_value": "UK rail travel \u2013 all classes",
+          "right_value": "UK rail travel \u2013 all classes",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E28",
+          "right": "I20",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F28",
+          "right": "F20",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G28",
+          "right": "H20",
+          "left_value": "348451",
+          "right_value": "348451",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H28",
+          "right": "C20",
+          "left_value": "22878.0",
+          "right_value": "22878.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I28",
+          "right": "D20",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B29",
+          "right": "B31",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C29",
+          "right": "E31",
+          "left_value": "15-Sep-25",
+          "right_value": "15-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D29",
+          "right": "G31",
+          "left_value": "Facilities Service Charges Recoverable",
+          "right_value": "Facilities Service Charges Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E29",
+          "right": "I31",
+          "left_value": "Central Services",
+          "right_value": "Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F29",
+          "right": "F31",
+          "left_value": "Government Property Agency",
+          "right_value": "Government Property Agency",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G29",
+          "right": "H31",
+          "left_value": "347292",
+          "right_value": "347292",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H29",
+          "right": "C31",
+          "left_value": "-48880.17",
+          "right_value": "-48880.17",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I29",
+          "right": "D31",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B30",
+          "right": "B69",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C30",
+          "right": "E69",
+          "left_value": "15-Sep-25",
+          "right_value": "15-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D30",
+          "right": "G69",
+          "left_value": "Rent",
+          "right_value": "Rent",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E30",
+          "right": "I69",
+          "left_value": "Central Services",
+          "right_value": "Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F30",
+          "right": "F69",
+          "left_value": "Government Property Agency",
+          "right_value": "Government Property Agency",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G30",
+          "right": "H69",
+          "left_value": "347289",
+          "right_value": "347289",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H30",
+          "right": "C69",
+          "left_value": "-7646.43",
+          "right_value": "-7646.43",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I30",
+          "right": "D69",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B31",
+          "right": "B57",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C31",
+          "right": "E57",
+          "left_value": "15-Sep-25",
+          "right_value": "15-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D31",
+          "right": "G57",
+          "left_value": "Rent",
+          "right_value": "Rent",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E31",
+          "right": "I57",
+          "left_value": "Central Services",
+          "right_value": "Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F31",
+          "right": "F57",
+          "left_value": "Government Property Agency",
+          "right_value": "Government Property Agency",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G31",
+          "right": "H57",
+          "left_value": "347289",
+          "right_value": "347289",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H31",
+          "right": "C57",
+          "left_value": "938.25",
+          "right_value": "938.25",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I31",
+          "right": "D57",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B32",
+          "right": "B61",
+          "left_value": "GIAA",
+          "right_value": "GIAA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C32",
+          "right": "E61",
+          "left_value": "15-Sep-25",
+          "right_value": "15-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D32",
+          "right": "G61",
+          "left_value": "Facilities Service Charges Recoverable",
+          "right_value": "Facilities Service Charges Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E32",
+          "right": "I61",
+          "left_value": "Central Services",
+          "right_value": "Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F32",
+          "right": "F61",
+          "left_value": "Government Property Agency",
+          "right_value": "Government Property Agency",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G32",
+          "right": "H61",
+          "left_value": "347293",
+          "right_value": "347293",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H32",
+          "right": "C61",
+          "left_value": "30680.51",
+          "right_value": "30680.51",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I32",
+          "right": "D61",
+          "left_value": "Accommodation Costs",
+          "right_value": "Accommodation Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B33",
+          "right": "B35",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C33",
+          "right": "E35",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D33",
+          "right": "G35",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E33",
+          "right": "I35",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F33",
+          "right": "F35",
+          "left_value": "Centerprise International Ltd",
+          "right_value": "Centerprise International Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G33",
+          "right": "H35",
+          "left_value": "348387",
+          "right_value": "348387",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H33",
+          "right": "C35",
+          "left_value": "94135.14",
+          "right_value": "94135.14",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I33",
+          "right": "D35",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B34",
+          "right": "B52",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C34",
+          "right": "E52",
+          "left_value": "03-Sep-25",
+          "right_value": "03-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D34",
+          "right": "G52",
+          "left_value": "Consultancy ",
+          "right_value": "Consultancy ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E34",
+          "right": "I52",
+          "left_value": "Finance Performance & Improvement Rechargeable Costs",
+          "right_value": "Finance Performance & Improvement Rechargeable Costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F34",
+          "right": "F52",
+          "left_value": "KPMG LLP",
+          "right_value": "KPMG LLP",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G34",
+          "right": "H52",
+          "left_value": "347567",
+          "right_value": "347567",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H34",
+          "right": "C52",
+          "left_value": "33985.63",
+          "right_value": "33985.63",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I34",
+          "right": "D52",
+          "left_value": "Professional Services",
+          "right_value": "Professional Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B35",
+          "right": "B12",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C35",
+          "right": "E12",
+          "left_value": "03-Sep-25",
+          "right_value": "03-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D35",
+          "right": "G12",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E35",
+          "right": "I12",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F35",
+          "right": "F12",
+          "left_value": "Softcat PLC",
+          "right_value": "Softcat PLC",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G35",
+          "right": "H12",
+          "left_value": "348422",
+          "right_value": "348422",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H35",
+          "right": "C12",
+          "left_value": "13283.24",
+          "right_value": "13283.24",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I35",
+          "right": "D12",
+          "left_value": "Service Fees",
+          "right_value": "Service Fees",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B36",
+          "right": "B49",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C36",
+          "right": "E49",
+          "left_value": "03-Sep-25",
+          "right_value": "03-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D36",
+          "right": "G49",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E36",
+          "right": "I49",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F36",
+          "right": "F49",
+          "left_value": "Softcat PLC",
+          "right_value": "Softcat PLC",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G36",
+          "right": "H49",
+          "left_value": "348422",
+          "right_value": "348422",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H36",
+          "right": "C49",
+          "left_value": "66416.22",
+          "right_value": "66416.22",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I36",
+          "right": "D49",
+          "left_value": "Service Fees",
+          "right_value": "Service Fees",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B37",
+          "right": "B36",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C37",
+          "right": "E36",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D37",
+          "right": "G36",
+          "left_value": "Internal Training",
+          "right_value": "Internal Training",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E37",
+          "right": "I36",
+          "left_value": "HR Central Services",
+          "right_value": "HR Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F37",
+          "right": "F36",
+          "left_value": "University College London",
+          "right_value": "University College London",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G37",
+          "right": "H36",
+          "left_value": "348476",
+          "right_value": "348476",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H37",
+          "right": "C36",
+          "left_value": "29800.0",
+          "right_value": "29800.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I37",
+          "right": "D36",
+          "left_value": "Training and Development costs",
+          "right_value": "Training and Development costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B38",
+          "right": "B78",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C38",
+          "right": "E78",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D38",
+          "right": "G78",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E38",
+          "right": "I78",
+          "left_value": "European Policy",
+          "right_value": "European Policy",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F38",
+          "right": "F78",
+          "left_value": "PricewaterhouseCoopers",
+          "right_value": "PricewaterhouseCoopers",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G38",
+          "right": "H78",
+          "left_value": "344245",
+          "right_value": "344245",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H38",
+          "right": "C78",
+          "left_value": "5200.0",
+          "right_value": "5200.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I38",
+          "right": "D78",
+          "left_value": "Professional Services",
+          "right_value": "Professional Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B39",
+          "right": "B2",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C39",
+          "right": "E2",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D39",
+          "right": "G2",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E39",
+          "right": "I2",
+          "left_value": "European Policy",
+          "right_value": "European Policy",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F39",
+          "right": "F2",
+          "left_value": "PricewaterhouseCoopers",
+          "right_value": "PricewaterhouseCoopers",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G39",
+          "right": "H2",
+          "left_value": "344245",
+          "right_value": "344245",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H39",
+          "right": "C2",
+          "left_value": "26000.0",
+          "right_value": "26000.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I39",
+          "right": "D2",
+          "left_value": "Professional Services",
+          "right_value": "Professional Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B40",
+          "right": "B32",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C40",
+          "right": "E32",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D40",
+          "right": "G32",
+          "left_value": "Accounting, Invoicing and Related Services Non Rec",
+          "right_value": "Accounting, Invoicing and Related Services Non Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E40",
+          "right": "I32",
+          "left_value": "Workforce, Pay and Pensions",
+          "right_value": "Workforce, Pay and Pensions",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F40",
+          "right": "F32",
+          "left_value": "Government Actuary's Dept",
+          "right_value": "Government Actuary's Dept",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G40",
+          "right": "H32",
+          "left_value": "347302",
+          "right_value": "347302",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H40",
+          "right": "C32",
+          "left_value": "12564.74",
+          "right_value": "12564.74",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I40",
+          "right": "D32",
+          "left_value": "Actuary Services",
+          "right_value": "Actuary Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B41",
+          "right": "B46",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C41",
+          "right": "E46",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D41",
+          "right": "G46",
+          "left_value": "Accounting, Invoicing and Related Services Non Rec",
+          "right_value": "Accounting, Invoicing and Related Services Non Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E41",
+          "right": "I46",
+          "left_value": "Workforce, Pay and Pensions",
+          "right_value": "Workforce, Pay and Pensions",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F41",
+          "right": "F46",
+          "left_value": "Government Actuary's Dept",
+          "right_value": "Government Actuary's Dept",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G41",
+          "right": "H46",
+          "left_value": "347302",
+          "right_value": "347302",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H41",
+          "right": "C46",
+          "left_value": "62823.71",
+          "right_value": "62823.71",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I41",
+          "right": "D46",
+          "left_value": "Actuary Services",
+          "right_value": "Actuary Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B42",
+          "right": "B11",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C42",
+          "right": "E11",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D42",
+          "right": "G11",
+          "left_value": "Hotel Accommodation - UK",
+          "right_value": "Hotel Accommodation - UK",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E42",
+          "right": "I11",
+          "left_value": "HMT core",
+          "right_value": "HMT core",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F42",
+          "right": "F11",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G42",
+          "right": "H11",
+          "left_value": "348450",
+          "right_value": "348450",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H42",
+          "right": "C11",
+          "left_value": "17836.88",
+          "right_value": "17836.88",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I42",
+          "right": "D11",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B43",
+          "right": "B24",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C43",
+          "right": "E24",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D43",
+          "right": "G24",
+          "left_value": "Overseas air travel - all classes",
+          "right_value": "Overseas air travel - all classes",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E43",
+          "right": "I24",
+          "left_value": "HMT core",
+          "right_value": "HMT core",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F43",
+          "right": "F24",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G43",
+          "right": "H24",
+          "left_value": "348450",
+          "right_value": "348450",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H43",
+          "right": "C24",
+          "left_value": "60533.95",
+          "right_value": "60533.95",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I43",
+          "right": "D24",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B44",
+          "right": "B9",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C44",
+          "right": "E9",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D44",
+          "right": "G9",
+          "left_value": "Overseas Rail Travel - all classes",
+          "right_value": "Overseas Rail Travel - all classes",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E44",
+          "right": "I9",
+          "left_value": "HMT core",
+          "right_value": "HMT core",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F44",
+          "right": "F9",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G44",
+          "right": "H9",
+          "left_value": "348450",
+          "right_value": "348450",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H44",
+          "right": "C9",
+          "left_value": "2964.2",
+          "right_value": "2964.2",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I44",
+          "right": "D9",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B45",
+          "right": "B70",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C45",
+          "right": "E70",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D45",
+          "right": "G70",
+          "left_value": "UK air travel \u2013 all classes",
+          "right_value": "UK air travel \u2013 all classes",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E45",
+          "right": "I70",
+          "left_value": "HMT core",
+          "right_value": "HMT core",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F45",
+          "right": "F70",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G45",
+          "right": "H70",
+          "left_value": "348450",
+          "right_value": "348450",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H45",
+          "right": "C70",
+          "left_value": "3777.93",
+          "right_value": "3777.93",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I45",
+          "right": "D70",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B46",
+          "right": "B82",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C46",
+          "right": "E82",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D46",
+          "right": "G82",
+          "left_value": "UK rail travel \u2013 all classes",
+          "right_value": "UK rail travel \u2013 all classes",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E46",
+          "right": "I82",
+          "left_value": "HMT core",
+          "right_value": "HMT core",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F46",
+          "right": "F82",
+          "left_value": "Corporate Travel Management North",
+          "right_value": "Corporate Travel Management North",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G46",
+          "right": "H82",
+          "left_value": "348450",
+          "right_value": "348450",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H46",
+          "right": "C82",
+          "left_value": "46282.75",
+          "right_value": "46282.75",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I46",
+          "right": "D82",
+          "left_value": "Travel costs",
+          "right_value": "Travel costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B47",
+          "right": "B29",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C47",
+          "right": "E29",
+          "left_value": "04-Sep-25",
+          "right_value": "04-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D47",
+          "right": "G29",
+          "left_value": "Mortgage Guarantee Scheme Admin Costs (AME)",
+          "right_value": "Mortgage Guarantee Scheme Admin Costs (AME)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E47",
+          "right": "I29",
+          "left_value": "Help to Buy Operations",
+          "right_value": "Help to Buy Operations",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F47",
+          "right": "F29",
+          "left_value": "National Savings and Investments",
+          "right_value": "National Savings and Investments",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G47",
+          "right": "H29",
+          "left_value": "348389",
+          "right_value": "348389",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H47",
+          "right": "C29",
+          "left_value": "594703.67",
+          "right_value": "594703.67",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I47",
+          "right": "D29",
+          "left_value": "Help to Buy costs",
+          "right_value": "Help to Buy costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B48",
+          "right": "B72",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C48",
+          "right": "E72",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D48",
+          "right": "G72",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E48",
+          "right": "I72",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F48",
+          "right": "F72",
+          "left_value": "Softcat PLC",
+          "right_value": "Softcat PLC",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G48",
+          "right": "H72",
+          "left_value": "347474",
+          "right_value": "347474",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H48",
+          "right": "C72",
+          "left_value": "36359.02",
+          "right_value": "36359.02",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I48",
+          "right": "D72",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B49",
+          "right": "B38",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C49",
+          "right": "E38",
+          "left_value": "10-Sep-25",
+          "right_value": "10-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D49",
+          "right": "G38",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E49",
+          "right": "I38",
+          "left_value": "Knowledge & Information Management",
+          "right_value": "Knowledge & Information Management",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F49",
+          "right": "F38",
+          "left_value": "SVGC Limited",
+          "right_value": "SVGC Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G49",
+          "right": "H38",
+          "left_value": "348599",
+          "right_value": "348599",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H49",
+          "right": "C38",
+          "left_value": "8634.4",
+          "right_value": "8634.4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I49",
+          "right": "D38",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B50",
+          "right": "B26",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C50",
+          "right": "E26",
+          "left_value": "10-Sep-25",
+          "right_value": "10-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D50",
+          "right": "G26",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E50",
+          "right": "I26",
+          "left_value": "Knowledge & Information Management",
+          "right_value": "Knowledge & Information Management",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F50",
+          "right": "F26",
+          "left_value": "SVGC Limited",
+          "right_value": "SVGC Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G50",
+          "right": "H26",
+          "left_value": "348599",
+          "right_value": "348599",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H50",
+          "right": "C26",
+          "left_value": "43172.0",
+          "right_value": "43172.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I50",
+          "right": "D26",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B51",
+          "right": "B18",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C51",
+          "right": "E18",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D51",
+          "right": "G18",
+          "left_value": "Archives & Storage",
+          "right_value": "Archives & Storage",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E51",
+          "right": "I18",
+          "left_value": "Knowledge & Information Management",
+          "right_value": "Knowledge & Information Management",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F51",
+          "right": "F18",
+          "left_value": "Iron Mountain",
+          "right_value": "Iron Mountain",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G51",
+          "right": "H18",
+          "left_value": "347564",
+          "right_value": "347564",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H51",
+          "right": "C18",
+          "left_value": "40300.4",
+          "right_value": "40300.4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I51",
+          "right": "D18",
+          "left_value": "Archives & Storage",
+          "right_value": "Archives & Storage",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B52",
+          "right": "B56",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C52",
+          "right": "E56",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D52",
+          "right": "G56",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E52",
+          "right": "I56",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F52",
+          "right": "F56",
+          "left_value": "Little Fish (UK) Ltd",
+          "right_value": "Little Fish (UK) Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G52",
+          "right": "H56",
+          "left_value": "345129",
+          "right_value": "345129",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H52",
+          "right": "C56",
+          "left_value": "59121.56",
+          "right_value": "59121.56",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I52",
+          "right": "D56",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B53",
+          "right": "B21",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C53",
+          "right": "E21",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D53",
+          "right": "G21",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E53",
+          "right": "I21",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F53",
+          "right": "F21",
+          "left_value": "Little Fish (UK) Ltd",
+          "right_value": "Little Fish (UK) Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G53",
+          "right": "H21",
+          "left_value": "348624",
+          "right_value": "348624",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H53",
+          "right": "C21",
+          "left_value": "59121.56",
+          "right_value": "59121.56",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I53",
+          "right": "D21",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B54",
+          "right": "B85",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C54",
+          "right": "E85",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D54",
+          "right": "G85",
+          "left_value": "Membership of Professional Bodies",
+          "right_value": "Membership of Professional Bodies",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E54",
+          "right": "I85",
+          "left_value": "TBS Team",
+          "right_value": "TBS Team",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F54",
+          "right": "F85",
+          "left_value": "Gartner UK Limited",
+          "right_value": "Gartner UK Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G54",
+          "right": "H85",
+          "left_value": "348544",
+          "right_value": "348544",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H54",
+          "right": "C85",
+          "left_value": "12900.0",
+          "right_value": "12900.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I54",
+          "right": "D85",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B55",
+          "right": "B63",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C55",
+          "right": "E63",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D55",
+          "right": "G63",
+          "left_value": "Membership of Professional Bodies",
+          "right_value": "Membership of Professional Bodies",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E55",
+          "right": "I63",
+          "left_value": "TBS Team",
+          "right_value": "TBS Team",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F55",
+          "right": "F63",
+          "left_value": "Gartner UK Limited",
+          "right_value": "Gartner UK Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G55",
+          "right": "H63",
+          "left_value": "348544",
+          "right_value": "348544",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H55",
+          "right": "C63",
+          "left_value": "64500.0",
+          "right_value": "64500.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I55",
+          "right": "D63",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B56",
+          "right": "B64",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C56",
+          "right": "E64",
+          "left_value": "12-Sep-25",
+          "right_value": "12-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D56",
+          "right": "G64",
+          "left_value": "Grants to Private Sector \u2013 Non Profit Inst.",
+          "right_value": "Grants to Private Sector \u2013 Non Profit Inst.",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E56",
+          "right": "I64",
+          "left_value": "Banking & Credit",
+          "right_value": "Banking & Credit",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F56",
+          "right": "F64",
+          "left_value": "CENTRE FOR FINANCE, INNOVATION AND TECHNOLOGY",
+          "right_value": "CENTRE FOR FINANCE, INNOVATION AND TECHNOLOGY",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G56",
+          "right": "H64",
+          "left_value": "348613",
+          "right_value": "348613",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H56",
+          "right": "C64",
+          "left_value": "706279.0",
+          "right_value": "706279.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I56",
+          "right": "D64",
+          "left_value": "Grant payments",
+          "right_value": "Grant payments",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B57",
+          "right": "B39",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C57",
+          "right": "E39",
+          "left_value": "15-Sep-25",
+          "right_value": "15-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D57",
+          "right": "G39",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E57",
+          "right": "I39",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F57",
+          "right": "F39",
+          "left_value": "Amadeus Software Ltd",
+          "right_value": "Amadeus Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G57",
+          "right": "H39",
+          "left_value": "348617",
+          "right_value": "348617",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H57",
+          "right": "C39",
+          "left_value": "27500.0",
+          "right_value": "27500.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I57",
+          "right": "D39",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B58",
+          "right": "B28",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C58",
+          "right": "E28",
+          "left_value": "17-Sep-25",
+          "right_value": "17-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D58",
+          "right": "G28",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E58",
+          "right": "I28",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F58",
+          "right": "F28",
+          "left_value": "Softcat PLC",
+          "right_value": "Softcat PLC",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G58",
+          "right": "H28",
+          "left_value": "348677",
+          "right_value": "348677",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H58",
+          "right": "C28",
+          "left_value": "5013.31",
+          "right_value": "5013.31",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I58",
+          "right": "D28",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B59",
+          "right": "B60",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C59",
+          "right": "E60",
+          "left_value": "17-Sep-25",
+          "right_value": "17-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D59",
+          "right": "G60",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E59",
+          "right": "I60",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F59",
+          "right": "F60",
+          "left_value": "Softcat PLC",
+          "right_value": "Softcat PLC",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G59",
+          "right": "H60",
+          "left_value": "348677",
+          "right_value": "348677",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H59",
+          "right": "C60",
+          "left_value": "25066.54",
+          "right_value": "25066.54",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I59",
+          "right": "D60",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B60",
+          "right": "B33",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C60",
+          "right": "E33",
+          "left_value": "19-Sep-25",
+          "right_value": "19-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D60",
+          "right": "G33",
+          "left_value": "HTB ISA bonus prepayment",
+          "right_value": "HTB ISA bonus prepayment",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E60",
+          "right": "I33",
+          "left_value": "Help to Buy ISA",
+          "right_value": "Help to Buy ISA",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F60",
+          "right": "F33",
+          "left_value": "National Savings and Investments",
+          "right_value": "National Savings and Investments",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G60",
+          "right": "H33",
+          "left_value": "348737",
+          "right_value": "348737",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H60",
+          "right": "C33",
+          "left_value": "7000000.0",
+          "right_value": "7000000.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I60",
+          "right": "D33",
+          "left_value": "Help to Buy costs",
+          "right_value": "Help to Buy costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B61",
+          "right": "B83",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C61",
+          "right": "E83",
+          "left_value": "22-Sep-25",
+          "right_value": "22-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D61",
+          "right": "G83",
+          "left_value": "Recruitment Expenses",
+          "right_value": "Recruitment Expenses",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E61",
+          "right": "I83",
+          "left_value": "HR Central Services",
+          "right_value": "HR Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F61",
+          "right": "F83",
+          "left_value": "Cabinet Office",
+          "right_value": "Cabinet Office",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G61",
+          "right": "H83",
+          "left_value": "348658",
+          "right_value": "348658",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H61",
+          "right": "C83",
+          "left_value": "28438.0",
+          "right_value": "28438.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I61",
+          "right": "D83",
+          "left_value": "Recruitment related costs",
+          "right_value": "Recruitment related costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B62",
+          "right": "B25",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C62",
+          "right": "E25",
+          "left_value": "22-Sep-25",
+          "right_value": "22-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D62",
+          "right": "G25",
+          "left_value": "Recruitment Expenses",
+          "right_value": "Recruitment Expenses",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E62",
+          "right": "I25",
+          "left_value": "HR Central Services",
+          "right_value": "HR Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F62",
+          "right": "F25",
+          "left_value": "Cabinet Office",
+          "right_value": "Cabinet Office",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G62",
+          "right": "H25",
+          "left_value": "348659",
+          "right_value": "348659",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H62",
+          "right": "C25",
+          "left_value": "33850.0",
+          "right_value": "33850.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I62",
+          "right": "D25",
+          "left_value": "Recruitment related costs",
+          "right_value": "Recruitment related costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B63",
+          "right": "B17",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C63",
+          "right": "E17",
+          "left_value": "22-Sep-25",
+          "right_value": "22-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D63",
+          "right": "G17",
+          "left_value": "Recruitment Expenses",
+          "right_value": "Recruitment Expenses",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E63",
+          "right": "I17",
+          "left_value": "HR Central Services",
+          "right_value": "HR Central Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F63",
+          "right": "F17",
+          "left_value": "Cabinet Office",
+          "right_value": "Cabinet Office",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G63",
+          "right": "H17",
+          "left_value": "348655",
+          "right_value": "348655",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H63",
+          "right": "C17",
+          "left_value": "79911.0",
+          "right_value": "79911.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I63",
+          "right": "D17",
+          "left_value": "Recruitment related costs",
+          "right_value": "Recruitment related costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B64",
+          "right": "B6",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C64",
+          "right": "E6",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D64",
+          "right": "G6",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E64",
+          "right": "I6",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F64",
+          "right": "F6",
+          "left_value": "Ceox Services Limited",
+          "right_value": "Ceox Services Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G64",
+          "right": "H6",
+          "left_value": "348780",
+          "right_value": "348780",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H64",
+          "right": "C6",
+          "left_value": "21600.0",
+          "right_value": "21600.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I64",
+          "right": "D6",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B65",
+          "right": "B27",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C65",
+          "right": "E27",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D65",
+          "right": "G27",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E65",
+          "right": "I27",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F65",
+          "right": "F27",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G65",
+          "right": "H27",
+          "left_value": "348742",
+          "right_value": "348742",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H65",
+          "right": "C27",
+          "left_value": "11868.08",
+          "right_value": "11868.08",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I65",
+          "right": "D27",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B66",
+          "right": "B66",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C66",
+          "right": "E66",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D66",
+          "right": "G66",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E66",
+          "right": "I66",
+          "left_value": "New Tower Services",
+          "right_value": "New Tower Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F66",
+          "right": "F66",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G66",
+          "right": "H66",
+          "left_value": "348742",
+          "right_value": "348742",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H66",
+          "right": "C66",
+          "left_value": "59340.38",
+          "right_value": "59340.38",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I66",
+          "right": "D66",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B67",
+          "right": "B53",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C67",
+          "right": "E53",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D67",
+          "right": "G53",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E67",
+          "right": "I53",
+          "left_value": "Software Licensing & Support",
+          "right_value": "Software Licensing & Support",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F67",
+          "right": "F53",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G67",
+          "right": "H53",
+          "left_value": "348741",
+          "right_value": "348741",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H67",
+          "right": "C53",
+          "left_value": "14827.27",
+          "right_value": "14827.27",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I67",
+          "right": "D53",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B68",
+          "right": "B7",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C68",
+          "right": "E7",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D68",
+          "right": "G7",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E68",
+          "right": "I7",
+          "left_value": "Software Licensing & Support",
+          "right_value": "Software Licensing & Support",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F68",
+          "right": "F7",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G68",
+          "right": "H7",
+          "left_value": "348741",
+          "right_value": "348741",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H68",
+          "right": "C7",
+          "left_value": "74136.36",
+          "right_value": "74136.36",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I68",
+          "right": "D7",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B69",
+          "right": "B77",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C69",
+          "right": "E77",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D69",
+          "right": "G77",
+          "left_value": "Legal Services",
+          "right_value": "Legal Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E69",
+          "right": "I77",
+          "left_value": "Other Cases",
+          "right_value": "Other Cases",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F69",
+          "right": "F77",
+          "left_value": "Government Legal Department ",
+          "right_value": "Government Legal Department ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G69",
+          "right": "H77",
+          "left_value": "348746",
+          "right_value": "348746",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H69",
+          "right": "C77",
+          "left_value": "120279.25",
+          "right_value": "120279.25",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I69",
+          "right": "D77",
+          "left_value": "Legal related costs",
+          "right_value": "Legal related costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B70",
+          "right": "B41",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C70",
+          "right": "E41",
+          "left_value": "24-Sep-25",
+          "right_value": "24-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D70",
+          "right": "G41",
+          "left_value": "Legal Services",
+          "right_value": "Legal Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E70",
+          "right": "I41",
+          "left_value": "Other Cases",
+          "right_value": "Other Cases",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F70",
+          "right": "F41",
+          "left_value": "Cabinet Office",
+          "right_value": "Cabinet Office",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G70",
+          "right": "H41",
+          "left_value": "348758",
+          "right_value": "348758",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H70",
+          "right": "C41",
+          "left_value": "353511.0",
+          "right_value": "353511.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I70",
+          "right": "D41",
+          "left_value": "Legal related costs",
+          "right_value": "Legal related costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B71",
+          "right": "B75",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C71",
+          "right": "E75",
+          "left_value": "25-Sep-25",
+          "right_value": "25-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D71",
+          "right": "G75",
+          "left_value": "IT Software services and maintenance\u00a0 Rec",
+          "right_value": "IT Software services and maintenance\u00a0 Rec",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E71",
+          "right": "I75",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F71",
+          "right": "F75",
+          "left_value": "Little Fish (UK) Ltd",
+          "right_value": "Little Fish (UK) Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G71",
+          "right": "H75",
+          "left_value": "347574",
+          "right_value": "347574",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H71",
+          "right": "C75",
+          "left_value": "50720.0",
+          "right_value": "50720.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I71",
+          "right": "D75",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B72",
+          "right": "B55",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C72",
+          "right": "E55",
+          "left_value": "25-Sep-25",
+          "right_value": "25-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D72",
+          "right": "G55",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E72",
+          "right": "I55",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F72",
+          "right": "F55",
+          "left_value": "Little Fish (UK) Ltd",
+          "right_value": "Little Fish (UK) Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G72",
+          "right": "H55",
+          "left_value": "348394",
+          "right_value": "348394",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H72",
+          "right": "C55",
+          "left_value": "13333.32",
+          "right_value": "13333.32",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I72",
+          "right": "D55",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B73",
+          "right": "B15",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C73",
+          "right": "E15",
+          "left_value": "25-Sep-25",
+          "right_value": "25-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D73",
+          "right": "G15",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E73",
+          "right": "I15",
+          "left_value": "Finance Analytics & Control & Technology",
+          "right_value": "Finance Analytics & Control & Technology",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F73",
+          "right": "F15",
+          "left_value": "Little Fish (UK) Ltd",
+          "right_value": "Little Fish (UK) Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G73",
+          "right": "H15",
+          "left_value": "348394",
+          "right_value": "348394",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H73",
+          "right": "C15",
+          "left_value": "66666.58",
+          "right_value": "66666.58",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I73",
+          "right": "D15",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B74",
+          "right": "B4",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C74",
+          "right": "E4",
+          "left_value": "25-Sep-25",
+          "right_value": "25-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D74",
+          "right": "G4",
+          "left_value": "Corp. Subscriptions\u00a0 and Other Information Services",
+          "right_value": "Corp. Subscriptions\u00a0 and Other Information Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E74",
+          "right": "I4",
+          "left_value": "BIT Director and GMS",
+          "right_value": "BIT Director and GMS",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F74",
+          "right": "F4",
+          "left_value": "OECD",
+          "right_value": "OECD",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G74",
+          "right": "H4",
+          "left_value": "348822",
+          "right_value": "348822",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H74",
+          "right": "C4",
+          "left_value": "106958.91",
+          "right_value": "106958.91",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I74",
+          "right": "D4",
+          "left_value": "Corporate subscription",
+          "right_value": "Corporate subscription",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B75",
+          "right": "B81",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C75",
+          "right": "E81",
+          "left_value": "25-Sep-25",
+          "right_value": "25-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D75",
+          "right": "G81",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E75",
+          "right": "I81",
+          "left_value": "TBS Oracle Team",
+          "right_value": "TBS Oracle Team",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F75",
+          "right": "F81",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G75",
+          "right": "H81",
+          "left_value": "348751",
+          "right_value": "348751",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H75",
+          "right": "C81",
+          "left_value": "71007.6",
+          "right_value": "71007.6",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I75",
+          "right": "D81",
+          "left_value": "Licensing Fees",
+          "right_value": "Licensing Fees",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B76",
+          "right": "B42",
+          "left_value": "HMT",
+          "right_value": "HMT",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C76",
+          "right": "E42",
+          "left_value": "25-Sep-25",
+          "right_value": "25-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D76",
+          "right": "G42",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E76",
+          "right": "I42",
+          "left_value": "TBS Oracle Team",
+          "right_value": "TBS Oracle Team",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F76",
+          "right": "F42",
+          "left_value": "Phoenix Software Ltd",
+          "right_value": "Phoenix Software Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G76",
+          "right": "H42",
+          "left_value": "348751",
+          "right_value": "348751",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H76",
+          "right": "C42",
+          "left_value": "355038.0",
+          "right_value": "355038.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I76",
+          "right": "D42",
+          "left_value": "Licensing Fees",
+          "right_value": "Licensing Fees",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B77",
+          "right": "B59",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C77",
+          "right": "E59",
+          "left_value": "02-Sep-25",
+          "right_value": "02-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D77",
+          "right": "G59",
+          "left_value": "Contracted Audit Staff for Operations (Rec)",
+          "right_value": "Contracted Audit Staff for Operations (Rec)",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E77",
+          "right": "I59",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F77",
+          "right": "F59",
+          "left_value": "Christopher Saul Associates Limited",
+          "right_value": "Christopher Saul Associates Limited",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G77",
+          "right": "H59",
+          "left_value": "348371",
+          "right_value": "348371",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H77",
+          "right": "C59",
+          "left_value": "25000.0",
+          "right_value": "25000.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I77",
+          "right": "D59",
+          "left_value": "Professional Services ",
+          "right_value": "Professional Services ",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B78",
+          "right": "B74",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C78",
+          "right": "E74",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D78",
+          "right": "G74",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E78",
+          "right": "I74",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F78",
+          "right": "F74",
+          "left_value": "HM Treasury",
+          "right_value": "HM Treasury",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G78",
+          "right": "H74",
+          "left_value": "348537",
+          "right_value": "348537",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H78",
+          "right": "C74",
+          "left_value": "115.4",
+          "right_value": "115.4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I78",
+          "right": "D74",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B79",
+          "right": "B65",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C79",
+          "right": "E65",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D79",
+          "right": "G65",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E79",
+          "right": "I65",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F79",
+          "right": "F65",
+          "left_value": "HM Treasury",
+          "right_value": "HM Treasury",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G79",
+          "right": "H65",
+          "left_value": "348537",
+          "right_value": "348537",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H79",
+          "right": "C65",
+          "left_value": "577.0",
+          "right_value": "577.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I79",
+          "right": "D65",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B80",
+          "right": "B22",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C80",
+          "right": "E22",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D80",
+          "right": "G22",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E80",
+          "right": "I22",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F80",
+          "right": "F22",
+          "left_value": "HM Treasury",
+          "right_value": "HM Treasury",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G80",
+          "right": "H22",
+          "left_value": "348537",
+          "right_value": "348537",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H80",
+          "right": "C22",
+          "left_value": "6229.2",
+          "right_value": "6229.2",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I80",
+          "right": "D22",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B81",
+          "right": "B84",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C81",
+          "right": "E84",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D81",
+          "right": "G84",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E81",
+          "right": "I84",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F81",
+          "right": "F84",
+          "left_value": "HM Treasury",
+          "right_value": "HM Treasury",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G81",
+          "right": "H84",
+          "left_value": "348537",
+          "right_value": "348537",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H81",
+          "right": "C84",
+          "left_value": "31146.0",
+          "right_value": "31146.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I81",
+          "right": "D84",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B82",
+          "right": "B79",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C82",
+          "right": "E79",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D82",
+          "right": "G79",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E82",
+          "right": "I79",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F82",
+          "right": "F79",
+          "left_value": "HM Treasury",
+          "right_value": "HM Treasury",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G82",
+          "right": "H79",
+          "left_value": "348536",
+          "right_value": "348536",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H82",
+          "right": "C79",
+          "left_value": "31466.4",
+          "right_value": "31466.4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I82",
+          "right": "D79",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B83",
+          "right": "B40",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C83",
+          "right": "E40",
+          "left_value": "08-Sep-25",
+          "right_value": "08-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D83",
+          "right": "G40",
+          "left_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "right_value": "IT Software Services & Maintenance Non VAT Recoverable",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E83",
+          "right": "I40",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F83",
+          "right": "F40",
+          "left_value": "HM Treasury",
+          "right_value": "HM Treasury",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G83",
+          "right": "H40",
+          "left_value": "348536",
+          "right_value": "348536",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H83",
+          "right": "C40",
+          "left_value": "157332.0",
+          "right_value": "157332.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I83",
+          "right": "D40",
+          "left_value": "IT costs",
+          "right_value": "IT costs",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B84",
+          "right": "B51",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C84",
+          "right": "E51",
+          "left_value": "29-Sep-25",
+          "right_value": "29-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D84",
+          "right": "G51",
+          "left_value": "Corp. Subscriptions\u00a0 and Other Information Services",
+          "right_value": "Corp. Subscriptions\u00a0 and Other Information Services",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E84",
+          "right": "I51",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F84",
+          "right": "F51",
+          "left_value": "Financial Times Ltd",
+          "right_value": "Financial Times Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G84",
+          "right": "H51",
+          "left_value": "348857",
+          "right_value": "348857",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H84",
+          "right": "C51",
+          "left_value": "47725.0",
+          "right_value": "47725.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I84",
+          "right": "D51",
+          "left_value": "Corporate subscription",
+          "right_value": "Corporate subscription",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "B85",
+          "right": "B13",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "C85",
+          "right": "E13",
+          "left_value": "30-Sep-25",
+          "right_value": "30-Sep-25",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "D85",
+          "right": "G13",
+          "left_value": "Recruitment Expenses",
+          "right_value": "Recruitment Expenses",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "E85",
+          "right": "I13",
+          "left_value": "UKGI",
+          "right_value": "UKGI",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "F85",
+          "right": "F13",
+          "left_value": "Russell Reynolds Associates Ltd",
+          "right_value": "Russell Reynolds Associates Ltd",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "G85",
+          "right": "H13",
+          "left_value": "348861",
+          "right_value": "348861",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "H85",
+          "right": "C13",
+          "left_value": "27750.0",
+          "right_value": "27750.0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "I85",
+          "right": "D13",
+          "left_value": "n/a",
+          "right_value": "n/a",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        }
+      ],
+      "interpretation": "Observed row/value correspondences, not inferred copying or common origin. Only mapped rows and columns are shown; the bounding ranges may contain omitted cells."
+    }
+  ],
+  "total_blocks_found": 1,
+  "blocks_omitted": 0,
+  "record_alignment": {
+    "column_candidate_comparisons": 269,
+    "row_candidate_comparisons": 6475,
+    "ambiguous_rows_omitted": 0,
+    "regions_omitted_due_detail_limit": 0,
+    "scope": "Mutual unique best column value-set alignment, then at least 3 mutually unambiguous rows with 80% mapped-column agreement and 2 distinct nontrivial anchor values. Unmapped columns and ambiguous rows are omitted."
+  },
+  "excluded_cells": {
+    "formula": 2
+  },
+  "common_anchor_values_skipped": 2,
+  "candidate_alignments": 432,
+  "verified_cell_lookups": 330480,
+  "scope": [
+    "Only supplied workbooks; comparison is between distinct sheets, including sheets within one workbook.",
+    "Translated blocks require at least 6 matching cells, 3 distinct nontrivial rare values, and 80% matching positions within the displayed rectangle. Reordered records use the separate row alignment criteria below.",
+    "Exact typed equality only: numeric text differs from a number; formatting is ignored. Formula cells, caches and errors cannot establish a match.",
+    "Translations and unambiguous reordered row/column correspondences are searched. Unmatched rows/columns, transposition, rounding and sparse overlaps can be missed. A displayed bounding range is not a claim that all its cells were matched.",
+    "No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.",
+    "Thresholds are review heuristics, not calibrated confidence or an audit conclusion.",
+    "Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count."
+  ]
+}

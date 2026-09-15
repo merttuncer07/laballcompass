@@ -1,0 +1,381 @@
+{
+  "status": "PASS",
+  "receipt_rebuild": true,
+  "why_rebuilt": "The original packaged runner exited 0, but its aggregate JSON pathname was unlinked by a stale duplicate launcher. Foundry persisted its own complete component receipt; all other exact runner surfaces were rerun from the final tree.",
+  "runner_source": "04_INTEGRITY/run_packaged_regression.py",
+  "runner_source_sha256": "8e5be86b12179220c0f64a34c2dd21afcc4034712be4fed2e1e0ad4558c1558f",
+  "auto_discovered_product_test_files": 48,
+  "auto_discovered_product_suite_dirs": 48,
+  "runs": [
+    {
+      "label": "foundry_806",
+      "exit_code": 0,
+      "stdout": "{\"parent_test_files\": 69, \"product_test_files\": 145, \"test_files_failed\": 0, \"test_files_passed\": 214, \"tests_counted\": 806}",
+      "stderr": "",
+      "receipt_mode": "PERSISTED_COMPONENT_RECEIPT_FROM_JUST_COMPLETED_PACKAGED_RUN",
+      "receipt_path": "02_FOUNDRY_ALL_PRODUCTS/regression_summary.json",
+      "receipt_sha256": "4db2a5f0c1cb737aad2a72a83e787e191465cdaa80da37c46ed2a0d294678de8",
+      "receipt_mtime_ns": 1788060449927289103
+    },
+    {
+      "label": "core_v2",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK"
+    },
+    {
+      "label": "foundry_integration",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 1.396s\n\nOK"
+    },
+    {
+      "label": "search_engine",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.069s\n\nOK"
+    },
+    {
+      "label": "search_corpus",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 2.054s\n\nOK"
+    },
+    {
+      "label": "relevance_learning",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.004s\n\nOK"
+    },
+    {
+      "label": "experiment_selector",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.004s\n\nOK"
+    },
+    {
+      "label": "experiment_telemetry",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.005s\n\nOK"
+    },
+    {
+      "label": "experiment_integration",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 30.723s\n\nOK"
+    },
+    {
+      "label": "experiment_contract_bootstrap",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 14.242s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P001_SAVA/test_sava.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P002_MFQA/test_mfqa.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.016s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P003_MFPD/test_mfpd.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.185s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P004_OPIA/test_opia.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.066s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P005_EDSANP/test_edsanp.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.248s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P006_IDASRO/test_idasro.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.010s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P007_CPDBE/test_cpdbe.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.022s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P008_TGCARS/test_tgcars.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.090s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P009_SGMB/test_sgmb.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.019s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P010_SCSPIA/test_scspia.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.119s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P011_BIVCP/test_bivcp.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P012_SARCP/test_sarcp.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P013_CADRE/test_cadre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P014_BATS/test_bats.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P015_BGTW/test_bgtw.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P016_BVRP/test_bvrp.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P017_CCDRE/test_ccdre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P018_WTDRE/test_wtdre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P019_STHA/test_stha.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P020_PADRE/test_padre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P021_BMDRE/test_bmdre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P022_CFDRE/test_cfdre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P023_CODRE/test_codre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P024_HPDRE/test_hpdre.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P025_DRFIAC/test_drfiac.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P026_DRSVCO/test_drsvco.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P027_DRMPHA/test_drmpha.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P028_SCFIAC/test_scfiac.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P029_SUSCA/test_susca.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P030_PCFDLW/test_pcfdlw.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.019s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P031_QDRA/test_qdra.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.025s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P032_SPITWMR/test_spitwmr.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.033s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P033_VCMF/test_vcmf.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P034_SCOPG/test_scopg.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.005s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P035_ISTAICC/test_istaicc.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P036_PCFMCSC/test_pcfmcsc.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P037_DWPCFT/test_dwpcft.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P038_BOSARO/test_bosaro.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.015s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P039_SCCATF/test_sccatf.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.005s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P040_BMCAPL/test_bmcapl.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 12.028s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P041_CDTDLEW/test_cdtdlew.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 4.198s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P042_ATSCWC/test_atscwc.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 38.141s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P043_CBSCG/test_cbscg.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.827s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P044_PIPEG/test_pipeg.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.570s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P045_FPTWC/test_fptwc.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.003s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P046_MTCWC/test_mtcwc.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.182s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P048_CBIACCVC/test_cbiaccvc.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.043s\n\nOK"
+    },
+    {
+      "label": "v2_product::V2P049_SACAPL/test_sacapl.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 6.764s\n\nOK"
+    },
+    {
+      "label": "r12_closure_updated",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 6.921s\n\nOK"
+    },
+    {
+      "label": "r387_product_overlay_history",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.385s\n\nOK"
+    },
+    {
+      "label": "r388_retro50_parent_integration_closure",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.414s\n\nOK"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "file": "examples/public-tables/StructuredReferences.xlsx",
+    "before": {
+      "status": "UNAVAILABLE",
+      "reason": "No formula has a fully resolved static reference graph. Formulas!A1: Table, spill or implicit-intersection reference: \\_Prime.1[calc='#*'#]; Formulas!A2: Table, spill or implicit-intersection reference: \\_Prime.1[Name]; Formulas!A3: Table, spill or implicit-intersection reference: \\_Prime.1[Name]; Table!A2: Table, spill or implicit-intersection reference: \\_Prime.1[[#This Row],[Number]]; Table!A3: Table, spill or implicit-intersection reference: \\_Prime.1[[#This Row],[Number]]"
+    },
+    "after": {
+      "status": "ANALYZED",
+      "formulas": 9,
+      "resolved": 9,
+      "root_cells": 12,
+      "unresolved": []
+    }
+  },
+  {
+    "file": "examples/public-tables/StructuredRefs-lots-with-lookups.xlsx",
+    "before": {
+      "status": "UNAVAILABLE",
+      "reason": "Pilot collection populated-cell limit: 20,000"
+    },
+    "after": {
+      "status": "UNAVAILABLE",
+      "reason": "Pilot collection populated-cell limit: 20,000"
+    }
+  },
+  {
+    "file": "examples/public-tables/evaluate_formula_with_structured_table_references.xlsx",
+    "before": {
+      "status": "UNAVAILABLE",
+      "reason": "No formula has a fully resolved static reference graph. Tabelle1!C3: Table, spill or implicit-intersection reference: Table1[[A]:[B]]"
+    },
+    "after": {
+      "status": "ANALYZED",
+      "formulas": 1,
+      "resolved": 1,
+      "root_cells": 4,
+      "unresolved": []
+    }
+  }
+]

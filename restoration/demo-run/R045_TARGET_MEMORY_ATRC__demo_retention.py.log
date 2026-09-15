@@ -1,0 +1,22 @@
+{
+  "target_aware_rmse": 0.41453236282318007,
+  "fifo_rmse": 1.1534303372587995,
+  "reservoir_rmse": 1.0942393089634443,
+  "improvement_vs_fifo": 0.6406091036166583,
+  "retained_indices": [
+    205,
+    217,
+    219,
+    226,
+    227,
+    229,
+    234,
+    236,
+    237,
+    238
+  ],
+  "evictions": 230,
+  "maximum_memory": 10,
+  "budget_violations": 0,
+  "status": "TARGET_RELEVANCE_MEMORY_CONTROL_COMPLETE"
+}

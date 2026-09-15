@@ -1,0 +1,16 @@
+{
+  "wage_gain_per_household_month": 140.0,
+  "amenity_gain_per_household_month": 70.0,
+  "rent_increase_per_household_month": 150.0,
+  "property_value_increase_per_unit": 35000.0,
+  "gross_resident_gain_per_household_year": 2520.0,
+  "renter_net_gain_per_household_year": 720.0,
+  "capitalization_fraction_of_direct_flow": 0.7142857142857143,
+  "annual_total_direct_resident_gain": 12600000.0,
+  "annual_renter_transfer_to_landlords": 5400000.0,
+  "owner_occupier_asset_gain": 52500000.0,
+  "absentee_landlord_asset_gain": 122500000.0,
+  "unexplained_property_value_residual_per_unit": -1000.0,
+  "population_change_fraction": 0.09,
+  "status": "GAIN_PARTLY_CAPITALIZED_INTO_IMMOBILE_ASSET"
+}

@@ -1,0 +1,219 @@
+{
+  "model_version": "LABALLCOMPASS_R393_CURRENT_POINT_STATE_V1",
+  "date": "2026-08-30",
+  "archive_revision": "R393_CURRENT_POINT",
+  "historical_scientific_base": {
+    "release": "R12",
+    "registry455": 455,
+    "products_executable": 38,
+    "quality_distinct_families": 28
+  },
+  "current_product_authority": {
+    "release": "R392",
+    "registry455": 455,
+    "products_executable": 52,
+    "quality_distinct_families": 39,
+    "quarantined": [
+      "V2P047"
+    ],
+    "status": "PROMOTED_CANONICAL_PRODUCT_AUTHORITY"
+  },
+  "capability_inventory": {
+    "lcb_kernels": 96,
+    "foundry_parents": 69,
+    "foundry_executable_compositions": 145,
+    "total": 310,
+    "retro50_within_foundry_parents": 50,
+    "current_nonretro_parents": 19
+  },
+  "control_plane": {
+    "nodes": 4310,
+    "edges": 16647,
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 52,
+      "INFERRED_CANDIDATE": 16537,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 5
+    },
+    "candidate_universe_rows": 16594,
+    "active_candidate_rows": 16589,
+    "operational_queue_rows": 1000,
+    "queue_is_full_universe": false,
+    "telemetry_events": 447,
+    "telemetry_exact_matches": 447,
+    "telemetry_unmatched": 0,
+    "calibrated_current_suites": 52,
+    "learning_eligible_empirical_campaign_events": 0
+  },
+  "r388_visibility_repair": {
+    "foundry_parent_records": 69,
+    "retro50_parent_records": 50,
+    "nonretro_parent_records": 19,
+    "previously_hidden_rank_compatible_parent_pairs": 890,
+    "breakdown": {
+      "RETRO_TO_RETRO": 422,
+      "RETRO_TO_CURRENT_PARENT": 250,
+      "CURRENT_PARENT_TO_RETRO": 140,
+      "CURRENT_PARENT_TO_CURRENT_PARENT": 78
+    },
+    "cause": "FOUNDRY_PARENT provenance bucket had been misused as semantic-family equality in the same-family composition guard."
+  },
+  "r393_shadow_routing": {
+    "base_authority_release": "R392",
+    "authority_status": "SHADOW_ROUTING_NO_PRODUCT_PROMOTION",
+    "persistent_candidate_universe_rows": 16594,
+    "fresh_adjudication_pair_count": 15578,
+    "mechanism_cluster_count": 649,
+    "shadow_executable_pair_count": 0,
+    "new_product_promoted": false,
+    "top_diverse_representatives": [
+      {
+        "supplier_id": "FOUNDRY:P032",
+        "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+        "diverse_score": 117.45148734658135,
+        "r393_failure_rank": 2,
+        "nearest_product": "V2P053",
+        "nearest_quality_family": "V2P053",
+        "product_collision": 0.04108647689943638,
+        "addressed_weaknesses": [
+          "support"
+        ]
+      },
+      {
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "consumer_id": "PARENT:IM359_IM014_AICC",
+        "diverse_score": 116.94927119873012,
+        "r393_failure_rank": 16,
+        "nearest_product": "V2P010",
+        "nearest_quality_family": "V2P010",
+        "product_collision": 0.04537291858028414,
+        "addressed_weaknesses": [
+          "decision",
+          "support",
+          "uncertainty"
+        ]
+      },
+      {
+        "supplier_id": "FOUNDRY:P028",
+        "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+        "diverse_score": 115.34880189419081,
+        "r393_failure_rank": 6,
+        "nearest_product": "V2P052",
+        "nearest_quality_family": "V2P052",
+        "product_collision": 0.03340328841207997,
+        "addressed_weaknesses": []
+      },
+      {
+        "supplier_id": "LCB-K043",
+        "consumer_id": "FOUNDRY:P086",
+        "diverse_score": 111.47859652711159,
+        "r393_failure_rank": 38,
+        "nearest_product": "V2P003",
+        "nearest_quality_family": "V2P003",
+        "product_collision": 0.02828183998527557,
+        "addressed_weaknesses": []
+      },
+      {
+        "supplier_id": "FOUNDRY:P082",
+        "consumer_id": "LCB-K089",
+        "diverse_score": 108.97576780603545,
+        "r393_failure_rank": 62,
+        "nearest_product": "V2P041",
+        "nearest_quality_family": "V2P041",
+        "product_collision": 0.024808654586365685,
+        "addressed_weaknesses": [
+          "calibration"
+        ]
+      },
+      {
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "consumer_id": "PARENT:R027_S426_S427_MIFF",
+        "diverse_score": 106.79194718154417,
+        "r393_failure_rank": 41,
+        "nearest_product": "V2P049",
+        "nearest_quality_family": "V2P049",
+        "product_collision": 0.033256369263911935,
+        "addressed_weaknesses": [
+          "decision"
+        ]
+      },
+      {
+        "supplier_id": "FOUNDRY:P017",
+        "consumer_id": "LCB-K035",
+        "diverse_score": 105.86508588821809,
+        "r393_failure_rank": 145,
+        "nearest_product": "V2P050",
+        "nearest_quality_family": "V2P050",
+        "product_collision": 0.023993377929925914,
+        "addressed_weaknesses": []
+      },
+      {
+        "supplier_id": "PARENT:IM406_IM037_ACRA",
+        "consumer_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+        "diverse_score": 104.58464340541923,
+        "r393_failure_rank": 1784,
+        "nearest_product": "V2P031",
+        "nearest_quality_family": "V2P031",
+        "product_collision": 0.07091931006485347,
+        "addressed_weaknesses": [
+          "decision"
+        ]
+      },
+      {
+        "supplier_id": "FOUNDRY:P093",
+        "consumer_id": "PARENT:IM178_IM326_TWMR",
+        "diverse_score": 103.38449786594029,
+        "r393_failure_rank": 148,
+        "nearest_product": "V2P021",
+        "nearest_quality_family": "DRE_PRECONDITION_VARIANTS",
+        "product_collision": 0.06064855358969401,
+        "addressed_weaknesses": [
+          "calibration",
+          "decision"
+        ]
+      },
+      {
+        "supplier_id": "FOUNDRY:P095",
+        "consumer_id": "LCB-K081",
+        "diverse_score": 100.94428077345485,
+        "r393_failure_rank": 204,
+        "nearest_product": "V2P034",
+        "nearest_quality_family": "V2P034",
+        "product_collision": 0.0483507160063991,
+        "addressed_weaknesses": [
+          "support"
+        ]
+      },
+      {
+        "supplier_id": "FOUNDRY:P037",
+        "consumer_id": "LCB-K012",
+        "diverse_score": 98.4482173882443,
+        "r393_failure_rank": 293,
+        "nearest_product": "V2P036",
+        "nearest_quality_family": "V2P036",
+        "product_collision": 0.03439095945985978,
+        "addressed_weaknesses": [
+          "calibration"
+        ]
+      },
+      {
+        "supplier_id": "LCB-K084",
+        "consumer_id": "FOUNDRY:P100",
+        "diverse_score": 95.94482397181585,
+        "r393_failure_rank": 10,
+        "nearest_product": "V2P053",
+        "nearest_quality_family": "V2P053",
+        "product_collision": 0.029447425731940396,
+        "addressed_weaknesses": [
+          "calibration"
+        ]
+      }
+    ]
+  },
+  "evidence_boundary": {
+    "learning_eligible_campaign_events": 0,
+    "mechanics_telemetry_is_empirical_learning": false,
+    "statement": "Promotion certifies graph visibility, deterministic executable contracts, failure-region controls and internal product-family distinctness only; it is not novel-theory, scientific, financial, deployment or real-world validation."
+  },
+  "continuation_rule": "Continue from R393 full-universe diverse frontier. Ranking/clustering is triage only; require code-level non-additivity, removal control, collision review, working/collapse/failure regions, direct tests, exact-shell mechanics telemetry, closure, regression, and explicit authority promotion."
+}

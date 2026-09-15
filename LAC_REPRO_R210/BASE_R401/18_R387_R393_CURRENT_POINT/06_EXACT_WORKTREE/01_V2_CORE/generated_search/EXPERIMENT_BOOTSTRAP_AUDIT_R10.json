@@ -1,0 +1,64 @@
+{
+  "foundry_component_test_surfaces": 145,
+  "model_version": "LAB_EXPERIMENT_BOOTSTRAP_R6_V1",
+  "not_pilotable_existing_suite_rows": 994,
+  "pilotable_existing_suite_rows": 6,
+  "pilotable_rows": [
+    {
+      "case_count": 6,
+      "consumer_id": "FOUNDRY:P136",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd",
+      "product_id": "V2P002",
+      "queue_index": 0,
+      "supplier_id": "LCB-K048"
+    },
+    {
+      "case_count": 12,
+      "consumer_id": "FOUNDRY:P144",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f",
+      "product_id": "V2P003",
+      "queue_index": 1,
+      "supplier_id": "LCB-K048"
+    },
+    {
+      "case_count": 12,
+      "consumer_id": "FOUNDRY:P138",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c",
+      "product_id": "V2P004",
+      "queue_index": 2,
+      "supplier_id": "LCB-K081"
+    },
+    {
+      "case_count": 6,
+      "consumer_id": "FOUNDRY:P031",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d",
+      "product_id": "V2P001",
+      "queue_index": 3,
+      "supplier_id": "LCB-K003"
+    },
+    {
+      "case_count": 12,
+      "consumer_id": "FOUNDRY:P003",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e",
+      "product_id": "V2P005",
+      "queue_index": 4,
+      "supplier_id": "LCB-K019"
+    },
+    {
+      "case_count": 12,
+      "consumer_id": "FOUNDRY:P025",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+      "product_id": "V2P006",
+      "queue_index": 5,
+      "supplier_id": "LCB-K068"
+    }
+  ],
+  "policy": "Completed composition suites can run fixed pilots now. Component-only suites are preserved as adapter/harness targets and are not counted as composition evidence.",
+  "queue_rows": 1000,
+  "status_counts": {
+    "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 117,
+    "FIXED_PILOT_SCHEDULE_AVAILABLE": 6,
+    "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+    "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 720
+  }
+}

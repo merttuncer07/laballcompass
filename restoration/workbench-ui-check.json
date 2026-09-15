@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "environment": "Node.js v25.9.0 + jsdom 29.1.1",
+  "scope": "DOM and JavaScript behavior. Chrome process launch was blocked by sandbox; this does not validate browser rendering.",
+  "records": [
+    {
+      "file": "examples/dependency-demo/index.html",
+      "status": "PASS",
+      "checks": [
+        "initial state",
+        "shared-source failure",
+        "joint failure",
+        "reset",
+        "search"
+      ]
+    },
+    {
+      "file": "workbench_runs/20260913T232856Z-5fa7284d-analysis/index.html",
+      "status": "PASS",
+      "checks": [
+        "script execution",
+        "visible coverage",
+        "unresolved count",
+        "source toggle"
+      ]
+    },
+    {
+      "file": "workbench_runs/20260913T232856Z-6b1135ce-analysis/index.html",
+      "status": "PASS",
+      "checks": [
+        "script execution",
+        "visible coverage",
+        "unresolved count",
+        "source toggle"
+      ]
+    },
+    {
+      "file": "workbench_runs/20260913T232856Z-77f79b7b-analysis/index.html",
+      "status": "PASS",
+      "checks": [
+        "script execution",
+        "visible coverage",
+        "unresolved count",
+        "source toggle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "release": "R388_PARENT_PARENT_COMPLETENESS",
+  "authority_status": "SHADOW_ANALYSIS_NO_PRODUCT_PROMOTION",
+  "problem": "FOUNDRY_PARENT is a provenance bucket, not a semantic equivalence family; the legacy same-family guard hid every parent-to-parent composition before rank/adjudication visibility.",
+  "parent_record_count": 69,
+  "retro_parent_count": 50,
+  "current_parent_count": 19,
+  "directed_parent_pairs_before_compatibility": 4692,
+  "native_rank_compatible_parent_pairs_previously_hidden": 890,
+  "breakdown": {
+    "CURRENT_PARENT_TO_CURRENT_PARENT": 78,
+    "CURRENT_PARENT_TO_RETRO": 140,
+    "RETRO_TO_CURRENT_PARENT": 250,
+    "RETRO_TO_RETRO": 422
+  },
+  "parent_parent_edges_now_visible_in_top1000_queue": 135,
+  "coverage_claim": "All 69 parent records are now allowed to reach native rank_composition against one another; incompatibility may still return no candidate and later adjudication may reject/collapse a candidate.",
+  "nonclaims": [
+    "visibility is not novelty",
+    "candidate status is not product status",
+    "adjudication remains responsible for semantic duplicate, ancestry, interface, and usefulness decisions"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "authority_file": "01_V2_CORE/CURRENT_PRODUCT_AUTHORITY.json",
+  "authority_sha256": "8c7f1cff1a29e641a26821bd011f495329f71059ef0865993d8fc4d977e7b5dc",
+  "checks": {
+    "active_candidate_rows": 16589,
+    "calibrated_suites": 50,
+    "campaign_mechanics_passes": 50,
+    "candidate_closure_tests": 9,
+    "candidate_universe_rows": 16594,
+    "core_surfaces_fresh": 14,
+    "core_tests_counted": 117,
+    "direct_v2_failed": 0,
+    "direct_v2_test_files": 50,
+    "direct_v2_tests_counted": 423,
+    "distinct_family_count": 37,
+    "fixed_pilotable_queue_rows": 50,
+    "foundry_inheritance_byte_identical": true,
+    "foundry_test_files_passed": 214,
+    "foundry_tests_counted": 806,
+    "interaction_map_completed_edges": 50,
+    "physical_suite_count": 50,
+    "promotion_regression_bundle": "PASS",
+    "rejected_current_interface_edges": 5,
+    "telemetry_events": 423,
+    "telemetry_exact_matches": 423,
+    "telemetry_unmatched": 0
+  },
+  "note": "Promotion certifies graph visibility, deterministic executable contracts, failure-region controls and internal product-family distinctness only; it is not novel-theory, scientific, deployment or real-world validation.",
+  "overlay_state_sha256_after_promotion": "b105ee8e87eb09c73fadd9cae32049cb7c6419af0711362ce9e5c48b19289c94",
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "release": "R390",
+  "result": "PROMOTED"
+}

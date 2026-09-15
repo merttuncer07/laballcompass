@@ -1,0 +1,129 @@
+{
+  "model_version": "R390_V2P051_SACDLW_SENSITIVITY_V2",
+  "seeds_per_cell": 12,
+  "rows": [
+    {
+      "declared_training_nuisance_correlation": 0.0,
+      "nonabstain": 12,
+      "abstain": 0,
+      "changed_geometry_cases": 12,
+      "positive_gain_cases": 7,
+      "mean_reference_regret_gain": 4.820541440304814e-05,
+      "min_reference_regret_gain": -9.649015121087137e-05,
+      "max_reference_regret_gain": 0.0002961350080295799
+    },
+    {
+      "declared_training_nuisance_correlation": -0.25,
+      "nonabstain": 12,
+      "abstain": 0,
+      "changed_geometry_cases": 12,
+      "positive_gain_cases": 0,
+      "mean_reference_regret_gain": -0.00016011347581673497,
+      "min_reference_regret_gain": -0.00036334169980569916,
+      "max_reference_regret_gain": -1.0393857080588827e-05
+    },
+    {
+      "declared_training_nuisance_correlation": -0.5,
+      "nonabstain": 12,
+      "abstain": 0,
+      "changed_geometry_cases": 12,
+      "positive_gain_cases": 1,
+      "mean_reference_regret_gain": -4.639770451008449e-05,
+      "min_reference_regret_gain": -0.0006370861188411377,
+      "max_reference_regret_gain": 0.0034817066978915564
+    },
+    {
+      "declared_training_nuisance_correlation": -0.75,
+      "nonabstain": 12,
+      "abstain": 0,
+      "changed_geometry_cases": 12,
+      "positive_gain_cases": 4,
+      "mean_reference_regret_gain": 0.0006137936698613547,
+      "min_reference_regret_gain": -0.0007313998939088026,
+      "max_reference_regret_gain": 0.0034844251697265377
+    },
+    {
+      "declared_training_nuisance_correlation": -0.9,
+      "nonabstain": 12,
+      "abstain": 0,
+      "changed_geometry_cases": 12,
+      "positive_gain_cases": 6,
+      "mean_reference_regret_gain": 0.0012008279922322161,
+      "min_reference_regret_gain": -0.0007916141722129197,
+      "max_reference_regret_gain": 0.003644283412867958
+    },
+    {
+      "declared_training_nuisance_correlation": -0.95,
+      "nonabstain": 12,
+      "abstain": 0,
+      "changed_geometry_cases": 12,
+      "positive_gain_cases": 7,
+      "mean_reference_regret_gain": 0.0014326881661303095,
+      "min_reference_regret_gain": -0.0008328529784522062,
+      "max_reference_regret_gain": 0.0037102118706507413
+    }
+  ],
+  "zero_risk_collapse": [
+    {
+      "seed": 0,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 1,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 2,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 3,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 4,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 5,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 6,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 7,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 8,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 9,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 10,
+      "gain": 0.0,
+      "changed": false
+    },
+    {
+      "seed": 11,
+      "gain": 0.0,
+      "changed": false
+    }
+  ],
+  "interpretation": "Synthetic sensitivity only. Strong unsupported negative covariance in the small risk-estimation sample creates the declared working region; benefit is not universal across seeds. Zero risk aversion must collapse exactly."
+}

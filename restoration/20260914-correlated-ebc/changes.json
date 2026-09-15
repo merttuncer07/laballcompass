@@ -1,0 +1,70 @@
+{
+  "changes": [
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/correlated.py",
+      "before_sha256": null,
+      "after_sha256": "a136c68b7bb4994c15b616e8178c2358bf093caaa9e8c24a920c158aed5688be"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py",
+      "before_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d",
+      "after_sha256": "58e22f32e1bda54f39a935974e8f5c5ad09affe3183178bb4a1daf0e190e11fb"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/test_correlated.py",
+      "before_sha256": null,
+      "after_sha256": "ae75da340af463b1fb627438df865bb21a84161bbba7d1125c96e280e131a823"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py",
+      "before_sha256": "553c9235292e2c4b9bf4177ce39be529a390f36423ac7734914e082ae2d11548",
+      "after_sha256": "6219e0e05399df762f3847c7b069d1db35ad1fa5795a3efca6ccf6c8209aba49"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/correlated.py",
+      "before_sha256": null,
+      "after_sha256": "a136c68b7bb4994c15b616e8178c2358bf093caaa9e8c24a920c158aed5688be"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/ebc.py",
+      "before_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d",
+      "after_sha256": "58e22f32e1bda54f39a935974e8f5c5ad09affe3183178bb4a1daf0e190e11fb"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py",
+      "before_sha256": "41eea60a591b48e0fee9d2b9a90db92f864bdbfe7a751e263e725a3bbaee7541",
+      "after_sha256": "90ae537b3d460dce42ee2528d5c4b3c8902e10fd2c5427c2b7a0dc2efdb8e72e"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/correlated.py",
+      "before_sha256": null,
+      "after_sha256": "a136c68b7bb4994c15b616e8178c2358bf093caaa9e8c24a920c158aed5688be"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/ebc.py",
+      "before_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d",
+      "after_sha256": "58e22f32e1bda54f39a935974e8f5c5ad09affe3183178bb4a1daf0e190e11fb"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py",
+      "before_sha256": "30f9e2f50daf9a04c6afa93c49fa6e677f0602ad8793053b6750bf8692d09852",
+      "after_sha256": "5716442d37a9da56e0afaae4076f4f47489d6e2cf8b8f5d50083e17160888172"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py",
+      "before_sha256": "8f24c0d566b80ab0c396a27e344012342de8148e2615bb47b7f4d79c909dac4d",
+      "after_sha256": "ec54063efa8795aaa9f7d9623023d822842feb4f3a69d2f0769e7b157b2e133d"
+    },
+    {
+      "path": "examples/correlated-evidence/reproduce.py",
+      "before_sha256": null,
+      "after_sha256": "f05774ac88d119c34bcfa95737cbf28fea2c90756377f1ee890ee1a53f7a3a1c"
+    },
+    {
+      "path": "lab.py",
+      "before_sha256": "8741f7219c1e121292b8cebd004a0bec21da34ad34f10bcb6ebae4998552c685",
+      "after_sha256": "6f0e596f55639a8601245749f56662f1a69e8c67c55fb8e6eda9dda6031dc04e"
+    }
+  ],
+  "scope": "Explicit covariance EBC extension, source propagation, downstream adapters, tests and public numerical reproduction"
+}

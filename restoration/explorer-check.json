@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "JavaScript execution with a DOM stub, filters and local links; no real browser rendering check",
+  "checks": [
+    "Initial catalog: 293 components",
+    "All component cards render",
+    "Search resolves a specific product",
+    "Search and layer filters combine",
+    "Foundry filter contains 145 products",
+    "Help link exists: README.md",
+    "Help link exists: REPAIRS.md",
+    "Help link exists: VALIDATION.json",
+    "Every generated source and receipt link resolves"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "episodes": 2000,
+  "horizon": 80,
+  "results": {
+    "uncertainty_only": {
+      "mean_pseudo_regret": 154.60000000000005,
+      "final_best_action_accuracy": 0.6135,
+      "mean_irrelevant_high_variance_pulls": 38.0
+    },
+    "greedy": {
+      "mean_pseudo_regret": 3.030924999999996,
+      "final_best_action_accuracy": 0.266,
+      "mean_irrelevant_high_variance_pulls": 0.0
+    },
+    "decision_relevant": {
+      "mean_pseudo_regret": 1.7055249999999984,
+      "final_best_action_accuracy": 0.5455,
+      "mean_irrelevant_high_variance_pulls": 0.0
+    },
+    "regret_reduction_vs_uncertainty_only": 0.9889681435963777
+  }
+}

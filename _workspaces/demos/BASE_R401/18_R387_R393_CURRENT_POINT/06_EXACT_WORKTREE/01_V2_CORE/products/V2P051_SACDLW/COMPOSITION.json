@@ -1,0 +1,8 @@
+{
+  "authority": "R390_CANONICAL_PRODUCT_AUTHORITY",
+  "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+  "product_id": "V2P051",
+  "short_name": "SACDLW",
+  "status": "R390_PROMOTED_CANONICAL_PRODUCT",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+}

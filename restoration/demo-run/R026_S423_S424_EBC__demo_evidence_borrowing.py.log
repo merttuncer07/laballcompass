@@ -1,0 +1,108 @@
+{
+  "current_only": {
+    "current_estimate": 1.2,
+    "current_standard_error": 0.25,
+    "posterior_estimate": 1.2,
+    "posterior_standard_error": 0.25,
+    "confidence_low": 0.71,
+    "confidence_high": 1.69,
+    "current_precision": 16.0,
+    "borrowed_precision": 0.0,
+    "borrowing_precision_ratio": 0.0,
+    "cap_scale": 1.0,
+    "current_information_share": 1.0,
+    "contributions": []
+  },
+  "adaptive_borrowing": {
+    "current_estimate": 1.2,
+    "current_standard_error": 0.25,
+    "posterior_estimate": 1.174422353709718,
+    "posterior_standard_error": 0.14433756729740646,
+    "confidence_low": 0.8915207218068013,
+    "confidence_high": 1.4573239856126348,
+    "current_precision": 16.0,
+    "borrowed_precision": 31.999999999999996,
+    "borrowing_precision_ratio": 1.9999999999999998,
+    "cap_scale": 0.28876762155670144,
+    "current_information_share": 0.3333333333333333,
+    "contributions": [
+      {
+        "name": "similar_market_A",
+        "estimate": 1.1,
+        "standard_error": 0.12,
+        "conflict_z": 0.36060922298730896,
+        "commensurability_factor": 0.9592414302042522,
+        "pre_cap_power": 0.9592414302042522,
+        "final_power": 0.2769978662987305,
+        "borrowed_precision": 19.23596293741184
+      },
+      {
+        "name": "similar_market_B",
+        "estimate": 1.25,
+        "standard_error": 0.15,
+        "conflict_z": 0.171498585142509,
+        "commensurability_factor": 0.9906323873268041,
+        "pre_cap_power": 0.9906323873268041,
+        "final_power": 0.28606255832539823,
+        "borrowed_precision": 12.71389148112881
+      },
+      {
+        "name": "structurally_changed_market",
+        "estimate": 2.4,
+        "standard_error": 0.1,
+        "conflict_z": 4.456688116249244,
+        "commensurability_factor": 0.00173653753800433,
+        "pre_cap_power": 0.00173653753800433,
+        "final_power": 0.0005014558145934404,
+        "borrowed_precision": 0.05014558145934403
+      }
+    ]
+  },
+  "uncontrolled_full_pooling": {
+    "current_estimate": 1.2,
+    "current_standard_error": 0.25,
+    "posterior_estimate": 1.701449975833736,
+    "posterior_standard_error": 0.06595398017715318,
+    "confidence_low": 1.5721801746865158,
+    "confidence_high": 1.8307197769809562,
+    "current_precision": 16.0,
+    "borrowed_precision": 213.88888888888886,
+    "borrowing_precision_ratio": 13.368055555555554,
+    "cap_scale": 1.0,
+    "current_information_share": 0.06959884001933302,
+    "contributions": [
+      {
+        "name": "similar_market_A",
+        "estimate": 1.1,
+        "standard_error": 0.12,
+        "conflict_z": 0.36060922298730896,
+        "commensurability_factor": 1.0,
+        "pre_cap_power": 1.0,
+        "final_power": 1.0,
+        "borrowed_precision": 69.44444444444444
+      },
+      {
+        "name": "similar_market_B",
+        "estimate": 1.25,
+        "standard_error": 0.15,
+        "conflict_z": 0.171498585142509,
+        "commensurability_factor": 1.0,
+        "pre_cap_power": 1.0,
+        "final_power": 1.0,
+        "borrowed_precision": 44.44444444444444
+      },
+      {
+        "name": "structurally_changed_market",
+        "estimate": 2.4,
+        "standard_error": 0.1,
+        "conflict_z": 4.456688116249244,
+        "commensurability_factor": 1.0,
+        "pre_cap_power": 1.0,
+        "final_power": 1.0,
+        "borrowed_precision": 99.99999999999999
+      }
+    ]
+  },
+  "adaptive_shift_from_current": -0.02557764629028192,
+  "full_pool_shift_from_current": 0.5014499758337361
+}

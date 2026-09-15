@@ -1,0 +1,53 @@
+{
+  "model_version": "R387_PORTABILITY_PATCH_V1",
+  "files": [
+    {
+      "path": "01_V2_CORE/products/V2P040_BMCAPL/test_bmcapl.py",
+      "before_sha256": "8e637acf3f52137f91711659985812fd1c62adc266607fdac8c0a8146493e69f",
+      "after_sha256": "bb7f95b1834bb249fef519bce02379240fdbda8e80ad9adc1a3799e403bbf6ec",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P041_CDTDLEW/test_cdtdlew.py",
+      "before_sha256": "cc25f2806d68c8d3806c5f84095f1f8a4b55e7055c194861fcea78f2718f9c99",
+      "after_sha256": "3f16b9b0b2d14c736ae5470ff7b7b2b297d020f8fdc77f4efbbf4d3eae06ba02",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P042_ATSCWC/test_atscwc.py",
+      "before_sha256": "b7837bb1b83819e6171490218e5ea0c6cab22d64a28c9d0d40e83f1b9c00c9bf",
+      "after_sha256": "355bc51b3e203365de9ee0f23f1245ebd563804becc6b8b1c73e4d5e464a4d7b",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P043_CBSCG/test_cbscg.py",
+      "before_sha256": "d0c980d1f38e0d06fb06bd358008442f1ecf6421a2c9cea6b882567ac12fd540",
+      "after_sha256": "6b85123b2ca93386e5f48b9a27ebb3d559839caccaf34d17b84e1749f3da6a68",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P044_PIPEG/test_pipeg.py",
+      "before_sha256": "f6fb56a7d9c6ebe35a98fe9af319ad3682169cdc79d7d7f79e5f941937f07388",
+      "after_sha256": "edf713129aa858f4e5726c79f1cf27e724659f46199efcc225cfc81d9f1735f2",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P045_FPTWC/test_fptwc.py",
+      "before_sha256": "2def2f93e9e39a5553a38aecc1d784b136a861f6e8ff5c2d65c16e2a93869e95",
+      "after_sha256": "3b8a17eec7e26b32ae2da5404cce50bb2a4147b43386ca28befe56d2629ec152",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P046_MTCWC/test_mtcwc.py",
+      "before_sha256": "21ee52ed19ae7c34553071b6ba208fda9234efcbb4727adca084f18c00467273",
+      "after_sha256": "d65f14f93e83cca9e1269abd5907d80763f62e4d67c47cc47184e63cbcbeda6a",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    },
+    {
+      "path": "01_V2_CORE/products/V2P048_CBIACCVC/test_cbiaccvc.py",
+      "before_sha256": "e9255baca9fc58af4825113030231cedf9d63f2cfcf1bdf885e5b493739180c5",
+      "after_sha256": "defe3d6d82a1bc9de45325895f02d3c791349b9deb0b5c2883bbcd87be097489",
+      "change": "absolute R385 dependency path -> package-root-relative dependency path"
+    }
+  ]
+}

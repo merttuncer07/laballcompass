@@ -1,0 +1,9 @@
+{
+  "release": "R388",
+  "event": "MONOLITHIC_PACKAGED_REGRESSION_STDOUT_RECEIPT_ANOMALY",
+  "process_exit_status": "0",
+  "stdout_log_bytes": 0,
+  "runner_sha256": "8e5be86b12179220c0f64a34c2dd21afcc4034712be4fed2e1e0ad4558c1558f",
+  "interpretation": "The monolithic runner process returned zero but its redirected stdout artifact is empty; zero exit alone is not accepted as the promotion receipt. Promotion uses independently materialized split component receipts that cover the same surfaces.",
+  "promotion_effect": "FAIL_VISIBLE_NO_PROMOTION_FROM_EMPTY_LOG"
+}

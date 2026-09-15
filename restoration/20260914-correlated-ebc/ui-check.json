@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "published example numbers displayed",
+    "11 districts rendered",
+    "model selector changes district weights",
+    "weights sum to 100% within display rounding",
+    "shared-control cancellation shown",
+    "no script errors"
+  ],
+  "scope": "jsdom interaction, not a real browser visual test"
+}

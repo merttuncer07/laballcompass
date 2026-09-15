@@ -1,0 +1,44 @@
+{
+  "candidate_names": [
+    "short",
+    "long"
+  ],
+  "audit": {
+    "candidate_names": [
+      "short",
+      "long"
+    ],
+    "selected_candidate": "short",
+    "holdout_best_candidate": "long",
+    "selection_mean_losses": [
+      0.06076143163862594,
+      0.1471461291336446
+    ],
+    "holdout_mean_losses": [
+      0.13802189228285555,
+      0.03268140294881698
+    ],
+    "candidate_generalization_gaps": [
+      0.07726046064422962,
+      -0.11446472618482763
+    ],
+    "selected_selection_loss": 0.06076143163862594,
+    "selected_holdout_loss": 0.13802189228285555,
+    "selected_generalization_gap": 0.07726046064422962,
+    "selected_holdout_regret": 0.10534048933403857,
+    "family_worst_absolute_gap": 0.11446472618482763,
+    "pointwise_standard_error": 0.012393141326201456,
+    "pointwise_95_radius": 0.024290556999354854,
+    "selected_holdout_loss_bootstrap_interval_95": [
+      0.11327158380659896,
+      0.1601700481242867
+    ],
+    "selection_bootstrap_frequencies": [
+      1.0,
+      0.0
+    ],
+    "selection_fragility": 0.0,
+    "status": "ADAPTIVE_SELECTION_REGRET_DETECTED"
+  },
+  "status": "MEMORY_POLICY_HOLDOUT_AUDITED"
+}

@@ -1,0 +1,60 @@
+{
+  "abstention": "estimated supported dependence inside the ambiguity band returns ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS and does not silently merge families",
+  "ancestry_collision_result": "NO_DEEP_OPERATOR_COLLISION_FOUND_WITH_CURRENT_35_FAMILY_AUTHORITY",
+  "benchmark_effect": {
+    "collapse_gain": 0.0,
+    "collapse_status": "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES",
+    "working_gain_vs_removal_control_under_adjusted_reality": 8.0,
+    "working_status": "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION"
+  },
+  "candidate_origin": "R388C0017 / previously hidden parent-parent visibility surface",
+  "collapse_regions": [
+    "no supported cross-family dependence edge: candidate exactly collapses to the declared CSID family partition/portfolio",
+    "supported cross-family dependence clearly below threshold: candidate collapses to declared CSID semantics",
+    "dependence already encoded by the same declared CSID evidence_family: candidate adds no new family merge and gain is zero"
+  ],
+  "conservatism_boundary": "connected-component family merging treats strong supported dependence as common-mode equivalence; this can be conservative for graded or antagonistic dependence and is not a copula/general dependence model",
+  "consumer_id": "PARENT:IM445_IM085_CSID",
+  "evidence_boundary": "deterministic synthetic mechanism evidence only; no empirical contract-loss, reliability, market, deployment, or external scientific novelty claim",
+  "mechanism_removing_comparator": "same CSID failures, safeguard costs, coverage, budget and declared evidence-family labels with covariance-based cross-family partition repair removed",
+  "nearest_existing_products": [
+    {
+      "difference": "EDSANP discounts correlated evidence used to justify a covariance support mask and either allows or refuses the structured-support portfolio path; it explicitly does not infer/edit the support graph. SCIG instead consumes a support-aware covariance estimate to alter CSID's downstream evidence-family equivalence partition and therefore its safeguard coverage composition/portfolio choice.",
+      "product": "V2P005_EDSANP"
+    },
+    {
+      "difference": "SCCATF inserts covariance cross-terms into an allocation objective. SCIG changes the independence partition that determines multiplicative safeguard coverage before portfolio evaluation.",
+      "product": "V2P039_SCCATF"
+    },
+    {
+      "difference": "SACAPL changes CAPL risk-objective geometry while the feasible set remains fixed. SCIG changes categorical/common-mode evidence structure used by CSID, not portfolio covariance geometry.",
+      "product": "V2P049_SACAPL"
+    },
+    {
+      "difference": "SCOPG uses support geometry as an identification/conditioning guard. SCIG uses support-aware covariance to merge nominally distinct evidence families inside a safeguard-dependence model.",
+      "product": "V2P034_SCOPG"
+    }
+  ],
+  "new_failure_mode": "CSID can correctly avoid double-counting safeguards that share an explicitly declared evidence_family yet still overstate independence when differently named evidence families are driven by one supported dependence channel.",
+  "non_additive_interaction": "SACPS changes CSID's equivalence partition over safeguard evidence families before coverage multiplication and portfolio search. This changes the combinatorial coverage operator itself; it is not a covariance penalty appended to the same CSID objective.",
+  "prior_art_status": "STRONG_PRIOR_ART_ON_COMMON_CAUSE_FAILURE_AND_DEPENDENCE_AWARE_REDUNDANCY;_INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+  "product_id": "V2P050",
+  "quality_verdict": "ADMIT_R389_CANDIDATE_OVERLAY_PENDING_TELEMETRY_AND_CLOSURE",
+  "release": "R389",
+  "sensitivity": {
+    "cells": 18,
+    "high_rho_cells_merge_or_abstain_only": true,
+    "low_rho_cells_all_collapsed": true,
+    "rho_0_9_all_merge": true,
+    "seeds_per_cell": 12,
+    "threshold_region_has_abstention": true
+  },
+  "short_name": "SCIG",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "support_boundary": "strong raw correlation without a declared support edge is intentionally ignored; support correctness remains external and misdeclared support can still cause false merges or missed merges",
+  "tests": {
+    "hardened_cases": 13,
+    "status": "PASS"
+  },
+  "working_region": "nominally distinct safeguard evidence families have a supported dependence edge whose estimated absolute correlation is clearly above the declared threshold+ambiguity band; the repaired partition changes the selected CSID portfolio under the same costs, coverage and budget."
+}

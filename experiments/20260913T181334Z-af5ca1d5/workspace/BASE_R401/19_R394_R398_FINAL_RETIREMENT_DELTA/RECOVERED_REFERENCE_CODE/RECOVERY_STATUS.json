@@ -1,0 +1,12 @@
+{
+  "status": "REFERENCE_RECONSTRUCTION_NOT_CANONICAL_BYTES",
+  "exact_parent_code_location": "../../18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE",
+  "products": [
+    "V2P054",
+    "V2P055",
+    "V2P056",
+    "V2P057",
+    "V2P058"
+  ],
+  "purpose": "preserve operator/collapse/failure semantics after late ephemeral worktree loss; successor must rebuild/replay before exact-byte authority claims"
+}

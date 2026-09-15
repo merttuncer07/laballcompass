@@ -1,0 +1,377 @@
+--- before/workbench/workbooks.py
++++ after/workbench/workbooks.py
+@@ -1,5 +1,8 @@
+ """Conservative static XLSX lineage. Never computes or certifies spreadsheet values."""
+-from collections import defaultdict
++from collections import defaultdict, deque
++from contextlib import ExitStack
++import json
++from urllib.parse import unquote, urlsplit
+ import hashlib
+ from pathlib import Path
+ import re
+@@ -19,40 +22,73 @@
+ 
+ 
+ def analyze_workbook(path):
++    return analyze_workbooks([path])
++
++
++def analyze_workbooks(paths):
++    """Read only supplied files; external locators never trigger file/network access."""
+     from openpyxl import load_workbook
++    paths = sorted({Path(p).resolve() for p in paths}, key=lambda p: (p.name.casefold(), str(p)))
++    if not 1 <= len(paths) <= 20:
++        raise ValueError('Supply between 1 and 20 workbooks')
++    if len({p.name.casefold() for p in paths}) != len(paths):
++        raise ValueError('Ambiguous workbook names: supplied files must have distinct filenames')
++    expanded = 0
++    with ExitStack() as stack:
++        books = []
++        for path in paths:
++            if path.suffix.lower() not in ('.xlsx', '.xlsm'):
++                raise ValueError('The pilot reads .xlsx and .xlsm workbooks')
++            if path.stat().st_size > 32 * 1024**2:
++                raise ValueError('Pilot workbook limit: 32 MB compressed')
++            with zipfile.ZipFile(path) as archive:
++                expanded += sum(i.file_size for i in archive.infolist())
++            if expanded > 256 * 1024**2:
++                raise ValueError('Pilot workbook collection limit: 256 MB expanded')
++            workbook = load_workbook(path, data_only=False, keep_links=True, keep_vba=False)
++            stack.callback(workbook.close)
++            books.append(workbook)
++        return _analyze_loaded(paths, books)
++
++
++def _analyze_loaded(paths, books):
+     from openpyxl.formula.tokenizer import Tokenizer
+     from openpyxl.utils.cell import range_boundaries, get_column_letter
+-    path = Path(path)
+-    if path.suffix.lower() not in ('.xlsx', '.xlsm'):
+-        raise ValueError('The pilot reads .xlsx and .xlsm workbooks')
+-    if path.stat().st_size > 32 * 1024**2:
+-        raise ValueError('Pilot workbook limit: 32 MB compressed')
+-    with zipfile.ZipFile(path) as archive:
+-        if sum(i.file_size for i in archive.infolist()) > 256 * 1024**2:
+-            raise ValueError('Pilot workbook limit: 256 MB expanded')
+-    workbook = load_workbook(path, data_only=False, keep_links=False, keep_vba=False)
++    multiple = len(paths) > 1
++    book_names = {p.name.casefold(): i for i, p in enumerate(paths)}
++    linked_workbooks = {}
+     formulas = {}
+     cells = {}
+     labels = {}
+-    def key(sheet, coordinate): return sheet + '!' + coordinate.replace('$', '').upper()
+-    for sheet in workbook:
+-        if sheet.max_row * sheet.max_column > 100000:
+-            raise ValueError('Pilot worksheet bounding range limit: 100,000 cells')
+-        for row in sheet.iter_rows():
+-            for cell in row:
+-                if cell.value is None: continue
+-                node = key(sheet.title, cell.coordinate)
+-                cells[node] = cell.data_type
+-                labels[node] = node
+-                if cell.data_type == 'f':
+-                    formulas[node] = cell.value if isinstance(cell.value, str) else None
++    locations = {}
++
++    def key(book_id, sheet, coordinate):
++        prefix = paths[book_id].name + '::' if multiple else ''
++        return prefix + sheet + '!' + coordinate.replace('$', '').upper()
++
++    for book_id, workbook in enumerate(books):
++        for sheet in workbook:
++            if sheet.max_row * sheet.max_column > 100000:
++                raise ValueError('Pilot worksheet bounding range limit: 100,000 cells')
++            for row in sheet.iter_rows():
++                for cell in row:
++                    if cell.value is None: continue
++                    node = key(book_id, sheet.title, cell.coordinate)
++                    cells[node] = cell.data_type
++                    labels[node] = node
++                    if len(cells) > 20000:
++                        raise ValueError('Pilot collection populated-cell limit: 20,000')
++                    if cell.data_type == 'f':
++                        formulas[node] = cell.value if isinstance(cell.value, str) else None
++                        locations[node] = (book_id, sheet.title)
+     if not formulas:
+         raise ValueError('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
+     if len(cells) > 20000: raise ValueError('Pilot populated-cell limit: 20,000')
+     dependencies = {}
+     issues = defaultdict(list)
+ 
+-    def reference(token, current_sheet, names_seen=frozenset()):
++    def reference(token, book_id, current_sheet, names_seen=frozenset()):
++        workbook = books[book_id]
+         if '!' in token:
+             sheet_name, address = token.rsplit('!', 1)
+             if sheet_name.startswith("'") and sheet_name.endswith("'"):
+@@ -60,7 +96,29 @@
+         else:
+             sheet_name, address = current_sheet, token
+         if '[' in sheet_name or ']' in sheet_name:
+-            raise ValueError('External workbook reference: ' + token)
++            match = re.fullmatch(r"(.*?)\[([^\]]+)\](.+)", sheet_name)
++            if not match:
++                raise ValueError('Unsupported external workbook reference: ' + token)
++            location_prefix, book_reference, sheet_name = match.groups()
++            locator = location_prefix + book_reference
++            if book_reference.isdecimal():
++                index = int(book_reference) - 1
++                links = workbook._external_links
++                if not 0 <= index < len(links) or links[index].file_link is None:
++                    raise ValueError('Unresolved external workbook index: ' + book_reference)
++                locator = links[index].file_link.Target
++            filename = unquote(urlsplit(str(locator).replace('\\', '/')).path).rstrip('/').rsplit('/', 1)[-1]
++            destination = book_names.get(filename.casefold())
++            if destination is None:
++                raise ValueError('External workbook not supplied: ' + filename)
++            source_name, destination_name = paths[book_id].name, paths[destination].name
++            linked_workbooks[(source_name, str(locator), destination_name)] = {
++                'from_workbook': source_name, 'declared_locator': str(locator),
++                'matched_workbook': destination_name,
++                'resolution': 'Unique supplied filename match; workbook version and authenticity are not established.'}
++            book_id = destination
++            workbook = books[book_id]
++
+         if ':' in sheet_name:
+             endpoints = sheet_name.split(':')
+             by_name = {s.casefold(): i for i, s in enumerate(workbook.sheetnames)}
+@@ -71,7 +129,7 @@
+                 raise ValueError('Unsupported 3D worksheet range: ' + token)
+             results = set()
+             for sheet in workbook.sheetnames[first:last + 1]:
+-                results.update(reference("'" + sheet.replace("'", "''") + "'!" + address, current_sheet))
++                results.update(reference("'" + sheet.replace("'", "''") + "'!" + address, book_id, current_sheet))
+                 if len(results) > 10000:
+                     raise ValueError('Reference expansion exceeds 10,000 cells: ' + token)
+             return results
+@@ -86,7 +144,7 @@
+                 raise ValueError('Reference is outside Excel bounds')
+             if (high_col - low_col + 1) * (high_row - low_row + 1) > 10000:
+                 raise ValueError('Reference expansion exceeds 10,000 cells: ' + token)
+-            return {key(sheet_name, f'{get_column_letter(col)}{row}')
++            return {key(book_id, sheet_name, f'{get_column_letter(col)}{row}')
+                     for col in range(low_col, high_col + 1) for row in range(low_row, high_row + 1)}
+         if '[' in address or '#' in address or '@' in address:
+             raise ValueError('Table, spill or implicit-intersection reference: ' + token)
+@@ -101,7 +159,7 @@
+         results = set()
+         for destination_sheet, destination in name.destinations:
+             results.update(reference("'" + destination_sheet.replace("'", "''") + "'!" + destination,
+-                                     current_sheet, names_seen | {address.casefold()}))
++                                     book_id, current_sheet, names_seen | {address.casefold()}))
+         if not results: raise ValueError('Empty defined name: ' + address)
+         return results
+ 
+@@ -117,7 +175,7 @@
+                         if function in DYNAMIC or function not in KNOWN_FUNCTIONS:
+                             issues[node].append('Dynamic or unsupported function: ' + function)
+                     elif token.type == 'OPERAND' and token.subtype == 'RANGE':
+-                        try: refs.update(reference(token.value, node.rsplit('!', 1)[0]))
++                        try: refs.update(reference(token.value, *locations[node]))
+                         except ValueError as error: issues[node].append(str(error))
+                     elif token.type == 'OPERAND' and token.subtype == 'ERROR':
+                         issues[node].append('Formula contains error: ' + token.value)
+@@ -128,13 +186,21 @@
+         dependencies[node] = refs
+ 
+     # Mark every node downstream of a cycle without misclassifying the cycle as an input.
+-    pending = set(formulas)
++    dependents = defaultdict(list)
++    indegree = {}
++    for node, refs in dependencies.items():
++        formula_refs = refs & formulas.keys()
++        indegree[node] = len(formula_refs)
++        for ref in formula_refs: dependents[ref].append(node)
++    ready = deque(sorted(n for n, degree in indegree.items() if degree == 0))
+     order = []
+-    while pending:
+-        ready = sorted(node for node in pending if not (dependencies[node] & pending))
+-        if not ready: break
+-        order.extend(ready)
+-        pending.difference_update(ready)
++    while ready:
++        node = ready.popleft()
++        order.append(node)
++        for child in sorted(dependents[node]):
++            indegree[child] -= 1
++            if indegree[child] == 0: ready.append(child)
++    pending = set(formulas) - set(order)
+     for node in pending: issues[node].append('Cycle or dependency downstream of a cycle')
+     blocked = set(issues)
+     for node in order:
+@@ -162,7 +228,12 @@
+     same_origins = [{'root_cells': list(key_), 'formula_cells': sorted(nodes)}
+                     for key_, nodes in groups.items() if len(nodes) > 1]
+     same_origins.sort(key=lambda g: (-len(g['formula_cells']), g['formula_cells']))
+-    metadata = {'title': path.name, 'input_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
++    input_files = [{'name': p.name, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths]
++    digest = (hashlib.sha256(json.dumps(input_files, sort_keys=True).encode()).hexdigest()
++              if multiple else input_files[0]['sha256'])
++    metadata = {'title': f'{len(paths)} workbooks: ' + ', '.join(p.name for p in paths) if multiple else paths[0].name,
++                'input_sha256': digest, 'input_files': input_files,
++                'linked_workbooks': list(linked_workbooks.values()),
+                 'origin': 'Workbook formulas parsed automatically; workbook values were not recalculated.',
+                 'labels': labels, 'formula_text': {n: formulas[n] for n in sorted(safe)},
+                 'formula_count': len(formulas), 'resolved_formula_count': len(safe),
+@@ -170,10 +241,10 @@
+                 'same_origin_groups': same_origins,
+                 'assumptions': ['All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.',
+                                 'Distinct root cells are not evidence of statistically independent sources.',
+-                                'External links, dynamic references, table references and cyclic paths are unresolved; no external file was fetched.',
++                                'External links resolve only to uniquely named, explicitly supplied files. Missing files, dynamic/table references and cyclic paths remain unresolved; no external file was fetched.',
++                                'Matching a referenced filename does not prove that the supplied file is the original version or is authentic.',
+                                 'Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion.']}
+     problem = DependencyProblem('workbook_' + metadata['input_sha256'][:12], {r: r for r in sorted(roots)},
+                                 tuple((n, tuple(sorted(dependencies[n]))) for n in safe_order), targets,
+                                 'static_formula_lineage', metadata)
+-    workbook.close()
+     return problem
+--- before/workbench/cli.py
++++ after/workbench/cli.py
+@@ -7,7 +7,7 @@
+ from .methods import mechanism_receipt
+ from .problems import evidence_demo
+ from .report import analyze_problem, write_report, write_benchmark_report
+-from .workbooks import analyze_workbook
++from .workbooks import analyze_workbooks
+ 
+ 
+ def save_analysis(problem, directory=None):
+@@ -31,7 +31,7 @@
+     sub = parser.add_subparsers(dest='command', required=True)
+     bench = sub.add_parser('benchmark'); bench.add_argument('--repeats', type=int, default=3)
+     demo = sub.add_parser('demo'); demo.add_argument('--output')
+-    analyze = sub.add_parser('analyze'); analyze.add_argument('workbook'); analyze.add_argument('--output')
++    analyze = sub.add_parser('analyze'); analyze.add_argument('workbooks', nargs='+', help='Workbook files or folders of .xlsx/.xlsm files'); analyze.add_argument('--output')
+     inspect = sub.add_parser('inspect'); inspect.add_argument('problem_json'); inspect.add_argument('--output')
+     args = parser.parse_args(argv)
+     try:
+@@ -41,7 +41,14 @@
+             print(folder / 'index.html')
+             return int(report['status'] != 'PASS')
+         if args.command == 'demo': problem = evidence_demo()
+-        elif args.command == 'analyze': problem = analyze_workbook(args.workbook)
++        elif args.command == 'analyze':
++            paths = []
++            for item in args.workbooks:
++                path = Path(item)
++                if path.is_dir():
++                    paths.extend(p for p in path.iterdir() if p.is_file() and p.suffix.lower() in ('.xlsx','.xlsm') and not p.name.startswith('~$'))
++                else: paths.append(path)
++            problem = analyze_workbooks(paths)
+         else: problem = DependencyProblem.from_dict(json.loads(Path(args.problem_json).read_text()))
+         print(save_analysis(problem, args.output))
+         return 0
+--- before/workbench/report.py
++++ after/workbench/report.py
+@@ -43,7 +43,7 @@
+ <p id="mode" class="notice"></p><p id="coverage"></p><p id="counts"></p>
+ <div class="grid"><section class="panel"><h2>Kaynakları devreden çıkar</h2><p class="muted">İşaretli kaynaklar erişilebilir kabul edilir. Değişiklik yalnız bu görünümdeki senaryoyu etkiler.</p><button id="reset">Hepsini geri getir</button><p><input type="search" id="search" aria-label="Kaynak ara" placeholder="Kaynak veya hücre ara"></p><div id="sources"></div></section>
+ <section class="panel"><h2>Sonuçlara etkisi</h2><p id="live" aria-live="polite"></p><div id="targets"></div><details><summary>İki kaynak birlikte kaybedilirse</summary><p class="muted">Tek kaynak kaybıyla açıklanmayan, sınanan ikili kayıplar. Büyük dosyalarda bütün çiftler denenmez.</p><div id="pairs"></div></details></section></div>
+-<section class="panel" style="margin-top:20px"><h2 id="extra-title"></h2><div id="extra"></div><details><summary>Çözülemeyen bağlantılar</summary><div id="issues"></div></details><details><summary>Bu hesabın kapsamı ve kullanılan motor</summary><p id="interpretation"></p><ul id="limits"></ul><p class="muted">R207, mevcut lab kaynak dosyasından gerçekten çağrıldı. Bu görünüm onun derlediği AND/OR devresini değerlendirir. Ayrı benchmark, güçlü referans yöntemlerle doğruluk ve süreyi karşılaştırır.</p><pre id="rules"></pre></details></section>
++<section class="panel" style="margin-top:20px"><h2 id="extra-title"></h2><div id="extra"></div><details><summary>Dosyalar arası bağlantılar</summary><div id="workbook-links"></div></details><details><summary>Çözülemeyen bağlantılar</summary><div id="issues"></div></details><details><summary>Bu hesabın kapsamı ve kullanılan motor</summary><p id="interpretation"></p><ul id="limits"></ul><p class="muted">R207, mevcut lab kaynak dosyasından gerçekten çağrıldı. Bu görünüm onun derlediği AND/OR devresini değerlendirir. Ayrı benchmark, güçlü referans yöntemlerle doğruluk ve süreyi karşılaştırır.</p><pre id="rules"></pre></details></section>
+ </main><script>const data=PAYLOAD;
+ const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const p=data.problem, labels=p.metadata.labels||{}, sourceIds=[...new Set(Object.values(p.bases))].sort(),enabled=new Set(sourceIds),workbook=p.mode==='static_formula_lineage';
+@@ -51,7 +51,7 @@
+ $('#title').textContent=p.metadata.title||p.id;
+ $('#mode').textContent=workbook?'Excel formüllerinin statik kaynak izleri. Bir hücrenin devre dışı olması, ona bağlı hesapları işaretler; sayısal sonucun yanlış olduğunu veya audit görüşünü kanıtlamaz.':'Örnek destek kuralları: bir kuralın bütün öncülleri gerekir; aynı sonuç için farklı kurallar alternatif yollardır. Bu kurallar sentetik örnekte açıkça tanımlanmıştır.';
+ if(workbook){$('#coverage').textContent=`${p.metadata.resolved_formula_count} / ${p.metadata.formula_count} formülün bağlantıları çözüldü. ${p.metadata.unresolved.length} formül, çözülemeyen bağlantılar nedeniyle etki hesabının dışında.`;if(p.metadata.unresolved.length)$('#coverage').className='notice';}
+-$('#counts').textContent=`${sourceIds.length} kaynak kimliği · ${p.targets.length} sonuç · ${p.rules.length} kural · ${data.scenario_count} sınanan senaryo`;
++$('#counts').textContent=(workbook?`${p.metadata.input_files?.length||1} dosya · `:'')+`${sourceIds.length} kaynak kimliği · ${p.targets.length} sonuç · ${p.rules.length} kural · ${data.scenario_count} sınanan senaryo`;
+ function renderSources(){const q=$('#search').value.toLowerCase(),rows=sourceIds.filter(s=>(label(s)+' '+s).toLowerCase().includes(q));$('#sources').innerHTML=rows.slice(0,150).map(s=>`<label><input type="checkbox" data-source="${esc(s)}" ${enabled.has(s)?'checked':''}><span>${esc(label(s))}<br><small class="muted">Tek başına kaybı ${data.source_impacts[s]?.length||0} sonucu etkiler</small></span></label>`).join('')+(rows.length>150?'<p class="muted">İlk 150 gösteriliyor. Aramayla daralt.</p>':'');}
+ function update(){const values=[];for(const [op,arg] of data.circuit_nodes){let v;if(op==='true')v=true;else if(op==='false')v=false;else if(op==='var')v=enabled.has(arg);else if(op==='and')v=arg.every(i=>values[i]);else if(op==='or')v=arg.some(i=>values[i]);values.push(v);}const changed=p.targets.filter(t=>!values[data.roots[t]]);$('#live').textContent=`${sourceIds.length-enabled.size} kaynak devre dışı · ${changed.length} / ${p.targets.length} sonuç ${workbook?'etkilenebilir':'desteksiz kalıyor'}`;
+ $('#targets').innerHTML=p.targets.slice(0,200).map(t=>`<div class="target"><b>${esc(label(t))}</b><span class="status ${values[data.roots[t]]?'':'off'}">${values[data.roots[t]]?(workbook?'Referanslar erişilebilir':'Destek yolu var'):(workbook?'Referans kaybı':'Destek yolu yok')}</span>${p.metadata.formula_text?.[t]?'<pre>'+esc(p.metadata.formula_text[t])+'</pre>':''}<div class="muted">Tekil kritik kaynaklar: ${sourceIds.filter(s=>data.source_impacts[s]?.includes(t)).map(s=>esc(label(s))).join(', ')||'Yok'}</div></div>`).join('')+(p.targets.length>200?'<p>İlk 200 sonuç gösteriliyor; JSON çıktısı tam listeyi içerir.</p>':'');}
+@@ -59,6 +59,7 @@
+ const pairs=Object.entries(data.observed_cuts_up_to_two).flatMap(([t,cuts])=>cuts.filter(c=>c.length===2).map(c=>`<li>${esc(label(t))}: ${c.map(s=>esc(label(s))).join(' + ')}</li>`));$('#pairs').innerHTML=pairs.length?'<ul>'+pairs.slice(0,100).join('')+'</ul>':'<p>Yeni bir ikili kesinti bulunmadı.</p>';
+ $('#extra-title').textContent=workbook?'Aynı girdi hücrelerinden türeyen hesaplar':'Aynı kaynağın farklı görünümleri';
+ if(workbook){const groups=p.metadata.same_origin_groups||[];$('#extra').innerHTML=groups.length?'<table><thead><tr><th>Girdi kökleri</th><th>Türeyen hücreler</th></tr></thead><tbody>'+groups.slice(0,60).map(g=>`<tr><td>${g.root_cells.map(esc).join(', ')}</td><td>${g.formula_cells.map(esc).join(', ')}</td></tr>`).join('')+'</tbody></table><p class="muted">Ortak girdi, otomatik olarak yanlış hesap veya yetersiz kanıt demek değildir.</p>':'<p>Çözülen formüller arasında aynı kök kümesi bulunmadı.</p>';}else{$('#extra').innerHTML=sourceIds.map(s=>`<p><b>${esc(label(s))}</b> → ${Object.entries(p.bases).filter(([_,v])=>v===s).map(([k])=>esc(k)).join(', ')}</p>`).join('');}
++const workbookLinks=p.metadata.linked_workbooks||[];$('#workbook-links').innerHTML=workbookLinks.length?'<ul>'+workbookLinks.map(l=>'<li>'+esc(l.from_workbook)+' → '+esc(l.matched_workbook)+'<br><small>'+esc(l.declared_locator)+'</small></li>').join('')+'</ul><p class="muted">Bağlantı yalnız verilen dosyalar arasında, tekil dosya adıyla eşlendi. Dosyanın özgün sürümü veya doğruluğu kanıtlanmış değildir.</p>':'<p>Bu girdide çözülen dosyalar arası bağlantı yok.</p>';
+ const issues=p.metadata.unresolved||[];$('#issues').innerHTML=issues.length?'<ul>'+issues.map(i=>'<li>'+esc(i.cell)+': '+i.reasons.map(esc).join('; ')+'</li>').join('')+'</ul>':'<p>Bu girdide raporlanan çözülemeyen bağlantı yok.</p>';
+ $('#interpretation').textContent=data.interpretation;$('#limits').innerHTML=(p.metadata.assumptions||[]).map(x=>'<li>'+esc(x)+'</li>').join('');$('#rules').textContent=p.rules.slice(0,100).map(r=>r.head+' ← '+(r.body.join(' AND ')||'TRUE')).join('\n');renderSources();update();</script></html>'''
+     path.write_text(page.replace('PAYLOAD', payload))
+--- before/tests/test_workbench.py
++++ after/tests/test_workbench.py
+@@ -151,4 +151,80 @@
+         with self.assertRaises(ValueError):save_analysis(p,output.parent)
+ 
+ 
++
++class WorkbookCollectionTests(unittest.TestCase):
++    def setUp(self):
++        self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
++    def tearDown(self): self.temp.cleanup()
++    def book(self,name,values):
++        from openpyxl import Workbook
++        w=Workbook();w.active.title='Data'
++        for cell,value in values.items():w.active[cell]=value
++        p=self.root/name;w.save(p);w.close();return p
++    def analyze(self,*paths):
++        from workbench.workbooks import analyze_workbooks
++        return analyze_workbooks(paths)
++
++    def test_apache_poi_external_pair_has_two_actual_root_cells(self):
++        folder=Path(__file__).resolve().parents[1]/'examples/public-workbooks'
++        a=folder/'link-external-workbook-a.xlsx';b=folder/'link-external-workbook-b.xlsx'
++        before={p:p.read_bytes() for p in (a,b)}
++        p=self.analyze(b,a)
++        self.assertEqual(set(p.sources),{a.name+'::Sheet0!A1',a.name+'::Sheet0!B1'})
++        self.assertEqual(p.targets,(b.name+'::Sheet0!A1',))
++        self.assertEqual(p.metadata['unresolved'],[])
++        self.assertEqual(len(p.metadata['linked_workbooks']),1)
++        self.assertFalse(R207Batch(p).solve([{p.sources[0]}])[0][p.targets[0]])
++        self.assertTrue(all(file.read_bytes()==data for file,data in before.items()))
++
++    def test_transitive_derivatives_across_files_share_one_origin(self):
++        a=self.book('origin.xlsx',{'A1':17})
++        b=self.book('extract.xlsx',{'A1':"='[origin.xlsx]Data'!A1"})
++        c=self.book('summary.xlsx',{'A1':"='[extract.xlsx]Data'!A1",'B1':"='[origin.xlsx]Data'!A1"})
++        p=self.analyze(c,b,a)
++        self.assertEqual(p.sources,('origin.xlsx::Data!A1',))
++        self.assertEqual(set(p.targets),{'summary.xlsx::Data!A1','summary.xlsx::Data!B1'})
++        groups=p.metadata['same_origin_groups']
++        self.assertEqual(len(groups[0]['formula_cells']),3)
++        self.assertTrue(all(not v for v in R207Batch(p).solve([set(p.sources)])[0].values()))
++        self.assertEqual(p.to_dict(),self.analyze(a,b,c).to_dict())
++
++    def test_numeric_external_index_uses_workbook_relationship(self):
++        import shutil
++        from openpyxl import load_workbook
++        folder=Path(__file__).resolve().parents[1]/'examples/public-workbooks'
++        a=self.root/'link-external-workbook-a.xlsx';shutil.copy2(folder/a.name,a)
++        b=self.root/'indexed.xlsx';w=load_workbook(folder/'link-external-workbook-b.xlsx',keep_links=True)
++        w.active['A1']="='[1]Sheet0'!B1";w.save(b);w.close()
++        p=self.analyze(a,b)
++        self.assertEqual(p.sources,(a.name+'::Sheet0!B1',))
++        self.assertEqual(p.metadata['unresolved'],[])
++
++    def test_missing_external_file_blocks_its_downstream_formulas(self):
++        a=self.book('partial.xlsx',{'A1':2,'A2':'=A1','B1':"='[missing.xlsx]Data'!A1",'B2':'=B1'})
++        p=self.analyze(a)
++        self.assertEqual(p.sources,('Data!A1',))
++        self.assertEqual({x['cell'] for x in p.metadata['unresolved']},{'Data!B1','Data!B2'})
++        self.assertIn('not supplied',p.metadata['unresolved'][0]['reasons'][0])
++
++    def test_cycles_across_workbooks_do_not_become_sources(self):
++        a=self.book('a.xlsx',{'A1':2,'A2':'=A1','B1':"='[b.xlsx]Data'!B1"})
++        b=self.book('b.xlsx',{'B1':"='[a.xlsx]Data'!B1",'C1':'=B1'})
++        p=self.analyze(a,b)
++        self.assertEqual(p.sources,('a.xlsx::Data!A1',))
++        self.assertEqual(len(p.metadata['unresolved']),3)
++
++    def test_external_locator_is_matched_only_to_supplied_filename(self):
++        a=self.book('origin file.xlsx',{'A1':8})
++        b=self.book('copy.xlsx',{'A1':"='C:\\unavailable\\[origin file.xlsx]Data'!A1"})
++        p=self.analyze(a,b)
++        self.assertEqual(p.sources,('origin file.xlsx::Data!A1',))
++        self.assertIn('version',p.metadata['linked_workbooks'][0]['resolution'])
++
++    def test_duplicate_filenames_are_ambiguous_not_merged(self):
++        import shutil
++        a=self.book('same.xlsx',{'A1':1,'A2':'=A1'})
++        other=self.root/'other';other.mkdir();b=other/a.name;shutil.copy2(a,b)
++        with self.assertRaisesRegex(ValueError,'Ambiguous'):self.analyze(a,b)
++
+ if __name__ == '__main__': unittest.main()

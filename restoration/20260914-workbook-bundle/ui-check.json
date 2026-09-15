@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "JavaScript/DOM behavior under jsdom, not browser visual verification",
+  "records": [
+    {
+      "file": "examples/linked-workbooks/index.html",
+      "status": "PASS",
+      "checks": [
+        "script execution",
+        "file count",
+        "observed external link",
+        "source search",
+        "cross-file source loss",
+        "reset"
+      ]
+    },
+    {
+      "file": "examples/workbook-folder/index.html",
+      "status": "PASS",
+      "checks": [
+        "script execution",
+        "file count",
+        "observed external link",
+        "source search",
+        "cross-file source loss",
+        "reset"
+      ]
+    }
+  ]
+}

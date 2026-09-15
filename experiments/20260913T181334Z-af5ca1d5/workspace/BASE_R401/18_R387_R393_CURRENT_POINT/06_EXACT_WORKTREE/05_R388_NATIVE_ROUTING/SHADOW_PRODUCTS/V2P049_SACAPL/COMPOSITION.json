@@ -1,0 +1,10 @@
+{
+  "product_id": "V2P049",
+  "short_name": "SACAPL",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "operator": "support-aware covariance geometry -> constrained portfolio policy risk objective",
+  "status": "R388_SHADOW_RETRO50_SAME_PARENT_EXPANSION",
+  "authority": "SHADOW_ONLY_NOT_CANONICAL",
+  "source_frontier": "R388_RETRO50_SAME_PARENT_EXPANSION"
+}

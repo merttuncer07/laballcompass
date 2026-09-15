@@ -1,0 +1,32 @@
+{
+  "mechanism_removing_comparator": "same Wardrop strategic-response project choice using midpoint demand with the CBIA information-acquisition step removed",
+  "evidence_boundary": "synthetic two-project affine Wardrop network; demand prior and measurement cost declared; no transport-demand calibration claim",
+  "result": {
+    "low_best": "B",
+    "high_best": "A",
+    "baseline_midpoint_project": "B",
+    "action_boundary_crossed": true,
+    "cbia_selected": [
+      "demand_probe"
+    ],
+    "measurement_used": true,
+    "gross_information_value": 0.07759733243189615,
+    "measurement_cost": 0.02,
+    "baseline_expected_user_cost": 5.590628515241338,
+    "candidate_expected_user_cost": 5.533031182809442,
+    "gain_vs_removed_information_acquisition": 0.057597332431896575,
+    "low_costs": {
+      "A": 4.653517899510295,
+      "B": 4.266138667675346
+    },
+    "high_costs": {
+      "A": 6.759923697943538,
+      "B": 6.9151183628073305
+    },
+    "midpoint_costs": {
+      "A": 5.706720798574234,
+      "B": 5.590628549467766
+    },
+    "status": "STRATEGIC_RESPONSE_BOUNDARY_MEASURED"
+  }
+}

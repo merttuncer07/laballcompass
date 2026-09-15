@@ -1,0 +1,36 @@
+test_circulation_row_order_invariant (test_engines.CompositionRepairs.test_circulation_row_order_invariant) ... ok
+test_frontier_matches_exhaustive_oracle (test_engines.CompositionRepairs.test_frontier_matches_exhaustive_oracle) ... ok
+test_large_frontier_allocation (test_engines.CompositionRepairs.test_large_frontier_allocation) ... ok
+test_plain_transfer_not_circulation (test_engines.CompositionRepairs.test_plain_transfer_not_circulation) ... ok
+test_transport_invariant_to_row_order (test_engines.CompositionRepairs.test_transport_invariant_to_row_order) ... ok
+test_transport_zero_mass_not_nan (test_engines.CompositionRepairs.test_transport_zero_mass_not_nan) ... ok
+test_aicc_degenerate_observation (test_engines.EngineRepairs.test_aicc_degenerate_observation) ... ok
+test_aicc_rejects_negative_noise (test_engines.EngineRepairs.test_aicc_rejects_negative_noise) ... ok
+test_aicc_rejects_non_psd_belief (test_engines.EngineRepairs.test_aicc_rejects_non_psd_belief) ... ok
+test_csid_duplicate_failure_ids_rejected (test_engines.EngineRepairs.test_csid_duplicate_failure_ids_rejected) ... ok
+test_csid_nan_coverage_rejected (test_engines.EngineRepairs.test_csid_nan_coverage_rejected) ... ok
+test_hfad_empty_edges (test_engines.EngineRepairs.test_hfad_empty_edges) ... ok
+test_hfad_self_loop_has_zero_boundary (test_engines.EngineRepairs.test_hfad_self_loop_has_zero_boundary) ... ok
+test_maslov_deep_proof (test_engines.EngineRepairs.test_maslov_deep_proof) ... ok
+test_maslov_missing_head_rejected (test_engines.EngineRepairs.test_maslov_missing_head_rejected) ... ok
+test_rel_duplicate_relation_ids_rejected (test_engines.EngineRepairs.test_rel_duplicate_relation_ids_rejected) ... ok
+test_rel_empty_inputs_explained (test_engines.EngineRepairs.test_rel_empty_inputs_explained) ... ok
+test_rel_rejects_nan_evidence (test_engines.EngineRepairs.test_rel_rejects_nan_evidence) ... ok
+test_sacps_explicit_validation_separate (test_engines.EngineRepairs.test_sacps_explicit_validation_separate) ... ok
+test_sacps_test_data_does_not_select_model (test_engines.EngineRepairs.test_sacps_test_data_does_not_select_model) ... ok
+test_spec_audit_requires_protected_measurement (test_engines.EngineRepairs.test_spec_audit_requires_protected_measurement) ... ok
+test_spec_negative_cost_rejected (test_engines.EngineRepairs.test_spec_negative_cost_rejected) ... ok
+test_all_kernel_exports_are_accessible (test_recovery_kernels.KernelRecoveryRepairs.test_all_kernel_exports_are_accessible) ... ok
+test_empty_recovered_allocation_explained (test_recovery_kernels.KernelRecoveryRepairs.test_empty_recovered_allocation_explained) ... ok
+test_fractional_sensor_budget_rejected (test_recovery_kernels.KernelRecoveryRepairs.test_fractional_sensor_budget_rejected) ... ok
+test_recovered_observability_selects_independent_directions (test_recovery_kernels.KernelRecoveryRepairs.test_recovered_observability_selects_independent_directions) ... ok
+test_robust_merge_rejects_indefinite_covariance (test_recovery_kernels.KernelRecoveryRepairs.test_robust_merge_rejects_indefinite_covariance) ... ok
+test_shared_capacity_rejects_negative_rewards (test_recovery_kernels.KernelRecoveryRepairs.test_shared_capacity_rejects_negative_rewards) ... ok
+test_single_coordinate_memory (test_recovery_kernels.KernelRecoveryRepairs.test_single_coordinate_memory) ... ok
+test_single_coordinate_recovery_covariance_is_matrix (test_recovery_kernels.KernelRecoveryRepairs.test_single_coordinate_recovery_covariance_is_matrix) ... ok
+test_zero_sensor_budget_has_rank_zero (test_recovery_kernels.KernelRecoveryRepairs.test_zero_sensor_budget_has_rank_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.453s
+
+OK

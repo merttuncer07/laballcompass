@@ -1,0 +1,10 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P014_BATS_V1",
+  "result": {
+    "boundary_crossed": false,
+    "selected_time": null,
+    "spent": 0.0,
+    "status": "ACTION_INVARIANT_SKIP_TIMING"
+  }
+}

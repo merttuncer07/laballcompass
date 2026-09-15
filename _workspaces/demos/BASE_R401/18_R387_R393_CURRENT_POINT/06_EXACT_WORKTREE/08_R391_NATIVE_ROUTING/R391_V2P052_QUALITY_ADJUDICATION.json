@@ -1,0 +1,60 @@
+{
+  "canonical_authority_before_admission": "R390 / Products50 / Quality37",
+  "canonical_authority_mutated": false,
+  "evidence_sha256": {
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/BENCHMARK_RESULT.json": "e45f662b242676d8a8977d036d5a9f478de0b9b78a1570364761358bf022cd93",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/BENCHMARK_SWEEP_RESULT.json": "2cd0b0ab465f30d0ed5ae80b3b2718897bc734575ca82f510d1d7618f3970fad",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/COMPOSITION.json": "f6dfb598cfc2d19420e3c92728164064a13a6c52d59f17f7e81e3cf14ac37a57",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/NOVELTY_REVIEW_R391.json": "03c63449ef0cf18946d43183dc8da8e15a82cbb052ea2799b1dc681a206fd929",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/PRODUCT_RESULT.md": "766c3690c874a9f217bd62628b4e3f480852b4856d596055a277d23241da6b98",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/README.md": "9ba271a188ea925f7877183ad3c7c8c2b2f0631bc915f80ecf2d716b5279c1b5",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/benchmark.py": "a5e02614dc4686ab093666b3e21b3438db9b2bdcba7f85ba0fd25e1a4843e9f4",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/benchmark_sweep.py": "b9ada9a3238fe0b3b63db3c81d227f1324f06fb3e437e97343efb0a3eed58602",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/reicapl.py": "33c12584c380301dee9efd8305134e39f50abfed46cc2c3afb567d5c6fd4495d",
+    "08_R391_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P052_REICAPL/test_reicapl.py": "08708054a839d00d8685a4ae1c5614abea7bbba58d45532e6d24541cf231a94b"
+  },
+  "next_gate": "copy exact shadow bytes into core candidate overlay; refresh; require 51 observed / 50 calibrated before fresh 12-case pilot; then require 51/51 exact-shell closure before promotion",
+  "prior_art_status": "CLOSE_PRIOR_ART_ON_ADAPTIVE_RISK_CONSTRAINTS_AND_RISK_BUDGETING; INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+  "product_id": "V2P052",
+  "quality_basis": {
+    "candidate_asset_caps": [
+      0.8,
+      0.34,
+      0.8
+    ],
+    "control_asset_caps": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "hardened_tests": "12/12 PASS",
+    "minus_0_002_positive_cases": 0,
+    "minus_0_015_positive_cases": 3,
+    "minus_0_020_positive_cases": 3,
+    "missing_or_unknown_record_asset_alignment": "FAIL_CLOSED",
+    "posterior_only_safeguards": [
+      "A"
+    ],
+    "protected_cap_equals_base_collapse": "EXACT",
+    "sensitivity_runs": 15,
+    "sensitivity_shift_cells": 5,
+    "working_gain_vs_posterior_only": 0.0033062367971204805,
+    "working_gain_vs_removed": 0.0019190242303086724,
+    "working_selected_safeguards": [
+      "B"
+    ],
+    "zero_budget_collapse": "EXACT"
+  },
+  "registry455_unchanged": true,
+  "release": "R391",
+  "source_frontier": {
+    "candidate_universe_rank": 11908,
+    "native_score": 16.0,
+    "pair": [
+      "FOUNDRY:P028",
+      "PARENT:R041_CONSTRAINED_POLICY_CAPL"
+    ],
+    "r391_diverse_cluster_selection_rank": 1
+  },
+  "verdict": "ADMIT_R391_CANDIDATE_OVERLAY_PENDING_TELEMETRY_CLOSURE_AND_REGRESSION"
+}

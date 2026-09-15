@@ -1,0 +1,12 @@
+{
+  "complete": 10,
+  "events_added": 10,
+  "events_run": 10,
+  "per_product": {
+    "V2P049": {
+      "complete": 10,
+      "events": 10
+    }
+  },
+  "products": 1
+}

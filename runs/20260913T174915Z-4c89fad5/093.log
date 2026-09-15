@@ -1,0 +1,8 @@
+test_full_retention_has_zero_error (test_twmr.TargetWeightedModelReducerTests.test_full_retention_has_zero_error) ... ok
+test_invalid_dimension_is_rejected (test_twmr.TargetWeightedModelReducerTests.test_invalid_dimension_is_rejected) ... ok
+test_target_reducer_retains_output_relevant_state (test_twmr.TargetWeightedModelReducerTests.test_target_reducer_retains_output_relevant_state) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

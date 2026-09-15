@@ -1,0 +1,21 @@
+{
+  "active_candidate_universe_rows": 16589,
+  "base_registry_records": 310,
+  "canonical_product_authority_release": "R388",
+  "canonical_v2_distinct_families": 35,
+  "canonical_v2_executable_suites": 48,
+  "family_counts": {
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145,
+    "LCB_KERNEL": 96
+  },
+  "foundry_parent_test_files": 69,
+  "foundry_product_directories": 145,
+  "full_candidate_universe_rows": 16594,
+  "operational_queue_rows": 1000,
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "status": "INVENTORY_COMPLETE_AUTHORITY_ALIGNED",
+  "total_addressable_artifacts_including_v2_composites": 358
+}

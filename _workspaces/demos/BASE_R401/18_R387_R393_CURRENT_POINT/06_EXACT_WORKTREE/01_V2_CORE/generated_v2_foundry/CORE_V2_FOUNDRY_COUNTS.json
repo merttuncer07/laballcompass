@@ -1,0 +1,31 @@
+{
+  "records": 310,
+  "families": {
+    "LCB_KERNEL": 96,
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145
+  },
+  "evidence_tiers": {
+    "BENCHMARKED_WITH_NARROW_OR_LOSING_SHELL": 1,
+    "PROTOTYPE_ONLY_OR_PENDING": 1,
+    "MECHANISM_BENCHMARKED": 86,
+    "EXECUTABLE_PROTOTYPE_PROVENANCE_LINK_INCOMPLETE": 3,
+    "SAVED_RESULT_REANALYZED_SOURCE_CODE_ABSENT": 5,
+    "ORIGINAL_EXECUTABLE_PARENT": 69,
+    "ORIGINAL_EXECUTABLE_MATERIAL": 19,
+    "SALVAGED_SOURCE_WITH_REBUILT_TESTS": 3,
+    "NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID": 28,
+    "MECHANISM_RECONSTRUCTED_FROM_RESULTS": 32,
+    "SPEC_EXECUTABLE_FROM_RESULTS": 63
+  },
+  "candidate_edges": 16594,
+  "candidate_universe_rows": 16594,
+  "active_candidate_rows": 16589,
+  "queue_rows": 1000,
+  "queue_pinned_rows": 52,
+  "queue_completed_suite_rows": 52,
+  "curated_edges": 12,
+  "rejected_current_interface_edges": 5,
+  "standardized_telemetry_events": 447,
+  "calibrated_completed_suites": 52
+}

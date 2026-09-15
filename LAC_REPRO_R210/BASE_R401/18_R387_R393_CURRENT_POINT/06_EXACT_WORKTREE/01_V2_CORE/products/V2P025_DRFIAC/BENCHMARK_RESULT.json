@@ -1,0 +1,11 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P025_DRFIAC_V1",
+  "result": {
+    "blocked": [
+      "contaminated_high_value"
+    ],
+    "choice": "clean_decision_relevant",
+    "status": "DRE_RANKED_CLEAN_FIAC_CHANNEL"
+  }
+}

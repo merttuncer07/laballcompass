@@ -1,0 +1,12 @@
+{
+  "consumer_id": "LCB-K068",
+  "difference_from_nearest": "IDASRO maps an identification envelope into a declared shift decision; BOSARO endogenously inflates the uncertainty radius from cohort support erosion",
+  "mechanism_removing_comparator": "same directional robust optimizer with support fraction forced to 1.0",
+  "nearest_existing_product": "V2P006_IDASRO",
+  "new_failure_mode": "robust optimization uses a fixed uncertainty radius even after the effective support behind the estimate collapses",
+  "non_additive_interaction": "BOSA support changes the uncertainty-set geometry inside the robust objective, altering the optimal action",
+  "product_id": "V2P038",
+  "short_name": "BOSARO",
+  "supplier_id": "FOUNDRY:P140",
+  "verdict": "DISTINCT_PRODUCT"
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "problem": {
+    "schema_version": 1,
+    "id": "shared_source_and_alternative_route",
+    "mode": "declared_support",
+    "bases": {
+      "ledger": "client_ledger",
+      "extract": "client_ledger",
+      "slide": "client_ledger",
+      "confirmation": "external_confirmation",
+      "receipt": "receipt_record"
+    },
+    "rules": [
+      {
+        "head": "reconciliation",
+        "body": [
+          "ledger",
+          "extract"
+        ]
+      },
+      {
+        "head": "summary_check",
+        "body": [
+          "slide"
+        ]
+      },
+      {
+        "head": "claim",
+        "body": [
+          "reconciliation",
+          "summary_check"
+        ]
+      },
+      {
+        "head": "claim",
+        "body": [
+          "confirmation",
+          "receipt"
+        ]
+      }
+    ],
+    "targets": [
+      "claim",
+      "reconciliation",
+      "summary_check"
+    ],
+    "metadata": {
+      "origin": "Synthetic, explicitly declared support rules; not extracted audit assertions.",
+      "title": "Üç görünüm, bir kaynak; ikinci bir destek yolu",
+      "labels": {
+        "client_ledger": "Müşteri defteri (3 türev görünüm)",
+        "external_confirmation": "Harici teyit kaydı",
+        "receipt_record": "Tahsilat kaydı",
+        "claim": "Örnek iddia",
+        "reconciliation": "Mutabakat",
+        "summary_check": "Özet kontrolü"
+      },
+      "assumptions": [
+        "Either declared route suffices only in this synthetic example.",
+        "Distinct source IDs do not prove statistical independence."
+      ]
+    }
+  },
+  "engine": "R207 compiled circuit + bitset evaluation",
+  "circuit_nodes": [
+    [
+      "false",
+      null
+    ],
+    [
+      "true",
+      null
+    ],
+    [
+      "var",
+      "client_ledger"
+    ],
+    [
+      "var",
+      "external_confirmation"
+    ],
+    [
+      "var",
+      "receipt_record"
+    ],
+    [
+      "and",
+      [
+        3,
+        4
+      ]
+    ],
+    [
+      "or",
+      [
+        2,
+        5
+      ]
+    ]
+  ],
+  "roots": {
+    "claim": 6,
+    "reconciliation": 2,
+    "summary_check": 2
+  },
+  "source_impacts": {
+    "client_ledger": [
+      "reconciliation",
+      "summary_check"
+    ],
+    "external_confirmation": [],
+    "receipt_record": []
+  },
+  "observed_cuts_up_to_two": {
+    "claim": [
+      [
+        "client_ledger",
+        "external_confirmation"
+      ],
+      [
+        "client_ledger",
+        "receipt_record"
+      ]
+    ],
+    "reconciliation": [
+      [
+        "client_ledger"
+      ]
+    ],
+    "summary_check": [
+      [
+        "client_ledger"
+      ]
+    ]
+  },
+  "scenario_count": 8,
+  "cut_scope": "All single-source failures and at most 512 sampled source pairs. Pair lists are not exhaustive when the source count is large; larger cuts are not searched.",
+  "interpretation": "Availability under the explicitly declared support rules; not correctness of the conclusion.",
+  "mechanism_receipt": {
+    "id": "R207",
+    "source": "LAC_REPRO_R210/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "invoked_functions": [
+      "Rule",
+      "compile_circuit_acyclic"
+    ],
+    "extension": "R207Batch evaluates the compiled circuit over integer bitsets; it is a new adapter, not historical R207 code."
+  }
+}

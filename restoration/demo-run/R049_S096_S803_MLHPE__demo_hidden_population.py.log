@@ -1,0 +1,205 @@
+{
+  "three_list_audit": {
+    "observed_population": 580,
+    "models": [
+      {
+        "model": "independence",
+        "interactions": [],
+        "parameters": 4,
+        "residual_degrees_of_freedom": 3,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -53.142194580164286,
+        "aic": 114.28438916032857,
+        "bic": 131.73650157449043,
+        "unseen_estimate": 242.3141678461426,
+        "unseen_confidence_low": 196.0086066527989,
+        "unseen_confidence_high": 299.5590700921404,
+        "total_population_estimate": 822.3141678461426,
+        "interaction_multipliers": {},
+        "maximum_absolute_pearson_residual": 3.8171032355955448,
+        "akaike_weight": 2.16181287102581e-13
+      },
+      {
+        "model": "AB",
+        "interactions": [
+          "AB"
+        ],
+        "parameters": 5,
+        "residual_degrees_of_freedom": 2,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -23.87405453227474,
+        "aic": 57.74810906454948,
+        "bic": 79.56324958225181,
+        "unseen_estimate": 450.90827329722646,
+        "unseen_confidence_low": 345.22446584016757,
+        "unseen_confidence_high": 588.9451387319078,
+        "total_population_estimate": 1030.9082732972265,
+        "interaction_multipliers": {
+          "AB": 4.092925567859365
+        },
+        "maximum_absolute_pearson_residual": 1.621690546918135,
+        "akaike_weight": 0.4088041864966726
+      },
+      {
+        "model": "AC",
+        "interactions": [
+          "AC"
+        ],
+        "parameters": 5,
+        "residual_degrees_of_freedom": 2,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -49.07724637503303,
+        "aic": 108.15449275006605,
+        "bic": 129.9696332677684,
+        "unseen_estimate": 190.90927187879444,
+        "unseen_confidence_low": 145.46913055279308,
+        "unseen_confidence_high": 250.5435342247027,
+        "total_population_estimate": 770.9092718787945,
+        "interaction_multipliers": {
+          "AC": 0.5832765315119838
+        },
+        "maximum_absolute_pearson_residual": 4.369487857336464,
+        "akaike_weight": 4.63348958354022e-12
+      },
+      {
+        "model": "BC",
+        "interactions": [
+          "BC"
+        ],
+        "parameters": 5,
+        "residual_degrees_of_freedom": 2,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -50.640483380139386,
+        "aic": 111.28096676027877,
+        "bic": 133.0961072779811,
+        "unseen_estimate": 204.70585418331947,
+        "unseen_confidence_low": 157.76057035648938,
+        "unseen_confidence_high": 265.62078624735864,
+        "total_population_estimate": 784.7058541833195,
+        "interaction_multipliers": {
+          "BC": 0.6573006625876998
+        },
+        "maximum_absolute_pearson_residual": 4.366183561986915,
+        "akaike_weight": 9.705166395911488e-13
+      },
+      {
+        "model": "AB+AC",
+        "interactions": [
+          "AB",
+          "AC"
+        ],
+        "parameters": 6,
+        "residual_degrees_of_freedom": 1,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -23.39462220350387,
+        "aic": 58.78924440700774,
+        "bic": 84.96741302825053,
+        "unseen_estimate": 533.3362230143334,
+        "unseen_confidence_low": 344.7131571079369,
+        "unseen_confidence_high": 825.1716562420864,
+        "total_population_estimate": 1113.3362230143334,
+        "interaction_multipliers": {
+          "AB": 4.645177632705522,
+          "AC": 1.2698489062389964
+        },
+        "maximum_absolute_pearson_residual": 1.2713720487968498,
+        "akaike_weight": 0.24290455989295545
+      },
+      {
+        "model": "AB+BC",
+        "interactions": [
+          "AB",
+          "BC"
+        ],
+        "parameters": 6,
+        "residual_degrees_of_freedom": 1,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -23.0342517485238,
+        "aic": 58.0685034970476,
+        "bic": 84.24667211829039,
+        "unseen_estimate": 548.5716341302863,
+        "unseen_confidence_low": 365.0932187845448,
+        "unseen_confidence_high": 824.2575383191744,
+        "total_population_estimate": 1128.5716341302864,
+        "interaction_multipliers": {
+          "AB": 4.747256517183608,
+          "BC": 1.35338201089775
+        },
+        "maximum_absolute_pearson_residual": 1.1198108222095413,
+        "akaike_weight": 0.34829125295832686
+      },
+      {
+        "model": "AC+BC",
+        "interactions": [
+          "AC",
+          "BC"
+        ],
+        "parameters": 6,
+        "residual_degrees_of_freedom": 1,
+        "converged": true,
+        "status": "ESTIMATED_WITH_RESIDUAL_DF",
+        "log_likelihood": -43.13940940744018,
+        "aic": 98.27881881488037,
+        "bic": 124.45698743612316,
+        "unseen_estimate": 133.33321702050856,
+        "unseen_confidence_low": 95.25214298470483,
+        "unseen_confidence_high": 186.63881151621658,
+        "total_population_estimate": 713.3332170205085,
+        "interaction_multipliers": {
+          "AC": 0.46783721719546906,
+          "BC": 0.5128202695258149
+        },
+        "maximum_absolute_pearson_residual": 4.831881168133377,
+        "akaike_weight": 6.462246776657484e-10
+      },
+      {
+        "model": "AB+AC+BC",
+        "interactions": [
+          "AB",
+          "AC",
+          "BC"
+        ],
+        "parameters": 7,
+        "residual_degrees_of_freedom": 0,
+        "converged": true,
+        "status": "SATURATED_OBSERVED_TABLE",
+        "log_likelihood": -21.30798131817393,
+        "aic": 56.61596263634786,
+        "bic": 87.15715936113111,
+        "unseen_estimate": 914.2879405786758,
+        "unseen_confidence_low": 463.9082782492088,
+        "unseen_confidence_high": 1801.9131743938046,
+        "total_population_estimate": 1494.2879405786757,
+        "interaction_multipliers": {
+          "AB": 6.857157841036094,
+          "AC": 1.666669451018536,
+          "BC": 1.7142882072944148
+        },
+        "maximum_absolute_pearson_residual": 5.707633363358804e-06,
+        "akaike_weight": 0.0
+      }
+    ],
+    "best_aic_model": "AB",
+    "best_aic_total": 1030.9082732972265,
+    "model_averaged_total": 1084.9456922520928,
+    "total_estimate_minimum": 713.3332170205085,
+    "total_estimate_maximum": 1494.2879405786757,
+    "total_estimate_ratio": 2.0947965199491256,
+    "dependence_sensitivity": "HIGH",
+    "saturated_models_excluded_from_selection": true
+  },
+  "two_list_chapman_reference": {
+    "list_one": 255,
+    "list_two": 265,
+    "overlap": 135,
+    "population_estimate": 499.70588235294116,
+    "standard_error": 20.474999894762544,
+    "unseen_estimate": 114.70588235294116
+  }
+}

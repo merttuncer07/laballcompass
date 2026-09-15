@@ -1,0 +1,12 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P027_DRMPHA_V1",
+  "result": {
+    "audit_order": [
+      "aggressive",
+      "robust"
+    ],
+    "selected": "robust",
+    "status": "DRE_ORDER_FROZEN_BEFORE_PROTECTED_HOLDOUT"
+  }
+}

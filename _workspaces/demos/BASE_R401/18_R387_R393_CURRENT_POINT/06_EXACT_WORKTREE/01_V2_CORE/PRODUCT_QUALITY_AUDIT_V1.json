@@ -1,0 +1,298 @@
+{
+  "accounting_note": "Telemetry counts executable composition suites. Product-family count collapses near-duplicate routing/precondition variants and is the number to use when discussing genuinely distinct products.",
+  "distinct_families_pre_quality_batch": 18,
+  "distinct_product_families": 28,
+  "legacy_variant_groups": {
+    "BOUNDARY_GATE_ROUTING_VARIANTS": [
+      "V2P014",
+      "V2P015",
+      "V2P016"
+    ],
+    "DRE_OUTBOUND_ROUTING_VARIANTS": [
+      "V2P025",
+      "V2P026",
+      "V2P027"
+    ],
+    "DRE_PRECONDITION_VARIANTS": [
+      "V2P017",
+      "V2P018",
+      "V2P020",
+      "V2P021",
+      "V2P022",
+      "V2P023",
+      "V2P024"
+    ]
+  },
+  "model_version": "PRODUCT_QUALITY_AUDIT_V1",
+  "new_distinct_products_batch4": 10,
+  "policy_path": "PRODUCT_QUALITY_POLICY.md",
+  "raw_completed_executable_suites": 38,
+  "rows": [
+    {
+      "directory": "V2P001_SAVA",
+      "family_id": "V2P001",
+      "product_id": "V2P001",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P002_MFQA",
+      "family_id": "V2P002",
+      "product_id": "V2P002",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P003_MFPD",
+      "family_id": "V2P003",
+      "product_id": "V2P003",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P004_OPIA",
+      "family_id": "V2P004",
+      "product_id": "V2P004",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P005_EDSANP",
+      "family_id": "V2P005",
+      "product_id": "V2P005",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P006_IDASRO",
+      "family_id": "V2P006",
+      "product_id": "V2P006",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P007_CPDBE",
+      "family_id": "V2P007",
+      "product_id": "V2P007",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P008_TGCARS",
+      "family_id": "V2P008",
+      "product_id": "V2P008",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P009_SGMB",
+      "family_id": "V2P009",
+      "product_id": "V2P009",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P010_SCSPIA",
+      "family_id": "V2P010",
+      "product_id": "V2P010",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P011_BIVCP",
+      "family_id": "V2P011",
+      "product_id": "V2P011",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P012_SARCP",
+      "family_id": "V2P012",
+      "product_id": "V2P012",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P013_CADRE",
+      "family_id": "V2P013",
+      "product_id": "V2P013",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P014_BATS",
+      "family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "product_id": "V2P014",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P015_BGTW",
+      "family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "product_id": "V2P015",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P016_BVRP",
+      "family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "product_id": "V2P016",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P017_CCDRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P017",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P018_WTDRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P018",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P019_STHA",
+      "family_id": "V2P019",
+      "product_id": "V2P019",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P020_PADRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P020",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P021_BMDRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P021",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P022_CFDRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P022",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P023_CODRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P023",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P024_HPDRE",
+      "family_id": "DRE_PRECONDITION_VARIANTS",
+      "product_id": "V2P024",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P025_DRFIAC",
+      "family_id": "DRE_OUTBOUND_ROUTING_VARIANTS",
+      "product_id": "V2P025",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P026_DRSVCO",
+      "family_id": "DRE_OUTBOUND_ROUTING_VARIANTS",
+      "product_id": "V2P026",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P027_DRMPHA",
+      "family_id": "DRE_OUTBOUND_ROUTING_VARIANTS",
+      "product_id": "V2P027",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "rationale": "Executable edge retained for telemetry/provenance, but not counted as a separate distinct product family without deeper operator-level evidence."
+    },
+    {
+      "directory": "V2P028_SCFIAC",
+      "family_id": "V2P028",
+      "product_id": "V2P028",
+      "quality_accounting": "LEGACY_DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P029_SUSCA",
+      "family_id": "V2P029",
+      "product_id": "V2P029",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P030_PCFDLW",
+      "family_id": "V2P030",
+      "product_id": "V2P030",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P031_QDRA",
+      "family_id": "V2P031",
+      "product_id": "V2P031",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P032_SPITWMR",
+      "family_id": "V2P032",
+      "product_id": "V2P032",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P033_VCMF",
+      "family_id": "V2P033",
+      "product_id": "V2P033",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P034_SCOPG",
+      "family_id": "V2P034",
+      "product_id": "V2P034",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P035_ISTAICC",
+      "family_id": "V2P035",
+      "product_id": "V2P035",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P036_PCFMCSC",
+      "family_id": "V2P036",
+      "product_id": "V2P036",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P037_DWPCFT",
+      "family_id": "V2P037",
+      "product_id": "V2P037",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    },
+    {
+      "directory": "V2P038_BOSARO",
+      "family_id": "V2P038",
+      "product_id": "V2P038",
+      "quality_accounting": "DISTINCT_PRODUCT",
+      "rationale": "Counted as a distinct product family at current audit granularity."
+    }
+  ]
+}

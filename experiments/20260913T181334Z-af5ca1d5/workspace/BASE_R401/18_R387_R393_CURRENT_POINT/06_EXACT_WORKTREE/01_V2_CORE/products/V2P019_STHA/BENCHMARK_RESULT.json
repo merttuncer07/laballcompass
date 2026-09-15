@@ -1,0 +1,9 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P019_STHA_V1",
+  "result": {
+    "ess_fraction": 0.42,
+    "selected": null,
+    "status": "SUPPORT_TIP_ABORTS_HOLDOUT_SELECTION"
+  }
+}

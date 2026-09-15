@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "PARENT:IM340_IM280_CWC",
+  "difference_from_nearest": "STHA uses a tipping signal to abstain from a holdout audit; MTCWC uses a tipping signal to alter the internal state-transition/reset law of a continuing feedback controller.",
+  "directory": "V2P046_MTCWC",
+  "diversified_selected_rank": 35,
+  "external_prior_art": [
+    "Adaptive conformal methods with structural-break/change-point detection and calibration-window reset are established; recent 2026 online conformal work also targets faster shift adaptation."
+  ],
+  "external_prior_art_status": "VERY_CLOSE_PRIOR_ART",
+  "family_id": "V2P046",
+  "mechanism_removing_comparator": "same residual stream and CWC gains with tipping signal/state reset removed",
+  "nearest_existing_product": "V2P019_STHA",
+  "new_failure_mode": "A feedback calibration controller adapts too slowly after an externally observable mechanism/stress parameter crosses a certificate-breaking surface.",
+  "non_additive_interaction": "MCST tipping changes the controller state transition by resetting its learned width state; this is neither a pre-gate nor a changed measurement stream.",
+  "product_id": "V2P046",
+  "quality_accounting": "R386_DISTINCT_PRODUCT",
+  "raw_native_rank": 78,
+  "short_name": "MTCWC",
+  "supplier_id": "FOUNDRY:P037",
+  "test_files": [
+    "test_mtcwc.py"
+  ],
+  "verdict": "DISTINCT_PRODUCT"
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "problem": {
+    "schema_version": 1,
+    "id": "workbook_2e3d1a6d7e15",
+    "mode": "static_formula_lineage",
+    "bases": {
+      "link-external-workbook-a.xlsx::Sheet0!A1": "link-external-workbook-a.xlsx::Sheet0!A1",
+      "link-external-workbook-a.xlsx::Sheet0!B1": "link-external-workbook-a.xlsx::Sheet0!B1"
+    },
+    "rules": [
+      {
+        "head": "link-external-workbook-b.xlsx::Sheet0!A1",
+        "body": [
+          "link-external-workbook-a.xlsx::Sheet0!A1",
+          "link-external-workbook-a.xlsx::Sheet0!B1"
+        ]
+      }
+    ],
+    "targets": [
+      "link-external-workbook-b.xlsx::Sheet0!A1"
+    ],
+    "metadata": {
+      "title": "2 workbooks: link-external-workbook-a.xlsx, link-external-workbook-b.xlsx",
+      "input_sha256": "2e3d1a6d7e156f374c63eedfec84fadeb9049508251c1bde38c6f312bc340bd0",
+      "input_files": [
+        {
+          "name": "link-external-workbook-a.xlsx",
+          "sha256": "930049ddea88c58fbef66620fcba333790aed8da9a003ab209da6955fee1f5c2"
+        },
+        {
+          "name": "link-external-workbook-b.xlsx",
+          "sha256": "6e0e5c2aa3bf870cfeba03cb2350c312c639f2875b6501029d0bc134916b2361"
+        }
+      ],
+      "linked_workbooks": [
+        {
+          "from_workbook": "link-external-workbook-b.xlsx",
+          "declared_locator": "link-external-workbook-a.xlsx",
+          "matched_workbook": "link-external-workbook-a.xlsx",
+          "resolution": "Unique supplied filename match; workbook version and authenticity are not established."
+        }
+      ],
+      "origin": "Workbook formulas parsed automatically; workbook values were not recalculated.",
+      "labels": {
+        "link-external-workbook-a.xlsx::Sheet0!A1": "link-external-workbook-a.xlsx::Sheet0!A1",
+        "link-external-workbook-a.xlsx::Sheet0!B1": "link-external-workbook-a.xlsx::Sheet0!B1",
+        "link-external-workbook-b.xlsx::Sheet0!A1": "link-external-workbook-b.xlsx::Sheet0!A1"
+      },
+      "formula_text": {
+        "link-external-workbook-b.xlsx::Sheet0!A1": "=SUM('[link-external-workbook-a.xlsx]Sheet0'!A1:B1)"
+      },
+      "formula_count": 1,
+      "resolved_formula_count": 1,
+      "unresolved": [],
+      "same_origin_groups": [],
+      "assumptions": [
+        "All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.",
+        "Distinct root cells are not evidence of statistically independent sources.",
+        "External links resolve only to uniquely named, explicitly supplied files. Missing files, dynamic/table references and cyclic paths remain unresolved; no external file was fetched.",
+        "Matching a referenced filename does not prove that the supplied file is the original version or is authentic.",
+        "Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion."
+      ]
+    }
+  },
+  "engine": "R207 compiled circuit + bitset evaluation",
+  "circuit_nodes": [
+    [
+      "false",
+      null
+    ],
+    [
+      "true",
+      null
+    ],
+    [
+      "var",
+      "link-external-workbook-a.xlsx::Sheet0!A1"
+    ],
+    [
+      "var",
+      "link-external-workbook-a.xlsx::Sheet0!B1"
+    ],
+    [
+      "and",
+      [
+        2,
+        3
+      ]
+    ]
+  ],
+  "roots": {
+    "link-external-workbook-b.xlsx::Sheet0!A1": 4
+  },
+  "source_impacts": {
+    "link-external-workbook-a.xlsx::Sheet0!A1": [
+      "link-external-workbook-b.xlsx::Sheet0!A1"
+    ],
+    "link-external-workbook-a.xlsx::Sheet0!B1": [
+      "link-external-workbook-b.xlsx::Sheet0!A1"
+    ]
+  },
+  "observed_cuts_up_to_two": {
+    "link-external-workbook-b.xlsx::Sheet0!A1": [
+      [
+        "link-external-workbook-a.xlsx::Sheet0!A1"
+      ],
+      [
+        "link-external-workbook-a.xlsx::Sheet0!B1"
+      ]
+    ]
+  },
+  "scenario_count": 4,
+  "cut_scope": "All single-source failures and at most 512 sampled source pairs. Pair lists are not exhaustive when the source count is large; larger cuts are not searched.",
+  "interpretation": "Potential static formula dependency; not a necessary value change or an audit conclusion.",
+  "mechanism_receipt": {
+    "id": "R207",
+    "source": "LAC_REPRO_R210/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "invoked_functions": [
+      "Rule",
+      "compile_circuit_acyclic"
+    ],
+    "extension": "R207Batch evaluates the compiled circuit over integer bitsets; it is a new adapter, not historical R207 code."
+  }
+}

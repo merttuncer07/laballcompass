@@ -1,0 +1,11 @@
+test_boundary_equal (test_drsvco.T.test_boundary_equal) ... ok
+test_comparator_diff (test_drsvco.T.test_comparator_diff) ... ok
+test_crossing_prioritized (test_drsvco.T.test_crossing_prioritized) ... ok
+test_empty (test_drsvco.T.test_empty) ... ok
+test_invalid (test_drsvco.T.test_invalid) ... ok
+test_no_crossing_leverage (test_drsvco.T.test_no_crossing_leverage) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

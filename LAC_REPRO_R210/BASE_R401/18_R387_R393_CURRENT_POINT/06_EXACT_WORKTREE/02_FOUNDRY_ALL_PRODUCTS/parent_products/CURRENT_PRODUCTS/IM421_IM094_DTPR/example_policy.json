@@ -1,0 +1,32 @@
+{
+  "policy_name": "emergency-dispatch-v1",
+  "adjacency": "add_remove",
+  "total_epsilon": 1.0,
+  "epsilon_per_run": 0.25,
+  "allocation": "decision_weighted",
+  "decisions": [
+    {
+      "name": "dispatch_emergency_team",
+      "query": {
+        "type": "count_where",
+        "column": "urgent",
+        "equals": true
+      },
+      "thresholds": [5],
+      "actions": ["monitor", "dispatch"],
+      "consequence_weight": 5.0
+    },
+    {
+      "name": "publish_descriptive_load_band",
+      "query": {
+        "type": "bounded_sum",
+        "column": "load_units",
+        "lower": 0,
+        "upper": 10
+      },
+      "thresholds": [50],
+      "actions": ["normal", "high"],
+      "consequence_weight": 0.0
+    }
+  ]
+}

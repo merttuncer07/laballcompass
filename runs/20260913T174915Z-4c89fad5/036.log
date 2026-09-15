@@ -1,0 +1,11 @@
+test_exact (test_bgtw.T.test_exact) ... ok
+test_insufficient (test_bgtw.T.test_insufficient) ... ok
+test_mechanism_removal (test_bgtw.T.test_mechanism_removal) ... ok
+test_negative (test_bgtw.T.test_negative) ... ok
+test_preserve (test_bgtw.T.test_preserve) ... ok
+test_spend (test_bgtw.T.test_spend) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

@@ -1,0 +1,29 @@
+{
+  "scope": "Actual upstream source and expected-value tests downloaded for inspection, not executed as NetworkX",
+  "files": [
+    {
+      "file": "edmondskarp.py",
+      "url": "https://raw.githubusercontent.com/networkx/networkx/main/networkx/algorithms/flow/edmondskarp.py",
+      "bytes": 8884,
+      "sha256": "aa7e7171ef072ac5acb1613e9a6381ab0495da5eea09b6bd3a2b837a4c60e16e"
+    },
+    {
+      "file": "utils.py",
+      "url": "https://raw.githubusercontent.com/networkx/networkx/main/networkx/algorithms/flow/utils.py",
+      "bytes": 7676,
+      "sha256": "2c0f413bf34ef93ccc3191cd090018a5e9a1953af4cf23cfdae0f02d38ba26f5"
+    },
+    {
+      "file": "test_maxflow.py",
+      "url": "https://raw.githubusercontent.com/networkx/networkx/main/networkx/algorithms/flow/tests/test_maxflow.py",
+      "bytes": 21343,
+      "sha256": "d67e7ee118a5320f57b11b986d5ccb7f2a8ff61205d489768e22b9ca127419ab"
+    },
+    {
+      "file": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/networkx/networkx/main/LICENSE.txt",
+      "bytes": 1763,
+      "sha256": "6025f323ea29dc2f0ee0abd9523bf910186f55b0e148e6ebf646c55566278e2e"
+    }
+  ]
+}

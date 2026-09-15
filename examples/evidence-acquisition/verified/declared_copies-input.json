@@ -1,0 +1,67 @@
+{
+  "evidence": {
+    "current_estimate": 0.0,
+    "current_standard_error": 1.0,
+    "historical": [
+      {
+        "name": "view_0",
+        "estimate": 0.0,
+        "standard_error": 1.0,
+        "observation_id": "one_record"
+      },
+      {
+        "name": "view_1",
+        "estimate": 0.0,
+        "standard_error": 1.0,
+        "observation_id": "one_record"
+      },
+      {
+        "name": "view_2",
+        "estimate": 0.0,
+        "standard_error": 1.0,
+        "observation_id": "one_record"
+      },
+      {
+        "name": "view_3",
+        "estimate": 0.0,
+        "standard_error": 1.0,
+        "observation_id": "one_record"
+      },
+      {
+        "name": "view_4",
+        "estimate": 0.0,
+        "standard_error": 1.0,
+        "observation_id": "one_record"
+      }
+    ]
+  },
+  "decision": {
+    "action_names": [
+      "hold",
+      "act"
+    ],
+    "action_slopes": [
+      [
+        0.0
+      ],
+      [
+        1.0
+      ]
+    ],
+    "action_intercepts": [
+      0.0,
+      -0.0
+    ],
+    "future_error_relation": "independent_of_evidence",
+    "channels": [
+      {
+        "name": "new_independent_measurement",
+        "measurement_vector": [
+          1.0
+        ],
+        "noise_variance": 1.0,
+        "cost": 0.15
+      }
+    ]
+  }
+}

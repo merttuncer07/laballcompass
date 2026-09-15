@@ -1,0 +1,352 @@
+{
+  "status": "FULL_SEARCH",
+  "documents_total": 4310,
+  "query_features_changed": 166,
+  "documents_affected_by_delta": 4310,
+  "exact_rescored_this_update": 4310,
+  "exact_score_computations_total": 4310,
+  "reused_without_rescore": 0,
+  "competitive_frontier_size": 4310,
+  "hits": [
+    {
+      "rank": 1,
+      "document_id": "FOUNDRY:P137",
+      "name": "P137 MPHA",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 58.3,
+      "score_lower": 58.3,
+      "score_upper": 58.3,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P137 MPHA — Memory-Policy Holdout Audit",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "document_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "name": "R044_DECISION_LOSS_DLEW",
+      "family": "FOUNDRY_PARENT",
+      "score": 39.0,
+      "score_lower": 39.0,
+      "score_upper": 39.0,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R044_DECISION_LOSS_DLEW"
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "document_id": "PARENT:R018_M866_M880_MCSC",
+      "name": "R018_M866_M880_MCSC",
+      "family": "FOUNDRY_PARENT",
+      "score": 37.25,
+      "score_lower": 37.25,
+      "score_upper": 37.25,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R018_M866_M880_MCSC"
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "document_id": "PARENT:IM334_IM094_DRE",
+      "name": "IM334_IM094_DRE",
+      "family": "FOUNDRY_PARENT",
+      "score": 34.2,
+      "score_lower": 34.2,
+      "score_upper": 34.2,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 3,
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM334_IM094_DRE"
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "document_id": "FOUNDRY:P059",
+      "name": "P059 SBTE",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 33.1,
+      "score_lower": 33.1,
+      "score_upper": 33.1,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P059 SBTE v0.1 — Safeguard Budget Tipping Explorer",
+          "parents": "CSID → TDSX. At each budget, CSID chooses its economically preferred safeguard portfolio. TDSX finds the nearest budget where the selected portfolio reaches a declared residual-loss target."
+        }
+      }
+    },
+    {
+      "rank": 6,
+      "document_id": "PARENT:R045_TARGET_MEMORY_ATRC",
+      "name": "R045_TARGET_MEMORY_ATRC",
+      "family": "FOUNDRY_PARENT",
+      "score": 32.8,
+      "score_lower": 32.8,
+      "score_upper": 32.8,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R045_TARGET_MEMORY_ATRC"
+        }
+      }
+    },
+    {
+      "rank": 7,
+      "document_id": "FOUNDRY:P057",
+      "name": "P057 FIAC",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 32.6,
+      "score_lower": 32.6,
+      "score_upper": 32.6,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P057 FIAC v0.1 — Firewalled Information Acquisition Controller",
+          "parents": "MIFF → AICC. MIFF removes suspect-source information-flow paths to the protected controller; AICC then ranks only the channels whose source modules remain reachable after the firewall."
+        }
+      }
+    },
+    {
+      "rank": 8,
+      "document_id": "LCB-R50-149",
+      "name": "overlap-aware marginal allocation",
+      "family": "LCB_KERNEL",
+      "score": 31.5,
+      "score_lower": 31.5,
+      "score_upper": 31.5,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r50_saved_results_no_executable_source_in_rescue",
+          "adoption_state": "CONFIRMED_COMPONENT_STANDALONE_SHELL_OPEN"
+        }
+      }
+    },
+    {
+      "rank": 9,
+      "document_id": "FOUNDRY:P145",
+      "name": "P145 RTHA",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 31.35,
+      "score_lower": 31.35,
+      "score_upper": 31.35,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P145 RTHA — Restart-Threshold Holdout Audit",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        }
+      }
+    },
+    {
+      "rank": 10,
+      "document_id": "FOUNDRY:P140",
+      "name": "P140 BOSA",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 30.4,
+      "score_lower": 30.4,
+      "score_upper": 30.4,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P140 BOSA — Burnout Overlap Support Audit",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        }
+      }
+    },
+    {
+      "rank": 11,
+      "document_id": "FOUNDRY:P091",
+      "name": "P091 DCBT",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 30.15,
+      "score_lower": 30.15,
+      "score_upper": 30.15,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P091_DCBT — Decision Compression Budget Tipping",
+          "parents": "UNEXTRACTED"
+        }
+      }
+    },
+    {
+      "rank": 12,
+      "document_id": "FOUNDRY:P010",
+      "name": "P010 DPHO",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 29.75,
+      "score_lower": 29.75,
+      "score_upper": 29.75,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "Deployment Policy Holdout",
+          "parents": "CDBL + ACSA"
+        }
+      }
+    },
+    {
+      "rank": 13,
+      "document_id": "FOUNDRY:P110",
+      "name": "P110 MBTS",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 29.65,
+      "score_lower": 29.65,
+      "score_upper": 29.65,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "Mortgage Burnout Tipping Surface",
+          "parents": "MBPF + TDSX"
+        }
+      }
+    },
+    {
+      "rank": 14,
+      "document_id": "FOUNDRY:P138",
+      "name": "P138 SPIA",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 29.4,
+      "score_lower": 29.4,
+      "score_upper": 29.4,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P138 SPIA — Search-Policy Information Acquisition",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        }
+      }
+    },
+    {
+      "rank": 15,
+      "document_id": "FOUNDRY:P060",
+      "name": "P060 PFVT",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 28.35,
+      "score_lower": 28.35,
+      "score_upper": 28.35,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P060 PFVT v0.1 — Protected-Financing Viability Tipping",
+          "parents": "PRIU → TDSX. Each point on the declared funded-asset-value / promised-repayment surface is audited across every priority insertion. A point passes only when the same insertion both meets lender recovery requirements and leaves every existing claim no worse off."
+        }
+      }
+    },
+    {
+      "rank": 16,
+      "document_id": "PARENT:R014_S781_S792_ACSA",
+      "name": "R014_S781_S792_ACSA",
+      "family": "FOUNDRY_PARENT",
+      "score": 28.25,
+      "score_lower": 28.25,
+      "score_upper": 28.25,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R014_S781_S792_ACSA"
+        }
+      }
+    },
+    {
+      "rank": 17,
+      "document_id": "PARENT:IM139_IM250_CCVC",
+      "name": "IM139_IM250_CCVC",
+      "family": "FOUNDRY_PARENT",
+      "score": 28.05,
+      "score_lower": 28.05,
+      "score_upper": 28.05,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 3,
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM139_IM250_CCVC"
+        }
+      }
+    },
+    {
+      "rank": 18,
+      "document_id": "LCB-K081",
+      "name": "ObservationPolicyConfoundingGuardV0",
+      "family": "LCB_KERNEL",
+      "score": 27.85,
+      "score_lower": 27.85,
+      "score_upper": 27.85,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        }
+      }
+    },
+    {
+      "rank": 19,
+      "document_id": "FOUNDRY:P023",
+      "name": "P023 COST",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 27.7,
+      "score_lower": 27.7,
+      "score_upper": 27.7,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "Causal Overlap Sensitivity Tipping",
+          "parents": "OTE + TDSX"
+        }
+      }
+    },
+    {
+      "rank": 20,
+      "document_id": "FOUNDRY:P141",
+      "name": "P141 PCFT",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 27.7,
+      "score_lower": 27.7,
+      "score_upper": 27.7,
+      "exact_for_current_query": true,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P141 PCFT — Predictive Closure-Fidelity Tipping",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        }
+      }
+    }
+  ]
+}

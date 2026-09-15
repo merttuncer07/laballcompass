@@ -1,0 +1,4695 @@
+{
+  "round": "R193_MARKOV_OMITTED_EVENT_COMPILER",
+  "cases": [
+    {
+      "seed": 0,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2424,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.1135074277984944,
+        "observed_dev_log_loss": 0.8176500823416389,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.11651004717605587,
+        "true_step_log_loss": 0.7118791325464567,
+        "stationary_l1": 0.045491005612675356,
+        "hitting_relative_error": 0.2451489380312192
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.04182037250797908,
+        "true_step_log_loss": 0.7295058313713014,
+        "stationary_l1": 0.04526214282841509,
+        "hitting_relative_error": 0.1427035650806706
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.04182177924740716,
+        "true_step_log_loss": 0.7075343308531377,
+        "stationary_l1": 0.047119976913599315,
+        "hitting_relative_error": 0.14961133520005168
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.0843490803542563,
+          "true_step_log_loss": 0.7080405786492872,
+          "stationary_l1": 0.045491005612675356,
+          "hitting_relative_error": 0.20816834269616
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.060144779557303935,
+          "true_step_log_loss": 0.7061272452279338,
+          "stationary_l1": 0.04674285911264764,
+          "hitting_relative_error": 0.18108586643570151
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.041864476886111286,
+          "true_step_log_loss": 0.7069989557269809,
+          "stationary_l1": 0.04593353064393149,
+          "hitting_relative_error": 0.12213812468880185
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.057566256474537385,
+          "true_step_log_loss": 0.7071850976676212,
+          "stationary_l1": 0.04470337604578728,
+          "hitting_relative_error": 0.09056834105691054
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 12017,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 1.1136638505555012,
+        "observed_dev_log_loss": 0.8049839615552076,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.1050021896282522,
+        "true_step_log_loss": 0.7082508297061585,
+        "stationary_l1": 0.00766744830443844,
+        "hitting_relative_error": 0.1363835353776363
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.01608361562594654,
+        "true_step_log_loss": 0.7022237643804311,
+        "stationary_l1": 0.007699544076550935,
+        "hitting_relative_error": 0.007980509986205963
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.02151521827392834,
+        "true_step_log_loss": 0.7021700562803393,
+        "stationary_l1": 0.007667448304438662,
+        "hitting_relative_error": 0.021637729325690806
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.0702817336432539,
+          "true_step_log_loss": 0.7049068772611742,
+          "stationary_l1": 0.007667448304438135,
+          "hitting_relative_error": 0.09395169871348857
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.041852052657783696,
+          "true_step_log_loss": 0.7029649662911109,
+          "stationary_l1": 0.007667448304439023,
+          "hitting_relative_error": 0.055048606446236395
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.02277520176197911,
+          "true_step_log_loss": 0.7031392975272072,
+          "stationary_l1": 0.008101187286689432,
+          "hitting_relative_error": 0.02138287053789965
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.04664262271729084,
+          "true_step_log_loss": 0.7043770918323828,
+          "stationary_l1": 0.00703225211150893,
+          "hitting_relative_error": 0.05782626270109924
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1529,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 1.4732100796642444,
+        "observed_dev_log_loss": 0.9399122705994105,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.3590668342743315,
+        "true_step_log_loss": 0.7597331598592607,
+        "stationary_l1": 0.05953309265065976,
+        "hitting_relative_error": 0.3788234185729361
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.0917971715789575,
+        "true_step_log_loss": 0.7366981410994026,
+        "stationary_l1": 0.056202910700788256,
+        "hitting_relative_error": 0.030683885966923084
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.09818004600618815,
+        "true_step_log_loss": 0.7150683400342056,
+        "stationary_l1": 0.057048535534933914,
+        "hitting_relative_error": 0.0654473516589688
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.14196156919511457,
+          "true_step_log_loss": 0.7165484576413694,
+          "stationary_l1": 0.06093980927943132,
+          "hitting_relative_error": 0.1427428711638987
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.1178392882433956,
+          "true_step_log_loss": 0.7152730831257469,
+          "stationary_l1": 0.059126914956024956,
+          "hitting_relative_error": 0.10760720537650213
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.09323615511535553,
+          "true_step_log_loss": 0.7181159677738651,
+          "stationary_l1": 0.05227706036561572,
+          "hitting_relative_error": 0.024690437079682135
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.11300319699487232,
+          "true_step_log_loss": 0.7214950783419714,
+          "stationary_l1": 0.047811082894553325,
+          "hitting_relative_error": 0.10217021130221375
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7515,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.4705624636901462,
+        "observed_dev_log_loss": 0.9536013743116238,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.33375803273951515,
+        "true_step_log_loss": 0.7525178524310779,
+        "stationary_l1": 0.02344215327230917,
+        "hitting_relative_error": 0.2731647114006711
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.032397881363518524,
+        "true_step_log_loss": 0.7039156713377155,
+        "stationary_l1": 0.022472037111034848,
+        "hitting_relative_error": 0.09053101630483135
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.03644330557322452,
+        "true_step_log_loss": 0.7045298342221745,
+        "stationary_l1": 0.022674368478088264,
+        "hitting_relative_error": 0.06885439515636622
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.10207701727579804,
+          "true_step_log_loss": 0.7094372843616393,
+          "stationary_l1": 0.024938455317857655,
+          "hitting_relative_error": 0.03140085460504438
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.06744669395519717,
+          "true_step_log_loss": 0.7063682902420793,
+          "stationary_l1": 0.02395947329856632,
+          "hitting_relative_error": 0.016079055124080217
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.04206925803389043,
+          "true_step_log_loss": 0.7042160280073285,
+          "stationary_l1": 0.021212450124736604,
+          "hitting_relative_error": 0.1388634549965721
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.0869790275749066,
+          "true_step_log_loss": 0.7085266946136708,
+          "stationary_l1": 0.017400074044444158,
+          "hitting_relative_error": 0.22697362844069513
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 798,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.97,
+        "inverse_condition_number": 2.195573709240604,
+        "observed_dev_log_loss": 1.1279855107187695,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.583359222430978,
+        "true_step_log_loss": 0.8449880851161475,
+        "stationary_l1": 0.05278002490363795,
+        "hitting_relative_error": 0.5478408792683219
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.1073481641981244,
+        "true_step_log_loss": 0.7140748860389894,
+        "stationary_l1": 0.0583441268765246,
+        "hitting_relative_error": 0.14391295465514323
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.10331875524082307,
+        "true_step_log_loss": 0.7103773910398019,
+        "stationary_l1": 0.05709071663008061,
+        "hitting_relative_error": 0.16191976666762867
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.15449944078706274,
+          "true_step_log_loss": 0.7200371079435532,
+          "stationary_l1": 0.0527800249036382,
+          "hitting_relative_error": 0.2858366844649207
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.11312103826654646,
+          "true_step_log_loss": 0.7135174599098582,
+          "stationary_l1": 0.054021332554400364,
+          "hitting_relative_error": 0.22899641698669435
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.1474643065397357,
+          "true_step_log_loss": 0.7126662631488138,
+          "stationary_l1": 0.060724794363750945,
+          "hitting_relative_error": 0.06071016759552666
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.24596904742498074,
+          "true_step_log_loss": 0.7286523267118095,
+          "stationary_l1": 0.06636033689940943,
+          "hitting_relative_error": 0.146965055377739
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3789,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.394275697330677,
+        "observed_dev_log_loss": 1.1222046924985554,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6133157712021934,
+        "true_step_log_loss": 0.857721436052396,
+        "stationary_l1": 0.0382206143393454,
+        "hitting_relative_error": 0.5268652984814562
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.0688330152739937,
+        "true_step_log_loss": 0.7118359878146655,
+        "stationary_l1": 0.0684474275558821,
+        "hitting_relative_error": 0.11914763368064805
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.06790120230634575,
+        "true_step_log_loss": 0.7063652326548426,
+        "stationary_l1": 0.06740015726890208,
+        "hitting_relative_error": 0.12397123024710735
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.16643282142990962,
+          "true_step_log_loss": 0.7202616699800022,
+          "stationary_l1": 0.04772308411934917,
+          "hitting_relative_error": 0.24774179058836537
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.0987456139001755,
+          "true_step_log_loss": 0.7105102749373469,
+          "stationary_l1": 0.05757085301740697,
+          "hitting_relative_error": 0.19003198274626215
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.11069014343323243,
+          "true_step_log_loss": 0.708286252953423,
+          "stationary_l1": 0.07617539533824888,
+          "hitting_relative_error": 0.02416951564796741
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.20501327002575467,
+          "true_step_log_loss": 0.7190923242005997,
+          "stationary_l1": 0.0887581495490821,
+          "hitting_relative_error": 0.15891800840169765
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2411,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.75,
+        "inverse_condition_number": 1.3457483713039815,
+        "observed_dev_log_loss": 1.2951868014035524,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.2944310360614246,
+        "true_step_log_loss": 1.1353011581604144,
+        "stationary_l1": 0.04007612516660966,
+        "hitting_relative_error": 0.041893061259212896
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.11946533609143795,
+        "true_step_log_loss": 1.1156104287380793,
+        "stationary_l1": 0.04124909441272376,
+        "hitting_relative_error": 0.028026506833096324
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.11488175372647456,
+        "true_step_log_loss": 1.1107419832361631,
+        "stationary_l1": 0.041616865486522325,
+        "hitting_relative_error": 0.03129184086116394
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.2061934693349964,
+          "true_step_log_loss": 1.1188891095807356,
+          "stationary_l1": 0.04007612516660955,
+          "hitting_relative_error": 0.03699175970841421
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.1616474710555424,
+          "true_step_log_loss": 1.1128978483344956,
+          "stationary_l1": 0.04007612516660913,
+          "hitting_relative_error": 0.03403713561717341
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.15269222529081752,
+          "true_step_log_loss": 1.1265296970672742,
+          "stationary_l1": 0.04123509703567066,
+          "hitting_relative_error": 0.024911277892253628
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.2330220330197575,
+          "true_step_log_loss": 1.1660962586962471,
+          "stationary_l1": 0.039596413060078106,
+          "hitting_relative_error": 0.017002982707180966
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11935,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.3380657440319204,
+        "observed_dev_log_loss": 1.3034703112255095,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.302656230090272,
+        "true_step_log_loss": 1.1276428407961998,
+        "stationary_l1": 0.015741398068032098,
+        "hitting_relative_error": 0.037072694115773935
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.0648783101196488,
+        "true_step_log_loss": 1.0921105279014116,
+        "stationary_l1": 0.01587811282027303,
+        "hitting_relative_error": 0.020761364627792777
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.06517449452466986,
+        "true_step_log_loss": 1.0919168965849098,
+        "stationary_l1": 0.01574139806803254,
+        "hitting_relative_error": 0.020708498784064593
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.17697954868255572,
+          "true_step_log_loss": 1.103011535202606,
+          "stationary_l1": 0.015741398068032264,
+          "hitting_relative_error": 0.02980310238291941
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.10991216840816194,
+          "true_step_log_loss": 1.094606613942456,
+          "stationary_l1": 0.015741398068032514,
+          "hitting_relative_error": 0.025524341635832764
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.11188353586034296,
+          "true_step_log_loss": 1.102288407035471,
+          "stationary_l1": 0.015741398068032014,
+          "hitting_relative_error": 0.015247684009220271
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.20464426835362132,
+          "true_step_log_loss": 1.167188740074096,
+          "stationary_l1": 0.013469740136412792,
+          "hitting_relative_error": 0.006483438141593843
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1484,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 2.2876364735016317,
+        "observed_dev_log_loss": 1.67946230442103,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.8759064754072567,
+        "true_step_log_loss": 1.3492911767654894,
+        "stationary_l1": 0.023739930482033225,
+        "hitting_relative_error": 0.05050873597542277
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.2837091263357732,
+        "true_step_log_loss": 1.8233085779095026,
+        "stationary_l1": 0.039126308484020655,
+        "hitting_relative_error": 0.002355178737244014
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.3074209016400119,
+        "true_step_log_loss": 1.1305331559088911,
+        "stationary_l1": 0.038199864005038484,
+        "hitting_relative_error": 3.172166024093518e-05
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.48830839404221404,
+          "true_step_log_loss": 1.1668916341364033,
+          "stationary_l1": 0.037132568786888615,
+          "hitting_relative_error": 0.013111765968133439
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.3899519485998721,
+          "true_step_log_loss": 1.1449440873709118,
+          "stationary_l1": 0.036615396507688025,
+          "hitting_relative_error": 0.009054450146281931
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.2663232940275829,
+          "true_step_log_loss": 1.2245217178674044,
+          "stationary_l1": 0.046337237455805064,
+          "hitting_relative_error": 0.002819150481450988
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.29242246442490294,
+          "true_step_log_loss": 1.3840459572340316,
+          "stationary_l1": 0.05602315165270924,
+          "hitting_relative_error": 0.010712099299074327
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7496,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.3736539435008948,
+        "observed_dev_log_loss": 1.6227564007969615,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7547069791795296,
+        "true_step_log_loss": 1.2903713635346021,
+        "stationary_l1": 0.0231906639838782,
+        "hitting_relative_error": 0.07930657459038395
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.16909412520711103,
+        "true_step_log_loss": 1.1668890122559026,
+        "stationary_l1": 0.022086445305531582,
+        "hitting_relative_error": 0.04237832884569268
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.16892768066181016,
+        "true_step_log_loss": 1.1085551336727992,
+        "stationary_l1": 0.022000963115272443,
+        "hitting_relative_error": 0.042372578454460755
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.28848942998156624,
+          "true_step_log_loss": 1.1160354975778504,
+          "stationary_l1": 0.022889506942404186,
+          "hitting_relative_error": 0.05603743588086736
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.21058318143380625,
+          "true_step_log_loss": 1.1030610956545779,
+          "stationary_l1": 0.022889506942404436,
+          "hitting_relative_error": 0.050681935558376606
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.24270314341400903,
+          "true_step_log_loss": 1.1823365037492006,
+          "stationary_l1": 0.024890870659053266,
+          "hitting_relative_error": 0.03605671421128875
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.34402036126586283,
+          "true_step_log_loss": 1.4210217422900329,
+          "stationary_l1": 0.03492822757588457,
+          "hitting_relative_error": 0.0100239525442582
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 782,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 5.604808358979644,
+        "observed_dev_log_loss": 1.857215083943345,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.171721390343319,
+        "true_step_log_loss": 1.5695397549549883,
+        "stationary_l1": 0.048836477270679274,
+        "hitting_relative_error": 0.022649966694247816
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.5482072322915627,
+        "true_step_log_loss": 4.081044078889997,
+        "stationary_l1": 0.15021767362933355,
+        "hitting_relative_error": 0.11934345801549716
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.5402839440752266,
+        "true_step_log_loss": 1.2516001182016259,
+        "stationary_l1": 0.1221953428924488,
+        "hitting_relative_error": 0.10708883265668308
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.6219112349152257,
+          "true_step_log_loss": 1.2487463671176084,
+          "stationary_l1": 0.09021794751176547,
+          "hitting_relative_error": 0.008168450641313893
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.5539692528907327,
+          "true_step_log_loss": 1.2483231124252865,
+          "stationary_l1": 0.11150627829017527,
+          "hitting_relative_error": 0.07811742389019385
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.5635368020582624,
+          "true_step_log_loss": 1.518568828467936,
+          "stationary_l1": 0.13859147625381524,
+          "hitting_relative_error": 0.1242038830006904
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.587512287637738,
+          "true_step_log_loss": 1.5152804407317153,
+          "stationary_l1": 0.1326444163242141,
+          "hitting_relative_error": 0.11893956766133276
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3707,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 5.834546216944359,
+        "observed_dev_log_loss": 1.8429748261909,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.1471564014986828,
+        "true_step_log_loss": 1.5673905222616418,
+        "stationary_l1": 0.05058005950497814,
+        "hitting_relative_error": 0.0330342422907662
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.30986747220968264,
+        "true_step_log_loss": 2.4630078912339757,
+        "stationary_l1": 0.05851117418423188,
+        "hitting_relative_error": 0.020744928940929785
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.3091713151494663,
+        "true_step_log_loss": 1.290298239557559,
+        "stationary_l1": 0.05895054768575281,
+        "hitting_relative_error": 0.021034133437063153
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.45350139420751656,
+          "true_step_log_loss": 1.2157317883126517,
+          "stationary_l1": 0.05009951462276642,
+          "hitting_relative_error": 0.025142354494748075
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.34365948026466003,
+          "true_step_log_loss": 1.2209164684512883,
+          "stationary_l1": 0.047098582994924476,
+          "hitting_relative_error": 0.017396568507772794
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.3984656409493859,
+          "true_step_log_loss": 1.4318986695333102,
+          "stationary_l1": 0.037673283786963455,
+          "hitting_relative_error": 0.07948639833247524
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.5136856193746906,
+          "true_step_log_loss": 1.570004686937626,
+          "stationary_l1": 0.04511455979622951,
+          "hitting_relative_error": 0.14085936208355135
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2392,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.401690000275756,
+        "observed_dev_log_loss": 0.9952474622067864,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.26502727598605136,
+        "true_step_log_loss": 0.8226991164431688,
+        "stationary_l1": 0.0071113328701780665,
+        "hitting_relative_error": 0.554429119191021
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.06423404315491801,
+        "true_step_log_loss": 0.7414557616295053,
+        "stationary_l1": 0.003499246586021354,
+        "hitting_relative_error": 0.0226480481189944
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.05057337553137695,
+        "true_step_log_loss": 0.7434309623587183,
+        "stationary_l1": 0.004327724623812951,
+        "hitting_relative_error": 0.016878884708886335
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.1514776371839888,
+          "true_step_log_loss": 0.7840571188637058,
+          "stationary_l1": 0.007111332870178566,
+          "hitting_relative_error": 0.3039523279915636
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.08852098979495365,
+          "true_step_log_loss": 0.7629886696172113,
+          "stationary_l1": 0.007111332870178677,
+          "hitting_relative_error": 0.15660738535184754
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.08698697542175067,
+          "true_step_log_loss": 0.7443449236973406,
+          "stationary_l1": 0.019838000966180658,
+          "hitting_relative_error": 0.05242477778095951
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.10079044550844168,
+          "true_step_log_loss": 0.7516892090147764,
+          "stationary_l1": 0.03834928165672505,
+          "hitting_relative_error": 0.04844022745798775
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11969,
+      "naive_alpha": 12.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.75,
+        "inverse_condition_number": 1.399238636479272,
+        "observed_dev_log_loss": 1.0089442747702195,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.27080940727039604,
+        "true_step_log_loss": 0.8198408867171,
+        "stationary_l1": 0.008070157146737172,
+        "hitting_relative_error": 0.5730601047452395
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.02397179017731432,
+        "true_step_log_loss": 0.7393262042881231,
+        "stationary_l1": 0.004772935865162198,
+        "hitting_relative_error": 0.007444318422873555
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.06425535974433276,
+        "true_step_log_loss": 0.7552645889452261,
+        "stationary_l1": 0.004746594913865088,
+        "hitting_relative_error": 0.12915080595314388
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.198971799431658,
+          "true_step_log_loss": 0.7964532698681828,
+          "stationary_l1": 0.004456844089333778,
+          "hitting_relative_error": 0.41494211318371826
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.1183283234061336,
+          "true_step_log_loss": 0.771225104573361,
+          "stationary_l1": 0.004493960304155525,
+          "hitting_relative_error": 0.23962236121156594
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.06126846772535661,
+          "true_step_log_loss": 0.7483171305523588,
+          "stationary_l1": 0.020927127786992766,
+          "hitting_relative_error": 0.050747016073
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.12529194132534152,
+          "true_step_log_loss": 0.7696898418300518,
+          "stationary_l1": 0.03424251890964361,
+          "hitting_relative_error": 0.07419800636364778
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1496,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.6110680321516946,
+        "observed_dev_log_loss": 1.2054341804526045,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6637674831517597,
+        "true_step_log_loss": 0.9838930773552944,
+        "stationary_l1": 0.00559012515180532,
+        "hitting_relative_error": 1.4267276752989408
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.11337376697145311,
+        "true_step_log_loss": 0.8260298473675215,
+        "stationary_l1": 0.011042057616675732,
+        "hitting_relative_error": 0.030336879870542694
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.11326181731789123,
+        "true_step_log_loss": 0.7635412219327591,
+        "stationary_l1": 0.011613179345427188,
+        "hitting_relative_error": 0.024726569682701153
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.2752342594389517,
+          "true_step_log_loss": 0.8208691112002765,
+          "stationary_l1": 0.005590125151805181,
+          "hitting_relative_error": 0.4606429321294318
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.18234025793834424,
+          "true_step_log_loss": 0.7908885363438617,
+          "stationary_l1": 0.007103296512090129,
+          "hitting_relative_error": 0.2156660035247202
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.10811839546771593,
+          "true_step_log_loss": 0.7508595822099566,
+          "stationary_l1": 0.017446116658012323,
+          "hitting_relative_error": 0.03973253659583157
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.12782732605954117,
+          "true_step_log_loss": 0.7514436218878257,
+          "stationary_l1": 0.023640314652527777,
+          "hitting_relative_error": 0.04165631367426751
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7503,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.560289740702248,
+        "observed_dev_log_loss": 1.2183857704599161,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6371527975931417,
+        "true_step_log_loss": 0.9724993226084678,
+        "stationary_l1": 0.014229625009325758,
+        "hitting_relative_error": 1.4949046282329692
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.07941129879576889,
+        "true_step_log_loss": 0.7431037696189909,
+        "stationary_l1": 0.012898543785847483,
+        "hitting_relative_error": 0.1081843786196755
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.08015184787286253,
+        "true_step_log_loss": 0.7436839500000484,
+        "stationary_l1": 0.012825758252184044,
+        "hitting_relative_error": 0.11367184170375287
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.24865858939847219,
+          "true_step_log_loss": 0.8070440115217392,
+          "stationary_l1": 0.01392771876186824,
+          "hitting_relative_error": 0.5975595433176165
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.16397322979282652,
+          "true_step_log_loss": 0.7768775907877481,
+          "stationary_l1": 0.013927718761867908,
+          "hitting_relative_error": 0.39398730085229455
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.097523115425148,
+          "true_step_log_loss": 0.7512261348671634,
+          "stationary_l1": 0.033268124914358266,
+          "hitting_relative_error": 0.014094244778521895
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.13215252081908746,
+          "true_step_log_loss": 0.8084416844434907,
+          "stationary_l1": 0.047925954178415,
+          "hitting_relative_error": 0.0759074944396484
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 754,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.0,
+        "inverse_condition_number": 5.685298632945624,
+        "observed_dev_log_loss": 1.3158182639022378,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.9792144176027892,
+        "true_step_log_loss": 1.180922283279627,
+        "stationary_l1": 0.040422149028794374,
+        "hitting_relative_error": 2.1092940897480768
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.5559513446898203,
+        "true_step_log_loss": 2.457285908916401,
+        "stationary_l1": 0.10939973859982041,
+        "hitting_relative_error": 0.76947743974727
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.9673389963712073,
+        "true_step_log_loss": 1.169715014514019,
+        "stationary_l1": 0.04970940611837321,
+        "hitting_relative_error": 2.088161408836862
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.8719483049457556,
+          "true_step_log_loss": 1.0884356325531084,
+          "stationary_l1": 0.05391746268985359,
+          "hitting_relative_error": 1.8557092584272723
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.9673389963712073,
+          "true_step_log_loss": 1.169715014514019,
+          "stationary_l1": 0.04970940611837321,
+          "hitting_relative_error": 2.088161408836862
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.9673389963712073,
+          "true_step_log_loss": 1.169715014514019,
+          "stationary_l1": 0.04970940611837321,
+          "hitting_relative_error": 2.088161408836862
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.9673389963712073,
+          "true_step_log_loss": 1.169715014514019,
+          "stationary_l1": 0.04970940611837321,
+          "hitting_relative_error": 2.088161408836862
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3789,
+      "naive_alpha": 12.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 12.0,
+        "selected_inversion_strength": 0.97,
+        "inverse_condition_number": 6.133545879252704,
+        "observed_dev_log_loss": 1.3230551120104774,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.9318485465617394,
+        "true_step_log_loss": 1.1502884367452364,
+        "stationary_l1": 0.012997038043474324,
+        "hitting_relative_error": 2.263808348775017
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.20209658594845661,
+        "true_step_log_loss": 0.7823829512022572,
+        "stationary_l1": 0.05136885683646095,
+        "hitting_relative_error": 0.2665538412571898
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.2109163328015542,
+        "true_step_log_loss": 0.78418849631894,
+        "stationary_l1": 0.04408990520826905,
+        "hitting_relative_error": 0.45064097446080487
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.4572017686366689,
+          "true_step_log_loss": 0.8807005131442841,
+          "stationary_l1": 0.011522971532157672,
+          "hitting_relative_error": 1.1723850664937037
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.32642223603451614,
+          "true_step_log_loss": 0.8302768840494754,
+          "stationary_l1": 0.02084099800167119,
+          "hitting_relative_error": 0.8551623937942013
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.2980023340049269,
+          "true_step_log_loss": 0.9628162249147023,
+          "stationary_l1": 0.06662943933096474,
+          "hitting_relative_error": 0.06902916148904335
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.4189497895486584,
+          "true_step_log_loss": 1.0277514252329285,
+          "stationary_l1": 0.1761144264232807,
+          "hitting_relative_error": 0.13615381369588703
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2394,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.5,
+        "inverse_condition_number": 1.3670376631940466,
+        "observed_dev_log_loss": 1.6074220256729996,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.22940964031723013,
+        "true_step_log_loss": 1.5302116887531125,
+        "stationary_l1": 0.03596262552001198,
+        "hitting_relative_error": 0.14546690097241385
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.13668469966657387,
+        "true_step_log_loss": 1.5537689842060551,
+        "stationary_l1": 0.03681799555166426,
+        "hitting_relative_error": 0.10211604682966312
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.16824190354441196,
+        "true_step_log_loss": 1.5183205779433768,
+        "stationary_l1": 0.03795466755854798,
+        "hitting_relative_error": 0.12925795097247972
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.2267781108077931,
+          "true_step_log_loss": 1.529739327357754,
+          "stationary_l1": 0.03748044436327416,
+          "hitting_relative_error": 0.15168753263587467
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.2267781108077931,
+          "true_step_log_loss": 1.529739327357754,
+          "stationary_l1": 0.03748044436327416,
+          "hitting_relative_error": 0.15168753263587467
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.153363968631798,
+          "true_step_log_loss": 1.5159013381326005,
+          "stationary_l1": 0.03805457966214413,
+          "hitting_relative_error": 0.1244398741319101
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.1410227363214159,
+          "true_step_log_loss": 1.5140581500198924,
+          "stationary_l1": 0.03852008093369421,
+          "hitting_relative_error": 0.12092392831122978
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 12030,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.3653146595263626,
+        "observed_dev_log_loss": 1.611493967204331,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.1934268276419892,
+        "true_step_log_loss": 1.518709022658878,
+        "stationary_l1": 0.02301300586612446,
+        "hitting_relative_error": 0.015461915665559432
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.06725804350041294,
+        "true_step_log_loss": 1.498202097147974,
+        "stationary_l1": 0.02301300586612491,
+        "hitting_relative_error": 0.05726415395407421
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.06742355042127368,
+        "true_step_log_loss": 1.4982020407857786,
+        "stationary_l1": 0.023013005866124737,
+        "hitting_relative_error": 0.05706772252501397
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.1263878213431615,
+          "true_step_log_loss": 1.506187754004497,
+          "stationary_l1": 0.023013005866124515,
+          "hitting_relative_error": 0.03395027938281118
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.09186783652599732,
+          "true_step_log_loss": 1.5009721075026177,
+          "stationary_l1": 0.023013005866124578,
+          "hitting_relative_error": 0.04482810894715287
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.07662633742227988,
+          "true_step_log_loss": 1.5056795402458973,
+          "stationary_l1": 0.02490548493461356,
+          "hitting_relative_error": 0.07270202928270794
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.12309315223969625,
+          "true_step_log_loss": 1.5431919488461487,
+          "stationary_l1": 0.02399700802738023,
+          "hitting_relative_error": 0.07732508007033333
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1483,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.584295693480025,
+        "observed_dev_log_loss": 1.7227375588284013,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.46512898510184714,
+        "true_step_log_loss": 1.600936993407095,
+        "stationary_l1": 0.041729634182439884,
+        "hitting_relative_error": 0.028263464992126147
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.38982186482119685,
+        "true_step_log_loss": 1.8175376325814125,
+        "stationary_l1": 0.057733331355315866,
+        "hitting_relative_error": 0.11955875202687186
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.37306533595098784,
+        "true_step_log_loss": 1.5837223666914777,
+        "stationary_l1": 0.05200648838899756,
+        "hitting_relative_error": 0.13401656886066243
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.3419823654693313,
+          "true_step_log_loss": 1.5574033960349754,
+          "stationary_l1": 0.04097118882238758,
+          "hitting_relative_error": 0.10701904124869799
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.3466750919876135,
+          "true_step_log_loss": 1.5592377788784841,
+          "stationary_l1": 0.04520068464622065,
+          "hitting_relative_error": 0.11582658525180421
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.42499223027827804,
+          "true_step_log_loss": 1.6380603847711879,
+          "stationary_l1": 0.059498323760780944,
+          "hitting_relative_error": 0.16473308124722932
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.5010890308656695,
+          "true_step_log_loss": 1.6990960415425986,
+          "stationary_l1": 0.07043472831989324,
+          "hitting_relative_error": 0.21011044040006482
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7504,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.4968492480129387,
+        "observed_dev_log_loss": 1.7311773995180564,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.442825133093998,
+        "true_step_log_loss": 1.5849996664540442,
+        "stationary_l1": 0.022914926588659797,
+        "hitting_relative_error": 0.15056605611271381
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.1443391921191668,
+        "true_step_log_loss": 1.6584130843870446,
+        "stationary_l1": 0.02371985144460282,
+        "hitting_relative_error": 0.060237313342333114
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.14180787187456473,
+        "true_step_log_loss": 1.5163259492255048,
+        "stationary_l1": 0.0242500173931241,
+        "hitting_relative_error": 0.03656906311766302
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.19882537552646498,
+          "true_step_log_loss": 1.5179988023256081,
+          "stationary_l1": 0.022914926588659686,
+          "hitting_relative_error": 0.0762038399160896
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.16155891498465952,
+          "true_step_log_loss": 1.5162638465716904,
+          "stationary_l1": 0.023118775782731665,
+          "hitting_relative_error": 0.060466941805436644
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.16353930541261275,
+          "true_step_log_loss": 1.5298654863416639,
+          "stationary_l1": 0.027202533859077296,
+          "hitting_relative_error": 0.004282331347944257
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.22966152908143697,
+          "true_step_log_loss": 1.5789056837998707,
+          "stationary_l1": 0.03624776912598412,
+          "hitting_relative_error": 0.02249584009003412
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 780,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.25,
+        "inverse_condition_number": 7.547129243363111,
+        "observed_dev_log_loss": 1.7823792663050975,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7078892545817199,
+        "true_step_log_loss": 1.7122008326540148,
+        "stationary_l1": 0.1074106781134918,
+        "hitting_relative_error": 0.005649978225277029
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.7893684107730269,
+        "true_step_log_loss": 5.605485334726578,
+        "stationary_l1": 0.132794195504833,
+        "hitting_relative_error": 0.41521649899560953
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.6026912602131747,
+        "true_step_log_loss": 1.6734061450527289,
+        "stationary_l1": 0.06438012468166848,
+        "hitting_relative_error": 0.30687322700419833
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.692816520809926,
+          "true_step_log_loss": 1.7042712325982032,
+          "stationary_l1": 0.07055062528240164,
+          "hitting_relative_error": 0.2742265821484901
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.6930074280025471,
+          "true_step_log_loss": 1.704913876697076,
+          "stationary_l1": 0.07312111381057973,
+          "hitting_relative_error": 0.29826343879365763
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.6930074280025471,
+          "true_step_log_loss": 1.704913876697076,
+          "stationary_l1": 0.07312111381057973,
+          "hitting_relative_error": 0.29826343879365763
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.6930074280025471,
+          "true_step_log_loss": 1.704913876697076,
+          "stationary_l1": 0.07312111381057973,
+          "hitting_relative_error": 0.29826343879365763
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3745,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 5.523155835774918,
+        "observed_dev_log_loss": 1.7738956646399624,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.645710024469999,
+        "true_step_log_loss": 1.6682622908882057,
+        "stationary_l1": 0.03483781326240043,
+        "hitting_relative_error": 0.058899764473101544
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.41474791297350483,
+        "true_step_log_loss": 2.6749681730936974,
+        "stationary_l1": 0.04427278437449388,
+        "hitting_relative_error": 0.07938814114300147
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.41362297016894195,
+        "true_step_log_loss": 1.6959569257650833,
+        "stationary_l1": 0.044094221637025144,
+        "hitting_relative_error": 0.07935822764120433
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.40003091868368934,
+          "true_step_log_loss": 1.5838351181316237,
+          "stationary_l1": 0.027003235924380635,
+          "hitting_relative_error": 0.05544447279956427
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.3930145450787137,
+          "true_step_log_loss": 1.614635333566286,
+          "stationary_l1": 0.03364315343644123,
+          "hitting_relative_error": 0.06321306438124506
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.4730010918723741,
+          "true_step_log_loss": 1.7885324472822894,
+          "stationary_l1": 0.04956619694355169,
+          "hitting_relative_error": 0.03699792816388558
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.4705293327032957,
+          "true_step_log_loss": 1.6098179497809817,
+          "stationary_l1": 0.046385182254209865,
+          "hitting_relative_error": 0.02716942665579245
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2408,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.1355655946962837,
+        "observed_dev_log_loss": 0.9011553076627592,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.11761338132682597,
+        "true_step_log_loss": 0.8370943227260891,
+        "stationary_l1": 0.06369805707682391,
+        "hitting_relative_error": 0.12998699049273302
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.05101948407932296,
+        "true_step_log_loss": 0.8320564398887136,
+        "stationary_l1": 0.06372286239897085,
+        "hitting_relative_error": 0.005503192383543653
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.05088559703223369,
+        "true_step_log_loss": 0.8320198745459111,
+        "stationary_l1": 0.06369805707682419,
+        "hitting_relative_error": 0.008645627333959315
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.08044949400237718,
+          "true_step_log_loss": 0.8336681902371941,
+          "stationary_l1": 0.06369805707682386,
+          "hitting_relative_error": 0.06834380522228427
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.06343951513881545,
+          "true_step_log_loss": 0.8325728879046674,
+          "stationary_l1": 0.06369805707682383,
+          "hitting_relative_error": 0.03210455536133896
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.048384295445994444,
+          "true_step_log_loss": 0.8321459008441443,
+          "stationary_l1": 0.06369805707682466,
+          "hitting_relative_error": 0.05480490046544326
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.05904301375319773,
+          "true_step_log_loss": 0.8331439915985532,
+          "stationary_l1": 0.06369805707682391,
+          "hitting_relative_error": 0.10752681083612892
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 12062,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.130814460481351,
+        "observed_dev_log_loss": 0.9056956352214991,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.10699704265985488,
+        "true_step_log_loss": 0.8313711008174255,
+        "stationary_l1": 0.03171873181076937,
+        "hitting_relative_error": 0.14572875255176435
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.02480532367737896,
+        "true_step_log_loss": 0.8252861895223893,
+        "stationary_l1": 0.03148412091679198,
+        "hitting_relative_error": 0.007144632821710773
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.026536528252158968,
+        "true_step_log_loss": 0.825346778411271,
+        "stationary_l1": 0.03171873181076923,
+        "hitting_relative_error": 0.008401218927176123
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.06537750587286296,
+          "true_step_log_loss": 0.8274754976794261,
+          "stationary_l1": 0.031718731810770145,
+          "hitting_relative_error": 0.0846657470586102
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.044331484156414004,
+          "true_step_log_loss": 0.8261320514464716,
+          "stationary_l1": 0.031718731810769785,
+          "hitting_relative_error": 0.048767673008876807
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.025881467347168608,
+          "true_step_log_loss": 0.8254310138840947,
+          "stationary_l1": 0.031718731810769896,
+          "hitting_relative_error": 0.037323282268479176
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.04545084566688965,
+          "true_step_log_loss": 0.8269892838803083,
+          "stationary_l1": 0.03328569471120224,
+          "hitting_relative_error": 0.08954846711702807
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1505,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.5319560291523313,
+        "observed_dev_log_loss": 1.098454119338203,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.34153207477376085,
+        "true_step_log_loss": 0.8776374613562954,
+        "stationary_l1": 0.0913055984630306,
+        "hitting_relative_error": 0.40203689684298455
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.08775581479632677,
+        "true_step_log_loss": 0.836770301199905,
+        "stationary_l1": 0.08733429590059605,
+        "hitting_relative_error": 0.09791425239800204
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.08837137574056357,
+        "true_step_log_loss": 0.8304572278399532,
+        "stationary_l1": 0.0873670713902944,
+        "hitting_relative_error": 0.10025362773407145
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.14256747727864427,
+          "true_step_log_loss": 0.8351384538319336,
+          "stationary_l1": 0.09130559846302974,
+          "hitting_relative_error": 0.20482211681495477
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.11458009566465463,
+          "true_step_log_loss": 0.8321604346785989,
+          "stationary_l1": 0.08985224015333437,
+          "hitting_relative_error": 0.16057946246775487
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.08085256856056507,
+          "true_step_log_loss": 0.8304652516921631,
+          "stationary_l1": 0.08641711015258666,
+          "hitting_relative_error": 0.04939814105249319
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.09447582213999003,
+          "true_step_log_loss": 0.8324148202720334,
+          "stationary_l1": 0.08280442290879944,
+          "hitting_relative_error": 0.03266667860740699
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7535,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.97,
+        "inverse_condition_number": 1.5364899598221935,
+        "observed_dev_log_loss": 1.0593264879674773,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.2989295658069432,
+        "true_step_log_loss": 0.8571135672120135,
+        "stationary_l1": 0.03299751280454849,
+        "hitting_relative_error": 0.36608295826980114
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.03564234290557722,
+        "true_step_log_loss": 0.8116695553104685,
+        "stationary_l1": 0.03299751280454846,
+        "hitting_relative_error": 0.03285158341288041
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.0387517679160641,
+        "true_step_log_loss": 0.8119641995874898,
+        "stationary_l1": 0.03299294959029994,
+        "hitting_relative_error": 0.047312484419193404
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.09696811611879166,
+          "true_step_log_loss": 0.8171750728687078,
+          "stationary_l1": 0.03299294959029958,
+          "hitting_relative_error": 0.15222642792440932
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.06568846599429723,
+          "true_step_log_loss": 0.8140402460043444,
+          "stationary_l1": 0.032992949590299164,
+          "hitting_relative_error": 0.10439386584975437
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.04525381339685195,
+          "true_step_log_loss": 0.8120040628494423,
+          "stationary_l1": 0.03285358162982577,
+          "hitting_relative_error": 0.0387966504246583
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.08248542991055251,
+          "true_step_log_loss": 0.8140195466188185,
+          "stationary_l1": 0.030933511598467772,
+          "hitting_relative_error": 0.1303179186067706
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 746,
+      "naive_alpha": 12.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.75,
+        "inverse_condition_number": 2.434449232625572,
+        "observed_dev_log_loss": 1.2619460917779308,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6806187739081666,
+        "true_step_log_loss": 1.027823081753262,
+        "stationary_l1": 0.09349193206171152,
+        "hitting_relative_error": 0.5939582156582284
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.13775188535997607,
+        "true_step_log_loss": 0.8617539893195276,
+        "stationary_l1": 0.09049478975809574,
+        "hitting_relative_error": 0.12562380724470398
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.1899857322800517,
+        "true_step_log_loss": 0.8455174138969658,
+        "stationary_l1": 0.08694459745692942,
+        "hitting_relative_error": 0.15032178476516975
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.28599241365985967,
+          "true_step_log_loss": 0.8633851237968986,
+          "stationary_l1": 0.08264544813826588,
+          "hitting_relative_error": 0.2790856984927953
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.2427857975662929,
+          "true_step_log_loss": 0.8544583866828828,
+          "stationary_l1": 0.08488936182661058,
+          "hitting_relative_error": 0.23049349473295497
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.13190426862951818,
+          "true_step_log_loss": 0.8394584902749539,
+          "stationary_l1": 0.09167166287352255,
+          "hitting_relative_error": 0.014421445956177767
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.17365583609736152,
+          "true_step_log_loss": 0.8529410893820016,
+          "stationary_l1": 0.0946579007279956,
+          "hitting_relative_error": 0.32091758710753354
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3670,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.6184506891709445,
+        "observed_dev_log_loss": 1.1985465683719583,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5870072289867508,
+        "true_step_log_loss": 0.9734342315005657,
+        "stationary_l1": 0.030128537477265377,
+        "hitting_relative_error": 0.5067748274335259
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.03467428873736807,
+        "true_step_log_loss": 0.8461673145786229,
+        "stationary_l1": 0.031245816147998345,
+        "hitting_relative_error": 0.0360890686198644
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.036564085745307486,
+        "true_step_log_loss": 0.8275786041856358,
+        "stationary_l1": 0.03140621529651508,
+        "hitting_relative_error": 0.031648769381853736
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.17169320587580225,
+          "true_step_log_loss": 0.8392787384358329,
+          "stationary_l1": 0.03012853747726607,
+          "hitting_relative_error": 0.1726999209183648
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.1077927616615206,
+          "true_step_log_loss": 0.8309966025374624,
+          "stationary_l1": 0.030128537477265876,
+          "hitting_relative_error": 0.0874407651887723
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.06130842550070806,
+          "true_step_log_loss": 0.8309780586577721,
+          "stationary_l1": 0.04022406034316109,
+          "hitting_relative_error": 0.20968795990537892
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.1665843460523229,
+          "true_step_log_loss": 0.8461632119429254,
+          "stationary_l1": 0.04678805522937515,
+          "hitting_relative_error": 0.46648134625195964
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2393,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.3260096379255277,
+        "observed_dev_log_loss": 1.3123542110490063,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.29507181605104443,
+        "true_step_log_loss": 1.1651474072291201,
+        "stationary_l1": 0.04835082760221773,
+        "hitting_relative_error": 0.09319932527718477
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.12150253620877462,
+        "true_step_log_loss": 1.2054200070078578,
+        "stationary_l1": 0.0491840515947598,
+        "hitting_relative_error": 0.05610421790341923
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.11904848831605562,
+        "true_step_log_loss": 1.134319122281653,
+        "stationary_l1": 0.04835082760221823,
+        "hitting_relative_error": 0.05556485922005207
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.19283227928378438,
+          "true_step_log_loss": 1.1429330875316566,
+          "stationary_l1": 0.04835082760221823,
+          "hitting_relative_error": 0.07688741242556743
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.1454707272061993,
+          "true_step_log_loss": 1.1354108839797616,
+          "stationary_l1": 0.04835082760221768,
+          "hitting_relative_error": 0.06728366327248868
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.14588072961824136,
+          "true_step_log_loss": 1.1500676972893105,
+          "stationary_l1": 0.04843805701598,
+          "hitting_relative_error": 0.04175651339456008
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.21627079564444582,
+          "true_step_log_loss": 1.179920675635283,
+          "stationary_l1": 0.047824784202184695,
+          "hitting_relative_error": 0.023518071085300123
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11970,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.3243088769164344,
+        "observed_dev_log_loss": 1.301966394609644,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.26577267778137975,
+        "true_step_log_loss": 1.1615303850457057,
+        "stationary_l1": 0.01573654977228106,
+        "hitting_relative_error": 0.024203793789636396
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.04506920062880096,
+        "true_step_log_loss": 1.130806352467482,
+        "stationary_l1": 0.015717214034807164,
+        "hitting_relative_error": 0.015770875888414547
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.04503486266664681,
+        "true_step_log_loss": 1.130815265658708,
+        "stationary_l1": 0.015736549772281117,
+        "hitting_relative_error": 0.015568037740010691
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.14864037695770438,
+          "true_step_log_loss": 1.1397308338005538,
+          "stationary_l1": 0.01573654977228095,
+          "hitting_relative_error": 0.00652915056963776
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.08542318203449539,
+          "true_step_log_loss": 1.13255295115467,
+          "stationary_l1": 0.01573654977228056,
+          "hitting_relative_error": 0.0038689899387832887
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.09905021177021121,
+          "true_step_log_loss": 1.1414753601653858,
+          "stationary_l1": 0.01573654977228081,
+          "hitting_relative_error": 0.02882841307806825
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.1881365544002316,
+          "true_step_log_loss": 1.2016458274694326,
+          "stationary_l1": 0.016615127412741237,
+          "hitting_relative_error": 0.044688144077417814
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1515,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.25,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 2.278945982251996,
+        "observed_dev_log_loss": 1.6617169639526916,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7866334595757335,
+        "true_step_log_loss": 1.3492244442342218,
+        "stationary_l1": 0.04277062562343345,
+        "hitting_relative_error": 0.06590135919279404
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.28572346299177287,
+        "true_step_log_loss": 1.8777692143122007,
+        "stationary_l1": 0.04807463995571404,
+        "hitting_relative_error": 0.024067323585290692
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.2960232602086808,
+        "true_step_log_loss": 1.1673641948349363,
+        "stationary_l1": 0.04768175159669996,
+        "hitting_relative_error": 0.017416733106687014
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.4218856670922204,
+          "true_step_log_loss": 1.1889339815763524,
+          "stationary_l1": 0.04520572097143455,
+          "hitting_relative_error": 0.019539762005728937
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.37432137044197766,
+          "true_step_log_loss": 1.1748606972850577,
+          "stationary_l1": 0.045284295362351734,
+          "hitting_relative_error": 0.008513213517707535
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.2955648427767731,
+          "true_step_log_loss": 1.1793815275644661,
+          "stationary_l1": 0.05102171265577321,
+          "hitting_relative_error": 0.04653142424113423
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.3513370964580632,
+          "true_step_log_loss": 1.287124197075019,
+          "stationary_l1": 0.060721860794274524,
+          "hitting_relative_error": 0.07537362953429776
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7478,
+      "naive_alpha": 12.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 2.301822875074608,
+        "observed_dev_log_loss": 1.6650269720553665,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7620496591938987,
+        "true_step_log_loss": 1.3452192489445447,
+        "stationary_l1": 0.01873364635298061,
+        "hitting_relative_error": 0.07880582436913502
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.12584878003069633,
+        "true_step_log_loss": 1.4254418779797045,
+        "stationary_l1": 0.017546024435080437,
+        "hitting_relative_error": 0.03689374407426193
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.16398660223490358,
+        "true_step_log_loss": 1.1449194377029115,
+        "stationary_l1": 0.017621456699590254,
+        "hitting_relative_error": 0.026781514968815118
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.34290394816276487,
+          "true_step_log_loss": 1.1765430292381167,
+          "stationary_l1": 0.01873364635298047,
+          "hitting_relative_error": 0.003649958372905106
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.2614281681795452,
+          "true_step_log_loss": 1.1647738703666635,
+          "stationary_l1": 0.017840722162024175,
+          "hitting_relative_error": 0.01261614226091455
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.1309348871698687,
+          "true_step_log_loss": 1.1466572226933962,
+          "stationary_l1": 0.01936797495915793,
+          "hitting_relative_error": 0.05224737495564636
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.23338796066700046,
+          "true_step_log_loss": 1.2426479691488252,
+          "stationary_l1": 0.02073120542077095,
+          "hitting_relative_error": 0.08269955934108396
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 732,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 5.305323878324334,
+        "observed_dev_log_loss": 1.8752456303834544,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.1988731038316183,
+        "true_step_log_loss": 1.650767430265059,
+        "stationary_l1": 0.05909878394353521,
+        "hitting_relative_error": 0.14933389256500482
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.657929839877111,
+        "true_step_log_loss": 2.349572826559534,
+        "stationary_l1": 0.11408805017443141,
+        "hitting_relative_error": 0.022121082394162953
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.6565057986411343,
+        "true_step_log_loss": 1.38364476331927,
+        "stationary_l1": 0.11429977344950407,
+        "hitting_relative_error": 0.021112251922679626
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.8389700401122453,
+          "true_step_log_loss": 1.4134747767209568,
+          "stationary_l1": 0.0774079396705061,
+          "hitting_relative_error": 0.03526449232406812
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.7765139112051767,
+          "true_step_log_loss": 1.3974358702394172,
+          "stationary_l1": 0.08815612147927349,
+          "hitting_relative_error": 0.011938289576362728
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.6649530187776305,
+          "true_step_log_loss": 1.4852718093071802,
+          "stationary_l1": 0.11328176381536002,
+          "hitting_relative_error": 0.016763510851112193
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.6842694356985495,
+          "true_step_log_loss": 1.5130329915914225,
+          "stationary_l1": 0.13059811410130562,
+          "hitting_relative_error": 0.027559891657178325
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3849,
+      "naive_alpha": 12.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 5.167105586100043,
+        "observed_dev_log_loss": 1.850909402384066,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.1062499492478184,
+        "true_step_log_loss": 1.5885353925795436,
+        "stationary_l1": 0.03496015859562243,
+        "hitting_relative_error": 0.09607955790739786
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.28481778984404926,
+        "true_step_log_loss": 3.1713114575662913,
+        "stationary_l1": 0.05436042608235084,
+        "hitting_relative_error": 0.08844821931768701
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.26977749419578306,
+        "true_step_log_loss": 1.3148244773031341,
+        "stationary_l1": 0.05207471899625046,
+        "hitting_relative_error": 0.08770074731108499
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.37240409717635997,
+          "true_step_log_loss": 1.2090441714323124,
+          "stationary_l1": 0.04250174189850611,
+          "hitting_relative_error": 0.018912895315011696
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.26206978668825726,
+          "true_step_log_loss": 1.2184674964156348,
+          "stationary_l1": 0.048831161480424934,
+          "hitting_relative_error": 0.04462334931437909
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.3662517118815767,
+          "true_step_log_loss": 1.5130916150790639,
+          "stationary_l1": 0.0963423185207199,
+          "hitting_relative_error": 0.005146834367907494
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.3762521451513323,
+          "true_step_log_loss": 1.5609238486001191,
+          "stationary_l1": 0.1137394850252662,
+          "hitting_relative_error": 0.02765706415924324
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2365,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.399286450449715,
+        "observed_dev_log_loss": 0.1287802925238871,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7752868898140552,
+        "true_step_log_loss": 0.10820057205769096,
+        "stationary_l1": 0.017955690434366164,
+        "hitting_relative_error": 0.5742575306189643
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.6130636903808426,
+        "true_step_log_loss": 0.10693918484023089,
+        "stationary_l1": 0.015726891951171613,
+        "hitting_relative_error": 0.4535021821132927
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.8625238773101723,
+        "true_step_log_loss": 0.10984306103300902,
+        "stationary_l1": 0.017356037421185,
+        "hitting_relative_error": 0.5884265821548487
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.8209287522743911,
+          "true_step_log_loss": 0.10803365709392018,
+          "stationary_l1": 0.017696294344493144,
+          "hitting_relative_error": 0.5747759501840244
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.8466616819693323,
+          "true_step_log_loss": 0.10969532087174241,
+          "stationary_l1": 0.017488618153142843,
+          "hitting_relative_error": 0.5926608175833278
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.8671307643686815,
+          "true_step_log_loss": 0.11069210011923832,
+          "stationary_l1": 0.017183901824809833,
+          "hitting_relative_error": 0.5834544820317225
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.8628425197488396,
+          "true_step_log_loss": 0.11065344030389594,
+          "stationary_l1": 0.016969274814046052,
+          "hitting_relative_error": 0.5776930096746817
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 12008,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.2125054375289277,
+        "observed_dev_log_loss": 0.10649545696678508,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.28829361113552077,
+        "true_step_log_loss": 0.10480505119436388,
+        "stationary_l1": 0.007660455136235074,
+        "hitting_relative_error": 0.05875090524693268
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.27439121714598397,
+        "true_step_log_loss": 0.10401701437527366,
+        "stationary_l1": 0.0071677773735272276,
+        "hitting_relative_error": 0.06264244320349559
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.27796203022662336,
+        "true_step_log_loss": 0.10399091596071613,
+        "stationary_l1": 0.007286314689010231,
+        "hitting_relative_error": 0.09629648573398798
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.2787615527626287,
+          "true_step_log_loss": 0.1042933681131755,
+          "stationary_l1": 0.007660455136230241,
+          "hitting_relative_error": 0.011163213830068316
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.2770405299168448,
+          "true_step_log_loss": 0.10409381996570423,
+          "stationary_l1": 0.0076604551362332175,
+          "hitting_relative_error": 0.052263946018918386
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.28202319344723786,
+          "true_step_log_loss": 0.10395559783582689,
+          "stationary_l1": 0.006804360411940705,
+          "hitting_relative_error": 0.14550414955818713
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.2897246656047598,
+          "true_step_log_loss": 0.10398961060432045,
+          "stationary_l1": 0.0064987800688784845,
+          "hitting_relative_error": 0.20143685429728805
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1483,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.552422950047039,
+        "observed_dev_log_loss": 0.06570753340136269,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7295548053433619,
+        "true_step_log_loss": 0.10110355479063174,
+        "stationary_l1": 0.04637154482402988,
+        "hitting_relative_error": 0.6329285257576858
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.436017632002339,
+        "true_step_log_loss": 0.0969435334199601,
+        "stationary_l1": 0.04425941841177786,
+        "hitting_relative_error": 1.2623022050228798
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.6698678745750817,
+        "true_step_log_loss": 0.09720607546081281,
+        "stationary_l1": 0.04637154482402842,
+        "hitting_relative_error": 1.7168511094231858
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.6776935666978059,
+          "true_step_log_loss": 0.09753734924356819,
+          "stationary_l1": 0.04637154482402844,
+          "hitting_relative_error": 1.3564007606924673
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.6733294472539595,
+          "true_step_log_loss": 0.09732029275568359,
+          "stationary_l1": 0.0463715448240278,
+          "hitting_relative_error": 1.5203477716894798
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.667525296957131,
+          "true_step_log_loss": 0.09722629744040437,
+          "stationary_l1": 0.046371544824029345,
+          "hitting_relative_error": 1.9566772602050104
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.6665653870254401,
+          "true_step_log_loss": 0.09742552252411685,
+          "stationary_l1": 0.04637154482402915,
+          "hitting_relative_error": 2.255928230691212
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7433,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.3045592005838467,
+        "observed_dev_log_loss": 0.1319604234514272,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.37187695796544296,
+        "true_step_log_loss": 0.09055817227076556,
+        "stationary_l1": 0.0069572588591036355,
+        "hitting_relative_error": 0.4904856523422369
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.2652302618950321,
+        "true_step_log_loss": 0.08488569010719478,
+        "stationary_l1": 0.0062282721389175354,
+        "hitting_relative_error": 0.3229880039580889
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.3073448543033346,
+        "true_step_log_loss": 0.08502976846082416,
+        "stationary_l1": 0.0061522102147371195,
+        "hitting_relative_error": 0.30755333574414956
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.30666569998876186,
+          "true_step_log_loss": 0.08572618315998103,
+          "stationary_l1": 0.0068406861919191545,
+          "hitting_relative_error": 0.36239444506216395
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.30504815305479205,
+          "true_step_log_loss": 0.08533674528825966,
+          "stationary_l1": 0.006535810284289191,
+          "hitting_relative_error": 0.3373306303660534
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.3144883380967421,
+          "true_step_log_loss": 0.08483344150598028,
+          "stationary_l1": 0.006936253706559023,
+          "hitting_relative_error": 0.2715395684680291
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.3274689739240818,
+          "true_step_log_loss": 0.08478766606039975,
+          "stationary_l1": 0.007825604170857297,
+          "hitting_relative_error": 0.22702543606361178
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 774,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 6.131808249916393,
+        "observed_dev_log_loss": 0.2876117292922029,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.8899315461295959,
+        "true_step_log_loss": 0.1229070102992593,
+        "stationary_l1": 0.04778349763117978,
+        "hitting_relative_error": 0.5105060408585584
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.3824007273681011,
+        "true_step_log_loss": 0.0982293650322771,
+        "stationary_l1": 0.0522655873505695,
+        "hitting_relative_error": 0.1251738618412665
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.6657621243480469,
+        "true_step_log_loss": 0.09842803165484265,
+        "stationary_l1": 0.047879708365325686,
+        "hitting_relative_error": 0.2979646963532856
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.6951305309670838,
+          "true_step_log_loss": 0.10067612700798124,
+          "stationary_l1": 0.04780444988180734,
+          "hitting_relative_error": 0.0027578098311347122
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.6797561425327739,
+          "true_step_log_loss": 0.0993727786436934,
+          "stationary_l1": 0.04785015895509088,
+          "hitting_relative_error": 0.12297528553231213
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.654219308353113,
+          "true_step_log_loss": 0.09809278611386246,
+          "stationary_l1": 0.04787902759611501,
+          "hitting_relative_error": 0.5583411384232119
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.6467925126846634,
+          "true_step_log_loss": 0.09885918689827809,
+          "stationary_l1": 0.04785836534828847,
+          "hitting_relative_error": 0.9871631593542002
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3770,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.97,
+        "inverse_condition_number": 6.7340468526237744,
+        "observed_dev_log_loss": 0.1804596570180062,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5990494202449488,
+        "true_step_log_loss": 0.11858682544378514,
+        "stationary_l1": 0.002592701532909641,
+        "hitting_relative_error": 0.42538375697436265
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.2948981484403439,
+        "true_step_log_loss": 0.10148927185144438,
+        "stationary_l1": 0.0034398032712503663,
+        "hitting_relative_error": 0.1916633855938618
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.36572768912114345,
+        "true_step_log_loss": 0.1012207041114824,
+        "stationary_l1": 0.002902897460691575,
+        "hitting_relative_error": 0.17968587387311102
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.37923899752728885,
+          "true_step_log_loss": 0.1033266031401588,
+          "stationary_l1": 0.0025094894134280303,
+          "hitting_relative_error": 0.2438950765727724
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.36569750176612476,
+          "true_step_log_loss": 0.10233168687998637,
+          "stationary_l1": 0.0024979244982285976,
+          "hitting_relative_error": 0.22526274676249897
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.3835942557963412,
+          "true_step_log_loss": 0.1011732066024473,
+          "stationary_l1": 0.0036674634629849543,
+          "hitting_relative_error": 0.17314155064639405
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.4303217003574596,
+          "true_step_log_loss": 0.10157260076484506,
+          "stationary_l1": 0.0024297289755737007,
+          "hitting_relative_error": 0.16674901748368565
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2433,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.5,
+        "inverse_condition_number": 1.3709613954352244,
+        "observed_dev_log_loss": 1.665606833731762,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.2520820931603686,
+        "true_step_log_loss": 1.541935902786903,
+        "stationary_l1": 0.050464831854270246,
+        "hitting_relative_error": 0.047066613037199334
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.16841738913245521,
+        "true_step_log_loss": 1.5555879309401963,
+        "stationary_l1": 0.04974242623611785,
+        "hitting_relative_error": 0.05712474267938683
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.17982498569710173,
+        "true_step_log_loss": 1.5272455333571933,
+        "stationary_l1": 0.0497317289380368,
+        "hitting_relative_error": 0.048946049398542635
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.2426843390190675,
+          "true_step_log_loss": 1.5425038439004102,
+          "stationary_l1": 0.049937004900889044,
+          "hitting_relative_error": 0.040599962864130985
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.21677755511430086,
+          "true_step_log_loss": 1.5361970741842073,
+          "stationary_l1": 0.04986414408092902,
+          "hitting_relative_error": 0.04356282269509974
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.16888146696133688,
+          "true_step_log_loss": 1.524044844662631,
+          "stationary_l1": 0.04970129911268444,
+          "hitting_relative_error": 0.05207957797292584
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.1978919237549737,
+          "true_step_log_loss": 1.529670222413869,
+          "stationary_l1": 0.05189481061027834,
+          "hitting_relative_error": 0.06601400382089158
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11998,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 1.3647772343278757,
+        "observed_dev_log_loss": 1.6568262957290212,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.23766999983713016,
+        "true_step_log_loss": 1.5309720982704653,
+        "stationary_l1": 0.014820497733854465,
+        "hitting_relative_error": 0.004517310288232435
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.09983751348765674,
+        "true_step_log_loss": 1.524624737902253,
+        "stationary_l1": 0.012404433251435927,
+        "hitting_relative_error": 0.0050711456021598775
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.10090356022414103,
+        "true_step_log_loss": 1.5056605091005564,
+        "stationary_l1": 0.012801496454515345,
+        "hitting_relative_error": 0.005025945926669284
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.17051669177703105,
+          "true_step_log_loss": 1.5162945197376818,
+          "stationary_l1": 0.012831992414186574,
+          "hitting_relative_error": 0.003746606843885388
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.13683503240285846,
+          "true_step_log_loss": 1.5101826908764808,
+          "stationary_l1": 0.01250847309184163,
+          "hitting_relative_error": 0.001996770670741911
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.10792802109713831,
+          "true_step_log_loss": 1.5089496274842356,
+          "stationary_l1": 0.010686471317764755,
+          "hitting_relative_error": 0.012022360677318334
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.15555870715483133,
+          "true_step_log_loss": 1.5294751880982353,
+          "stationary_l1": 0.008958109734668207,
+          "hitting_relative_error": 0.014760218658996706
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1514,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 2.4843476335458745,
+        "observed_dev_log_loss": 1.7667412024800808,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5468027371062226,
+        "true_step_log_loss": 1.6343848456914447,
+        "stationary_l1": 0.04905010523828957,
+        "hitting_relative_error": 0.1437248306115903
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.35610209755849365,
+        "true_step_log_loss": 2.367961067111578,
+        "stationary_l1": 0.029741967262263275,
+        "hitting_relative_error": 0.12804481219950817
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.3477384672497909,
+        "true_step_log_loss": 1.5993903111265781,
+        "stationary_l1": 0.030004076916457283,
+        "hitting_relative_error": 0.1301609154095991
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.37473811192192974,
+          "true_step_log_loss": 1.5885131178965122,
+          "stationary_l1": 0.045685843980267926,
+          "hitting_relative_error": 0.1455872195827892
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.3554634055205836,
+          "true_step_log_loss": 1.590167791644818,
+          "stationary_l1": 0.03935032526897058,
+          "hitting_relative_error": 0.14085302989630805
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.35958884153147475,
+          "true_step_log_loss": 1.6117439246311231,
+          "stationary_l1": 0.02544298448658292,
+          "hitting_relative_error": 0.10452259145943811
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.39986843931849364,
+          "true_step_log_loss": 1.6365500303557887,
+          "stationary_l1": 0.0288470708996795,
+          "hitting_relative_error": 0.06791839792256561
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7503,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 2.49329029796905,
+        "observed_dev_log_loss": 1.7908281720280803,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5026835123539609,
+        "true_step_log_loss": 1.6245304995478944,
+        "stationary_l1": 0.012986218781843313,
+        "hitting_relative_error": 0.06227938601075775
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.14730177230157537,
+        "true_step_log_loss": 1.5946347287889837,
+        "stationary_l1": 0.012017647070175969,
+        "hitting_relative_error": 0.03238187291369457
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.15281429649516007,
+        "true_step_log_loss": 1.5215545951517078,
+        "stationary_l1": 0.01230394994187186,
+        "hitting_relative_error": 0.03429763663001834
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.24269476702527962,
+          "true_step_log_loss": 1.5397244876705118,
+          "stationary_l1": 0.012986218781843542,
+          "hitting_relative_error": 0.04455051844534278
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.19220987363261718,
+          "true_step_log_loss": 1.5284592410780218,
+          "stationary_l1": 0.012986218781844007,
+          "hitting_relative_error": 0.04034009128838884
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.18525436699226108,
+          "true_step_log_loss": 1.5378910441389653,
+          "stationary_l1": 0.009077317277875308,
+          "hitting_relative_error": 0.02296841486007902
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.30731481802100474,
+          "true_step_log_loss": 1.6878047214483023,
+          "stationary_l1": 0.011650489871304966,
+          "hitting_relative_error": 0.005905360683606429
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 747,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.0,
+        "inverse_condition_number": 6.97167282680344,
+        "observed_dev_log_loss": 1.8732189666043655,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.788164406630341,
+        "true_step_log_loss": 1.7919347367187892,
+        "stationary_l1": 0.06846408925556666,
+        "hitting_relative_error": 0.022521817980646446
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.8012139874061609,
+        "true_step_log_loss": 6.6963360815570026,
+        "stationary_l1": 0.1419844346517325,
+        "hitting_relative_error": 0.17930542336414756
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.7631067109452959,
+        "true_step_log_loss": 1.7779221242848355,
+        "stationary_l1": 0.05565107807928779,
+        "hitting_relative_error": 0.08138364058283837
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.7631067109452959,
+          "true_step_log_loss": 1.7779221242848355,
+          "stationary_l1": 0.05565107807928779,
+          "hitting_relative_error": 0.08138364058283837
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.7631067109452959,
+          "true_step_log_loss": 1.7779221242848355,
+          "stationary_l1": 0.05565107807928779,
+          "hitting_relative_error": 0.08138364058283837
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.7631067109452959,
+          "true_step_log_loss": 1.7779221242848355,
+          "stationary_l1": 0.05565107807928779,
+          "hitting_relative_error": 0.08138364058283837
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.7631067109452959,
+          "true_step_log_loss": 1.7779221242848355,
+          "stationary_l1": 0.05565107807928779,
+          "hitting_relative_error": 0.08138364058283837
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3747,
+      "naive_alpha": 12.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.5,
+        "inverse_condition_number": 5.804217028013182,
+        "observed_dev_log_loss": 1.8647116375171704,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7547757013339337,
+        "true_step_log_loss": 1.7551999084593295,
+        "stationary_l1": 0.05135726747868591,
+        "hitting_relative_error": 0.001459196346451123
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.34466372997403855,
+        "true_step_log_loss": 2.2115762528899667,
+        "stationary_l1": 0.04999371217995596,
+        "hitting_relative_error": 0.0640236743449745
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.43691781642748506,
+        "true_step_log_loss": 1.590908490542508,
+        "stationary_l1": 0.04197887682897181,
+        "hitting_relative_error": 0.0209524313283734
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.5464111075669378,
+          "true_step_log_loss": 1.6362654102097813,
+          "stationary_l1": 0.03526305439328052,
+          "hitting_relative_error": 0.009987203456025225
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.498965467002514,
+          "true_step_log_loss": 1.6149983948393476,
+          "stationary_l1": 0.03707873845813645,
+          "hitting_relative_error": 0.004323112486858044
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.322202606819459,
+          "true_step_log_loss": 1.5570226915000978,
+          "stationary_l1": 0.08878540514678815,
+          "hitting_relative_error": 0.06817732206110944
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.45951410261555525,
+          "true_step_log_loss": 1.6418909069042842,
+          "stationary_l1": 0.14822577183324498,
+          "hitting_relative_error": 0.15570835917630857
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2439,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.1362852187493069,
+        "observed_dev_log_loss": 0.9164446498085299,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.08918982602422014,
+        "true_step_log_loss": 0.8797077934087317,
+        "stationary_l1": 0.04736043403062773,
+        "hitting_relative_error": 0.051108225532742135
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.07346238935790121,
+        "true_step_log_loss": 0.8756386908215302,
+        "stationary_l1": 0.04737464033581501,
+        "hitting_relative_error": 0.04049013569474504
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.07033395269863066,
+        "true_step_log_loss": 0.8757211653280664,
+        "stationary_l1": 0.04736043403062745,
+        "hitting_relative_error": 0.03900237823080021
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.06528206022389052,
+          "true_step_log_loss": 0.8767778035940702,
+          "stationary_l1": 0.04736043403062837,
+          "hitting_relative_error": 0.011051461321578282
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.06303516737187377,
+          "true_step_log_loss": 0.8759630659538051,
+          "stationary_l1": 0.047360434030628146,
+          "hitting_relative_error": 0.012505655851584198
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.08593261548306007,
+          "true_step_log_loss": 0.8761975013420591,
+          "stationary_l1": 0.04736043403062806,
+          "hitting_relative_error": 0.06902555219147288
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.10734703957573753,
+          "true_step_log_loss": 0.877592223522588,
+          "stationary_l1": 0.0473604340306272,
+          "hitting_relative_error": 0.1033293653165233
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11983,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 1.1487721178580117,
+        "observed_dev_log_loss": 0.9536315463674988,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.10413178700763182,
+        "true_step_log_loss": 0.8747121261369659,
+        "stationary_l1": 0.021155414765982095,
+        "hitting_relative_error": 0.09836345781051178
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.03198649632001739,
+        "true_step_log_loss": 0.86910182718615,
+        "stationary_l1": 0.02115541476598029,
+        "hitting_relative_error": 0.01396242583657148
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.034414496021769575,
+        "true_step_log_loss": 0.8691916773987608,
+        "stationary_l1": 0.021143392531321165,
+        "hitting_relative_error": 0.022887821098169166
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.07241688691338895,
+          "true_step_log_loss": 0.8715984820784174,
+          "stationary_l1": 0.02114339253132183,
+          "hitting_relative_error": 0.07041880261811069
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.05657194778467831,
+          "true_step_log_loss": 0.8704153399155451,
+          "stationary_l1": 0.021143392531321692,
+          "hitting_relative_error": 0.05418707492558797
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.0333827145692664,
+          "true_step_log_loss": 0.869197096722221,
+          "stationary_l1": 0.02114339253132172,
+          "hitting_relative_error": 0.0020388358407706056
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.04815440928126656,
+          "true_step_log_loss": 0.8702001432836788,
+          "stationary_l1": 0.021143392531321553,
+          "hitting_relative_error": 0.030387831682419448
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1473,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.97,
+        "inverse_condition_number": 1.5809843106561359,
+        "observed_dev_log_loss": 1.1330466691195946,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.30651554909356715,
+        "true_step_log_loss": 0.912447326340186,
+        "stationary_l1": 0.03761858709960336,
+        "hitting_relative_error": 0.14176838194564662
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.05708534366535167,
+        "true_step_log_loss": 0.8677033067312053,
+        "stationary_l1": 0.02894226842314307,
+        "hitting_relative_error": 0.16807779321958435
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.05554998545941168,
+        "true_step_log_loss": 0.8672830352638045,
+        "stationary_l1": 0.037618587099603695,
+        "hitting_relative_error": 0.12936407432194444
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.10304464623761442,
+          "true_step_log_loss": 0.8721934195523691,
+          "stationary_l1": 0.03761858709960375,
+          "hitting_relative_error": 0.039483875421815744
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.07462972935076542,
+          "true_step_log_loss": 0.8691014580125176,
+          "stationary_l1": 0.03761858709960314,
+          "hitting_relative_error": 0.0803999358149872
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.06263757928953363,
+          "true_step_log_loss": 0.8675924750395051,
+          "stationary_l1": 0.03761858709960347,
+          "hitting_relative_error": 0.18900943597885636
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.09516741288499568,
+          "true_step_log_loss": 0.8723713442120943,
+          "stationary_l1": 0.03712910446172227,
+          "hitting_relative_error": 0.2606582122350571
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7474,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.97,
+        "inverse_condition_number": 1.5923319905874567,
+        "observed_dev_log_loss": 1.0867390298913933,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.29850972444777296,
+        "true_step_log_loss": 0.9141739198141925,
+        "stationary_l1": 0.034805982769805704,
+        "hitting_relative_error": 0.16485841595793344
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.03092278657470153,
+        "true_step_log_loss": 0.8746000025286603,
+        "stationary_l1": 0.0348695956283655,
+        "hitting_relative_error": 0.07950854927262875
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.03196592199569529,
+        "true_step_log_loss": 0.8744523891090553,
+        "stationary_l1": 0.034805982769804844,
+        "hitting_relative_error": 0.07095475630791054
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.10355195541404955,
+          "true_step_log_loss": 0.8789299116611214,
+          "stationary_l1": 0.03480598276980498,
+          "hitting_relative_error": 0.020072235777160673
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.07221760493685205,
+          "true_step_log_loss": 0.8762468689020799,
+          "stationary_l1": 0.034805982769804594,
+          "hitting_relative_error": 0.01228410798888633
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.04628411785256271,
+          "true_step_log_loss": 0.8759500043671633,
+          "stationary_l1": 0.03480598276980554,
+          "hitting_relative_error": 0.12297196677573839
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.09592963250619145,
+          "true_step_log_loss": 0.8860178612361965,
+          "stationary_l1": 0.034805982769804844,
+          "hitting_relative_error": 0.19960978783377356
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 735,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.7003242301126553,
+        "observed_dev_log_loss": 1.2342266717003547,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5767874175537628,
+        "true_step_log_loss": 1.0190740218452785,
+        "stationary_l1": 0.08260688599261601,
+        "hitting_relative_error": 0.30276166809104565
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.1880526065406662,
+        "true_step_log_loss": 0.9847489324796216,
+        "stationary_l1": 0.07446890969754344,
+        "hitting_relative_error": 0.3468864377872215
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.18782679553196044,
+        "true_step_log_loss": 0.8992903810913014,
+        "stationary_l1": 0.0740580977840272,
+        "hitting_relative_error": 0.3456215302808608
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.20434848614071488,
+          "true_step_log_loss": 0.8956364129655261,
+          "stationary_l1": 0.06640305729486495,
+          "hitting_relative_error": 0.10368395809741442
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.18491515450320495,
+          "true_step_log_loss": 0.8974600160830852,
+          "stationary_l1": 0.06640305729486531,
+          "hitting_relative_error": 0.20308340732967065
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.22413369534706504,
+          "true_step_log_loss": 0.9083023099745627,
+          "stationary_l1": 0.0851317089482842,
+          "hitting_relative_error": 0.5586716873337235
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.2962633649801582,
+          "true_step_log_loss": 0.9253197082589028,
+          "stationary_l1": 0.1034855139984586,
+          "hitting_relative_error": 0.9115297610519157
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "family": "sticky",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3775,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.6257877452541907,
+        "observed_dev_log_loss": 1.2031526848617742,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5696250317761068,
+        "true_step_log_loss": 1.000998975399631,
+        "stationary_l1": 0.025637202793315272,
+        "hitting_relative_error": 0.3162736851479295
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.07401722784413708,
+        "true_step_log_loss": 0.9312755769818164,
+        "stationary_l1": 0.02545680883665538,
+        "hitting_relative_error": 0.05492313243397761
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.07328848584308169,
+        "true_step_log_loss": 0.8787694347346515,
+        "stationary_l1": 0.025492101198385103,
+        "hitting_relative_error": 0.05568496718145752
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.14685345887076767,
+          "true_step_log_loss": 0.8803640432580417,
+          "stationary_l1": 0.025637202793314967,
+          "hitting_relative_error": 0.15504681133907885
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.09280462847461972,
+          "true_step_log_loss": 0.8759610700887313,
+          "stationary_l1": 0.02563720279331483,
+          "hitting_relative_error": 0.11365927337329984
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.1330819971646016,
+          "true_step_log_loss": 0.8891661515598573,
+          "stationary_l1": 0.01962524618052286,
+          "hitting_relative_error": 0.017449434465665846
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.23600076886339877,
+          "true_step_log_loss": 0.9080498503242898,
+          "stationary_l1": 0.010165658686881712,
+          "hitting_relative_error": 0.1328964179374894
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2370,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.5,
+        "inverse_condition_number": 1.335938403533376,
+        "observed_dev_log_loss": 1.3999695624533923,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.3619034122009406,
+        "true_step_log_loss": 1.1419149493505687,
+        "stationary_l1": 0.024433451813275914,
+        "hitting_relative_error": 0.02214221059787979
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.12257554575522475,
+        "true_step_log_loss": 1.209465649742074,
+        "stationary_l1": 0.022929747788097088,
+        "hitting_relative_error": 0.004907595029365682
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.21614390650766904,
+        "true_step_log_loss": 1.1105071456446247,
+        "stationary_l1": 0.023995769328596622,
+        "hitting_relative_error": 0.013020489578537662
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.34858546019696257,
+          "true_step_log_loss": 1.1383206457863608,
+          "stationary_l1": 0.024894820941141954,
+          "hitting_relative_error": 0.022013245811067287
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.2978854951511419,
+          "true_step_log_loss": 1.1261826478961268,
+          "stationary_l1": 0.024943836473490494,
+          "hitting_relative_error": 0.019107238341723305
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.12163770858408998,
+          "true_step_log_loss": 1.1003443736129737,
+          "stationary_l1": 0.02201905506275645,
+          "hitting_relative_error": 0.004150612431147972
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.11983242170579218,
+          "true_step_log_loss": 1.101148099841621,
+          "stationary_l1": 0.021041441882076906,
+          "hitting_relative_error": 0.0014796692301844764
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11983,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 1.34475972814467,
+        "observed_dev_log_loss": 1.315057650529685,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.3137752788452417,
+        "true_step_log_loss": 1.1273326768631526,
+        "stationary_l1": 0.018268874091371762,
+        "hitting_relative_error": 0.048066518636458964
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.061538768849011806,
+        "true_step_log_loss": 1.0827774794605227,
+        "stationary_l1": 0.01782407356945459,
+        "hitting_relative_error": 0.03139734610278902
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.07106955906682262,
+        "true_step_log_loss": 1.0834650004578505,
+        "stationary_l1": 0.01791411901288903,
+        "hitting_relative_error": 0.032661682988968134
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.20827057091622064,
+          "true_step_log_loss": 1.1034069399238766,
+          "stationary_l1": 0.01791411901288928,
+          "hitting_relative_error": 0.04262963152489819
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.12748915083713436,
+          "true_step_log_loss": 1.0899414462353962,
+          "stationary_l1": 0.01791411901288925,
+          "hitting_relative_error": 0.037377473028895096
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.07752268953815651,
+          "true_step_log_loss": 1.0845208210652018,
+          "stationary_l1": 0.017914119012888696,
+          "hitting_relative_error": 0.027264437566151756
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.1755663218166193,
+          "true_step_log_loss": 1.1349230783734983,
+          "stationary_l1": 0.01565521161224917,
+          "hitting_relative_error": 0.026653117908782678
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1504,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.3747023326329586,
+        "observed_dev_log_loss": 1.609334442565436,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7997465424687541,
+        "true_step_log_loss": 1.3192168322488471,
+        "stationary_l1": 0.04480745022904836,
+        "hitting_relative_error": 0.0725852805229939
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.3063488220602857,
+        "true_step_log_loss": 2.097714595837615,
+        "stationary_l1": 0.04916370852531707,
+        "hitting_relative_error": 0.03051956511964748
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.30533024261938974,
+        "true_step_log_loss": 1.2669337824281086,
+        "stationary_l1": 0.048999627780714816,
+        "hitting_relative_error": 0.030876761725888793
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.39139887350785807,
+          "true_step_log_loss": 1.25288962304227,
+          "stationary_l1": 0.0476603386815726,
+          "hitting_relative_error": 0.04416148264640631
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.3373443243608004,
+          "true_step_log_loss": 1.2553280783643965,
+          "stationary_l1": 0.048999615868325935,
+          "hitting_relative_error": 0.037266365543175695
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.30754858143305425,
+          "true_step_log_loss": 1.3568185835672397,
+          "stationary_l1": 0.04672987772597953,
+          "hitting_relative_error": 0.05230871392087621
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.34344524213405897,
+          "true_step_log_loss": 1.4079929535349962,
+          "stationary_l1": 0.05370203136881593,
+          "hitting_relative_error": 0.12203066567443217
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7473,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.335787685445215,
+        "observed_dev_log_loss": 1.6253904181729175,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.7582083781565682,
+        "true_step_log_loss": 1.3003838580019202,
+        "stationary_l1": 0.015923522802509027,
+        "hitting_relative_error": 0.06766930656812846
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.1380177933268114,
+        "true_step_log_loss": 1.3869868003830736,
+        "stationary_l1": 0.0167161280164006,
+        "hitting_relative_error": 0.012849110931535549
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.14045684032029554,
+        "true_step_log_loss": 1.1209101064707765,
+        "stationary_l1": 0.01654673098379905,
+        "hitting_relative_error": 0.013535645249418804
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.29000752378689326,
+          "true_step_log_loss": 1.120930039136716,
+          "stationary_l1": 0.015923522802509277,
+          "hitting_relative_error": 0.0327257407950673
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.20450416044586567,
+          "true_step_log_loss": 1.1063527471132943,
+          "stationary_l1": 0.015923522802509,
+          "hitting_relative_error": 0.02476491605624106
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.16968602955547865,
+          "true_step_log_loss": 1.1594014139058584,
+          "stationary_l1": 0.01798330580153326,
+          "hitting_relative_error": 0.004936768731867425
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.2743947173719741,
+          "true_step_log_loss": 1.3044014600323017,
+          "stationary_l1": 0.03697635309320127,
+          "hitting_relative_error": 0.02031343268589815
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 784,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 12.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 4.9932326824768625,
+        "observed_dev_log_loss": 1.8874908519771916,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.2216299899022158,
+        "true_step_log_loss": 1.6295361460178526,
+        "stationary_l1": 0.04327897410588771,
+        "hitting_relative_error": 0.019342994576979293
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.6748972828480606,
+        "true_step_log_loss": 2.8164041106846027,
+        "stationary_l1": 0.07167120030253808,
+        "hitting_relative_error": 0.016387869778651504
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.8508873251282334,
+        "true_step_log_loss": 1.4178275685826247,
+        "stationary_l1": 0.03374440200098047,
+        "hitting_relative_error": 0.15049186493306538
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.8495870249068004,
+          "true_step_log_loss": 1.41546502555055,
+          "stationary_l1": 0.03676314326935748,
+          "hitting_relative_error": 0.16731387947263612
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.791370303216798,
+          "true_step_log_loss": 1.4560822702681022,
+          "stationary_l1": 0.044541632461509204,
+          "hitting_relative_error": 0.11786475744334982
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.7702239277163577,
+          "true_step_log_loss": 1.4466663524951024,
+          "stationary_l1": 0.06579580935872147,
+          "hitting_relative_error": 0.07212678167388706
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.7047850106890837,
+          "true_step_log_loss": 1.444047665666426,
+          "stationary_l1": 0.09729721801444388,
+          "hitting_relative_error": 0.0027156548084868643
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "family": "cycle",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3726,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 5.526693697925034,
+        "observed_dev_log_loss": 1.8361470597071359,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.133837543141137,
+        "true_step_log_loss": 1.561146404514809,
+        "stationary_l1": 0.026709513892490544,
+        "hitting_relative_error": 0.0743950925850914
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.3524786519399068,
+        "true_step_log_loss": 2.5095203468128378,
+        "stationary_l1": 0.03323106730910563,
+        "hitting_relative_error": 0.050943110167079676
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.35142968671895736,
+        "true_step_log_loss": 1.2963491573076356,
+        "stationary_l1": 0.03297659476475118,
+        "hitting_relative_error": 0.05137755237592459
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.4662521721350576,
+          "true_step_log_loss": 1.2139573155283425,
+          "stationary_l1": 0.0308593588440281,
+          "hitting_relative_error": 0.05054763495160593
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.3641940050701824,
+          "true_step_log_loss": 1.2058529272917629,
+          "stationary_l1": 0.03591064498175653,
+          "hitting_relative_error": 0.045297963266029605
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.45176402286942274,
+          "true_step_log_loss": 1.4727578743404175,
+          "stationary_l1": 0.05044075900159753,
+          "hitting_relative_error": 0.1037537768956282
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.4990023645297351,
+          "true_step_log_loss": 1.5341679980288094,
+          "stationary_l1": 0.0853213022225771,
+          "hitting_relative_error": 0.10938936400606185
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2393,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.75,
+        "inverse_condition_number": 1.2821661893579568,
+        "observed_dev_log_loss": 0.6919341043762421,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6702951539443154,
+        "true_step_log_loss": 0.6607404531505056,
+        "stationary_l1": 0.0519445721528274,
+        "hitting_relative_error": 0.34840278126374685
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.7093778710574276,
+        "true_step_log_loss": 0.6595836924082215,
+        "stationary_l1": 0.05238559248533704,
+        "hitting_relative_error": 0.23948063043175752
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.69914044179889,
+        "true_step_log_loss": 0.6592346520919614,
+        "stationary_l1": 0.05194457215282633,
+        "hitting_relative_error": 0.2692144645823479
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.6787332305838387,
+          "true_step_log_loss": 0.6599811424160835,
+          "stationary_l1": 0.051944572152827814,
+          "hitting_relative_error": 0.324828180465021
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.6906471523336594,
+          "true_step_log_loss": 0.6593768479825669,
+          "stationary_l1": 0.05194457215282659,
+          "hitting_relative_error": 0.29179694108694826
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.7170090689106746,
+          "true_step_log_loss": 0.6596025550227721,
+          "stationary_l1": 0.051944572152827724,
+          "hitting_relative_error": 0.21913475600035598
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.7302496209495196,
+          "true_step_log_loss": 0.6603686416435453,
+          "stationary_l1": 0.05194457215282609,
+          "hitting_relative_error": 0.18329368452190387
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 12002,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.26741386838431,
+        "observed_dev_log_loss": 0.6889727193187554,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6684794890474033,
+        "true_step_log_loss": 0.6639726219104052,
+        "stationary_l1": 0.023834894549023336,
+        "hitting_relative_error": 0.365023892435561
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.7048391277134937,
+        "true_step_log_loss": 0.6629379744810654,
+        "stationary_l1": 0.023929231637333286,
+        "hitting_relative_error": 0.2574200966122142
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.7046537851540693,
+        "true_step_log_loss": 0.6628855588142836,
+        "stationary_l1": 0.02383489454902351,
+        "hitting_relative_error": 0.2577996884381514
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.6843286013881206,
+          "true_step_log_loss": 0.6628760705916338,
+          "stationary_l1": 0.023834894549023974,
+          "hitting_relative_error": 0.31734506314834277
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.6938603307812038,
+          "true_step_log_loss": 0.662713902276228,
+          "stationary_l1": 0.0238348945490241,
+          "hitting_relative_error": 0.2893163570666091
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.7168827942170417,
+          "true_step_log_loss": 0.6634705995859235,
+          "stationary_l1": 0.02383489454902357,
+          "hitting_relative_error": 0.2221007819166569
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.7307529407832897,
+          "true_step_log_loss": 0.6645765535323972,
+          "stationary_l1": 0.02383489454902394,
+          "hitting_relative_error": 0.18132800790401804
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1512,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.072875656140283,
+        "observed_dev_log_loss": 0.7359963148316907,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6940579831611109,
+        "true_step_log_loss": 0.6703555047727199,
+        "stationary_l1": 0.11341904635959149,
+        "hitting_relative_error": 0.5561872147296842
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.8143067621795768,
+        "true_step_log_loss": 0.6605957036282826,
+        "stationary_l1": 0.11344000360811585,
+        "hitting_relative_error": 0.2886123930776173
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.8138774759609787,
+        "true_step_log_loss": 0.6601929867681336,
+        "stationary_l1": 0.11341904635959121,
+        "hitting_relative_error": 0.2899129220252779
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.7727099518238432,
+          "true_step_log_loss": 0.6577247399341414,
+          "stationary_l1": 0.11341904635959177,
+          "hitting_relative_error": 0.37848769492996726
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.7916801360194203,
+          "true_step_log_loss": 0.6583655309716401,
+          "stationary_l1": 0.11341904635959114,
+          "hitting_relative_error": 0.33820376844919436
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.8398761058355881,
+          "true_step_log_loss": 0.6637894461009064,
+          "stationary_l1": 0.11341904635959277,
+          "hitting_relative_error": 0.2309645184605294
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.87038131858628,
+          "true_step_log_loss": 0.6702832422497371,
+          "stationary_l1": 0.11341904635959199,
+          "hitting_relative_error": 0.15739283284640407
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7423,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.124608313332733,
+        "observed_dev_log_loss": 0.7711257423466376,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6824017307581292,
+        "true_step_log_loss": 0.6709732884736509,
+        "stationary_l1": 0.01632283755082717,
+        "hitting_relative_error": 0.5275662964264805
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.8129398420715165,
+        "true_step_log_loss": 0.650056561669499,
+        "stationary_l1": 0.016230242460058646,
+        "hitting_relative_error": 0.2514686955097135
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.8122128709298766,
+        "true_step_log_loss": 0.6499955883948405,
+        "stationary_l1": 0.01632283755082662,
+        "hitting_relative_error": 0.25344949925788085
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.7682235178830863,
+          "true_step_log_loss": 0.6515612881186216,
+          "stationary_l1": 0.016322837550826585,
+          "hitting_relative_error": 0.34463712833811155
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.7885289154772845,
+          "true_step_log_loss": 0.6504476729269716,
+          "stationary_l1": 0.016322837550826082,
+          "hitting_relative_error": 0.3031653759130027
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.8398774020525751,
+          "true_step_log_loss": 0.6504567460576405,
+          "stationary_l1": 0.016322837550826516,
+          "hitting_relative_error": 0.192759929823436
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.8722629338364013,
+          "true_step_log_loss": 0.6522226696472604,
+          "stationary_l1": 0.016322837550826773,
+          "hitting_relative_error": 0.1170126244989467
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 749,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 7.913280829360219,
+        "observed_dev_log_loss": 0.8237669444146685,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.3042178315305963,
+        "true_step_log_loss": 0.7232420682132822,
+        "stationary_l1": 0.03630210682209162,
+        "hitting_relative_error": 0.5328152766824356
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.3435453580564315,
+        "true_step_log_loss": 0.6657563382966777,
+        "stationary_l1": 0.035681090104614774,
+        "hitting_relative_error": 0.14226496221835078
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.285802479216606,
+        "true_step_log_loss": 0.6655461620044779,
+        "stationary_l1": 0.036524611502980586,
+        "hitting_relative_error": 0.09002282881474388
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.26297888615182047,
+          "true_step_log_loss": 0.6630586462147211,
+          "stationary_l1": 0.03648488115209723,
+          "hitting_relative_error": 0.1405504923620303
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.2703285752526647,
+          "true_step_log_loss": 0.6624866721647475,
+          "stationary_l1": 0.03652169391225124,
+          "hitting_relative_error": 0.04437687492709902
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.3142557948003568,
+          "true_step_log_loss": 0.6768238559391049,
+          "stationary_l1": 0.03647611509689143,
+          "hitting_relative_error": 0.2909671447832938
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.3679188608510142,
+          "true_step_log_loss": 0.7215446380020774,
+          "stationary_l1": 0.03625744550332845,
+          "hitting_relative_error": 0.624320382504004
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "family": "sparse",
+      "n_states": 4,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3778,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 5.758481705037985,
+        "observed_dev_log_loss": 0.8931186874673723,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 1.1978859287534829,
+        "true_step_log_loss": 0.7484794661007811,
+        "stationary_l1": 0.022452389211302402,
+        "hitting_relative_error": 0.8790791346727879
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.9967264932171077,
+        "true_step_log_loss": 0.6644418248155253,
+        "stationary_l1": 0.022714155593725777,
+        "hitting_relative_error": 0.708026086357406
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 1.2374228936993124,
+        "true_step_log_loss": 0.6631046413305415,
+        "stationary_l1": 0.02240322076786521,
+        "hitting_relative_error": 0.9083579373399895
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 1.249188031999118,
+          "true_step_log_loss": 0.6707302123888597,
+          "stationary_l1": 0.022415585958630004,
+          "hitting_relative_error": 0.9096632416979153
+        },
+        "-0.05": {
+          "matrix_frobenius": 1.2450072996149288,
+          "true_step_log_loss": 0.6660578575786159,
+          "stationary_l1": 0.02240543005839121,
+          "hitting_relative_error": 0.9092786714051582
+        },
+        "+0.05": {
+          "matrix_frobenius": 1.223817190484779,
+          "true_step_log_loss": 0.663442393633056,
+          "stationary_l1": 0.022413656210470263,
+          "hitting_relative_error": 0.9064527258683887
+        },
+        "+0.10": {
+          "matrix_frobenius": 1.199255426875231,
+          "true_step_log_loss": 0.6710672123976195,
+          "stationary_l1": 0.022448420377434084,
+          "hitting_relative_error": 0.9025053703740747
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 3000,
+      "n_retained": 2381,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.3629986916181995,
+        "observed_dev_log_loss": 1.5614910275523384,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.2611133964596377,
+        "true_step_log_loss": 1.4552958440798496,
+        "stationary_l1": 0.03579254122407059,
+        "hitting_relative_error": 0.11217679766739479
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.13619410281868272,
+        "true_step_log_loss": 1.4305315532155631,
+        "stationary_l1": 0.03592276053051245,
+        "hitting_relative_error": 0.10682034530764412
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.13632236070621936,
+        "true_step_log_loss": 1.4314997137053684,
+        "stationary_l1": 0.0361298555622416,
+        "hitting_relative_error": 0.10506342782475271
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.18600377293098438,
+          "true_step_log_loss": 1.4386482891443375,
+          "stationary_l1": 0.03592276053051251,
+          "hitting_relative_error": 0.10586684921165464
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.15261518187755335,
+          "true_step_log_loss": 1.4319078977456094,
+          "stationary_l1": 0.03592276053051259,
+          "hitting_relative_error": 0.1062821391139156
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.14943356725928944,
+          "true_step_log_loss": 1.443581419546847,
+          "stationary_l1": 0.03343674493944114,
+          "hitting_relative_error": 0.10458460065478639
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.18742446247286101,
+          "true_step_log_loss": 1.4807299650456334,
+          "stationary_l1": 0.03474582940400417,
+          "hitting_relative_error": 0.1339282807036863
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.2,
+      "n_true": 15000,
+      "n_retained": 11981,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.2,
+        "selected_alpha": 4.0,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 1.3641772552709084,
+        "observed_dev_log_loss": 1.5805768274782324,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.2306417866522353,
+        "true_step_log_loss": 1.4524178922324265,
+        "stationary_l1": 0.010775758623590426,
+        "hitting_relative_error": 0.03253545801160469
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.06055002543749512,
+        "true_step_log_loss": 1.4227021392366015,
+        "stationary_l1": 0.010527312607110775,
+        "hitting_relative_error": 0.02687519707636006
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.062000045527640595,
+        "true_step_log_loss": 1.4228254565200509,
+        "stationary_l1": 0.010775758623590204,
+        "hitting_relative_error": 0.03592615350678953
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.1444582944546564,
+          "true_step_log_loss": 1.4349277493545622,
+          "stationary_l1": 0.010775758623590675,
+          "hitting_relative_error": 0.034050837433082924
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.09810336182606691,
+          "true_step_log_loss": 1.427392157667679,
+          "stationary_l1": 0.010775758623590564,
+          "hitting_relative_error": 0.03493595604943958
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.07252366191532435,
+          "true_step_log_loss": 1.433466638310878,
+          "stationary_l1": 0.012151069599590142,
+          "hitting_relative_error": 0.027240074067093157
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.11953583096725406,
+          "true_step_log_loss": 1.4600781145250132,
+          "stationary_l1": 0.018428913560787463,
+          "hitting_relative_error": 0.0017323319554524447
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 3000,
+      "n_retained": 1511,
+      "naive_alpha": 4.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.75,
+        "inverse_condition_number": 2.4464243484984456,
+        "observed_dev_log_loss": 1.7365375406682082,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.6314996190171172,
+        "true_step_log_loss": 1.5669048183962655,
+        "stationary_l1": 0.05221895342079594,
+        "hitting_relative_error": 0.08433720634629557
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.28099484542635733,
+        "true_step_log_loss": 1.8173834857660327,
+        "stationary_l1": 0.047414967802757904,
+        "hitting_relative_error": 0.013930192267849188
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.31023227273767723,
+        "true_step_log_loss": 1.4695264234774408,
+        "stationary_l1": 0.04942656946897353,
+        "hitting_relative_error": 0.000817846729642196
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.43337152717017097,
+          "true_step_log_loss": 1.4966821228484086,
+          "stationary_l1": 0.052097274213522934,
+          "hitting_relative_error": 0.0003346543612708234
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.40707769657123666,
+          "true_step_log_loss": 1.4891165003371483,
+          "stationary_l1": 0.05176769519465309,
+          "hitting_relative_error": 0.004602930563231061
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.2741250732567485,
+          "true_step_log_loss": 1.480307422717809,
+          "stationary_l1": 0.04135221050714069,
+          "hitting_relative_error": 0.0004339394647458421
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.2876430008569679,
+          "true_step_log_loss": 1.4953648036263145,
+          "stationary_l1": 0.04447442980486216,
+          "hitting_relative_error": 0.06215941739437372
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.5,
+      "n_true": 15000,
+      "n_retained": 7401,
+      "naive_alpha": 0.05,
+      "compiler_diagnostics": {
+        "omission_rate": 0.5,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.995,
+        "inverse_condition_number": 2.5492291633683166,
+        "observed_dev_log_loss": 1.7158284118082145,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.5362958476655745,
+        "true_step_log_loss": 1.5442120293274109,
+        "stationary_l1": 0.016191521236073633,
+        "hitting_relative_error": 0.08165727151975043
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.1597648595750415,
+        "true_step_log_loss": 1.5509630479783285,
+        "stationary_l1": 0.017519468756531084,
+        "hitting_relative_error": 0.12387261542346353
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.15975412212147172,
+        "true_step_log_loss": 1.4492330136815461,
+        "stationary_l1": 0.017869945753899386,
+        "hitting_relative_error": 0.12518667672070777
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.23277319277106368,
+          "true_step_log_loss": 1.4484842116073235,
+          "stationary_l1": 0.016191521236073703,
+          "hitting_relative_error": 0.11090642762320962
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.18403925751234507,
+          "true_step_log_loss": 1.4379196731778239,
+          "stationary_l1": 0.016191521236073425,
+          "hitting_relative_error": 0.11770330205510633
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.1981089458354881,
+          "true_step_log_loss": 1.4717184778710126,
+          "stationary_l1": 0.02096817394314804,
+          "hitting_relative_error": 0.11069493000201273
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.2823163912705661,
+          "true_step_log_loss": 1.5066012243269415,
+          "stationary_l1": 0.039693089278276944,
+          "hitting_relative_error": 0.039445670411653706
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 3000,
+      "n_retained": 726,
+      "naive_alpha": 1.0,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 1.0,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 6.293290793760043,
+        "observed_dev_log_loss": 1.7999848754752945,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.8819094988349934,
+        "true_step_log_loss": 1.7010801419907313,
+        "stationary_l1": 0.06412994475242582,
+        "hitting_relative_error": 0.11966500205542775
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.7653292138122637,
+        "true_step_log_loss": 3.4249019204057274,
+        "stationary_l1": 0.0983488367400047,
+        "hitting_relative_error": 0.03925480012666509
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.7419953665306209,
+        "true_step_log_loss": 1.6219521233060532,
+        "stationary_l1": 0.09069775412136455,
+        "hitting_relative_error": 0.04656191270553721
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.7080314013705377,
+          "true_step_log_loss": 1.6081154167201757,
+          "stationary_l1": 0.05893411077623498,
+          "hitting_relative_error": 0.05371893165952258
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.7282135602248436,
+          "true_step_log_loss": 1.7001329372222729,
+          "stationary_l1": 0.08529712599178202,
+          "hitting_relative_error": 0.10160649482446368
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.724593553677385,
+          "true_step_log_loss": 1.5895761506752817,
+          "stationary_l1": 0.0636460070277085,
+          "hitting_relative_error": 0.06643167747346293
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.7803594680768038,
+          "true_step_log_loss": 1.629914601776092,
+          "stationary_l1": 0.0477404714496632,
+          "hitting_relative_error": 0.03263304802215335
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "family": "dense",
+      "n_states": 7,
+      "omission": 0.75,
+      "n_true": 15000,
+      "n_retained": 3627,
+      "naive_alpha": 0.25,
+      "compiler_diagnostics": {
+        "omission_rate": 0.75,
+        "selected_alpha": 0.05,
+        "selected_inversion_strength": 0.9,
+        "inverse_condition_number": 5.101433223274394,
+        "observed_dev_log_loss": 1.8076904338421789,
+        "identifiability_warning": "omission_rate is externally supplied; retained states alone do not identify it"
+      },
+      "naive": {
+        "matrix_frobenius": 0.8255128079378135,
+        "true_step_log_loss": 1.686347453912168,
+        "stationary_l1": 0.018015500121463773,
+        "hitting_relative_error": 0.05921532875111461
+      },
+      "raw_full_inverse": {
+        "matrix_frobenius": 0.4099641184217741,
+        "true_step_log_loss": 1.9561838450167313,
+        "stationary_l1": 0.03621549648051253,
+        "hitting_relative_error": 0.2335454173088761
+      },
+      "regularized_compiler": {
+        "matrix_frobenius": 0.42112124947565666,
+        "true_step_log_loss": 1.522057230886222,
+        "stationary_l1": 0.030735550653303412,
+        "hitting_relative_error": 0.20596714823589082
+      },
+      "misspecified_omission": {
+        "-0.10": {
+          "matrix_frobenius": 0.5054458110973827,
+          "true_step_log_loss": 1.5467475646355626,
+          "stationary_l1": 0.011520054418541079,
+          "hitting_relative_error": 0.1390401555351656
+        },
+        "-0.05": {
+          "matrix_frobenius": 0.46044974142814543,
+          "true_step_log_loss": 1.5400293301385592,
+          "stationary_l1": 0.018984968123990476,
+          "hitting_relative_error": 0.16654057540692715
+        },
+        "+0.05": {
+          "matrix_frobenius": 0.4129772135619714,
+          "true_step_log_loss": 1.5110957322050895,
+          "stationary_l1": 0.022553529379045756,
+          "hitting_relative_error": 0.1581818991227611
+        },
+        "+0.10": {
+          "matrix_frobenius": 0.42312224798171677,
+          "true_step_log_loss": 1.5268209208323322,
+          "stationary_l1": 0.0499846020928795,
+          "hitting_relative_error": 0.04895598368123208
+        }
+      }
+    }
+  ],
+  "summary": {
+    "raw_full_inverse": {
+      "matrix_wins_vs_naive": 65,
+      "logloss_wins_vs_naive": 44,
+      "stationary_wins_vs_naive": 32,
+      "hitting_wins_vs_naive": 57,
+      "median_logloss_gain": 0.005641390557193329,
+      "median_matrix_error_ratio": 0.3533302385576237
+    },
+    "regularized_compiler": {
+      "matrix_wins_vs_naive": 66,
+      "logloss_wins_vs_naive": 70,
+      "stationary_wins_vs_naive": 36,
+      "hitting_wins_vs_naive": 54,
+      "median_logloss_gain": 0.044907093724789404,
+      "median_matrix_error_ratio": 0.3676354562208924
+    },
+    "n_cases": 72,
+    "selected_strength_counts": {
+      "0.0": 2,
+      "0.25": 1,
+      "0.5": 4,
+      "0.75": 5,
+      "0.9": 13,
+      "0.97": 6,
+      "0.995": 41
+    }
+  },
+  "identifiability": {
+    "true_omission": 0.55,
+    "feasible_assumed_rates": 29,
+    "feasible_range": [
+      0.0,
+      0.56
+    ],
+    "max_forward_error_among_feasible": 3.3306690738754696e-16,
+    "interpretation": "retained-state transition likelihood cannot select omission rate along this feasible algebraic path",
+    "rows": [
+      {
+        "assumed_omission": 0.0,
+        "feasible_chain": true,
+        "forward_error": 0.0,
+        "distance_from_true_p": 0.3157697629144495
+      },
+      {
+        "assumed_omission": 0.02,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.30781807056393495
+      },
+      {
+        "assumed_omission": 0.04,
+        "feasible_chain": true,
+        "forward_error": 1.6653345369377348e-16,
+        "distance_from_true_p": 0.29968911280228633
+      },
+      {
+        "assumed_omission": 0.06,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.29137615001697353
+      },
+      {
+        "assumed_omission": 0.08,
+        "feasible_chain": true,
+        "forward_error": 1.6653345369377348e-16,
+        "distance_from_true_p": 0.28287205873733823
+      },
+      {
+        "assumed_omission": 0.1,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.27416930150862656
+      },
+      {
+        "assumed_omission": 0.12,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.2652598937004607
+      },
+      {
+        "assumed_omission": 0.14,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.25613536686355903
+      },
+      {
+        "assumed_omission": 0.16,
+        "feasible_chain": true,
+        "forward_error": 5.551115123125783e-17,
+        "distance_from_true_p": 0.2467867281903934
+      },
+      {
+        "assumed_omission": 0.18,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.2372044155671677
+      },
+      {
+        "assumed_omission": 0.2,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.2273782476240008
+      },
+      {
+        "assumed_omission": 0.22,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.21729736809500433
+      },
+      {
+        "assumed_omission": 0.24,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.20695018368702667
+      },
+      {
+        "assumed_omission": 0.26,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.19632429452141162
+      },
+      {
+        "assumed_omission": 0.28,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.18540641605256097
+      },
+      {
+        "assumed_omission": 0.3,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.17418229117459272
+      },
+      {
+        "assumed_omission": 0.32,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.16263659099575545
+      },
+      {
+        "assumed_omission": 0.34,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.15075280248043776
+      },
+      {
+        "assumed_omission": 0.36,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.13851310081923546
+      },
+      {
+        "assumed_omission": 0.38,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.1258982039742127
+      },
+      {
+        "assumed_omission": 0.4,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.11288720634093305
+      },
+      {
+        "assumed_omission": 0.42,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.09945738784771138
+      },
+      {
+        "assumed_omission": 0.44,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.08558399404589799
+      },
+      {
+        "assumed_omission": 0.46,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.07123998179418455
+      },
+      {
+        "assumed_omission": 0.48,
+        "feasible_chain": true,
+        "forward_error": 3.3306690738754696e-16,
+        "distance_from_true_p": 0.056395723954825214
+      },
+      {
+        "assumed_omission": 0.5,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.04101866503482898
+      },
+      {
+        "assumed_omission": 0.52,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.025072917834767644
+      },
+      {
+        "assumed_omission": 0.54,
+        "feasible_chain": true,
+        "forward_error": 2.220446049250313e-16,
+        "distance_from_true_p": 0.00851878879839804
+      },
+      {
+        "assumed_omission": 0.56,
+        "feasible_chain": true,
+        "forward_error": 1.1102230246251565e-16,
+        "distance_from_true_p": 0.00868778326302751
+      },
+      {
+        "assumed_omission": 0.58,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.026595894269025134
+      },
+      {
+        "assumed_omission": 0.6,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.04526047198330478
+      },
+      {
+        "assumed_omission": 0.62,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.06474323382452239
+      },
+      {
+        "assumed_omission": 0.64,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.0851138445472783
+      },
+      {
+        "assumed_omission": 0.66,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.10645132415845691
+      },
+      {
+        "assumed_omission": 0.68,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.12884577130349156
+      },
+      {
+        "assumed_omission": 0.7000000000000001,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.1524004872770769
+      },
+      {
+        "assumed_omission": 0.72,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.1772346127346005
+      },
+      {
+        "assumed_omission": 0.74,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.20348642590733848
+      },
+      {
+        "assumed_omission": 0.76,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.2313175017293546
+      },
+      {
+        "assumed_omission": 0.78,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.26091800175875407
+      },
+      {
+        "assumed_omission": 0.8,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.2925134640515549
+      },
+      {
+        "assumed_omission": 0.82,
+        "feasible_chain": false,
+        "forward_error": null,
+        "distance_from_true_p": 0.3263736037274573
+      }
+    ]
+  },
+  "speed": {
+    "n_states": 12,
+    "median_compile_microseconds": 86.79999882588163,
+    "max_population_error": 1.6653345369377348e-16
+  },
+  "elapsed_seconds": 4.047002300001623
+}

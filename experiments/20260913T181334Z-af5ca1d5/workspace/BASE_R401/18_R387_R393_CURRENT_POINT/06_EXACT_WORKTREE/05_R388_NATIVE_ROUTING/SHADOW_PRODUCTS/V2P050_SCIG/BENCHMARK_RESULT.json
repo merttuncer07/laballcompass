@@ -1,0 +1,558 @@
+{
+  "mechanism_removing_comparator": "same CSID failures, safeguard costs, coverage, budget and declared evidence-family labels with SACPS covariance dependence merging removed",
+  "evidence_boundary": "synthetic safeguard-evidence residual shell; demonstrates dependence-partition correction, not empirical contract-loss calibration",
+  "working_region": "nominally distinct evidence families share a strong supported dependence channel that makes CSID independence multiplication optimistic",
+  "failure_region": "dependence threshold is calibration-sensitive and support remains externally declared; near-threshold cross-family correlations trigger abstention",
+  "result": {
+    "selected_shrinkage": 0.0,
+    "cross_family_covariance_edges": [
+      {
+        "left": "A",
+        "right": "B",
+        "absolute_correlation": 0.9035819686074236
+      }
+    ],
+    "dependence_adjusted_family_map": {
+      "A": "SCIG_FAMILY_1",
+      "B": "SCIG_FAMILY_1",
+      "C": "SCIG_FAMILY_2"
+    },
+    "merged_cross_family": true,
+    "control_declared_partition": {
+      "selected": {
+        "safeguards": [
+          "A",
+          "B"
+        ],
+        "total_cost": 10.0,
+        "expected_residual_loss": 8.000000000000002,
+        "objective": 18.0,
+        "evidence_families": [
+          "feed_A",
+          "feed_B"
+        ],
+        "coverage_by_failure": {
+          "reporting_failure": 0.84
+        }
+      },
+      "top_portfolios": [
+        {
+          "safeguards": [
+            "A",
+            "B"
+          ],
+          "total_cost": 10.0,
+          "expected_residual_loss": 8.000000000000002,
+          "objective": 18.0,
+          "evidence_families": [
+            "feed_A",
+            "feed_B"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.84
+          }
+        },
+        {
+          "safeguards": [
+            "A",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "feed_A",
+            "governance"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "B",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "feed_B",
+            "governance"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "A"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "feed_A"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "B"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "feed_B"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "C"
+          ],
+          "total_cost": 7.0,
+          "expected_residual_loss": 25.0,
+          "objective": 32.0,
+          "evidence_families": [
+            "governance"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.5
+          }
+        },
+        {
+          "safeguards": [],
+          "total_cost": 0,
+          "expected_residual_loss": 50.0,
+          "objective": 50.0,
+          "evidence_families": [],
+          "coverage_by_failure": {
+            "reporting_failure": 0.0
+          }
+        }
+      ],
+      "budget": 12.0,
+      "family_aware": true,
+      "evaluated_portfolios": 7
+    },
+    "control_revalued_under_dependence_partition": {
+      "safeguards": [
+        "A",
+        "B"
+      ],
+      "total_cost": 10.0,
+      "expected_residual_loss": 20.0,
+      "objective": 30.0,
+      "evidence_families": [
+        "SCIG_FAMILY_1"
+      ],
+      "coverage_by_failure": {
+        "reporting_failure": 0.6
+      }
+    },
+    "candidate_dependence_adjusted_partition": {
+      "selected": {
+        "safeguards": [
+          "A",
+          "C"
+        ],
+        "total_cost": 12.0,
+        "expected_residual_loss": 9.999999999999998,
+        "objective": 22.0,
+        "evidence_families": [
+          "SCIG_FAMILY_1",
+          "SCIG_FAMILY_2"
+        ],
+        "coverage_by_failure": {
+          "reporting_failure": 0.8
+        }
+      },
+      "top_portfolios": [
+        {
+          "safeguards": [
+            "A",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1",
+            "SCIG_FAMILY_2"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "B",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1",
+            "SCIG_FAMILY_2"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "A"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "B"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "A",
+            "B"
+          ],
+          "total_cost": 10.0,
+          "expected_residual_loss": 20.0,
+          "objective": 30.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "C"
+          ],
+          "total_cost": 7.0,
+          "expected_residual_loss": 25.0,
+          "objective": 32.0,
+          "evidence_families": [
+            "SCIG_FAMILY_2"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.5
+          }
+        },
+        {
+          "safeguards": [],
+          "total_cost": 0,
+          "expected_residual_loss": 50.0,
+          "objective": 50.0,
+          "evidence_families": [],
+          "coverage_by_failure": {
+            "reporting_failure": 0.0
+          }
+        }
+      ],
+      "budget": 12.0,
+      "family_aware": true,
+      "evaluated_portfolios": 7
+    },
+    "gain_vs_declared_family_removal_control_under_adjusted_reality": 8.0,
+    "status": "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION"
+  },
+  "collapse_result": {
+    "selected_shrinkage": 0.0,
+    "cross_family_covariance_edges": [],
+    "dependence_adjusted_family_map": {
+      "A": "SCIG_FAMILY_1",
+      "B": "SCIG_FAMILY_2",
+      "C": "SCIG_FAMILY_3"
+    },
+    "merged_cross_family": false,
+    "control_declared_partition": {
+      "selected": {
+        "safeguards": [
+          "A",
+          "B"
+        ],
+        "total_cost": 10.0,
+        "expected_residual_loss": 8.000000000000002,
+        "objective": 18.0,
+        "evidence_families": [
+          "feed_A",
+          "feed_B"
+        ],
+        "coverage_by_failure": {
+          "reporting_failure": 0.84
+        }
+      },
+      "top_portfolios": [
+        {
+          "safeguards": [
+            "A",
+            "B"
+          ],
+          "total_cost": 10.0,
+          "expected_residual_loss": 8.000000000000002,
+          "objective": 18.0,
+          "evidence_families": [
+            "feed_A",
+            "feed_B"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.84
+          }
+        },
+        {
+          "safeguards": [
+            "A",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "feed_A",
+            "governance"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "B",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "feed_B",
+            "governance"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "A"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "feed_A"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "B"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "feed_B"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "C"
+          ],
+          "total_cost": 7.0,
+          "expected_residual_loss": 25.0,
+          "objective": 32.0,
+          "evidence_families": [
+            "governance"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.5
+          }
+        },
+        {
+          "safeguards": [],
+          "total_cost": 0,
+          "expected_residual_loss": 50.0,
+          "objective": 50.0,
+          "evidence_families": [],
+          "coverage_by_failure": {
+            "reporting_failure": 0.0
+          }
+        }
+      ],
+      "budget": 12.0,
+      "family_aware": true,
+      "evaluated_portfolios": 7
+    },
+    "control_revalued_under_dependence_partition": {
+      "safeguards": [
+        "A",
+        "B"
+      ],
+      "total_cost": 10.0,
+      "expected_residual_loss": 8.000000000000002,
+      "objective": 18.0,
+      "evidence_families": [
+        "SCIG_FAMILY_1",
+        "SCIG_FAMILY_2"
+      ],
+      "coverage_by_failure": {
+        "reporting_failure": 0.84
+      }
+    },
+    "candidate_dependence_adjusted_partition": {
+      "selected": {
+        "safeguards": [
+          "A",
+          "B"
+        ],
+        "total_cost": 10.0,
+        "expected_residual_loss": 8.000000000000002,
+        "objective": 18.0,
+        "evidence_families": [
+          "SCIG_FAMILY_1",
+          "SCIG_FAMILY_2"
+        ],
+        "coverage_by_failure": {
+          "reporting_failure": 0.84
+        }
+      },
+      "top_portfolios": [
+        {
+          "safeguards": [
+            "A",
+            "B"
+          ],
+          "total_cost": 10.0,
+          "expected_residual_loss": 8.000000000000002,
+          "objective": 18.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1",
+            "SCIG_FAMILY_2"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.84
+          }
+        },
+        {
+          "safeguards": [
+            "A",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1",
+            "SCIG_FAMILY_3"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "B",
+            "C"
+          ],
+          "total_cost": 12.0,
+          "expected_residual_loss": 9.999999999999998,
+          "objective": 22.0,
+          "evidence_families": [
+            "SCIG_FAMILY_2",
+            "SCIG_FAMILY_3"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.8
+          }
+        },
+        {
+          "safeguards": [
+            "A"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "SCIG_FAMILY_1"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "B"
+          ],
+          "total_cost": 5.0,
+          "expected_residual_loss": 20.0,
+          "objective": 25.0,
+          "evidence_families": [
+            "SCIG_FAMILY_2"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.6
+          }
+        },
+        {
+          "safeguards": [
+            "C"
+          ],
+          "total_cost": 7.0,
+          "expected_residual_loss": 25.0,
+          "objective": 32.0,
+          "evidence_families": [
+            "SCIG_FAMILY_3"
+          ],
+          "coverage_by_failure": {
+            "reporting_failure": 0.5
+          }
+        },
+        {
+          "safeguards": [],
+          "total_cost": 0,
+          "expected_residual_loss": 50.0,
+          "objective": 50.0,
+          "evidence_families": [],
+          "coverage_by_failure": {
+            "reporting_failure": 0.0
+          }
+        }
+      ],
+      "budget": 12.0,
+      "family_aware": true,
+      "evaluated_portfolios": 7
+    },
+    "gain_vs_declared_family_removal_control_under_adjusted_reality": 0.0,
+    "status": "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES"
+  }
+}

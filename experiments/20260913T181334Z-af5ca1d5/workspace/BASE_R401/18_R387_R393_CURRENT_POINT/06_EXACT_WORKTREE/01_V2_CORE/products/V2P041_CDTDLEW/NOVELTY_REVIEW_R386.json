@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+  "difference_from_nearest": "PCFDLW changes the admissible candidate set using closure/fidelity certificates; CDTDLEW keeps candidates but changes the decision-loss objective across a channel-tipping ambiguity set.",
+  "directory": "V2P041_CDTDLEW",
+  "diversified_selected_rank": null,
+  "external_prior_art": [
+    "Blackwell informativeness under ambiguous experiments and maxmin/Wald comparisons over sets of experiments are established."
+  ],
+  "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+  "family_id": "V2P041",
+  "mechanism_removing_comparator": "ordinary DLEW selection at the nominal channel regime only",
+  "nearest_existing_product": "V2P030_PCFDLW",
+  "new_failure_mode": "DLEW can pick the lowest-regret model at one nominal channel even when a nearby channel-informativeness regime reverses that ranking.",
+  "non_additive_interaction": "CDTS defines the protected ambiguity/regime set and DLEW changes its selection objective to minimax decision regret over that set.",
+  "product_id": "V2P041",
+  "quality_accounting": "R386_DISTINCT_PRODUCT",
+  "raw_native_rank": null,
+  "short_name": "CDTDLEW",
+  "supplier_id": "FOUNDRY:P082",
+  "test_files": [
+    "test_cdtdlew.py"
+  ],
+  "verdict": "DISTINCT_PRODUCT"
+}

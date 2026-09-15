@@ -1,0 +1,29 @@
+[
+  {
+    "cost": 1.0,
+    "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES",
+    "reported_cut_cost": 1.0,
+    "cuts": 1,
+    "protected_after": [
+      0.0
+    ]
+  },
+  {
+    "cost": 1e-13,
+    "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES",
+    "reported_cut_cost": 1e-13,
+    "cuts": 1,
+    "protected_after": [
+      0.0
+    ]
+  },
+  {
+    "cost": 1e+16,
+    "status": "FIREWALL_INCOMPLETE",
+    "reported_cut_cost": 0.0,
+    "cuts": 0,
+    "protected_after": [
+      0.5
+    ]
+  }
+]

@@ -1,0 +1,828 @@
+{
+  "summary": {
+    "case_count": 30,
+    "home_non_gaussian_compiled_beats_ukf": 10,
+    "home_non_gaussian_compiled_beats_ekf": 10,
+    "home_compiled_within_15pct_particle": 15,
+    "shifted_compiled_beats_ukf": 10,
+    "mean_home_compiled_rmse": 0.26923720940906637,
+    "mean_home_ukf_rmse": 0.30255406942594926,
+    "mean_home_particle_rmse": 0.2612762551925086,
+    "mean_home_compiled_coverage90": 0.9003650793650794,
+    "median_speedup_vs_particle512": 54.25039018308858,
+    "status": "RECURSIVE_CONDITIONAL_MEAN_AND_CALIBRATED_SCALE_SURVIVE_NON_GAUSSIAN_FILTERING"
+  },
+  "cases": [
+    {
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.23870720473847218,
+        "coverage90": 0.8995238095238095,
+        "gaussian_nll": 6.169862982088943
+      },
+      "ekf": {
+        "rmse": 0.2397397830473971,
+        "coverage90": 0.9097619047619048,
+        "gaussian_nll": -0.014287248803684488
+      },
+      "ukf": {
+        "rmse": 0.2375602387492883,
+        "coverage90": 0.9007142857142857,
+        "gaussian_nll": -0.02585726701376361
+      },
+      "particle512": {
+        "rmse": 0.23797958236569372,
+        "coverage90": 0.9007142857142857,
+        "gaussian_nll": -0.021823074117759817
+      },
+      "compiled_seconds": 0.003053399996133521,
+      "particle_seconds": 0.13442119999672286
+    },
+    {
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2229021597876382,
+        "coverage90": 0.8697619047619047,
+        "gaussian_nll": 15.818575263665855
+      },
+      "ekf": {
+        "rmse": 0.2275644034927415,
+        "coverage90": 0.8854761904761905,
+        "gaussian_nll": -0.07265003194593499
+      },
+      "ukf": {
+        "rmse": 0.22230498889964317,
+        "coverage90": 0.8926190476190476,
+        "gaussian_nll": -0.11576779289174424
+      },
+      "particle512": {
+        "rmse": 0.22119994033870735,
+        "coverage90": 0.8897619047619048,
+        "gaussian_nll": -0.14097996266611265
+      },
+      "compiled_seconds": 0.0028703999996650964,
+      "particle_seconds": 0.15266950000659563
+    },
+    {
+      "seed": 0,
+      "regime": "skew",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.29375313382056006,
+        "coverage90": 0.8976190476190476,
+        "gaussian_nll": 23.70829014108034
+      },
+      "ekf": {
+        "rmse": 0.33558614266562603,
+        "coverage90": 0.9266666666666666,
+        "gaussian_nll": 1.0899696519897304
+      },
+      "ukf": {
+        "rmse": 0.3335569542348422,
+        "coverage90": 0.9211904761904762,
+        "gaussian_nll": 0.4683418729532144
+      },
+      "particle512": {
+        "rmse": 0.2638353873133098,
+        "coverage90": 0.9102380952380953,
+        "gaussian_nll": 109.63658688930043
+      },
+      "compiled_seconds": 0.002941099999588914,
+      "particle_seconds": 0.1967414000100689
+    },
+    {
+      "seed": 0,
+      "regime": "skew",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2812436507877557,
+        "coverage90": 0.8226190476190476,
+        "gaussian_nll": 44.32700848983544
+      },
+      "ekf": {
+        "rmse": 0.6162650585957835,
+        "coverage90": 0.9166666666666666,
+        "gaussian_nll": 55492.841371822564
+      },
+      "ukf": {
+        "rmse": 0.5881453241368235,
+        "coverage90": 0.9204761904761904,
+        "gaussian_nll": 344.42270978496396
+      },
+      "particle512": {
+        "rmse": 0.28680474512697646,
+        "coverage90": 0.9064285714285715,
+        "gaussian_nll": 796275.9824300283
+      },
+      "compiled_seconds": 0.0028683000127784908,
+      "particle_seconds": 0.17656550000538118
+    },
+    {
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2825651403180491,
+        "coverage90": 0.9040476190476191,
+        "gaussian_nll": 14.861771212648303
+      },
+      "ekf": {
+        "rmse": 0.3191253973563876,
+        "coverage90": 0.9288095238095239,
+        "gaussian_nll": 0.28345885158652545
+      },
+      "ukf": {
+        "rmse": 0.31983455018411566,
+        "coverage90": 0.9226190476190477,
+        "gaussian_nll": 0.2816770431451943
+      },
+      "particle512": {
+        "rmse": 0.2768963587091804,
+        "coverage90": 0.9126190476190477,
+        "gaussian_nll": 0.08610489011588081
+      },
+      "compiled_seconds": 0.0028529000119306147,
+      "particle_seconds": 0.16169409999565687
+    },
+    {
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2574250945825489,
+        "coverage90": 0.905,
+        "gaussian_nll": 23.876542829152964
+      },
+      "ekf": {
+        "rmse": 0.3003155673387331,
+        "coverage90": 0.9228571428571428,
+        "gaussian_nll": 0.2098263627672189
+      },
+      "ukf": {
+        "rmse": 0.2970018015339078,
+        "coverage90": 0.925,
+        "gaussian_nll": 0.18518173446366523
+      },
+      "particle512": {
+        "rmse": 0.25290968710847717,
+        "coverage90": 0.919047619047619,
+        "gaussian_nll": -0.022366140459088916
+      },
+      "compiled_seconds": 0.00288840000575874,
+      "particle_seconds": 0.1514927000098396
+    },
+    {
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.24143850330008884,
+        "coverage90": 0.895,
+        "gaussian_nll": 5.260077977421461
+      },
+      "ekf": {
+        "rmse": 0.24260993368352196,
+        "coverage90": 0.9,
+        "gaussian_nll": -0.004395794340258219
+      },
+      "ukf": {
+        "rmse": 0.24005203324730917,
+        "coverage90": 0.8942857142857142,
+        "gaussian_nll": -0.016991979986201625
+      },
+      "particle512": {
+        "rmse": 0.240397181373214,
+        "coverage90": 0.8916666666666667,
+        "gaussian_nll": -0.01626424553977025
+      },
+      "compiled_seconds": 0.002871299991966225,
+      "particle_seconds": 0.12189769999531563
+    },
+    {
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.21948283853699938,
+        "coverage90": 0.8895238095238095,
+        "gaussian_nll": 14.769245992975343
+      },
+      "ekf": {
+        "rmse": 0.2242680700963654,
+        "coverage90": 0.8988095238095238,
+        "gaussian_nll": -0.08375721271634323
+      },
+      "ukf": {
+        "rmse": 0.21910906533956764,
+        "coverage90": 0.9071428571428571,
+        "gaussian_nll": -0.12352805897154776
+      },
+      "particle512": {
+        "rmse": 0.21893691352973488,
+        "coverage90": 0.9052380952380953,
+        "gaussian_nll": 1252.880369416626
+      },
+      "compiled_seconds": 0.0027467999898362905,
+      "particle_seconds": 0.12222790000669193
+    },
+    {
+      "seed": 1,
+      "regime": "skew",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2918476940265081,
+        "coverage90": 0.893095238095238,
+        "gaussian_nll": 24.472133465059457
+      },
+      "ekf": {
+        "rmse": 0.4632831799237582,
+        "coverage90": 0.9283333333333333,
+        "gaussian_nll": 1958.8871413181637
+      },
+      "ukf": {
+        "rmse": 0.4574111293476904,
+        "coverage90": 0.9242857142857143,
+        "gaussian_nll": 55.87734264562246
+      },
+      "particle512": {
+        "rmse": 0.29605978083331896,
+        "coverage90": 0.9014285714285715,
+        "gaussian_nll": 567861.6555454044
+      },
+      "compiled_seconds": 0.0029426999972201884,
+      "particle_seconds": 0.15403070001048036
+    },
+    {
+      "seed": 1,
+      "regime": "skew",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.26499381152631846,
+        "coverage90": 0.8545238095238096,
+        "gaussian_nll": 34.66548053969419
+      },
+      "ekf": {
+        "rmse": 0.29447611542080854,
+        "coverage90": 0.9302380952380952,
+        "gaussian_nll": 0.2231134960415186
+      },
+      "ukf": {
+        "rmse": 0.29227014278855296,
+        "coverage90": 0.93,
+        "gaussian_nll": 0.18460967488769547
+      },
+      "particle512": {
+        "rmse": 0.24316984842214884,
+        "coverage90": 0.9104761904761904,
+        "gaussian_nll": -0.1790609734865524
+      },
+      "compiled_seconds": 0.0027460999990580603,
+      "particle_seconds": 0.14984019999974407
+    },
+    {
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2716910827451659,
+        "coverage90": 0.9135714285714286,
+        "gaussian_nll": 21.608569591440872
+      },
+      "ekf": {
+        "rmse": 0.31758073450907487,
+        "coverage90": 0.9319047619047619,
+        "gaussian_nll": 0.27516527352113745
+      },
+      "ukf": {
+        "rmse": 0.3170577658637842,
+        "coverage90": 0.9247619047619048,
+        "gaussian_nll": 0.2688061564202191
+      },
+      "particle512": {
+        "rmse": 0.2673828243137595,
+        "coverage90": 0.915952380952381,
+        "gaussian_nll": 0.06216977093792046
+      },
+      "compiled_seconds": 0.0027902000001631677,
+      "particle_seconds": 0.15423450000525918
+    },
+    {
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.27872439726970233,
+        "coverage90": 0.900952380952381,
+        "gaussian_nll": 30.95768698783919
+      },
+      "ekf": {
+        "rmse": 0.3124176482487582,
+        "coverage90": 0.920952380952381,
+        "gaussian_nll": 0.2511070720535581
+      },
+      "ukf": {
+        "rmse": 0.30896088848880787,
+        "coverage90": 0.919047619047619,
+        "gaussian_nll": 0.22950342694484796
+      },
+      "particle512": {
+        "rmse": 0.2683777052036936,
+        "coverage90": 0.9152380952380952,
+        "gaussian_nll": 0.031419391824028864
+      },
+      "compiled_seconds": 0.002781000002869405,
+      "particle_seconds": 0.15708689999883063
+    },
+    {
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2362372749523469,
+        "coverage90": 0.9014285714285715,
+        "gaussian_nll": 2.9613490172779913
+      },
+      "ekf": {
+        "rmse": 0.23759887257864068,
+        "coverage90": 0.9107142857142857,
+        "gaussian_nll": -0.019136263179339166
+      },
+      "ukf": {
+        "rmse": 0.23513372425068096,
+        "coverage90": 0.9076190476190477,
+        "gaussian_nll": -0.033667237448062944
+      },
+      "particle512": {
+        "rmse": 0.23590681497677846,
+        "coverage90": 0.9052380952380953,
+        "gaussian_nll": -0.0006337841194191422
+      },
+      "compiled_seconds": 0.0027834000065922737,
+      "particle_seconds": 0.12305989999731537
+    },
+    {
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2212778190495922,
+        "coverage90": 0.8792857142857143,
+        "gaussian_nll": 11.438049370049894
+      },
+      "ekf": {
+        "rmse": 0.22559097431822211,
+        "coverage90": 0.893095238095238,
+        "gaussian_nll": -0.0974649453388466
+      },
+      "ukf": {
+        "rmse": 0.22046764662603577,
+        "coverage90": 0.9007142857142857,
+        "gaussian_nll": -0.12914082962613255
+      },
+      "particle512": {
+        "rmse": 0.21936776564888086,
+        "coverage90": 0.8985714285714286,
+        "gaussian_nll": -0.06441262599306584
+      },
+      "compiled_seconds": 0.0027600000030361116,
+      "particle_seconds": 0.1207466000050772
+    },
+    {
+      "seed": 2,
+      "regime": "skew",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2731063056283431,
+        "coverage90": 0.8961904761904762,
+        "gaussian_nll": 27.792998648917163
+      },
+      "ekf": {
+        "rmse": 0.30288226155330966,
+        "coverage90": 0.939047619047619,
+        "gaussian_nll": 0.242600427197215
+      },
+      "ukf": {
+        "rmse": 0.3031905304596473,
+        "coverage90": 0.9321428571428572,
+        "gaussian_nll": 0.23308041058547285
+      },
+      "particle512": {
+        "rmse": 0.2545692875022053,
+        "coverage90": 0.905952380952381,
+        "gaussian_nll": -0.11263367766013016
+      },
+      "compiled_seconds": 0.003118599997833371,
+      "particle_seconds": 0.14964770000369754
+    },
+    {
+      "seed": 2,
+      "regime": "skew",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.27297023123475017,
+        "coverage90": 0.8488095238095238,
+        "gaussian_nll": 65.40144291130646
+      },
+      "ekf": {
+        "rmse": 0.3123273673844223,
+        "coverage90": 0.920952380952381,
+        "gaussian_nll": 0.30611542597580277
+      },
+      "ukf": {
+        "rmse": 0.3067635295645135,
+        "coverage90": 0.9233333333333333,
+        "gaussian_nll": 0.24962206788648977
+      },
+      "particle512": {
+        "rmse": 0.24857360753474336,
+        "coverage90": 0.915952380952381,
+        "gaussian_nll": -0.1836429647155859
+      },
+      "compiled_seconds": 0.002744099998380989,
+      "particle_seconds": 0.1497964000009233
+    },
+    {
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2873685613069514,
+        "coverage90": 0.905952380952381,
+        "gaussian_nll": 11.273164519453367
+      },
+      "ekf": {
+        "rmse": 0.32797743113330124,
+        "coverage90": 0.9283333333333333,
+        "gaussian_nll": 0.3086063598307002
+      },
+      "ukf": {
+        "rmse": 0.32708576759132296,
+        "coverage90": 0.9192857142857143,
+        "gaussian_nll": 0.30271159244795637
+      },
+      "particle512": {
+        "rmse": 0.2797922324162499,
+        "coverage90": 0.9095238095238095,
+        "gaussian_nll": 0.09635035006350956
+      },
+      "compiled_seconds": 0.0027310000004945323,
+      "particle_seconds": 0.152654600009555
+    },
+    {
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.27540520577506067,
+        "coverage90": 0.9035714285714286,
+        "gaussian_nll": 34.88132557763577
+      },
+      "ekf": {
+        "rmse": 0.315205550874268,
+        "coverage90": 0.9242857142857143,
+        "gaussian_nll": 0.2565350497590052
+      },
+      "ukf": {
+        "rmse": 0.3111175995452076,
+        "coverage90": 0.920952380952381,
+        "gaussian_nll": 0.23373889854260663
+      },
+      "particle512": {
+        "rmse": 0.2647940514701229,
+        "coverage90": 0.9169047619047619,
+        "gaussian_nll": 0.018527399786497183
+      },
+      "compiled_seconds": 0.0027464000013424084,
+      "particle_seconds": 0.15217240000492893
+    },
+    {
+      "seed": 3,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.23790673543138025,
+        "coverage90": 0.8978571428571429,
+        "gaussian_nll": 3.0067465932697135
+      },
+      "ekf": {
+        "rmse": 0.2384490806545529,
+        "coverage90": 0.9071428571428571,
+        "gaussian_nll": -0.021861681168675876
+      },
+      "ukf": {
+        "rmse": 0.23653039582203383,
+        "coverage90": 0.9002380952380953,
+        "gaussian_nll": -0.03050760819906281
+      },
+      "particle512": {
+        "rmse": 0.23674011122804398,
+        "coverage90": 0.8971428571428571,
+        "gaussian_nll": -0.024951041943165126
+      },
+      "compiled_seconds": 0.0028002000035485253,
+      "particle_seconds": 0.12258589999692049
+    },
+    {
+      "seed": 3,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2164358031879061,
+        "coverage90": 0.8778571428571429,
+        "gaussian_nll": 11.852204265684053
+      },
+      "ekf": {
+        "rmse": 0.22091313710670876,
+        "coverage90": 0.8935714285714286,
+        "gaussian_nll": -0.09543768840558706
+      },
+      "ukf": {
+        "rmse": 0.2162711842785992,
+        "coverage90": 0.9014285714285715,
+        "gaussian_nll": -0.14307272640638402
+      },
+      "particle512": {
+        "rmse": 0.21615872017562215,
+        "coverage90": 0.8990476190476191,
+        "gaussian_nll": -0.049160821152155317
+      },
+      "compiled_seconds": 0.002741700009210035,
+      "particle_seconds": 0.1209242000040831
+    },
+    {
+      "seed": 3,
+      "regime": "skew",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2806566096025394,
+        "coverage90": 0.8988095238095238,
+        "gaussian_nll": 32.09669542044494
+      },
+      "ekf": {
+        "rmse": 0.31807923718265585,
+        "coverage90": 0.9295238095238095,
+        "gaussian_nll": 0.29085630343597174
+      },
+      "ukf": {
+        "rmse": 0.31591612608021835,
+        "coverage90": 0.9292857142857143,
+        "gaussian_nll": 0.27575678925855157
+      },
+      "particle512": {
+        "rmse": 0.2626885287246779,
+        "coverage90": 0.9107142857142857,
+        "gaussian_nll": -0.13171060767326767
+      },
+      "compiled_seconds": 0.002749600011156872,
+      "particle_seconds": 0.1512186999898404
+    },
+    {
+      "seed": 3,
+      "regime": "skew",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.29157538859039434,
+        "coverage90": 0.8476190476190476,
+        "gaussian_nll": 60.75019528322665
+      },
+      "ekf": {
+        "rmse": 0.33322597252243,
+        "coverage90": 0.9166666666666666,
+        "gaussian_nll": 5.4658814701025085
+      },
+      "ukf": {
+        "rmse": 0.32705255016319457,
+        "coverage90": 0.919047619047619,
+        "gaussian_nll": 0.7669225306951737
+      },
+      "particle512": {
+        "rmse": 0.2508601279181478,
+        "coverage90": 0.9138095238095238,
+        "gaussian_nll": 9.704878422449694
+      },
+      "compiled_seconds": 0.0027393000054871663,
+      "particle_seconds": 0.1484441000065999
+    },
+    {
+      "seed": 3,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.28367965148672125,
+        "coverage90": 0.9126190476190477,
+        "gaussian_nll": 30.494316601461296
+      },
+      "ekf": {
+        "rmse": 0.32906996171231473,
+        "coverage90": 0.9302380952380952,
+        "gaussian_nll": 0.30801834378980913
+      },
+      "ukf": {
+        "rmse": 0.3277021193119605,
+        "coverage90": 0.925,
+        "gaussian_nll": 0.3014638834825419
+      },
+      "particle512": {
+        "rmse": 0.27473323676083933,
+        "coverage90": 0.9157142857142857,
+        "gaussian_nll": 0.07859730656881637
+      },
+      "compiled_seconds": 0.002842800007783808,
+      "particle_seconds": 0.1543932000058703
+    },
+    {
+      "seed": 3,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2794510622770504,
+        "coverage90": 0.8888095238095238,
+        "gaussian_nll": 25.647879986827466
+      },
+      "ekf": {
+        "rmse": 0.3110444283218615,
+        "coverage90": 0.9173809523809524,
+        "gaussian_nll": 0.2513123018781292
+      },
+      "ukf": {
+        "rmse": 0.30705158603078125,
+        "coverage90": 0.9214285714285714,
+        "gaussian_nll": 0.22247412510873693
+      },
+      "particle512": {
+        "rmse": 0.26885196015909707,
+        "coverage90": 0.9152380952380952,
+        "gaussian_nll": 0.03958826314310833
+      },
+      "compiled_seconds": 0.002726000006077811,
+      "particle_seconds": 0.15319489999092184
+    },
+    {
+      "seed": 4,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.23472182179034617,
+        "coverage90": 0.8985714285714286,
+        "gaussian_nll": 2.665976819920878
+      },
+      "ekf": {
+        "rmse": 0.2363348487100409,
+        "coverage90": 0.9035714285714286,
+        "gaussian_nll": -0.02783112906901968
+      },
+      "ukf": {
+        "rmse": 0.23409087549902588,
+        "coverage90": 0.8978571428571429,
+        "gaussian_nll": -0.04204430550000582
+      },
+      "particle512": {
+        "rmse": 0.234261597884476,
+        "coverage90": 0.8938095238095238,
+        "gaussian_nll": -0.04196529860677703
+      },
+      "compiled_seconds": 0.002814500010572374,
+      "particle_seconds": 0.12203179999778513
+    },
+    {
+      "seed": 4,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2137353980840007,
+        "coverage90": 0.8821428571428571,
+        "gaussian_nll": 15.680005786998116
+      },
+      "ekf": {
+        "rmse": 0.217597211601234,
+        "coverage90": 0.9026190476190477,
+        "gaussian_nll": -0.09533284889783708
+      },
+      "ukf": {
+        "rmse": 0.21355774051579385,
+        "coverage90": 0.9061904761904762,
+        "gaussian_nll": -0.14557023746015013
+      },
+      "particle512": {
+        "rmse": 0.21263265895025693,
+        "coverage90": 0.9064285714285715,
+        "gaussian_nll": 27.400025707144362
+      },
+      "compiled_seconds": 0.0028381000010995194,
+      "particle_seconds": 0.12201189999177586
+    },
+    {
+      "seed": 4,
+      "regime": "skew",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.29556175000091295,
+        "coverage90": 0.8923809523809524,
+        "gaussian_nll": 29.543439885475347
+      },
+      "ekf": {
+        "rmse": 0.32645758920291573,
+        "coverage90": 0.9254761904761905,
+        "gaussian_nll": 0.3429239347307169
+      },
+      "ukf": {
+        "rmse": 0.32526995684555654,
+        "coverage90": 0.9221428571428572,
+        "gaussian_nll": 0.31440971382165184
+      },
+      "particle512": {
+        "rmse": 0.2776680371241819,
+        "coverage90": 0.905,
+        "gaussian_nll": 0.01068199146668838
+      },
+      "compiled_seconds": 0.002738900002441369,
+      "particle_seconds": 0.14991809999628458
+    },
+    {
+      "seed": 4,
+      "regime": "skew",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2770753658258623,
+        "coverage90": 0.8497619047619047,
+        "gaussian_nll": 37.06459725013377
+      },
+      "ekf": {
+        "rmse": 0.3067117529930388,
+        "coverage90": 0.9257142857142857,
+        "gaussian_nll": 0.8231086764137772
+      },
+      "ukf": {
+        "rmse": 0.3010245303151979,
+        "coverage90": 0.9269047619047619,
+        "gaussian_nll": 0.2721732483301325
+      },
+      "particle512": {
+        "rmse": 0.25644971103719,
+        "coverage90": 0.9095238095238095,
+        "gaussian_nll": 579.6310778272409
+      },
+      "compiled_seconds": 0.0028701999981421977,
+      "particle_seconds": 0.15046889999939594
+    },
+    {
+      "seed": 4,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse": 0.2893166719876093,
+        "coverage90": 0.8988095238095238,
+        "gaussian_nll": 22.38471498841733
+      },
+      "ekf": {
+        "rmse": 0.32919233474991344,
+        "coverage90": 0.9254761904761905,
+        "gaussian_nll": 0.3127540763425971
+      },
+      "ukf": {
+        "rmse": 0.3279188739017625,
+        "coverage90": 0.9223809523809524,
+        "gaussian_nll": 0.3056548001399094
+      },
+      "particle512": {
+        "rmse": 0.2802328663616998,
+        "coverage90": 0.9119047619047619,
+        "gaussian_nll": 0.11105548150045683
+      },
+      "compiled_seconds": 0.002750599989667535,
+      "particle_seconds": 0.15008329998818226
+    },
+    {
+      "seed": 4,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse": 0.2842379641672836,
+        "coverage90": 0.8885714285714286,
+        "gaussian_nll": 24.791885157333716
+      },
+      "ekf": {
+        "rmse": 0.32070528383413494,
+        "coverage90": 0.9133333333333333,
+        "gaussian_nll": 0.2892377919484962
+      },
+      "ukf": {
+        "rmse": 0.3166455677021568,
+        "coverage90": 0.9128571428571428,
+        "gaussian_nll": 0.26016996612304333
+      },
+      "particle512": {
+        "rmse": 0.27728105811738735,
+        "coverage90": 0.9071428571428571,
+        "gaussian_nll": 0.08731512630815866
+      },
+      "compiled_seconds": 0.0027999000012641773,
+      "particle_seconds": 0.1539658999972744
+    }
+  ],
+  "elapsed_seconds": 4.780111700005364
+}

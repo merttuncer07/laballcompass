@@ -1,0 +1,38 @@
+{
+  "package_checkpoint": "R401",
+  "created_date": "2026-08-31",
+  "base_archive": {
+    "name": "LABALLCOMPASS_FINAL_RETIREMENT_HANDOFF_R398_2026-08-30.zip",
+    "sha256": "ed3644144583921ac916c803511c08ba8caff72d030f5b1406580b2ff8f85abd",
+    "entries": 12201,
+    "files_after_extraction": 10320,
+    "uncompressed_file_bytes": 889427476,
+    "preservation": "ALL_EXTRACTED_BASE_FILES_RETAINED_AT_ORIGINAL_PATHS"
+  },
+  "authority_layers": {
+    "inherited_retirement_record": "R398_CANDIDATE_NOT_PROMOTED",
+    "latest_promoted_executable_rehydration": "R399",
+    "r399_executable_suites": 57,
+    "r399_distinct_product_families": 44,
+    "r399_direct_tests": 516,
+    "r399_direct_failures": 0,
+    "r400_promotion": null,
+    "r401_role": "NONCANONICAL_MATERIAL_PRODUCT_REVIEW_AND_RUNNABLE_PRODUCT_LAYER"
+  },
+  "active_turing_contract": {
+    "last_active_round": "R178",
+    "next_clean_round": "R179",
+    "discarded_r179_r192": "SALVAGE_ONLY_NEVER_AUTO_LOAD"
+  },
+  "r401_material_products": [
+    "CONSEQUENCE_AWARE_INSPECTION_PLANNER",
+    "TRIGGER_POLICY_DESIGNER"
+  ],
+  "explicitly_excluded": [
+    "PRODUCTS/LAB_CRYPTO_ALGOTRADER",
+    "LOCAL_VIRTUAL_ENVIRONMENTS",
+    "PYTHON_CACHES",
+    "RETIRED_BRIDGE_OR_REGIME_ROUTER_REINTRODUCTION"
+  ],
+  "live_capital_authority": false
+}

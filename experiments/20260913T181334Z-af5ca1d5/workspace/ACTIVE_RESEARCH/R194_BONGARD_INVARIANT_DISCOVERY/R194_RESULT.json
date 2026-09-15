@@ -1,0 +1,1941 @@
+{
+  "round": "R194_BONGARD_INVARIANT_DISCOVERY",
+  "cases": [
+    {
+      "seed": 0,
+      "family": "linear_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.999,
+      "polynomial_accuracy": 0.6910000000000001,
+      "rbf_accuracy": 0.546,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999773220531991,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 47.73903364947875,
+        "stability_cosine": 0.9999741050335887,
+        "audit_positive_median_residual": 0.0022285810136016032,
+        "relation": [
+          [
+            "d0",
+            -0.9813343528134353
+          ],
+          [
+            "d1",
+            -0.9888478540003329
+          ],
+          [
+            "d2",
+            0.9915033659423266
+          ],
+          [
+            "d3",
+            0.9999999999980191
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "linear_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.987,
+      "polynomial_accuracy": 0.6639999999999999,
+      "rbf_accuracy": 0.504,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9996292716698856,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.8125,
+        "separation_ratio": 12.375739488024895,
+        "stability_cosine": 0.9995852342183822,
+        "audit_positive_median_residual": 0.009133507598891437,
+        "relation": [
+          [
+            "d0",
+            -0.9269089196941187
+          ],
+          [
+            "d1",
+            -0.9549706685996575
+          ],
+          [
+            "d2",
+            0.9667336589067531
+          ],
+          [
+            "d3",
+            0.999999999998075
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "linear_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.532,
+      "rbf_accuracy": 0.506,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.6875,
+        "separation_ratio": 5.002590612789782,
+        "stability_cosine": 0.9974030427587809,
+        "audit_positive_median_residual": 0.02411028326226202,
+        "relation": null
+      }
+    },
+    {
+      "seed": 0,
+      "family": "product_equality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.526,
+      "rbf_accuracy": 0.502,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999999883623826,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 84.11361690980262,
+        "stability_cosine": 0.999999979452576,
+        "audit_positive_median_residual": 0.0031283214708198604,
+        "relation": [
+          [
+            "d0*d1",
+            -0.999999999998586
+          ],
+          [
+            "d2*d3",
+            0.9996949286292917
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "product_equality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.979,
+      "polynomial_accuracy": 0.519,
+      "rbf_accuracy": 0.546,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.999999724825407,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 19.80011948709446,
+        "stability_cosine": 0.999999691857024,
+        "audit_positive_median_residual": 0.012469953716717769,
+        "relation": [
+          [
+            "d0*d1",
+            -0.9999999999985869
+          ],
+          [
+            "d2*d3",
+            0.998517390457642
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "product_equality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.519,
+      "rbf_accuracy": 0.493,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 5.1936353075763195,
+        "stability_cosine": 0.9994637904357369,
+        "audit_positive_median_residual": 0.03752281015318768,
+        "relation": null
+      }
+    },
+    {
+      "seed": 0,
+      "family": "energy_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.993,
+      "polynomial_accuracy": 0.514,
+      "rbf_accuracy": 0.506,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999912943155894,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 44.148285002812436,
+        "stability_cosine": 0.9998656968418989,
+        "audit_positive_median_residual": 0.005531904909784063,
+        "relation": [
+          [
+            "d0^2",
+            0.9914895164241757
+          ],
+          [
+            "d1^2",
+            0.9999999999980136
+          ],
+          [
+            "d2^2",
+            -0.9924990427280357
+          ],
+          [
+            "d3^2",
+            -0.9888357924266604
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "energy_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.974,
+      "polynomial_accuracy": 0.513,
+      "rbf_accuracy": 0.504,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9998501373184545,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.75,
+        "separation_ratio": 10.792046028246522,
+        "stability_cosine": 0.9980891718729693,
+        "audit_positive_median_residual": 0.022664211272635737,
+        "relation": [
+          [
+            "d0^2",
+            0.9656235911867903
+          ],
+          [
+            "d1^2",
+            0.9999999999980572
+          ],
+          [
+            "d2^2",
+            -0.9611684716283976
+          ],
+          [
+            "d3^2",
+            -0.9581608140174684
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "energy_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.495,
+      "rbf_accuracy": 0.52,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.375,
+        "separation_ratio": 2.576419500630674,
+        "stability_cosine": 0.9965698420481515,
+        "audit_positive_median_residual": 0.1268512345030203,
+        "relation": null
+      }
+    },
+    {
+      "seed": 0,
+      "family": "orthogonality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.522,
+      "rbf_accuracy": 0.504,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999993624078934,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 84.04479926256063,
+        "stability_cosine": 0.9999989846383566,
+        "audit_positive_median_residual": 0.003247580490942398,
+        "relation": [
+          [
+            "d0*d1",
+            -0.9999999999985875
+          ],
+          [
+            "d2*d3",
+            -0.9977440662032954
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "orthogonality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.976,
+      "polynomial_accuracy": 0.509,
+      "rbf_accuracy": 0.5569999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999897566791108,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 22.6497913106967,
+        "stability_cosine": 0.9999804549587781,
+        "audit_positive_median_residual": 0.012712975760138835,
+        "relation": [
+          [
+            "d0*d1",
+            -0.9999999999985921
+          ],
+          [
+            "d2*d3",
+            -0.9909882856433669
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "orthogonality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.792,
+      "polynomial_accuracy": 0.503,
+      "rbf_accuracy": 0.487,
+      "support_f1": 0.6666666666666666,
+      "coefficient_cosine": 0.9974323642944868,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 11.939384416803033,
+        "stability_cosine": 0.9998231887293829,
+        "audit_positive_median_residual": 0.019530517622429848,
+        "relation": [
+          [
+            "d2",
+            0.05257992330941694
+          ],
+          [
+            "d0*d1",
+            -0.9858412892696703
+          ],
+          [
+            "d2*d3",
+            -0.9999999999985922
+          ],
+          [
+            "d2*d4",
+            -0.08543939021424239
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "determinant",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.998,
+      "polynomial_accuracy": 0.589,
+      "rbf_accuracy": 0.5509999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.999999994187587,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 129.41401732664409,
+        "stability_cosine": 0.9999958682908245,
+        "audit_positive_median_residual": 0.0028770306124913936,
+        "relation": [
+          [
+            "d0*d3",
+            0.9997843955495181
+          ],
+          [
+            "d1*d2",
+            -0.999999999998586
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "determinant",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.974,
+      "polynomial_accuracy": 0.5960000000000001,
+      "rbf_accuracy": 0.551,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999999023671311,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 33.758866740620775,
+        "stability_cosine": 0.9999341304261516,
+        "audit_positive_median_residual": 0.011617321422376047,
+        "relation": [
+          [
+            "d0*d3",
+            0.9991166148954828
+          ],
+          [
+            "d1*d2",
+            -0.9999999999985865
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "determinant",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.919,
+      "polynomial_accuracy": 0.5880000000000001,
+      "rbf_accuracy": 0.53,
+      "support_f1": 0.8,
+      "coefficient_cosine": 0.9999993980696423,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 15.502690318454807,
+        "stability_cosine": 0.9967293604302813,
+        "audit_positive_median_residual": 0.026392394093693032,
+        "relation": [
+          [
+            "d2",
+            0.0008250046357824793
+          ],
+          [
+            "d0*d3",
+            -0.9981438631682921
+          ],
+          [
+            "d1*d2",
+            0.9999999999985871
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "linear_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.998,
+      "polynomial_accuracy": 0.7170000000000001,
+      "rbf_accuracy": 0.5289999999999999,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 31.948333129052813,
+        "stability_cosine": 0.9999673077823739,
+        "audit_positive_median_residual": 0.004426213193498957,
+        "relation": [
+          [
+            "d2^2",
+            -0.9929909086885357
+          ],
+          [
+            "d0*d2",
+            0.9999999999980095
+          ],
+          [
+            "d1*d2",
+            0.9915902000000935
+          ],
+          [
+            "d2*d3",
+            -0.9966319295402112
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "linear_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.994,
+      "polynomial_accuracy": 0.694,
+      "rbf_accuracy": 0.5309999999999999,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 7.882790597502216,
+        "stability_cosine": 0.9994374682000251,
+        "audit_positive_median_residual": 0.01836031539020569,
+        "relation": [
+          [
+            "d2^2",
+            -0.9721663866321423
+          ],
+          [
+            "d0*d2",
+            0.9999999999980371
+          ],
+          [
+            "d1*d2",
+            0.9659673328987056
+          ],
+          [
+            "d2*d3",
+            -0.987367996814573
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "linear_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.646,
+      "rbf_accuracy": 0.5349999999999999,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.8125,
+        "separation_ratio": 3.139196180864231,
+        "stability_cosine": 0.9959502576176382,
+        "audit_positive_median_residual": 0.048932673200153216,
+        "relation": null
+      }
+    },
+    {
+      "seed": 1,
+      "family": "product_equality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.999,
+      "polynomial_accuracy": 0.494,
+      "rbf_accuracy": 0.571,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999987259285781,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 77.32449750756774,
+        "stability_cosine": 0.9999998766599648,
+        "audit_positive_median_residual": 0.004787330650193567,
+        "relation": [
+          [
+            "d0*d1",
+            0.999999999998588
+          ],
+          [
+            "d2*d3",
+            -0.9968125050703681
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "product_equality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.985,
+      "polynomial_accuracy": 0.492,
+      "rbf_accuracy": 0.5720000000000001,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999797328779892,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 20.020548381663367,
+        "stability_cosine": 0.9999979190130179,
+        "audit_positive_median_residual": 0.01923114662217768,
+        "relation": [
+          [
+            "d0*d1",
+            0.9999999999985948
+          ],
+          [
+            "d2*d3",
+            -0.9873470628070175
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "product_equality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.491,
+      "rbf_accuracy": 0.5740000000000001,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 6.952752231227553,
+        "stability_cosine": 0.9991818409432037,
+        "audit_positive_median_residual": 0.03280255218704024,
+        "relation": null
+      }
+    },
+    {
+      "seed": 1,
+      "family": "energy_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.992,
+      "polynomial_accuracy": 0.512,
+      "rbf_accuracy": 0.53,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999712888480904,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 180.34440660880892,
+        "stability_cosine": 0.9999938044113748,
+        "audit_positive_median_residual": 0.0014065421614676919,
+        "relation": [
+          [
+            "d0^2",
+            -0.9817485778420444
+          ],
+          [
+            "d1^2",
+            -0.9999999999980235
+          ],
+          [
+            "d2^2",
+            0.9817330327524703
+          ],
+          [
+            "d3^2",
+            0.9894859694251126
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "energy_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.971,
+      "polynomial_accuracy": 0.508,
+      "rbf_accuracy": 0.525,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9996102895494254,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 44.632719235615525,
+        "stability_cosine": 0.9997983490753964,
+        "audit_positive_median_residual": 0.005671120342001287,
+        "relation": [
+          [
+            "d0^2",
+            -0.9307613899215454
+          ],
+          [
+            "d1^2",
+            -0.9999999999980856
+          ],
+          [
+            "d2^2",
+            0.9391536921415016
+          ],
+          [
+            "d3^2",
+            0.9574789500667136
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "energy_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.508,
+      "rbf_accuracy": 0.52,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.5625,
+        "separation_ratio": 1.3005228701603586,
+        "stability_cosine": 0.9862434792762833,
+        "audit_positive_median_residual": 0.33570694612999546,
+        "relation": null
+      }
+    },
+    {
+      "seed": 1,
+      "family": "orthogonality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.524,
+      "rbf_accuracy": 0.5660000000000001,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999999983022964,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 131.40462306095827,
+        "stability_cosine": 0.9999995323091773,
+        "audit_positive_median_residual": 0.002647851398337775,
+        "relation": [
+          [
+            "d0*d1",
+            0.9998834837026359
+          ],
+          [
+            "d2*d3",
+            0.9999999999985859
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "orthogonality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.986,
+      "polynomial_accuracy": 0.53,
+      "rbf_accuracy": 0.5640000000000001,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999999503810888,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 33.22819384699252,
+        "stability_cosine": 0.9999932370122371,
+        "audit_positive_median_residual": 0.010266643436264156,
+        "relation": [
+          [
+            "d0*d1",
+            0.9993701608576698
+          ],
+          [
+            "d2*d3",
+            0.9999999999985862
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "orthogonality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.907,
+      "polynomial_accuracy": 0.536,
+      "rbf_accuracy": 0.56,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999992144730175,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 13.729106757400253,
+        "stability_cosine": 0.9999671184692029,
+        "audit_positive_median_residual": 0.023905328286547164,
+        "relation": [
+          [
+            "d0*d1",
+            0.9974963036653065
+          ],
+          [
+            "d2*d3",
+            0.9999999999985876
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "determinant",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.5209999999999999,
+      "rbf_accuracy": 0.5589999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.999999542087472,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 79.92444770129104,
+        "stability_cosine": 0.9999980431824856,
+        "audit_positive_median_residual": 0.0024198818963627423,
+        "relation": [
+          [
+            "d0*d3",
+            0.9980878553057007
+          ],
+          [
+            "d1*d2",
+            -0.9999999999985871
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "determinant",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.502,
+      "rbf_accuracy": 0.5640000000000001,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 4.958814044158032,
+        "stability_cosine": 0.9987714486820308,
+        "audit_positive_median_residual": 0.03152289744692854,
+        "relation": null
+      }
+    },
+    {
+      "seed": 1,
+      "family": "determinant",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.519,
+      "rbf_accuracy": 0.55,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.4375,
+        "separation_ratio": 1.057255563880347,
+        "stability_cosine": 0.9876051366323946,
+        "audit_positive_median_residual": 0.24549453080059155,
+        "relation": null
+      }
+    },
+    {
+      "seed": 2,
+      "family": "linear_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.51,
+      "rbf_accuracy": 0.538,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999993874949594,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 207.6252969658184,
+        "stability_cosine": 0.9999893700717754,
+        "audit_positive_median_residual": 0.0009128380405613759,
+        "relation": [
+          [
+            "d0",
+            0.9973724785120657
+          ],
+          [
+            "d1",
+            0.9997778864397059
+          ],
+          [
+            "d2",
+            -0.999978643338762
+          ],
+          [
+            "d3",
+            -0.9999999999980015
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "linear_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.994,
+      "polynomial_accuracy": 0.507,
+      "rbf_accuracy": 0.54,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999899636172104,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 55.26902441886629,
+        "stability_cosine": 0.9997629011881379,
+        "audit_positive_median_residual": 0.003388536614422471,
+        "relation": [
+          [
+            "d0",
+            0.9891938631127257
+          ],
+          [
+            "d1",
+            0.998360108287067
+          ],
+          [
+            "d2",
+            -0.9999999999980064
+          ],
+          [
+            "d3",
+            -0.9998446301844265
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "linear_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.961,
+      "polynomial_accuracy": 0.61,
+      "rbf_accuracy": 0.5449999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.99993251048952,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 16.11416590365569,
+        "stability_cosine": 0.9973628316535308,
+        "audit_positive_median_residual": 0.011133398155469064,
+        "relation": [
+          [
+            "d0",
+            0.971216605324872
+          ],
+          [
+            "d1",
+            0.9921833349978425
+          ],
+          [
+            "d2",
+            -0.9999999999980189
+          ],
+          [
+            "d3",
+            -0.9985507469760416
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "product_equality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.503,
+      "rbf_accuracy": 0.531,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999961745868937,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 46.0284378396096,
+        "stability_cosine": 0.9999860758110213,
+        "audit_positive_median_residual": 0.009910741617393339,
+        "relation": [
+          [
+            "d0*d1",
+            0.9944832186354341
+          ],
+          [
+            "d2*d3",
+            -0.9999999999985897
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "product_equality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.511,
+      "rbf_accuracy": 0.529,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 11.511186187411207,
+        "stability_cosine": 0.9997860755624561,
+        "audit_positive_median_residual": 0.03921198784532302,
+        "relation": null
+      }
+    },
+    {
+      "seed": 2,
+      "family": "product_equality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.51,
+      "rbf_accuracy": 0.52,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 4.090460306329376,
+        "stability_cosine": 0.9984676528272839,
+        "audit_positive_median_residual": 0.0763042906934535,
+        "relation": null
+      }
+    },
+    {
+      "seed": 2,
+      "family": "energy_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.993,
+      "polynomial_accuracy": 0.5,
+      "rbf_accuracy": 0.5349999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9998708076180567,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 60.236936620366684,
+        "stability_cosine": 0.9999090273445389,
+        "audit_positive_median_residual": 0.00336440736983776,
+        "relation": [
+          [
+            "d0^2",
+            0.9880954157509554
+          ],
+          [
+            "d1^2",
+            0.9999999999980275
+          ],
+          [
+            "d2^2",
+            -0.9597411480422261
+          ],
+          [
+            "d3^2",
+            -0.9967452488473857
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "energy_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.97,
+      "polynomial_accuracy": 0.505,
+      "rbf_accuracy": 0.5349999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9982523780723123,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 14.470111681291629,
+        "stability_cosine": 0.9984593430288948,
+        "audit_positive_median_residual": 0.014960007851861641,
+        "relation": [
+          [
+            "d0^2",
+            0.9529686739177076
+          ],
+          [
+            "d1^2",
+            0.9999999999981004
+          ],
+          [
+            "d2^2",
+            -0.8554536159206669
+          ],
+          [
+            "d3^2",
+            -0.9841701026496753
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "energy_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.507,
+      "rbf_accuracy": 0.527,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.5,
+        "separation_ratio": 1.49218395485656,
+        "stability_cosine": 0.3562516783452586,
+        "audit_positive_median_residual": 0.3428373700274668,
+        "relation": null
+      }
+    },
+    {
+      "seed": 2,
+      "family": "orthogonality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.537,
+      "rbf_accuracy": 0.519,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.999997700806085,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 47.061842977073525,
+        "stability_cosine": 0.9999998773174263,
+        "audit_positive_median_residual": 0.006154712301021453,
+        "relation": [
+          [
+            "d0*d1",
+            0.9957203998225911
+          ],
+          [
+            "d2*d3",
+            0.9999999999985888
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "orthogonality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.964,
+      "polynomial_accuracy": 0.531,
+      "rbf_accuracy": 0.513,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999650200793458,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 11.948906154922728,
+        "stability_cosine": 0.9999971172884288,
+        "audit_positive_median_residual": 0.024473927768988116,
+        "relation": [
+          [
+            "d0*d1",
+            0.9834099275983742
+          ],
+          [
+            "d2*d3",
+            0.9999999999985975
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "orthogonality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.521,
+      "rbf_accuracy": 0.529,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 4.368231879888378,
+        "stability_cosine": 0.9936364105165384,
+        "audit_positive_median_residual": 0.04945298257795019,
+        "relation": null
+      }
+    },
+    {
+      "seed": 2,
+      "family": "determinant",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 1.0,
+      "polynomial_accuracy": 0.565,
+      "rbf_accuracy": 0.5309999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999997905106023,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 59.86300462257041,
+        "stability_cosine": 0.9999978669102706,
+        "audit_positive_median_residual": 0.004448547288029559,
+        "relation": [
+          [
+            "d0*d3",
+            -0.9999999999985867
+          ],
+          [
+            "d1*d2",
+            0.9987062673274294
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "determinant",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.972,
+      "polynomial_accuracy": 0.567,
+      "rbf_accuracy": 0.5309999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999969500854082,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 15.186630058619638,
+        "stability_cosine": 0.9999650208837929,
+        "audit_positive_median_residual": 0.017545609187032244,
+        "relation": [
+          [
+            "d0*d3",
+            -0.9999999999985894
+          ],
+          [
+            "d1*d2",
+            0.9950725923092063
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "determinant",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.572,
+      "rbf_accuracy": 0.536,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 6.224311512864616,
+        "stability_cosine": 0.9997673500665012,
+        "audit_positive_median_residual": 0.042727477319056066,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "family": "linear_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.968,
+      "polynomial_accuracy": 0.554,
+      "rbf_accuracy": 0.546,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999951690448534,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 70.54592891417371,
+        "stability_cosine": 0.9999621382221154,
+        "audit_positive_median_residual": 0.003919279584634822,
+        "relation": [
+          [
+            "d0",
+            -0.9919406578052298
+          ],
+          [
+            "d1",
+            -0.9935902985595596
+          ],
+          [
+            "d2",
+            0.9999999999980088
+          ],
+          [
+            "d3",
+            0.9968322788637649
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "linear_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.962,
+      "polynomial_accuracy": 0.5489999999999999,
+      "rbf_accuracy": 0.5429999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999200662816267,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 18.413595517565014,
+        "stability_cosine": 0.9994043290882242,
+        "audit_positive_median_residual": 0.015728565527545604,
+        "relation": [
+          [
+            "d0",
+            -0.967746691751476
+          ],
+          [
+            "d1",
+            -0.9740149728041129
+          ],
+          [
+            "d2",
+            0.9999999999980355
+          ],
+          [
+            "d3",
+            0.987127305621758
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "linear_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.5469999999999999,
+      "rbf_accuracy": 0.54,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 7.937756409718525,
+        "stability_cosine": 0.9963949736830033,
+        "audit_positive_median_residual": 0.039684443793274016,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "family": "product_equality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.996,
+      "polynomial_accuracy": 0.532,
+      "rbf_accuracy": 0.529,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999996463985511,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 92.28298241786327,
+        "stability_cosine": 0.9999968695459969,
+        "audit_positive_median_residual": 0.0033956981454559033,
+        "relation": [
+          [
+            "d0*d1",
+            -0.999999999998587
+          ],
+          [
+            "d2*d3",
+            0.9983195068296238
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "product_equality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.984,
+      "polynomial_accuracy": 0.532,
+      "rbf_accuracy": 0.526,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999946965455299,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 23.17746837237062,
+        "stability_cosine": 0.9999489919579112,
+        "audit_positive_median_residual": 0.013599515799654554,
+        "relation": [
+          [
+            "d0*d1",
+            -0.9999999999985903
+          ],
+          [
+            "d2*d3",
+            0.9935074695593893
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "product_equality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.515,
+      "rbf_accuracy": 0.538,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.8125,
+        "separation_ratio": 3.787303605775995,
+        "stability_cosine": 0.9919037784789478,
+        "audit_positive_median_residual": 0.07144501651536977,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "family": "energy_balance",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.994,
+      "polynomial_accuracy": 0.491,
+      "rbf_accuracy": 0.532,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999896243873924,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 100.50026404402422,
+        "stability_cosine": 0.9999179324620685,
+        "audit_positive_median_residual": 0.0038584916852687358,
+        "relation": [
+          [
+            "d0^2",
+            -0.9950646882791215
+          ],
+          [
+            "d1^2",
+            -0.9938366210990744
+          ],
+          [
+            "d2^2",
+            0.9873013819434762
+          ],
+          [
+            "d3^2",
+            0.9999999999980119
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "energy_balance",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.983,
+      "polynomial_accuracy": 0.493,
+      "rbf_accuracy": 0.53,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9998476301477898,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 29.259244271766356,
+        "stability_cosine": 0.9989967100265614,
+        "audit_positive_median_residual": 0.013932336666646727,
+        "relation": [
+          [
+            "d0^2",
+            -0.981638165824814
+          ],
+          [
+            "d1^2",
+            -0.9751127643007034
+          ],
+          [
+            "d2^2",
+            0.952289403894632
+          ],
+          [
+            "d3^2",
+            0.9999999999980452
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "energy_balance",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.502,
+      "rbf_accuracy": 0.529,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 13.805439769183558,
+        "stability_cosine": 0.9951045846726999,
+        "audit_positive_median_residual": 0.030554552082801053,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "family": "orthogonality",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.997,
+      "polynomial_accuracy": 0.494,
+      "rbf_accuracy": 0.541,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999998083147554,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 47.434497242551444,
+        "stability_cosine": 0.9999541960050498,
+        "audit_positive_median_residual": 0.009076808689176657,
+        "relation": [
+          [
+            "d0*d1",
+            0.9987624293168403
+          ],
+          [
+            "d2*d3",
+            0.9999999999985867
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "orthogonality",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.5,
+      "rbf_accuracy": 0.545,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 11.821136846751257,
+        "stability_cosine": 0.9992814953233145,
+        "audit_positive_median_residual": 0.03605028124929127,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "family": "orthogonality",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.507,
+      "rbf_accuracy": 0.554,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.625,
+        "separation_ratio": 1.4977227763513583,
+        "stability_cosine": 0.9539314055928204,
+        "audit_positive_median_residual": 0.33406863736817916,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "family": "determinant",
+      "noise": 0.005,
+      "n_each": 16,
+      "invariant_accuracy": 0.998,
+      "polynomial_accuracy": 0.542,
+      "rbf_accuracy": 0.5309999999999999,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999989741085336,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 272.497843147731,
+        "stability_cosine": 0.9999988137774499,
+        "audit_positive_median_residual": 0.0013731266632046636,
+        "relation": [
+          [
+            "d0*d3",
+            -0.997139286998055
+          ],
+          [
+            "d1*d2",
+            0.9999999999985878
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "determinant",
+      "noise": 0.02,
+      "n_each": 16,
+      "invariant_accuracy": 0.981,
+      "polynomial_accuracy": 0.543,
+      "rbf_accuracy": 0.532,
+      "support_f1": 1.0,
+      "coefficient_cosine": 0.9999811881619345,
+      "diagnostics": {
+        "abstained": false,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 62.19208082981031,
+        "stability_cosine": 0.9999777762694342,
+        "audit_positive_median_residual": 0.005775009752169055,
+        "relation": [
+          [
+            "d0*d3",
+            -0.9878069894748561
+          ],
+          [
+            "d1*d2",
+            0.9999999999985945
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "family": "determinant",
+      "noise": 0.05,
+      "n_each": 16,
+      "invariant_accuracy": 0.0,
+      "polynomial_accuracy": 0.535,
+      "rbf_accuracy": 0.537,
+      "support_f1": 0.0,
+      "coefficient_cosine": 0.0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.5,
+        "separation_ratio": 0.5736425160432743,
+        "stability_cosine": 0.9927809913426208,
+        "audit_positive_median_residual": 0.9736629738882447,
+        "relation": null
+      }
+    }
+  ],
+  "nonrelation_controls": [
+    {
+      "seed": 0,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 4.76037892078266,
+        "stability_cosine": 0.8986610945412475,
+        "audit_positive_median_residual": 0.1799679109299978,
+        "relation": null
+      }
+    },
+    {
+      "seed": 1,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 4.267265783742903,
+        "stability_cosine": 0.9716345966288268,
+        "audit_positive_median_residual": 0.1955310861337618,
+        "relation": null
+      }
+    },
+    {
+      "seed": 2,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.75,
+        "separation_ratio": 6.12873223126702,
+        "stability_cosine": 0.9983946733607962,
+        "audit_positive_median_residual": 0.13414501225246406,
+        "relation": null
+      }
+    },
+    {
+      "seed": 3,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 22.20878612996261,
+        "stability_cosine": 0.990753905878235,
+        "audit_positive_median_residual": 0.0368643766942163,
+        "relation": null
+      }
+    },
+    {
+      "seed": 4,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 3.783133164687275,
+        "stability_cosine": 0.8984036303974222,
+        "audit_positive_median_residual": 0.24382961500003714,
+        "relation": null
+      }
+    },
+    {
+      "seed": 5,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.8125,
+        "separation_ratio": 3.382121488014945,
+        "stability_cosine": 0.9826333509465527,
+        "audit_positive_median_residual": 0.27430692302115056,
+        "relation": null
+      }
+    },
+    {
+      "seed": 6,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 13.039685448293856,
+        "stability_cosine": 0.9995571369928432,
+        "audit_positive_median_residual": 0.056339130554669284,
+        "relation": null
+      }
+    },
+    {
+      "seed": 7,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 7.9309356428020665,
+        "stability_cosine": 0.9972268429638937,
+        "audit_positive_median_residual": 0.09365265140969653,
+        "relation": null
+      }
+    },
+    {
+      "seed": 8,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 17.851636773880593,
+        "stability_cosine": 0.9997830290368755,
+        "audit_positive_median_residual": 0.03536093283996465,
+        "relation": null
+      }
+    },
+    {
+      "seed": 9,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 13.00022092720662,
+        "stability_cosine": 0.9987305042444948,
+        "audit_positive_median_residual": 0.06385146150230261,
+        "relation": null
+      }
+    },
+    {
+      "seed": 10,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.5,
+        "separation_ratio": 1.5780238996956995,
+        "stability_cosine": 0.9573236519253726,
+        "audit_positive_median_residual": 0.4632830171399147,
+        "relation": null
+      }
+    },
+    {
+      "seed": 11,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.5,
+        "separation_ratio": 1.0972788247562868,
+        "stability_cosine": 0.18606241745600757,
+        "audit_positive_median_residual": 0.37178897119673826,
+        "relation": null
+      }
+    },
+    {
+      "seed": 12,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 3.7084548098045844,
+        "stability_cosine": 0.9755585264485753,
+        "audit_positive_median_residual": 0.263105941022363,
+        "relation": null
+      }
+    },
+    {
+      "seed": 13,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.75,
+        "separation_ratio": 4.500925952331145,
+        "stability_cosine": 0.8161589586950097,
+        "audit_positive_median_residual": 0.1823021303366771,
+        "relation": null
+      }
+    },
+    {
+      "seed": 14,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.8125,
+        "separation_ratio": 7.898770808193831,
+        "stability_cosine": 0.9970369528125571,
+        "audit_positive_median_residual": 0.10438780502199825,
+        "relation": null
+      }
+    },
+    {
+      "seed": 15,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.5,
+        "separation_ratio": 2.4632738124753977,
+        "stability_cosine": 0.9253790788627362,
+        "audit_positive_median_residual": 0.29424283560044756,
+        "relation": null
+      }
+    },
+    {
+      "seed": 16,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 10.166266235534472,
+        "stability_cosine": 0.999340912439275,
+        "audit_positive_median_residual": 0.06549648355746666,
+        "relation": null
+      }
+    },
+    {
+      "seed": 17,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.875,
+        "separation_ratio": 22.466556169094222,
+        "stability_cosine": 0.9937894227681667,
+        "audit_positive_median_residual": 0.040181799895324166,
+        "relation": null
+      }
+    },
+    {
+      "seed": 18,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 7.95506321354711,
+        "stability_cosine": 0.9990294432887822,
+        "audit_positive_median_residual": 0.10784217664658506,
+        "relation": null
+      }
+    },
+    {
+      "seed": 19,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.9375,
+        "separation_ratio": 27.198060488267956,
+        "stability_cosine": 0.9997028455266124,
+        "audit_positive_median_residual": 0.03202713432267765,
+        "relation": null
+      }
+    },
+    {
+      "seed": 20,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 14.651778244637857,
+        "stability_cosine": 0.9980789264962747,
+        "audit_positive_median_residual": 0.05979881574250466,
+        "relation": null
+      }
+    },
+    {
+      "seed": 21,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 7.8028331319156035,
+        "stability_cosine": 0.9790580309393567,
+        "audit_positive_median_residual": 0.10892178311017561,
+        "relation": null
+      }
+    },
+    {
+      "seed": 22,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 0.75,
+        "separation_ratio": 4.687590295753277,
+        "stability_cosine": 0.9936361001624493,
+        "audit_positive_median_residual": 0.1401106045920321,
+        "relation": null
+      }
+    },
+    {
+      "seed": 23,
+      "diagnostics": {
+        "abstained": true,
+        "validation_accuracy": 1.0,
+        "separation_ratio": 2.5006458600909522,
+        "stability_cosine": 0.9322435363557162,
+        "audit_positive_median_residual": 0.3803994212905101,
+        "relation": null
+      }
+    }
+  ],
+  "summary": {
+    "n_relation_cases": 60,
+    "nonabstained_relation_cases": 41,
+    "wins_vs_both_strong_baselines": 41,
+    "mean_invariant_accuracy": 0.669,
+    "mean_polynomial_accuracy": 0.5377666666666666,
+    "mean_rbf_accuracy": 0.5344833333333333,
+    "exact_support_recovery": 37,
+    "mean_coefficient_cosine": 0.6499025790958348,
+    "nonrelation_abstentions": 24,
+    "n_nonrelation_controls": 24
+  },
+  "elapsed_seconds": 101.06471189999866
+}

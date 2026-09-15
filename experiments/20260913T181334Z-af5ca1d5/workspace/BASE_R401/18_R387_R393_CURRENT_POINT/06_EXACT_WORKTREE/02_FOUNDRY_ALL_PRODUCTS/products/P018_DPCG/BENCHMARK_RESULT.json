@@ -1,0 +1,39 @@
+{
+  "product": "P018_DPCG_v0.1",
+  "global_epsilon_budget": 1.5,
+  "separate_controller_local_budgets": [
+    1.0,
+    1.0
+  ],
+  "first_release_epsilon": 0.8,
+  "zero_cost_post_process_epsilon_after": 0.8,
+  "attempted_second_epsilon": 0.8,
+  "overspend_blocked_before_private_release": true,
+  "controller_b_remaining_before_block": 1.0,
+  "controller_b_remaining_after_block": 1.0,
+  "allowed_second_epsilon": 0.6,
+  "final_account": {
+    "mechanism_count": 2,
+    "post_processing_count": 1,
+    "basic_epsilon": 1.4,
+    "basic_delta": 0.0,
+    "advanced_epsilon": null,
+    "advanced_delta": null,
+    "reported_epsilon": 1.4,
+    "reported_delta": 0.0,
+    "accounting_method": "BASIC_SEQUENTIAL_COMPOSITION",
+    "epsilon_budget": 1.5,
+    "delta_budget": 0.0,
+    "epsilon_utilization": 0.9333333333333332,
+    "delta_utilization": 0.0,
+    "within_budget": true,
+    "charged_release_ids": [
+      "desk_a:risk",
+      "desk_b:risk"
+    ],
+    "zero_cost_post_processing_ids": [
+      "desk_a:risk:stability_label"
+    ]
+  },
+  "claim_boundary": "DPCG composes declared DTPR epsilon/delta charges and PPSA-valid post-processing. It does not infer query sensitivity or prove that an incorrectly declared mechanism is DP."
+}

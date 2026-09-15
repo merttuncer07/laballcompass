@@ -1,0 +1,149 @@
+{
+  "records": 310,
+  "families": {
+    "LCB_KERNEL": 96,
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145
+  },
+  "evidence_tiers": {
+    "BENCHMARKED_WITH_NARROW_OR_LOSING_SHELL": 1,
+    "PROTOTYPE_ONLY_OR_PENDING": 1,
+    "MECHANISM_BENCHMARKED": 86,
+    "EXECUTABLE_PROTOTYPE_PROVENANCE_LINK_INCOMPLETE": 3,
+    "SAVED_RESULT_REANALYZED_SOURCE_CODE_ABSENT": 5,
+    "ORIGINAL_EXECUTABLE_PARENT": 69,
+    "ORIGINAL_EXECUTABLE_MATERIAL": 19,
+    "SALVAGED_SOURCE_WITH_REBUILT_TESTS": 3,
+    "NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID": 28,
+    "MECHANISM_RECONSTRUCTED_FROM_RESULTS": 32,
+    "SPEC_EXECUTABLE_FROM_RESULTS": 63
+  },
+  "candidate_edges": 16594,
+  "candidate_universe_rows": 16594,
+  "active_candidate_rows": 16589,
+  "queue_rows": 1000,
+  "curated_edges": 12,
+  "rejected_current_interface_edges": 5,
+  "standardized_telemetry_events": 388,
+  "calibrated_completed_suites": 47
+}
+top {'supplier_id': 'LCB-K048', 'consumer_id': 'FOUNDRY:P136', 'score': 71.0, 'interface_matches': [], 'addressed_weaknesses': ['decision'], 'shared_domains': ['decision', 'uncertainty'], 'curated': True, 'recommended_next': 'ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK', 'curated_rationale': 'Allocate quasineutral measurements across fidelity and cost', 'adjudication_state': 'UNADJUDICATED', 'active_for_build': True, 'decision_id': None, 'uncertainty_axes': None, 'test_channels': None, 'experiment_routing_status': 'BOOTSTRAP_CHANNEL_CALIBRATED_SCIENTIFIC_CONTRACT_STILL_REQUIRED', 'experiment_telemetry_status': 'STANDARDIZED_TELEMETRY_AVAILABLE', 'experiment_bootstrap_status': 'FIXED_PILOT_SCHEDULE_AVAILABLE', 'experiment_bootstrap_product_id': 'V2P002', 'experiment_bootstrap_case_count': 6, 'experiment_bootstrap_problem_shell': 'BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd', 'experiment_telemetry_event_count': 6, 'experiment_telemetry_complete_count': 6, 'experiment_telemetry_usable_count': 6, 'experiment_calibration_status': 'CALIBRATED_EXACT_SHELL', 'experiment_calibration_id': '4da454f720884a75b5b257372d53ce59f3bab7e3dc24414853a415202a29f56c', 'experiment_calibration_target_generation': 388, 'candidate_universe_rank': 1, 'active_candidate_rank': 1}
+rejected_edges 5
+{"documents": 4310, "capabilities": 310, "primitives": 4000, "capabilities_with_rich_text": 266}
+{
+  "engine": "LABALLCOMPASS_R12",
+  "telemetry": {
+    "canonical_ledger": "search_data/EXPERIMENT_TELEMETRY.jsonl",
+    "events": 388,
+    "completed_suites": 48,
+    "calibrated_completed_suites": 47,
+    "exact_current_suite_matches": 388,
+    "unmatched_events": 0
+  },
+  "interaction_map": {
+    "path": "generated_search/INTERACTION_MAP_R12.json",
+    "nodes": 4310,
+    "node_counts": {
+      "CAPABILITY": 310,
+      "PRIMITIVE": 4000
+    },
+    "edges": 16647,
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 48,
+      "INFERRED_CANDIDATE": 16541,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 5
+    },
+    "fingerprint": "83ebbeda25e85c94f078a88ad0c8dab3ac16dc55e72253fa2513e246ffd40001"
+  },
+  "candidate_universe": {
+    "rows": 16594,
+    "active_rows": 16589,
+    "rejected_rows": 5,
+    "persistence": "FULL_RANKED_UNIVERSE"
+  },
+  "queue": {
+    "rows": 1000,
+    "role": "TOP_1000_OPERATIONAL_PRIORITY_WINDOW",
+    "rows_with_standardized_telemetry": 45,
+    "rows_with_exact_calibration": 45,
+    "fixed_pilotable": 46
+  },
+  "simple_lexicon": {
+    "primitives": 4000,
+    "canonical_identity_fields": [
+      "primitive",
+      "constraint_shell"
+    ],
+    "provenance_only_fields": [
+      "domain",
+      "source_concept"
+    ],
+    "search_documents": 4310
+  },
+  "campaign_memory": {
+    "model_version": "LAB_CAMPAIGN_MEMORY_R12_V1",
+    "events": 53,
+    "outcomes": {
+      "REJECTED_CURRENT_INTERFACE": 5,
+      "EXECUTABLE_CONTRACT_PASS": 48
+    },
+    "evidence_levels": {
+      "INTERFACE_ADJUDICATION": 5,
+      "MECHANICS": 48
+    },
+    "failure_codes": {
+      "EXPLICIT_INTERFACE_REJECTION": 5
+    },
+    "learning_eligible_events": 0,
+    "policy": "Mechanics/bootstrap events remain mechanics; only explicitly eligible non-protected empirical outcomes may train future relevance.",
+    "fingerprint": "a6f6ef9e2ebbb381d4d08044aadcff84da461dc79cf0d4477f57213d8ca1f571"
+  },
+  "product_quality": {
+    "policy": "PRODUCT_QUALITY_POLICY.md",
+    "base_authority": {
+      "audit": "PRODUCT_QUALITY_AUDIT_V1.json",
+      "executable_suites": 38,
+      "distinct_families": 28,
+      "distinct_families_pre_quality_batch": 18,
+      "new_distinct_products_batch4": 10
+    },
+    "candidate_overlay": {
+      "audit": "PRODUCT_QUALITY_AUDIT_R386.json",
+      "state": "R386_PRODUCT_OVERLAY_STATE.json",
+      "status": "PROMOTED_TO_R387_PRODUCT_AUTHORITY",
+      "executable_suites": 47,
+      "distinct_families": 34,
+      "promoted_product_ids": [
+        "V2P039",
+        "V2P040",
+        "V2P041",
+        "V2P042",
+        "V2P043",
+        "V2P044",
+        "V2P045",
+        "V2P046",
+        "V2P048"
+      ],
+      "quarantined_product_ids": [
+        "V2P047"
+      ]
+    },
+    "canonical_product_authority": {
+      "authority_file": "CURRENT_PRODUCT_AUTHORITY.json",
+      "authority_release": "R387",
+      "status": "PROMOTED_CANONICAL_PRODUCT_AUTHORITY",
+      "registry_family_count": 455,
+      "registry455_unchanged": true,
+      "executable_suites": 47,
+      "distinct_families": 34
+    },
+    "observed_executable_suites": 48,
+    "observed_matches_candidate_overlay": false
+  },
+  "nonclaims": [
+    "bootstrap telemetry is mechanics/channel calibration, not scientific validation",
+    "inferred composition queue rows are hypotheses, not known interaction-map truths",
+    "domain/source labels remain searchable provenance aliases but do not define canonical primitive identity"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "certificate": {
+    "deleted_features": [
+      "secondary",
+      "nuisance"
+    ],
+    "retained_features": [
+      "critical"
+    ],
+    "removable_cost_saved": 11.0,
+    "score_error_bound": 0.07,
+    "protected_margin": 0.08,
+    "remaining_margin_certificate": 0.009999999999999995,
+    "action_invariant": true,
+    "actual_max_score_change_on_evaluation": null,
+    "observed_action_changes": null
+  },
+  "allocation": {
+    "budget": 5,
+    "total_cost": 5,
+    "total_decision_loss": 0.0005000000000000001,
+    "allocations": [
+      {
+        "region": "critical",
+        "option": "fine",
+        "cost": 3,
+        "decision_loss": 0.0005000000000000001
+      },
+      {
+        "region": "secondary",
+        "option": "coarse",
+        "cost": 1,
+        "decision_loss": 0.0
+      },
+      {
+        "region": "nuisance",
+        "option": "coarse",
+        "cost": 1,
+        "decision_loss": 0.0
+      }
+    ]
+  },
+  "consequence_weights": {
+    "critical": 0.2,
+    "secondary": 0.0,
+    "nuisance": 0.0
+  },
+  "status": "CERTIFICATE_AWARE_RESOLUTION_ALLOCATED"
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "workbook_f460fced2f6b",
+  "mode": "static_formula_lineage",
+  "bases": {
+    "Tabelle1!A2": "Tabelle1!A2",
+    "Tabelle1!A3": "Tabelle1!A3",
+    "Tabelle1!B2": "Tabelle1!B2",
+    "Tabelle1!B3": "Tabelle1!B3"
+  },
+  "rules": [
+    {
+      "head": "Tabelle1!C3",
+      "body": [
+        "Tabelle1!A2",
+        "Tabelle1!A3",
+        "Tabelle1!B2",
+        "Tabelle1!B3"
+      ]
+    }
+  ],
+  "targets": [
+    "Tabelle1!C3"
+  ],
+  "metadata": {
+    "title": "evaluate_formula_with_structured_table_references.xlsx",
+    "input_sha256": "f460fced2f6bac1f5b4b7d400fd7f2e3ff379af478c01d26388744cefd37a93a",
+    "input_files": [
+      {
+        "name": "evaluate_formula_with_structured_table_references.xlsx",
+        "sha256": "f460fced2f6bac1f5b4b7d400fd7f2e3ff379af478c01d26388744cefd37a93a"
+      }
+    ],
+    "linked_workbooks": [],
+    "structured_references": [
+      {
+        "workbook": "evaluate_formula_with_structured_table_references.xlsx",
+        "token": "Table1[[A]:[B]]",
+        "formula_coordinate": "C3",
+        "sheet": "Tabelle1",
+        "referenced_cells": 4
+      }
+    ],
+    "origin": "Workbook formulas parsed automatically; workbook values were not recalculated.",
+    "labels": {
+      "Tabelle1!A1": "Tabelle1!A1",
+      "Tabelle1!B1": "Tabelle1!B1",
+      "Tabelle1!A2": "Tabelle1!A2",
+      "Tabelle1!B2": "Tabelle1!B2",
+      "Tabelle1!A3": "Tabelle1!A3",
+      "Tabelle1!B3": "Tabelle1!B3",
+      "Tabelle1!C3": "Tabelle1!C3"
+    },
+    "formula_text": {
+      "Tabelle1!C3": "=SUM(Table1[[A]:[B]])"
+    },
+    "formula_count": 1,
+    "resolved_formula_count": 1,
+    "unresolved": [],
+    "same_origin_groups": [],
+    "assumptions": [
+      "All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.",
+      "Distinct root cells are not evidence of statistically independent sources.",
+      "External links resolve only to uniquely named, explicitly supplied files. Saved table metadata resolves supported structured references. Missing files, unsupported dynamic references and cyclic paths remain unresolved; no external file was fetched.",
+      "Matching a referenced filename does not prove that the supplied file is the original version or is authentic.",
+      "Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion."
+    ]
+  }
+}

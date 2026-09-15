@@ -1,0 +1,10 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P020_PADRE_V1",
+  "result": {
+    "choice": null,
+    "correctness": 0.6967346701436833,
+    "status": "PRIVACY_NOISE_BELOW_DECISION_ACCURACY_TARGET",
+    "usable": false
+  }
+}

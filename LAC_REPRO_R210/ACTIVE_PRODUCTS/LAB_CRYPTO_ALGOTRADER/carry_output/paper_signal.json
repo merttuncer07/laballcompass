@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-08-30T16:00:00+00:00",
+  "target": "LONG_SPOT_SHORT_PERP",
+  "target_fraction": 1.0,
+  "expected_next_carry_per_notional": 9.499889319779478e-05,
+  "estimation_sd": 1.0627536975504438e-05,
+  "current_funding_rate": 7.058e-05,
+  "current_basis": -0.00041138264101332815,
+  "orders_sent": 0,
+  "generated_at_utc": "2026-08-30T23:52:52.955252+00:00",
+  "prior_target_fraction": null,
+  "paper_action": "INITIALIZE_PAPER_BOOK",
+  "paper_leg_targets_per_unit_equity": {
+    "long_spot_notional": 0.5,
+    "short_perpetual_notional": 0.5
+  }
+}

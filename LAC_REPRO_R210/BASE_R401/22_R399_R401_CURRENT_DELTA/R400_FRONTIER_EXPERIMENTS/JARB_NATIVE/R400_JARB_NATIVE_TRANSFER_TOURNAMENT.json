@@ -1,0 +1,230 @@
+{
+  "candidate_decision": {
+    "additive_objective": 0.9364554353619108,
+    "coupling": 1.0,
+    "declared_joint_loss": 0.8741912247749494,
+    "interaction_credit": 0.06226421058696136,
+    "modes": [
+      "balanced",
+      "coarse",
+      "fine"
+    ],
+    "representation_budget": 6,
+    "sensor_budget": 3,
+    "sensors": [
+      0,
+      1,
+      4
+    ],
+    "status": "NATIVE_JOINT_SPLIT"
+  },
+  "candidate_win_count": 3,
+  "candidate_win_fraction": 0.14285714285714285,
+  "candidate_win_region": {
+    "minimum_coarse_quantization_step": 3.0,
+    "noise_scales": [
+      0.02,
+      0.1,
+      0.4
+    ]
+  },
+  "cell_count": 21,
+  "cells": [
+    {
+      "candidate_gain": -0.09294954990102602,
+      "candidate_loss": 0.2847563496700955,
+      "coarse_quantization_step": 0.4,
+      "control_loss": 0.19180679976906947,
+      "noise_scale": 0.02,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.08889129119606373,
+      "candidate_loss": 0.28853796771335755,
+      "coarse_quantization_step": 0.6,
+      "control_loss": 0.19964667651729381,
+      "noise_scale": 0.02,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.08298911837639239,
+      "candidate_loss": 0.29386849516667624,
+      "coarse_quantization_step": 0.8,
+      "control_loss": 0.21087937679028385,
+      "noise_scale": 0.02,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.07542344203652379,
+      "candidate_loss": 0.30052983257315224,
+      "coarse_quantization_step": 1.0,
+      "control_loss": 0.22510639053662845,
+      "noise_scale": 0.02,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.04914205551048639,
+      "candidate_loss": 0.32390324443874385,
+      "coarse_quantization_step": 1.5,
+      "control_loss": 0.27476118892825746,
+      "noise_scale": 0.02,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.012694026668734204,
+      "candidate_loss": 0.356599614137264,
+      "coarse_quantization_step": 2.0,
+      "control_loss": 0.3439055874685298,
+      "noise_scale": 0.02,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": 0.0668585242077665,
+      "candidate_loss": 0.4277270543232339,
+      "coarse_quantization_step": 3.0,
+      "control_loss": 0.4945855785310004,
+      "noise_scale": 0.02,
+      "winner": "CANDIDATE"
+    },
+    {
+      "candidate_gain": -0.09418518485183808,
+      "candidate_loss": 0.35382337881253123,
+      "coarse_quantization_step": 0.4,
+      "control_loss": 0.25963819396069315,
+      "noise_scale": 0.1,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.09000962806128959,
+      "candidate_loss": 0.3576589799698544,
+      "coarse_quantization_step": 0.6,
+      "control_loss": 0.2676493519085648,
+      "noise_scale": 0.1,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.08418977751306905,
+      "candidate_loss": 0.36291684306339506,
+      "coarse_quantization_step": 0.8,
+      "control_loss": 0.278727065550326,
+      "noise_scale": 0.1,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.07654482504061705,
+      "candidate_loss": 0.3696414921903928,
+      "coarse_quantization_step": 1.0,
+      "control_loss": 0.2930966671497757,
+      "noise_scale": 0.1,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.05022607307339072,
+      "candidate_loss": 0.3928830692268355,
+      "coarse_quantization_step": 1.5,
+      "control_loss": 0.3426569961534448,
+      "noise_scale": 0.1,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.014317427685124562,
+      "candidate_loss": 0.4254768136329806,
+      "coarse_quantization_step": 2.0,
+      "control_loss": 0.41115938594785606,
+      "noise_scale": 0.1,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": 0.06356376520791512,
+      "candidate_loss": 0.4950117209958265,
+      "coarse_quantization_step": 3.0,
+      "control_loss": 0.5585754862037416,
+      "noise_scale": 0.1,
+      "winner": "CANDIDATE"
+    },
+    {
+      "candidate_gain": -0.11328443856503445,
+      "candidate_loss": 1.4397595892469268,
+      "coarse_quantization_step": 0.4,
+      "control_loss": 1.3264751506818924,
+      "noise_scale": 0.4,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.10913107948785328,
+      "candidate_loss": 1.4432864821264937,
+      "coarse_quantization_step": 0.6,
+      "control_loss": 1.3341554026386404,
+      "noise_scale": 0.4,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.10331159361598297,
+      "candidate_loss": 1.4485886869050038,
+      "coarse_quantization_step": 0.8,
+      "control_loss": 1.3452770932890208,
+      "noise_scale": 0.4,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.09587765027309936,
+      "candidate_loss": 1.4555177960081642,
+      "coarse_quantization_step": 1.0,
+      "control_loss": 1.3596401457350649,
+      "noise_scale": 0.4,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.06833306517040794,
+      "candidate_loss": 1.4779644801164555,
+      "coarse_quantization_step": 1.5,
+      "control_loss": 1.4096314149460476,
+      "noise_scale": 0.4,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": -0.033519634812952726,
+      "candidate_loss": 1.5106437332289173,
+      "coarse_quantization_step": 2.0,
+      "control_loss": 1.4771240984159646,
+      "noise_scale": 0.4,
+      "winner": "REMOVAL_CONTROL"
+    },
+    {
+      "candidate_gain": 0.029939140960875577,
+      "candidate_loss": 1.5700557995003148,
+      "coarse_quantization_step": 3.0,
+      "control_loss": 1.5999949404611904,
+      "noise_scale": 0.4,
+      "winner": "CANDIDATE"
+    }
+  ],
+  "code_sha256": "968e6b5bb8afc096a6edf0840d2b57a9eb233a52a1366911c88e497d4fb8ea9d",
+  "common_random_trials_per_cell": 100000,
+  "evidence_boundary": "Synthetic transfer tournament with common random draws; not real-world empirical validation.",
+  "model_version": "R400_JARB_NATIVE_TRANSFER_TOURNAMENT_V1",
+  "promotion_status": "DO_NOT_PROMOTE_UNLESS_TRANSFER_REGION_IS_MATERIAL_AND_JUSTIFIED",
+  "removal_control_decision": {
+    "additive_objective": 0.9040109158089572,
+    "coupling": 0.0,
+    "declared_joint_loss": 0.9040109158089572,
+    "interaction_credit": 0.0,
+    "modes": [
+      "coarse",
+      "coarse",
+      "fine"
+    ],
+    "representation_budget": 5,
+    "sensor_budget": 4,
+    "sensors": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "status": "NATIVE_REMOVAL_CONTROL"
+  },
+  "removal_control_win_count": 18,
+  "seed": 403,
+  "status": "COMPLETE_NEGATIVE_OR_NARROW_TRANSFER_RESULT"
+}

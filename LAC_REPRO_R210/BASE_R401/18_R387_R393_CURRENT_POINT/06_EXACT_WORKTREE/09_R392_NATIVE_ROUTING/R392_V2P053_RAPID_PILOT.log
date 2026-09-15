@@ -1,0 +1,33 @@
+{
+  "release": "R392",
+  "product_id": "V2P053",
+  "pair": [
+    "FOUNDRY:P090",
+    "PARENT:R041_CONSTRAINED_POLICY_CAPL"
+  ],
+  "events_added": 12,
+  "old_event_count": 435,
+  "new_event_count": 447,
+  "statuses": {
+    "COMPLETE": 12,
+    "FAILED": 0,
+    "CENSORED": 0
+  },
+  "test_signature": "1bda5e2ece4c2aa29a9a3f41edb591de219c89825f130cfb7d2ba748f7b28a7a",
+  "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P053::57e9156c4b8d0162",
+  "cases": [
+    "SWCAPLTests.test_support_gate_is_usable_in_declared_working_region",
+    "SWCAPLTests.test_target_weighting_changes_policy_actions",
+    "SWCAPLTests.test_working_region_beats_mechanism_removed_control",
+    "SWCAPLTests.test_candidate_concentrates_on_target_favored_asset",
+    "SWCAPLTests.test_control_concentrates_on_source_favored_asset",
+    "SWCAPLTests.test_uniform_weights_collapse_exactly_to_control",
+    "SWCAPLTests.test_fragile_importance_weights_fail_closed",
+    "SWCAPLTests.test_negative_importance_weight_rejected",
+    "SWCAPLTests.test_wrong_length_importance_weight_rejected",
+    "SWCAPLTests.test_candidate_action_constraints_are_certified",
+    "SWCAPLTests.test_control_action_constraints_are_certified",
+    "SWCAPLTests.test_source_like_validation_is_explicit_failure_region"
+  ],
+  "evidence_boundary": "mechanics/executable-contract calibration only; not empirical validation"
+}

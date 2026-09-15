@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "file": "examples/content-review-verified/index.html",
+  "checks": [
+    "65 cell positions rendered",
+    "2 formula/value comparisons isolated",
+    "sheet search",
+    "region selection",
+    "lineage link",
+    "no JS errors"
+  ],
+  "scope": "jsdom DOM interaction; not a real browser visual check"
+}

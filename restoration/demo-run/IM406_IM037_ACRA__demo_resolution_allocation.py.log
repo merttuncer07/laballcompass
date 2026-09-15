@@ -1,0 +1,88 @@
+{
+  "fixed_balanced": {
+    "total_cost": 24,
+    "total_decision_loss": 1337.5,
+    "allocations": [
+      {
+        "region": "emergency_onset",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 343.75
+      },
+      {
+        "region": "resonance_band",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 275.0
+      },
+      {
+        "region": "regime_change",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 250.0
+      },
+      {
+        "region": "machine_vibration",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 312.5
+      },
+      {
+        "region": "mixed_control",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 150.0
+      },
+      {
+        "region": "low_consequence_monitor",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 6.25
+      }
+    ]
+  },
+  "adaptive_same_budget": {
+    "budget": 24,
+    "total_cost": 23,
+    "total_decision_loss": 928.0,
+    "allocations": [
+      {
+        "region": "emergency_onset",
+        "option": "short_time",
+        "cost": 3,
+        "decision_loss": 230
+      },
+      {
+        "region": "resonance_band",
+        "option": "long_frequency",
+        "cost": 3,
+        "decision_loss": 184
+      },
+      {
+        "region": "regime_change",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 250.0
+      },
+      {
+        "region": "machine_vibration",
+        "option": "fine_both",
+        "cost": 8,
+        "decision_loss": 50
+      },
+      {
+        "region": "mixed_control",
+        "option": "balanced",
+        "cost": 4,
+        "decision_loss": 150.0
+      },
+      {
+        "region": "low_consequence_monitor",
+        "option": "coarse",
+        "cost": 1,
+        "decision_loss": 64.0
+      }
+    ]
+  },
+  "decision_loss_reduction": 0.30616822429906543
+}

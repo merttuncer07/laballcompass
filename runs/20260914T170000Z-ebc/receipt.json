@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "run_id": "20260914T170000Z-ebc",
+  "status": "PASS",
+  "finished_at": "2026-09-14T14:23:22.968699+00:00",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "counts": {
+    "tests": 34,
+    "passed": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "targets": [
+    {
+      "id": "R026_S423_S424_EBC",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC",
+      "layer": "parent",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 11,
+        "passed": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P004_BAMI",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 8,
+        "passed": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P134_REIG",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 15,
+        "passed": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "test_evidence": [
+    "restoration/20260914-ebc/ebc-verified.xml",
+    "restoration/20260914-ebc/consumers-verified.xml"
+  ],
+  "source_hashes": [
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py",
+      "before_sha256": "d8bc06ac79159959656aa9de4a2e975e8fb4a3fc7258e1654a13849aa7420c37",
+      "after_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/test_ebc.py",
+      "before_sha256": "852ed7968b3f4d7d1048a920af09be9d7e1c963b5c23c1caf0b70418f9e594fc",
+      "after_sha256": "7a3f2bc9ce5cf6e4df94b68bf69cdcb1f289ff5f12ad178f22b707b69d731bb7"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py",
+      "before_sha256": "26c88cc6cd6ff8843f7c9b5151ab4d713ea6164d28c23d82e73ab84c2f2e7e9e",
+      "after_sha256": "553c9235292e2c4b9bf4177ce39be529a390f36423ac7734914e082ae2d11548"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/ebc.py",
+      "before_sha256": "d8bc06ac79159959656aa9de4a2e975e8fb4a3fc7258e1654a13849aa7420c37",
+      "after_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py",
+      "before_sha256": "a61d7248b32f54cf4a167cd856e021aa5471cb94d2affeb3aa463c4ece4002dd",
+      "after_sha256": "41eea60a591b48e0fee9d2b9a90db92f864bdbfe7a751e263e725a3bbaee7541"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/ebc.py",
+      "before_sha256": "d8bc06ac79159959656aa9de4a2e975e8fb4a3fc7258e1654a13849aa7420c37",
+      "after_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py",
+      "before_sha256": "a773b429f049ccd5819e59849941cd0c87ba393cb0049d78f5252cfe83f57f8d",
+      "after_sha256": "30f9e2f50daf9a04c6afa93c49fa6e677f0602ad8793053b6750bf8692d09852"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py",
+      "before_sha256": "c907be63476da50ed25d3b53828e002f7065c03ed618b7d952c3d6eee9f3ffd4",
+      "after_sha256": "8f24c0d566b80ab0c396a27e344012342de8148e2615bb47b7f4d79c909dac4d"
+    },
+    {
+      "path": "lab.py",
+      "before_sha256": "ea27cd988529a640de070859dee36eebf67c573e164e958e756b7afc4606a842",
+      "after_sha256": "8741f7219c1e121292b8cebd004a0bec21da34ad34f10bcb6ebae4998552c685"
+    }
+  ],
+  "results_scope": "Targeted EBC, REIG and BAMI software tests, including closed-form and GLS perfect-duplicate references; not general covariance modeling, calibration or field validation."
+}

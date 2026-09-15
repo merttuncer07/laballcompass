@@ -1,0 +1,8 @@
+test_interval_score_penalizes_miss_distance (test_cwc.CWCTests.test_interval_score_penalizes_miss_distance) ... ok
+test_repeated_easy_hits_reduce_width (test_cwc.CWCTests.test_repeated_easy_hits_reduce_width) ... ok
+test_repeated_misses_increase_width (test_cwc.CWCTests.test_repeated_misses_increase_width) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "tests": 36,
+  "receipt": "runs/20260914T191000Z-aicc/receipt.json",
+  "example": "examples/information-selection/result.json",
+  "scope": "Targeted AICC analytic information-value and finite correlated-observation behavior plus its three full consumer test suites; not whole-lab, audit efficacy or novel acquisition policy validation.",
+  "manifest_scope": "Only touched engine/doc/test entries updated; prior manifest preserved; no whole-package rescan."
+}

@@ -1,0 +1,84 @@
+{
+  "audit": {
+    "states": 4,
+    "inputs": 1,
+    "outputs": 1,
+    "horizon": 12,
+    "stable": true,
+    "spectral_radius": 0.8,
+    "controllability_rank": 2,
+    "observability_rank": 2,
+    "minimal_io_dimension": 1,
+    "redundant_state_count": 3,
+    "controllable_observable": 1,
+    "controllable_unobservable": 1,
+    "uncontrollable_observable": 1,
+    "uncontrollable_unobservable": 1,
+    "controllability_singular_values": [
+      1.9653990530494092,
+      0.4849741325432727,
+      0.0,
+      0.0
+    ],
+    "observability_singular_values": [
+      2.0440470767030536,
+      0.3860365754743975,
+      0.0,
+      0.0
+    ],
+    "hankel_singular_values": [
+      2.7646600931031404,
+      1.7615010177164238e-16,
+      5.847946529451795e-17,
+      4.040206121103316e-17,
+      2.499261079369087e-17,
+      1.8454487335407894e-17,
+      7.778321065564932e-18,
+      4.900963955689032e-18,
+      3.713485229866844e-18,
+      2.922505660246928e-18,
+      2.231317987233407e-18,
+      3.7221735821334113e-19
+    ],
+    "controllability_gramian_eigenvalues": [
+      3.8627934377275146,
+      0.23519990923609943,
+      0.0,
+      0.0
+    ],
+    "observability_gramian_eigenvalues": [
+      4.178128451778299,
+      0.14902423760400027,
+      0.0,
+      0.0
+    ],
+    "status": "REDUCIBLE_REALIZATION"
+  },
+  "known_one_state_reduction_check": {
+    "full_impulse": [
+      1.0,
+      0.8,
+      0.6400000000000001,
+      0.5120000000000001,
+      0.4096000000000002,
+      0.3276800000000002,
+      0.26214400000000015,
+      0.20971520000000016,
+      0.16777216000000014,
+      0.13421772800000012
+    ],
+    "reduced_impulse": [
+      1.0,
+      0.8,
+      0.6400000000000001,
+      0.5120000000000001,
+      0.4096000000000001,
+      0.3276800000000001,
+      0.2621440000000001,
+      0.20971520000000007,
+      0.1677721600000001,
+      0.13421772800000006
+    ],
+    "maximum_difference": 1.1102230246251565e-16
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "training_objective": -0.004556135971948817,
+  "validation_mean_return": 0.004921588959783623,
+  "validation_volatility": 0.006037506250626685,
+  "validation_certainty_equivalent": 0.004885137478057267,
+  "equal_weight_certainty_equivalent": 0.0015309291322797417,
+  "objective_improvement": 0.003354208345777525,
+  "average_turnover": 0.36274591496892594,
+  "maximum_realized_turnover": 0.4000000000000002,
+  "maximum_realized_weight": 0.7000000000000001,
+  "violations": {
+    "sum": 0,
+    "lower": 0,
+    "upper": 0,
+    "turnover": 0
+  },
+  "candidates_evaluated": 2401,
+  "status": "CONSTRAINT_CERTIFIED_POLICY_LEARNED"
+}

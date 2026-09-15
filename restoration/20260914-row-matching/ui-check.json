@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "jsdom interaction; no real-browser visual verification",
+  "checks": [
+    "synthetic transformation notice",
+    "reordered column display",
+    "changed amount shown initially",
+    "both formula impacts",
+    "unmatched rows visible",
+    "filter and selection",
+    "500-cell disclosure",
+    "lineage link exists",
+    "no JS errors"
+  ],
+  "reports": [
+    {
+      "file": "examples/public-spending/verified/changed_unique_voucher/report/index.html",
+      "status": "PASS"
+    },
+    {
+      "file": "examples/public-spending/verified/changed_repeated_voucher/report/index.html",
+      "status": "PASS"
+    },
+    {
+      "file": "examples/public-spending/verified/renamed_headers_changed_amount/report/index.html",
+      "status": "PASS"
+    }
+  ]
+}

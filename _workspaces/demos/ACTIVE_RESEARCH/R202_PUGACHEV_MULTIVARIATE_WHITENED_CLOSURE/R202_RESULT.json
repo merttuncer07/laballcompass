@@ -1,0 +1,1265 @@
+{
+  "summary": {
+    "case_count": 40,
+    "mixture_home_compiled_beats_ukf": 10,
+    "mixture_home_compiled_beats_ekf": 10,
+    "home_compiled_within_15pct_particle": 20,
+    "mixture_shifted_compiled_beats_ukf": 10,
+    "mean_home_compiled_rmse": 0.29264758744637426,
+    "mean_home_ukf_rmse": 0.3301646658232308,
+    "mean_home_particle_rmse": 0.28791279898876543,
+    "mean_home_compiled_coverage90": 0.9027787307032591,
+    "mean_home_compiled_axis_radius90": 0.4387191302544256,
+    "mean_home_ukf_axis_radius90": 0.4996684390444318,
+    "mean_home_particle_axis_radius90": 0.424763405110565,
+    "compiled_tail_radius90": {
+      "gaussian": 2.839054025115227,
+      "mixture": 2.7111085938677157
+    },
+    "median_speedup_vs_particle512": 31.60476836697056,
+    "status": "WHITENED_MULTIVARIATE_RECURSIVE_CLOSURE_SURVIVES"
+  },
+  "cases": [
+    {
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2822117602770352,
+        "coverage90": 0.9015437392795883,
+        "mean_error_radius": 1.6324417846910892,
+        "mean_axis_radius90": 0.43729370539053364
+      },
+      "ekf": {
+        "rmse_vector": 0.2826419476993432,
+        "coverage90": 0.8946826758147512,
+        "mean_error_radius": 1.2365012600498109,
+        "mean_axis_radius90": 0.43620243556083116
+      },
+      "ukf": {
+        "rmse_vector": 0.28008557179352755,
+        "coverage90": 0.8950257289879932,
+        "mean_error_radius": 1.254137884195636,
+        "mean_axis_radius90": 0.4246594406525739
+      },
+      "particle512": {
+        "rmse_vector": 0.2811874926913915,
+        "coverage90": 0.8850771869639794,
+        "mean_error_radius": 1.3168589571792202,
+        "mean_axis_radius90": 0.42215798939096466
+      },
+      "compiled_seconds": 0.010542100004386157,
+      "particle_seconds": 0.30614430000423454
+    },
+    {
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2691871440298923,
+        "coverage90": 0.9248713550600343,
+        "mean_error_radius": 1.5154317895575802,
+        "mean_axis_radius90": 0.4441510529509596
+      },
+      "ekf": {
+        "rmse_vector": 0.27047926147494317,
+        "coverage90": 0.8974271012006861,
+        "mean_error_radius": 1.2640416409192656,
+        "mean_axis_radius90": 0.40853231840245513
+      },
+      "ukf": {
+        "rmse_vector": 0.2669719324050705,
+        "coverage90": 0.9056603773584906,
+        "mean_error_radius": 1.2521460627315268,
+        "mean_axis_radius90": 0.40052769023908724
+      },
+      "particle512": {
+        "rmse_vector": 0.2686811461315395,
+        "coverage90": 0.8891938250428817,
+        "mean_error_radius": 1.311555579579032,
+        "mean_axis_radius90": 0.3960287214706778
+      },
+      "compiled_seconds": 0.009387099999003112,
+      "particle_seconds": 0.3070472000108566
+    },
+    {
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.29820561203570284,
+        "coverage90": 0.9097770154373928,
+        "mean_error_radius": 1.5155831155839181,
+        "mean_axis_radius90": 0.44000769796847655
+      },
+      "ekf": {
+        "rmse_vector": 0.37546504296363103,
+        "coverage90": 0.9156089193825043,
+        "mean_error_radius": 1.1349807825318081,
+        "mean_axis_radius90": 0.5924096887712196
+      },
+      "ukf": {
+        "rmse_vector": 0.3755252170204868,
+        "coverage90": 0.911492281303602,
+        "mean_error_radius": 1.1773226624301436,
+        "mean_axis_radius90": 0.5735454036137939
+      },
+      "particle512": {
+        "rmse_vector": 0.2892620479494837,
+        "coverage90": 0.9159519725557461,
+        "mean_error_radius": 1.2001181831526933,
+        "mean_axis_radius90": 0.428921885240591
+      },
+      "compiled_seconds": 0.00923200001125224,
+      "particle_seconds": 0.3768069999932777
+    },
+    {
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2944710364320561,
+        "coverage90": 0.9156089193825043,
+        "mean_error_radius": 1.423005778757318,
+        "mean_axis_radius90": 0.4479361296799941
+      },
+      "ekf": {
+        "rmse_vector": 0.3698737112796455,
+        "coverage90": 0.9039451114922813,
+        "mean_error_radius": 1.135859648483641,
+        "mean_axis_radius90": 0.5659883504719265
+      },
+      "ukf": {
+        "rmse_vector": 0.3672850700580558,
+        "coverage90": 0.904631217838765,
+        "mean_error_radius": 1.1646474347682678,
+        "mean_axis_radius90": 0.5486853445356471
+      },
+      "particle512": {
+        "rmse_vector": 0.2815939876001405,
+        "coverage90": 0.911835334476844,
+        "mean_error_radius": 1.180942799288779,
+        "mean_axis_radius90": 0.41187509759810353
+      },
+      "compiled_seconds": 0.010059499996714294,
+      "particle_seconds": 0.3741829999926267
+    },
+    {
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.28435347128462596,
+        "coverage90": 0.9029159519725557,
+        "mean_error_radius": 1.6416643892211271,
+        "mean_axis_radius90": 0.43784507900618086
+      },
+      "ekf": {
+        "rmse_vector": 0.2842366004555233,
+        "coverage90": 0.9135506003430531,
+        "mean_error_radius": 1.2314094796939443,
+        "mean_axis_radius90": 0.4390139594638717
+      },
+      "ukf": {
+        "rmse_vector": 0.28246190226427786,
+        "coverage90": 0.9056603773584906,
+        "mean_error_radius": 1.2562538131699943,
+        "mean_axis_radius90": 0.4269691558840055
+      },
+      "particle512": {
+        "rmse_vector": 0.28304745401932,
+        "coverage90": 0.8974271012006861,
+        "mean_error_radius": 1.2825293473313617,
+        "mean_axis_radius90": 0.4249860746832072
+      },
+      "compiled_seconds": 0.00908069999422878,
+      "particle_seconds": 0.27460119999886956
+    },
+    {
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.27144960287032965,
+        "coverage90": 0.9228130360205832,
+        "mean_error_radius": 1.5410091146996632,
+        "mean_axis_radius90": 0.44362368248146516
+      },
+      "ekf": {
+        "rmse_vector": 0.2727910964006617,
+        "coverage90": 0.8871355060034305,
+        "mean_error_radius": 1.281364383643831,
+        "mean_axis_radius90": 0.4104379877498538
+      },
+      "ukf": {
+        "rmse_vector": 0.2690085466024062,
+        "coverage90": 0.8943396226415095,
+        "mean_error_radius": 1.2691718009469943,
+        "mean_axis_radius90": 0.4024839352950375
+      },
+      "particle512": {
+        "rmse_vector": 0.26996627449684535,
+        "coverage90": 0.8795883361921097,
+        "mean_error_radius": 1.322965026020796,
+        "mean_axis_radius90": 0.3992118899807455
+      },
+      "compiled_seconds": 0.010157800003071316,
+      "particle_seconds": 0.27410360000794753
+    },
+    {
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2994694563735565,
+        "coverage90": 0.9077186963979417,
+        "mean_error_radius": 1.5049724894512213,
+        "mean_axis_radius90": 0.43953074227036465
+      },
+      "ekf": {
+        "rmse_vector": 0.3808532286106876,
+        "coverage90": 0.9121783876500857,
+        "mean_error_radius": 1.1358345716870035,
+        "mean_axis_radius90": 0.5916048531034902
+      },
+      "ukf": {
+        "rmse_vector": 0.38005072043038945,
+        "coverage90": 0.9108061749571184,
+        "mean_error_radius": 1.1761626102894294,
+        "mean_axis_radius90": 0.5728101550237725
+      },
+      "particle512": {
+        "rmse_vector": 0.28824478258668895,
+        "coverage90": 0.9111492281303603,
+        "mean_error_radius": 1.198277932762441,
+        "mean_axis_radius90": 0.425863118659723
+      },
+      "compiled_seconds": 0.009800200001336634,
+      "particle_seconds": 0.3183715999912238
+    },
+    {
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.29975442834983473,
+        "coverage90": 0.9073756432246999,
+        "mean_error_radius": 1.4627786497728976,
+        "mean_axis_radius90": 0.44817140674293465
+      },
+      "ekf": {
+        "rmse_vector": 0.3681355206844708,
+        "coverage90": 0.9077186963979417,
+        "mean_error_radius": 1.1381540929773237,
+        "mean_axis_radius90": 0.5674673220390379
+      },
+      "ukf": {
+        "rmse_vector": 0.3646845847719173,
+        "coverage90": 0.9073756432246999,
+        "mean_error_radius": 1.1648558515527103,
+        "mean_axis_radius90": 0.5501215961360756
+      },
+      "particle512": {
+        "rmse_vector": 0.2899082851061912,
+        "coverage90": 0.9008576329331046,
+        "mean_error_radius": 1.2302662372159476,
+        "mean_axis_radius90": 0.41131471627825095
+      },
+      "compiled_seconds": 0.009734299994306639,
+      "particle_seconds": 0.3241864000010537
+    },
+    {
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2876178479775863,
+        "coverage90": 0.8922813036020584,
+        "mean_error_radius": 1.6695661170668945,
+        "mean_axis_radius90": 0.4374546865780575
+      },
+      "ekf": {
+        "rmse_vector": 0.28766979965409684,
+        "coverage90": 0.8974271012006861,
+        "mean_error_radius": 1.2504246322382955,
+        "mean_axis_radius90": 0.4399448100896407
+      },
+      "ukf": {
+        "rmse_vector": 0.2855738426636013,
+        "coverage90": 0.8926243567753002,
+        "mean_error_radius": 1.2734641798197397,
+        "mean_axis_radius90": 0.4277796053702367
+      },
+      "particle512": {
+        "rmse_vector": 0.2862991392298816,
+        "coverage90": 0.883704974271012,
+        "mean_error_radius": 1.3076455348067149,
+        "mean_axis_radius90": 0.425223108105943
+      },
+      "compiled_seconds": 0.010821699994266964,
+      "particle_seconds": 0.25894279999192804
+    },
+    {
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.27041688042889733,
+        "coverage90": 0.9238421955403088,
+        "mean_error_radius": 1.534152316694832,
+        "mean_axis_radius90": 0.44367863632186016
+      },
+      "ekf": {
+        "rmse_vector": 0.2705690709872959,
+        "coverage90": 0.8957118353344768,
+        "mean_error_radius": 1.2583024641190987,
+        "mean_axis_radius90": 0.41269422658263855
+      },
+      "ukf": {
+        "rmse_vector": 0.26811222509472243,
+        "coverage90": 0.8987993138936535,
+        "mean_error_radius": 1.2569786269597782,
+        "mean_axis_radius90": 0.4039525360255619
+      },
+      "particle512": {
+        "rmse_vector": 0.26981280792763873,
+        "coverage90": 0.8802744425385934,
+        "mean_error_radius": 1.3056200856236786,
+        "mean_axis_radius90": 0.39967036231010794
+      },
+      "compiled_seconds": 0.009459299995796755,
+      "particle_seconds": 0.2618529000028502
+    },
+    {
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.30802459466328336,
+        "coverage90": 0.8977701543739279,
+        "mean_error_radius": 1.5581526610885426,
+        "mean_axis_radius90": 0.43933027343724673
+      },
+      "ekf": {
+        "rmse_vector": 0.3804713635786171,
+        "coverage90": 0.9156089193825043,
+        "mean_error_radius": 1.1435752014815768,
+        "mean_axis_radius90": 0.5931070425444133
+      },
+      "ukf": {
+        "rmse_vector": 0.3789046214454924,
+        "coverage90": 0.911492281303602,
+        "mean_error_radius": 1.1804544276069895,
+        "mean_axis_radius90": 0.5741019266378591
+      },
+      "particle512": {
+        "rmse_vector": 0.29784769419502005,
+        "coverage90": 0.8929674099485421,
+        "mean_error_radius": 1.2473432793545625,
+        "mean_axis_radius90": 0.42517051731611055
+      },
+      "compiled_seconds": 0.008878799999365583,
+      "particle_seconds": 0.3214228999859188
+    },
+    {
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.28263601455750625,
+        "coverage90": 0.9313893653516295,
+        "mean_error_radius": 1.4001315150947138,
+        "mean_axis_radius90": 0.44762318314541044
+      },
+      "ekf": {
+        "rmse_vector": 0.3527710347461897,
+        "coverage90": 0.911835334476844,
+        "mean_error_radius": 1.1167834168781843,
+        "mean_axis_radius90": 0.5636617895293259
+      },
+      "ukf": {
+        "rmse_vector": 0.3509803675259105,
+        "coverage90": 0.9125214408233276,
+        "mean_error_radius": 1.1478858395870164,
+        "mean_axis_radius90": 0.5469123740003969
+      },
+      "particle512": {
+        "rmse_vector": 0.2774820815094658,
+        "coverage90": 0.911835334476844,
+        "mean_error_radius": 1.190766611556943,
+        "mean_axis_radius90": 0.40904650429585365
+      },
+      "compiled_seconds": 0.009048700012499467,
+      "particle_seconds": 0.31196120000095107
+    },
+    {
+      "seed": 3,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2849336996935784,
+        "coverage90": 0.8981132075471698,
+        "mean_error_radius": 1.654199394318912,
+        "mean_axis_radius90": 0.4375850309457059
+      },
+      "ekf": {
+        "rmse_vector": 0.28466127884859416,
+        "coverage90": 0.9111492281303603,
+        "mean_error_radius": 1.2332697566573048,
+        "mean_axis_radius90": 0.4395928389727562
+      },
+      "ukf": {
+        "rmse_vector": 0.2830501717148463,
+        "coverage90": 0.8991423670668953,
+        "mean_error_radius": 1.2590847326170456,
+        "mean_axis_radius90": 0.42735376815510784
+      },
+      "particle512": {
+        "rmse_vector": 0.284766998583456,
+        "coverage90": 0.8888507718696398,
+        "mean_error_radius": 1.2960884081660382,
+        "mean_axis_radius90": 0.42530514332262975
+      },
+      "compiled_seconds": 0.0091000999964308,
+      "particle_seconds": 0.2670003999955952
+    },
+    {
+      "seed": 3,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.27009597390535045,
+        "coverage90": 0.9303602058319039,
+        "mean_error_radius": 1.526573877320166,
+        "mean_axis_radius90": 0.4438368942868834
+      },
+      "ekf": {
+        "rmse_vector": 0.2721817855591727,
+        "coverage90": 0.8936535162950258,
+        "mean_error_radius": 1.2738693227068698,
+        "mean_axis_radius90": 0.41018014670799985
+      },
+      "ukf": {
+        "rmse_vector": 0.2685260263406369,
+        "coverage90": 0.8994854202401372,
+        "mean_error_radius": 1.2635735698089627,
+        "mean_axis_radius90": 0.4020226468710352
+      },
+      "particle512": {
+        "rmse_vector": 0.26959046558543415,
+        "coverage90": 0.8902229845626072,
+        "mean_error_radius": 1.3141564320444514,
+        "mean_axis_radius90": 0.39862034154743103
+      },
+      "compiled_seconds": 0.009469399999943562,
+      "particle_seconds": 0.25810249999631196
+    },
+    {
+      "seed": 3,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2910031463937208,
+        "coverage90": 0.9135506003430531,
+        "mean_error_radius": 1.5001820317319785,
+        "mean_axis_radius90": 0.4395027969730415
+      },
+      "ekf": {
+        "rmse_vector": 0.36745519895991663,
+        "coverage90": 0.9176672384219554,
+        "mean_error_radius": 1.1223424790967653,
+        "mean_axis_radius90": 0.591173108492472
+      },
+      "ukf": {
+        "rmse_vector": 0.36722159658664455,
+        "coverage90": 0.9152658662092624,
+        "mean_error_radius": 1.1626750127040235,
+        "mean_axis_radius90": 0.5725407154156976
+      },
+      "particle512": {
+        "rmse_vector": 0.2838622969369889,
+        "coverage90": 0.9084048027444254,
+        "mean_error_radius": 1.2083322045026101,
+        "mean_axis_radius90": 0.4225420964974457
+      },
+      "compiled_seconds": 0.009748500000569038,
+      "particle_seconds": 0.316201200010255
+    },
+    {
+      "seed": 3,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2900497608893379,
+        "coverage90": 0.9214408233276158,
+        "mean_error_radius": 1.4173415580134288,
+        "mean_axis_radius90": 0.4484969134444319
+      },
+      "ekf": {
+        "rmse_vector": 0.3688031754641734,
+        "coverage90": 0.9063464837049743,
+        "mean_error_radius": 1.1376078923766133,
+        "mean_axis_radius90": 0.5665977606300358
+      },
+      "ukf": {
+        "rmse_vector": 0.3669400256259815,
+        "coverage90": 0.9090909090909091,
+        "mean_error_radius": 1.1681765634031696,
+        "mean_axis_radius90": 0.5492435840422116
+      },
+      "particle512": {
+        "rmse_vector": 0.2794599184217447,
+        "coverage90": 0.9145797598627787,
+        "mean_error_radius": 1.1940682102720621,
+        "mean_axis_radius90": 0.4106094162725282
+      },
+      "compiled_seconds": 0.00948219999554567,
+      "particle_seconds": 0.31829529999231454
+    },
+    {
+      "seed": 4,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.283511818912243,
+        "coverage90": 0.9056603773584906,
+        "mean_error_radius": 1.6454331552131154,
+        "mean_axis_radius90": 0.4376223527779435
+      },
+      "ekf": {
+        "rmse_vector": 0.284793540945527,
+        "coverage90": 0.9101200686106347,
+        "mean_error_radius": 1.2443989005254499,
+        "mean_axis_radius90": 0.43717939565610814
+      },
+      "ukf": {
+        "rmse_vector": 0.2825254753564698,
+        "coverage90": 0.9029159519725557,
+        "mean_error_radius": 1.265707247247359,
+        "mean_axis_radius90": 0.4254525373372395
+      },
+      "particle512": {
+        "rmse_vector": 0.283509107113582,
+        "coverage90": 0.8902229845626072,
+        "mean_error_radius": 1.2997212672564926,
+        "mean_axis_radius90": 0.4228647799555371
+      },
+      "compiled_seconds": 0.008673800010001287,
+      "particle_seconds": 0.2689053999929456
+    },
+    {
+      "seed": 4,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2754182456715231,
+        "coverage90": 0.9183533447684391,
+        "mean_error_radius": 1.5658723068114204,
+        "mean_axis_radius90": 0.44363328880260283
+      },
+      "ekf": {
+        "rmse_vector": 0.27691210431088553,
+        "coverage90": 0.8909090909090909,
+        "mean_error_radius": 1.2940098622542902,
+        "mean_axis_radius90": 0.41199406525261306
+      },
+      "ukf": {
+        "rmse_vector": 0.27308177076920015,
+        "coverage90": 0.8929674099485421,
+        "mean_error_radius": 1.287513571671446,
+        "mean_axis_radius90": 0.40356171596436513
+      },
+      "particle512": {
+        "rmse_vector": 0.27355776224389133,
+        "coverage90": 0.879245283018868,
+        "mean_error_radius": 1.602985811827067,
+        "mean_axis_radius90": 0.40052520205023406
+      },
+      "compiled_seconds": 0.010234299988951534,
+      "particle_seconds": 0.2694238999974914
+    },
+    {
+      "seed": 4,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2973993404742924,
+        "coverage90": 0.9077186963979417,
+        "mean_error_radius": 1.5154148218564176,
+        "mean_axis_radius90": 0.4392944153624665
+      },
+      "ekf": {
+        "rmse_vector": 0.38037292383150834,
+        "coverage90": 0.9169811320754717,
+        "mean_error_radius": 1.1460061930868983,
+        "mean_axis_radius90": 0.5915103560758344
+      },
+      "ukf": {
+        "rmse_vector": 0.3796237161908193,
+        "coverage90": 0.9111492281303603,
+        "mean_error_radius": 1.1847478890976888,
+        "mean_axis_radius90": 0.5727547828605642
+      },
+      "particle512": {
+        "rmse_vector": 0.2877916164126501,
+        "coverage90": 0.9176672384219554,
+        "mean_error_radius": 1.2108264825221888,
+        "mean_axis_radius90": 0.42422722891997916
+      },
+      "compiled_seconds": 0.009367099992232397,
+      "particle_seconds": 0.3216988000058336
+    },
+    {
+      "seed": 4,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.29209787954684346,
+        "coverage90": 0.9145797598627787,
+        "mean_error_radius": 1.4351989015493418,
+        "mean_axis_radius90": 0.4498144629747184
+      },
+      "ekf": {
+        "rmse_vector": 0.36279520416576,
+        "coverage90": 0.9039451114922813,
+        "mean_error_radius": 1.1337170713913003,
+        "mean_axis_radius90": 0.5615765369277771
+      },
+      "ukf": {
+        "rmse_vector": 0.36073250927624545,
+        "coverage90": 0.9042881646655232,
+        "mean_error_radius": 1.164764463824506,
+        "mean_axis_radius90": 0.544957224612091
+      },
+      "particle512": {
+        "rmse_vector": 0.28670821722504547,
+        "coverage90": 0.9080617495711836,
+        "mean_error_radius": 1.208660925686619,
+        "mean_axis_radius90": 0.410079907065496
+      },
+      "compiled_seconds": 0.009076899994397536,
+      "particle_seconds": 0.3231231000099797
+    },
+    {
+      "seed": 5,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.29062888925986885,
+        "coverage90": 0.8888507718696398,
+        "mean_error_radius": 1.6891980850058752,
+        "mean_axis_radius90": 0.43718899913888676
+      },
+      "ekf": {
+        "rmse_vector": 0.2909128707978606,
+        "coverage90": 0.9001715265866209,
+        "mean_error_radius": 1.26492928170954,
+        "mean_axis_radius90": 0.4395599838909535
+      },
+      "ukf": {
+        "rmse_vector": 0.28868816397482105,
+        "coverage90": 0.8888507718696398,
+        "mean_error_radius": 1.2891032827443534,
+        "mean_axis_radius90": 0.42736877241184623
+      },
+      "particle512": {
+        "rmse_vector": 0.290563865934511,
+        "coverage90": 0.878902229845626,
+        "mean_error_radius": 1.3445002311774412,
+        "mean_axis_radius90": 0.425469721917445
+      },
+      "compiled_seconds": 0.009029499997268431,
+      "particle_seconds": 0.26895490000606515
+    },
+    {
+      "seed": 5,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.27038348773777454,
+        "coverage90": 0.9238421955403088,
+        "mean_error_radius": 1.5239079442402,
+        "mean_axis_radius90": 0.4439313462878565
+      },
+      "ekf": {
+        "rmse_vector": 0.27127641762126303,
+        "coverage90": 0.8895368782161235,
+        "mean_error_radius": 1.2609133972283895,
+        "mean_axis_radius90": 0.4096732302628178
+      },
+      "ukf": {
+        "rmse_vector": 0.26760614060200927,
+        "coverage90": 0.8960548885077187,
+        "mean_error_radius": 1.2503258603252552,
+        "mean_axis_radius90": 0.4016040522751989
+      },
+      "particle512": {
+        "rmse_vector": 0.268710687528619,
+        "coverage90": 0.8850771869639794,
+        "mean_error_radius": 1.3226764566210767,
+        "mean_axis_radius90": 0.39772026452236425
+      },
+      "compiled_seconds": 0.009769099997356534,
+      "particle_seconds": 0.2729264000081457
+    },
+    {
+      "seed": 5,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.3004407571273149,
+        "coverage90": 0.9101200686106347,
+        "mean_error_radius": 1.532170500523626,
+        "mean_axis_radius90": 0.44073987720064073
+      },
+      "ekf": {
+        "rmse_vector": 0.3760167313863651,
+        "coverage90": 0.9111492281303603,
+        "mean_error_radius": 1.138781108128258,
+        "mean_axis_radius90": 0.5906256899316771
+      },
+      "ukf": {
+        "rmse_vector": 0.3758505189333918,
+        "coverage90": 0.909433962264151,
+        "mean_error_radius": 1.1832564336113174,
+        "mean_axis_radius90": 0.5719981844472468
+      },
+      "particle512": {
+        "rmse_vector": 0.29328400600237076,
+        "coverage90": 0.904631217838765,
+        "mean_error_radius": 1.2246065928038359,
+        "mean_axis_radius90": 0.4255212898915864
+      },
+      "compiled_seconds": 0.009028699991176836,
+      "particle_seconds": 0.31697600000188686
+    },
+    {
+      "seed": 5,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2931518104606493,
+        "coverage90": 0.9090909090909091,
+        "mean_error_radius": 1.4510875464333288,
+        "mean_axis_radius90": 0.4469691455989517
+      },
+      "ekf": {
+        "rmse_vector": 0.36385936939265673,
+        "coverage90": 0.9108061749571184,
+        "mean_error_radius": 1.1353946180902912,
+        "mean_axis_radius90": 0.5662852504187526
+      },
+      "ukf": {
+        "rmse_vector": 0.3606526834687281,
+        "coverage90": 0.9104631217838765,
+        "mean_error_radius": 1.1611083170032472,
+        "mean_axis_radius90": 0.5489773582106628
+      },
+      "particle512": {
+        "rmse_vector": 0.28445651627253365,
+        "coverage90": 0.9053173241852487,
+        "mean_error_radius": 1.2156059572135376,
+        "mean_axis_radius90": 0.40864185405409237
+      },
+      "compiled_seconds": 0.009137100001680665,
+      "particle_seconds": 0.3227566999994451
+    },
+    {
+      "seed": 6,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2847185344085893,
+        "coverage90": 0.9001715265866209,
+        "mean_error_radius": 1.642996208857183,
+        "mean_axis_radius90": 0.43777552987023766
+      },
+      "ekf": {
+        "rmse_vector": 0.285111355987529,
+        "coverage90": 0.902229845626072,
+        "mean_error_radius": 1.2339983515402997,
+        "mean_axis_radius90": 0.43787368650992003
+      },
+      "ukf": {
+        "rmse_vector": 0.28281015237464563,
+        "coverage90": 0.8960548885077187,
+        "mean_error_radius": 1.255800508200805,
+        "mean_axis_radius90": 0.426087311940922
+      },
+      "particle512": {
+        "rmse_vector": 0.2840861584132062,
+        "coverage90": 0.8857632933104631,
+        "mean_error_radius": 1.3010992464495699,
+        "mean_axis_radius90": 0.4241285660382931
+      },
+      "compiled_seconds": 0.009485700007644482,
+      "particle_seconds": 0.2689386999991257
+    },
+    {
+      "seed": 6,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2699274264227449,
+        "coverage90": 0.932418524871355,
+        "mean_error_radius": 1.5293744355341132,
+        "mean_axis_radius90": 0.44370396000641615
+      },
+      "ekf": {
+        "rmse_vector": 0.270134264179734,
+        "coverage90": 0.8939965694682676,
+        "mean_error_radius": 1.2734502558265888,
+        "mean_axis_radius90": 0.4072935655088214
+      },
+      "ukf": {
+        "rmse_vector": 0.26754302660679685,
+        "coverage90": 0.9005145797598628,
+        "mean_error_radius": 1.2656225535170835,
+        "mean_axis_radius90": 0.3996528648872128
+      },
+      "particle512": {
+        "rmse_vector": 0.26848740834699586,
+        "coverage90": 0.8850771869639794,
+        "mean_error_radius": 1.3150620742016537,
+        "mean_axis_radius90": 0.39582709001439154
+      },
+      "compiled_seconds": 0.009905400002025999,
+      "particle_seconds": 0.2669352000084473
+    },
+    {
+      "seed": 6,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.29922386677259866,
+        "coverage90": 0.9015437392795883,
+        "mean_error_radius": 1.535259849408714,
+        "mean_axis_radius90": 0.438947347080941
+      },
+      "ekf": {
+        "rmse_vector": 0.3746509598304172,
+        "coverage90": 0.9180102915951972,
+        "mean_error_radius": 1.1326820844517915,
+        "mean_axis_radius90": 0.5917128336158577
+      },
+      "ukf": {
+        "rmse_vector": 0.3740274147755349,
+        "coverage90": 0.9152658662092624,
+        "mean_error_radius": 1.1724146295473312,
+        "mean_axis_radius90": 0.5729023760778612
+      },
+      "particle512": {
+        "rmse_vector": 0.2938942146748979,
+        "coverage90": 0.9077186963979417,
+        "mean_error_radius": 1.2327137050744004,
+        "mean_axis_radius90": 0.42209398588562264
+      },
+      "compiled_seconds": 0.009789999996428378,
+      "particle_seconds": 0.3153114999877289
+    },
+    {
+      "seed": 6,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2944890805432418,
+        "coverage90": 0.9207547169811321,
+        "mean_error_radius": 1.440178712207599,
+        "mean_axis_radius90": 0.448445832113242
+      },
+      "ekf": {
+        "rmse_vector": 0.36681560471689123,
+        "coverage90": 0.9060034305317324,
+        "mean_error_radius": 1.1490371829427863,
+        "mean_axis_radius90": 0.5666231645568977
+      },
+      "ukf": {
+        "rmse_vector": 0.36308811747443875,
+        "coverage90": 0.9084048027444254,
+        "mean_error_radius": 1.175076206436158,
+        "mean_axis_radius90": 0.549348633937544
+      },
+      "particle512": {
+        "rmse_vector": 0.2864754681531783,
+        "coverage90": 0.9053173241852487,
+        "mean_error_radius": 1.2152998377855424,
+        "mean_axis_radius90": 0.4128029102839538
+      },
+      "compiled_seconds": 0.008691399998497218,
+      "particle_seconds": 0.3177168999973219
+    },
+    {
+      "seed": 7,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.28693794197973843,
+        "coverage90": 0.9032590051457976,
+        "mean_error_radius": 1.6643331801542236,
+        "mean_axis_radius90": 0.4376829634295959
+      },
+      "ekf": {
+        "rmse_vector": 0.28604180234753646,
+        "coverage90": 0.907032590051458,
+        "mean_error_radius": 1.2434355542801765,
+        "mean_axis_radius90": 0.4379454508002469
+      },
+      "ukf": {
+        "rmse_vector": 0.28429458576585964,
+        "coverage90": 0.8984562607204116,
+        "mean_error_radius": 1.2687507442840076,
+        "mean_axis_radius90": 0.4260458141810077
+      },
+      "particle512": {
+        "rmse_vector": 0.2860040112649019,
+        "coverage90": 0.8857632933104631,
+        "mean_error_radius": 1.305506653684219,
+        "mean_axis_radius90": 0.4236026450791924
+      },
+      "compiled_seconds": 0.00987919999170117,
+      "particle_seconds": 0.27076080000551883
+    },
+    {
+      "seed": 7,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2664181521816893,
+        "coverage90": 0.9259005145797599,
+        "mean_error_radius": 1.5017743639724415,
+        "mean_axis_radius90": 0.44348141802589797
+      },
+      "ekf": {
+        "rmse_vector": 0.26859998237996935,
+        "coverage90": 0.8974271012006861,
+        "mean_error_radius": 1.2455681015663203,
+        "mean_axis_radius90": 0.4118078575139834
+      },
+      "ukf": {
+        "rmse_vector": 0.2645847786173627,
+        "coverage90": 0.9001715265866209,
+        "mean_error_radius": 1.2344432252338553,
+        "mean_axis_radius90": 0.4032934505196736
+      },
+      "particle512": {
+        "rmse_vector": 0.2664119986050065,
+        "coverage90": 0.8850771869639794,
+        "mean_error_radius": 1.8851069417089121,
+        "mean_axis_radius90": 0.39928300004607453
+      },
+      "compiled_seconds": 0.008892899990314618,
+      "particle_seconds": 0.2730868000071496
+    },
+    {
+      "seed": 7,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.3019727496368147,
+        "coverage90": 0.9056603773584906,
+        "mean_error_radius": 1.537935584304599,
+        "mean_axis_radius90": 0.43974193269594325
+      },
+      "ekf": {
+        "rmse_vector": 0.38043856453910774,
+        "coverage90": 0.9128644939965694,
+        "mean_error_radius": 1.1522688687063116,
+        "mean_axis_radius90": 0.5923831757901274
+      },
+      "ukf": {
+        "rmse_vector": 0.37877965413728565,
+        "coverage90": 0.9111492281303603,
+        "mean_error_radius": 1.1889603930899637,
+        "mean_axis_radius90": 0.5735241530320858
+      },
+      "particle512": {
+        "rmse_vector": 0.2924280920583424,
+        "coverage90": 0.904631217838765,
+        "mean_error_radius": 1.2231658838924566,
+        "mean_axis_radius90": 0.4262833948903395
+      },
+      "compiled_seconds": 0.009655400004703552,
+      "particle_seconds": 0.31102999999711756
+    },
+    {
+      "seed": 7,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.3005592378816751,
+        "coverage90": 0.9128644939965694,
+        "mean_error_radius": 1.454309346832708,
+        "mean_axis_radius90": 0.44978101693838185
+      },
+      "ekf": {
+        "rmse_vector": 0.37311143150602655,
+        "coverage90": 0.9005145797598628,
+        "mean_error_radius": 1.1558178311173954,
+        "mean_axis_radius90": 0.5610140675493339
+      },
+      "ukf": {
+        "rmse_vector": 0.37015306797804287,
+        "coverage90": 0.9049742710120069,
+        "mean_error_radius": 1.1821047704732632,
+        "mean_axis_radius90": 0.5447585006097984
+      },
+      "particle512": {
+        "rmse_vector": 0.29633744414374974,
+        "coverage90": 0.904631217838765,
+        "mean_error_radius": 1.2283442086269307,
+        "mean_axis_radius90": 0.41235808169105415
+      },
+      "compiled_seconds": 0.009592000002157874,
+      "particle_seconds": 0.31402399999205954
+    },
+    {
+      "seed": 8,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2791221274530454,
+        "coverage90": 0.9049742710120069,
+        "mean_error_radius": 1.6076972831537046,
+        "mean_axis_radius90": 0.4373945509596904
+      },
+      "ekf": {
+        "rmse_vector": 0.2799090182129031,
+        "coverage90": 0.9090909090909091,
+        "mean_error_radius": 1.2159271719187663,
+        "mean_axis_radius90": 0.4374206704175784
+      },
+      "ukf": {
+        "rmse_vector": 0.27769685295105245,
+        "coverage90": 0.9029159519725557,
+        "mean_error_radius": 1.2360602040864166,
+        "mean_axis_radius90": 0.42559478254628985
+      },
+      "particle512": {
+        "rmse_vector": 0.27993395692756734,
+        "coverage90": 0.8850771869639794,
+        "mean_error_radius": 1.2860440743395303,
+        "mean_axis_radius90": 0.42273067016691274
+      },
+      "compiled_seconds": 0.010131499991985038,
+      "particle_seconds": 0.2731738000002224
+    },
+    {
+      "seed": 8,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.27093627751345073,
+        "coverage90": 0.9228130360205832,
+        "mean_error_radius": 1.5322938277321525,
+        "mean_axis_radius90": 0.44416690828622957
+      },
+      "ekf": {
+        "rmse_vector": 0.27096224055858037,
+        "coverage90": 0.8950257289879932,
+        "mean_error_radius": 1.2576736902800325,
+        "mean_axis_radius90": 0.4117211398956427
+      },
+      "ukf": {
+        "rmse_vector": 0.26776169259047317,
+        "coverage90": 0.8987993138936535,
+        "mean_error_radius": 1.2516002347379083,
+        "mean_axis_radius90": 0.40334248515106447
+      },
+      "particle512": {
+        "rmse_vector": 0.2698618480462363,
+        "coverage90": 0.883704974271012,
+        "mean_error_radius": 2.091265181544464,
+        "mean_axis_radius90": 0.3997082859776418
+      },
+      "compiled_seconds": 0.010197499999776483,
+      "particle_seconds": 0.26652459999604616
+    },
+    {
+      "seed": 8,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.3087695801087668,
+        "coverage90": 0.9025728987993139,
+        "mean_error_radius": 1.5564524962144881,
+        "mean_axis_radius90": 0.4412173275813432
+      },
+      "ekf": {
+        "rmse_vector": 0.38707713082201584,
+        "coverage90": 0.9080617495711836,
+        "mean_error_radius": 1.159069366231515,
+        "mean_axis_radius90": 0.590486132461188
+      },
+      "ukf": {
+        "rmse_vector": 0.3860599645980946,
+        "coverage90": 0.9087478559176673,
+        "mean_error_radius": 1.1999835659732656,
+        "mean_axis_radius90": 0.5719363834338144
+      },
+      "particle512": {
+        "rmse_vector": 0.2998006916926141,
+        "coverage90": 0.8991423670668953,
+        "mean_error_radius": 1.2377063293862256,
+        "mean_axis_radius90": 0.4270816769035997
+      },
+      "compiled_seconds": 0.009260899998480454,
+      "particle_seconds": 0.3163810999976704
+    },
+    {
+      "seed": 8,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.29220682821106597,
+        "coverage90": 0.9135506003430531,
+        "mean_error_radius": 1.4533886692155245,
+        "mean_axis_radius90": 0.4490490227270071
+      },
+      "ekf": {
+        "rmse_vector": 0.3678597895623194,
+        "coverage90": 0.9042881646655232,
+        "mean_error_radius": 1.1469355422490806,
+        "mean_axis_radius90": 0.5657071285404665
+      },
+      "ukf": {
+        "rmse_vector": 0.36474519278100337,
+        "coverage90": 0.909433962264151,
+        "mean_error_radius": 1.1746559734884736,
+        "mean_axis_radius90": 0.5486679584887761
+      },
+      "particle512": {
+        "rmse_vector": 0.28244838940449485,
+        "coverage90": 0.9084048027444254,
+        "mean_error_radius": 1.2172877230525128,
+        "mean_axis_radius90": 0.41304123166652496
+      },
+      "compiled_seconds": 0.008787499988102354,
+      "particle_seconds": 0.31467770000745077
+    },
+    {
+      "seed": 9,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.28433039712882585,
+        "coverage90": 0.8994854202401372,
+        "mean_error_radius": 1.6461797608204272,
+        "mean_axis_radius90": 0.43779487814348844
+      },
+      "ekf": {
+        "rmse_vector": 0.2835019241446935,
+        "coverage90": 0.9084048027444254,
+        "mean_error_radius": 1.2312093325776698,
+        "mean_axis_radius90": 0.4384440314285941
+      },
+      "ukf": {
+        "rmse_vector": 0.2819523606013766,
+        "coverage90": 0.8991423670668953,
+        "mean_error_radius": 1.25480371009649,
+        "mean_axis_radius90": 0.4265284125594141
+      },
+      "particle512": {
+        "rmse_vector": 0.28421571931702644,
+        "coverage90": 0.8878216123499142,
+        "mean_error_radius": 1.3002142993805632,
+        "mean_axis_radius90": 0.42385140047465286
+      },
+      "compiled_seconds": 0.00912820000667125,
+      "particle_seconds": 0.2686134000105085
+    },
+    {
+      "seed": 9,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2678743854546333,
+        "coverage90": 0.9327615780445969,
+        "mean_error_radius": 1.5114678553843388,
+        "mean_axis_radius90": 0.4438149712943304
+      },
+      "ekf": {
+        "rmse_vector": 0.26910456983496667,
+        "coverage90": 0.9042881646655232,
+        "mean_error_radius": 1.24713286482039,
+        "mean_axis_radius90": 0.4134136726866779
+      },
+      "ukf": {
+        "rmse_vector": 0.26622721885521083,
+        "coverage90": 0.9049742710120069,
+        "mean_error_radius": 1.2405217579063315,
+        "mean_axis_radius90": 0.4044709308796814
+      },
+      "particle512": {
+        "rmse_vector": 0.26800098072211204,
+        "coverage90": 0.8929674099485421,
+        "mean_error_radius": 1.448417503110067,
+        "mean_axis_radius90": 0.40173198254962955
+      },
+      "compiled_seconds": 0.010613699996611103,
+      "particle_seconds": 0.27076909999595955
+    },
+    {
+      "seed": 9,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.3000761569662977,
+        "coverage90": 0.9018867924528302,
+        "mean_error_radius": 1.547036376960902,
+        "mean_axis_radius90": 0.4404324182777272
+      },
+      "ekf": {
+        "rmse_vector": 0.3785599333511586,
+        "coverage90": 0.9132075471698113,
+        "mean_error_radius": 1.1456973174636096,
+        "mean_axis_radius90": 0.5922665762626952
+      },
+      "ukf": {
+        "rmse_vector": 0.37811081288599785,
+        "coverage90": 0.9125214408233276,
+        "mean_error_radius": 1.1879133903688552,
+        "mean_axis_radius90": 0.5734150993072978
+      },
+      "particle512": {
+        "rmse_vector": 0.2882266337714091,
+        "coverage90": 0.9042881646655232,
+        "mean_error_radius": 1.2205190864232613,
+        "mean_axis_radius90": 0.4272428088715245
+      },
+      "compiled_seconds": 0.010656300000846386,
+      "particle_seconds": 0.32059839999419637
+    },
+    {
+      "seed": 9,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.30092041349537313,
+        "coverage90": 0.9053173241852487,
+        "mean_error_radius": 1.4541724692323559,
+        "mean_axis_radius90": 0.44920011189091896
+      },
+      "ekf": {
+        "rmse_vector": 0.36052976537228903,
+        "coverage90": 0.9101200686106347,
+        "mean_error_radius": 1.1214330425542427,
+        "mean_axis_radius90": 0.562131083001283
+      },
+      "ukf": {
+        "rmse_vector": 0.35836779457576434,
+        "coverage90": 0.9159519725557461,
+        "mean_error_radius": 1.1545241315837171,
+        "mean_axis_radius90": 0.5454949642093344
+      },
+      "particle512": {
+        "rmse_vector": 0.2913585148619033,
+        "coverage90": 0.8926243567753002,
+        "mean_error_radius": 1.2244272261913574,
+        "mean_axis_radius90": 0.40933378830448125
+      },
+      "compiled_seconds": 0.008880900000804104,
+      "particle_seconds": 0.31791749999683816
+    }
+  ],
+  "elapsed_seconds": 13.998819599990384
+}

@@ -1,0 +1,2343 @@
+{
+  "by_edge": {
+    "FOUNDRY:P023->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P023",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P030->LCB-K086": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "LCB-K086",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P030",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P037->PARENT:IM340_IM280_CWC": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P037",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P062->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P062",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P065->PARENT:R014_S781_S792_ACSA": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:R014_S781_S792_ACSA",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P065",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P071->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P071",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P079->LCB-K012": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "LCB-K012",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P079",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P079->LCB-K015": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "LCB-K015",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P079",
+      "usable_measurements": 12
+    },
+    "FOUNDRY:P079->LCB-K064": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "LCB-K064",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P079",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P079->LCB-K086": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "LCB-K086",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P079",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P079->LCB-K091": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "LCB-K091",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P079",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P079->PARENT:IM139_IM250_CCVC": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:IM139_IM250_CCVC",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P079",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P082->PARENT:R044_DECISION_LOSS_DLEW": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P082",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P091->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P091",
+      "usable_measurements": 12
+    },
+    "FOUNDRY:P092->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P092",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P093->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P093",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P093->PARENT:R041_CONSTRAINED_POLICY_CAPL": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P093",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P109->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P109",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P136->PARENT:IM406_IM037_ACRA": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:IM406_IM037_ACRA",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P136",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P138->PARENT:IM178_IM326_TWMR": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:IM178_IM326_TWMR",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P138",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P140->LCB-K003": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "LCB-K003",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P140",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P140->LCB-K015": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "LCB-K015",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P140",
+      "usable_measurements": 12
+    },
+    "FOUNDRY:P140->LCB-K048": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "LCB-K048",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P140",
+      "usable_measurements": 12
+    },
+    "FOUNDRY:P140->LCB-K068": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "LCB-K068",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P140",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P141->PARENT:IM334_IM094_DRE": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P141",
+      "usable_measurements": 6
+    },
+    "FOUNDRY:P141->PARENT:R018_M866_M880_MCSC": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:R018_M866_M880_MCSC",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P141",
+      "usable_measurements": 8
+    },
+    "FOUNDRY:P141->PARENT:R044_DECISION_LOSS_DLEW": {
+      "censored": 0,
+      "complete": 9,
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "event_count": 9,
+      "failed": 0,
+      "supplier_id": "FOUNDRY:P141",
+      "usable_measurements": 9
+    },
+    "LCB-K003->FOUNDRY:P031": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "FOUNDRY:P031",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "LCB-K003",
+      "usable_measurements": 6
+    },
+    "LCB-K009->FOUNDRY:P026": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P026",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "LCB-K009",
+      "usable_measurements": 12
+    },
+    "LCB-K019->FOUNDRY:P003": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P003",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "LCB-K019",
+      "usable_measurements": 12
+    },
+    "LCB-K041->PARENT:IM340_IM280_CWC": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "LCB-K041",
+      "usable_measurements": 8
+    },
+    "LCB-K048->FOUNDRY:P136": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "FOUNDRY:P136",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "LCB-K048",
+      "usable_measurements": 6
+    },
+    "LCB-K048->FOUNDRY:P144": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P144",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "LCB-K048",
+      "usable_measurements": 12
+    },
+    "LCB-K068->FOUNDRY:P025": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P025",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "LCB-K068",
+      "usable_measurements": 12
+    },
+    "LCB-K071->FOUNDRY:P135": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P135",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "LCB-K071",
+      "usable_measurements": 12
+    },
+    "LCB-K074->PARENT:IM359_IM014_AICC": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "PARENT:IM359_IM014_AICC",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "LCB-K074",
+      "usable_measurements": 8
+    },
+    "LCB-K081->FOUNDRY:P138": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P138",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "LCB-K081",
+      "usable_measurements": 12
+    },
+    "LCB-K084->FOUNDRY:P141": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "FOUNDRY:P141",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "LCB-K084",
+      "usable_measurements": 8
+    },
+    "PARENT:IM139_IM250_CCVC->LCB-K048": {
+      "censored": 0,
+      "complete": 9,
+      "consumer_id": "LCB-K048",
+      "event_count": 9,
+      "failed": 0,
+      "supplier_id": "PARENT:IM139_IM250_CCVC",
+      "usable_measurements": 9
+    },
+    "PARENT:IM334_IM094_DRE->FOUNDRY:P035": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "FOUNDRY:P035",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "usable_measurements": 6
+    },
+    "PARENT:IM334_IM094_DRE->FOUNDRY:P057": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "FOUNDRY:P057",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "usable_measurements": 6
+    },
+    "PARENT:IM334_IM094_DRE->FOUNDRY:P137": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "FOUNDRY:P137",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "usable_measurements": 6
+    },
+    "PARENT:R001_C313_BPISD->LCB-K065": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "LCB-K065",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "PARENT:R001_C313_BPISD",
+      "usable_measurements": 8
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->FOUNDRY:P033": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "FOUNDRY:P033",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "usable_measurements": 8
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->FOUNDRY:P057": {
+      "censored": 0,
+      "complete": 6,
+      "consumer_id": "FOUNDRY:P057",
+      "event_count": 6,
+      "failed": 0,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "usable_measurements": 6
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->FOUNDRY:P138": {
+      "censored": 0,
+      "complete": 12,
+      "consumer_id": "FOUNDRY:P138",
+      "event_count": 12,
+      "failed": 0,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "usable_measurements": 12
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->LCB-K081": {
+      "censored": 0,
+      "complete": 8,
+      "consumer_id": "LCB-K081",
+      "event_count": 8,
+      "failed": 0,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "usable_measurements": 8
+    }
+  },
+  "by_product": {
+    "V2P001": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P002": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P003": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P004": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P005": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P006": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P007": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P008": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P009": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P010": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P011": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P012": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P013": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "V2P014": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P015": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P016": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P017": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P018": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P019": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P020": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P021": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P022": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P023": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P024": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P025": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P026": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P027": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P028": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "V2P029": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P030": {
+      "censored": 0,
+      "complete": 9,
+      "event_count": 9,
+      "failed": 0,
+      "usable_measurements": 9
+    },
+    "V2P031": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P032": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P033": {
+      "censored": 0,
+      "complete": 9,
+      "event_count": 9,
+      "failed": 0,
+      "usable_measurements": 9
+    },
+    "V2P034": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P035": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P036": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P037": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P038": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P039": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P040": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P041": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P042": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P043": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P044": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P045": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P046": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "V2P048": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    }
+  },
+  "by_shell": {
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P008::94725df4e3f6a3c3": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P009::2027e8871d7b3cd9": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P010::3c6f7c7d71128489": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P011::1e9c26a3fb830f39": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P012::67e30cb891458fb8": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P013::d779544e30aa4b86": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P014::555a92ca6af9ba0c": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P015::26374cd615565277": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P016::f69502045bd867cb": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P017::e9e4033c31e1172e": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P018::e831f1811187f666": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P019::539b4edc832e0f5a": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P020::d01822d4f44751d5": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P021::d9a15e0aa941d34d": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P022::01308bea73385e3e": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P023::8c21037e75d7bd87": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P024::547a24d6287176a3": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P025::337c5849bf6ff277": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P026::8d98c7839026c79c": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P027::2fdeb82f7b6e5e02": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P028::15e784436f826125": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P029::df9bea43f881b3b0": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P030::4a4ff076f56b3c4f": {
+      "censored": 0,
+      "complete": 9,
+      "event_count": 9,
+      "failed": 0,
+      "usable_measurements": 9
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P031::b652185320ca816d": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P032::46c776c443eff0e1": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P033::dd3749a42700a8cc": {
+      "censored": 0,
+      "complete": 9,
+      "event_count": 9,
+      "failed": 0,
+      "usable_measurements": 9
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P034::a2f926b2f6cdee6d": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P035::4963b2e5d627f483": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P036::a040d68886652463": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P037::be5c33b7a41fcd13": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P038::0fc85c45668dec02": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P039::af417ec1f43ba799": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P040::1e9b0fe7080518a4": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P041::72dcb8a64d1e66bb": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P042::409f8df7de79607d": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P043::bb6085c3f158aa86": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P044::d7b29e64f6b40c48": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P045::702e19feff558c6f": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P046::536392cd98baf222": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P048::94b4c7cf5d88f8a0": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "usable_measurements": 8
+    }
+  },
+  "by_test": {
+    "BOOTSTRAP_UNIT_CASE::V2P001": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "856c87a4279b837c24f88eb1dfa754b8c5e3568fd446bb53129f0a76eee1d4b1"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P002": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "cbdb30c1a38e098e3bcfe2f8449c2882dc6dc6954eaffbf8d2c430d44340a7b6"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P003": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "96292310081b6067cb4f8a8e0b32500dc2d3862e79a4ab4a50d52661749b0636"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P004": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "1655d0ba87b59f85f5c4bcf7f3babc5e3410d298609f55e6a88e0e285b84e649"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P005": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "0f6c2d67758b1cf548ee5d2d5a9891b4ef88c732184587402e379f84743f59c9"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P006": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "9576e8d17fc50fd4ec4737feb885db51465683cb01931f78e9099579908a76f0"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P007": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "a255acefb8f9c40aa8c2df54222eabf3e3c5087e9da2e292b93727c7290e180b"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P008": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "e13de4f887019f3cc98a5d7246e51f7d6960f891409167612c8e58a0bf509ba3"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P009": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "a2dca0c7debf574090674f09ca2bef614b2cdf7f85ab8dcfe70ca9292fbb8c89"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P010": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "da53e204c8a0ae4a4390fc7af1d74cb696af18e82e671bd7e3aa566b66000633"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P011": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "f73d19f309c8e1bccbb295fb10c53773688245d4ff36a8b62bdc671645052140"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P012": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "6e12086363181229b7abaf15b6a327fe3699c89fa0ef18d229cec70879da2c1c"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P013": {
+      "censored": 0,
+      "complete": 12,
+      "event_count": 12,
+      "failed": 0,
+      "signatures": [
+        "a3d617e0c865b645ec524905a5ec45cb9b3596dfcb4cf326fdcb945462267038"
+      ],
+      "usable_measurements": 12
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P014": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "ee389f4574b2ad9dd3d8b805983dfeb4bc9bf9736f921571ab07e0dc31d7cd7e"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P015": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "63a00e84f56e43530ffe455b129c10a1766ce24e978f2f08dc9968f4bbd36c87"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P016": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "8f22e2db0085901f78120bf7da77221b3fa4e96be1e2f892f8df4b81a6488183"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P017": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "d2a466c4a18b80c96bdb2574e7a03675731bf767b5be45f53a8c71dc4a84027d"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P018": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "4a46c7dc8859bd4fb8383f1bfef7d13e01865a22e1a1f833fa2d7cc646d24f15"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P019": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "2b753c9ef6a5255c77ce350498f03874d2ef37519d36e03194587e92502ead11"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P020": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "a6677b32404d21cc6a53e3c4f84c2429e9f2c2cd76949b15f2612c318f33d652"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P021": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "861454bc7871ca44bf17736006fc4af438b7c8f9f4644512a0df2639abd33179"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P022": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "60947a49251715f04aac14d33072ec22383007d09a181947d0b87a2ad99b4aa0"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P023": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "a329aec1eb3e30ed68b11a89e88ff5c6de54076756dae822c772b2e9e9b55beb"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P024": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "4e492dbad9ab7c08e5688a19601f40fd5957bf5e938de13713c1a0b52cf55f42"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P025": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "96e33bafd8e0423ff7cf1a1d5d83b760885abeb0291958eb3d1e7f9c3f84f730"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P026": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "0e5108ad3352967d3436c2dd299e43286122746c2ea486c45367df462c65979a"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P027": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "febcb82546f5c755b2fac64cd10e596d8b6423c1286376b428cff71a0eaf30a1"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P028": {
+      "censored": 0,
+      "complete": 6,
+      "event_count": 6,
+      "failed": 0,
+      "signatures": [
+        "63ac16c82a3dba9e36c32365dbc7a561dbd0982f176b726601654613ee7ec4ba"
+      ],
+      "usable_measurements": 6
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P029": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "7a36204d7526abcd22b8096ea67fb61a78ef9fc3fcbcc97fee556aefc651e1aa"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P030": {
+      "censored": 0,
+      "complete": 9,
+      "event_count": 9,
+      "failed": 0,
+      "signatures": [
+        "7a7fcb59683e46c126c3d3114e60487c85a508935eabfb2f56b9e65e115ca472"
+      ],
+      "usable_measurements": 9
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P031": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "8e3442dbdeecc57c81a8678e5f251c07d83de7c28369427c58f5fd437d30af4b"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P032": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "a81847d487f900ca491c0371b0133dd29537887a004bf3dc5f7bec1ec0f78ee4"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P033": {
+      "censored": 0,
+      "complete": 9,
+      "event_count": 9,
+      "failed": 0,
+      "signatures": [
+        "3499c9d1d702aa877a53ca69a5a5babc3ba06ea105ee8328f4039ae99f9d7ccd"
+      ],
+      "usable_measurements": 9
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P034": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "6291cc430086d9c500194dfefcc9e9c90ab0a2be56d276339b1e5d6c86bde61f"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P035": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "f199b5edae15306086ef77aad8054927079446244a724ebb49e41610c5e376f4"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P036": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "2f62c77f0797073769951b692bf4af54a114a0fcd93d8aed6747622ca70683c1"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P037": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "832d1691e7fe22c2375cff5e68b1ee2bbaf30699bc4bb18b66bda24a0cc778c6"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P038": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "fbd9857ff959d933a58908d19cc68a73d90ee5f58c55a0c6b35b7c675bfb0cde"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P039": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "aa70ebe340c4c5fcd489516d578b251fe70a5c0aeb6fbb3d960fb375a13dd133"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P040": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "946bbb5e30011363074a0e51c8b82994c0f26381374702f40f2ae922592fcd05"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P041": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "b8be89bf1ccb5b56653a53e3b1cffe30124a9e468a52d0fda6fa7154d640d32b"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P042": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "cdb28af11ec2e21afb3e28a6b2238d7b19610ab0f4acb2d383b4f522174f4a4b"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P043": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "cfcb37f71bd22b4a5e2ca2de84038e92e905544a2c349029ee4ecd3bc747aa05"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P044": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "929a642e1ed8b38005c9d5a65aed78e90a61a267bc92f8f169fc7b487d9a06d6"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P045": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "0b95e698d2728a102eb1ff0b5414ca8b32aeb8758be185dd8166a96c43283f83"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P046": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "2b27dc02aa24a1c0288633afcaf751f6c6434185aaea6e9978231260107a8354"
+      ],
+      "usable_measurements": 8
+    },
+    "BOOTSTRAP_UNIT_CASE::V2P048": {
+      "censored": 0,
+      "complete": 8,
+      "event_count": 8,
+      "failed": 0,
+      "signatures": [
+        "61e38dab9d37e9fe516cb0d6c29c06712c9c85c440a6a7ce024beb3e091e58b6"
+      ],
+      "usable_measurements": 8
+    }
+  },
+  "calibrated_current_suite_count": 47,
+  "calibration_by_edge": {
+    "FOUNDRY:P023->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "1b12f0a5991f9402ea86346210234b26fb9a441f03533e740a078d9b919a75e0",
+      "compute_upper_seconds": 4.400741135999851,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P023::8c21037e75d7bd87",
+      "product_id": "V2P023",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P023",
+      "test_signature": "a329aec1eb3e30ed68b11a89e88ff5c6de54076756dae822c772b2e9e9b55beb",
+      "usable_count": 6
+    },
+    "FOUNDRY:P030->LCB-K086": {
+      "attempt_count": 8,
+      "calibration_id": "fcd4b46c3a750bb1cec91a61310e1656113febf808acecb6ab6e2b57557bccdf",
+      "compute_upper_seconds": 0.8078014499988058,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P045::702e19feff558c6f",
+      "product_id": "V2P045",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P045",
+      "test_signature": "0b95e698d2728a102eb1ff0b5414ca8b32aeb8758be185dd8166a96c43283f83",
+      "usable_count": 8
+    },
+    "FOUNDRY:P037->PARENT:IM340_IM280_CWC": {
+      "attempt_count": 8,
+      "calibration_id": "ae38dbe8c6bcb4a4f19b609abdb4e81fcbc6ec176f75f0e6d2a3ffbeba3d1656",
+      "compute_upper_seconds": 3.4241465220002283,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P046::536392cd98baf222",
+      "product_id": "V2P046",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P046",
+      "test_signature": "2b27dc02aa24a1c0288633afcaf751f6c6434185aaea6e9978231260107a8354",
+      "usable_count": 8
+    },
+    "FOUNDRY:P062->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "f4ce23324f9291ef7ae63c8bef1e64d48b2b2b856c5595b1a2d40d1c4580ab94",
+      "compute_upper_seconds": 4.135810841999955,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P018::e831f1811187f666",
+      "product_id": "V2P018",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P018",
+      "test_signature": "4a46c7dc8859bd4fb8383f1bfef7d13e01865a22e1a1f833fa2d7cc646d24f15",
+      "usable_count": 6
+    },
+    "FOUNDRY:P065->PARENT:R014_S781_S792_ACSA": {
+      "attempt_count": 6,
+      "calibration_id": "98dd81da80dea37ddeb53963a363dade48e20c3966c9784d93e1617ba40567eb",
+      "compute_upper_seconds": 5.654823627000042,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P019::539b4edc832e0f5a",
+      "product_id": "V2P019",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P019",
+      "test_signature": "2b753c9ef6a5255c77ce350498f03874d2ef37519d36e03194587e92502ead11",
+      "usable_count": 6
+    },
+    "FOUNDRY:P071->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "aa02e954261b267c1694307a4a80e09fa436da25eef879eaf88cc3b6279cef18",
+      "compute_upper_seconds": 4.7084701609996955,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P024::547a24d6287176a3",
+      "product_id": "V2P024",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P024",
+      "test_signature": "4e492dbad9ab7c08e5688a19601f40fd5957bf5e938de13713c1a0b52cf55f42",
+      "usable_count": 6
+    },
+    "FOUNDRY:P079->LCB-K012": {
+      "attempt_count": 6,
+      "calibration_id": "6e767420bf08d45d31e606a43707c729d878db53dfbfeb06858a0198471f2199",
+      "compute_upper_seconds": 5.665390065000338,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P014::555a92ca6af9ba0c",
+      "product_id": "V2P014",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P014",
+      "test_signature": "ee389f4574b2ad9dd3d8b805983dfeb4bc9bf9736f921571ab07e0dc31d7cd7e",
+      "usable_count": 6
+    },
+    "FOUNDRY:P079->LCB-K015": {
+      "attempt_count": 12,
+      "calibration_id": "dd9ec399e8368e130e8af71a505f312975034974613aa59417096b8d2e4c60a0",
+      "compute_upper_seconds": 2.012030765000418,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P011::1e9c26a3fb830f39",
+      "product_id": "V2P011",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P011",
+      "test_signature": "f73d19f309c8e1bccbb295fb10c53773688245d4ff36a8b62bdc671645052140",
+      "usable_count": 12
+    },
+    "FOUNDRY:P079->LCB-K064": {
+      "attempt_count": 8,
+      "calibration_id": "9fb9bbb1fc73f5b9e89c01666158a680f9af70edc1546376a6d23cb2b47734c7",
+      "compute_upper_seconds": 1.0510794370002259,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P043::bb6085c3f158aa86",
+      "product_id": "V2P043",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P043",
+      "test_signature": "cfcb37f71bd22b4a5e2ca2de84038e92e905544a2c349029ee4ecd3bc747aa05",
+      "usable_count": 8
+    },
+    "FOUNDRY:P079->LCB-K086": {
+      "attempt_count": 6,
+      "calibration_id": "a2b5cb6c208f32edae3d7760b019d1ae5cccd7326bb00749aaee4a573e2c89d0",
+      "compute_upper_seconds": 4.55440625600022,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P015::26374cd615565277",
+      "product_id": "V2P015",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P015",
+      "test_signature": "63a00e84f56e43530ffe455b129c10a1766ce24e978f2f08dc9968f4bbd36c87",
+      "usable_count": 6
+    },
+    "FOUNDRY:P079->LCB-K091": {
+      "attempt_count": 6,
+      "calibration_id": "f293e3fd9e1b188009cc5e2f83cbac8dd829ac76b6be3e0f27c7840ebae08a44",
+      "compute_upper_seconds": 4.027371853999739,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P016::f69502045bd867cb",
+      "product_id": "V2P016",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P016",
+      "test_signature": "8f22e2db0085901f78120bf7da77221b3fa4e96be1e2f892f8df4b81a6488183",
+      "usable_count": 6
+    },
+    "FOUNDRY:P079->PARENT:IM139_IM250_CCVC": {
+      "attempt_count": 8,
+      "calibration_id": "e6dffef97bd90225690a39783d78d37d6da6df24ffddb5d51c686e4407dc0a44",
+      "compute_upper_seconds": 2.2190710779977962,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P048::94b4c7cf5d88f8a0",
+      "product_id": "V2P048",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P048",
+      "test_signature": "61e38dab9d37e9fe516cb0d6c29c06712c9c85c440a6a7ce024beb3e091e58b6",
+      "usable_count": 8
+    },
+    "FOUNDRY:P082->PARENT:R044_DECISION_LOSS_DLEW": {
+      "attempt_count": 8,
+      "calibration_id": "5101d889233758cff9220e47dcd52fa91f7508fb0d86f320b989296509e2e3b2",
+      "compute_upper_seconds": 1.114622248998785,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P041::72dcb8a64d1e66bb",
+      "product_id": "V2P041",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P041",
+      "test_signature": "b8be89bf1ccb5b56653a53e3b1cffe30124a9e468a52d0fda6fa7154d640d32b",
+      "usable_count": 8
+    },
+    "FOUNDRY:P091->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 12,
+      "calibration_id": "1f2cf34e38db38d16a6ab3226be1669313ded465b76ef30035d922533c3084f0",
+      "compute_upper_seconds": 0.7047368819999065,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P013::d779544e30aa4b86",
+      "product_id": "V2P013",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P013",
+      "test_signature": "a3d617e0c865b645ec524905a5ec45cb9b3596dfcb4cf326fdcb945462267038",
+      "usable_count": 12
+    },
+    "FOUNDRY:P092->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "29c848fd73e1e5e28d54ede90f96d9799e6e47939fe09dc678cb0a5e8a75c52d",
+      "compute_upper_seconds": 4.726771536999877,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P020::d01822d4f44751d5",
+      "product_id": "V2P020",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P020",
+      "test_signature": "a6677b32404d21cc6a53e3c4f84c2429e9f2c2cd76949b15f2612c318f33d652",
+      "usable_count": 6
+    },
+    "FOUNDRY:P093->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "9c77e65d09fc9565a972924eb52dee5c0c792a7b47d020a327353a505601742f",
+      "compute_upper_seconds": 4.695704664000004,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P021::d9a15e0aa941d34d",
+      "product_id": "V2P021",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P021",
+      "test_signature": "861454bc7871ca44bf17736006fc4af438b7c8f9f4644512a0df2639abd33179",
+      "usable_count": 6
+    },
+    "FOUNDRY:P093->PARENT:R041_CONSTRAINED_POLICY_CAPL": {
+      "attempt_count": 8,
+      "calibration_id": "ee14f4efc59fa16902adbd25c432390afe2713ffa5d292a95e9031a6db1e953e",
+      "compute_upper_seconds": 2.056386543001281,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P040::1e9b0fe7080518a4",
+      "product_id": "V2P040",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P040",
+      "test_signature": "946bbb5e30011363074a0e51c8b82994c0f26381374702f40f2ae922592fcd05",
+      "usable_count": 8
+    },
+    "FOUNDRY:P109->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "92fed0ec84c22c77c16f1baa7ec685f5d8f4bf3fd05d4a834377cb28f538270c",
+      "compute_upper_seconds": 5.660195743999793,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P017::e9e4033c31e1172e",
+      "product_id": "V2P017",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P017",
+      "test_signature": "d2a466c4a18b80c96bdb2574e7a03675731bf767b5be45f53a8c71dc4a84027d",
+      "usable_count": 6
+    },
+    "FOUNDRY:P136->PARENT:IM406_IM037_ACRA": {
+      "attempt_count": 8,
+      "calibration_id": "c0a3bb900dc76b613a3c075e3fca509f85399e60d65e0106e25e88589cdd8d83",
+      "compute_upper_seconds": 6.930574760000127,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P031::b652185320ca816d",
+      "product_id": "V2P031",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P031",
+      "test_signature": "8e3442dbdeecc57c81a8678e5f251c07d83de7c28369427c58f5fd437d30af4b",
+      "usable_count": 8
+    },
+    "FOUNDRY:P138->PARENT:IM178_IM326_TWMR": {
+      "attempt_count": 8,
+      "calibration_id": "b8c841bdba12d7af74c98107142d9e0ff673f5d515c0ceeb7fb1f0dcf8474417",
+      "compute_upper_seconds": 5.571073961000366,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P032::46c776c443eff0e1",
+      "product_id": "V2P032",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P032",
+      "test_signature": "a81847d487f900ca491c0371b0133dd29537887a004bf3dc5f7bec1ec0f78ee4",
+      "usable_count": 8
+    },
+    "FOUNDRY:P140->LCB-K003": {
+      "attempt_count": 8,
+      "calibration_id": "98aaa653d8226ff01ced8fcdce24d44af35b02bc5faf765eb1ed2ce9f29d9354",
+      "compute_upper_seconds": 5.097269155000504,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P029::df9bea43f881b3b0",
+      "product_id": "V2P029",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P029",
+      "test_signature": "7a36204d7526abcd22b8096ea67fb61a78ef9fc3fcbcc97fee556aefc651e1aa",
+      "usable_count": 8
+    },
+    "FOUNDRY:P140->LCB-K015": {
+      "attempt_count": 12,
+      "calibration_id": "de3bbf461451d6d3c7916c5e153be9b90642b2c6253c66a1b93b1fd4d5ea344b",
+      "compute_upper_seconds": 0.7819003210001938,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P012::67e30cb891458fb8",
+      "product_id": "V2P012",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P012",
+      "test_signature": "6e12086363181229b7abaf15b6a327fe3699c89fa0ef18d229cec70879da2c1c",
+      "usable_count": 12
+    },
+    "FOUNDRY:P140->LCB-K048": {
+      "attempt_count": 12,
+      "calibration_id": "6d08c4bf8e3255c2d8a07548e274176f912bf3d68334a6f780bb068605be1151",
+      "compute_upper_seconds": 1.1791871670000091,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P009::2027e8871d7b3cd9",
+      "product_id": "V2P009",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P009",
+      "test_signature": "a2dca0c7debf574090674f09ca2bef614b2cdf7f85ab8dcfe70ca9292fbb8c89",
+      "usable_count": 12
+    },
+    "FOUNDRY:P140->LCB-K068": {
+      "attempt_count": 8,
+      "calibration_id": "d05110015cfb85c48620a55a937b456796aeae3ad3a1fc449beb1efc5a2c3204",
+      "compute_upper_seconds": 5.238926001999971,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P038::0fc85c45668dec02",
+      "product_id": "V2P038",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P038",
+      "test_signature": "fbd9857ff959d933a58908d19cc68a73d90ee5f58c55a0c6b35b7c675bfb0cde",
+      "usable_count": 8
+    },
+    "FOUNDRY:P141->PARENT:IM334_IM094_DRE": {
+      "attempt_count": 6,
+      "calibration_id": "e4deb30533201a5fb47f2af34ee1c24bb82a68065c56c1e00bcb45f2414e343f",
+      "compute_upper_seconds": 4.290795047999836,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P022::01308bea73385e3e",
+      "product_id": "V2P022",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P022",
+      "test_signature": "60947a49251715f04aac14d33072ec22383007d09a181947d0b87a2ad99b4aa0",
+      "usable_count": 6
+    },
+    "FOUNDRY:P141->PARENT:R018_M866_M880_MCSC": {
+      "attempt_count": 8,
+      "calibration_id": "0f28611ec68010488fcc59b541b70e96d0b4f771c870f0d7a32564c0c4564488",
+      "compute_upper_seconds": 5.230465233000359,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P036::a040d68886652463",
+      "product_id": "V2P036",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P036",
+      "test_signature": "2f62c77f0797073769951b692bf4af54a114a0fcd93d8aed6747622ca70683c1",
+      "usable_count": 8
+    },
+    "FOUNDRY:P141->PARENT:R044_DECISION_LOSS_DLEW": {
+      "attempt_count": 9,
+      "calibration_id": "92945c794c6af9f2e59115ed13249d5b152f0a1f49cddb40e9901d764b453871",
+      "compute_upper_seconds": 5.44722745800027,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.11111111111111116
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P030::4a4ff076f56b3c4f",
+      "product_id": "V2P030",
+      "reliability_lower_bound": 0.7688348521381083,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P030",
+      "test_signature": "7a7fcb59683e46c126c3d3114e60487c85a508935eabfb2f56b9e65e115ca472",
+      "usable_count": 9
+    },
+    "LCB-K003->FOUNDRY:P031": {
+      "attempt_count": 6,
+      "calibration_id": "30247eea5ca6482c9e1f296f888f5338743db1891aac6bd91cd2138c404d9c2f",
+      "compute_upper_seconds": 0.7562820590000001,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d",
+      "product_id": "V2P001",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P001",
+      "test_signature": "856c87a4279b837c24f88eb1dfa754b8c5e3568fd446bb53129f0a76eee1d4b1",
+      "usable_count": 6
+    },
+    "LCB-K009->FOUNDRY:P026": {
+      "attempt_count": 12,
+      "calibration_id": "e28c221ea29088d426868c8924bdc53515847aad1e007c79f67003d9319b8a4d",
+      "compute_upper_seconds": 0.8027996860000712,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023",
+      "product_id": "V2P007",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P007",
+      "test_signature": "a255acefb8f9c40aa8c2df54222eabf3e3c5087e9da2e292b93727c7290e180b",
+      "usable_count": 12
+    },
+    "LCB-K019->FOUNDRY:P003": {
+      "attempt_count": 12,
+      "calibration_id": "b1644ccbaed41784c47f8e6c00ef38c68b8eb41998f62307c667560e34715d23",
+      "compute_upper_seconds": 1.113314972000353,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e",
+      "product_id": "V2P005",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P005",
+      "test_signature": "0f6c2d67758b1cf548ee5d2d5a9891b4ef88c732184587402e379f84743f59c9",
+      "usable_count": 12
+    },
+    "LCB-K041->PARENT:IM340_IM280_CWC": {
+      "attempt_count": 8,
+      "calibration_id": "d93ab840828d843c803ad052e6b4ac1be7da4da02d1366703d39f9371d176bf2",
+      "compute_upper_seconds": 4.544865582000057,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P042::409f8df7de79607d",
+      "product_id": "V2P042",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P042",
+      "test_signature": "cdb28af11ec2e21afb3e28a6b2238d7b19610ab0f4acb2d383b4f522174f4a4b",
+      "usable_count": 8
+    },
+    "LCB-K048->FOUNDRY:P136": {
+      "attempt_count": 6,
+      "calibration_id": "c1a325ef6ecde4402713e2a646b25cbd76756d78cae16f79191f6a6b40cc5a58",
+      "compute_upper_seconds": 0.6805446129999382,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd",
+      "product_id": "V2P002",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P002",
+      "test_signature": "cbdb30c1a38e098e3bcfe2f8449c2882dc6dc6954eaffbf8d2c430d44340a7b6",
+      "usable_count": 6
+    },
+    "LCB-K048->FOUNDRY:P144": {
+      "attempt_count": 12,
+      "calibration_id": "8aa231a81df695897c24a1b20320983f23977061100a09031394cbaf1dddd657",
+      "compute_upper_seconds": 0.6681207950000498,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f",
+      "product_id": "V2P003",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P003",
+      "test_signature": "96292310081b6067cb4f8a8e0b32500dc2d3862e79a4ab4a50d52661749b0636",
+      "usable_count": 12
+    },
+    "LCB-K068->FOUNDRY:P025": {
+      "attempt_count": 12,
+      "calibration_id": "4a502dce317b132c37e2a184d16efd63a3d64a27d565d4b683c6393d8bec7740",
+      "compute_upper_seconds": 4.708320531000027,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+      "product_id": "V2P006",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+      "test_signature": "9576e8d17fc50fd4ec4737feb885db51465683cb01931f78e9099579908a76f0",
+      "usable_count": 12
+    },
+    "LCB-K071->FOUNDRY:P135": {
+      "attempt_count": 12,
+      "calibration_id": "adc39f95f0c06ecb78053a4f183cf6fb9056348953be1f25a71b12b94daae2a5",
+      "compute_upper_seconds": 1.0719109180000714,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P008::94725df4e3f6a3c3",
+      "product_id": "V2P008",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P008",
+      "test_signature": "e13de4f887019f3cc98a5d7246e51f7d6960f891409167612c8e58a0bf509ba3",
+      "usable_count": 12
+    },
+    "LCB-K074->PARENT:IM359_IM014_AICC": {
+      "attempt_count": 8,
+      "calibration_id": "0e9e17adb1c52a8ec6d5fefb2244709a387866572450183016647d6ca2e9bdd1",
+      "compute_upper_seconds": 5.841467035000278,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P035::4963b2e5d627f483",
+      "product_id": "V2P035",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P035",
+      "test_signature": "f199b5edae15306086ef77aad8054927079446244a724ebb49e41610c5e376f4",
+      "usable_count": 8
+    },
+    "LCB-K081->FOUNDRY:P138": {
+      "attempt_count": 12,
+      "calibration_id": "16ae255689cae2cb26a47d73ceb719640dfaefd7dba19c91bd4ebfb73c9b4017",
+      "compute_upper_seconds": 0.6328097579998939,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c",
+      "product_id": "V2P004",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P004",
+      "test_signature": "1655d0ba87b59f85f5c4bcf7f3babc5e3410d298609f55e6a88e0e285b84e649",
+      "usable_count": 12
+    },
+    "LCB-K084->FOUNDRY:P141": {
+      "attempt_count": 8,
+      "calibration_id": "b7dd99b4da9b02c0982a8d163734a1357dbc601a7d93c864f45309c94e0e10a9",
+      "compute_upper_seconds": 3.0549082279994764,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P037::be5c33b7a41fcd13",
+      "product_id": "V2P037",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P037",
+      "test_signature": "832d1691e7fe22c2375cff5e68b1ee2bbaf30699bc4bb18b66bda24a0cc778c6",
+      "usable_count": 8
+    },
+    "PARENT:IM139_IM250_CCVC->LCB-K048": {
+      "attempt_count": 9,
+      "calibration_id": "c20105ebec564ae80c1167fd3d0bc0e039417f1f47893c1dc5aab7bb58a3a791",
+      "compute_upper_seconds": 4.588356061999548,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.11111111111111116
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P033::dd3749a42700a8cc",
+      "product_id": "V2P033",
+      "reliability_lower_bound": 0.7688348521381083,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P033",
+      "test_signature": "3499c9d1d702aa877a53ca69a5a5babc3ba06ea105ee8328f4039ae99f9d7ccd",
+      "usable_count": 9
+    },
+    "PARENT:IM334_IM094_DRE->FOUNDRY:P035": {
+      "attempt_count": 6,
+      "calibration_id": "662a81a086ddae83202acf6b0036dde8a4335b59128034c9bcce5bc3348d8e69",
+      "compute_upper_seconds": 4.445021981000082,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P026::8d98c7839026c79c",
+      "product_id": "V2P026",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P026",
+      "test_signature": "0e5108ad3352967d3436c2dd299e43286122746c2ea486c45367df462c65979a",
+      "usable_count": 6
+    },
+    "PARENT:IM334_IM094_DRE->FOUNDRY:P057": {
+      "attempt_count": 6,
+      "calibration_id": "02a1c7546b002bcf5aa8715996573df8d1a53f580c5780c9153f80865f41c39b",
+      "compute_upper_seconds": 4.755699219999769,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P025::337c5849bf6ff277",
+      "product_id": "V2P025",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P025",
+      "test_signature": "96e33bafd8e0423ff7cf1a1d5d83b760885abeb0291958eb3d1e7f9c3f84f730",
+      "usable_count": 6
+    },
+    "PARENT:IM334_IM094_DRE->FOUNDRY:P137": {
+      "attempt_count": 6,
+      "calibration_id": "b00b785a71c298db5efe433329065354912bedc6b61df3adb8098a332eda28a5",
+      "compute_upper_seconds": 4.740709156000321,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P027::2fdeb82f7b6e5e02",
+      "product_id": "V2P027",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P027",
+      "test_signature": "febcb82546f5c755b2fac64cd10e596d8b6423c1286376b428cff71a0eaf30a1",
+      "usable_count": 6
+    },
+    "PARENT:R001_C313_BPISD->LCB-K065": {
+      "attempt_count": 8,
+      "calibration_id": "ef869f0fd953513cdc1a9270995ff4b961fb8f4d7e777f62de45395ffbd2e6df",
+      "compute_upper_seconds": 1.0778307809996477,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P044::d7b29e64f6b40c48",
+      "product_id": "V2P044",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P044",
+      "test_signature": "929a642e1ed8b38005c9d5a65aed78e90a61a267bc92f8f169fc7b487d9a06d6",
+      "usable_count": 8
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->FOUNDRY:P033": {
+      "attempt_count": 8,
+      "calibration_id": "2b0592993e4953965a640eb95a3cd042ff97890dfdf1ef4bef236579e8f95876",
+      "compute_upper_seconds": 0.777599310998994,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P039::af417ec1f43ba799",
+      "product_id": "V2P039",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P039",
+      "test_signature": "aa70ebe340c4c5fcd489516d578b251fe70a5c0aeb6fbb3d960fb375a13dd133",
+      "usable_count": 8
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->FOUNDRY:P057": {
+      "attempt_count": 6,
+      "calibration_id": "967bcecf1341f89f7750a13066106aedd6ab6235b0047b6dd0fb50f110e4a204",
+      "compute_upper_seconds": 5.639864659000068,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.16666666666666663
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P028::15e784436f826125",
+      "product_id": "V2P028",
+      "reliability_lower_bound": 0.689177896916216,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P028",
+      "test_signature": "63ac16c82a3dba9e36c32365dbc7a561dbd0982f176b726601654613ee7ec4ba",
+      "usable_count": 6
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->FOUNDRY:P138": {
+      "attempt_count": 12,
+      "calibration_id": "2e353c2beb615b30e83fdbefa1b240a55e2d2a6a227a6d00ab552a6ab10d205b",
+      "compute_upper_seconds": 0.8316458340000281,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.08333333333333337
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P010::3c6f7c7d71128489",
+      "product_id": "V2P010",
+      "reliability_lower_bound": 0.8159920848767768,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P010",
+      "test_signature": "da53e204c8a0ae4a4390fc7af1d74cb696af18e82e671bd7e3aa566b66000633",
+      "usable_count": 12
+    },
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS->LCB-K081": {
+      "attempt_count": 8,
+      "calibration_id": "5a1fe6d32cac81272cc9783f48d490e47e9392fbc86d78b1f107421ffef239f3",
+      "compute_upper_seconds": 4.295260744999723,
+      "expected_resolution_lower_by_axis": {
+        "declared_executable_contract_case_coverage": 0.125
+      },
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P034::a2f926b2f6cdee6d",
+      "product_id": "V2P034",
+      "reliability_lower_bound": 0.7472427908584185,
+      "status": "CALIBRATED_EXACT_SHELL",
+      "target_generation": 387,
+      "test_id": "BOOTSTRAP_UNIT_CASE::V2P034",
+      "test_signature": "6291cc430086d9c500194dfefcc9e9c90ab0a2be56d276339b1e5d6c86bde61f",
+      "usable_count": 8
+    }
+  },
+  "current_completed_suite_count": 47,
+  "event_count": 388,
+  "evidence_roles": {
+    "DEVELOPMENT": 388
+  },
+  "exact_current_suite_matches": 388,
+  "fingerprint": "2e29b12915ac5894a1fec36ff5d2f968cd66c02b5a672bf7001271d5a372af06",
+  "model_version": "LAB_TELEMETRY_REGISTRY_R12_V1",
+  "policy": {
+    "exact_shell_and_signature_only": true,
+    "protected_validation_never_calibrates_adaptive_routing": true,
+    "telemetry_is_not_scientific_validation": true,
+    "unknown_stays_unknown": true
+  },
+  "run_statuses": {
+    "COMPLETE": 388
+  },
+  "search_generations": {
+    "0": 72,
+    "13": 72,
+    "15": 90,
+    "16": 82,
+    "386": 72
+  },
+  "unique_event_ids": 388,
+  "unmatched_event_count": 0,
+  "unmatched_event_ids": []
+}

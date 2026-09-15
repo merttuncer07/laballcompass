@@ -1,0 +1,97 @@
+{
+  "archive": "C:\\Users\\mertt\\OneDrive\\Desktop\\LABALLCOMPASS PRODUCTS IMPORTANT!!!!!!\\LABALLCOMPASS_FOUNDRY_RESCUE_2026-08-25.zip",
+  "archive_sha256": "cfbcca84da36297a3c0128807faed21863801b5104dd8c596e5d139c9e1927f7",
+  "all_files": {
+    "file_count": 3706,
+    "bytes_read": 30590144,
+    "extension_counts": {
+      ".csv": 4,
+      ".html": 3,
+      ".json": 179,
+      ".log": 2,
+      ".md": 1351,
+      ".ps1": 3,
+      ".py": 1201,
+      ".pyc": 795,
+      ".sha256": 4,
+      ".tag": 39,
+      ".tsv": 30,
+      ".txt": 12,
+      ".zip": 5,
+      "<none>": 78
+    },
+    "extension_bytes": {
+      ".csv": 19966,
+      ".html": 2948088,
+      ".json": 1005813,
+      ".log": 0,
+      ".md": 2098144,
+      ".ps1": 2313,
+      ".py": 4078782,
+      ".pyc": 4981607,
+      ".sha256": 557,
+      ".tag": 7449,
+      ".tsv": 2232444,
+      ".txt": 3281298,
+      ".zip": 9919151,
+      "<none>": 14532
+    },
+    "python_ast_failures": []
+  },
+  "file_manifest": {
+    "rows": 3705,
+    "missing": [],
+    "mismatches": [],
+    "unlisted_excluding_manifest_itself": [],
+    "listed_but_not_actual": []
+  },
+  "source_archives": {
+    "archives": [
+      {
+        "filename": "LABALLCOMPASS_HANDOFF_PRODUCT_INTERACTION_FOUNDRY_2026-08-25.zip",
+        "size_ok": true,
+        "sha256_ok": true
+      },
+      {
+        "filename": "LABALLCOMPASS_HANDOFF_PRODUCT_INTERACTION_FOUNDRY_CONTINUED_2026-08-25.zip",
+        "size_ok": true,
+        "sha256_ok": true
+      },
+      {
+        "filename": "LABALLCOMPASS_HANDOFF_PRODUCT_FOUNDRY_P134_2026-08-25.zip",
+        "size_ok": true,
+        "sha256_ok": true
+      }
+    ]
+  },
+  "salvage_matrix": {
+    "rows": 145,
+    "status_counts": {
+      "EXECUTABLE_MATERIALIZED": 19,
+      "MISSING_FROM_SALVAGED_PRODUCT_DIRS": 28,
+      "RESULT_ONLY": 95,
+      "SOURCE_NO_TEST": 3
+    },
+    "executable_materialized": [
+      "P001_DREW",
+      "P002_DCPS",
+      "P003_SANP",
+      "P004_BAMI",
+      "P005_CARF",
+      "P006_VPRL",
+      "P007_VCPA",
+      "P134_REIG",
+      "P135_CARS",
+      "P136_QAIG",
+      "P137_MPHA",
+      "P138_SPIA",
+      "P139_PAOS",
+      "P140_BOSA",
+      "P141_PCFT",
+      "P142_BMSA",
+      "P143_DLIC",
+      "P144_DPAI",
+      "P145_RTHA"
+    ]
+  }
+}

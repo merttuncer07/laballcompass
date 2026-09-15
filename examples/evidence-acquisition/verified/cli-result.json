@@ -1,0 +1,316 @@
+{
+  "dependency_preserved": {
+    "product": {
+      "product_id": "P083",
+      "short_name": "HEAG",
+      "title": "Historical Evidence Acquisition Gate",
+      "parents_raw": "EBC + AICC",
+      "execution_mode": "native_evidence_acquisition",
+      "implementation_version": "native_reimplementation_20260914",
+      "claim_boundary_raw": "Plug-in normal EBC belief and one-step AICC affine utility; future error independent of used evidence. No calibrated audit recommendation or historical equivalence."
+    },
+    "reconstruction_tier": "NATIVE_REIMPLEMENTATION_NOT_HISTORICAL_SOURCE",
+    "borrowing": {
+      "current_estimate": 0.0,
+      "current_standard_error": 1.0,
+      "posterior_estimate": 0.0,
+      "posterior_standard_error": 0.7071067811865475,
+      "confidence_low": -1.385929291125633,
+      "confidence_high": 1.385929291125633,
+      "current_precision": 1.0,
+      "borrowed_precision": 1.0,
+      "borrowing_precision_ratio": 1.0,
+      "cap_scale": 1.0,
+      "current_information_share": 0.5,
+      "contributions": [
+        {
+          "name": "view_0",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 1.0,
+          "final_power": 1.0,
+          "borrowed_precision": 1.0,
+          "observation_id": "one_record",
+          "counted_as": "view_0"
+        },
+        {
+          "name": "view_1",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 0.0,
+          "final_power": 0.0,
+          "borrowed_precision": 0.0,
+          "observation_id": "one_record",
+          "counted_as": "view_0"
+        },
+        {
+          "name": "view_2",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 0.0,
+          "final_power": 0.0,
+          "borrowed_precision": 0.0,
+          "observation_id": "one_record",
+          "counted_as": "view_0"
+        },
+        {
+          "name": "view_3",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 0.0,
+          "final_power": 0.0,
+          "borrowed_precision": 0.0,
+          "observation_id": "one_record",
+          "counted_as": "view_0"
+        },
+        {
+          "name": "view_4",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 0.0,
+          "final_power": 0.0,
+          "borrowed_precision": 0.0,
+          "observation_id": "one_record",
+          "counted_as": "view_0"
+        }
+      ],
+      "distinct_historical_observations": 1,
+      "duplicate_history_count": 4,
+      "current_overlap_count": 0,
+      "dependency_model": "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared",
+      "interval_semantics": "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+    },
+    "current_only": {
+      "working_mean": 0.0,
+      "working_standard_error": 1.0,
+      "current_action": "hold",
+      "current_action_utilities": [
+        0.0,
+        0.0
+      ],
+      "chosen_channel": "new_independent_measurement",
+      "ranked_channels": [
+        {
+          "name": "new_independent_measurement",
+          "expected_decision_improvement": 0.28209479177387814,
+          "cost": 0.15,
+          "net_value": 0.13209479177387815
+        }
+      ]
+    },
+    "with_history": {
+      "working_mean": 0.0,
+      "working_standard_error": 0.7071067811865475,
+      "current_action": "hold",
+      "current_action_utilities": [
+        0.0,
+        0.0
+      ],
+      "chosen_channel": "new_independent_measurement",
+      "ranked_channels": [
+        {
+          "name": "new_independent_measurement",
+          "expected_decision_improvement": 0.16286750396763996,
+          "cost": 0.15,
+          "net_value": 0.01286750396763997
+        }
+      ]
+    },
+    "selection_changed_by_history": false,
+    "channel_value_changes": [
+      {
+        "name": "new_independent_measurement",
+        "information_value_change": -0.11922728780623817,
+        "net_value_change": -0.11922728780623817
+      }
+    ],
+    "assumptions": [
+      "One scalar estimand shared by current and historical normal estimates.",
+      "EBC estimate and reported SE define a plug-in Gaussian working belief; adaptive weighting and interval calibration are not established.",
+      "Future measurement errors are declared independent of ALL used evidence. Repeated or partly shared measurements of that evidence do not satisfy this adapter.",
+      "Costs and affine action utility use the same units. Selection maximizes one-step expected improvement minus cost.",
+      "A changed selection does not establish truth of history, acquisition effectiveness, audit risk or an audit opinion."
+    ],
+    "mechanisms": [
+      {
+        "name": "EBC",
+        "source": "parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py",
+        "sha256": "58e22f32e1bda54f39a935974e8f5c5ad09affe3183178bb4a1daf0e190e11fb"
+      },
+      {
+        "name": "AICC",
+        "source": "parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py",
+        "sha256": "90d320e4bda220f7387805da380a14eb875ab2955bca85df9f4d7fa72d44741d"
+      }
+    ]
+  },
+  "independence_assumed": {
+    "product": {
+      "product_id": "P083",
+      "short_name": "HEAG",
+      "title": "Historical Evidence Acquisition Gate",
+      "parents_raw": "EBC + AICC",
+      "execution_mode": "native_evidence_acquisition",
+      "implementation_version": "native_reimplementation_20260914",
+      "claim_boundary_raw": "Plug-in normal EBC belief and one-step AICC affine utility; future error independent of used evidence. No calibrated audit recommendation or historical equivalence."
+    },
+    "reconstruction_tier": "NATIVE_REIMPLEMENTATION_NOT_HISTORICAL_SOURCE",
+    "borrowing": {
+      "current_estimate": 0.0,
+      "current_standard_error": 1.0,
+      "posterior_estimate": 0.0,
+      "posterior_standard_error": 0.5773502691896258,
+      "confidence_low": -1.1316065276116667,
+      "confidence_high": 1.1316065276116667,
+      "current_precision": 1.0,
+      "borrowed_precision": 2.0,
+      "borrowing_precision_ratio": 2.0,
+      "cap_scale": 0.4,
+      "current_information_share": 0.3333333333333333,
+      "contributions": [
+        {
+          "name": "view_0",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 1.0,
+          "final_power": 0.4,
+          "borrowed_precision": 0.4,
+          "observation_id": null,
+          "counted_as": "view_0"
+        },
+        {
+          "name": "view_1",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 1.0,
+          "final_power": 0.4,
+          "borrowed_precision": 0.4,
+          "observation_id": null,
+          "counted_as": "view_1"
+        },
+        {
+          "name": "view_2",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 1.0,
+          "final_power": 0.4,
+          "borrowed_precision": 0.4,
+          "observation_id": null,
+          "counted_as": "view_2"
+        },
+        {
+          "name": "view_3",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 1.0,
+          "final_power": 0.4,
+          "borrowed_precision": 0.4,
+          "observation_id": null,
+          "counted_as": "view_3"
+        },
+        {
+          "name": "view_4",
+          "estimate": 0.0,
+          "standard_error": 1.0,
+          "conflict_z": 0.0,
+          "commensurability_factor": 1.0,
+          "pre_cap_power": 1.0,
+          "final_power": 0.4,
+          "borrowed_precision": 0.4,
+          "observation_id": null,
+          "counted_as": "view_4"
+        }
+      ],
+      "distinct_historical_observations": 5,
+      "duplicate_history_count": 0,
+      "current_overlap_count": 0,
+      "dependency_model": "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared",
+      "interval_semantics": "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+    },
+    "current_only": {
+      "working_mean": 0.0,
+      "working_standard_error": 1.0,
+      "current_action": "hold",
+      "current_action_utilities": [
+        0.0,
+        0.0
+      ],
+      "chosen_channel": "new_independent_measurement",
+      "ranked_channels": [
+        {
+          "name": "new_independent_measurement",
+          "expected_decision_improvement": 0.28209479177387814,
+          "cost": 0.15,
+          "net_value": 0.13209479177387815
+        }
+      ]
+    },
+    "with_history": {
+      "working_mean": 0.0,
+      "working_standard_error": 0.5773502691896258,
+      "current_action": "hold",
+      "current_action_utilities": [
+        0.0,
+        0.0
+      ],
+      "chosen_channel": null,
+      "ranked_channels": [
+        {
+          "name": "new_independent_measurement",
+          "expected_decision_improvement": 0.11516471649044518,
+          "cost": 0.15,
+          "net_value": -0.03483528350955481
+        }
+      ]
+    },
+    "selection_changed_by_history": true,
+    "channel_value_changes": [
+      {
+        "name": "new_independent_measurement",
+        "information_value_change": -0.16693007528343295,
+        "net_value_change": -0.16693007528343295
+      }
+    ],
+    "assumptions": [
+      "One scalar estimand shared by current and historical normal estimates.",
+      "EBC estimate and reported SE define a plug-in Gaussian working belief; adaptive weighting and interval calibration are not established.",
+      "Future measurement errors are declared independent of ALL used evidence. Repeated or partly shared measurements of that evidence do not satisfy this adapter.",
+      "Costs and affine action utility use the same units. Selection maximizes one-step expected improvement minus cost.",
+      "A changed selection does not establish truth of history, acquisition effectiveness, audit risk or an audit opinion."
+    ],
+    "mechanisms": [
+      {
+        "name": "EBC",
+        "source": "parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py",
+        "sha256": "58e22f32e1bda54f39a935974e8f5c5ad09affe3183178bb4a1daf0e190e11fb"
+      },
+      {
+        "name": "AICC",
+        "source": "parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py",
+        "sha256": "90d320e4bda220f7387805da380a14eb875ab2955bca85df9f4d7fa72d44741d"
+      }
+    ]
+  },
+  "selection_changes_if_dependency_ignored": true,
+  "comparison_scope": "Same observations, EBC policies, utilities, channels and costs. Only identities/cross-covariance are removed. Sensitivity comparison, not measured real-world policy benefit.",
+  "input_sha256": "4e479d362c8ccd564dd04ff919d8fadad5a21f50281c7869750759407e6a0d31",
+  "product_sha256": "7c2f0f254fbd4570a7853f07732095e2c578eac150df995c58c45fa3b0cb5345"
+}

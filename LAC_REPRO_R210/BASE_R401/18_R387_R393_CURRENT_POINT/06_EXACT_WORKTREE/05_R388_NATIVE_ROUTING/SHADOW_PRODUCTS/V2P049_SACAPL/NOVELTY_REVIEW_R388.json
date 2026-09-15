@@ -1,0 +1,47 @@
+{
+  "product_id": "V2P049",
+  "short_name": "SACAPL",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "new_failure_mode": "A constrained policy learner can obey all action and turnover constraints yet optimize against finite-sample covariance edges that contradict declared dependency support, causing the learned action policy to exploit spurious diversification geometry.",
+  "non_additive_interaction": "SACPS support geometry enters inside CAPL policy scoring as the quadratic risk term, so it changes which policy coefficients are optimal while CAPL's cap and turnover feasible set are held fixed.",
+  "mechanism_removing_comparator": "same CAPL action map, feasible set, evolutionary search, seed, returns, transaction cost and risk aversion with only SACPS support masking removed by substituting the raw sample covariance",
+  "nearest_existing_products": [
+    {
+      "product": "V2P039_SCCATF",
+      "difference": "same SACPS parent, but V2P039 changes a discrete time/frequency allocation objective through cross-region covariance coupling; V2P049 changes the risk geometry used to learn a feature-conditioned constrained portfolio policy"
+    },
+    {
+      "product": "V2P040_BMCAPL",
+      "difference": "same CAPL parent, but V2P040 contracts CAPL's feasible turnover set from decision-tipping distance; V2P049 leaves that feasible set fixed and changes the covariance risk objective"
+    },
+    {
+      "product": "V2P034_SCOPG",
+      "difference": "uses SACPS-style support geometry as an identification/conditioning guard for an observation-policy regression; V2P049 uses an executable SACPS covariance estimate inside a portfolio policy objective"
+    }
+  ],
+  "quality_accounting": "R388_DISTINCT_PRODUCT_CANDIDATE_PENDING_FULL_REGRESSION_AND_PROMOTION",
+  "verdict": "SHADOW_DISTINCT_CANDIDATE",
+  "evidence_boundary": "synthetic mechanism benchmark only; no empirical trading-profit or out-of-sample market claim",
+  "strengths": [
+    "mechanism-removing comparator changes only covariance geometry while preserving CAPL action constraints and optimizer settings",
+    "deterministic dense-support collapse oracle",
+    "explicit support-contradiction abstention path",
+    "all parent source tests pass in the R388 Retro50 baseline"
+  ],
+  "weaknesses": [
+    "declared support is an external modeling assumption rather than learned structure",
+    "benchmark is synthetic and does not establish financial-market transfer or profitability",
+    "current policy shell is linear-softmax with derivative-free search and is not a universal policy class"
+  ],
+  "working_region": "declared support is approximately correct and finite-sample off-support covariance error is large enough to distort the raw-covariance policy risk objective",
+  "failure_region": "misdeclared structural support can erase real covariance; the product abstains only when optional held-out calibration visibly contradicts off-support assumptions, otherwise support correctness remains external",
+  "router_fallback_abstention": "optional held-out calibration gate returns ABSTAIN_SUPPORT_CONTRADICTED_BY_CALIBRATION instead of silently learning a support-aware policy; caller may explicitly choose ordinary CAPL/raw covariance as fallback",
+  "standalone_role": "learn a constrained feature-conditioned portfolio policy under declared support-aware covariance risk geometry",
+  "component_role": "provide audited policy coefficients/weights to a downstream execution or allocation layer while exposing risk-model provenance and collapse/abstention status",
+  "parent_evidence_tiers": {
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS": "ORIGINAL_EXECUTABLE_PARENT",
+    "PARENT:R041_CONSTRAINED_POLICY_CAPL": "ORIGINAL_EXECUTABLE_PARENT"
+  },
+  "benchmark_sweep": "BENCHMARK_SWEEP_RESULT.json"
+}

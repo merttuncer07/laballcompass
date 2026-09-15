@@ -1,0 +1,2356 @@
+--- original/00_START_HERE.md
++++ restored/00_START_HERE.md
+@@ -1,3 +1,5 @@
++> **Restored working copy — 2026-09-13.** Engine and composition repairs have been applied. This is no longer byte-identical to the original ZIP. The original manifest and a source patch are in `../restoration/`. Historical result JSON files below are preserved reference results, not regenerated evidence for the repaired code. Use `../README.md` and `../lab.py` for the restored entry points.
++
+ # LabAllCompass Product-Code Reproduction Package — R210
+ 
+ This is the code-bearing companion to the R193–R208 academic report and the
+--- original/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py
++++ restored/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py
+@@ -106,21 +106,28 @@
+         return self.combine("or", operands)
+ 
+     def evaluate(self, root: int, enabled: set[Hashable]) -> bool:
+-        @lru_cache(maxsize=None)
+-        def visit(index: int) -> bool:
++        if not isinstance(root, int) or not 0 <= root < len(self.nodes):
++            raise ValueError("invalid circuit root")
++        # Interning creates children before parents; evaluate reachable DAG iteratively.
++        reachable = set()
++        stack = [root]
++        while stack:
++            index = stack.pop()
++            if index in reachable:
++                continue
++            reachable.add(index)
+             operation, payload = self.nodes[index]
+-            if operation == "false":
+-                return False
+-            if operation == "true":
+-                return True
+-            if operation == "var":
+-                return payload in enabled
+-            children = payload  # type: ignore[assignment]
+-            if operation == "and":
+-                return all(visit(child) for child in children)
+-            return any(visit(child) for child in children)
+-
+-        return visit(root)
++            if operation in ("and", "or"):
++                stack.extend(payload)
++        values = {}
++        for index in sorted(reachable):
++            operation, payload = self.nodes[index]
++            if operation == "false": values[index] = False
++            elif operation == "true": values[index] = True
++            elif operation == "var": values[index] = payload in enabled
++            elif operation == "and": values[index] = all(values[c] for c in payload)
++            else: values[index] = any(values[c] for c in payload)
++        return values[root]
+ 
+     def reachable_count(self, root: int) -> int:
+         seen: set[int] = set()
+@@ -269,6 +276,16 @@
+     base_labels: Mapping[Hashable, Hashable],
+     topological_heads: Sequence[Hashable],
+ ):
++    heads = set(rule.head for rule in rules)
++    if len(set(topological_heads)) != len(topological_heads) or not heads.issubset(topological_heads):
++        raise ValueError("topological_heads must include every rule head exactly once")
++    positions = {head: index for index, head in enumerate(topological_heads)}
++    for rule in rules:
++        for premise in rule.body:
++            if premise in heads and positions[premise] >= positions[rule.head]:
++                raise ValueError("rule graph is cyclic or topological order is invalid")
++            if premise not in heads and premise not in base_labels:
++                raise ValueError("rule premise has no base label or deriving rule")
+     circuit = MonotoneCircuit()
+     values = {
+         proposition: circuit.variable(label)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P049_SACAPL/sacapl.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P049_SACAPL/sacapl.py
+@@ -218,7 +218,7 @@
+     covariance_result = covariance_estimator(
+         risk_train,
+         support_mask,
+-        holdout_returns=risk_calibration_returns,
++        validation_returns=risk_calibration_returns,
+         shrinkage_grid=shrinkage_grid,
+     )
+     supported_covariance = np.asarray(covariance_result.covariance, dtype=float)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P051_SACDLW/sacdlw.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P051_SACDLW/sacdlw.py
+@@ -175,7 +175,7 @@
+     estimate = covariance_estimator(
+         risk_train,
+         support,
+-        holdout_returns=calibration,
++        validation_returns=calibration,
+         shrinkage_grid=shrinkage_grid,
+     )
+     supported_covariance = np.asarray(estimate.covariance, dtype=float)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py
+@@ -14,6 +14,13 @@
+     measurement_vector: np.ndarray
+     noise_variance: float
+     cost: float = 0.0
++
++    def __post_init__(self):
++        h = np.asarray(self.measurement_vector, dtype=float)
++        if h.ndim != 1 or not h.size or not np.all(np.isfinite(h)):
++            raise ValueError("measurement_vector must be a finite state vector")
++        if not self.name or not np.isfinite(self.noise_variance) or self.noise_variance < 0 or not np.isfinite(self.cost) or self.cost < 0:
++            raise ValueError("channel name, non-negative finite noise and cost are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -41,6 +48,21 @@
+         self.action_slopes = np.asarray(action_slopes, dtype=float)
+         self.action_intercepts = np.asarray(action_intercepts, dtype=float)
+         self.channels = list(channels)
++        if self.mean.ndim != 1 or not self.mean.size or not np.all(np.isfinite(self.mean)):
++            raise ValueError("belief mean must be a finite state vector")
++        d = self.mean.size
++        if self.covariance.shape != (d, d) or not np.all(np.isfinite(self.covariance)) or not np.allclose(self.covariance, self.covariance.T):
++            raise ValueError("belief covariance must be finite and symmetric")
++        if np.linalg.eigvalsh(self.covariance).min() < -1e-12:
++            raise ValueError("belief covariance must be positive semidefinite")
++        if self.action_slopes.ndim != 2 or not self.action_slopes.shape[0] or self.action_intercepts.shape != (self.action_slopes.shape[0],) or not np.all(np.isfinite(self.action_slopes)) or not np.all(np.isfinite(self.action_intercepts)):
++            raise ValueError("finite action slopes and matching intercepts are required")
++        if len({c.name for c in self.channels}) != len(self.channels):
++            raise ValueError("channel names must be unique")
++        if any(np.asarray(c.measurement_vector).shape != (d,) for c in self.channels):
++            raise ValueError("channel and state dimensions differ")
++        if not isinstance(quadrature_points, int) or quadrature_points < 2:
++            raise ValueError("quadrature_points must be an integer at least two")
+         self.nodes, self.weights = hermgauss(quadrature_points)
+         self.weights = self.weights / np.sqrt(np.pi)
+         if self.action_slopes.shape[1] != self.mean.size:
+@@ -55,6 +77,8 @@
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
+         if predictive_variance <= 0:
+             improvement = 0.0
+@@ -82,7 +106,15 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        if not np.isfinite(observation):
++            raise ValueError("observation must be finite")
++        if predictive_variance <= 0:
++            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++                raise ValueError("observation contradicts a deterministic zero-variance belief")
++            return
+         gain = self.covariance @ h / predictive_variance
+         residual = float(observation - h @ self.mean)
+         self.mean = self.mean + gain * residual
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/rel.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/rel.py
+@@ -16,6 +16,8 @@
+     alteration_prior: float = 0.05
+ 
+     def __post_init__(self) -> None:
++        if not self.name or not self.party or not math.isfinite(self.value):
++            raise ValueError("record name, party and finite value are required")
+         if not 0 < self.alteration_prior < 1:
+             raise ValueError("alteration_prior must be between zero and one")
+ 
+@@ -26,6 +28,10 @@
+     left: str
+     right: str
+     tolerance: float = 0.0
++
++    def __post_init__(self):
++        if not self.name or not math.isfinite(self.tolerance) or self.tolerance < 0:
++            raise ValueError("relation name and finite non-negative tolerance are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -56,6 +62,8 @@
+     def violation_pattern(
+         records: Mapping[str, EvidenceRecord], relations: Sequence[ConsistencyRelation]
+     ) -> dict[str, bool]:
++        if len({r.name for r in relations}) != len(relations):
++            raise ValueError("Relation names must be unique")
+         pattern: dict[str, bool] = {}
+         for relation in relations:
+             if relation.left not in records or relation.right not in records:
+@@ -70,7 +78,9 @@
+         relations: Sequence[ConsistencyRelation],
+         max_colluding_records: int = 2,
+     ) -> dict[str, Any]:
+-        if max_colluding_records < 1:
++        if not records:
++            raise ValueError("At least one evidence record is required")
++        if not isinstance(max_colluding_records, int) or max_colluding_records < 1:
+             raise ValueError("max_colluding_records must be at least one")
+         record_map = {record.name: record for record in records}
+         if len(record_map) != len(records):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM445_IM085_CSID/csid.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM445_IM085_CSID/csid.py
+@@ -4,6 +4,7 @@
+ 
+ from dataclasses import asdict, dataclass
+ from itertools import combinations
++import math
+ from typing import Any, Mapping, Sequence
+ 
+ 
+@@ -16,7 +17,7 @@
+     def __post_init__(self) -> None:
+         if not 0 <= self.probability <= 1:
+             raise ValueError("Failure probability must be between zero and one")
+-        if self.consequence < 0:
++        if not math.isfinite(self.consequence) or self.consequence < 0:
+             raise ValueError("Failure consequence must be non-negative")
+ 
+ 
+@@ -28,11 +29,11 @@
+     coverage: Mapping[str, float]
+ 
+     def __post_init__(self) -> None:
+-        if self.cost < 0:
++        if not math.isfinite(self.cost) or self.cost < 0:
+             raise ValueError("Safeguard cost must be non-negative")
+         if not self.evidence_family.strip():
+             raise ValueError("evidence_family cannot be empty")
+-        if any(value < 0 or value > 1 for value in self.coverage.values()):
++        if any(not math.isfinite(value) or value < 0 or value > 1 for value in self.coverage.values()):
+             raise ValueError("Coverage values must be between zero and one")
+ 
+ 
+@@ -58,6 +59,10 @@
+         self.failures = tuple(failure_modes)
+         self.safeguards = tuple(safeguards)
+         failure_names = {failure.name for failure in self.failures}
++        if len(failure_names) != len(self.failures) or any(not n for n in failure_names):
++            raise ValueError("Failure names must be nonempty and unique")
++        if len({s.name for s in self.safeguards}) != len(self.safeguards) or any(not s.name for s in self.safeguards):
++            raise ValueError("Safeguard names must be nonempty and unique")
+         unknown = {
+             key
+             for safeguard in self.safeguards
+@@ -119,7 +124,7 @@
+         )
+ 
+     def design(self, budget: float, *, family_aware: bool = True) -> dict[str, Any]:
+-        if budget < 0:
++        if not math.isfinite(budget) or budget < 0:
+             raise ValueError("budget must be non-negative")
+         feasible: list[PortfolioResult] = []
+         for size in range(len(self.safeguards) + 1):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R002_C326_HFAD/hfad.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R002_C326_HFAD/hfad.py
+@@ -25,13 +25,15 @@
+ 
+     def __init__(self, node_edge_incidence: np.ndarray, edge_face_incidence: np.ndarray | None = None):
+         self.boundary_1 = np.asarray(node_edge_incidence, dtype=float)
++        if self.boundary_1.ndim != 2 or not np.all(np.isfinite(self.boundary_1)):
++            raise ValueError("node-edge incidence must be a finite matrix")
+         edge_count = self.boundary_1.shape[1]
+         self.boundary_2 = (
+             np.zeros((edge_count, 0), dtype=float)
+             if edge_face_incidence is None
+             else np.asarray(edge_face_incidence, dtype=float)
+         )
+-        if self.boundary_1.ndim != 2 or self.boundary_2.ndim != 2:
++        if self.boundary_2.ndim != 2 or not np.all(np.isfinite(self.boundary_2)):
+             raise ValueError("incidence operators must be matrices")
+         if self.boundary_2.shape[0] != edge_count:
+             raise ValueError("edge dimensions differ")
+@@ -41,7 +43,7 @@
+ 
+     def decompose(self, edge_flow: np.ndarray) -> HodgeFlowResult:
+         flow = np.asarray(edge_flow, dtype=float)
+-        if flow.shape != (self.boundary_1.shape[1],):
++        if flow.shape != (self.boundary_1.shape[1],) or not np.all(np.isfinite(flow)):
+             raise ValueError("edge flow dimension differs from incidence matrix")
+         # Projection onto exact/gradient flows im(B1^T).
+         potential_coefficients = np.linalg.lstsq(self.boundary_1.T, flow, rcond=None)[0]
+@@ -64,7 +66,7 @@
+             potential_energy=float(potential @ potential),
+             local_cycle_energy=float(local_cycle @ local_cycle),
+             harmonic_energy=float(harmonic @ harmonic),
+-            reconstruction_residual=float(np.max(np.abs(reconstructed - flow))),
++            reconstruction_residual=float(np.max(np.abs(reconstructed - flow))) if flow.size else 0.0,
+             divergence_residual_for_cycles=float(np.max(np.abs(cycle_divergence)))
+             if cycle_divergence.size
+             else 0.0,
+@@ -75,9 +77,13 @@
+ 
+ 
+ def incidence_from_edges(node_count: int, oriented_edges: list[tuple[int, int]]) -> np.ndarray:
++    if not isinstance(node_count, int) or node_count < 0:
++        raise ValueError("node_count must be a non-negative integer")
+     incidence = np.zeros((node_count, len(oriented_edges)))
+     for edge_index, (source, target) in enumerate(oriented_edges):
+-        incidence[source, edge_index] = -1.0
+-        incidence[target, edge_index] = 1.0
++        if not isinstance(source, (int, np.integer)) or not isinstance(target, (int, np.integer)) or not 0 <= source < node_count or not 0 <= target < node_count:
++            raise ValueError("edge endpoint outside node range")
++        incidence[source, edge_index] -= 1.0
++        incidence[target, edge_index] += 1.0
+     return incidence
+ 
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R037_SUPPORT_COVARIANCE_SACPS/sacps.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R037_SUPPORT_COVARIANCE_SACPS/sacps.py
+@@ -44,11 +44,17 @@
+     support_mask: Sequence[Sequence[bool]],
+     *,
+     holdout_returns: Sequence[Sequence[float]] | None = None,
++    validation_returns: Sequence[Sequence[float]] | None = None,
+     shrinkage_grid: Sequence[float] = tuple(np.linspace(0.0, 1.0, 21)),
+     eigenvalue_floor: float = 1e-8,
+     maximum_condition_number: float = 1e8,
+ ) -> CovarianceDecisionResult:
+-    """Estimate a supported covariance and expose its downstream minimum-variance decision."""
++    """Fit on training data, optionally tune on validation, evaluate only on holdout.
++
++    With no validation, choose the smallest numerically admissible shrinkage.
++    The legacy gaussian_validation_scores field then contains the shrinkage
++    selection objective, not held-out Gaussian scores.
++    """
+ 
+     train = np.asarray(training_returns, dtype=float)
+     if train.ndim != 2 or train.shape[0] < 3 or train.shape[1] < 2 or not np.all(np.isfinite(train)):
+@@ -58,11 +64,17 @@
+     if mask.shape != (p, p) or not np.array_equal(mask, mask.T) or not np.all(np.diag(mask)):
+         raise ValueError("support_mask must be symmetric, square, and include the diagonal")
+     grid = sorted(set(map(float, shrinkage_grid)))
+-    if not grid or min(grid) < 0 or max(grid) > 1 or eigenvalue_floor <= 0 or maximum_condition_number <= 1:
++    if not grid or not np.all(np.isfinite(grid)) or min(grid) < 0 or max(grid) > 1 or not np.isfinite(eigenvalue_floor) or not np.isfinite(maximum_condition_number) or eigenvalue_floor <= 0 or maximum_condition_number <= 1:
+         raise ValueError("invalid shrinkage grid or numerical thresholds")
+     holdout = None if holdout_returns is None else np.asarray(holdout_returns, dtype=float)
+     if holdout is not None and (holdout.ndim != 2 or holdout.shape[0] < 2 or holdout.shape[1] != p or not np.all(np.isfinite(holdout))):
+         raise ValueError("holdout_returns must be finite and have the same variables")
++
++    validation = None if validation_returns is None else np.asarray(validation_returns, dtype=float)
++    if validation is not None and (validation.ndim != 2 or validation.shape[0] < 2 or validation.shape[1] != p or not np.all(np.isfinite(validation))):
++        raise ValueError("validation_returns must be finite and have the same variables")
++    if validation is not None and holdout is not None and (np.shares_memory(validation, holdout) or np.array_equal(validation, holdout)):
++        raise ValueError("validation and holdout must be separate data, not the same matrix")
+ 
+     mean = train.mean(axis=0)
+     centered = train - mean
+@@ -80,8 +92,8 @@
+         condition = float(eigenvalues[-1] / eigenvalues[0])
+         if condition > maximum_condition_number:
+             continue
+-        if holdout is not None:
+-            validation_centered = holdout - mean
++        if validation is not None:
++            validation_centered = validation - mean
+             sign, logdet = np.linalg.slogdet(covariance)
+             if sign <= 0:
+                 continue
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/benchmark_route_a.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/benchmark_route_a.py
+@@ -8,8 +8,14 @@
+ 
+ import numpy as np
+ 
+-from drew import audit_decision_model_selection, decision_regret_matrix
+-from parents.dlew import evaluate_decision_models
++if __package__:
++    from .drew import audit_decision_model_selection, decision_regret_matrix
++else:
++    from drew import audit_decision_model_selection, decision_regret_matrix
++if __package__:
++    from .parents.dlew import evaluate_decision_models
++else:
++    from parents.dlew import evaluate_decision_models
+ 
+ 
+ def make_segment(rng, n, decoy_mode="good"):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
+@@ -11,12 +11,30 @@
+ 
+ import numpy as np
+ 
+-from parents.acsa import SelectionAudit, audit_adaptive_selection
+-from parents.dlew import DecisionLossWorkbenchResult, evaluate_decision_models
+-from parents.mddc import DivergenceResult, diagnose_metric_decision_divergence
+-from parents.miff import FirewallResult, InformationFlow, design_inference_firewall
+-from parents.sce import SpecificationCurve, run_specification_curve
+-from parents.tdsx import SensitivitySurface, explore_sensitivity_surface
++if __package__:
++    from .parents.acsa import SelectionAudit, audit_adaptive_selection
++else:
++    from parents.acsa import SelectionAudit, audit_adaptive_selection
++if __package__:
++    from .parents.dlew import DecisionLossWorkbenchResult, evaluate_decision_models
++else:
++    from parents.dlew import DecisionLossWorkbenchResult, evaluate_decision_models
++if __package__:
++    from .parents.mddc import DivergenceResult, diagnose_metric_decision_divergence
++else:
++    from parents.mddc import DivergenceResult, diagnose_metric_decision_divergence
++if __package__:
++    from .parents.miff import FirewallResult, InformationFlow, design_inference_firewall
++else:
++    from parents.miff import FirewallResult, InformationFlow, design_inference_firewall
++if __package__:
++    from .parents.sce import SpecificationCurve, run_specification_curve
++else:
++    from parents.sce import SpecificationCurve, run_specification_curve
++if __package__:
++    from .parents.tdsx import SensitivitySurface, explore_sensitivity_surface
++else:
++    from parents.tdsx import SensitivitySurface, explore_sensitivity_surface
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/real_data_pilot_digits.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/real_data_pilot_digits.py
+@@ -19,7 +19,10 @@
+ from sklearn.preprocessing import StandardScaler
+ from sklearn.tree import DecisionTreeClassifier
+ 
+-from drew import audit_decision_model_selection, decision_regret_matrix
++if __package__:
++    from .drew import audit_decision_model_selection, decision_regret_matrix
++else:
++    from drew import audit_decision_model_selection, decision_regret_matrix
+ 
+ 
+ def one_hot(y: np.ndarray, classes: int = 10) -> np.ndarray:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_drew.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_drew.py
+@@ -2,13 +2,24 @@
+ 
+ import numpy as np
+ 
+-from drew import (
+-    audit_decision_model_selection,
+-    decision_regret_matrix,
+-    explore_decision_selection_surface,
+-    run_reliability_workbench,
+-)
+-from parents.dlew import evaluate_decision_models
++if __package__:
++    from .drew import (
++        audit_decision_model_selection,
++        decision_regret_matrix,
++        explore_decision_selection_surface,
++        run_reliability_workbench,
++    )
++else:
++    from drew import (
++        audit_decision_model_selection,
++        decision_regret_matrix,
++        explore_decision_selection_surface,
++        run_reliability_workbench,
++    )
++if __package__:
++    from .parents.dlew import evaluate_decision_models
++else:
++    from parents.dlew import evaluate_decision_models
+ 
+ 
+ def dlew_construction(seed=44, training_size=300, validation_size=600):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P002_DCPS/benchmark_route_b.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P002_DCPS/benchmark_route_b.py
+@@ -2,12 +2,22 @@
+ import time
+ import numpy as np
+ 
+-from dcps import (
+-    build_decision_closed_representation,
+-    learn_constrained_policy_from_representation,
+-    evaluate_representation_predictors,
+-)
+-from parents.capl import learn_portfolio_policy
++if __package__:
++    from .dcps import (
++        build_decision_closed_representation,
++        learn_constrained_policy_from_representation,
++        evaluate_representation_predictors,
++    )
++else:
++    from dcps import (
++        build_decision_closed_representation,
++        learn_constrained_policy_from_representation,
++        evaluate_representation_predictors,
++    )
++if __package__:
++    from .parents.capl import learn_portfolio_policy
++else:
++    from parents.capl import learn_portfolio_policy
+ 
+ SAFE = {(0, 0): .10, (0, 1): .80, (1, 0): .20, (1, 1): .90}
+ INCOMPATIBLE = {(0, 0): .10, (0, 1): .20, (1, 0): .80, (1, 1): .90}
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P002_DCPS/dcps.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P002_DCPS/dcps.py
+@@ -11,10 +11,22 @@
+ 
+ import numpy as np
+ 
+-from parents.capl import PortfolioPolicyResult, learn_portfolio_policy
+-from parents.dlew import DecisionLossWorkbenchResult, evaluate_decision_models
+-from parents.dsbc import BeliefCompressionResult, compress_beliefs
+-from parents.psct import PredictiveStateResult, discover_predictive_states
++if __package__:
++    from .parents.capl import PortfolioPolicyResult, learn_portfolio_policy
++else:
++    from parents.capl import PortfolioPolicyResult, learn_portfolio_policy
++if __package__:
++    from .parents.dlew import DecisionLossWorkbenchResult, evaluate_decision_models
++else:
++    from parents.dlew import DecisionLossWorkbenchResult, evaluate_decision_models
++if __package__:
++    from .parents.dsbc import BeliefCompressionResult, compress_beliefs
++else:
++    from parents.dsbc import BeliefCompressionResult, compress_beliefs
++if __package__:
++    from .parents.psct import PredictiveStateResult, discover_predictive_states
++else:
++    from parents.psct import PredictiveStateResult, discover_predictive_states
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P002_DCPS/test_dcps.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P002_DCPS/test_dcps.py
+@@ -1,12 +1,20 @@
+ import unittest
+ import numpy as np
+ 
+-from dcps import (
+-    build_decision_closed_representation,
+-    transform_sequence,
+-    learn_constrained_policy_from_representation,
+-    evaluate_representation_predictors,
+-)
++if __package__:
++    from .dcps import (
++        build_decision_closed_representation,
++        transform_sequence,
++        learn_constrained_policy_from_representation,
++        evaluate_representation_predictors,
++    )
++else:
++    from dcps import (
++        build_decision_closed_representation,
++        transform_sequence,
++        learn_constrained_policy_from_representation,
++        evaluate_representation_predictors,
++    )
+ 
+ 
+ def order2_process(prob_one, seed=0, length=30000):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/benchmark_route_c.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/benchmark_route_c.py
+@@ -1,8 +1,14 @@
+ import json
+ from pathlib import Path
+ import numpy as np
+-from sanp import construct_support_aware_neutral_portfolio, compare_with_raw_sample_on_fresh_returns
+-from parents.enpc import construct_portfolio
++if __package__:
++    from .sanp import construct_support_aware_neutral_portfolio, compare_with_raw_sample_on_fresh_returns
++else:
++    from sanp import construct_support_aware_neutral_portfolio, compare_with_raw_sample_on_fresh_returns
++if __package__:
++    from .parents.enpc import construct_portfolio
++else:
++    from parents.enpc import construct_portfolio
+ 
+ SEED = 20260825
+ 
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/parents/sacps.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/parents/sacps.py
+@@ -44,11 +44,17 @@
+     support_mask: Sequence[Sequence[bool]],
+     *,
+     holdout_returns: Sequence[Sequence[float]] | None = None,
++    validation_returns: Sequence[Sequence[float]] | None = None,
+     shrinkage_grid: Sequence[float] = tuple(np.linspace(0.0, 1.0, 21)),
+     eigenvalue_floor: float = 1e-8,
+     maximum_condition_number: float = 1e8,
+ ) -> CovarianceDecisionResult:
+-    """Estimate a supported covariance and expose its downstream minimum-variance decision."""
++    """Fit on training data, optionally tune on validation, evaluate only on holdout.
++
++    With no validation, choose the smallest numerically admissible shrinkage.
++    The legacy gaussian_validation_scores field then contains the shrinkage
++    selection objective, not held-out Gaussian scores.
++    """
+ 
+     train = np.asarray(training_returns, dtype=float)
+     if train.ndim != 2 or train.shape[0] < 3 or train.shape[1] < 2 or not np.all(np.isfinite(train)):
+@@ -58,11 +64,17 @@
+     if mask.shape != (p, p) or not np.array_equal(mask, mask.T) or not np.all(np.diag(mask)):
+         raise ValueError("support_mask must be symmetric, square, and include the diagonal")
+     grid = sorted(set(map(float, shrinkage_grid)))
+-    if not grid or min(grid) < 0 or max(grid) > 1 or eigenvalue_floor <= 0 or maximum_condition_number <= 1:
++    if not grid or not np.all(np.isfinite(grid)) or min(grid) < 0 or max(grid) > 1 or not np.isfinite(eigenvalue_floor) or not np.isfinite(maximum_condition_number) or eigenvalue_floor <= 0 or maximum_condition_number <= 1:
+         raise ValueError("invalid shrinkage grid or numerical thresholds")
+     holdout = None if holdout_returns is None else np.asarray(holdout_returns, dtype=float)
+     if holdout is not None and (holdout.ndim != 2 or holdout.shape[0] < 2 or holdout.shape[1] != p or not np.all(np.isfinite(holdout))):
+         raise ValueError("holdout_returns must be finite and have the same variables")
++
++    validation = None if validation_returns is None else np.asarray(validation_returns, dtype=float)
++    if validation is not None and (validation.ndim != 2 or validation.shape[0] < 2 or validation.shape[1] != p or not np.all(np.isfinite(validation))):
++        raise ValueError("validation_returns must be finite and have the same variables")
++    if validation is not None and holdout is not None and (np.shares_memory(validation, holdout) or np.array_equal(validation, holdout)):
++        raise ValueError("validation and holdout must be separate data, not the same matrix")
+ 
+     mean = train.mean(axis=0)
+     centered = train - mean
+@@ -80,8 +92,8 @@
+         condition = float(eigenvalues[-1] / eigenvalues[0])
+         if condition > maximum_condition_number:
+             continue
+-        if holdout is not None:
+-            validation_centered = holdout - mean
++        if validation is not None:
++            validation_centered = validation - mean
+             sign, logdet = np.linalg.slogdet(covariance)
+             if sign <= 0:
+                 continue
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/sanp.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/sanp.py
+@@ -11,8 +11,14 @@
+ 
+ import numpy as np
+ 
+-from parents.enpc import PortfolioSolution, construct_portfolio
+-from parents.sacps import CovarianceDecisionResult, estimate_support_aware_covariance
++if __package__:
++    from .parents.enpc import PortfolioSolution, construct_portfolio
++else:
++    from parents.enpc import PortfolioSolution, construct_portfolio
++if __package__:
++    from .parents.sacps import CovarianceDecisionResult, estimate_support_aware_covariance
++else:
++    from parents.sacps import CovarianceDecisionResult, estimate_support_aware_covariance
+ 
+ 
+ @dataclass(frozen=True)
+@@ -82,7 +88,7 @@
+     covariance_model = estimate_support_aware_covariance(
+         train,
+         support_mask,
+-        holdout_returns=validation,
++        validation_returns=validation,
+         shrinkage_grid=shrinkage_grid,
+         eigenvalue_floor=eigenvalue_floor,
+         maximum_condition_number=maximum_condition_number,
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/test_sanp.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P003_SANP/test_sanp.py
+@@ -1,7 +1,10 @@
+ import unittest
+ import numpy as np
+ 
+-from sanp import construct_support_aware_neutral_portfolio, compare_with_raw_sample_on_fresh_returns
++if __package__:
++    from .sanp import construct_support_aware_neutral_portfolio, compare_with_raw_sample_on_fresh_returns
++else:
++    from sanp import construct_support_aware_neutral_portfolio, compare_with_raw_sample_on_fresh_returns
+ 
+ 
+ def sparse_covariance():
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
+@@ -12,10 +12,22 @@
+ import math
+ import numpy as np
+ 
+-from parents.ebc import BorrowingResult, HistoricalEstimate, borrow_evidence
+-from parents.mbpf import BurnoutForecast, forecast_burnout_prepayment
+-from parents.mcris import Intervention, InterventionResult, MonthlyTransitionRates, ScenarioResult, simulate_mortgage_intervention
+-from parents.tdsx import SensitivitySurface, explore_sensitivity_surface
++if __package__:
++    from .parents.ebc import BorrowingResult, HistoricalEstimate, borrow_evidence
++else:
++    from parents.ebc import BorrowingResult, HistoricalEstimate, borrow_evidence
++if __package__:
++    from .parents.mbpf import BurnoutForecast, forecast_burnout_prepayment
++else:
++    from parents.mbpf import BurnoutForecast, forecast_burnout_prepayment
++if __package__:
++    from .parents.mcris import Intervention, InterventionResult, MonthlyTransitionRates, ScenarioResult, simulate_mortgage_intervention
++else:
++    from parents.mcris import Intervention, InterventionResult, MonthlyTransitionRates, ScenarioResult, simulate_mortgage_intervention
++if __package__:
++    from .parents.tdsx import SensitivitySurface, explore_sensitivity_surface
++else:
++    from parents.tdsx import SensitivitySurface, explore_sensitivity_surface
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
+@@ -1,9 +1,18 @@
+ import math
+ import unittest
+ import numpy as np
+-from bami import borrow_default_multiplier, simulate_burnout_aware_intervention, explore_intervention_net_value_surface
+-from parents.ebc import HistoricalEstimate
+-from parents.mcris import Intervention, MonthlyTransitionRates, simulate_mortgage_intervention
++if __package__:
++    from .bami import borrow_default_multiplier, simulate_burnout_aware_intervention, explore_intervention_net_value_surface
++else:
++    from bami import borrow_default_multiplier, simulate_burnout_aware_intervention, explore_intervention_net_value_surface
++if __package__:
++    from .parents.ebc import HistoricalEstimate
++else:
++    from parents.ebc import HistoricalEstimate
++if __package__:
++    from .parents.mcris import Intervention, MonthlyTransitionRates, simulate_mortgage_intervention
++else:
++    from parents.mcris import Intervention, MonthlyTransitionRates, simulate_mortgage_intervention
+ 
+ 
+ class BAMITests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P005_CARF/carf.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P005_CARF/carf.py
+@@ -9,14 +9,38 @@
+ from typing import Sequence
+ import numpy as np
+ 
+-from parents.corma import audit_state_space, StateSpaceAudit
+-from parents.bred import design_balanced_reduction, BalancedReduction
+-from parents.twmr import TargetWeightedModelReducer, ReductionResult as TargetReduction
+-from parents.tsrc import FeatureSpec, TargetSufficientReductionCertifier, ReductionCertificate
+-from parents.ote import OrthogonalTargetEstimator, OrthogonalEstimate
+-from parents.salc import audit_lumpability, LumpabilityCertificate
+-from parents.dsbc import compress_beliefs, BeliefCompressionResult
+-from parents.psct import discover_predictive_states, PredictiveStateResult
++if __package__:
++    from .parents.corma import audit_state_space, StateSpaceAudit
++else:
++    from parents.corma import audit_state_space, StateSpaceAudit
++if __package__:
++    from .parents.bred import design_balanced_reduction, BalancedReduction
++else:
++    from parents.bred import design_balanced_reduction, BalancedReduction
++if __package__:
++    from .parents.twmr import TargetWeightedModelReducer, ReductionResult as TargetReduction
++else:
++    from parents.twmr import TargetWeightedModelReducer, ReductionResult as TargetReduction
++if __package__:
++    from .parents.tsrc import FeatureSpec, TargetSufficientReductionCertifier, ReductionCertificate
++else:
++    from parents.tsrc import FeatureSpec, TargetSufficientReductionCertifier, ReductionCertificate
++if __package__:
++    from .parents.ote import OrthogonalTargetEstimator, OrthogonalEstimate
++else:
++    from parents.ote import OrthogonalTargetEstimator, OrthogonalEstimate
++if __package__:
++    from .parents.salc import audit_lumpability, LumpabilityCertificate
++else:
++    from parents.salc import audit_lumpability, LumpabilityCertificate
++if __package__:
++    from .parents.dsbc import compress_beliefs, BeliefCompressionResult
++else:
++    from parents.dsbc import compress_beliefs, BeliefCompressionResult
++if __package__:
++    from .parents.psct import discover_predictive_states, PredictiveStateResult
++else:
++    from parents.psct import discover_predictive_states, PredictiveStateResult
+ 
+ class Requirement(str, Enum):
+     FULL_IO_BEHAVIOR = "full_io_behavior"
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P005_CARF/test_carf.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P005_CARF/test_carf.py
+@@ -1,7 +1,13 @@
+ import unittest
+ import numpy as np
+-from carf import Requirement, route_requirement, audit_action_reduction_for_causal_target, compare_linear_reductions, certify_markov_dynamics, certify_decision_compression
+-from parents.tsrc import FeatureSpec
++if __package__:
++    from .carf import Requirement, route_requirement, audit_action_reduction_for_causal_target, compare_linear_reductions, certify_markov_dynamics, certify_decision_compression
++else:
++    from carf import Requirement, route_requirement, audit_action_reduction_for_causal_target, compare_linear_reductions, certify_markov_dynamics, certify_decision_compression
++if __package__:
++    from .parents.tsrc import FeatureSpec
++else:
++    from parents.tsrc import FeatureSpec
+ 
+ class CARFTests(unittest.TestCase):
+     def test_all_requirements_route_to_distinct_certificate_families(self):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P006_VPRL/test_vprl.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P006_VPRL/test_vprl.py
+@@ -1,7 +1,16 @@
+ import unittest
+-from vprl import plan_priority_relief
+-from parents.lcm import Claim as LClaim, FundingChannel
+-from parents.priu import Claim as PClaim, Scenario
++if __package__:
++    from .vprl import plan_priority_relief
++else:
++    from vprl import plan_priority_relief
++if __package__:
++    from .parents.lcm import Claim as LClaim, FundingChannel
++else:
++    from parents.lcm import Claim as LClaim, FundingChannel
++if __package__:
++    from .parents.priu import Claim as PClaim, Scenario
++else:
++    from parents.priu import Claim as PClaim, Scenario
+ 
+ class VPRLTests(unittest.TestCase):
+     def setUp(self):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P006_VPRL/vprl.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P006_VPRL/vprl.py
+@@ -9,8 +9,14 @@
+ from typing import Sequence
+ import math
+ 
+-from parents.lcm import Claim as LiquidityClaim, FundingChannel, LiquidityConversionMap
+-from parents.priu import Claim as LiabilityClaim, Scenario, PriorityResetAudit, audit_priority_reset
++if __package__:
++    from .parents.lcm import Claim as LiquidityClaim, FundingChannel, LiquidityConversionMap
++else:
++    from parents.lcm import Claim as LiquidityClaim, FundingChannel, LiquidityConversionMap
++if __package__:
++    from .parents.priu import Claim as LiabilityClaim, Scenario, PriorityResetAudit, audit_priority_reset
++else:
++    from parents.priu import Claim as LiabilityClaim, Scenario, PriorityResetAudit, audit_priority_reset
+ 
+ @dataclass(frozen=True)
+ class PriorityReliefResult:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P007_VCPA/test_vcpa.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P007_VCPA/test_vcpa.py
+@@ -1,8 +1,20 @@
+ import unittest
+-from vcpa import clear_verified_capital_plan
+-from parents.lcm import Claim as LClaim, FundingChannel
+-from parents.mcpr import Offer
+-from parents.priu import Claim as PClaim, Scenario
++if __package__:
++    from .vcpa import clear_verified_capital_plan
++else:
++    from vcpa import clear_verified_capital_plan
++if __package__:
++    from .parents.lcm import Claim as LClaim, FundingChannel
++else:
++    from parents.lcm import Claim as LClaim, FundingChannel
++if __package__:
++    from .parents.mcpr import Offer
++else:
++    from parents.mcpr import Offer
++if __package__:
++    from .parents.priu import Claim as PClaim, Scenario
++else:
++    from parents.priu import Claim as PClaim, Scenario
+ 
+ class VCPATests(unittest.TestCase):
+     def setUp(self):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P007_VCPA/vcpa.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P007_VCPA/vcpa.py
+@@ -11,9 +11,18 @@
+ from typing import Sequence
+ import math
+ 
+-from parents.lcm import Claim as LiquidityClaim, FundingChannel, LiquidityConversionMap
+-from parents.mcpr import Offer, MarketClear, clear_uniform_price_market
+-from parents.priu import Claim as LiabilityClaim, Scenario, PriorityResetAudit, audit_priority_reset
++if __package__:
++    from .parents.lcm import Claim as LiquidityClaim, FundingChannel, LiquidityConversionMap
++else:
++    from parents.lcm import Claim as LiquidityClaim, FundingChannel, LiquidityConversionMap
++if __package__:
++    from .parents.mcpr import Offer, MarketClear, clear_uniform_price_market
++else:
++    from parents.mcpr import Offer, MarketClear, clear_uniform_price_market
++if __package__:
++    from .parents.priu import Claim as LiabilityClaim, Scenario, PriorityResetAudit, audit_priority_reset
++else:
++    from parents.priu import Claim as LiabilityClaim, Scenario, PriorityResetAudit, audit_priority_reset
+ 
+ @dataclass(frozen=True)
+ class CapitalPriorityPlan:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/cctd.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/cctd.py
+@@ -15,9 +15,18 @@
+ 
+ import numpy as np
+ 
+-from parents.acsa import audit_adaptive_selection
+-from parents.cwc import CalibrationWidthController
+-from parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
++if __package__:
++    from .parents.acsa import audit_adaptive_selection
++else:
++    from parents.acsa import audit_adaptive_selection
++if __package__:
++    from .parents.cwc import CalibrationWidthController
++else:
++    from parents.cwc import CalibrationWidthController
++if __package__:
++    from .parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
++else:
++    from parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
+ 
+ 
+ def _vector(values: Sequence[float], name: str) -> np.ndarray:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/test_cctd.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/test_cctd.py
+@@ -2,7 +2,10 @@
+ 
+ import numpy as np
+ 
+-from cctd import ConfidenceCalibratedTriggerDesigner, TriggerDeployment, evaluate_deployment
++if __package__:
++    from .cctd import ConfidenceCalibratedTriggerDesigner, TriggerDeployment, evaluate_deployment
++else:
++    from cctd import ConfidenceCalibratedTriggerDesigner, TriggerDeployment, evaluate_deployment
+ 
+ 
+ class CCTDTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P012_PQDR/pqdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P012_PQDR/pqdr.py
+@@ -19,8 +19,14 @@
+ import numpy as np
+ from scipy.linalg import expm
+ 
+-from parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
+-from parents.hmrm import HiddenModeResilienceMonitor, ResilienceAssessment
++if __package__:
++    from .parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
++else:
++    from parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
++if __package__:
++    from .parents.hmrm import HiddenModeResilienceMonitor, ResilienceAssessment
++else:
++    from parents.hmrm import HiddenModeResilienceMonitor, ResilienceAssessment
+ 
+ 
+ def _square_matrix(values: Sequence[Sequence[float]], name: str) -> np.ndarray:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P012_PQDR/test_pqdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P012_PQDR/test_pqdr.py
+@@ -2,7 +2,10 @@
+ 
+ import numpy as np
+ 
+-from pqdr import PersistenceQualifiedDecisionRiskMonitor
++if __package__:
++    from .pqdr import PersistenceQualifiedDecisionRiskMonitor
++else:
++    from pqdr import PersistenceQualifiedDecisionRiskMonitor
+ 
+ 
+ def monitor() -> PersistenceQualifiedDecisionRiskMonitor:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P013_CFDR/cfdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P013_CFDR/cfdr.py
+@@ -16,8 +16,14 @@
+ import numpy as np
+ from scipy.linalg import null_space
+ 
+-from parents.ccvc import ConservationConstrainedViability
+-from parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
++if __package__:
++    from .parents.ccvc import ConservationConstrainedViability
++else:
++    from parents.ccvc import ConservationConstrainedViability
++if __package__:
++    from .parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
++else:
++    from parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P013_CFDR/test_cfdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P013_CFDR/test_cfdr.py
+@@ -2,8 +2,14 @@
+ 
+ import numpy as np
+ 
+-from cfdr import ConservationFeasibleDecisionRiskMonitor
+-from parents.ccvc import ConservationConstrainedViability
++if __package__:
++    from .cfdr import ConservationFeasibleDecisionRiskMonitor
++else:
++    from cfdr import ConservationFeasibleDecisionRiskMonitor
++if __package__:
++    from .parents.ccvc import ConservationConstrainedViability
++else:
++    from parents.ccvc import ConservationConstrainedViability
+ 
+ 
+ def viability(rate: float = 0.02) -> ConservationConstrainedViability:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P014_DARI/dari.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P014_DARI/dari.py
+@@ -12,8 +12,14 @@
+ 
+ import numpy as np
+ 
+-from parents.cbac import AssignmentCertificate, design_balanced_assignment
+-from parents.ote import OrthogonalEstimate, OrthogonalTargetEstimator
++if __package__:
++    from .parents.cbac import AssignmentCertificate, design_balanced_assignment
++else:
++    from parents.cbac import AssignmentCertificate, design_balanced_assignment
++if __package__:
++    from .parents.ote import OrthogonalEstimate, OrthogonalTargetEstimator
++else:
++    from parents.ote import OrthogonalEstimate, OrthogonalTargetEstimator
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P014_DARI/test_dari.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P014_DARI/test_dari.py
+@@ -2,7 +2,10 @@
+ 
+ import numpy as np
+ 
+-from dari import DesignAwareRandomizationInference
++if __package__:
++    from .dari import DesignAwareRandomizationInference
++else:
++    from dari import DesignAwareRandomizationInference
+ 
+ 
+ def fixture():
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P015_CPDR/cfdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P015_CPDR/cfdr.py
+@@ -16,8 +16,14 @@
+ import numpy as np
+ from scipy.linalg import null_space
+ 
+-from parents.ccvc import ConservationConstrainedViability
+-from parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
++if __package__:
++    from .parents.ccvc import ConservationConstrainedViability
++else:
++    from parents.ccvc import ConservationConstrainedViability
++if __package__:
++    from .parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
++else:
++    from parents.dtrm import DecisionRiskResult, DecisionTransientRiskMonitor
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P015_CPDR/cpdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P015_CPDR/cpdr.py
+@@ -13,8 +13,14 @@
+ import numpy as np
+ from scipy.linalg import expm
+ 
+-from cfdr import ConservationFeasibleDecisionRisk, ConservationFeasibleDecisionRiskMonitor
+-from parents.hmrm import HiddenModeResilienceMonitor, ResilienceAssessment
++if __package__:
++    from .cfdr import ConservationFeasibleDecisionRisk, ConservationFeasibleDecisionRiskMonitor
++else:
++    from cfdr import ConservationFeasibleDecisionRisk, ConservationFeasibleDecisionRiskMonitor
++if __package__:
++    from .parents.hmrm import HiddenModeResilienceMonitor, ResilienceAssessment
++else:
++    from parents.hmrm import HiddenModeResilienceMonitor, ResilienceAssessment
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P015_CPDR/test_cpdr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P015_CPDR/test_cpdr.py
+@@ -2,9 +2,18 @@
+ 
+ import numpy as np
+ 
+-from cfdr import ConservationFeasibleDecisionRiskMonitor
+-from cpdr import ConservationPersistenceDecisionRiskMonitor
+-from parents.ccvc import ConservationConstrainedViability
++if __package__:
++    from .cfdr import ConservationFeasibleDecisionRiskMonitor
++else:
++    from cfdr import ConservationFeasibleDecisionRiskMonitor
++if __package__:
++    from .cpdr import ConservationPersistenceDecisionRiskMonitor
++else:
++    from cpdr import ConservationPersistenceDecisionRiskMonitor
++if __package__:
++    from .parents.ccvc import ConservationConstrainedViability
++else:
++    from parents.ccvc import ConservationConstrainedViability
+ 
+ 
+ def build(rate: float) -> ConservationPersistenceDecisionRiskMonitor:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P016_CATR/catr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P016_CATR/catr.py
+@@ -6,8 +6,14 @@
+ 
+ import numpy as np
+ 
+-from parents.cwc import CalibrationWidthController
+-from parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
++if __package__:
++    from .parents.cwc import CalibrationWidthController
++else:
++    from parents.cwc import CalibrationWidthController
++if __package__:
++    from .parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
++else:
++    from parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
+ 
+ 
+ def vector(values: Sequence[float], name: str) -> np.ndarray:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P016_CATR/test_catr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P016_CATR/test_catr.py
+@@ -2,7 +2,10 @@
+ 
+ import numpy as np
+ 
+-from catr import CalibrationAwareTriggerRouter
++if __package__:
++    from .catr import CalibrationAwareTriggerRouter
++else:
++    from catr import CalibrationAwareTriggerRouter
+ 
+ 
+ class CATRTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/csid.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/csid.py
+@@ -4,6 +4,7 @@
+ 
+ from dataclasses import asdict, dataclass
+ from itertools import combinations
++import math
+ from typing import Any, Mapping, Sequence
+ 
+ 
+@@ -16,7 +17,7 @@
+     def __post_init__(self) -> None:
+         if not 0 <= self.probability <= 1:
+             raise ValueError("Failure probability must be between zero and one")
+-        if self.consequence < 0:
++        if not math.isfinite(self.consequence) or self.consequence < 0:
+             raise ValueError("Failure consequence must be non-negative")
+ 
+ 
+@@ -28,11 +29,11 @@
+     coverage: Mapping[str, float]
+ 
+     def __post_init__(self) -> None:
+-        if self.cost < 0:
++        if not math.isfinite(self.cost) or self.cost < 0:
+             raise ValueError("Safeguard cost must be non-negative")
+         if not self.evidence_family.strip():
+             raise ValueError("evidence_family cannot be empty")
+-        if any(value < 0 or value > 1 for value in self.coverage.values()):
++        if any(not math.isfinite(value) or value < 0 or value > 1 for value in self.coverage.values()):
+             raise ValueError("Coverage values must be between zero and one")
+ 
+ 
+@@ -58,6 +59,10 @@
+         self.failures = tuple(failure_modes)
+         self.safeguards = tuple(safeguards)
+         failure_names = {failure.name for failure in self.failures}
++        if len(failure_names) != len(self.failures) or any(not n for n in failure_names):
++            raise ValueError("Failure names must be nonempty and unique")
++        if len({s.name for s in self.safeguards}) != len(self.safeguards) or any(not s.name for s in self.safeguards):
++            raise ValueError("Safeguard names must be nonempty and unique")
+         unknown = {
+             key
+             for safeguard in self.safeguards
+@@ -119,7 +124,7 @@
+         )
+ 
+     def design(self, budget: float, *, family_aware: bool = True) -> dict[str, Any]:
+-        if budget < 0:
++        if not math.isfinite(budget) or budget < 0:
+             raise ValueError("budget must be non-negative")
+         feasible: list[PortfolioResult] = []
+         for size in range(len(self.safeguards) + 1):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/rel.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/rel.py
+@@ -16,6 +16,8 @@
+     alteration_prior: float = 0.05
+ 
+     def __post_init__(self) -> None:
++        if not self.name or not self.party or not math.isfinite(self.value):
++            raise ValueError("record name, party and finite value are required")
+         if not 0 < self.alteration_prior < 1:
+             raise ValueError("alteration_prior must be between zero and one")
+ 
+@@ -26,6 +28,10 @@
+     left: str
+     right: str
+     tolerance: float = 0.0
++
++    def __post_init__(self):
++        if not self.name or not math.isfinite(self.tolerance) or self.tolerance < 0:
++            raise ValueError("relation name and finite non-negative tolerance are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -56,6 +62,8 @@
+     def violation_pattern(
+         records: Mapping[str, EvidenceRecord], relations: Sequence[ConsistencyRelation]
+     ) -> dict[str, bool]:
++        if len({r.name for r in relations}) != len(relations):
++            raise ValueError("Relation names must be unique")
+         pattern: dict[str, bool] = {}
+         for relation in relations:
+             if relation.left not in records or relation.right not in records:
+@@ -70,7 +78,9 @@
+         relations: Sequence[ConsistencyRelation],
+         max_colluding_records: int = 2,
+     ) -> dict[str, Any]:
+-        if max_colluding_records < 1:
++        if not records:
++            raise ValueError("At least one evidence record is required")
++        if not isinstance(max_colluding_records, int) or max_colluding_records < 1:
+             raise ValueError("max_colluding_records must be at least one")
+         record_map = {record.name: record for record in records}
+         if len(record_map) != len(records):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/recs.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/recs.py
+@@ -3,8 +3,14 @@
+ 
+ from typing import Any, Mapping, Sequence
+ 
+-from parents.csid import ContractSafeguardDesigner, FailureMode, Safeguard
+-from parents.rel import ConsistencyRelation, EvidenceRecord, RelationalEvidenceLocalizer
++if __package__:
++    from .parents.csid import ContractSafeguardDesigner, FailureMode, Safeguard
++else:
++    from parents.csid import ContractSafeguardDesigner, FailureMode, Safeguard
++if __package__:
++    from .parents.rel import ConsistencyRelation, EvidenceRecord, RelationalEvidenceLocalizer
++else:
++    from parents.rel import ConsistencyRelation, EvidenceRecord, RelationalEvidenceLocalizer
+ 
+ 
+ def marginal_culprit_probabilities(localization: Mapping[str, Any]) -> dict[str, float]:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py
+@@ -1,8 +1,17 @@
+ import unittest
+ 
+-from parents.csid import Safeguard
+-from parents.rel import ConsistencyRelation, EvidenceRecord
+-from recs import RelationalEvidenceConditionedSafeguards
++if __package__:
++    from .parents.csid import Safeguard
++else:
++    from parents.csid import Safeguard
++if __package__:
++    from .parents.rel import ConsistencyRelation, EvidenceRecord
++else:
++    from parents.rel import ConsistencyRelation, EvidenceRecord
++if __package__:
++    from .recs import RelationalEvidenceConditionedSafeguards
++else:
++    from recs import RelationalEvidenceConditionedSafeguards
+ 
+ 
+ class RECSTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P018_DPCG/dpcg.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P018_DPCG/dpcg.py
+@@ -3,8 +3,14 @@
+ 
+ from typing import Mapping
+ 
+-from parents.dtpr import DecisionSpec, DecisionTargetedPrivateRelease, PrivateActionRelease
+-from parents.ppsa import PrivacyAccount, Release, account_privacy
++if __package__:
++    from .parents.dtpr import DecisionSpec, DecisionTargetedPrivateRelease, PrivateActionRelease
++else:
++    from parents.dtpr import DecisionSpec, DecisionTargetedPrivateRelease, PrivateActionRelease
++if __package__:
++    from .parents.ppsa import PrivacyAccount, Release, account_privacy
++else:
++    from parents.ppsa import PrivacyAccount, Release, account_privacy
+ 
+ 
+ class GlobalPrivateDecisionCoordinator:
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P018_DPCG/test_dpcg.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P018_DPCG/test_dpcg.py
+@@ -1,7 +1,13 @@
+ import unittest
+ 
+-from dpcg import GlobalPrivateDecisionCoordinator
+-from parents.dtpr import DecisionSpec, DecisionTargetedPrivateRelease
++if __package__:
++    from .dpcg import GlobalPrivateDecisionCoordinator
++else:
++    from dpcg import GlobalPrivateDecisionCoordinator
++if __package__:
++    from .parents.dtpr import DecisionSpec, DecisionTargetedPrivateRelease
++else:
++    from parents.dtpr import DecisionSpec, DecisionTargetedPrivateRelease
+ 
+ 
+ def spec(name):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P019_DATC/datc.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P019_DATC/datc.py
+@@ -6,8 +6,14 @@
+ 
+ import numpy as np
+ 
+-from parents.dsda import DirectionalSubcriticalDamageAccumulator
+-from parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
++if __package__:
++    from .parents.dsda import DirectionalSubcriticalDamageAccumulator
++else:
++    from parents.dsda import DirectionalSubcriticalDamageAccumulator
++if __package__:
++    from .parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
++else:
++    from parents.dttc import DecisionTargetedTriggerDesigner, TriggerCandidate
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P019_DATC/test_datc.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P019_DATC/test_datc.py
+@@ -2,7 +2,10 @@
+ 
+ import numpy as np
+ 
+-from datc import DamageAwareTriggerController
++if __package__:
++    from .datc import DamageAwareTriggerController
++else:
++    from datc import DamageAwareTriggerController
+ 
+ 
+ class DATCTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P025_IDRE/test_idre.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P025_IDRE/test_idre.py
+@@ -1,5 +1,8 @@
+ import unittest
+-from idre import identification_driven_envelope
++if __package__:
++    from .idre import identification_driven_envelope
++else:
++    from idre import identification_driven_envelope
+ 
+ 
+ class IDRETests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P026_DBTE/test_dbte.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P026_DBTE/test_dbte.py
+@@ -1,5 +1,8 @@
+ import unittest
+-from dbte import Edge, deployable_on_series_path, explore_deployable_tipping
++if __package__:
++    from .dbte import Edge, deployable_on_series_path, explore_deployable_tipping
++else:
++    from dbte import Edge, deployable_on_series_path, explore_deployable_tipping
+ 
+ 
+ class DBTETests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P027_IDAC/test_idac.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P027_IDAC/test_idac.py
+@@ -1,5 +1,8 @@
+ import unittest
+-from idac import audit_series_deployment
++if __package__:
++    from .idac import audit_series_deployment
++else:
++    from idac import audit_series_deployment
+ 
+ 
+ class IDACTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P028_REIS/test_reis.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P028_REIS/test_reis.py
+@@ -1,5 +1,8 @@
+ import unittest
+-from reis import allocate_relational_safeguards
++if __package__:
++    from .reis import allocate_relational_safeguards
++else:
++    from reis import allocate_relational_safeguards
+ 
+ 
+ class REISTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P029_RATR/test_ratr.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P029_RATR/test_ratr.py
+@@ -1,5 +1,8 @@
+ import unittest
+-from ratr import ReductionCandidate,select_resilience_aware_reduction
++if __package__:
++    from .ratr import ReductionCandidate,select_resilience_aware_reduction
++else:
++    from ratr import ReductionCandidate,select_resilience_aware_reduction
+ 
+ 
+ class RATRTests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P030_FPTE/test_fpte.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P030_FPTE/test_fpte.py
+@@ -1,5 +1,8 @@
+ import unittest
+-from fpte import FailureMechanism,explore_retention_tipping,frozen_architecture_energy
++if __package__:
++    from .fpte import FailureMechanism,explore_retention_tipping,frozen_architecture_energy
++else:
++    from fpte import FailureMechanism,explore_retention_tipping,frozen_architecture_energy
+ 
+ 
+ class FPTETests(unittest.TestCase):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/rel.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/rel.py
+@@ -16,6 +16,8 @@
+     alteration_prior: float = 0.05
+ 
+     def __post_init__(self) -> None:
++        if not self.name or not self.party or not math.isfinite(self.value):
++            raise ValueError("record name, party and finite value are required")
+         if not 0 < self.alteration_prior < 1:
+             raise ValueError("alteration_prior must be between zero and one")
+ 
+@@ -26,6 +28,10 @@
+     left: str
+     right: str
+     tolerance: float = 0.0
++
++    def __post_init__(self):
++        if not self.name or not math.isfinite(self.tolerance) or self.tolerance < 0:
++            raise ValueError("relation name and finite non-negative tolerance are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -56,6 +62,8 @@
+     def violation_pattern(
+         records: Mapping[str, EvidenceRecord], relations: Sequence[ConsistencyRelation]
+     ) -> dict[str, bool]:
++        if len({r.name for r in relations}) != len(relations):
++            raise ValueError("Relation names must be unique")
+         pattern: dict[str, bool] = {}
+         for relation in relations:
+             if relation.left not in records or relation.right not in records:
+@@ -70,7 +78,9 @@
+         relations: Sequence[ConsistencyRelation],
+         max_colluding_records: int = 2,
+     ) -> dict[str, Any]:
+-        if max_colluding_records < 1:
++        if not records:
++            raise ValueError("At least one evidence record is required")
++        if not isinstance(max_colluding_records, int) or max_colluding_records < 1:
+             raise ValueError("max_colluding_records must be at least one")
+         record_map = {record.name: record for record in records}
+         if len(record_map) != len(records):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
+@@ -12,8 +12,14 @@
+ from dataclasses import asdict, dataclass
+ from typing import Sequence
+ 
+-from parents.rel import EvidenceRecord, ConsistencyRelation, RelationalEvidenceLocalizer
+-from parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence
++if __package__:
++    from .parents.rel import EvidenceRecord, ConsistencyRelation, RelationalEvidenceLocalizer
++else:
++    from parents.rel import EvidenceRecord, ConsistencyRelation, RelationalEvidenceLocalizer
++if __package__:
++    from .parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence
++else:
++    from parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence
+ 
+ 
+ @dataclass(frozen=True)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
+@@ -1,8 +1,17 @@
+ import pytest
+ 
+-from reig import gate_and_borrow
+-from parents.rel import EvidenceRecord, ConsistencyRelation
+-from parents.ebc import HistoricalEstimate
++if __package__:
++    from .reig import gate_and_borrow
++else:
++    from reig import gate_and_borrow
++if __package__:
++    from .parents.rel import EvidenceRecord, ConsistencyRelation
++else:
++    from parents.rel import EvidenceRecord, ConsistencyRelation
++if __package__:
++    from .parents.ebc import HistoricalEstimate
++else:
++    from parents.ebc import HistoricalEstimate
+ 
+ 
+ def fixture(violating=True):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig_unittest.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig_unittest.py
+@@ -1,8 +1,17 @@
+ import unittest
+ 
+-from reig import gate_and_borrow
+-from parents.rel import ConsistencyRelation, EvidenceRecord
+-from parents.ebc import HistoricalEstimate
++if __package__:
++    from .reig import gate_and_borrow
++else:
++    from reig import gate_and_borrow
++if __package__:
++    from .parents.rel import ConsistencyRelation, EvidenceRecord
++else:
++    from parents.rel import ConsistencyRelation, EvidenceRecord
++if __package__:
++    from .parents.ebc import HistoricalEstimate
++else:
++    from parents.ebc import HistoricalEstimate
+ 
+ 
+ def fixture(violating=True):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/parents/aicc.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/parents/aicc.py
+@@ -14,6 +14,13 @@
+     measurement_vector: np.ndarray
+     noise_variance: float
+     cost: float = 0.0
++
++    def __post_init__(self):
++        h = np.asarray(self.measurement_vector, dtype=float)
++        if h.ndim != 1 or not h.size or not np.all(np.isfinite(h)):
++            raise ValueError("measurement_vector must be a finite state vector")
++        if not self.name or not np.isfinite(self.noise_variance) or self.noise_variance < 0 or not np.isfinite(self.cost) or self.cost < 0:
++            raise ValueError("channel name, non-negative finite noise and cost are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -41,6 +48,21 @@
+         self.action_slopes = np.asarray(action_slopes, dtype=float)
+         self.action_intercepts = np.asarray(action_intercepts, dtype=float)
+         self.channels = list(channels)
++        if self.mean.ndim != 1 or not self.mean.size or not np.all(np.isfinite(self.mean)):
++            raise ValueError("belief mean must be a finite state vector")
++        d = self.mean.size
++        if self.covariance.shape != (d, d) or not np.all(np.isfinite(self.covariance)) or not np.allclose(self.covariance, self.covariance.T):
++            raise ValueError("belief covariance must be finite and symmetric")
++        if np.linalg.eigvalsh(self.covariance).min() < -1e-12:
++            raise ValueError("belief covariance must be positive semidefinite")
++        if self.action_slopes.ndim != 2 or not self.action_slopes.shape[0] or self.action_intercepts.shape != (self.action_slopes.shape[0],) or not np.all(np.isfinite(self.action_slopes)) or not np.all(np.isfinite(self.action_intercepts)):
++            raise ValueError("finite action slopes and matching intercepts are required")
++        if len({c.name for c in self.channels}) != len(self.channels):
++            raise ValueError("channel names must be unique")
++        if any(np.asarray(c.measurement_vector).shape != (d,) for c in self.channels):
++            raise ValueError("channel and state dimensions differ")
++        if not isinstance(quadrature_points, int) or quadrature_points < 2:
++            raise ValueError("quadrature_points must be an integer at least two")
+         self.nodes, self.weights = hermgauss(quadrature_points)
+         self.weights = self.weights / np.sqrt(np.pi)
+         if self.action_slopes.shape[1] != self.mean.size:
+@@ -55,6 +77,8 @@
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
+         if predictive_variance <= 0:
+             improvement = 0.0
+@@ -82,7 +106,15 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        if not np.isfinite(observation):
++            raise ValueError("observation must be finite")
++        if predictive_variance <= 0:
++            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++                raise ValueError("observation contradicts a deterministic zero-variance belief")
++            return
+         gain = self.covariance @ h / predictive_variance
+         residual = float(observation - h @ self.mean)
+         self.mean = self.mean + gain * residual
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA/parents/aicc.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA/parents/aicc.py
+@@ -14,6 +14,13 @@
+     measurement_vector: np.ndarray
+     noise_variance: float
+     cost: float = 0.0
++
++    def __post_init__(self):
++        h = np.asarray(self.measurement_vector, dtype=float)
++        if h.ndim != 1 or not h.size or not np.all(np.isfinite(h)):
++            raise ValueError("measurement_vector must be a finite state vector")
++        if not self.name or not np.isfinite(self.noise_variance) or self.noise_variance < 0 or not np.isfinite(self.cost) or self.cost < 0:
++            raise ValueError("channel name, non-negative finite noise and cost are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -41,6 +48,21 @@
+         self.action_slopes = np.asarray(action_slopes, dtype=float)
+         self.action_intercepts = np.asarray(action_intercepts, dtype=float)
+         self.channels = list(channels)
++        if self.mean.ndim != 1 or not self.mean.size or not np.all(np.isfinite(self.mean)):
++            raise ValueError("belief mean must be a finite state vector")
++        d = self.mean.size
++        if self.covariance.shape != (d, d) or not np.all(np.isfinite(self.covariance)) or not np.allclose(self.covariance, self.covariance.T):
++            raise ValueError("belief covariance must be finite and symmetric")
++        if np.linalg.eigvalsh(self.covariance).min() < -1e-12:
++            raise ValueError("belief covariance must be positive semidefinite")
++        if self.action_slopes.ndim != 2 or not self.action_slopes.shape[0] or self.action_intercepts.shape != (self.action_slopes.shape[0],) or not np.all(np.isfinite(self.action_slopes)) or not np.all(np.isfinite(self.action_intercepts)):
++            raise ValueError("finite action slopes and matching intercepts are required")
++        if len({c.name for c in self.channels}) != len(self.channels):
++            raise ValueError("channel names must be unique")
++        if any(np.asarray(c.measurement_vector).shape != (d,) for c in self.channels):
++            raise ValueError("channel and state dimensions differ")
++        if not isinstance(quadrature_points, int) or quadrature_points < 2:
++            raise ValueError("quadrature_points must be an integer at least two")
+         self.nodes, self.weights = hermgauss(quadrature_points)
+         self.weights = self.weights / np.sqrt(np.pi)
+         if self.action_slopes.shape[1] != self.mean.size:
+@@ -55,6 +77,8 @@
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
+         if predictive_variance <= 0:
+             improvement = 0.0
+@@ -82,7 +106,15 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        if not np.isfinite(observation):
++            raise ValueError("observation must be finite")
++        if predictive_variance <= 0:
++            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++                raise ValueError("observation contradicts a deterministic zero-variance belief")
++            return
+         gain = self.covariance @ h / predictive_variance
+         residual = float(observation - h @ self.mean)
+         self.mean = self.mean + gain * residual
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P144_DPAI/parents/aicc.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P144_DPAI/parents/aicc.py
+@@ -14,6 +14,13 @@
+     measurement_vector: np.ndarray
+     noise_variance: float
+     cost: float = 0.0
++
++    def __post_init__(self):
++        h = np.asarray(self.measurement_vector, dtype=float)
++        if h.ndim != 1 or not h.size or not np.all(np.isfinite(h)):
++            raise ValueError("measurement_vector must be a finite state vector")
++        if not self.name or not np.isfinite(self.noise_variance) or self.noise_variance < 0 or not np.isfinite(self.cost) or self.cost < 0:
++            raise ValueError("channel name, non-negative finite noise and cost are required")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -41,6 +48,21 @@
+         self.action_slopes = np.asarray(action_slopes, dtype=float)
+         self.action_intercepts = np.asarray(action_intercepts, dtype=float)
+         self.channels = list(channels)
++        if self.mean.ndim != 1 or not self.mean.size or not np.all(np.isfinite(self.mean)):
++            raise ValueError("belief mean must be a finite state vector")
++        d = self.mean.size
++        if self.covariance.shape != (d, d) or not np.all(np.isfinite(self.covariance)) or not np.allclose(self.covariance, self.covariance.T):
++            raise ValueError("belief covariance must be finite and symmetric")
++        if np.linalg.eigvalsh(self.covariance).min() < -1e-12:
++            raise ValueError("belief covariance must be positive semidefinite")
++        if self.action_slopes.ndim != 2 or not self.action_slopes.shape[0] or self.action_intercepts.shape != (self.action_slopes.shape[0],) or not np.all(np.isfinite(self.action_slopes)) or not np.all(np.isfinite(self.action_intercepts)):
++            raise ValueError("finite action slopes and matching intercepts are required")
++        if len({c.name for c in self.channels}) != len(self.channels):
++            raise ValueError("channel names must be unique")
++        if any(np.asarray(c.measurement_vector).shape != (d,) for c in self.channels):
++            raise ValueError("channel and state dimensions differ")
++        if not isinstance(quadrature_points, int) or quadrature_points < 2:
++            raise ValueError("quadrature_points must be an integer at least two")
+         self.nodes, self.weights = hermgauss(quadrature_points)
+         self.weights = self.weights / np.sqrt(np.pi)
+         if self.action_slopes.shape[1] != self.mean.size:
+@@ -55,6 +77,8 @@
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
+         if predictive_variance <= 0:
+             improvement = 0.0
+@@ -82,7 +106,15 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError("channel and state dimensions differ")
+         predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        if not np.isfinite(observation):
++            raise ValueError("observation must be finite")
++        if predictive_variance <= 0:
++            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++                raise ValueError("observation contradicts a deterministic zero-variance belief")
++            return
+         gain = self.covariance @ h / predictive_variance
+         residual = float(observation - h @ self.mean)
+         self.mean = self.mean + gain * residual
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/shared_foundry.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/shared_foundry.py
+@@ -66,18 +66,28 @@
+     return {'static_choice':max(rows,key=lambda r:r['static_rate'])['coupling'],'stateful_choice':max(feasible,key=lambda r:r['product'])['coupling'] if feasible else None,'rows':rows}
+ 
+ 
++def _validated_mass(positions, mass):
++    x=np.asarray(positions,float);w=np.asarray(mass,float)
++    if x.ndim!=1 or w.shape!=x.shape or not np.all(np.isfinite(x)) or not np.all(np.isfinite(w)) or np.any(w<0):
++        raise ValueError("positions and non-negative finite mass must be aligned vectors")
++    order=np.argsort(x,kind='stable');return x[order],w[order]
++
++
+ def _w2_discrete(x,a,y,b):
+-    a=np.asarray(a,float); b=np.asarray(b,float); a=a/a.sum(); b=b/b.sum(); i=j=0; left=a.copy(); right=b.copy(); cost=0.
++    x,a=_validated_mass(x,a);y,b=_validated_mass(y,b)
++    if a.sum()<=0 or b.sum()<=0:return None
++    a=a/a.sum();b=b/b.sum();i=j=0;left=a.copy();right=b.copy();cost=0.
+     while i<len(a) and j<len(b):
+-        moved=min(left[i],right[j]); cost+=moved*(x[i]-y[j])**2; left[i]-=moved; right[j]-=moved
++        moved=min(left[i],right[j]);cost+=moved*(x[i]-y[j])**2;left[i]-=moved;right[j]-=moved
+         if left[i]<=1e-14:i+=1
+         if right[j]<=1e-14:j+=1
+-    return float(cost**.5)
++    return float(max(0.,cost)**.5)
+ 
+ 
+ def mawt(source_positions,source_mass,target_positions,target_mass):
+-    sm=float(sum(source_mass)); tm=float(sum(target_mass))
+-    return {'normalized_w2':_w2_discrete(source_positions,source_mass,target_positions,target_mass),'source_total':sm,'target_total':tm,'created_mass':max(0.,tm-sm),'destroyed_mass':max(0.,sm-tm)}
++    sx,sw=_validated_mass(source_positions,source_mass);tx,tw=_validated_mass(target_positions,target_mass)
++    sm=float(sw.sum());tm=float(tw.sum());distance=_w2_discrete(sx,sw,tx,tw)
++    return {'normalized_w2':distance,'source_total':sm,'target_total':tm,'created_mass':max(0.,tm-sm),'destroyed_mass':max(0.,sm-tm),'geometry_status':'DEFINED' if distance is not None else 'UNDEFINED_ZERO_MASS','mass_semantics':'Net quantity difference; not inferred transaction-level creation/destruction.'}
+ 
+ 
+ def mcst(grid,violation:Callable[[float],float],*,baseline,tolerance=0.):
+@@ -92,9 +102,21 @@
+     return {'dangerous_windows':sum(r>=dangerous_rms for r in response_rms),'contributing_cycles':count,'cumulative_damage':cumulative,'alarm':count>=min_cycles and cumulative>=alarm_sum}
+ 
+ 
++def _cycle_energy(edges):
++    if not edges:return 0.
++    nodes=list(dict.fromkeys(node for u,v,_ in edges for node in (u,v)));index={n:i for i,n in enumerate(nodes)}
++    boundary=np.zeros((len(nodes),len(edges)));flow=np.array([v for _,_,v in edges],float)
++    if not np.all(np.isfinite(flow)):raise ValueError("edge flows must be finite")
++    for j,(u,v,_) in enumerate(edges):boundary[index[u],j]-=1;boundary[index[v],j]+=1
++    potential=boundary.T@np.linalg.lstsq(boundary.T,flow,rcond=None)[0]
++    cycle=flow-potential;energy=float(cycle@cycle)
++    return 0. if energy<=1e-24*max(1.,float(flow@flow)) else energy
++
++
+ def cacf(edges,controlled_nodes):
+-    total=sum(flow*flow for _,_,flow in edges); inside=sum(flow*flow for a,b,flow in edges if a in controlled_nodes and b in controlled_nodes)
+-    return {'circulation_energy':total,'controlled_circulation_energy':inside,'controlled_fraction':inside/total if total else 0.}
++    edges=list(edges);total=_cycle_energy(edges)
++    inside=_cycle_energy([(u,v,f) for u,v,f in edges if u in controlled_nodes and v in controlled_nodes])
++    return {'circulation_energy':total,'controlled_circulation_energy':inside,'controlled_fraction':min(1.,inside/total) if total else 0.,'semantics':'Orthogonal divergence-free flow energy; controlled energy uses the induced subgraph. Not chronological round-tripping or a fraud label.'}
+ 
+ 
+ def bapc(channel,receiver_utilities,prior):
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/spec_runtime.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/spec_runtime.py
+@@ -1,41 +1,63 @@
+-"""Conservative execution shell for products whose historical source was lost.
++"""Callable replacements for lost historical sources, with explicit input contracts.
+ 
+-It makes a result-only product callable without pretending to reproduce an unknown
+-historical implementation. Product-specific metadata chooses one of four reusable
+-mechanisms: feasibility-gated selection, protected holdout audit, tipping search,
+-or budgeted allocation. Every output carries the reconstruction tier.
++These generic shells are not implementations of the parent mechanisms named in
++historical metadata. Outputs retain that source-fidelity boundary.
+ """
+ from __future__ import annotations
+-
+-from itertools import combinations
++import math
+ 
+ 
+-def evaluate_spec_product(spec, records, *, baseline=None, budget=None):
+-    if not records:
+-        raise ValueError('records cannot be empty')
++def number(record,key,fallback=None,default=None):
++    value=record.get(key,record.get(fallback,default) if fallback else default)
++    if value is None:raise ValueError(f"Missing numeric field: {key}")
++    value=float(value)
++    if not math.isfinite(value):raise ValueError(f"{key} must be finite")
++    return value
++
++
++def evaluate_spec_product(spec,records,*,baseline=None,budget=None):
++    records=list(records)
++    if not records:raise ValueError('records cannot be empty')
++    names=[r.get('name') for r in records]
++    if any(not isinstance(n,str) or not n for n in names) or len(set(names))!=len(names):raise ValueError('record names must be nonempty and unique')
+     mode=spec['execution_mode']
+     if mode=='tipping':
+-        if baseline is None: raise ValueError('tipping mode requires baseline')
+-        flipped=[r for r in records if bool(r.get('decision')) != bool(baseline.get('decision'))]
+-        chosen=min(flipped,key=lambda r:abs(float(r['parameter'])-float(baseline['parameter']))) if flipped else None
++        if baseline is None or not isinstance(baseline.get('decision'),bool):raise ValueError('tipping requires a baseline with a boolean decision')
++        origin=number(baseline,'parameter')
++        for r in records:
++            number(r,'parameter')
++            if not isinstance(r.get('decision'),bool):raise ValueError('tipping records require a boolean decision')
++        flipped=[r for r in records if r['decision']!=baseline['decision']]
++        chosen=min(flipped,key=lambda r:abs(number(r,'parameter')-origin)) if flipped else None
+         payload={'tipping_record':chosen,'status':'TIPPING_FOUND' if chosen else 'NO_TIPPING_ON_DECLARED_GRID'}
+     elif mode=='audit':
+-        selected=max(records,key=lambda r:float(r.get('selection_score',r.get('score',0))))
+-        protected=max(records,key=lambda r:float(r.get('protected_score',r.get('score',0))))
+-        regret=float(protected.get('protected_score',protected.get('score',0)))-float(selected.get('protected_score',selected.get('score',0)))
+-        payload={'selected':selected.get('name'),'protected_best':protected.get('name'),'protected_regret':regret,'status':'PROTECTED_FAILURE_DETECTED' if regret>0 else 'PROTECTED_SURVIVAL'}
++        # Protected observations cannot be silently substituted with selection scores.
++        for r in records:number(r,'selection_score','score');number(r,'protected_score')
++        selected=max(records,key=lambda r:number(r,'selection_score','score'))
++        protected=max(records,key=lambda r:number(r,'protected_score'))
++        regret=number(protected,'protected_score')-number(selected,'protected_score')
++        payload={'selected':selected['name'],'protected_best':protected['name'],'protected_regret':regret,'status':'PROTECTED_FAILURE_DETECTED' if regret>0 else 'PROTECTED_SURVIVAL'}
+     elif mode=='allocation':
+-        if budget is None: raise ValueError('allocation mode requires budget')
+-        feasible=[]
+-        for n in range(len(records)+1):
+-            for subset in combinations(records,n):
+-                cost=sum(float(r.get('cost',1)) for r in subset)
+-                if cost<=budget: feasible.append((sum(float(r.get('value',r.get('score',0))) for r in subset),cost,subset))
+-        value,cost,chosen=max(feasible,key=lambda x:(x[0],-x[1]))
+-        payload={'selected':tuple(r.get('name') for r in chosen),'total_value':value,'total_cost':cost,'status':'BUDGETED_ALLOCATION_COMPLETE'}
+-    else:
++        if budget is None or not math.isfinite(float(budget)) or budget<0:raise ValueError('allocation requires a finite non-negative budget')
++        # Dominance-pruned 0/1 knapsack frontier. No rounding of costs or reuse of items.
++        frontier=[(0.,0.,())]
++        for i,r in enumerate(records):
++            cost=number(r,'cost',default=1);value=number(r,'value','score')
++            if cost<0:raise ValueError('cost must be non-negative')
++            candidates=frontier+[(c+cost,v+value,chosen+(i,)) for c,v,chosen in frontier if c+cost<=budget]
++            candidates.sort(key=lambda x:(x[0],-x[1],x[2]))
++            frontier=[];best=-math.inf
++            for state in candidates:
++                if state[1]>best:frontier.append(state);best=state[1]
++            if len(frontier)>100000:raise ValueError('Exact allocation frontier exceeds 100,000 states; split the problem or use a specialized solver')
++        cost,value,chosen=max(frontier,key=lambda x:(x[1],-x[0]))
++        payload={'selected':tuple(records[i]['name'] for i in chosen),'total_value':value,'total_cost':cost,'status':'BUDGETED_ALLOCATION_COMPLETE'}
++    elif mode in ('selection','feasibility'):
++        for r in records:
++            number(r,'score','value')
++            if not isinstance(r.get('feasible',True),bool) or not isinstance(r.get('gate',True),bool):raise ValueError('feasible and gate must be boolean')
+         feasible=[r for r in records if r.get('feasible',True) and r.get('gate',True)]
+-        chosen=max(feasible,key=lambda r:float(r.get('score',r.get('value',0)))) if feasible else None
+-        payload={'selected':None if chosen is None else chosen.get('name'),'status':'COMPOSITION_SELECTED' if chosen else 'NO_FEASIBLE_COMPOSITION'}
+-    tier=spec.get('reconstruction_tier','SPEC_EXECUTABLE_NOT_HISTORICAL_SOURCE')
+-    return {'product_id':spec['product_id'],'short_name':spec['short_name'],'reconstruction_tier':tier,'execution_mode':mode,**payload}
++        chosen=max(feasible,key=lambda r:number(r,'score','value')) if feasible else None
++        payload={'selected':None if chosen is None else chosen['name'],'status':'COMPOSITION_SELECTED' if chosen else 'NO_FEASIBLE_COMPOSITION'}
++    else:raise ValueError('Unknown execution mode: '+str(mode))
++    return {'product_id':spec['product_id'],'short_name':spec['short_name'],'reconstruction_tier':spec.get('reconstruction_tier','SPEC_EXECUTABLE_NOT_HISTORICAL_SOURCE'),'execution_mode':mode,**payload}
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/run_regression.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/run_regression.py
+@@ -1,75 +1,14 @@
+-from __future__ import annotations
++"""Run every parent and Foundry test, including previously excluded REIG pytest tests."""
++from pathlib import Path
++import argparse,fnmatch,json,sys
++BASE=next(p for p in Path(__file__).resolve().parents if (p/'maintenance/runner.py').exists())
++sys.path.insert(0,str(BASE))
++from maintenance import runner
+ 
+-import json
+-import os
+-import re
+-import subprocess
+-import sys
+-from pathlib import Path
+-
+-
+-ROOT = Path(__file__).resolve().parent
+-
+-
+-def run_file(path: Path) -> dict[str, object]:
+-    environment = os.environ.copy()
+-    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+-    source = path.read_text(encoding="utf-8-sig")
+-    function_style = "def test_" in source and "unittest" not in source
+-    if function_style:
+-        module = ".".join(path.relative_to(ROOT).with_suffix("").parts)
+-        command = [
+-            sys.executable,
+-            str(ROOT / "run_function_test_module.py"),
+-            module,
+-        ]
+-        cwd = ROOT
+-    else:
+-        command = [sys.executable, path.name]
+-        cwd = path.parent
+-    completed = subprocess.run(
+-        command,
+-        cwd=cwd,
+-        env=environment,
+-        capture_output=True,
+-        text=True,
+-        timeout=120,
+-    )
+-    combined = completed.stdout + "\n" + completed.stderr
+-    matches = re.findall(r"Ran\s+(\d+)\s+tests?", combined)
+-    return {
+-        "path": path.relative_to(ROOT).as_posix(),
+-        "returncode": completed.returncode,
+-        "tests": int(matches[-1]) if matches else None,
+-        "output": combined[-4000:] if completed.returncode else "",
+-    }
+-
+-
+-def main() -> int:
+-    parent_tests = sorted((ROOT / "parent_products").rglob("test_*.py"))
+-    product_tests = sorted(
+-        path
+-        for path in (ROOT / "products").rglob("test_*.py")
+-        if path.name != "test_reig.py"  # original historical test requires external pytest
+-    )
+-    results = [run_file(path) for path in parent_tests + product_tests]
+-    summary = {
+-        "parent_test_files": len(parent_tests),
+-        "product_test_files": len(product_tests),
+-        "test_files_passed": sum(result["returncode"] == 0 for result in results),
+-        "test_files_failed": sum(result["returncode"] != 0 for result in results),
+-        "tests_counted": sum(result["tests"] or 0 for result in results),
+-        "results": results,
+-    }
+-    output = ROOT / "regression_summary.json"
+-    output.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+-    print(json.dumps({key: value for key, value in summary.items() if key != "results"}, indent=2))
+-    for result in results:
+-        if result["returncode"]:
+-            print(f"FAILED: {result['path']}")
+-            print(result["output"])
+-    return 1 if summary["test_files_failed"] else 0
+-
+-
+-if __name__ == "__main__":
+-    raise SystemExit(main())
++def main():
++ p=argparse.ArgumentParser();p.add_argument('--target',default='*');p.add_argument('--timeout',type=float,default=180);a=p.parse_args()
++ targets=[t for t in runner.discover('parents')+runner.discover('foundry') if fnmatch.fnmatchcase(t.id,a.target)]
++ try:path=runner.run(targets,timeout=a.timeout,profile='parents+foundry')
++ except ValueError as e:p.error(str(e))
++ print(path);return int(json.loads(path.read_text())['status']!='PASS')
++if __name__=='__main__':sys.exit(main())
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/03_LCB_EXECUTABLE_AND_EVIDENCE/prototypes/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__PRODUCT_PROTOTYPES__r38.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/03_LCB_EXECUTABLE_AND_EVIDENCE/prototypes/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__PRODUCT_PROTOTYPES__r38.py
+@@ -132,12 +132,16 @@
+ 
+     def allocate(self, values):
+         values=np.asarray(values,float)
++        if values.ndim!=1 or not np.all(np.isfinite(values)) or np.any(values<0):
++            raise ValueError("allocator requires finite non-negative item values")
++        if not np.isclose(float(self.rank_oracle([])),0.):
++            raise ValueError("rank oracle must be normalized at the empty set")
+         order=np.argsort(-values)
+         chosen=[]; prev=0.0; x=np.zeros(len(values))
+         for i in order:
+             chosen.append(int(i))
+             cur=float(self.rank_oracle(chosen))
+-            if cur + 1e-12 < prev:
++            if not np.isfinite(cur) or cur + 1e-12 < prev:
+                 raise ValueError('rank oracle must be monotone')
+             x[i]=cur-prev; prev=cur
+         return x
+@@ -147,7 +151,7 @@
+     def __init__(self, contributions, pool_capacities):
+         self.A=np.asarray(contributions,float)
+         self.C=np.asarray(pool_capacities,float)
+-        if self.A.ndim!=2 or self.A.shape[0]!=len(self.C):
++        if self.A.ndim!=2 or self.C.ndim!=1 or self.A.shape[0]!=len(self.C) or not np.all(np.isfinite(self.A)) or not np.all(np.isfinite(self.C)) or np.any(self.A<0) or np.any(self.C<0):
+             raise ValueError('contributions must be pools x items')
+     def __call__(self, subset):
+         if len(subset)==0: return 0.0
+@@ -2351,6 +2355,10 @@
+     def select(sensor_rows, budget):
+         import numpy as np
+         A=np.asarray(sensor_rows,float)
++        if A.ndim!=2 or not A.shape[1] or not np.all(np.isfinite(A)):
++            raise ValueError("sensor rows must be a finite matrix")
++        if not isinstance(budget,(int,np.integer)) or not 0<=budget<=len(A):
++            raise ValueError("budget must be an integer within the sensor count")
+         chosen=[]
+         remaining=list(range(len(A)))
+         for _ in range(min(int(budget),len(A))):
+@@ -2368,7 +2376,7 @@
+             remaining.remove(best[1])
+         M=A[chosen]
+         return {"selected_indices":chosen,
+-                "rank":int(np.linalg.matrix_rank(M)),
++                "rank":int(np.linalg.matrix_rank(M)) if len(chosen) else 0,
+                 "condition_number":float(np.linalg.cond(M)) if len(chosen) else float("inf")}
+ 
+ # ---- LCB-7F3A91 value-first: RX-163 ----
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/sacapl.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/sacapl.py
+@@ -218,7 +218,7 @@
+     covariance_result = covariance_estimator(
+         risk_train,
+         support_mask,
+-        holdout_returns=risk_calibration_returns,
++        validation_returns=risk_calibration_returns,
+         shrinkage_grid=shrinkage_grid,
+     )
+     supported_covariance = np.asarray(covariance_result.covariance, dtype=float)
+--- original/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/sacdlw.py
++++ restored/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/sacdlw.py
+@@ -175,7 +175,7 @@
+     estimate = covariance_estimator(
+         risk_train,
+         support,
+-        holdout_returns=calibration,
++        validation_returns=calibration,
+         shrinkage_grid=shrinkage_grid,
+     )
+     supported_covariance = np.asarray(estimate.covariance, dtype=float)
+--- original/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/test_recovered_contracts.py
++++ restored/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/test_recovered_contracts.py
+@@ -17,3 +17,7 @@
+     e=choose_eviction(losses,fp,full,.02); e0=choose_eviction(losses,fp,diag,.02); assert e0.index==0; assert e.index in e.safe_set
+     print('RECOVERED_REFERENCE_CONTRACTS PASS')
+ if __name__=='__main__': run()
++
++
++def test_recovered_contracts():
++    run()
+--- original/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p054_cadsbc.py
++++ restored/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p054_cadsbc.py
+@@ -3,6 +3,7 @@
+ """
+ from dataclasses import dataclass
+ from typing import Sequence
++import math
+ 
+ @dataclass(frozen=True)
+ class Allocation:
+@@ -14,7 +15,8 @@
+ _MODE_REGRET={'coarse':1.0,'balanced':0.55,'fine':0.20}
+ 
+ def consequence_adaptive_modes(consequence: Sequence[float], budget:int)->tuple[str,...]:
+-    if budget < len(consequence): raise ValueError('budget too small')
++    if not consequence or any(not math.isfinite(float(x)) or x<0 for x in consequence): raise ValueError('finite non-negative consequences required')
++    if not isinstance(budget,int) or budget < len(consequence): raise ValueError('budget too small or not an integer')
+     n=len(consequence); modes=['coarse']*n; left=budget-n
+     c=[float(x) for x in consequence]
+     # Greedy marginal consequence-weighted regret reduction per unit state cost.
+@@ -40,6 +42,7 @@
+     return evaluate(consequence, consequence_adaptive_modes(consequence,budget))
+ 
+ def removal_control(consequence:Sequence[float],budget:int)->Allocation:
++    consequence_adaptive_modes(consequence,budget)
+     n=len(consequence); base=budget//n
+     mode='balanced' if base>=2 else 'coarse'
+     return evaluate(consequence,(mode,)*n)
+--- original/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p055_dlsaicc.py
++++ restored/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p055_dlsaicc.py
+@@ -3,10 +3,13 @@
+ """
+ from dataclasses import dataclass
+ from typing import Iterable
++import math
+ 
+ @dataclass(frozen=True)
+ class Model:
+     name:str; rmse:float; decision_regret:float; belief_variance:float; bias:float=0.0
++    def __post_init__(self):
++        if not self.name or any(not math.isfinite(x) for x in (self.rmse,self.decision_regret,self.belief_variance,self.bias)) or min(self.rmse,self.decision_regret,self.belief_variance)<0: raise ValueError("invalid model metrics")
+ @dataclass(frozen=True)
+ class Decision:
+     selected_model:str; channel_value:float; measure:bool
+@@ -16,13 +19,15 @@
+ def choose_rmse(models:Iterable[Model])->Model:
+     return min(models,key=lambda m:(m.rmse,m.name))
+ def aicc_value(model:Model, noise_variance:float)->float:
+-    if noise_variance<0: raise ValueError('noise')
++    if not math.isfinite(noise_variance) or noise_variance<0: raise ValueError('noise')
+     # Simple Gaussian proxy: reducible uncertainty plus bias correction value.
+     return model.belief_variance**2/(model.belief_variance+noise_variance+1e-12)+abs(model.bias)*0.25
+ 
+ def candidate(models, cost:float, noise_variance:float)->Decision:
++    if not math.isfinite(cost) or cost<0: raise ValueError("cost")
+     m=choose_dlew(models); v=aicc_value(m,noise_variance)
+     return Decision(m.name,v,v>cost)
+ def removal_control(models,cost:float,noise_variance:float)->Decision:
++    if not math.isfinite(cost) or cost<0: raise ValueError("cost")
+     m=choose_rmse(models); v=aicc_value(m,noise_variance)
+     return Decision(m.name,v,v>cost)
+--- original/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p056_sacrdsbc.py
++++ restored/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p056_sacrdsbc.py
+@@ -10,14 +10,19 @@
+ 
+ def support_covariance(errors, support_mask):
+     x=np.asarray(errors,float); m=np.asarray(support_mask,float)
+-    if x.ndim!=2 or m.shape!=(x.shape[1],x.shape[1]): raise ValueError('alignment')
+-    c=np.cov(x,rowvar=False,bias=False)
+-    return c*m
++    if x.ndim!=2 or x.shape[0]<2 or not x.shape[1] or not np.all(np.isfinite(x)) or m.shape!=(x.shape[1],x.shape[1]): raise ValueError('alignment')
++    if not np.all(np.isin(m,[0,1])) or not np.array_equal(m,m.T) or not np.all(np.diag(m)): raise ValueError('support must be symmetric binary with diagonal')
++    c=np.atleast_2d(np.cov(x,rowvar=False,bias=False));supported=c*m;diagonal=np.diag(np.diag(c))
++    for weight in np.linspace(0,1,101):
++        candidate=(1-weight)*supported+weight*diagonal
++        if np.linalg.eigvalsh(candidate).min()>=-1e-12:return candidate
++    raise ValueError('no PSD covariance on declared support')
+ 
+ def robust_merge(b1,b2,cov,tolerance:float,stress_scale:float=1.0)->MergeResult:
+     a=np.asarray(b1,float); b=np.asarray(b2,float); c=np.asarray(cov,float)
+     if a.shape!=b.shape or c.shape!=(len(a),len(a)): raise ValueError('alignment')
+-    if tolerance<0: raise ValueError('tolerance')
++    if not np.isfinite(tolerance) or tolerance<0 or not np.isfinite(stress_scale) or stress_scale<0: raise ValueError('tolerance/stress_scale')
++    if not a.size or not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)) or not np.all(np.isfinite(c)) or not np.allclose(c,c.T) or np.linalg.eigvalsh(c).min() < -1e-12: raise ValueError('finite beliefs and PSD covariance required')
+     # conservative ellipsoidal proxy along the merge direction
+     d=b-a; nominal=float(np.linalg.norm(d))
+     if np.allclose(d,0):
+--- original/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p057_reoc.py
++++ restored/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p057_reoc.py
+@@ -3,6 +3,11 @@
+ """
+ import numpy as np
+ from dataclasses import dataclass
++from pathlib import Path
++import sys
++_lab_root=next(p for p in Path(__file__).resolve().parents if (p/"lab_kernels.py").exists())
++if str(_lab_root) not in sys.path:sys.path.insert(0,str(_lab_root))
++from lab_kernels import ObservabilityCoveragePlannerV0
+ 
+ @dataclass(frozen=True)
+ class Selection:
+@@ -10,17 +15,19 @@
+ 
+ def _check_alignment(risk,H):
+     r=np.asarray(risk,float); h=np.asarray(H,float)
+-    if h.ndim!=2 or r.shape!=(h.shape[1],): raise ValueError('record/state alignment required')
++    if h.ndim!=2 or not h.shape[1] or not np.all(np.isfinite(h)) or r.shape!=(h.shape[1],): raise ValueError('record/state alignment required')
+     if np.any(r<0) or not np.all(np.isfinite(r)): raise ValueError('risk')
+     return r,h
+ 
+ def select(risk,H,budget:int)->Selection:
+     r,h=_check_alignment(risk,H)
+-    if not 1<=budget<=h.shape[0]: raise ValueError('budget')
+-    # weighted state-energy coverage, deterministic tie-breaking
+-    scores=np.sum((h*h)*r[None,:],axis=1)
+-    idx=tuple(sorted(sorted(range(len(scores)),key=lambda i:(-scores[i],i))[:budget]))
+-    return Selection(idx,float(scores[list(idx)].sum()))
++    if not isinstance(budget,(int,np.integer)) or not 0<=budget<=h.shape[0]: raise ValueError('budget')
++    # Risk reweights state columns before the actual rank/conditioning planner.
++    weighted=h*np.sqrt(r)[None,:]
++    planned=ObservabilityCoveragePlannerV0.select(weighted,budget)
++    idx=tuple(sorted(planned['selected_indices']))
++    return Selection(idx,float(np.sum(weighted[list(idx)]**2)))
++
+ def removal_control(H,budget:int)->Selection:
+     h=np.asarray(H,float); return select(np.ones(h.shape[1]),h,budget)
+ def actual_task_score(selection:Selection,H,truth_importance)->float:
+--- original/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p058_sacatrc.py
++++ restored/BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE/v2p058_sacatrc.py
+@@ -10,16 +10,17 @@
+ 
+ def choose_eviction(deletion_losses, fingerprints, support_mask, tolerance:float)->Eviction:
+     losses=np.asarray(deletion_losses,float); fp=np.asarray(fingerprints,float); mask=np.asarray(support_mask,float)
+-    if fp.ndim!=2 or len(losses)!=fp.shape[0]: raise ValueError('item/fingerprint alignment')
++    if losses.ndim!=1 or not losses.size or not np.all(np.isfinite(losses)) or fp.ndim!=2 or not fp.shape[1] or not np.all(np.isfinite(fp)) or len(losses)!=fp.shape[0]: raise ValueError('item/fingerprint alignment')
+     if mask.shape!=(fp.shape[1],fp.shape[1]): raise ValueError('support alignment')
+-    if tolerance<0: raise ValueError('tolerance')
++    if not np.all(np.isin(mask,[0,1])) or not np.array_equal(mask,mask.T) or not np.all(np.diag(mask)): raise ValueError('support must be symmetric binary with diagonal')
++    if not np.isfinite(tolerance) or tolerance<0: raise ValueError('tolerance')
+     best=float(np.min(losses)); safe=tuple(int(i) for i,x in enumerate(losses) if x<=best+tolerance+1e-12)
+     if not safe: raise RuntimeError('no ATRC-safe eviction')
+     if tolerance==0 or np.allclose(mask,np.eye(mask.shape[0])):
+         # exact ATRC collapse: deterministic minimum deletion loss
+         i=min(safe,key=lambda j:(losses[j],j)); return Eviction(i,safe,tuple(0.0 for _ in safe))
+     sub=fp[list(safe)]
+-    cov=np.cov(sub,rowvar=False,bias=False) if len(safe)>1 else np.zeros((fp.shape[1],fp.shape[1]))
++    cov=np.atleast_2d(np.cov(sub,rowvar=False,bias=False)) if len(safe)>1 else np.zeros((fp.shape[1],fp.shape[1]))
+     cov=cov*mask
+     # redundancy of an item = absolute covariance-weighted similarity to other safe fingerprints
+     red=[]
+--- original/run_reproduction.py
++++ restored/run_reproduction.py
+@@ -1,172 +1,19 @@
+-from __future__ import annotations
++"""Restored entry point; original implementation is preserved in restoration/source.patch."""
++from pathlib import Path
++import argparse,fnmatch,json,sys
++BASE=Path(__file__).resolve().parent.parent
++sys.path.insert(0,str(BASE))
++from maintenance import runner
+ 
+-import argparse
+-from datetime import datetime, timezone
+-import json
+-import os
+-from pathlib import Path
+-import re
+-import subprocess
+-import sys
+-import time
+-
+-import verify_package
+-
+-
+-ROOT = Path(__file__).resolve().parent
+-ACTIVE_RESEARCH = ROOT / "ACTIVE_RESEARCH"
+-ACTIVE_PRODUCTS = ROOT / "ACTIVE_PRODUCTS"
+-BASE_R401 = ROOT / "BASE_R401"
+-R401_MATERIAL = (
+-    BASE_R401
+-    / "22_R399_R401_CURRENT_DELTA"
+-    / "LABALLCOMPASS_R401_MATERIAL_PRODUCT_REVIEW_2026-08-31"
+-    / "material_products"
+-)
+-R392_CORE = (
+-    BASE_R401
+-    / "18_R387_R393_CURRENT_POINT"
+-    / "06_EXACT_WORKTREE"
+-    / "01_V2_CORE"
+-)
+-
+-
+-def execute(label: str, cwd: Path, command: list[str]) -> dict:
+-    started = time.perf_counter()
+-    environment = os.environ.copy()
+-    environment["PYTHONUTF8"] = "1"
+-    completed = subprocess.run(
+-        command,
+-        cwd=cwd,
+-        env=environment,
+-        text=True,
+-        capture_output=True,
+-        encoding="utf-8",
+-        errors="replace",
+-    )
+-    output = completed.stdout + completed.stderr
+-    print(f"[{label}] exit={completed.returncode} seconds={time.perf_counter() - started:.3f}")
+-    if output.strip():
+-        print(output.rstrip())
+-    if completed.returncode:
+-        raise RuntimeError(f"reproduction target failed: {label}")
+-    pytest_match = re.search(r"(\d+) passed", output)
+-    unittest_match = re.search(r"Ran (\d+) tests?", output)
+-    count = int(pytest_match.group(1)) if pytest_match else (
+-        int(unittest_match.group(1)) if unittest_match else None
+-    )
+-    return {
+-        "label": label,
+-        "cwd": cwd.relative_to(ROOT).as_posix(),
+-        "command": command,
+-        "tests": count,
+-        "seconds": round(time.perf_counter() - started, 6),
+-        "status": "PASS",
+-    }
+-
+-
+-def run_active() -> list[dict]:
+-    rows: list[dict] = []
+-    round_pattern = re.compile(r"^R(?:19[3-9]|20[0-9]|210)_")
+-    rounds = sorted(path for path in ACTIVE_RESEARCH.iterdir() if path.is_dir() and round_pattern.match(path.name))
+-    if len(rounds) != 18:
+-        raise RuntimeError(f"expected 18 active round directories, found {len(rounds)}")
+-    for path in rounds:
+-        rows.append(execute(path.name, path, [sys.executable, "-m", "pytest", "-q"]))
+-
+-    for name in ("LAB_CRYPTO_ALGOTRADER", "basin_authority_teacher_v001"):
+-        path = ACTIVE_PRODUCTS / name
+-        rows.append(execute(name, path, [sys.executable, "-m", "pytest", "-q"]))
+-
+-    material_tests = (
+-        ("CONSEQUENCE_AWARE_INSPECTION_PLANNER", "test_planner.py"),
+-        ("TRIGGER_POLICY_DESIGNER", "test_trigger_designer.py"),
+-    )
+-    for name, test_file in material_tests:
+-        path = R401_MATERIAL / name
+-        rows.append(
+-            execute(
+-                f"R401_{name}",
+-                path,
+-                [sys.executable, "-m", "unittest", "-v", test_file],
+-            )
+-        )
+-    return rows
+-
+-
+-def run_embedded_r392() -> list[dict]:
+-    rows: list[dict] = []
+-    products = R392_CORE / "products"
+-    for path in sorted(products.glob("V2P*")):
+-        if path.is_dir() and any(path.glob("test_*.py")):
+-            rows.append(
+-                execute(
+-                    f"R392_{path.name}",
+-                    path,
+-                    [sys.executable, "-m", "unittest", "discover", "-s", ".", "-p", "test_*.py"],
+-                )
+-            )
+-    for test_file in sorted(R392_CORE.glob("test_*.py")):
+-        rows.append(
+-            execute(
+-                f"R392_CORE_{test_file.stem}",
+-                R392_CORE,
+-                [sys.executable, "-m", "unittest", "-v", test_file.name],
+-            )
+-        )
+-    return rows
+-
+-
+-def main() -> int:
+-    parser = argparse.ArgumentParser(description="Verify and reproduce the LabAllCompass code package")
+-    parser.add_argument(
+-        "--profile",
+-        choices=("integrity", "active", "full"),
+-        default="active",
+-        help="integrity only; active 112-test surface; or active plus embedded R392 regression",
+-    )
+-    args = parser.parse_args()
+-
+-    started = datetime.now(timezone.utc)
+-    if verify_package.main() != 0:
+-        return 1
+-    rows: list[dict] = []
+-    try:
+-        if args.profile in {"active", "full"}:
+-            rows.extend(run_active())
+-        if args.profile == "full":
+-            rows.extend(run_embedded_r392())
+-    except Exception as exc:
+-        receipt = {
+-            "profile": args.profile,
+-            "started_at_utc": started.isoformat(),
+-            "finished_at_utc": datetime.now(timezone.utc).isoformat(),
+-            "status": "FAIL",
+-            "error": str(exc),
+-            "completed_targets": rows,
+-        }
+-        (ROOT / "REPRODUCTION_RUN_RECEIPT.json").write_text(
+-            json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
+-        )
+-        raise
+-
+-    receipt = {
+-        "profile": args.profile,
+-        "started_at_utc": started.isoformat(),
+-        "finished_at_utc": datetime.now(timezone.utc).isoformat(),
+-        "python": sys.version,
+-        "status": "PASS",
+-        "target_count": len(rows),
+-        "test_count": sum(row["tests"] or 0 for row in rows),
+-        "targets": rows,
+-    }
+-    (ROOT / "REPRODUCTION_RUN_RECEIPT.json").write_text(
+-        json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
+-    )
+-    print(json.dumps({key: receipt[key] for key in ("profile", "status", "target_count", "test_count")}, indent=2))
+-    return 0
+-
+-
+-if __name__ == "__main__":
+-    sys.exit(main())
+-
++def main():
++ p=argparse.ArgumentParser(description='LabAllCompass restored reproduction runner')
++ p.add_argument('--profile',choices=['integrity','active','full','all','parents','foundry','recovered'],default='active')
++ p.add_argument('--target',default='*');p.add_argument('--timeout',type=float,default=180);a=p.parse_args()
++ if a.profile=='integrity':
++  import verify_package
++  return verify_package.main()
++ targets=[t for t in runner.discover(a.profile) if fnmatch.fnmatchcase(t.id,a.target)]
++ try:path=runner.run(targets,timeout=a.timeout,profile=a.profile)
++ except ValueError as e:p.error(str(e))
++ print(path);return int(json.loads(path.read_text())['status']!='PASS')
++if __name__=='__main__':sys.exit(main())

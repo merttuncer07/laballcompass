@@ -1,0 +1,48 @@
+{
+  "release": "R388",
+  "status": "PASS",
+  "authority_role": "PROMOTION_REGRESSION_BUNDLE",
+  "coverage_statement": "Independent terminal receipts cover the 214 Foundry parent/product test files (806 counted tests), all 48 physically discovered V2 suite test files, and all 12 core/search/relevance/experiment/closure surfaces. The empty monolithic stdout artifact is recorded but not trusted as evidence.",
+  "checks": {
+    "foundry": {
+      "status": "PASS",
+      "parent_test_files": 69,
+      "product_test_files": 145,
+      "test_files_passed": 214,
+      "test_files_failed": 0,
+      "tests_counted": 806
+    },
+    "v2_direct_autodiscovery": {
+      "test_files": 48,
+      "passed": 48,
+      "failed": 0,
+      "elapsed_seconds": 175.085
+    },
+    "core_split": {
+      "status": "PASS",
+      "run_count": 12,
+      "failed": [],
+      "elapsed_seconds": 83.931
+    },
+    "monolithic_runner": {
+      "exit_status": "0",
+      "stdout_log_bytes": 0,
+      "accepted_as_primary_receipt": false
+    }
+  },
+  "evidence_sha256": {
+    "05_R388_NATIVE_ROUTING/R388_TOPOLOGY_FOUNDRY_REGRESSION.log": "e1edcbfa50377f7e3d81cb4c25d962df4a6a4512617517bc291acf53ff747b25",
+    "05_R388_NATIVE_ROUTING/R388_TOPOLOGY_FOUNDRY_REGRESSION.status": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "05_R388_NATIVE_ROUTING/R388_ALL_V2_DIRECT_DISCOVERY_REGRESSION.json": "afaef4ac465a012dff7b8fb7bba167f3012362118b6d3f79c55a7ae267009dc2",
+    "05_R388_NATIVE_ROUTING/R388_ALL_V2_DIRECT_DISCOVERY_REGRESSION.status": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "05_R388_NATIVE_ROUTING/R388_SPLIT_CORE_REGRESSION.json": "7cfab229eb6a627ef04ad36575a94c29abd2ff3039c3c132be0263068371ea4e",
+    "05_R388_NATIVE_ROUTING/R388_SPLIT_CORE_REGRESSION.status": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "05_R388_NATIVE_ROUTING/R388_MONOLITHIC_RUNNER_ANOMALY.json": "527a1a9d8a670671443f1cbeb5c0b451e84504d5e61f8e9fc60865e60d6e6ff6",
+    "04_INTEGRITY/run_packaged_regression.py": "8e5be86b12179220c0f64a34c2dd21afcc4034712be4fed2e1e0ad4558c1558f"
+  },
+  "nonclaims": [
+    "test closure is not empirical validation",
+    "visibility repair is not novelty",
+    "V2P049 promotion remains explicit and separate from Registry455"
+  ]
+}

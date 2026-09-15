@@ -1,0 +1,11 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P017_CCDRE_V1",
+  "result": {
+    "blocked": [
+      "high_info"
+    ],
+    "choice": "conserved",
+    "status": "CONSERVATION_FILTERED_DRE_CHOICE"
+  }
+}

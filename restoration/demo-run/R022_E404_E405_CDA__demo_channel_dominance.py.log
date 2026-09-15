@@ -1,0 +1,30 @@
+{
+  "relation": "FIRST_STRICTLY_MORE_INFORMATIVE",
+  "recovered_garbling": [
+    [
+      0.8000000000000002,
+      0.19999999999999984
+    ],
+    [
+      0.3,
+      0.7
+    ],
+    [
+      0.4999999999999997,
+      0.5000000000000002
+    ]
+  ],
+  "forward_reconstruction_error": 2.220446049250313e-16,
+  "reverse_best_error": 0.4096567505720824,
+  "detailed_channel_decision_value": {
+    "without_channel": 0.4,
+    "with_channel": 0.8150000000000001,
+    "value_of_information": 0.41500000000000004
+  },
+  "coarse_channel_decision_value": {
+    "without_channel": 0.4,
+    "with_channel": 0.47250000000000003,
+    "value_of_information": 0.07250000000000001
+  },
+  "value_lost_to_garbling": 0.3425
+}

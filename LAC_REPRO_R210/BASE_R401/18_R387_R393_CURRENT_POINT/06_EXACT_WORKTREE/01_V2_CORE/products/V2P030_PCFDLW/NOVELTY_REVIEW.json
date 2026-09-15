@@ -1,0 +1,12 @@
+{
+  "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+  "difference_from_nearest": "CADRE certifies a compressed DRE ranking margin and optionally decompresses; PCFDLW certifies recursive state representations before model selection by realized decision regret",
+  "mechanism_removing_comparator": "DLEW selection over all candidates without closure/fidelity certification",
+  "nearest_existing_product": "V2P013_CADRE",
+  "new_failure_mode": "a candidate has excellent immediate downstream decision loss but its compressed state is not predictively closed for recursive deployment",
+  "non_additive_interaction": "PCFT certification changes the candidate set on which DLEW optimizes realized regret",
+  "product_id": "V2P030",
+  "short_name": "PCFDLW",
+  "supplier_id": "FOUNDRY:P141",
+  "verdict": "DISTINCT_PRODUCT"
+}

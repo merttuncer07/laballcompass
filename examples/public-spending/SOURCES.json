@@ -1,0 +1,11 @@
+{
+  "publisher": "HM Treasury",
+  "dataset": "Spending over \u00a325,000, September 2025",
+  "published_date": "2025-12-16",
+  "publication": "https://www.gov.uk/government/publications/hm-treasury-spending-over-25000-september-2025",
+  "url": "https://assets.publishing.service.gov.uk/media/6941416e29501ea90654a4e2/HMT_spending_over_25000_Sep_25.csv",
+  "sha256": "dff8db8e80f988de639040c65a2cf173d85a70ce18606749600f10bfcde39afa",
+  "bytes": 11946,
+  "license": "Open Government Licence v3.0",
+  "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+}

@@ -1,0 +1,32 @@
+{
+  "retain_count": 2,
+  "target_weighted": {
+    "retained_states": [
+      "target_driver_a",
+      "target_driver_b"
+    ],
+    "removed_states": [
+      "large_hidden_energy",
+      "minor_c",
+      "minor_d"
+    ],
+    "target_impulse_error": 0.525487769348748,
+    "relative_target_error": 0.03308462349794997,
+    "evaluated_subsets": 10
+  },
+  "state_energy_baseline": {
+    "retained_states": [
+      "target_driver_a",
+      "large_hidden_energy"
+    ],
+    "removed_states": [
+      "target_driver_b",
+      "minor_c",
+      "minor_d"
+    ],
+    "target_impulse_error": 4.535552136191521,
+    "relative_target_error": 0.2855576162451681,
+    "evaluated_subsets": 1
+  },
+  "relative_error_reduction": 0.8841402868780608
+}

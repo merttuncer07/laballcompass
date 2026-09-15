@@ -1,0 +1,65 @@
+{
+  "low_dependence": {
+    "route": "SUPPORT_AWARE_SANP",
+    "first_check": {
+      "pair": [
+        0,
+        1
+      ],
+      "mask_supports_relation": true,
+      "nominal_count": 100,
+      "pairwise_rho": 0.001,
+      "aggregate_variance_inflation": 1.099,
+      "effective_independent_count": 90.99181073703367,
+      "aggregate_se_inflation": 1.0483320084782302,
+      "pairwise_threshold_says_small": true,
+      "collective_risk_flag": false,
+      "passes_gate": true
+    },
+    "fresh": {
+      "route": "SUPPORT_AWARE_SANP",
+      "gated_variance": 0.00012464279718747446,
+      "raw_variance": 0.00015846891100495468,
+      "variance_change_fraction_vs_raw": -0.213455835614486,
+      "cases": 350,
+      "status": "FRESH_OUT_OF_SAMPLE_GATED_VS_RAW_COMPARISON"
+    }
+  },
+  "high_dependence": {
+    "route": "RAW_COVARIANCE_ENPC_FALLBACK",
+    "first_check": {
+      "pair": [
+        0,
+        1
+      ],
+      "mask_supports_relation": true,
+      "nominal_count": 100,
+      "pairwise_rho": 0.05,
+      "aggregate_variance_inflation": 5.95,
+      "effective_independent_count": 16.80672268907563,
+      "aggregate_se_inflation": 2.4392621835300936,
+      "pairwise_threshold_says_small": false,
+      "collective_risk_flag": false,
+      "passes_gate": false
+    }
+  },
+  "pairwise_small_collective_large": {
+    "route": "RAW_COVARIANCE_ENPC_FALLBACK",
+    "first_check": {
+      "pair": [
+        0,
+        1
+      ],
+      "mask_supports_relation": true,
+      "nominal_count": 200,
+      "pairwise_rho": 0.009,
+      "aggregate_variance_inflation": 2.791,
+      "effective_independent_count": 71.65890361877463,
+      "aggregate_se_inflation": 1.670628624201082,
+      "pairwise_threshold_says_small": true,
+      "collective_risk_flag": true,
+      "passes_gate": false
+    }
+  },
+  "claim_scope": "deterministic development adapter shell; effective-diversity gate does not certify support truth or real-world portfolio performance"
+}

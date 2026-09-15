@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "finished_at": "2026-09-14T18:58:16.362127+00:00",
+  "tests": {
+    "tests": 40,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_hashes": {
+    "workbench/content.py": "31bc60e31d043ec40e6ba4f213851d996c51fae80059e5004a6736161be78fb4",
+    "workbench/record_matches.py": "012cd571856dbbea7c934524c200a61872b6eef89f71da34c08de11ca32081a5",
+    "workbench/content_report.py": "7003215ba877ab8392b647ee85e6bc096d8f7db4e1363820f0492be6611ed450",
+    "workbench/cli.py": "4a01b54362958b2d2d8cec98daafec6472e863d4e8d78564f8c4e87f2af1c887",
+    "tests/test_record_matches.py": "b87f67138bf27e321a2efde95079902de093df0667cfdbba7d6e3834158fed3a",
+    "examples/public-spending/reproduce.py": "133c7cb01f2c59f369ecc50046900d36337b0efc4236b908494b75869f4cb8f7",
+    "restoration/build_explorer.py": "e5d55f65d3e6f5026748de84a23997500aa49dfbf9d48a4542f8d0fab90ca05f"
+  },
+  "test_log": "restoration/20260914-row-matching/verified-tests.log",
+  "test_xml": "restoration/20260914-row-matching/verified-tests.xml",
+  "public_observations": "examples/public-spending/verified/receipt.json",
+  "ui": "restoration/20260914-row-matching/ui-check.json",
+  "changes": [
+    "Unambiguous value-based column and record alignment survives row/column permutations",
+    "Changed literal cells linked to affected formula targets via existing R207 analysis",
+    "Unmatched rows and columns disclosed; difference filter initially enabled when differences exist"
+  ],
+  "observations": [
+    {
+      "case": "reordered",
+      "records": 84,
+      "changed_source_row": null,
+      "row_alignment": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_fuzzy": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": null,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 46.989958002086496,
+        "both_header_baselines": 62.5707910003257
+      }
+    },
+    {
+      "case": "changed_unique_voucher",
+      "records": 84,
+      "changed_source_row": 8,
+      "row_alignment": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "header_fuzzy": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": true,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 50.97441600082675,
+        "both_header_baselines": 64.56562500170548
+      }
+    },
+    {
+      "case": "changed_repeated_voucher",
+      "records": 84,
+      "changed_source_row": 2,
+      "row_alignment": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "header_exact": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "header_fuzzy": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": false,
+      "ambiguous_rows_omitted": 1,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 46.87329100124771,
+        "both_header_baselines": 64.43008399946848
+      }
+    },
+    {
+      "case": "renamed_headers_changed_amount",
+      "records": 84,
+      "changed_source_row": 8,
+      "row_alignment": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 84
+      },
+      "header_fuzzy": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 84
+      },
+      "baseline_scope": "Not applicable: complete header correspondence unavailable",
+      "changed_pair_returned": true,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 47.1840410027653,
+        "both_header_baselines": 0.08441599857178517
+      }
+    },
+    {
+      "case": "columns_shuffled_independently",
+      "records": 84,
+      "changed_source_row": null,
+      "row_alignment": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_fuzzy": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": null,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 0,
+      "informational_single_run_ms": {
+        "complete_content_search": 41.98795800039079,
+        "both_header_baselines": 60.6532089987013
+      }
+    }
+  ],
+  "limits": [
+    "Five artificially transformed tasks from one real public CSV, not field validation or estimated general accuracy",
+    "No advantage over header-aligned fuzzy matching when headers survive; it is inapplicable when all headers are renamed",
+    "Repeated-voucher changed record is missed due to ambiguity",
+    "Content matches never merge roots or infer covariance/provenance",
+    "jsdom interactions only; real-browser visual verification incomplete",
+    "40 current targeted workbook/content tests; previous parent-engine tests remain historical"
+  ],
+  "manifest_scope": "Changes outside LAC_REPRO_R210; no engine manifest update or whole-lab rescan needed"
+}

@@ -1,0 +1,54 @@
+{
+  "benchmark_type": "synthetic_fixed_parameter_decision_benchmark",
+  "cohort_size": 100000,
+  "horizon_months": 36,
+  "burnout_path_first": 0.03312500000000001,
+  "burnout_path_last": 0.019249899264746465,
+  "homogeneous_constant_prepayment_rate": 0.03312500000000001,
+  "cost_3150": {
+    "homogeneous_net_value": 33040798.993066967,
+    "burnout_aware_net_value": 56004231.10230094,
+    "net_value_delta": 22963432.109233975,
+    "defaults_avoided_delta": 227.89504661402043
+  },
+  "decision_flip_cost_3650": {
+    "homogeneous_net_value": -16959201.006933033,
+    "burnout_aware_net_value": 6004231.102300942,
+    "homogeneous_decision": "INTERVENTION_COST_EXCEEDS_MODELED_BENEFIT",
+    "burnout_aware_decision": "INTERVENTION_CREATES_NET_VALUE"
+  },
+  "gross_benefit_per_loan_thresholds": {
+    "homogeneous": 3480.40798993067,
+    "burnout_aware": 3710.0423110230095
+  },
+  "ebc": {
+    "posterior_default_multiplier": 0.54059060391073,
+    "borrowing_precision_ratio": 1.0,
+    "contributions": [
+      {
+        "name": "similar",
+        "final_power": 0.6148260968158955
+      },
+      {
+        "name": "conflict",
+        "final_power": 0.009833555931290792
+      }
+    ]
+  },
+  "tdsx": {
+    "status": "TIPPING_POINT_FOUND",
+    "metric_minimum": -88605853.74401724,
+    "metric_maximum": 49292179.45510152,
+    "tipping_point": {
+      "parameters": {
+        "default_multiplier": 0.55,
+        "cost_per_loan": 4500.0,
+        "prepayment_cost_fraction": 0.002
+      },
+      "metric": -15799153.77953966,
+      "normalized_euclidean_distance": 0.3375,
+      "normalized_manhattan_distance": 0.3375
+    }
+  },
+  "evidence_label": "synthetic benchmark; not real-world validation"
+}

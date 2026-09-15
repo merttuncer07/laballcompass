@@ -1,0 +1,123 @@
+{
+  "model_version": "V2P008_TGCARS_DEV_V1",
+  "mechanism_removing_comparator": "P135 certificate reuse without transport gate",
+  "blind_p135": {
+    "certificate": {
+      "deleted_features": [
+        "nuisance"
+      ],
+      "retained_features": [
+        "critical",
+        "secondary"
+      ],
+      "removable_cost_saved": 20.0,
+      "score_error_bound": 0.1805,
+      "protected_margin": 0.19,
+      "remaining_margin_certificate": 0.009500000000000008,
+      "action_invariant": true,
+      "actual_max_score_change_on_evaluation": null,
+      "observed_action_changes": null
+    },
+    "allocation": {
+      "budget": 5.0,
+      "total_cost": 5.0,
+      "total_decision_loss": 0.0488,
+      "allocations": [
+        {
+          "region": "critical",
+          "option": "fine",
+          "cost": 3.0,
+          "decision_loss": 0.0008000000000000001
+        },
+        {
+          "region": "secondary",
+          "option": "coarse",
+          "cost": 1.0,
+          "decision_loss": 0.048
+        },
+        {
+          "region": "nuisance",
+          "option": "coarse",
+          "cost": 1.0,
+          "decision_loss": 0.0
+        }
+      ]
+    },
+    "consequence_weights": {
+      "critical": 0.08,
+      "secondary": 0.048,
+      "nuisance": 0.0
+    },
+    "status": "CERTIFICATE_AWARE_RESOLUTION_ALLOCATED"
+  },
+  "guarded": {
+    "transport_audit": {
+      "accepted": false,
+      "residual_shift_score": 2.82842712474619,
+      "standardized_mean_shift": 2.82842712474619,
+      "log_scale_shift": 0.0,
+      "target_residual_driver_correlation": 0.0,
+      "n_source": 20,
+      "n_target": 20,
+      "threshold": 0.5,
+      "reason": "TRANSPORT_SCORE_EXCEEDS_DECLARED_LIMIT"
+    },
+    "certificate": {
+      "deleted_features": [
+        "nuisance"
+      ],
+      "retained_features": [
+        "critical",
+        "secondary"
+      ],
+      "removable_cost_saved": 20.0,
+      "score_error_bound": 0.1805,
+      "protected_margin": 0.19,
+      "remaining_margin_certificate": 0.009500000000000008,
+      "action_invariant": true,
+      "actual_max_score_change_on_evaluation": null,
+      "observed_action_changes": null
+    },
+    "allocation": {
+      "budget": 5.0,
+      "total_cost": 5.0,
+      "total_decision_loss": 0.129805,
+      "allocations": [
+        {
+          "region": "critical",
+          "option": "coarse",
+          "cost": 1.0,
+          "decision_loss": 0.08
+        },
+        {
+          "region": "secondary",
+          "option": "coarse",
+          "cost": 1.0,
+          "decision_loss": 0.048
+        },
+        {
+          "region": "nuisance",
+          "option": "fine",
+          "cost": 3.0,
+          "decision_loss": 0.0018050000000000002
+        }
+      ]
+    },
+    "consequence_weights": {
+      "critical": 0.08,
+      "secondary": 0.048,
+      "nuisance": 0.1805
+    },
+    "certificate_zeroing_enabled": false,
+    "fallback_used": true,
+    "status": "TRANSPORT_NOT_CERTIFIED_DELETION_ZEROING_DISABLED_REVALIDATION_REQUIRED"
+  },
+  "benchmark_only_oracle_weights": {
+    "critical": 0.08,
+    "secondary": 0.048,
+    "nuisance": 0.8
+  },
+  "blind_oracle_loss": 0.8488,
+  "guarded_oracle_loss": 0.136,
+  "oracle_loss_reduction_fraction": 0.8397737983034872
+}

@@ -1,0 +1,300 @@
+{
+  "authority_scope": "PRODUCT_OVERLAY_ONLY_REGISTRY455_UNCHANGED",
+  "base_distinct_families": 28,
+  "base_executable_suites": 38,
+  "distinct_product_ids": [
+    "V2P039",
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P046"
+  ],
+  "model_version": "R386_RETRO_PRODUCT_QUALITY_AUDIT_V1",
+  "promoted_product_ids": [
+    "V2P039",
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P044",
+    "V2P045",
+    "V2P046",
+    "V2P048"
+  ],
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "r386_executable_family_variants": 3,
+  "r386_executable_shadow_suites_built": 10,
+  "r386_native_promotable_executable_suites": 9,
+  "r386_new_distinct_families": 6,
+  "r386_quarantined_exploratory": 1,
+  "registry_family_count": 455,
+  "resulting_distinct_family_count": 34,
+  "resulting_executable_suite_count": 47,
+  "rows": [
+    {
+      "benchmark_present": true,
+      "consumer_id": "FOUNDRY:P033",
+      "difference_from_nearest": "SUSCA changes scalar marginal values/support floors inside shared capacity; SCCATF introduces pairwise covariance cross-terms between allocation choices, so the objective is no longer separable across regions.",
+      "directory": "V2P039_SCCATF",
+      "diversified_selected_rank": null,
+      "external_prior_art": [
+        "Covariance-aware optimal design/allocation is established; 2026 covariance-aware compromise allocation explicitly puts covariance interactions into a constrained allocation objective."
+      ],
+      "external_prior_art_status": "KNOWN_CLOSE_OPERATOR_NOT_NOVEL_THEORY",
+      "family_id": "V2P039",
+      "mechanism_removing_comparator": "same CATF allocation with covariance coupling removed from the objective",
+      "nearest_existing_product": "V2P029_SUSCA",
+      "new_failure_mode": "CATF allocates with additive local losses while off-diagonal support covariance makes one region choice change the risk cost of another region choice.",
+      "non_additive_interaction": "SACPS covariance enters CATF as an off-diagonal quadratic cross-term over allocation exposures; strong coupling changes the joint allocation while zero/low coupling collapses to CATF.",
+      "product_id": "V2P039",
+      "quality_accounting": "R386_DISTINCT_PRODUCT",
+      "raw_native_rank": null,
+      "short_name": "SCCATF",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_files": [
+        "test_sccatf.py"
+      ],
+      "verdict": "DISTINCT_PRODUCT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "difference_from_nearest": "BOSARO changes uncertainty-set geometry from support erosion; BMCAPL changes the policy action/update feasible set from decision-tipping distance.",
+      "directory": "V2P040_BMCAPL",
+      "diversified_selected_rank": null,
+      "external_prior_art": [
+        "Uncertainty-aware/adaptive trust-region policy optimization already adapts permitted policy movement to estimation uncertainty."
+      ],
+      "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+      "family_id": "V2P040",
+      "mechanism_removing_comparator": "same CAPL shell with fixed base turnover independent of BMDT tipping distance",
+      "nearest_existing_product": "V2P038_BOSARO",
+      "new_failure_mode": "A policy learner may satisfy static action constraints yet make an update whose allowed turnover is too large relative to the nearest belief change that flips the downstream decision.",
+      "non_additive_interaction": "BMDT decision-tipping distance continuously contracts CAPL maximum-turnover feasibility before policy optimization; it changes the feasible action set, not only a report or binary gate.",
+      "product_id": "V2P040",
+      "quality_accounting": "R386_DISTINCT_PRODUCT",
+      "raw_native_rank": null,
+      "short_name": "BMCAPL",
+      "supplier_id": "FOUNDRY:P093",
+      "test_files": [
+        "test_bmcapl.py"
+      ],
+      "verdict": "DISTINCT_PRODUCT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "difference_from_nearest": "PCFDLW changes the admissible candidate set using closure/fidelity certificates; CDTDLEW keeps candidates but changes the decision-loss objective across a channel-tipping ambiguity set.",
+      "directory": "V2P041_CDTDLEW",
+      "diversified_selected_rank": null,
+      "external_prior_art": [
+        "Blackwell informativeness under ambiguous experiments and maxmin/Wald comparisons over sets of experiments are established."
+      ],
+      "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+      "family_id": "V2P041",
+      "mechanism_removing_comparator": "ordinary DLEW selection at the nominal channel regime only",
+      "nearest_existing_product": "V2P030_PCFDLW",
+      "new_failure_mode": "DLEW can pick the lowest-regret model at one nominal channel even when a nearby channel-informativeness regime reverses that ranking.",
+      "non_additive_interaction": "CDTS defines the protected ambiguity/regime set and DLEW changes its selection objective to minimax decision regret over that set.",
+      "product_id": "V2P041",
+      "quality_accounting": "R386_DISTINCT_PRODUCT",
+      "raw_native_rank": null,
+      "short_name": "CDTDLEW",
+      "supplier_id": "FOUNDRY:P082",
+      "test_files": [
+        "test_cdtdlew.py"
+      ],
+      "verdict": "DISTINCT_PRODUCT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "difference_from_nearest": "QDRA allocates a declared resolution budget by decision-boundary value; ATSCWC changes the sequential measurement policy itself and thereby the stochastic stream seen by an online calibration-width controller.",
+      "directory": "V2P042_ATSCWC",
+      "diversified_selected_rank": 13,
+      "external_prior_art": [
+        "Yang & Zhang (2026), Conformalized Rate-Adaptive Sensing, jointly adapts sensing/acquisition rate and conformal calibration/coverage."
+      ],
+      "external_prior_art_status": "VERY_CLOSE_CURRENT_PRIOR_ART",
+      "family_id": "V2P042",
+      "mechanism_removing_comparator": "same CWC and same query budget with ActiveThresholdSensing selection replaced by a frozen evenly-spaced query schedule",
+      "nearest_existing_product": "V2P031_QDRA",
+      "new_failure_mode": "A calibration controller receives a needlessly noisy/wide posterior stream when measurement locations are frozen even though the same measurement budget can be targeted adaptively.",
+      "non_additive_interaction": "Active sensing changes the data-generating measurement locations that create the center/scale stream subsequently controlled for coverage; the acquisition policy and calibration state form a closed loop.",
+      "product_id": "V2P042",
+      "quality_accounting": "R386_DISTINCT_PRODUCT",
+      "raw_native_rank": 310,
+      "short_name": "ATSCWC",
+      "supplier_id": "LCB-K041",
+      "test_files": [
+        "test_atscwc.py"
+      ],
+      "verdict": "DISTINCT_PRODUCT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "LCB-K064",
+      "difference_from_nearest": "ISTAICC lets information acquisition itself move a participation/search equilibrium and adds continuation value; CBSCG uses an endogenous routing equilibrium to create the action surface whose latent state determines whether information is worth buying.",
+      "directory": "V2P043_CBSCG",
+      "diversified_selected_rank": 15,
+      "external_prior_art": [
+        "Value of information in Bayesian routing/congestion games with endogenous route response is established; the R386 composition is an internal product architecture, not a new information-economics theorem."
+      ],
+      "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+      "family_id": "V2P043",
+      "mechanism_removing_comparator": "same Wardrop strategic-response project choice using midpoint demand with the CBIA information-acquisition step removed",
+      "nearest_existing_product": "V2P035_ISTAICC",
+      "new_failure_mode": "Midpoint-demand infrastructure choice can be wrong when latent demand changes the strategic routing equilibrium and therefore flips the optimal capacity intervention.",
+      "non_additive_interaction": "Strategic-response equilibrium creates an action boundary in latent demand; CBIA acquires information only when the calibrated demand shell spans different equilibrium-optimal interventions and prices it by avoided decision regret.",
+      "product_id": "V2P043",
+      "quality_accounting": "R386_DISTINCT_PRODUCT",
+      "raw_native_rank": 342,
+      "short_name": "CBSCG",
+      "supplier_id": "FOUNDRY:P079",
+      "test_files": [
+        "test_cbscg.py"
+      ],
+      "verdict": "DISTINCT_PRODUCT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "LCB-K065",
+      "difference_from_nearest": "Different economic shell and action direction, but the deep operator is the same current information action -> endogenous future information equilibrium -> continuation-value correction already represented by V2P035.",
+      "directory": "V2P044_PIPEG",
+      "diversified_selected_rank": 22,
+      "external_prior_art": [
+        "Bayesian persuasion with costly/endogenous information acquisition is established; 2026 supply-chain work explicitly studies disclosure crowding out external learning."
+      ],
+      "external_prior_art_status": "EXACT_OR_VERY_CLOSE_PRIOR_ART",
+      "family_id": "V2P035",
+      "mechanism_removing_comparator": "same persuasion and information-production kernels with the disclosure-to-future-production coupling removed",
+      "nearest_existing_product": "V2P035_ISTAICC",
+      "new_failure_mode": "Aggressive disclosure can improve current persuasion payoff while destroying future information-producer entry.",
+      "non_additive_interaction": "Disclosure changes the future information-production equilibrium and therefore current policy value.",
+      "product_id": "V2P044",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "raw_native_rank": 491,
+      "short_name": "PIPEG",
+      "supplier_id": "PARENT:R001_C313_BPISD",
+      "test_files": [
+        "test_pipeg.py"
+      ],
+      "verdict": "EXECUTABLE_FAMILY_VARIANT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "LCB-K086",
+      "difference_from_nearest": "Executable deeper timing example, but it remains the same boundary/tipping signal -> testing-wealth release/timing family already represented by V2P015.",
+      "directory": "V2P045_FPTWC",
+      "diversified_selected_rank": 23,
+      "external_prior_art": [
+        "Adaptive online testing/alpha-wealth allocation is established; no new FDR theorem is claimed."
+      ],
+      "external_prior_art_status": "KNOWN_COMPONENT_COMPOSITION",
+      "family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "mechanism_removing_comparator": "same p-value stream, alpha budget, and TestingWealthController with FPTE coupling removed",
+      "nearest_existing_product": "V2P015_BGTW",
+      "new_failure_mode": "A fixed testing-wealth time profile can miss early signals when a declared failure path is close to tipping.",
+      "non_additive_interaction": "Failure-tipping proximity changes the temporal alpha-wealth profile.",
+      "product_id": "V2P045",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "raw_native_rank": 189,
+      "short_name": "FPTWC",
+      "supplier_id": "FOUNDRY:P030",
+      "test_files": [
+        "test_fptwc.py"
+      ],
+      "verdict": "EXECUTABLE_FAMILY_VARIANT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "difference_from_nearest": "STHA uses a tipping signal to abstain from a holdout audit; MTCWC uses a tipping signal to alter the internal state-transition/reset law of a continuing feedback controller.",
+      "directory": "V2P046_MTCWC",
+      "diversified_selected_rank": 35,
+      "external_prior_art": [
+        "Adaptive conformal methods with structural-break/change-point detection and calibration-window reset are established; recent 2026 online conformal work also targets faster shift adaptation."
+      ],
+      "external_prior_art_status": "VERY_CLOSE_PRIOR_ART",
+      "family_id": "V2P046",
+      "mechanism_removing_comparator": "same residual stream and CWC gains with tipping signal/state reset removed",
+      "nearest_existing_product": "V2P019_STHA",
+      "new_failure_mode": "A feedback calibration controller adapts too slowly after an externally observable mechanism/stress parameter crosses a certificate-breaking surface.",
+      "non_additive_interaction": "MCST tipping changes the controller state transition by resetting its learned width state; this is neither a pre-gate nor a changed measurement stream.",
+      "product_id": "V2P046",
+      "quality_accounting": "R386_DISTINCT_PRODUCT",
+      "raw_native_rank": 78,
+      "short_name": "MTCWC",
+      "supplier_id": "FOUNDRY:P037",
+      "test_files": [
+        "test_mtcwc.py"
+      ],
+      "verdict": "DISTINCT_PRODUCT"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "difference_from_nearest": "Mechanically interesting, but the exact TWMR->CWC pair is absent from the raw R386 native inferred-edge queue; prior rank-10 language referred to diversity reconstruction, not raw native rank.",
+      "directory": "V2P047_TWRCFC",
+      "diversified_selected_rank": 10,
+      "external_prior_art": [
+        "Model-reduction error is routinely propagated as epistemic uncertainty in reduced-order/multiscale models."
+      ],
+      "external_prior_art_status": "KNOWN_UNCERTAINTY_DECOMPOSITION_COMPONENTS",
+      "family_id": null,
+      "mechanism_removing_comparator": "same residual stream and CWC with the TWMR structural-error reserve removed",
+      "nearest_existing_product": "V2P032_SPITWMR",
+      "new_failure_mode": "Structural model-reduction error can contaminate stochastic coverage-feedback state if both are learned as one residual width.",
+      "non_additive_interaction": "TWMR structural reserve is separated from CWC stochastic feedback state.",
+      "product_id": "V2P047",
+      "quality_accounting": "SHADOW_NOT_COUNTED",
+      "raw_native_rank": null,
+      "short_name": "TWRCFC",
+      "supplier_id": "PARENT:IM178_IM326_TWMR",
+      "test_files": [
+        "test_twrcfc.py"
+      ],
+      "verdict": "SHADOW_EXPLORATORY_OUT_OF_NATIVE_QUEUE"
+    },
+    {
+      "benchmark_present": true,
+      "consumer_id": "PARENT:IM139_IM250_CCVC",
+      "difference_from_nearest": "Cross-domain safety realization of the same action-boundary information-acquisition operator already established by V2P043.",
+      "directory": "V2P048_CBIACCVC",
+      "diversified_selected_rank": null,
+      "external_prior_art": [
+        "Preserved as cross-domain evidence, not a new family."
+      ],
+      "external_prior_art_status": "KNOWN_VALUE_OF_INFORMATION_SAFETY_PATTERN",
+      "family_id": "V2P043",
+      "mechanism_removing_comparator": "same CCVC using prior-midpoint state with information acquisition removed",
+      "nearest_existing_product": "V2P043_CBSCG",
+      "new_failure_mode": "Prior-midpoint safety control can violate viability when latent state uncertainty spans different CCVC-filtered safe actions.",
+      "non_additive_interaction": "CBIA buys the state measurement only when the calibrated shell spans different viability-filtered controls.",
+      "product_id": "V2P048",
+      "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+      "raw_native_rank": 550,
+      "short_name": "CBIACCVC",
+      "supplier_id": "FOUNDRY:P079",
+      "test_files": [
+        "test_cbiaccvc.py"
+      ],
+      "verdict": "EXECUTABLE_FAMILY_VARIANT"
+    }
+  ],
+  "rules": [
+    "native/raw queue or explicit canonical productization authority required for product-overlay promotion",
+    "executable suite does not imply distinct family",
+    "new failure + non-additive interaction + nearest-family comparison + removal control required",
+    "external prior art limits novelty claims but does not erase an internally distinct executable product architecture",
+    "telemetry calibrates test channels; it is not deployment evidence"
+  ],
+  "variant_product_ids": [
+    "V2P044",
+    "V2P045",
+    "V2P048"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "scope": "Public spending values, artificially transformed Excel files. Five engineering cases; no field accuracy or provenance truth claim.",
+  "source": {
+    "publisher": "HM Treasury",
+    "dataset": "Spending over \u00a325,000, September 2025",
+    "published_date": "2025-12-16",
+    "publication": "https://www.gov.uk/government/publications/hm-treasury-spending-over-25000-september-2025",
+    "url": "https://assets.publishing.service.gov.uk/media/6941416e29501ea90654a4e2/HMT_spending_over_25000_Sep_25.csv",
+    "sha256": "dff8db8e80f988de639040c65a2cf173d85a70ce18606749600f10bfcde39afa",
+    "bytes": 11946,
+    "license": "Open Government Licence v3.0",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "records": 84,
+  "preprocessing": "UTF-8 BOM removed by CSV decoder; headers stripped; Amount parsed as numeric after removing leading \u00a3 and thousands commas; all other fields preserved as text. Demonstration SUM added to each workbook.",
+  "transformation": "Fixed seed 20260914. Row/column permutations. Changed value +123.45. Changed unique voucher is first unique voucher; repeated-voucher case changes first record. Renamed headers are Field N. Last case independently shuffles every column: identical marginal bags do not imply matching records.",
+  "evaluation": "Planted maps are separate files and are never passed to the matcher. Counts exclude header rows. Outside planted pairs in the marginal-shuffle case are coincidental row candidates, not claimed false provenance. Timing is informational, not a performance comparison.",
+  "source_hashes": {
+    "workbench/content.py": "31bc60e31d043ec40e6ba4f213851d996c51fae80059e5004a6736161be78fb4",
+    "workbench/record_matches.py": "012cd571856dbbea7c934524c200a61872b6eef89f71da34c08de11ca32081a5",
+    "workbench/cli.py": "4a01b54362958b2d2d8cec98daafec6472e863d4e8d78564f8c4e87f2af1c887",
+    "workbench/content_report.py": "7cb0a8c098b250b5f0f03c9402d8129d37e51deec348d5d561eec7ecdf237a33",
+    "examples/public-spending/reproduce.py": "4eec1d729fb650beb624bc65fb9794389e739ae65ff513d7d422acf4d121b046"
+  },
+  "cases": [
+    {
+      "case": "reordered",
+      "records": 84,
+      "changed_source_row": null,
+      "row_alignment": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_fuzzy": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": null,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 52.7955839970673,
+        "both_header_baselines": 68.71495900122682
+      }
+    },
+    {
+      "case": "changed_unique_voucher",
+      "records": 84,
+      "changed_source_row": 8,
+      "row_alignment": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "header_fuzzy": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": true,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 126.99370900008944,
+        "both_header_baselines": 71.83658299982199
+      }
+    },
+    {
+      "case": "changed_repeated_voucher",
+      "records": 84,
+      "changed_source_row": 2,
+      "row_alignment": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "header_exact": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "header_fuzzy": {
+        "returned": 83,
+        "correct_planted_pairs": 83,
+        "outside_planted_pairs": 0,
+        "missed": 1
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": false,
+      "ambiguous_rows_omitted": 1,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 58.73862500084215,
+        "both_header_baselines": 77.29062500220607
+      }
+    },
+    {
+      "case": "renamed_headers_changed_amount",
+      "records": 84,
+      "changed_source_row": 8,
+      "row_alignment": {
+        "returned": 84,
+        "correct_planted_pairs": 84,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 84
+      },
+      "header_fuzzy": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 84
+      },
+      "baseline_scope": "Not applicable: complete header correspondence unavailable",
+      "changed_pair_returned": true,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 1,
+      "informational_single_run_ms": {
+        "complete_content_search": 58.88716600020416,
+        "both_header_baselines": 0.12450000212993473
+      }
+    },
+    {
+      "case": "columns_shuffled_independently",
+      "records": 84,
+      "changed_source_row": null,
+      "row_alignment": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_exact": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "header_fuzzy": {
+        "returned": 0,
+        "correct_planted_pairs": 0,
+        "outside_planted_pairs": 0,
+        "missed": 0
+      },
+      "baseline_scope": "Headers supply column correspondence; exact or mutually unique 80% row agreement",
+      "changed_pair_returned": null,
+      "ambiguous_rows_omitted": 0,
+      "total_displayed_regions": 0,
+      "informational_single_run_ms": {
+        "complete_content_search": 59.00083300002734,
+        "both_header_baselines": 78.69687499987776
+      }
+    }
+  ]
+}

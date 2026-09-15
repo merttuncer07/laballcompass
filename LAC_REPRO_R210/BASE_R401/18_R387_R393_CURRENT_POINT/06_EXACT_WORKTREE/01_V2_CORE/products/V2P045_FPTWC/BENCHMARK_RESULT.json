@@ -1,0 +1,143 @@
+{
+  "mechanism_removing_comparator": "same p-value stream, alpha budget, and TestingWealthController; FPTE tipping proximity is removed so gamma profile remains baseline",
+  "evidence_boundary": "synthetic early-signal sequential-testing shell; demonstrates timing-coupling mechanism, not FDR validity outside the controller assumptions",
+  "result": {
+    "tipping_status": "FROZEN_ARCHITECTURE_FAILURE_TIPPING_FOUND",
+    "tipping_retention": 0.8,
+    "tipping_proximity": 0.1499999999999999,
+    "candidate": {
+      "gamma_power": 2.5,
+      "discoveries": 3,
+      "trajectory": [
+        {
+          "t": 0,
+          "alpha_t": 0.07564749514353082,
+          "reject": true,
+          "discoveries_so_far": 1
+        },
+        {
+          "t": 1,
+          "alpha_t": 0.0890202093424726,
+          "reject": true,
+          "discoveries_so_far": 2
+        },
+        {
+          "t": 2,
+          "alpha_t": 0.09387299841854352,
+          "reject": true,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 3,
+          "alpha_t": 0.09623698264177886,
+          "reject": false,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 4,
+          "alpha_t": 0.021942711029996204,
+          "reject": false,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 5,
+          "alpha_t": 0.009427856846893876,
+          "reject": false,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 6,
+          "alpha_t": 0.00515857931442279,
+          "reject": false,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 7,
+          "alpha_t": 0.003212492409904382,
+          "reject": false,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 8,
+          "alpha_t": 0.002170575442532891,
+          "reject": false,
+          "discoveries_so_far": 3
+        },
+        {
+          "t": 9,
+          "alpha_t": 0.0015519338106335348,
+          "reject": false,
+          "discoveries_so_far": 3
+        }
+      ]
+    },
+    "mechanism_removed": {
+      "gamma_power": 1.6,
+      "discoveries": 0,
+      "trajectory": [
+        {
+          "t": 0,
+          "alpha_t": 0.05321008571014546,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 1,
+          "alpha_t": 0.017552782256860168,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 2,
+          "alpha_t": 0.009174870666327349,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 3,
+          "alpha_t": 0.005790258761000271,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 4,
+          "alpha_t": 0.004051743569661115,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 5,
+          "alpha_t": 0.0030265786061342784,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 6,
+          "alpha_t": 0.0023650323982735743,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 7,
+          "alpha_t": 0.0019100730601404787,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 8,
+          "alpha_t": 0.0015819980483095513,
+          "reject": false,
+          "discoveries_so_far": 0
+        },
+        {
+          "t": 9,
+          "alpha_t": 0.0013365769231477613,
+          "reject": false,
+          "discoveries_so_far": 0
+        }
+      ]
+    },
+    "discovery_gain": 3,
+    "status": "TIPPING_PROXIMITY_REALLOCATES_TESTING_WEALTH"
+  }
+}

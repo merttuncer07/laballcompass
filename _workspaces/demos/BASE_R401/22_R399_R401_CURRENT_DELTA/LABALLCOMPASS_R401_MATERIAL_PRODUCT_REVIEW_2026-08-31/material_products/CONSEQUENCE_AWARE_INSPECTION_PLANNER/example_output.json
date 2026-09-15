@@ -1,0 +1,309 @@
+{
+  "product": "CONSEQUENCE_AWARE_INSPECTION_PLANNER_V1",
+  "budget": 18.0,
+  "plan": {
+    "total_cost": 17.6,
+    "total_decision_loss": 1159.7,
+    "selections": [
+      {
+        "target": "high_pressure_pump",
+        "mode": "full_diagnostic",
+        "cost": 7.0,
+        "decision_loss": 63.69999999999999,
+        "loss_share": 0.05492799862033283
+      },
+      {
+        "target": "boiler_feed_valve",
+        "mode": "balanced_review",
+        "cost": 3.5999999999999996,
+        "decision_loss": 416.0,
+        "loss_share": 0.35871346037768387
+      },
+      {
+        "target": "refrigeration_compressor",
+        "mode": "balanced_review",
+        "cost": 3.0,
+        "decision_loss": 364.0,
+        "loss_share": 0.3138742778304734
+      },
+      {
+        "target": "warehouse_fan",
+        "mode": "quick_screen",
+        "cost": 1.0,
+        "decision_loss": 52.0,
+        "loss_share": 0.044839182547210484
+      },
+      {
+        "target": "backup_generator",
+        "mode": "balanced_review",
+        "cost": 3.0,
+        "decision_loss": 264.0,
+        "loss_share": 0.2276450806242994
+      }
+    ]
+  },
+  "comparison": {
+    "minimum_cost_plan": {
+      "total_cost": 5.2,
+      "total_decision_loss": 4379.0,
+      "selections": [
+        {
+          "target": "high_pressure_pump",
+          "mode": "quick_screen",
+          "cost": 1.0,
+          "decision_loss": 1090.0,
+          "loss_share": 0.24891527746060743
+        },
+        {
+          "target": "boiler_feed_valve",
+          "mode": "quick_screen",
+          "cost": 1.2,
+          "decision_loss": 1640.0,
+          "loss_share": 0.37451472939027175
+        },
+        {
+          "target": "refrigeration_compressor",
+          "mode": "quick_screen",
+          "cost": 1.0,
+          "decision_loss": 1099.0,
+          "loss_share": 0.2509705412194565
+        },
+        {
+          "target": "warehouse_fan",
+          "mode": "quick_screen",
+          "cost": 1.0,
+          "decision_loss": 52.0,
+          "loss_share": 0.01187485727335008
+        },
+        {
+          "target": "backup_generator",
+          "mode": "quick_screen",
+          "cost": 1.0,
+          "decision_loss": 498.0,
+          "loss_share": 0.11372459465631422
+        }
+      ]
+    },
+    "loss_reduction_vs_minimum_cost_percent": 73.5167846540306,
+    "best_affordable_uniform_plan": {
+      "total_cost": 15.6,
+      "total_decision_loss": 1580.0,
+      "selections": [
+        {
+          "target": "high_pressure_pump",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 520.0,
+          "loss_share": 0.3291139240506329
+        },
+        {
+          "target": "boiler_feed_valve",
+          "mode": "balanced_review",
+          "cost": 3.5999999999999996,
+          "decision_loss": 416.0,
+          "loss_share": 0.26329113924050634
+        },
+        {
+          "target": "refrigeration_compressor",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 364.0,
+          "loss_share": 0.23037974683544304
+        },
+        {
+          "target": "warehouse_fan",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 16.0,
+          "loss_share": 0.010126582278481013
+        },
+        {
+          "target": "backup_generator",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 264.0,
+          "loss_share": 0.1670886075949367
+        }
+      ]
+    },
+    "loss_reduction_vs_uniform_percent": 26.601265822784807,
+    "configured_baseline_plan": {
+      "total_cost": 15.6,
+      "total_decision_loss": 1580.0,
+      "selections": [
+        {
+          "target": "high_pressure_pump",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 520.0,
+          "loss_share": 0.3291139240506329
+        },
+        {
+          "target": "boiler_feed_valve",
+          "mode": "balanced_review",
+          "cost": 3.5999999999999996,
+          "decision_loss": 416.0,
+          "loss_share": 0.26329113924050634
+        },
+        {
+          "target": "refrigeration_compressor",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 364.0,
+          "loss_share": 0.23037974683544304
+        },
+        {
+          "target": "warehouse_fan",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 16.0,
+          "loss_share": 0.010126582278481013
+        },
+        {
+          "target": "backup_generator",
+          "mode": "balanced_review",
+          "cost": 3.0,
+          "decision_loss": 264.0,
+          "loss_share": 0.1670886075949367
+        }
+      ]
+    },
+    "loss_reduction_vs_configured_percent": 26.601265822784807
+  },
+  "next_better_plan": {
+    "required_budget": 19.6,
+    "additional_budget": 1.6000000000000014,
+    "total_decision_loss": 1074.29,
+    "additional_loss_reduction_percent": 7.364835733379328,
+    "mode_by_target": {
+      "high_pressure_pump": "full_diagnostic",
+      "boiler_feed_valve": "balanced_review",
+      "refrigeration_compressor": "full_diagnostic",
+      "warehouse_fan": "quick_screen",
+      "backup_generator": "quick_screen"
+    }
+  },
+  "budget_curve": [
+    {
+      "budget": 8.0,
+      "feasible": true,
+      "total_cost": 7.6,
+      "total_decision_loss": 3155.0,
+      "mode_by_target": {
+        "high_pressure_pump": "quick_screen",
+        "boiler_feed_valve": "balanced_review",
+        "refrigeration_compressor": "quick_screen",
+        "warehouse_fan": "quick_screen",
+        "backup_generator": "quick_screen"
+      }
+    },
+    {
+      "budget": 12.0,
+      "feasible": true,
+      "total_cost": 11.6,
+      "total_decision_loss": 1850.0,
+      "mode_by_target": {
+        "high_pressure_pump": "balanced_review",
+        "boiler_feed_valve": "balanced_review",
+        "refrigeration_compressor": "balanced_review",
+        "warehouse_fan": "quick_screen",
+        "backup_generator": "quick_screen"
+      }
+    },
+    {
+      "budget": 15.0,
+      "feasible": true,
+      "total_cost": 13.6,
+      "total_decision_loss": 1616.0,
+      "mode_by_target": {
+        "high_pressure_pump": "balanced_review",
+        "boiler_feed_valve": "balanced_review",
+        "refrigeration_compressor": "balanced_review",
+        "warehouse_fan": "quick_screen",
+        "backup_generator": "balanced_review"
+      }
+    },
+    {
+      "budget": 18.0,
+      "feasible": true,
+      "total_cost": 17.6,
+      "total_decision_loss": 1159.7,
+      "mode_by_target": {
+        "high_pressure_pump": "full_diagnostic",
+        "boiler_feed_valve": "balanced_review",
+        "refrigeration_compressor": "balanced_review",
+        "warehouse_fan": "quick_screen",
+        "backup_generator": "balanced_review"
+      }
+    },
+    {
+      "budget": 22.0,
+      "feasible": true,
+      "total_cost": 21.6,
+      "total_decision_loss": 840.29,
+      "mode_by_target": {
+        "high_pressure_pump": "full_diagnostic",
+        "boiler_feed_valve": "balanced_review",
+        "refrigeration_compressor": "full_diagnostic",
+        "warehouse_fan": "quick_screen",
+        "backup_generator": "balanced_review"
+      }
+    },
+    {
+      "budget": 27.0,
+      "feasible": true,
+      "total_cost": 26.4,
+      "total_decision_loss": 475.25,
+      "mode_by_target": {
+        "high_pressure_pump": "full_diagnostic",
+        "boiler_feed_valve": "full_diagnostic",
+        "refrigeration_compressor": "full_diagnostic",
+        "warehouse_fan": "quick_screen",
+        "backup_generator": "balanced_review"
+      }
+    }
+  ],
+  "optimizer": {
+    "method": "exact_non_dominated_multiple_choice_frontier",
+    "frontier_points": 20,
+    "targets": 5,
+    "modes": 4
+  },
+  "stress_cases": [
+    {
+      "name": "backup generator becomes mission critical",
+      "consequence_multipliers": {
+        "backup_generator": 2.5
+      },
+      "total_cost": 17.6,
+      "total_decision_loss": 1432.85,
+      "mode_changes": [
+        {
+          "target": "high_pressure_pump",
+          "base_mode": "full_diagnostic",
+          "stress_mode": "balanced_review"
+        },
+        {
+          "target": "backup_generator",
+          "base_mode": "balanced_review",
+          "stress_mode": "full_diagnostic"
+        }
+      ],
+      "stable": false
+    },
+    {
+      "name": "warehouse ventilation outage matters more",
+      "consequence_multipliers": {
+        "warehouse_fan": 5.0
+      },
+      "total_cost": 17.6,
+      "total_decision_loss": 1367.7,
+      "mode_changes": [],
+      "stable": true
+    }
+  ],
+  "interpretation": {
+    "loss": "Relative consequence-weighted error; compare plans, do not read as currency.",
+    "scope": "Inputs are declared estimates. The tool allocates them exactly but does not validate their empirical accuracy."
+  }
+}

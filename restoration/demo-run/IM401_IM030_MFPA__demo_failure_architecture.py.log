@@ -1,0 +1,79 @@
+{
+  "equal_total_mass": 1.0,
+  "optimized_composed": {
+    "allocation": {
+      "sacrificial_layer": 0.55,
+      "crack_deflection": 0.2,
+      "fiber_pullout": 0.1,
+      "phase_transformation": 0.15000000000000002
+    },
+    "scenario_failure_energy": {
+      "nominal": 5.946623909414527,
+      "wet": 4.286348829127315,
+      "hot": 4.459325460228171,
+      "misaligned": 4.916759166376648
+    },
+    "activated_routes": {
+      "nominal": [
+        "sacrificial_layer",
+        "crack_deflection",
+        "fiber_pullout",
+        "phase_transformation"
+      ],
+      "wet": [
+        "sacrificial_layer",
+        "crack_deflection",
+        "fiber_pullout",
+        "phase_transformation"
+      ],
+      "hot": [
+        "sacrificial_layer",
+        "crack_deflection",
+        "fiber_pullout",
+        "phase_transformation"
+      ],
+      "misaligned": [
+        "sacrificial_layer",
+        "crack_deflection",
+        "fiber_pullout",
+        "phase_transformation"
+      ]
+    },
+    "worst_case_energy": 4.286348829127315,
+    "mean_energy": 4.902264341286665,
+    "failure_family_concentration": 0.37500000000000006
+  },
+  "best_single_route": {
+    "allocation": {
+      "sacrificial_layer": 1.0,
+      "crack_deflection": 0.0,
+      "fiber_pullout": 0.0,
+      "phase_transformation": 0.0
+    },
+    "scenario_failure_energy": {
+      "nominal": 3.6391886660506714,
+      "wet": 1.923716033117735,
+      "hot": 2.84743206623547,
+      "misaligned": 3.6391886660506714
+    },
+    "activated_routes": {
+      "nominal": [
+        "sacrificial_layer"
+      ],
+      "wet": [
+        "sacrificial_layer"
+      ],
+      "hot": [
+        "sacrificial_layer"
+      ],
+      "misaligned": [
+        "sacrificial_layer"
+      ]
+    },
+    "worst_case_energy": 1.923716033117735,
+    "mean_energy": 3.012381357863637,
+    "failure_family_concentration": 1.0
+  },
+  "worst_case_energy_gain": 2.3626327960095796,
+  "worst_case_relative_gain": 1.2281608903474694
+}

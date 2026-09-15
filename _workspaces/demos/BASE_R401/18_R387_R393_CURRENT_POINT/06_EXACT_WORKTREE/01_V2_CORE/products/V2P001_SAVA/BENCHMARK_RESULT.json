@@ -1,0 +1,34 @@
+{
+  "exact_one_slot": {
+    "mode": "EXACT_POSTERIOR_SUBSET_REOPTIMIZATION",
+    "selected_audits": [
+      "B_clean_shared"
+    ],
+    "allocated_shared_capacity": {
+      "B_clean_shared": 100.0
+    },
+    "expected_deployable_liquidity": 95.0,
+    "naive_independent_value": 180.0,
+    "overlap_removed_value": 85.0,
+    "status": "SHARED_CAPACITY_VERIFICATION_ALLOCATED_WITHOUT_ADDITIVE_DOUBLE_COUNT"
+  },
+  "scalable_allocation": {
+    "mode": "SCALABLE_POLYMATROID_EXPECTED_VALUE_ALLOCATION",
+    "selected_audits": [
+      "A_large_suspicious",
+      "B_clean_shared",
+      "C_clean_anchor"
+    ],
+    "allocated_shared_capacity": {
+      "A_large_suspicious": 0.0,
+      "B_clean_shared": 60.0,
+      "C_clean_anchor": 40.0
+    },
+    "expected_deployable_liquidity": 97.0,
+    "naive_independent_value": 180.0,
+    "overlap_removed_value": 83.0,
+    "status": "SHARED_CAPACITY_VERIFICATION_ALLOCATED_WITHOUT_ADDITIVE_DOUBLE_COUNT"
+  },
+  "naive_minus_shared_capacity_value": 83.0,
+  "relative_double_count_removed": 0.46111111111111114
+}

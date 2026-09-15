@@ -1,0 +1,23 @@
+{
+  "true_target": 2.0,
+  "naive_unadjusted_target": 2.104014739113281,
+  "orthogonal_crossfit": {
+    "target": 2.0016856122291773,
+    "standard_error": 0.007051979998023247,
+    "confidence_low_95": 1.9878637314330516,
+    "confidence_high_95": 2.0155074930253027,
+    "observations": 20000,
+    "folds": 5,
+    "residual_treatment_variance": 0.99260418513332
+  },
+  "absolute_error_naive": 0.10401473911328107,
+  "absolute_error_orthogonal": 0.0016856122291772913,
+  "nuisance_perturbation_path": {
+    "0.0": 2.001599470259257,
+    "0.05": 1.9958843979837129,
+    "0.1": 1.9802757469308263,
+    "0.2": 1.9215027780876717
+  },
+  "observations": 20000,
+  "representation_dimensions": 3
+}

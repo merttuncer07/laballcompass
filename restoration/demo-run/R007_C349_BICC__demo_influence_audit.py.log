@@ -1,0 +1,517 @@
+{
+  "distributed_influence": {
+    "sample_size": 80000,
+    "coordinates": 30,
+    "output_mean": 0.49957581543103197,
+    "empirical_output_variance": 0.0027899097114711595,
+    "efron_stein_variance_upper_proxy": 0.002778669058462253,
+    "supplied_bound_square_sum": 0.03333333333333333,
+    "mcdiarmid_two_sided_radius": 0.24795427851769825,
+    "delta": 0.05,
+    "largest_bound_share": 0.03333333333333333,
+    "effective_coordinates": 30.0,
+    "certificate_status": "ASSUMPTION_CONDITIONAL_CERTIFICATE",
+    "influences": [
+      {
+        "coordinate": 0,
+        "rms_replacement_effect": 0.013667114813768899,
+        "mean_absolute_replacement_effect": 0.011166214733764973,
+        "maximum_observed_replacement_effect": 0.033284901393974,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 1,
+        "rms_replacement_effect": 0.013583034876460304,
+        "mean_absolute_replacement_effect": 0.011090703646360466,
+        "maximum_observed_replacement_effect": 0.033266706232925936,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 2,
+        "rms_replacement_effect": 0.013665531536825504,
+        "mean_absolute_replacement_effect": 0.011167619031729668,
+        "maximum_observed_replacement_effect": 0.033189831135458925,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 3,
+        "rms_replacement_effect": 0.013627523862892246,
+        "mean_absolute_replacement_effect": 0.011126305256112688,
+        "maximum_observed_replacement_effect": 0.03329996005925878,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 4,
+        "rms_replacement_effect": 0.01360620103949308,
+        "mean_absolute_replacement_effect": 0.011101595820782222,
+        "maximum_observed_replacement_effect": 0.03319076268706056,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 5,
+        "rms_replacement_effect": 0.01359688044343674,
+        "mean_absolute_replacement_effect": 0.011111695791437287,
+        "maximum_observed_replacement_effect": 0.03317443169771228,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 6,
+        "rms_replacement_effect": 0.01358913178408892,
+        "mean_absolute_replacement_effect": 0.011087648180783241,
+        "maximum_observed_replacement_effect": 0.03320000168629966,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 7,
+        "rms_replacement_effect": 0.01364282413241518,
+        "mean_absolute_replacement_effect": 0.011143385230596277,
+        "maximum_observed_replacement_effect": 0.03323221678933175,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 8,
+        "rms_replacement_effect": 0.013600752107940955,
+        "mean_absolute_replacement_effect": 0.011107813696064521,
+        "maximum_observed_replacement_effect": 0.0332693399655104,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 9,
+        "rms_replacement_effect": 0.013593219952784343,
+        "mean_absolute_replacement_effect": 0.01108580002881651,
+        "maximum_observed_replacement_effect": 0.03324542560830146,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 10,
+        "rms_replacement_effect": 0.013602357405693129,
+        "mean_absolute_replacement_effect": 0.01109717137695926,
+        "maximum_observed_replacement_effect": 0.03322913684057105,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 11,
+        "rms_replacement_effect": 0.013574551742369932,
+        "mean_absolute_replacement_effect": 0.011082180059851742,
+        "maximum_observed_replacement_effect": 0.03321109698413721,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 12,
+        "rms_replacement_effect": 0.013644504606128911,
+        "mean_absolute_replacement_effect": 0.011146244849348312,
+        "maximum_observed_replacement_effect": 0.03317661774249547,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 13,
+        "rms_replacement_effect": 0.013662316170712887,
+        "mean_absolute_replacement_effect": 0.01114789130359561,
+        "maximum_observed_replacement_effect": 0.03323830922246307,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 14,
+        "rms_replacement_effect": 0.013614981105443607,
+        "mean_absolute_replacement_effect": 0.011112937795573331,
+        "maximum_observed_replacement_effect": 0.0332138811024541,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 15,
+        "rms_replacement_effect": 0.013588058334813679,
+        "mean_absolute_replacement_effect": 0.011102408380629973,
+        "maximum_observed_replacement_effect": 0.03319494322086347,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 16,
+        "rms_replacement_effect": 0.013587918282356443,
+        "mean_absolute_replacement_effect": 0.011087012239156108,
+        "maximum_observed_replacement_effect": 0.03323813047212687,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 17,
+        "rms_replacement_effect": 0.013652473018584405,
+        "mean_absolute_replacement_effect": 0.011164047008089139,
+        "maximum_observed_replacement_effect": 0.03331440652243578,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 18,
+        "rms_replacement_effect": 0.013590860797157428,
+        "mean_absolute_replacement_effect": 0.011081213822788776,
+        "maximum_observed_replacement_effect": 0.033269015891912335,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 19,
+        "rms_replacement_effect": 0.013591866736215546,
+        "mean_absolute_replacement_effect": 0.011099329904259637,
+        "maximum_observed_replacement_effect": 0.03326304161055105,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 20,
+        "rms_replacement_effect": 0.013605742479317678,
+        "mean_absolute_replacement_effect": 0.011108520276788861,
+        "maximum_observed_replacement_effect": 0.033217136749425336,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 21,
+        "rms_replacement_effect": 0.013630055720623261,
+        "mean_absolute_replacement_effect": 0.011126879361723125,
+        "maximum_observed_replacement_effect": 0.033278968124508146,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 22,
+        "rms_replacement_effect": 0.013647452839258096,
+        "mean_absolute_replacement_effect": 0.011136419051837914,
+        "maximum_observed_replacement_effect": 0.033264365679293584,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 23,
+        "rms_replacement_effect": 0.01358780385052669,
+        "mean_absolute_replacement_effect": 0.011089779465709602,
+        "maximum_observed_replacement_effect": 0.033187681502850785,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 24,
+        "rms_replacement_effect": 0.01357483714454297,
+        "mean_absolute_replacement_effect": 0.011089839203509564,
+        "maximum_observed_replacement_effect": 0.0330626078430335,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 25,
+        "rms_replacement_effect": 0.013633905674142592,
+        "mean_absolute_replacement_effect": 0.01113724812060365,
+        "maximum_observed_replacement_effect": 0.03327401158288168,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 26,
+        "rms_replacement_effect": 0.013561403358559095,
+        "mean_absolute_replacement_effect": 0.011062554702141819,
+        "maximum_observed_replacement_effect": 0.03324954069686248,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 27,
+        "rms_replacement_effect": 0.013612086024502777,
+        "mean_absolute_replacement_effect": 0.011127213723442837,
+        "maximum_observed_replacement_effect": 0.03324773546104354,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 28,
+        "rms_replacement_effect": 0.013625083998807701,
+        "mean_absolute_replacement_effect": 0.011119760080678004,
+        "maximum_observed_replacement_effect": 0.03326417610411869,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 29,
+        "rms_replacement_effect": 0.013552269911702922,
+        "mean_absolute_replacement_effect": 0.011048062853115815,
+        "maximum_observed_replacement_effect": 0.033200378284437004,
+        "supplied_global_bound": 0.03333333333333333,
+        "observed_bound_violation": false
+      }
+    ]
+  },
+  "concentrated_influence": {
+    "sample_size": 80000,
+    "coordinates": 30,
+    "output_mean": 0.49964616866941197,
+    "empirical_output_variance": 0.047100546174823454,
+    "efron_stein_variance_upper_proxy": 0.047460829313094505,
+    "supplied_bound_square_sum": 0.564655172413793,
+    "mcdiarmid_two_sided_radius": 1.0205255666019355,
+    "delta": 0.05,
+    "largest_bound_share": 0.9961832061068704,
+    "effective_coordinates": 1.0076770049253105,
+    "certificate_status": "ASSUMPTION_CONDITIONAL_CERTIFICATE",
+    "influences": [
+      {
+        "coordinate": 0,
+        "rms_replacement_effect": 0.3075100833098002,
+        "mean_absolute_replacement_effect": 0.2512398315097119,
+        "maximum_observed_replacement_effect": 0.7489102813644145,
+        "supplied_global_bound": 0.75,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 1,
+        "rms_replacement_effect": 0.0035128538473604234,
+        "mean_absolute_replacement_effect": 0.0028682854257828794,
+        "maximum_observed_replacement_effect": 0.008603458508515405,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 2,
+        "rms_replacement_effect": 0.00353418919055832,
+        "mean_absolute_replacement_effect": 0.0028881773357921554,
+        "maximum_observed_replacement_effect": 0.00858357701779111,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 3,
+        "rms_replacement_effect": 0.003524359619713512,
+        "mean_absolute_replacement_effect": 0.0028774927386498333,
+        "maximum_observed_replacement_effect": 0.00861205863601519,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 4,
+        "rms_replacement_effect": 0.003518845096420624,
+        "mean_absolute_replacement_effect": 0.0028711023674436783,
+        "maximum_observed_replacement_effect": 0.00858381793630869,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 5,
+        "rms_replacement_effect": 0.0035164345974405356,
+        "mean_absolute_replacement_effect": 0.002873714428819988,
+        "maximum_observed_replacement_effect": 0.00857959440458067,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 6,
+        "rms_replacement_effect": 0.0035144306338160997,
+        "mean_absolute_replacement_effect": 0.00286749521916808,
+        "maximum_observed_replacement_effect": 0.008586207332663687,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 7,
+        "rms_replacement_effect": 0.003528316585969443,
+        "mean_absolute_replacement_effect": 0.0028819099734300716,
+        "maximum_observed_replacement_effect": 0.008594538824827191,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 8,
+        "rms_replacement_effect": 0.0035174358899847298,
+        "mean_absolute_replacement_effect": 0.002872710438637376,
+        "maximum_observed_replacement_effect": 0.008604139646252673,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 9,
+        "rms_replacement_effect": 0.003515487918823537,
+        "mean_absolute_replacement_effect": 0.002867017248831856,
+        "maximum_observed_replacement_effect": 0.008597954898698634,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 10,
+        "rms_replacement_effect": 0.003517851053196499,
+        "mean_absolute_replacement_effect": 0.002869958114730843,
+        "maximum_observed_replacement_effect": 0.008593742286354566,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 11,
+        "rms_replacement_effect": 0.0035106599333715343,
+        "mean_absolute_replacement_effect": 0.002866081049961658,
+        "maximum_observed_replacement_effect": 0.008589076806242435,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 12,
+        "rms_replacement_effect": 0.003528751191240236,
+        "mean_absolute_replacement_effect": 0.002882649530003874,
+        "maximum_observed_replacement_effect": 0.008580159760990247,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 13,
+        "rms_replacement_effect": 0.003533357630356781,
+        "mean_absolute_replacement_effect": 0.0028830753371367956,
+        "maximum_observed_replacement_effect": 0.008596114454085257,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 14,
+        "rms_replacement_effect": 0.003521115803131967,
+        "mean_absolute_replacement_effect": 0.0028740356367862063,
+        "maximum_observed_replacement_effect": 0.008589796836841579,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 15,
+        "rms_replacement_effect": 0.003514153017624227,
+        "mean_absolute_replacement_effect": 0.0028713125122318897,
+        "maximum_observed_replacement_effect": 0.008584899108843996,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 16,
+        "rms_replacement_effect": 0.003514116797161149,
+        "mean_absolute_replacement_effect": 0.0028673307515058896,
+        "maximum_observed_replacement_effect": 0.008596068225550035,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 17,
+        "rms_replacement_effect": 0.0035308119875649326,
+        "mean_absolute_replacement_effect": 0.0028872535365747774,
+        "maximum_observed_replacement_effect": 0.00861579479028518,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 18,
+        "rms_replacement_effect": 0.0035148777923683003,
+        "mean_absolute_replacement_effect": 0.0028658311610660625,
+        "maximum_observed_replacement_effect": 0.008604055834115276,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 19,
+        "rms_replacement_effect": 0.003515137949021262,
+        "mean_absolute_replacement_effect": 0.002870516354549906,
+        "maximum_observed_replacement_effect": 0.008602510761349436,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 20,
+        "rms_replacement_effect": 0.0035187265032718138,
+        "mean_absolute_replacement_effect": 0.0028728931750316026,
+        "maximum_observed_replacement_effect": 0.008590638814506543,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 21,
+        "rms_replacement_effect": 0.003525014410506016,
+        "mean_absolute_replacement_effect": 0.0028776412142387394,
+        "maximum_observed_replacement_effect": 0.008606629687372802,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 22,
+        "rms_replacement_effect": 0.00352951366532537,
+        "mean_absolute_replacement_effect": 0.002880108375475323,
+        "maximum_observed_replacement_effect": 0.008602853192920784,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 23,
+        "rms_replacement_effect": 0.0035140872027224195,
+        "mean_absolute_replacement_effect": 0.0028680464135455875,
+        "maximum_observed_replacement_effect": 0.008583021078323538,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 24,
+        "rms_replacement_effect": 0.0035107337442783545,
+        "mean_absolute_replacement_effect": 0.0028680618629766115,
+        "maximum_observed_replacement_effect": 0.008550674442163841,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 25,
+        "rms_replacement_effect": 0.0035260100881403258,
+        "mean_absolute_replacement_effect": 0.0028803227898112887,
+        "maximum_observed_replacement_effect": 0.008605347823158915,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 26,
+        "rms_replacement_effect": 0.0035072594892825246,
+        "mean_absolute_replacement_effect": 0.0028610055264159874,
+        "maximum_observed_replacement_effect": 0.008599019145740294,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 27,
+        "rms_replacement_effect": 0.003520367075302442,
+        "mean_absolute_replacement_effect": 0.0028777276870972854,
+        "maximum_observed_replacement_effect": 0.008598552274407811,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 28,
+        "rms_replacement_effect": 0.003523728620381302,
+        "mean_absolute_replacement_effect": 0.0028758000208650007,
+        "maximum_observed_replacement_effect": 0.008602804164858313,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      },
+      {
+        "coordinate": 29,
+        "rms_replacement_effect": 0.003504897390957652,
+        "mean_absolute_replacement_effect": 0.0028572576344265033,
+        "maximum_observed_replacement_effect": 0.008586304728733757,
+        "supplied_global_bound": 0.008620689655172414,
+        "observed_bound_violation": false
+      }
+    ]
+  },
+  "comparison": {
+    "radius_ratio_concentrated_over_distributed": 4.115781234761365,
+    "variance_ratio_concentrated_over_distributed": 16.882462533164436,
+    "interpretation": "Same input range and same total weight; concentration worsens when one input dominates."
+  }
+}

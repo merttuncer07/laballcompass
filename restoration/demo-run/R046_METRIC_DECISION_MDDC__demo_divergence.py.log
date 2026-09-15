@@ -1,0 +1,74 @@
+{
+  "scores": [
+    {
+      "case": 0,
+      "candidate": "exact",
+      "l1_distance": 0.0,
+      "kl_divergence": 0.0,
+      "reference_action": 0,
+      "approximate_action": 0,
+      "decision_regret": 0.0,
+      "action_inverted": false
+    },
+    {
+      "case": 0,
+      "candidate": "far_but_safe",
+      "l1_distance": 0.37999999999999995,
+      "kl_divergence": 0.08037298608651322,
+      "reference_action": 0,
+      "approximate_action": 0,
+      "decision_regret": 0.0,
+      "action_inverted": false
+    },
+    {
+      "case": 0,
+      "candidate": "near_metric",
+      "l1_distance": 0.06000000000000005,
+      "kl_divergence": 0.00181873865449304,
+      "reference_action": 0,
+      "approximate_action": 1,
+      "decision_regret": 0.030000000000000027,
+      "action_inverted": true
+    },
+    {
+      "case": 1,
+      "candidate": "exact",
+      "l1_distance": 0.0,
+      "kl_divergence": 0.0,
+      "reference_action": 1,
+      "approximate_action": 1,
+      "decision_regret": 0.0,
+      "action_inverted": false
+    },
+    {
+      "case": 1,
+      "candidate": "far_but_safe",
+      "l1_distance": 0.42,
+      "kl_divergence": 0.10759555610480383,
+      "reference_action": 1,
+      "approximate_action": 1,
+      "decision_regret": 0.0,
+      "action_inverted": false
+    },
+    {
+      "case": 1,
+      "candidate": "near_metric",
+      "l1_distance": 0.11999999999999998,
+      "kl_divergence": 0.00817915665764336,
+      "reference_action": 1,
+      "approximate_action": 0,
+      "decision_regret": 0.06,
+      "action_inverted": true
+    }
+  ],
+  "strongest_inversion": {
+    "case": 1,
+    "metric_preferred_candidate": "near_metric",
+    "decision_preferred_candidate": "far_but_safe",
+    "metric_distance_gap": 0.3,
+    "decision_regret_gap": 0.06
+  },
+  "action_inversions": 2,
+  "ranking_inversions": 2,
+  "status": "METRIC_DECISION_RANKING_DIVERGENCE_FOUND"
+}

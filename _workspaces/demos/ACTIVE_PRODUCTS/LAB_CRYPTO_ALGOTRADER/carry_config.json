@@ -1,0 +1,17 @@
+{
+  "symbol": "BTCUSDT",
+  "bars": 1500,
+  "min_history": 180,
+  "funding_window": 30,
+  "direct_window": 24,
+  "basis_window": 90,
+  "basis_reversion": 0.20,
+  "calibration_window": 180,
+  "decision_horizon": 45,
+  "dtec_alpha": 0.30,
+  "leg_notional_fraction": 0.50,
+  "spot_fee_bps": 10.0,
+  "spot_slippage_bps": 2.0,
+  "perp_fee_bps": 5.0,
+  "perp_slippage_bps": 2.0
+}

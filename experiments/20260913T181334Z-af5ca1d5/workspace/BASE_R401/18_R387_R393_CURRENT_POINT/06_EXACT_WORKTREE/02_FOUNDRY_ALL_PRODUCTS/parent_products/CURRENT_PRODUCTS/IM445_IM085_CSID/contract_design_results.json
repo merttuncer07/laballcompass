@@ -1,0 +1,153 @@
+{
+  "budget": 7.0,
+  "naive_independence_design": {
+    "safeguards": [
+      "sales_rebate_monitor",
+      "revenue_share_audit",
+      "decision_right_exception_review"
+    ],
+    "total_cost": 7.0,
+    "expected_residual_loss": 4.9559999999999995,
+    "objective": 11.956,
+    "evidence_families": [
+      "governance",
+      "sales_system"
+    ],
+    "coverage_by_failure": {
+      "hidden_effort": 0.888,
+      "sales_report_manipulation": 0.95,
+      "decision_right_relocation": 0.8
+    }
+  },
+  "naive_design_under_common_evidence_reality": {
+    "safeguards": [
+      "sales_rebate_monitor",
+      "revenue_share_audit",
+      "decision_right_exception_review"
+    ],
+    "total_cost": 7.0,
+    "expected_residual_loss": 9.6,
+    "objective": 16.6,
+    "evidence_families": [
+      "governance",
+      "sales_system"
+    ],
+    "coverage_by_failure": {
+      "hidden_effort": 0.72,
+      "sales_report_manipulation": 0.8,
+      "decision_right_relocation": 0.8
+    }
+  },
+  "family_aware_design": {
+    "safeguards": [
+      "sales_rebate_monitor",
+      "decision_right_exception_review"
+    ],
+    "total_cost": 5.0,
+    "expected_residual_loss": 10.14,
+    "objective": 15.14,
+    "evidence_families": [
+      "governance",
+      "sales_system"
+    ],
+    "coverage_by_failure": {
+      "hidden_effort": 0.72,
+      "sales_report_manipulation": 0.75,
+      "decision_right_relocation": 0.8
+    }
+  },
+  "family_aware_top_portfolios": [
+    {
+      "safeguards": [
+        "sales_rebate_monitor",
+        "decision_right_exception_review"
+      ],
+      "total_cost": 5.0,
+      "expected_residual_loss": 10.14,
+      "objective": 15.14,
+      "evidence_families": [
+        "governance",
+        "sales_system"
+      ],
+      "coverage_by_failure": {
+        "hidden_effort": 0.72,
+        "sales_report_manipulation": 0.75,
+        "decision_right_relocation": 0.8
+      }
+    },
+    {
+      "safeguards": [
+        "revenue_share_audit",
+        "decision_right_exception_review"
+      ],
+      "total_cost": 5.0,
+      "expected_residual_loss": 10.32,
+      "objective": 15.32,
+      "evidence_families": [
+        "governance",
+        "sales_system"
+      ],
+      "coverage_by_failure": {
+        "hidden_effort": 0.6799999999999999,
+        "sales_report_manipulation": 0.8,
+        "decision_right_relocation": 0.8
+      }
+    },
+    {
+      "safeguards": [
+        "sales_rebate_monitor",
+        "revenue_share_audit",
+        "decision_right_exception_review"
+      ],
+      "total_cost": 7.0,
+      "expected_residual_loss": 9.6,
+      "objective": 16.6,
+      "evidence_families": [
+        "governance",
+        "sales_system"
+      ],
+      "coverage_by_failure": {
+        "hidden_effort": 0.72,
+        "sales_report_manipulation": 0.8,
+        "decision_right_relocation": 0.8
+      }
+    },
+    {
+      "safeguards": [
+        "sales_rebate_monitor",
+        "physical_inventory_attestation"
+      ],
+      "total_cost": 6.0,
+      "expected_residual_loss": 13.709999999999999,
+      "objective": 19.71,
+      "evidence_families": [
+        "physical_inventory",
+        "sales_system"
+      ],
+      "coverage_by_failure": {
+        "hidden_effort": 0.65,
+        "sales_report_manipulation": 0.925,
+        "decision_right_relocation": 0.44999999999999996
+      }
+    },
+    {
+      "safeguards": [
+        "revenue_share_audit",
+        "physical_inventory_attestation"
+      ],
+      "total_cost": 6.0,
+      "expected_residual_loss": 14.448,
+      "objective": 20.448,
+      "evidence_families": [
+        "physical_inventory",
+        "sales_system"
+      ],
+      "coverage_by_failure": {
+        "hidden_effort": 0.6,
+        "sales_report_manipulation": 0.94,
+        "decision_right_relocation": 0.44999999999999996
+      }
+    }
+  ],
+  "real_objective_improvement": 0.08795180722891571
+}

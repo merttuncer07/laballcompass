@@ -1,0 +1,31 @@
+{
+  "dataset": "scikit-learn load_digits / Optical Recognition of Handwritten Digits",
+  "seed": 20260825,
+  "split_rows": {
+    "model_fit": 808,
+    "search_selection": 269,
+    "protected_validation": 360,
+    "fresh_final": 360
+  },
+  "candidate_models": 27,
+  "search_rmse_selected": "knn_k3",
+  "search_decision_selected": "knn_k3",
+  "protected_best_candidate": "knn_k1",
+  "protected_audit_status": "ADAPTIVE_SELECTION_REGRET_DETECTED",
+  "protected_selection_regret": 0.011111111111111113,
+  "selection_bootstrap_fragility": 0.554,
+  "fresh_final_error_rates": {
+    "search_rmse_selected": 0.022222222222222223,
+    "search_decision_selected": 0.022222222222222223,
+    "protected_best": 0.016666666666666666
+  },
+  "fresh_final_error_counts": {
+    "search_rmse_selected": 8,
+    "search_decision_selected": 8,
+    "protected_best": 6
+  },
+  "fresh_final_relative_regret_reduction": 0.25,
+  "fit_seconds": 1.065424228999973,
+  "audit_seconds": 0.5485293899999988,
+  "interpretation": "single fixed-seed real-data pilot; not a general-performance claim"
+}

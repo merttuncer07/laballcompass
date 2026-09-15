@@ -1,0 +1,8 @@
+{
+  "authority": "R391_SHADOW_CANDIDATE_ONLY",
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "product_id": "V2P052",
+  "short_name": "REICAPL",
+  "status": "R391_SHADOW_QUALITY_GATE",
+  "supplier_id": "FOUNDRY:P028"
+}

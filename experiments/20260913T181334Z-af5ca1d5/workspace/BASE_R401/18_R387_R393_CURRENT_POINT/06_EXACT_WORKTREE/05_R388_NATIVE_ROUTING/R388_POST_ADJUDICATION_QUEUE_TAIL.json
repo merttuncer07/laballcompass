@@ -1,0 +1,346 @@
+[
+  {
+    "supplier_id": "FOUNDRY:P050",
+    "consumer_id": "PARENT:IM340_IM280_CWC",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P050",
+    "experiment_bootstrap_case_count": 3,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P050",
+    "consumer_id": "PARENT:IM359_IM014_AICC",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P050",
+    "experiment_bootstrap_case_count": 3,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P050",
+    "consumer_id": "PARENT:IM406_IM037_ACRA",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P050",
+    "experiment_bootstrap_case_count": 3,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P050",
+    "consumer_id": "PARENT:R008_E612_E613_LGID",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P050",
+    "experiment_bootstrap_case_count": 3,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P050",
+    "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P050",
+    "experiment_bootstrap_case_count": 3,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P052",
+    "consumer_id": "PARENT:R014_S781_S792_ACSA",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration",
+      "transfer"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P052",
+    "experiment_bootstrap_case_count": 4,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P052",
+    "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration",
+      "transfer"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P052",
+    "experiment_bootstrap_case_count": 4,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P056",
+    "consumer_id": "PARENT:R014_S781_S792_ACSA",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration",
+      "transfer"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P056",
+    "experiment_bootstrap_case_count": 4,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P056",
+    "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration",
+      "transfer"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P056",
+    "experiment_bootstrap_case_count": 4,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  },
+  {
+    "supplier_id": "FOUNDRY:P060",
+    "consumer_id": "LCB-K012",
+    "score": 25.0,
+    "interface_matches": [
+      "boundary",
+      "gate"
+    ],
+    "addressed_weaknesses": [
+      "calibration"
+    ],
+    "shared_domains": [
+      "calibration"
+    ],
+    "curated": false,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "adjudication_state": "UNADJUDICATED",
+    "active_for_build": true,
+    "decision_id": null,
+    "uncertainty_axes": null,
+    "test_channels": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+    "experiment_bootstrap_product_id": "P060",
+    "experiment_bootstrap_case_count": 3,
+    "experiment_bootstrap_problem_shell": null,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_usable_count": 0,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_id": null,
+    "experiment_calibration_target_generation": null
+  }
+]

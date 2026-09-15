@@ -1,0 +1,27 @@
+status	scope	authority	notes
+CURRENT_CANONICAL	Scientific inventory	R12 / Registry455 / Products38 / Quality28	No R13-R383 research automatically mutates this inventory.
+CURRENT_CONTROL_PLANE	Discovery/search/foundry	Curated R46-R76 + native R12	Multi-view retrieval, quotient-aware novelty, typed equivalence, failure-first routing.
+CURRENT_CONTROL_PLANE	Assurance/governance	Curated R13-R45,R96-R180	Repair authority, independent verification, obligation transport, numerical/structural soundness, freshness, authority monotonicity.
+EVIDENCE_ONLY	Research shells	R181-R352	Searchable failures/counterexamples/adapters. Not frontier authority.
+SHADOW_REJECTED	R372 architecture	R353-R382 evidence	Breakthrough stack did not survive empirical ablation strongly enough for promotion.
+RESTORATION	Control-plane reconstruction	R383	Restores native routing and forbids manual frontier by default.
+R385_ENTITY_TAXONOMY	CERTIFIED_CONTROL_PLANE	R384 mixed 202-row product genealogy	Complete 348 operational entity ledger; Quality28 separate reporting layer
+R385_INTERACTION_INSTRUMENTATION	CERTIFIED_CONTROL_PLANE	Telemetry treated as free-floating count/contract	Restore edge-bound telemetry placement, conservative calibration and Foundry feedback
+R386_RETRO_SWEEP	EXPERIMENTAL_CONTROL_PLANE_RUN	R385 restored architecture	128 unresolved boundaries + 961 inferred edges	No canonical mutation; full triage/build evidence preserved
+R386_V2P039_V2P048	SHADOW_PRODUCT_OVERLAY	R12 Products38/Quality28	10 executable shadow suites	9 native-promotable, 6 distinct-family candidates, 3 variants, V2P047 quarantined
+R386_CANDIDATE_PRODUCTS47_QUALITY34	CANDIDATE_NOT_CANONICAL	R386 quality audit	Products47 / Quality34 if explicitly accepted	Registry455 unchanged
+R387_PRODUCT_AUTHORITY	PROMOTED_CANONICAL_PRODUCT_AUTHORITY	R12 historical base + R386 candidate overlay	Products47 / Quality34; Registry455 unchanged; dynamic closure + package-relative harness repair + fresh exact-shell telemetry
+R388_RETRO50_TOPOLOGY_REPAIR	CERTIFIED_CONTROL_PLANE	69 Foundry parents	FOUNDRY_PARENT provenance separated from semantic-family equality; 890 hidden rank-compatible parent-pairs exposed; full 16594-row universe persisted
+R388_V2P049_SACAPL	PROMOTED_CANONICAL_PRODUCT_AUTHORITY	R387 Products47/Quality34	Products48 / Quality35; support-aware covariance changes CAPL risk objective
+R389_V2P050_SCIG	PROMOTED_CANONICAL_PRODUCT_AUTHORITY	R388 Products48/Quality35	Products49 / Quality36; final current signature 13 direct cases
+R390_V2P051_SACDLW	PROMOTED_CANONICAL_PRODUCT_AUTHORITY	R389 Products49/Quality36	Products50 / Quality37; support-aware covariance changes DLEW action/regret geometry
+R391_V2P052_REICAPL	PROMOTED_CANONICAL_PRODUCT_AUTHORITY	R390 Products50/Quality37	Products51 / Quality38; REIS consequence-aware selection changes heterogeneous CAPL feasible caps
+R392_V2P053_SWCAPL	PROMOTED_CANONICAL_PRODUCT_AUTHORITY	R391 Products51/Quality38	Products52 / Quality39; target importance weights change CAPL direct objective; Registry455 unchanged
+R393_FULL_UNIVERSE_ROUTING	SHADOW_ROUTING_NO_PRODUCT_PROMOTION	R392 Products52/Quality39	15578 fresh pairs / 649 mechanism clusters; next product not preassigned
+V2P047	QUARANTINED_EXPLORATORY	R386 shadow	Not canonical; preserved as negative/exploratory evidence
+
+R394	PRODUCT_AUTHORITY	PROMOTED_LOGICAL	Registry455 / Products53 / Quality40	V2P054 CADSBC; late exact bytes lost after remount
+R395	PRODUCT_AUTHORITY	PROMOTED_LOGICAL	Registry455 / Products54 / Quality41	V2P055 DLSAICC; late exact bytes lost after remount
+R396	PRODUCT_AUTHORITY	PROMOTED_LOGICAL	Registry455 / Products55 / Quality42	V2P056 SACRDSBC; late exact bytes lost after remount
+R397	PRODUCT_AUTHORITY	PROMOTED_LOGICAL	Registry455 / Products56 / Quality43	V2P057 REOC; last logical canonical authority
+R398	CANDIDATE_OVERLAY	NOT_PROMOTED	Candidate Products57 / Quality44	V2P058 SACATRC; promotion regression incomplete

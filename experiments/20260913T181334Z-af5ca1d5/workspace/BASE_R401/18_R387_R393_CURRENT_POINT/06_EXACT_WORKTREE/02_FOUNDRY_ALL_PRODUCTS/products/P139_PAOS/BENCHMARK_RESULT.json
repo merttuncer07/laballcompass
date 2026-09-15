@@ -1,0 +1,44 @@
+{
+  "alpha_candidates": [
+    1.0,
+    0.5
+  ],
+  "audit": {
+    "candidate_names": [
+      "alpha_1",
+      "alpha_0.5"
+    ],
+    "selected_candidate": "alpha_1",
+    "holdout_best_candidate": "alpha_0.5",
+    "selection_mean_losses": [
+      6.624154831695132e-07,
+      0.0037393789612571635
+    ],
+    "holdout_mean_losses": [
+      130.54007861275548,
+      1.3331094512551248e-07
+    ],
+    "candidate_generalization_gaps": [
+      130.54007795034,
+      -0.003739245650312038
+    ],
+    "selected_selection_loss": 6.624154831695132e-07,
+    "selected_holdout_loss": 130.54007861275548,
+    "selected_generalization_gap": 130.54007795034,
+    "selected_holdout_regret": 130.54007847944453,
+    "family_worst_absolute_gap": 130.54007795034,
+    "pointwise_standard_error": 37.778334502246196,
+    "pointwise_95_radius": 74.04553562440255,
+    "selected_holdout_loss_bootstrap_interval_95": [
+      67.13385351472543,
+      201.1739329748859
+    ],
+    "selection_bootstrap_frequencies": [
+      1.0,
+      0.0
+    ],
+    "selection_fragility": 0.0,
+    "status": "ADAPTIVE_SELECTION_REGRET_DETECTED"
+  },
+  "status": "OPERATOR_AVERAGING_HOLDOUT_AUDITED"
+}

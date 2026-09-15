@@ -1,0 +1,56 @@
+{
+  "candidate_names": [
+    "threshold_3",
+    "no_restart",
+    "threshold_5",
+    "threshold_10"
+  ],
+  "audit": {
+    "candidate_names": [
+      "threshold_3",
+      "no_restart",
+      "threshold_5",
+      "threshold_10"
+    ],
+    "selected_candidate": "threshold_3",
+    "holdout_best_candidate": "no_restart",
+    "selection_mean_losses": [
+      2.8320201780897145,
+      9.562409617953064,
+      3.357885419524543,
+      4.672548523111614
+    ],
+    "holdout_mean_losses": [
+      29.187091973905755,
+      3.846242475680713,
+      3.846242475680713,
+      3.846242475680713
+    ],
+    "candidate_generalization_gaps": [
+      26.35507179581604,
+      -5.716167142272351,
+      0.4883570561561701,
+      -0.8263060474309012
+    ],
+    "selected_selection_loss": 2.8320201780897145,
+    "selected_holdout_loss": 29.187091973905755,
+    "selected_generalization_gap": 26.35507179581604,
+    "selected_holdout_regret": 25.34084949822504,
+    "family_worst_absolute_gap": 26.35507179581604,
+    "pointwise_standard_error": 2.31526331920285,
+    "pointwise_95_radius": 4.537916105637586,
+    "selected_holdout_loss_bootstrap_interval_95": [
+      24.957425253057504,
+      33.675858304966475
+    ],
+    "selection_bootstrap_frequencies": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "selection_fragility": 0.0,
+    "status": "ADAPTIVE_SELECTION_REGRET_DETECTED"
+  },
+  "status": "RESTART_THRESHOLD_HOLDOUT_AUDITED"
+}

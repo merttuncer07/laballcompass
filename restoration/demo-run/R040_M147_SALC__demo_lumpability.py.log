@@ -1,0 +1,100 @@
+{
+  "exact": {
+    "micro_states": 4,
+    "aggregate_states": 2,
+    "block_labels": [
+      "CALM",
+      "STRESS"
+    ],
+    "exact_lumpability": true,
+    "maximum_block_transition_deviation": 0.0,
+    "maximum_one_step_total_variation": 0.0,
+    "maximum_horizon_total_variation": 1.1102230246251565e-15,
+    "horizon": 30,
+    "worst_source_block": "CALM",
+    "worst_target_block": "CALM",
+    "worst_state_pair": [
+      0,
+      0
+    ],
+    "aggregate_transition_matrix": [
+      [
+        0.8,
+        0.2
+      ],
+      [
+        0.2,
+        0.8
+      ]
+    ],
+    "block_transition_signatures": [
+      [
+        0.8,
+        0.2
+      ],
+      [
+        0.8,
+        0.2
+      ],
+      [
+        0.2,
+        0.8
+      ],
+      [
+        0.2,
+        0.8
+      ]
+    ],
+    "compression_ratio": 0.5,
+    "status": "EXACT_LUMPABILITY_CERTIFIED"
+  },
+  "approximate": {
+    "micro_states": 4,
+    "aggregate_states": 2,
+    "block_labels": [
+      "CALM",
+      "STRESS"
+    ],
+    "exact_lumpability": false,
+    "maximum_block_transition_deviation": 0.050000000000000044,
+    "maximum_one_step_total_variation": 0.02500000000000001,
+    "maximum_horizon_total_variation": 0.02500000000000001,
+    "horizon": 30,
+    "worst_source_block": "CALM",
+    "worst_target_block": "CALM",
+    "worst_state_pair": [
+      1,
+      0
+    ],
+    "aggregate_transition_matrix": [
+      [
+        0.775,
+        0.225
+      ],
+      [
+        0.2,
+        0.8
+      ]
+    ],
+    "block_transition_signatures": [
+      [
+        0.8,
+        0.2
+      ],
+      [
+        0.75,
+        0.25
+      ],
+      [
+        0.2,
+        0.8
+      ],
+      [
+        0.2,
+        0.8
+      ]
+    ],
+    "compression_ratio": 0.5,
+    "status": "APPROXIMATE_WITH_QUANTIFIED_ERROR"
+  }
+}

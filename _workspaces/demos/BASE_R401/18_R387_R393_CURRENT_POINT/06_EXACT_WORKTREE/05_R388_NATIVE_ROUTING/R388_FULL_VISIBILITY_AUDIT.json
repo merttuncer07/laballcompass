@@ -1,0 +1,47 @@
+{
+  "release": "R388_FULL_VISIBILITY_FRONTIER",
+  "authority_status": "SHADOW_ROUTING_NO_PRODUCT_PROMOTION",
+  "candidate_universe_rows": 16594,
+  "active_candidate_rows": 16589,
+  "rejected_candidate_rows": 5,
+  "r386_carried_pair_count": 961,
+  "current_explicit_adjudication_pair_count": 5,
+  "canonical_executable_pair_count": 47,
+  "shadow_executable_pair_count": 1,
+  "fresh_adjudication_pair_count": 15589,
+  "previously_hidden_parent_parent_pairs_total": 890,
+  "previously_hidden_parent_parent_pairs_fresh": 889,
+  "fresh_endpoint_kind_breakdown": {
+    "CURRENT_PARENT_TO_CURRENT_PARENT": 78,
+    "CURRENT_PARENT_TO_FOUNDRY_PRODUCT": 414,
+    "CURRENT_PARENT_TO_LCB_KERNEL": 292,
+    "CURRENT_PARENT_TO_RETRO": 140,
+    "FOUNDRY_PRODUCT_TO_CURRENT_PARENT": 918,
+    "FOUNDRY_PRODUCT_TO_LCB_KERNEL": 4341,
+    "FOUNDRY_PRODUCT_TO_RETRO": 2119,
+    "LCB_KERNEL_TO_CURRENT_PARENT": 460,
+    "LCB_KERNEL_TO_FOUNDRY_PRODUCT": 2972,
+    "LCB_KERNEL_TO_RETRO": 867,
+    "RETRO_TO_CURRENT_PARENT": 250,
+    "RETRO_TO_FOUNDRY_PRODUCT": 1274,
+    "RETRO_TO_LCB_KERNEL": 1043,
+    "RETRO_TO_RETRO": 421
+  },
+  "visibility_counts": {
+    "CANONICAL_EXECUTABLE_SUITE": 47,
+    "R386_CARRIED_DISPOSITION": 961,
+    "FRESH": 15589,
+    "R388_SHADOW_EXECUTABLE_SUITE": 1,
+    "CURRENT_EXPLICIT_ADJUDICATION": 5
+  },
+  "policy": {
+    "full_universe": "persistent graph/research memory",
+    "top1000_queue": "bounded operational priority window only",
+    "fresh_adjudication": "pair has no carried R386 disposition, current explicit adjudication, canonical executable suite, or R388 shadow executable suite"
+  },
+  "nonclaims": [
+    "fresh means previously unadjudicated, not novel",
+    "native candidate compatibility is not a product claim",
+    "routing priority is not scientific validation"
+  ]
+}

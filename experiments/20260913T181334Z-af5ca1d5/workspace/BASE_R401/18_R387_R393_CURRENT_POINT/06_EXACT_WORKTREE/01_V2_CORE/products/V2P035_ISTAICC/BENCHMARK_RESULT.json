@@ -1,0 +1,30 @@
+{
+  "evidence_boundary": "stylized participation fixed-point and continuation-value mechanism shell only",
+  "mechanism_removing_comparator": {
+    "immediate_choice": "myopic",
+    "immediate_net_scores": {
+      "myopic": 0.019999999999999997,
+      "trigger": -0.04
+    }
+  },
+  "model_version": "V2P035_ISTAICC_V1",
+  "result": {
+    "channel_scores": {
+      "myopic": 0.02848607883556894,
+      "trigger": 0.45999493442719774
+    },
+    "chosen": "trigger",
+    "equilibria": {
+      "myopic": [
+        0.016972157671330028,
+        0.3042571761767021,
+        0.9990794737400515
+      ],
+      "trigger": [
+        0.9999898688543953
+      ]
+    },
+    "immediate_choice": "myopic",
+    "status": "TIPPING_AWARE_ACQUISITION"
+  }
+}

@@ -1,0 +1,9 @@
+test_factor_exposure_is_neutralized (test_enpc.ENPCTests.test_factor_exposure_is_neutralized) ... ok
+test_infeasible_exposure_is_reported (test_enpc.ENPCTests.test_infeasible_exposure_is_reported) ... ok
+test_non_psd_covariance_is_rejected (test_enpc.ENPCTests.test_non_psd_covariance_is_rejected) ... ok
+test_unconstrained_mode_retains_budget (test_enpc.ENPCTests.test_unconstrained_mode_retains_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK

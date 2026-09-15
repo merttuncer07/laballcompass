@@ -1,0 +1,34 @@
+{
+  "closed_construction": {
+    "observable_contexts": 4,
+    "predictive_states": 2,
+    "compression_fraction": 0.5,
+    "log_loss_improvement_vs_memoryless": 0.2599568460972981,
+    "closure_violation_rate": 0.0,
+    "state_contexts": [
+      [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      [
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    ],
+    "status": "PREDICTIVE_STATE_CLOSURE_CERTIFIED_ON_OBSERVED_CONTEXTS"
+  },
+  "one_step_accurate_but_not_closed_construction": {
+    "contexts": 4,
+    "predictive_states": 2,
+    "closure_violation_rate": 0.4919994666311087,
+    "status": "PREDICTIVE_PARTITION_FAILS_CLOSURE"
+  }
+}

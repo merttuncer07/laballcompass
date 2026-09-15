@@ -1,0 +1,37 @@
+{
+  "episodes_per_policy": 3000,
+  "results": {
+    "fixed_demand": {
+      "mean_decision_regret_plus_cost": 0.09245041467450874,
+      "p90_decision_regret_plus_cost": 0.3437337565340348,
+      "channel_counts": {
+        "demand": 15000,
+        "failure": 0,
+        "nuisance": 0
+      },
+      "nuisance_pulls": 0
+    },
+    "round_robin": {
+      "mean_decision_regret_plus_cost": 0.013153475113371822,
+      "p90_decision_regret_plus_cost": 0.01,
+      "channel_counts": {
+        "demand": 9000,
+        "failure": 6000,
+        "nuisance": 0
+      },
+      "nuisance_pulls": 0
+    },
+    "adaptive": {
+      "mean_decision_regret_plus_cost": 0.006883029699857152,
+      "p90_decision_regret_plus_cost": 0.008,
+      "channel_counts": {
+        "demand": 3444,
+        "failure": 3394,
+        "nuisance": 0
+      },
+      "nuisance_pulls": 0
+    },
+    "adaptive_reduction_vs_fixed": 0.9255489580648144,
+    "adaptive_reduction_vs_round_robin": 0.4767139755440093
+  }
+}

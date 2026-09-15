@@ -1,0 +1,368 @@
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/heag.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/heag.py
+@@ -1,6 +1,151 @@
+-from products.spec_runtime import evaluate_spec_product
++"""Historical Evidence Acquisition Gate: new native implementation, 2026-09-14.
+ 
+-PRODUCT_SPEC = {'product_id': 'P083', 'short_name': 'HEAG', 'title': 'P083_HEAG — Historical Evidence Acquisition Gate', 'parents_raw': 'EBC + AICC', 'historical_promotion_state': 'UNEXTRACTED', 'claim_boundary_raw': 'Historical estimates are borrowed only under EBC compatibility/cap rules. A lower measurement value after borrowing does not imply historical evidence is correct; strong conflict should suppress borrowing.', 'execution_mode': 'allocation'}
++EBC -> scalar normal working belief -> AICC one-step information value.
++Historical source remains missing. Future errors must be independent of used
++evidence; that condition is declared, not inferred.
++"""
++from __future__ import annotations
++import argparse
++from dataclasses import asdict
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import sys
++import types
++from collections.abc import Mapping
++import numpy as np
+ 
+-def evaluate(records, *, baseline=None, budget=None):
+-    return evaluate_spec_product(PRODUCT_SPEC, records, baseline=baseline, budget=budget)
++PRODUCT_SPEC = {
++    'product_id': 'P083', 'short_name': 'HEAG',
++    'title': 'Historical Evidence Acquisition Gate', 'parents_raw': 'EBC + AICC',
++    'execution_mode': 'native_evidence_acquisition',
++    'implementation_version': 'native_reimplementation_20260914',
++    'claim_boundary_raw': 'Plug-in normal EBC belief and one-step AICC affine utility; future error independent of used evidence. No calibrated audit recommendation or historical equivalence.'}
++PARENTS = {'ebc': 'RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py',
++           'aicc': 'CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py'}
++
++
++def _parent(name):
++    path = Path(__file__).resolve().parents[2]/'parent_products'/PARENTS[name]
++    package_id = '_heag_parent_'+name
++    module_id = package_id+'.'+name
++    if module_id not in sys.modules:
++        package = types.ModuleType(package_id)
++        package.__path__ = [str(path.parent)]
++        sys.modules[package_id] = package
++        spec = importlib.util.spec_from_file_location(module_id, path)
++        module = importlib.util.module_from_spec(spec)
++        sys.modules[module_id] = module
++        spec.loader.exec_module(module)
++    return sys.modules[module_id], path
++
++
++def _validate_config(config):
++    if not isinstance(config, Mapping) or set(config) != {'evidence', 'decision'}:
++        raise ValueError('HEAG needs evidence and decision configurations; score-only records do not invoke its mechanisms')
++    evidence, decision = config['evidence'], config['decision']
++    if not isinstance(evidence, Mapping) or not isinstance(decision, Mapping):
++        raise ValueError('evidence and decision must be mappings')
++    required = {'current_estimate', 'current_standard_error', 'historical'}
++    allowed = required | {'current_observation_id', 'compatibility_scale', 'borrowing_cap_ratio', 'confidence_z',
++                          'covariance', 'covariance_names', 'current_name', 'adaptive'}
++    if not required <= set(evidence) or set(evidence)-allowed:
++        raise ValueError('Missing or unknown EBC evidence fields')
++    if not isinstance(evidence['historical'], (list, tuple)) or len(evidence['historical']) > 500:
++        raise ValueError('historical must contain at most 500 normal estimates')
++    if 'covariance' not in evidence and set(evidence)&{'covariance_names', 'current_name', 'adaptive'}:
++        raise ValueError('covariance_names, current_name and adaptive require an explicit evidence covariance')
++    if set(decision) != {'action_names', 'action_slopes', 'action_intercepts', 'channels', 'future_error_relation'}:
++        raise ValueError('decision requires action_names, action_slopes, action_intercepts, channels and future_error_relation')
++    if decision['future_error_relation'] != 'independent_of_evidence':
++        raise ValueError('This adapter requires future error independent of current/historical evidence; shared error needs a joint model')
++    names = decision['action_names']
++    if not isinstance(names, (list, tuple)) or not 1 <= len(names) <= 500 or any(not isinstance(n, str) or not n for n in names) or len(set(names)) != len(names):
++        raise ValueError('action_names must contain 1 to 500 unique nonempty names')
++    if np.asarray(decision['action_slopes']).shape != (len(names), 1) or np.asarray(decision['action_intercepts']).shape != (len(names),):
++        raise ValueError('HEAG has one scalar estimand; each named action needs one slope and intercept')
++    if not isinstance(decision['channels'], (list, tuple)) or len(decision['channels']) > 200:
++        raise ValueError('channels must contain at most 200 candidate measurements')
++
++
++def _acquisition(mean, se, decision, aicc):
++    channels = []
++    for row in decision['channels']:
++        if not isinstance(row, Mapping) or set(row) != {'name', 'measurement_vector', 'noise_variance', 'cost'}:
++            raise ValueError('Each channel requires name, measurement_vector, noise_variance and cost')
++        channels.append(aicc.InformationChannel(**row))
++    controller = aicc.AdaptiveInformationController([mean], [[se**2]], decision['action_slopes'], decision['action_intercepts'], channels)
++    ranked = controller.rank_channels()
++    return {'working_mean': float(mean), 'working_standard_error': float(se),
++            'current_action': decision['action_names'][controller.action()],
++            'current_action_utilities': controller.expected_action_utilities().tolist(),
++            'chosen_channel': ranked[0].name if ranked and ranked[0].net_value > 0 else None,
++            'ranked_channels': [asdict(v) for v in ranked]}
++
++
++def evaluate(config, *, baseline=None, budget=None):
++    """EBC reported mean/SE define a working Gaussian, not a calibrated posterior."""
++    if baseline is not None or budget is not None:
++        raise ValueError('HEAG selects one measurement using declared cost; score baselines and budget allocations are not this model')
++    _validate_config(config)
++    ebc, ebc_path = _parent('ebc'); aicc, aicc_path = _parent('aicc')
++    arguments = dict(config['evidence'])
++    history = [ebc.HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    borrow = ebc.borrow_correlated_evidence if 'covariance' in arguments else ebc.borrow_evidence
++    borrowing = borrow(historical=history, **arguments)
++    current = _acquisition(borrowing.current_estimate, borrowing.current_standard_error, config['decision'], aicc)
++    informed = _acquisition(borrowing.posterior_estimate, borrowing.posterior_standard_error, config['decision'], aicc)
++    current_values = {r['name']: r for r in current['ranked_channels']}
++    mechanisms = [('EBC', ebc_path), ('AICC', aicc_path)]
++    if 'covariance' in arguments: mechanisms.append(('EBC_joint_covariance', ebc_path.with_name('correlated.py')))
++    return {'product': dict(PRODUCT_SPEC), 'reconstruction_tier': 'NATIVE_REIMPLEMENTATION_NOT_HISTORICAL_SOURCE',
++            'borrowing': borrowing.to_dict(), 'current_only': current, 'with_history': informed,
++            'selection_changed_by_history': current['chosen_channel'] != informed['chosen_channel'],
++            'channel_value_changes': [{'name': r['name'],
++                'information_value_change': r['expected_decision_improvement']-current_values[r['name']]['expected_decision_improvement'],
++                'net_value_change': r['net_value']-current_values[r['name']]['net_value']} for r in informed['ranked_channels']],
++            'assumptions': ['One scalar estimand shared by current and historical normal estimates.',
++                'EBC estimate and reported SE define a plug-in Gaussian working belief; adaptive weighting and interval calibration are not established.',
++                'Future measurement errors are declared independent of ALL used evidence. Repeated or partly shared measurements of that evidence do not satisfy this adapter.',
++                'Costs and affine action utility use the same units. Selection maximizes one-step expected improvement minus cost.',
++                'A changed selection does not establish truth of history, acquisition effectiveness, audit risk or an audit opinion.'],
++            'mechanisms': [{'name': name, 'source': str(path.relative_to(Path(__file__).resolve().parents[2])),
++                            'sha256': hashlib.sha256(path.read_bytes()).hexdigest()} for name, path in mechanisms]}
++
++
++def review_dependency(config):
++    """Same observations, policies and decision model; remove evidence dependence."""
++    preserved = evaluate(config)
++    evidence = dict(config['evidence'])
++    evidence['historical'] = [{**r, 'observation_id': None} for r in evidence['historical']]
++    evidence['current_observation_id'] = None
++    if 'covariance' in evidence:
++        covariance = np.asarray(evidence['covariance'], dtype=float)
++        evidence['covariance'] = np.diag(np.diag(covariance)).tolist()
++    independent = evaluate({**config, 'evidence': evidence})
++    return {'dependency_preserved': preserved, 'independence_assumed': independent,
++            'selection_changes_if_dependency_ignored': preserved['with_history']['chosen_channel'] != independent['with_history']['chosen_channel'],
++            'comparison_scope': 'Same observations, EBC policies, utilities, channels and costs. Only identities/cross-covariance are removed. Sensitivity comparison, not measured real-world policy benefit.'}
++
++
++def main(argv=None):
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('input'); parser.add_argument('--review', action='store_true'); parser.add_argument('--output')
++    args = parser.parse_args(argv)
++    try:
++        raw = Path(args.input).read_bytes(); config = json.loads(raw)
++        result = review_dependency(config) if args.review else evaluate(config)
++        result['input_sha256'] = hashlib.sha256(raw).hexdigest()
++        result['product_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++        text = json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False)+'\n'
++        if args.output:
++            with Path(args.output).open('x') as handle: handle.write(text)
++            print(args.output)
++        else: print(text, end='')
++    except (ValueError, TypeError, KeyError, OSError) as error:
++        parser.error(str(error))
++    return 0
++
++
++if __name__ == '__main__': raise SystemExit(main())
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/test_heag.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/test_heag.py
+@@ -1,11 +1,137 @@
+-from .heag import *
++import copy
++import math
++import numpy as np
++import pytest
++from . import heag
+ 
+-def test_identity_preserved(): assert PRODUCT_SPEC['product_id'].startswith('P') and PRODUCT_SPEC['short_name']
+-def test_reconstruction_tier_explicit():
+- records=[{'name':'a','score':1,'value':1,'cost':1,'parameter':0,'decision':False,'selection_score':2,'protected_score':0},{'name':'b','score':2,'value':2,'cost':1,'parameter':1,'decision':True,'selection_score':1,'protected_score':3}]
+- kwargs={'budget':1} if PRODUCT_SPEC['execution_mode']=='allocation' else ({'baseline':records[0]} if PRODUCT_SPEC['execution_mode']=='tipping' else {})
+- assert evaluate(records,**kwargs)['reconstruction_tier']=='SPEC_EXECUTABLE_NOT_HISTORICAL_SOURCE'
+-def test_empty_input_rejected():
+- try: evaluate([])
+- except ValueError: return
+- assert False
++
++def config(copies=1):
++    return {'evidence': {'current_estimate': 0., 'current_standard_error': 1.,
++        'historical': [{'name': 'history_'+str(i), 'estimate': 0., 'standard_error': 1., 'observation_id': 'one_observation'} for i in range(copies)]},
++        'decision': {'action_names': ['hold', 'act'], 'action_slopes': [[0.], [1.]], 'action_intercepts': [0., 0.],
++                     'future_error_relation': 'independent_of_evidence',
++                     'channels': [{'name': 'new_measurement', 'measurement_vector': [1.], 'noise_variance': 1., 'cost': .15}]}}
++
++
++def test_native_product_calls_both_canonical_parents(monkeypatch):
++    ebc, _ = heag._parent('ebc'); aicc, _ = heag._parent('aicc')
++    calls = []
++    original_borrow, original_value = ebc.borrow_evidence, aicc.AdaptiveInformationController.channel_value
++    def borrow(*args, **kwargs):
++        calls.append('EBC'); return original_borrow(*args, **kwargs)
++    def value(self, channel):
++        calls.append('AICC'); return original_value(self, channel)
++    monkeypatch.setattr(ebc, 'borrow_evidence', borrow)
++    monkeypatch.setattr(aicc.AdaptiveInformationController, 'channel_value', value)
++    r = heag.evaluate(config())
++    assert calls == ['EBC', 'AICC', 'AICC']
++    assert r['reconstruction_tier'] == 'NATIVE_REIMPLEMENTATION_NOT_HISTORICAL_SOURCE'
++    assert {m['name'] for m in r['mechanisms']} == {'EBC', 'AICC'}
++    assert all(len(m['sha256']) == 64 for m in r['mechanisms'])
++
++
++def test_declared_copies_leave_acquisition_invariant_and_independence_can_stop_it():
++    reference = heag.evaluate(config())['with_history']
++    for n in (2, 5, 20):
++        r = heag.review_dependency(config(n))
++        assert r['dependency_preserved']['with_history'] == reference
++        assert r['dependency_preserved']['with_history']['chosen_channel'] == 'new_measurement'
++        assert r['independence_assumed']['with_history']['chosen_channel'] is None
++        assert r['selection_changes_if_dependency_ignored']
++
++
++def test_equal_estimates_with_distinct_identities_remain_separate():
++    c = config(2)
++    for i, r in enumerate(c['evidence']['historical']): r['observation_id'] = str(i)
++    result = heag.evaluate(c)
++    assert result['borrowing']['posterior_standard_error'] == pytest.approx(1/math.sqrt(3))
++    assert result['with_history']['chosen_channel'] is None
++
++
++def test_zero_borrowing_cap_preserves_current_only_decision():
++    c = config(5); c['evidence']['borrowing_cap_ratio'] = 0.
++    r = heag.evaluate(c)
++    assert r['with_history'] == r['current_only']
++
++
++def test_current_observation_copies_do_not_add_information():
++    c = config(5); c['evidence']['current_observation_id'] = 'one_observation'
++    r = heag.evaluate(c)
++    assert r['with_history'] == r['current_only']
++    assert r['borrowing']['current_overlap_count'] == 5
++
++
++def test_conflict_suppresses_history_and_restores_acquisition():
++    c = config()
++    c['evidence']['historical'][0]['estimate'] = 50.
++    r = heag.evaluate(c)
++    assert r['borrowing']['borrowed_precision'] < 1e-100
++    assert r['with_history']['chosen_channel'] == r['current_only']['chosen_channel'] == 'new_measurement'
++
++
++def test_partial_covariance_flows_through_both_motors_and_matches_closed_form():
++    c = config(2)
++    for i, row in enumerate(c['evidence']['historical']): row['observation_id'] = str(i)
++    covariance = np.full((3, 3), .8)+.2*np.eye(3)
++    c['evidence'].update(covariance=covariance.tolist(), covariance_names=['current', 'history_0', 'history_1'],
++                         adaptive=False, borrowing_cap_ratio=100.)
++    c['decision']['channels'][0]['cost'] = .2
++    result = heag.review_dependency(c)
++    joint, diagonal = result['dependency_preserved'], result['independence_assumed']
++    ones = np.ones(3); precision = ones@np.linalg.solve(covariance, ones); variance = 1/precision
++    assert joint['borrowing']['posterior_standard_error']**2 == pytest.approx(variance)
++    expected_value = variance/math.sqrt(variance+1)/math.sqrt(2*math.pi)
++    assert joint['with_history']['ranked_channels'][0]['expected_decision_improvement'] == pytest.approx(expected_value)
++    assert joint['with_history']['chosen_channel'] == 'new_measurement'
++    assert diagonal['with_history']['chosen_channel'] is None
++    assert any(m['name'] == 'EBC_joint_covariance' for m in joint['mechanisms'])
++
++
++def test_cost_and_downstream_utility_control_acquisition():
++    c = config()
++    c['decision']['channels'][0]['cost'] = .1
++    assert heag.evaluate(c)['with_history']['chosen_channel'] == 'new_measurement'
++    c['decision']['channels'][0]['cost'] = .2
++    assert heag.evaluate(c)['with_history']['chosen_channel'] is None
++    c['decision']['channels'][0]['cost'] = 0.
++    c['decision']['action_slopes'] = [[1.], [1.]]
++    r = heag.evaluate(c)
++    assert r['with_history']['chosen_channel'] is None
++    assert r['with_history']['ranked_channels'][0]['expected_decision_improvement'] == 0.
++
++
++def test_empty_history_and_no_offered_channels_are_valid():
++    c = config(0); c['decision']['channels'] = []
++    result = heag.evaluate(c)
++    assert result['with_history'] == result['current_only']
++    assert result['with_history']['chosen_channel'] is None
++
++
++def test_shared_future_error_is_not_silently_treated_as_independent():
++    c = config(); c['decision']['future_error_relation'] = 'shared_with_history'
++    with pytest.raises(ValueError, match='shared error needs a joint model'): heag.evaluate(c)
++
++
++def test_invalid_covariance_and_identity_conflicts_are_rejected():
++    c = config(2); c['evidence']['historical'][1]['estimate'] = 3.
++    with pytest.raises(ValueError, match='conflicting'): heag.evaluate(c)
++    c = config()
++    c['evidence'].update(covariance=[[1., 2.], [2., 1.]], covariance_names=['current', 'history_0'])
++    with pytest.raises(ValueError, match='positive semidefinite'): heag.evaluate(c)
++
++
++def test_score_placeholder_and_unknown_model_fields_rejected():
++    with pytest.raises(ValueError, match='score-only'): heag.evaluate([{'name': 'a', 'score': 8}])
++    c = config(); c['decision']['budget'] = 3
++    with pytest.raises(ValueError): heag.evaluate(c)
++    with pytest.raises(ValueError, match='budget'): heag.evaluate(config(), budget=3)
++    c = config(); c['evidence']['covariance_names'] = ['current']
++    with pytest.raises(ValueError, match='require'): heag.evaluate(c)
++
++
++def test_review_does_not_mutate_input_or_change_costs():
++    c = config(5); before = copy.deepcopy(c)
++    r = heag.review_dependency(c)
++    assert c == before
++    assert r['dependency_preserved']['with_history']['ranked_channels'][0]['cost'] == .15
++    assert r['independence_assumed']['with_history']['ranked_channels'][0]['cost'] == .15
+--- /dev/null
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/README.md
+@@ -0,0 +1,22 @@
++# HEAG: historical evidence and the next measurement
++
++The current implementation calls canonical EBC and AICC code. The previous generic score allocator and its tests are preserved under `restoration/20260914-heag/before/` in the lab root. This is a **new native implementation**, not recovery of the missing historical code. `HISTORICAL_PRODUCT_RESULT.md` is unchanged and its old 6-test result is not evidence about this implementation.
++
++Run from the lab root:
++
++```sh
++.venv/bin/python lab.py evidence-acquisition examples/evidence-acquisition/verified/declared_copies-input.json --review
++```
++
++`evaluate(config)` takes two mappings:
++
++- `evidence`: current estimate, standard error, historical normal estimates and EBC policy parameters. Optional named joint covariance handles partial evidence dependence; observation IDs identify exact repeats.
++- `decision`: named affine actions, one-dimensional slopes/intercepts, candidate channels with measurement vectors/noise variances/costs, and `future_error_relation: "independent_of_evidence"`.
++
++The future-error declaration is necessary. A measurement copied from, or sharing errors with, used evidence requires a larger joint model. This adapter rejects a declared shared-error relation. Mutual dependence among unobserved future channels does not affect their individual marginal one-step value; this product selects just one next channel and does not optimize an acquisition sequence.
++
++EBC's mean and squared reported SE define an explicit Gaussian working belief. Adaptive EBC weights are not proved to produce a calibrated posterior. AICC compares expected downstream improvement against cost in the same utility units. Output includes current-only acquisition, history-informed acquisition, per-channel value changes and actual parent source hashes. Content matches or REL candidate weights are not used as covariances.
++
++`review_dependency(config)` runs the same observations, EBC policies, utilities and costs after removing only declared identity/cross-covariance. A different choice is a sensitivity result, not proof that an acquisition was useful in practice. Old score-only records, `baseline` and allocation `budget` arguments are rejected because they did not implement EBC + AICC.
++
++Current validation: 13 meaningful product tests, including both-parent execution, 1/2/5/20-copy invariance, current-observation overlap, independent equal estimates, conflict suppression, cap ablation, covariance-to-acquisition propagation against direct GLS and closed form, cost/utility changes and invalid adapters. The example reproduction adds all 1–20 copy counts and a public clustered-estimate numerical reference. Neither tests nor historical claims establish real auditor benefit.
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/RECONSTRUCTION_STATUS.md
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/RECONSTRUCTION_STATUS.md
+@@ -1,3 +1,7 @@
+ # P083 HEAG reconstruction status
+ 
+-Historical result/provenance survived; historical source and tests did not. This package is a conservative spec-executable reconstruction, not a claim of byte-identical recovery.
++2026-09-14: NEW NATIVE IMPLEMENTATION, NOT HISTORICAL SOURCE RECOVERY.
++
++The previous generic spec_runtime replacement and its three metadata-oriented tests are preserved in the lab restoration/20260914-heag/before directory. Historical source and original six tests remain missing. HISTORICAL_PRODUCT_RESULT.md is preserved unchanged and its numeric claims are not inherited.
++
++Current heag.py invokes canonical EBC and AICC. The bridge is an explicit scalar Gaussian working belief with independently declared future measurement errors and one-step affine utility. Thirteen current product tests and separate closed-form/GLS references validate these declared computations. README.md records API and limitations.
+--- before/lab.py
++++ after/lab.py
+@@ -9,6 +9,11 @@
+ elif len(sys.argv)>1 and sys.argv[1]=='flow-review':
+  import runpy
+  source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/cfai.py'
++ sys.argv=[str(source),*sys.argv[2:]]
++ runpy.run_path(str(source),run_name='__main__')
++elif len(sys.argv)>1 and sys.argv[1]=='evidence-acquisition':
++ import runpy
++ source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG/heag.py'
+  sys.argv=[str(source),*sys.argv[2:]]
+  runpy.run_path(str(source),run_name='__main__')
+ elif len(sys.argv)>1 and sys.argv[1]=='select-information':
+--- before/restoration/build_explorer.py
++++ after/restoration/build_explorer.py
+@@ -3,6 +3,6 @@
+ BASE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(BASE))
+ from maintenance.catalog import build
+ build();data=json.loads((BASE/'catalog.json').read_text())['components']
+-page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/information-selection/index.html">Hangi ölçüm yeni bilgi katıyor?</a><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
++page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/evidence-acquisition/verified/index.html">Kanıt → ek ölçüm kararı</a><a href="examples/information-selection/index.html">Hangi ölçüm yeni bilgi katıyor?</a><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 89 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
+ (BASE/'index.html').write_text(page.replace('PAYLOAD',json.dumps(data,ensure_ascii=False).replace('</','<\\/')))
+ print(len(data),'explorer entries')

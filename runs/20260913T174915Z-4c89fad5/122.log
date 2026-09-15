@@ -1,0 +1,9 @@
+test_adaptive_decoy_is_exposed_without_being_deleted (test_acsa.Tests.test_adaptive_decoy_is_exposed_without_being_deleted) ... ok
+test_bootstrap_is_reproducible (test_acsa.Tests.test_bootstrap_is_reproducible) ... ok
+test_real_winner_survives_holdout (test_acsa.Tests.test_real_winner_survives_holdout) ... ok
+test_shape_mismatch_is_rejected (test_acsa.Tests.test_shape_mismatch_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.029s
+
+OK

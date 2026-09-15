@@ -1,0 +1,11 @@
+{
+  "candidate_identity": "R400_JARB_NATIVE_HIGHER_ORDER_EXPERIMENT",
+  "composition": ["V2P054_CADSBC", "V2P057_REOC"],
+  "native_parent_rule": "Every feasible split calls the exact R399 V2P057 selector and exact R399 V2P054 allocator; the higher-order mechanism chooses only among their native outputs.",
+  "mechanism_removal": "Set the acquisition/representation interaction credit to zero while preserving every native parent result, feasible split, declared input, total budget, and tie-break.",
+  "working_region": "Multiple feasible budget splits with complementarity between state observability and representation fidelity.",
+  "collapse_regions": ["only one native budget split is feasible", "zero coupling"],
+  "failure_region": "Miscalibrated caller-declared consequence can reverse hidden-truth performance.",
+  "promotion_status": "EXPERIMENT_ONLY_PENDING_SENSITIVITY_AND_QUALITY_ADJUDICATION",
+  "evidence_boundary": "DETERMINISTIC_MECHANICS_NOT_EMPIRICAL_VALIDATION"
+}

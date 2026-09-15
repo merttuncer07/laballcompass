@@ -1,0 +1,89 @@
+{
+  "arrangements": [
+    {
+      "new_money_position": 0,
+      "priority_order": [
+        "NEW_MONEY",
+        "SECURED_OLD",
+        "UNSECURED_OLD"
+      ],
+      "expected_new_money_recovery": 33.0,
+      "lender_required_recovery": 30.0,
+      "lender_npv": 3.0,
+      "financing_unlocked": true,
+      "baseline_existing_recoveries": {
+        "SECURED_OLD": 40.0,
+        "UNSECURED_OLD": 0.0
+      },
+      "funded_existing_recoveries": {
+        "SECURED_OLD": 69.4,
+        "UNSECURED_OLD": 32.5
+      },
+      "existing_recovery_changes": {
+        "SECURED_OLD": 29.400000000000006,
+        "UNSECURED_OLD": 32.5
+      },
+      "all_existing_claims_protected": true,
+      "enterprise_incremental_value_net_of_funding": 73.0,
+      "expected_unallocated_residual": 8.1
+    },
+    {
+      "new_money_position": 1,
+      "priority_order": [
+        "SECURED_OLD",
+        "NEW_MONEY",
+        "UNSECURED_OLD"
+      ],
+      "expected_new_money_recovery": 26.4,
+      "lender_required_recovery": 30.0,
+      "lender_npv": -3.6000000000000014,
+      "financing_unlocked": false,
+      "baseline_existing_recoveries": {
+        "SECURED_OLD": 40.0,
+        "UNSECURED_OLD": 0.0
+      },
+      "funded_existing_recoveries": {
+        "SECURED_OLD": 76.0,
+        "UNSECURED_OLD": 32.5
+      },
+      "existing_recovery_changes": {
+        "SECURED_OLD": 36.0,
+        "UNSECURED_OLD": 32.5
+      },
+      "all_existing_claims_protected": true,
+      "enterprise_incremental_value_net_of_funding": 73.0,
+      "expected_unallocated_residual": 8.1
+    },
+    {
+      "new_money_position": 2,
+      "priority_order": [
+        "SECURED_OLD",
+        "UNSECURED_OLD",
+        "NEW_MONEY"
+      ],
+      "expected_new_money_recovery": 9.9,
+      "lender_required_recovery": 30.0,
+      "lender_npv": -20.1,
+      "financing_unlocked": false,
+      "baseline_existing_recoveries": {
+        "SECURED_OLD": 40.0,
+        "UNSECURED_OLD": 0.0
+      },
+      "funded_existing_recoveries": {
+        "SECURED_OLD": 76.0,
+        "UNSECURED_OLD": 49.0
+      },
+      "existing_recovery_changes": {
+        "SECURED_OLD": 36.0,
+        "UNSECURED_OLD": 49.0
+      },
+      "all_existing_claims_protected": true,
+      "enterprise_incremental_value_net_of_funding": 73.0,
+      "expected_unallocated_residual": 8.1
+    }
+  ],
+  "least_disruptive_unlocking_position": 0,
+  "protected_unlocking_positions": [
+    0
+  ]
+}

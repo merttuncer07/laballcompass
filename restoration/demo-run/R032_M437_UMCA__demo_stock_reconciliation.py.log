@@ -1,0 +1,49 @@
+{
+  "source_total": 100.0,
+  "target_total": 130.0,
+  "unbalanced_accounting": {
+    "flow": [
+      [
+        30.0,
+        0.0
+      ],
+      [
+        0.0,
+        20.0
+      ]
+    ],
+    "destroyed_at_source": [
+      50.0,
+      0.0
+    ],
+    "created_at_target": [
+      0.0,
+      80.0
+    ],
+    "moved_mass": 50.0,
+    "destroyed_mass": 50.0,
+    "created_mass": 80.0,
+    "movement_cost": 50.0,
+    "destruction_cost": 60.0,
+    "creation_cost": 144.0,
+    "total_cost": 254.0
+  },
+  "normalized_balanced_baseline": {
+    "source_rescaling_factor": 1.3,
+    "mass_reported_as_moved": 130.0,
+    "mass_reported_as_created": 0.0,
+    "mass_reported_as_destroyed": 0.0,
+    "movement_cost": 500.0,
+    "flow": [
+      [
+        30.0,
+        74.0
+      ],
+      [
+        0.0,
+        26.0
+      ]
+    ]
+  },
+  "mass_falsely_recast_as_source_by_normalization": 30.000000000000004
+}

@@ -1,0 +1,56 @@
+round	mechanism	status	what_changed	main_open_coordinate
+R179	growth-coupled mode steering	WORKING_SCOPED	final geometry -> crossing geometry plus temporary sign-separating quench	generic dispersion; 2D/physical validation
+R180	Bongard structural induction	LOCAL_ADVANTAGE	aggregate features -> relation predicates	automatic atom discovery
+R180	Ivakhnenko GMDH	LOCAL_ADVANTAGE	full quadratic -> validation-selected polynomial layers	robustness and modern baselines
+R180	Diday symbolic data	LOCAL_ADVANTAGE	moments -> distribution-valued object	broader real data
+R180	Feldbaum dual control	ADVANTAGE_UNRESOLVED	certainty-equivalent -> belief lookahead	material gain
+R180	Turchin specialization	CAPABILITY_PRIOR_ART	generic interpreter -> residual program	new specialization target
+R180	Zhuravlev correction	ADVANTAGE_UNRESOLVED	raw recognizers -> interaction correction	stronger modern ensembles
+R180	Rvachev R-functions	EXACT_BOUNDARY_NO_INTERIOR_EDGE	penalty boundary -> exact zero set	approximation/noise conditioning
+R180	Ville anytime evidence	VALIDITY_NO_COST_EDGE	fixed threshold -> e-process	delayed-burst utility
+R182	Gelenbe random neural network	SIGNATURE_LOCAL_ADVANTAGE	event simulation approximation -> product-form fixed point	modern spiking/queueing baseline
+R182	Inonu-Wigner contraction	SIGNATURE_PASS	arbitrary deletion -> controlled generator scaling	model reduction utility
+R182	Idemen distributional boundary	SIGNATURE_PASS	classical derivative -> distributional jump term	Maxwell/PINN validation
+R182	Berker exact flow	SIGNATURE_PASS	free centerline -> compatibility ODE	solver benchmark diversity
+R182	Kavrakoglu planning	LOCAL_NEGATIVE_BORDERLINE	myopic -> joint horizon plan	historical real-data replay
+R182	Geiringer slip-line	LOCAL_ADVANTAGE	constant pressure -> Hencky propagation	full simple-wave system
+R182	Garti multivariate limit	LOCAL_ADVANTAGE	diagonal scaling -> full covariance standardization	exact theorem reconstruction
+R182	Tokad multi-port network	SIGNATURE_PASS	translation-only force -> wrench/twist ports	bond graph/Modelica baseline
+R183	Ozturk shrinking	LOCAL_NEGATIVE	OLS -> iterative shrink/early stop	edge over tuned ridge
+R183	Korezlioglu 2-parameter filter	LOCAL_ADVANTAGE	row-only -> 2D causal frontier	memory scaling
+R183	Gebizlioglu spatial AR	LOCAL_NEGATIVE	neighbor imputation -> causal spatial AR	anisotropic/long-range reformulation
+R183	Yucemen crossing	LOCAL_ADVANTAGE	independence -> correlated crossing law	nonGaussian/nonstationary
+R183	Ozbek-Aliev validity	VALIDITY_PASS_POWER_WEAK	Gaussian NIS -> self-normalized CLT statistic	power
+R183	Akdeniz constrained GLS	LOCAL_ADVANTAGE	OLS -> constrained nonspherical GLS	modern KKT/SVD
+R183	Dagli step-state	LOCAL_ADVANTAGE_WEAK	persistence -> regime/season state	real Firat data
+R183	Sahinoglu dependent CLT	LOCAL_ADVANTAGE	independent variance -> dependence-aware normalization	modern collision audit
+R183	Tuncer rank similarity	SIGNATURE_PASS_LOCAL_WEAK	asymptotic guess -> exact occupancy null	alternative power
+R183	Geveci PDE control	SIGNATURE_PASS	continuous control -> convergent discretization	modern adjoint advantage
+R183	Ayhan multiplicity sampling	LOCAL_ADVANTAGE	conventional estimator -> multiplicity weights	misreport robustness
+R183	Mergen dependent process	LOCAL_ADVANTAGE	independent variance -> Markov correction	higher-order dependence
+R184	Tiku MML30	MECHANISM_PROMOTED_SCOPE_LIMITED	iterative robust score solve -> two explicit MML passes	leverage and order-independent start
+R185	tail-MML GMDH	PARETO_SURVIVOR	fixed k -> tail-adaptive k4/k30 fixed-pass mixture	strong optimized robust baselines
+R185	boundary algebra selector	MATERIAL_SCOPED	product boundary factor -> held-out R_p algebra family	new geometry and conditioning
+R186	folded polarization correction	NARROW_SURVIVOR	single square observation -> paired polarization difference	real sensor/collision
+R186	semantic quotient compiler	CAPABILITY_PRIOR_ART	syntax enumeration -> observational quotient	new non-prior-art coordinate
+R186	morphological quotient	CAPABILITY_PRIOR_ART	raw/spectrum -> topology-preserving morphology	real materials data
+R187	piecewise-polynomial posterior	SERIOUS_COMPILER_AUDIT_OPEN	constant interval density -> exact local polynomial cells	more observation/noise families
+R188	compiled Bayes design	SERIOUS_PRIMITIVE_AUDIT_OPEN	blind grid/heuristic action -> breakpoint quadrature Bayes risk	real sensor; multistep approximation
+R189	two-step exact lookahead	COST_NEGATIVE	greedy -> nested adaptive second action	cheap distillation before return
+R191	crypto representation/first passage	REAL_DATA_NEGATIVE	synthetic Markov winners -> 5-asset untouched crypto test	no confirmed alpha
+R193	omitted-event Markov compiler	MATERIAL_PRIOR_ART	observed Q -> resolvent inverse plus held-out regularization	unknown/state-dependent omission
+R194	Bongard invariant scout	MATERIAL_PRIOR_ART	hand atoms -> affine quotient sparse vanishing law plus abstention	noise coverage and richer relations
+R195	polynomial dispersion compiler	SCOPED_ADVANCE_AUDIT_OPEN	dense geometry search/point quench -> finite envelope roots plus robust difference probe	2D/nonpolynomial/physical
+R196	Steinbuch evidence memory	OPERATIONAL_FIX	1-bit latch -> 2-bit revisable evidence	no signed equal-memory edge
+R196	sparse Choquet	SCOPED_ADVANCE	2^d capacity -> sparse 2-additive Mobius plus exact monotonicity	sparsity certificate/dense case
+R196	low-rank Volterra	SCOPED_ADVANCE	dense hereditary H -> separable factors plus boundary reset	direct factor training
+R197	Pugachev conditional mean	SERIOUS_SURVIVOR	online conditional inference -> whitened/normalized fixed-pass map	recursive closure
+R197	Aizerman potential condensation	CAPABILITY_REAL_MUTATION_REJECTED	growing support -> moment-preserving merge	simple centroid was better
+R198	Pugachev scalar recursion	SCOPED_BOTTLENECK_BROKEN	one variance role -> dynamic second moment plus separate tail state	multivariate and shift tail
+R199	Tsetlin rank response	BINARY_BOTTLENECK_ONLY	binary feedback -> 8-bit reward rank state	modern policy edge
+R199	Glushkov vector composition	EXACT_SCOPED	Cartesian product -> local characterization tuple	aggregated outputs
+R199	extremal moment decision	CAPABILITY_PRIOR_ART	bound only -> threshold plus three-atom witness	continuous/high moments
+R200	Pitrat quotient schema	SCOPED_ADVANCE	exact failure trace -> resolved structural-class schema	automatic schema language
+R200	Preisach frontier	EXACT_SCOPED	dense relay state/density -> frontier plus low-rank prefixes	dense density/vector input
+R201	XOR direct-sum automata	EXACT_MAJOR_CAPABILITY_PRIOR_ART	product BFS -> GF2 direct-sum reachable span	nonlinear aggregation/coupling
+R202	Pugachev 2D whitened PSD closure	STRONGEST_SURVIVOR	fragile moment subtraction -> whitened mean plus shrunk PSD residual atoms	d>2; automatic atoms; real trace; collision

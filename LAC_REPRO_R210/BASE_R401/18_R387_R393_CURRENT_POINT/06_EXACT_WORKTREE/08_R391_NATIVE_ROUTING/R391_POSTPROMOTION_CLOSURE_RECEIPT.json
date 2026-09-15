@@ -1,0 +1,52 @@
+{
+  "release": "R391",
+  "status": "PASS",
+  "surfaces": 7,
+  "tests_counted": 74,
+  "failed": [],
+  "runs": [
+    {
+      "script": "test_core_v2_foundry_integration.py",
+      "exit_code": 0,
+      "tests": 16,
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.311s\n\nOK\n"
+    },
+    {
+      "script": "test_r12_closure.py",
+      "exit_code": 0,
+      "tests": 17,
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 2.271s\n\nOK\n"
+    },
+    {
+      "script": "test_r387_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.057s\n\nOK\n"
+    },
+    {
+      "script": "test_r388_retro50_parent_integration_closure.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.051s\n\nOK\n"
+    },
+    {
+      "script": "test_r389_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 8,
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.055s\n\nOK\n"
+    },
+    {
+      "script": "test_r390_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 9,
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.056s\n\nOK\n"
+    },
+    {
+      "script": "test_r391_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 10,
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.057s\n\nOK\n"
+    }
+  ],
+  "note": "Historical release audits preserve their own counts while live-state assertions are future-release-safe."
+}

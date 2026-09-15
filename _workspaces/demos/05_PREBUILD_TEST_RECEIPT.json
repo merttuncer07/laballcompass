@@ -1,0 +1,40 @@
+{
+  "receipt_type": "prebuild_source_validation",
+  "date": "2026-09-01",
+  "python": "3.12.13",
+  "numpy": "2.3.5",
+  "pytest": "9.1.1",
+  "active_rounds": {
+    "range": "R193-R210",
+    "targets": 18,
+    "tests": 69,
+    "status": "PASS"
+  },
+  "active_products": {
+    "targets": 2,
+    "tests": 29,
+    "status": "PASS"
+  },
+  "active_total": {
+    "targets": 20,
+    "tests": 98,
+    "status": "PASS"
+  },
+  "r401_material_products": {
+    "targets": 2,
+    "tests": 14,
+    "status": "PASS",
+    "validation_mode": "clean ZIP extraction under a short Windows path"
+  },
+  "reproduction_profile_active": {
+    "targets": 22,
+    "tests": 112,
+    "status": "PASS"
+  },
+  "source_r401_integrity": {
+    "files_checked": 10397,
+    "bytes_checked": 895632396,
+    "status": "PASS"
+  },
+  "note": "The unified manifest and 112-test active profile passed after ZIP extraction to a short Windows path."
+}

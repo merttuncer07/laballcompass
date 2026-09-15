@@ -1,0 +1,55 @@
+{
+  "freeze_id": "LABALLCOMPASS_R202_THEORY_REVISIT_FREEZE_2026-08-31",
+  "created_local_date": "2026-08-31",
+  "scientific_boundary": "R202_COMPLETE_BEFORE_R203",
+  "active_base": "WORKTREE/TURING_ALLCOMPASS_MACHINE/BASE_R178_CUTOFF.zip",
+  "active_delta_first": "R179_GROWTH_COUPLED_MODE_STEERING",
+  "active_delta_last": "R202_PUGACHEV_MULTIVARIATE_WHITENED_CLOSURE",
+  "round_count": 24,
+  "large_lineage_anchor": {
+    "name": "LABALLCOMPASS_R401_MATERIAL_PRODUCT_HANDOFF_2026-08-31.zip",
+    "sha256": "e3676abe1d9de3d44795d34e14f455e2d734a6d8c22b9b60db917f447e921c79",
+    "embedded": true,
+    "path": "LINEAGE_ANCHORS/LABALLCOMPASS_R401_MATERIAL_PRODUCT_HANDOFF_2026-08-31.zip",
+    "reason": "sealed lineage continuity for independent transfer; not an active research router"
+  },
+  "retirements": [
+    "Bridge",
+    "Regime Router",
+    "custom LabAllCompass skill",
+    "research-directing control-plane scaffolding"
+  ],
+  "strongest_survivor": {
+    "lineage": "Pugachev R197 -> R198 -> R202",
+    "current_capability": "2D correlated nonlinear non-Gaussian fixed-pass recursive mean with PSD uncertainty atoms and separate tail calibration",
+    "evidence": {
+      "cases": 40,
+      "mixture_home_ukf_wins": "10/10",
+      "mixture_shift_ukf_wins": "10/10",
+      "home_within_15_percent_particle": "20/20",
+      "compiled_rmse": 0.29264758744637426,
+      "ukf_rmse": 0.3301646658232308,
+      "particle512_rmse": 0.28791279898876543,
+      "coverage90": 0.9027787307032591,
+      "compiled_axis_radius90": 0.4387191302544256,
+      "particle_axis_radius90": 0.424763405110565,
+      "median_speedup_vs_particle512": 31.60476836697056
+    }
+  },
+  "resume_frontier": {
+    "target": "Pugachev closure dimensional scaling",
+    "problem": "Cartesian innovation cell dictionary grows exponentially for d > 2 and the cell language is manually fixed",
+    "direction": "dimension-scalable PSD conditional-residual representation with d=4/d=8 tests",
+    "must_measure": [
+      "mean RMSE",
+      "coverage",
+      "uncertainty sharpness",
+      "memory scaling",
+      "runtime",
+      "Gaussian/non-Gaussian home and shift",
+      "EKF/UKF/particle baselines"
+    ]
+  },
+  "research_direction_authority": "pre-freeze frontier and new experimental evidence only",
+  "reports_are_directional_authority": false
+}

@@ -1,0 +1,33 @@
+{
+  "release": "R391",
+  "product_id": "V2P052",
+  "pair": [
+    "FOUNDRY:P028",
+    "PARENT:R041_CONSTRAINED_POLICY_CAPL"
+  ],
+  "events_added": 12,
+  "old_event_count": 423,
+  "new_event_count": 435,
+  "statuses": {
+    "COMPLETE": 12,
+    "FAILED": 0,
+    "CENSORED": 0
+  },
+  "test_signature": "4c37ef34d745a05ed979c0f6390a773285624cf497e997178f047f74873b781b",
+  "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P052::887d30823a6e5d3d",
+  "cases": [
+    "REICAPLTests.test_reis_consequence_selection_differs_from_posterior_only",
+    "REICAPLTests.test_reis_changes_asset_specific_feasible_caps",
+    "REICAPLTests.test_working_region_beats_mechanism_removed_control",
+    "REICAPLTests.test_working_region_beats_posterior_only_ablation",
+    "REICAPLTests.test_candidate_constraints_are_certified",
+    "REICAPLTests.test_control_constraints_are_certified",
+    "REICAPLTests.test_zero_budget_collapses_exactly_to_control",
+    "REICAPLTests.test_protected_cap_equal_base_collapses_exactly_to_control",
+    "REICAPLTests.test_missing_record_asset_alignment_fails_closed",
+    "REICAPLTests.test_unknown_mapped_asset_fails_closed",
+    "REICAPLTests.test_infeasible_protected_cap_is_rejected",
+    "REICAPLTests.test_heterogeneous_projection_respects_each_cap"
+  ],
+  "evidence_boundary": "mechanics/executable-contract calibration only; not empirical validation"
+}

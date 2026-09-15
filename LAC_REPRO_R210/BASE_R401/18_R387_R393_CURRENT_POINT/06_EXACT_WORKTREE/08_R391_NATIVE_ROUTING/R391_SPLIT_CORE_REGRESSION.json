@@ -1,0 +1,118 @@
+{
+  "release": "R391",
+  "run_count": 15,
+  "tests_counted": 127,
+  "failed": [],
+  "status": "PASS",
+  "parts": [
+    "R391_SPLIT_CORE_REGRESSION_a.json",
+    "R391_SPLIT_CORE_REGRESSION_b.json"
+  ],
+  "runs": [
+    {
+      "script": "test_core_v2.py",
+      "exit_code": 0,
+      "tests": 5,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "script": "test_core_v2_foundry_integration.py",
+      "exit_code": 0,
+      "tests": 16,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.489s\n\nOK\n"
+    },
+    {
+      "script": "test_lab_search_engine.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.019s\n\nOK\n"
+    },
+    {
+      "script": "test_search_corpus_integration.py",
+      "exit_code": 0,
+      "tests": 2,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.591s\n\nOK\n"
+    },
+    {
+      "script": "test_relevance_learning.py",
+      "exit_code": 0,
+      "tests": 8,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "script": "test_experiment_selector.py",
+      "exit_code": 0,
+      "tests": 10,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "script": "test_experiment_telemetry.py",
+      "exit_code": 0,
+      "tests": 8,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "script": "test_experiment_integration.py",
+      "exit_code": 0,
+      "tests": 8,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 13.107s\n\nOK\n"
+    },
+    {
+      "script": "test_experiment_contract_bootstrap.py",
+      "exit_code": 0,
+      "tests": 5,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 4.184s\n\nOK\n"
+    },
+    {
+      "script": "test_r12_closure.py",
+      "exit_code": 0,
+      "tests": 17,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 2.296s\n\nOK\n"
+    },
+    {
+      "script": "test_r387_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.052s\n\nOK\n"
+    },
+    {
+      "script": "test_r388_retro50_parent_integration_closure.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.053s\n\nOK\n"
+    },
+    {
+      "script": "test_r389_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 8,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.050s\n\nOK\n"
+    },
+    {
+      "script": "test_r390_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 9,
+      "stdout": "",
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.052s\n\nOK\n"
+    },
+    {
+      "script": "test_r391_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 10,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.053s\n\nOK\n"
+    }
+  ]
+}

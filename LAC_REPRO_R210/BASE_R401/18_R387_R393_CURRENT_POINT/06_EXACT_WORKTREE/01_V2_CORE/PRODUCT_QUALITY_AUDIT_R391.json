@@ -1,0 +1,131 @@
+{
+  "authority_scope": "PRODUCT_OVERLAY_ONLY_REGISTRY455_UNCHANGED",
+  "candidate_added_suite_ids": [
+    "V2P052"
+  ],
+  "candidate_distinct_product_ids": [
+    "V2P052"
+  ],
+  "candidate_family_variant_ids": [],
+  "model_version": "R391_PRODUCT_QUALITY_AUDIT_V1",
+  "physical_candidate_suite_ids": [
+    "V2P001",
+    "V2P002",
+    "V2P003",
+    "V2P004",
+    "V2P005",
+    "V2P006",
+    "V2P007",
+    "V2P008",
+    "V2P009",
+    "V2P010",
+    "V2P011",
+    "V2P012",
+    "V2P013",
+    "V2P014",
+    "V2P015",
+    "V2P016",
+    "V2P017",
+    "V2P018",
+    "V2P019",
+    "V2P020",
+    "V2P021",
+    "V2P022",
+    "V2P023",
+    "V2P024",
+    "V2P025",
+    "V2P026",
+    "V2P027",
+    "V2P028",
+    "V2P029",
+    "V2P030",
+    "V2P031",
+    "V2P032",
+    "V2P033",
+    "V2P034",
+    "V2P035",
+    "V2P036",
+    "V2P037",
+    "V2P038",
+    "V2P039",
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P044",
+    "V2P045",
+    "V2P046",
+    "V2P048",
+    "V2P049",
+    "V2P050",
+    "V2P051",
+    "V2P052"
+  ],
+  "prior_canonical_authority_release": "R390",
+  "prior_distinct_family_count": 37,
+  "prior_executable_suite_count": 50,
+  "prior_quality_audit": "PRODUCT_QUALITY_AUDIT_R390.json",
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "registry_family_count": 455,
+  "resulting_distinct_family_count": 38,
+  "resulting_executable_suite_count": 51,
+  "rows": [
+    {
+      "candidate_origin": "R391 fresh full-universe diverse cluster / candidate universe rank 11908 / diverse rank 1",
+      "collapse_regions": [
+        "safeguard_budget=0 -> exact uniform-cap removal control",
+        "protected_asset_cap=base_asset_cap -> exact uniform-cap removal control"
+      ],
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "evidence_boundary": "deterministic synthetic mechanism evidence only; no empirical finance, deployment or novel-theory claim",
+      "family_id": "V2P052",
+      "mechanism_removing_comparator": "same CAPL-style optimizer, data, random seed, turnover/risk/cost settings and validation objective with uniform base asset caps; REIS selection no longer changes the feasible set",
+      "nearest_existing_products": [
+        {
+          "difference": "BMCAPL contracts one global turnover bound from belief tipping distance; REICAPL creates heterogeneous per-asset caps from consequence-aware evidence safeguard allocation.",
+          "product": "V2P040_BMCAPL"
+        },
+        {
+          "difference": "SACAPL changes covariance risk geometry inside CAPL objective; REICAPL changes asset-specific feasible caps without covariance substitution.",
+          "product": "V2P049_SACAPL"
+        },
+        {
+          "difference": "REIS allocates safeguard budget but does not learn a portfolio policy or alter CAPL action constraints.",
+          "product": "P028_REIS"
+        },
+        {
+          "difference": "CAPL uses one uniform maximum asset weight; REICAPL makes that feasible geometry heterogeneous using upstream REIS selection.",
+          "product": "R041_CAPL"
+        }
+      ],
+      "new_failure_mode": "CAPL can allocate excessive exposure to an asset tied to a low-posterior but high-consequence evidence record when uniform caps ignore REIS consequence-aware safeguard priority.",
+      "non_additive_interaction": "REIS posterior\u00d7consequence safeguard selection is converted into heterogeneous per-asset feasible caps before CAPL-style optimization, changing the feasible action geometry and learned validation action path rather than appending an audit report.",
+      "posterior_only_ablation": "same heterogeneous-cap mechanism but safeguard allocation uses posterior probability only, removing REIS consequence weighting",
+      "prior_art_status": "CLOSE_PRIOR_ART_ON_ADAPTIVE_RISK_CONSTRAINTS_AND_RISK_BUDGETING; INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+      "product_id": "V2P052",
+      "quality_accounting": "R391_DISTINCT_PRODUCT_CANDIDATE",
+      "sensitivity_boundary": "benefit is conditional, not universal: at adverse_shift=-0.002 the fresh 3-seed sweep has 0/3 positive removal-control gains, while -0.010, -0.015 and -0.020 have 3/3 positive gains",
+      "sensitivity_cells": 5,
+      "short_name": "REICAPL",
+      "supplier_id": "FOUNDRY:P028",
+      "support_boundary": "record-to-asset semantic alignment is externally declared and must cover every REIS record; missing or unknown mappings fail closed rather than being inferred from returns",
+      "test_files": [
+        "test_reicapl.py"
+      ],
+      "test_methods": 12,
+      "verdict": "DISTINCT_PRODUCT_CANDIDATE_PENDING_FULL_REGRESSION_AND_PROMOTION",
+      "working_region": "explicit record-to-asset alignment is correct and the consequence-selected asset enters a sufficiently adverse validation shift relative to training"
+    }
+  ],
+  "rules": [
+    "visibility expansion is not itself product promotion",
+    "executable suite does not imply distinct family",
+    "new failure + non-additive interaction + nearest-family comparison + mechanism-removal control required",
+    "mechanics telemetry calibrates executable contracts only",
+    "current test signature, not an older pilot signature, controls calibration authority"
+  ],
+  "status": "CANDIDATE_OVERLAY_NOT_CANONICAL"
+}

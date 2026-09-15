@@ -1,0 +1,25 @@
+{
+  "id": "P039_CACF",
+  "layer": "foundry",
+  "description": "",
+  "declared_status": "Not asserted by maintenance layer",
+  "source_fidelity": "Packaged source; restored modifications are in restoration/source-changes.json",
+  "source_directory": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P039_CACF",
+  "python_sources": [
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P039_CACF/cacf.py",
+      "sha256": "8265a0f8ebf161b260647d5c92f0ca2b591e6676d805cf841db815adccfdd0fb"
+    }
+  ],
+  "public_api": [],
+  "demo_entries": [],
+  "direct_test_files": [
+    "test_cacf.py"
+  ],
+  "latest_reproduction": {
+    "status": "PASS",
+    "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
+    "scope": "All selected targets for this component in this run; see receipt for exact tests."
+  },
+  "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
+}

@@ -1,0 +1,48 @@
+{
+  "R394": {
+    "authority": "53/40",
+    "product": "V2P054",
+    "direct": "13/13",
+    "telemetry": "460/460 exact;53/53",
+    "old_tree_identity": "421/421",
+    "foundry_identity": "1305/1305",
+    "state_sensitive": "154 tests / 0 failure",
+    "closure": "12/12"
+  },
+  "R395": {
+    "authority": "54/41",
+    "product": "V2P055",
+    "direct": "13/13",
+    "telemetry": "473/473 exact;54/54",
+    "state_sensitive": "167 tests / 0 failure",
+    "post_closure": "93/93"
+  },
+  "R396": {
+    "authority": "55/42",
+    "product": "V2P056",
+    "direct": "14/14",
+    "telemetry": "487/487 exact;55/55",
+    "state_sensitive": "19 surfaces / 181 tests / 0 failure",
+    "post_closure": "107/107"
+  },
+  "R397": {
+    "authority": "56/43",
+    "product": "V2P057",
+    "direct": "15/15",
+    "telemetry": "502/502 exact;56/56",
+    "post_R393_direct": "55/55",
+    "state_sensitive": "20 surfaces / 197 tests / 0 failure",
+    "post_closure": "123/123"
+  },
+  "R398": {
+    "base_authority": "R397 56/43",
+    "candidate": "V2P058",
+    "direct": "14/14",
+    "telemetry": "516/516 exact;57/57",
+    "candidate_closure": "31/31",
+    "old_tree_identity": "421/421",
+    "foundry_identity": "1305/1305",
+    "post_R393_direct": "69/69",
+    "state_sensitive": "PARTIAL terminal receipts; first reported batch 34/34; promotion not authorized"
+  }
+}

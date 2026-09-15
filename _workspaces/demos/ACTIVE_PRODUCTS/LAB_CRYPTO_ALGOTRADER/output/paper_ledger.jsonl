@@ -1,0 +1,1 @@
+{"last_closed_candle_utc":"2026-08-30T22:59:59.999000+00:00","last_close":78422.01,"target_spot_exposure":0.5918271111207795,"meaning":"0=cash, 1=fully long spot; fractional values are risk-scaled exposure","generated_at_utc":"2026-08-30T23:29:17.580264+00:00","prior_paper_exposure":null,"paper_action":"INITIALIZE","orders_sent":0}

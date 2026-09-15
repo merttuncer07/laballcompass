@@ -1,0 +1,117 @@
+{
+  "outer": {
+    "root": "C:\\Users\\mertt\\OneDrive\\Belgeler\\ChatGPT\\newlabexplore\\INPUT_PRODUCT_FOUNDRY_P134_2026-08-25\\HANDOFF_LABALLCOMPASS_PRODUCT_FOUNDRY_P134_2026-08-25",
+    "files_read_fully": 140,
+    "bytes_read": 2463793,
+    "extension_counts": {
+      ".txt": 3,
+      ".sha256": 1,
+      ".zip": 1,
+      ".md": 107,
+      ".json": 10,
+      ".py": 9,
+      "[none]": 2,
+      ".tag": 1,
+      ".pyc": 6
+    },
+    "extension_bytes": {
+      ".txt": 19501,
+      ".sha256": 141,
+      ".zip": 2133844,
+      ".md": 184508,
+      ".json": 40567,
+      ".py": 47317,
+      "[none]": 469,
+      ".tag": 191,
+      ".pyc": 37255
+    },
+    "python_parse_errors": []
+  },
+  "base": {
+    "root": "C:\\Users\\mertt\\OneDrive\\Belgeler\\ChatGPT\\newlabexplore\\INPUT_PRODUCT_FOUNDRY_BASE_P007_2026-08-25\\LABALLCOMPASS_PRODUCT_INTERACTION_FOUNDRY_WORK",
+    "files_read_fully": 691,
+    "bytes_read": 5497111,
+    "extension_counts": {
+      ".txt": 2,
+      ".html": 1,
+      ".md": 191,
+      ".pyc": 190,
+      ".py": 270,
+      ".json": 24,
+      ".csv": 1,
+      ".tsv": 10,
+      ".ps1": 1,
+      ".log": 1
+    },
+    "extension_bytes": {
+      ".txt": 1080642,
+      ".html": 982696,
+      ".md": 430983,
+      ".pyc": 1257456,
+      ".py": 891997,
+      ".json": 331527,
+      ".csv": 121,
+      ".tsv": 520918,
+      ".ps1": 771,
+      ".log": 0
+    },
+    "python_parse_errors": []
+  },
+  "combined_files_read_fully": 831,
+  "combined_bytes_read": 7960904,
+  "outer_manifest": {
+    "rows": 139,
+    "matched": 139,
+    "mismatches": []
+  },
+  "base_manifest": {
+    "rows": 394,
+    "matched": 393,
+    "mismatches": [
+      {
+        "file": "03_OUTPUT/README.md",
+        "expected": "ace9ea9ecf3136889324bdb3d3c0a04a7785584572b2bce191e248723ffb5e34",
+        "actual": "f4d42280549a0a1a5d9f4513b7b8c4038544bfe1a13ef37c7b05ab7a112a7033",
+        "match": false
+      }
+    ]
+  },
+  "parent_interface_records": 69,
+  "product_result_records": 101,
+  "available_materialized_product_ids": 105,
+  "missing_materialized_product_ids": [
+    "P004",
+    "P009",
+    "P010",
+    "P011",
+    "P020",
+    "P021",
+    "P022",
+    "P023",
+    "P024",
+    "P051",
+    "P052",
+    "P053",
+    "P054",
+    "P055",
+    "P056",
+    "P069",
+    "P070",
+    "P071",
+    "P072",
+    "P073",
+    "P074",
+    "P106",
+    "P107",
+    "P108",
+    "P109",
+    "P110",
+    "P111",
+    "P112",
+    "P113"
+  ],
+  "product_records_with_executable_source": 8,
+  "product_records_with_test_source": 8,
+  "product_records_with_explicit_strength": 53,
+  "product_records_with_explicit_weakness": 77
+}

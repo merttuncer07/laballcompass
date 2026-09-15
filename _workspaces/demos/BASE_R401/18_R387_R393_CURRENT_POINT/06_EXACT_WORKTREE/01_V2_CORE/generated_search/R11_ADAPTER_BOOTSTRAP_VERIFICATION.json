@@ -1,0 +1,129 @@
+{
+  "model_version": "R11_V2P007_BOOTSTRAP_V1",
+  "composition": "LCB-K009->FOUNDRY:P026",
+  "product_id": "V2P007",
+  "pilot_statuses": {
+    "COMPLETE": 12,
+    "FAILED": 0,
+    "CENSORED": 0
+  },
+  "prior_event_count": 60,
+  "new_event_count": 12,
+  "cumulative_event_count": 72,
+  "suite": {
+    "product_id": "V2P007",
+    "supplier_id": "LCB-K009",
+    "consumer_id": "FOUNDRY:P026",
+    "product_dir": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R11_2026-08-26/01_V2_CORE/products/V2P007_CPDBE",
+    "test_file": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R11_2026-08-26/01_V2_CORE/products/V2P007_CPDBE/test_cpdbe.py",
+    "cases": [
+      "CPDBETests.test_true_bottleneck_flip_is_preserved",
+      "CPDBETests.test_wide_slack_expansion_is_pruned",
+      "CPDBETests.test_late_route_remains_zero",
+      "CPDBETests.test_yield_constraint_is_preserved",
+      "CPDBETests.test_zero_pressure_capacity_increase_cannot_change_output",
+      "CPDBETests.test_equal_incoming_capacity_is_safely_pruned",
+      "CPDBETests.test_positive_pressure_is_not_overclaimed_as_unique_bottleneck",
+      "CPDBETests.test_decreasing_grid_fails_closed_to_full_scan",
+      "CPDBETests.test_target_already_met_fails_closed_to_full_scan",
+      "CPDBETests.test_random_monotone_grids_match_full_p026_exactly",
+      "CPDBETests.test_many_slack_edges_reduce_grid_without_changing_result",
+      "CPDBETests.test_unknown_edge_and_duplicate_names_are_rejected"
+    ],
+    "test_id": "BOOTSTRAP_UNIT_CASE::V2P007",
+    "test_signature": "a255acefb8f9c40aa8c2df54222eabf3e3c5087e9da2e292b93727c7290e180b",
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023",
+    "source_hash": "cdef4fe748d9c0231ee323cf36e91b09a4a6339b7d617678a4204155c2b9b028"
+  },
+  "calibration_snapshot": {
+    "schema_version": 1,
+    "model_version": "LAB_EXPERIMENT_TELEMETRY_R5_V1",
+    "target_generation": 2,
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023",
+    "min_attempts": 5,
+    "min_axis_observations": 5,
+    "one_sided_z": 1.645,
+    "calibrations": [
+      {
+        "test_id": "BOOTSTRAP_UNIT_CASE::V2P007",
+        "test_signature": "a255acefb8f9c40aa8c2df54222eabf3e3c5087e9da2e292b93727c7290e180b",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023",
+        "target_generation": 2,
+        "attempt_count": 12,
+        "usable_count": 12,
+        "reliability_lower_bound": 0.8159920848767768,
+        "compute_upper_seconds": 0.8027996860000712,
+        "expected_resolution_lower_by_axis": {
+          "declared_executable_contract_case_coverage": 0.08333333333333337
+        },
+        "axis_observation_counts": {
+          "declared_executable_contract_case_coverage": 12
+        },
+        "excluded_counts": {
+          "failed_or_censored": 0,
+          "invalid_measurement": 0,
+          "unknown_backreaction": 0,
+          "unadjusted_backreaction": 0
+        },
+        "event_ids": [
+          "R11::V2P007::000::cpdbetests_test_true_bottleneck_flip_is_preserved",
+          "R11::V2P007::001::cpdbetests_test_wide_slack_expansion_is_pruned",
+          "R11::V2P007::002::cpdbetests_test_late_route_remains_zero",
+          "R11::V2P007::003::cpdbetests_test_yield_constraint_is_preserved",
+          "R11::V2P007::004::cpdbetests_test_zero_pressure_capacity_increase_cannot_change_output",
+          "R11::V2P007::005::cpdbetests_test_equal_incoming_capacity_is_safely_pruned",
+          "R11::V2P007::006::cpdbetests_test_positive_pressure_is_not_overclaimed_as_unique_bottleneck",
+          "R11::V2P007::007::cpdbetests_test_decreasing_grid_fails_closed_to_full_scan",
+          "R11::V2P007::008::cpdbetests_test_target_already_met_fails_closed_to_full_scan",
+          "R11::V2P007::009::cpdbetests_test_random_monotone_grids_match_full_p026_exactly",
+          "R11::V2P007::010::cpdbetests_test_many_slack_edges_reduce_grid_without_changing_result",
+          "R11::V2P007::011::cpdbetests_test_unknown_edge_and_duplicate_names_are_rejected"
+        ],
+        "calibration_id": "9a22fc9da8b78e8ed76622a7d4a8842a8c12cc2b8cea4e1a728c12b13f466a3b"
+      }
+    ],
+    "excluded_global_counts": {
+      "same_or_future_generation": 0,
+      "protected_validation": 0,
+      "not_calibration_eligible": 0,
+      "wrong_shell": 0
+    },
+    "fingerprint": "b1ac50b0cdb55b70a3eeac0b459856f80f737e7bcd230966c5579532f7b42fbd"
+  },
+  "plan": {
+    "schema_version": 2,
+    "model_version": "LAB_EXPERIMENT_SELECTOR_R5_V1",
+    "decision_id": "COMPOSITION::LCB-K009->FOUNDRY:P026",
+    "search_generation": 2,
+    "selection_round": 0,
+    "contract_fingerprint": "e126ee409f27e1b0ec232102d5599016ddc28065924802dbda46a01cbe2fc057",
+    "unresolved_mass": 1.0,
+    "stop": false,
+    "stop_reason": "",
+    "selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P007",
+    "blind_axes": [],
+    "unquantified_test_ids": [],
+    "ranked_routes": [
+      {
+        "test_id": "BOOTSTRAP_UNIT_CASE::V2P007",
+        "status": "READY",
+        "expected_decision_progress": 0.0679993404063981,
+        "expected_progress_per_compute": 0.08470274913185762,
+        "compute_seconds": 0.8027996860000712,
+        "reliability": 0.8159920848767768,
+        "covered_axes": [
+          "declared_executable_contract_case_coverage"
+        ],
+        "unknown_fields": [],
+        "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE"
+      }
+    ]
+  },
+  "queue_bootstrap_status_counts": {
+    "FIXED_PILOT_SCHEDULE_AVAILABLE": 7,
+    "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 115,
+    "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 721,
+    "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157
+  },
+  "pilotable_existing_suite_rows": 7
+}

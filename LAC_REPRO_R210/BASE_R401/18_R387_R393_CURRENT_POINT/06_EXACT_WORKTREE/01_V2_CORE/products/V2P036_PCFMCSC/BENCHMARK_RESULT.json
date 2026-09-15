@@ -1,0 +1,29 @@
+{
+  "evidence_boundary": "finite ordered tolerance-grid structural audit only",
+  "mechanism_removing_comparator": {
+    "assumption": "after first negative margin, all larger tolerances remain unsafe",
+    "contradicted_by_later_margin": {
+      "direction_recovery": true,
+      "margin": -0.05,
+      "tolerance": 0.2
+    },
+    "first_negative_tolerance": 0.1
+  },
+  "model_version": "V2P036_PCFMCSC_V1",
+  "result": {
+    "first_violation": [
+      0.1,
+      0.2,
+      -0.15,
+      -0.05
+    ],
+    "monotone_safe": false,
+    "safe_intervals": [
+      [
+        0.0,
+        0.05
+      ]
+    ],
+    "status": "NONMONOTONE_CLOSURE_FIDELITY_WITNESS"
+  }
+}

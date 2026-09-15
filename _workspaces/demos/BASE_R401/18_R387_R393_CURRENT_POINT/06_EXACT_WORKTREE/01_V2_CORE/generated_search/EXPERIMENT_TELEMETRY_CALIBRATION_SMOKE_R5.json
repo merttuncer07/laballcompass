@@ -1,0 +1,11 @@
+{
+  "calibration_snapshot_fingerprint": "1aba19d620b76d244d79723ec27af320ee78cf93788ec4b3c79754ab5e481714",
+  "compute_upper_seconds": 2.3,
+  "engine": "LAB_EXPERIMENT_TELEMETRY_R5_SMOKE",
+  "prior_generation_runs": 6,
+  "reliability_lower_bound": 0.689177896916216,
+  "resolution_lower_bound": 0.5405025880718307,
+  "selected_test_id": "T_MEMORY_DIAGNOSTIC",
+  "status": "PASS",
+  "target_generation": 2
+}

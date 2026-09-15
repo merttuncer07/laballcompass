@@ -1,0 +1,45 @@
+{
+  "node_names": [
+    "A",
+    "B",
+    "C"
+  ],
+  "phase_locking_matrix": [
+    [
+      1.0,
+      0.045793981509948546,
+      0.9936653567479647
+    ],
+    [
+      0.045793981509948546,
+      1.0,
+      0.043644460728904294
+    ],
+    [
+      0.9936653567479647,
+      0.043644460728904294,
+      1.0
+    ]
+  ],
+  "remote_pairs": [
+    {
+      "endpoint_a": "A",
+      "endpoint_b": "C",
+      "endpoint_phase_locking": 0.9936653567479647,
+      "graph_path": [
+        "A",
+        "B",
+        "C"
+      ],
+      "mediator_phase_locking_to_a": [
+        0.045793981509948546
+      ],
+      "mediator_phase_locking_to_b": [
+        0.043644460728904294
+      ],
+      "weakest_mediator_decoupling_margin": 0.40420601849005144
+    }
+  ],
+  "synchronized_nonadjacent_pair_count": 1,
+  "status": "REMOTE_SYNCHRONIZATION_PATHWAY_FOUND"
+}

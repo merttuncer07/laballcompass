@@ -1,0 +1,40 @@
+[
+  {
+    "name": "FormulaEvalTestData_Copy.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/FormulaEvalTestData_Copy.xlsx",
+    "github_blob_sha": "d9dfac62b2c9c8f1426c5800189ed19e60f93edc",
+    "sha256": "01b21647d53501e8ec10f4eb522945d41ea3c8d1fdd57f8b0142ec34884c33eb",
+    "bytes": 65011,
+    "scope": "Apache POI engineering fixture, not a client audit workbook"
+  },
+  {
+    "name": "shared_formulas.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/shared_formulas.xlsx",
+    "github_blob_sha": "0a3cb70cb4442c6a1c7a8a93d0bf2e59ff41e588",
+    "sha256": "31612d513b5ea5aaa69764779f87ac52588687770f3ccbf4b420ec21bc70561f",
+    "bytes": 10137,
+    "scope": "Apache POI engineering fixture, not a client audit workbook"
+  },
+  {
+    "name": "FormulaSheetRange.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/FormulaSheetRange.xlsx",
+    "github_blob_sha": "3da4eb1f8bcb5b055a01705f0c75ff92177c459a",
+    "sha256": "1943a81a9d439e3bb843b66fd2f9bcdcf37e31232c850ea31d47681b5d5efa12",
+    "bytes": 12949,
+    "scope": "Apache POI engineering fixture, not a client audit workbook"
+  },
+  {
+    "name": "link-external-workbook-a.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/link-external-workbook-a.xlsx",
+    "sha256": "930049ddea88c58fbef66620fcba333790aed8da9a003ab209da6955fee1f5c2",
+    "bytes": 3274,
+    "scope": "Apache POI external workbook link fixture, not a client audit workbook"
+  },
+  {
+    "name": "link-external-workbook-b.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/link-external-workbook-b.xlsx",
+    "sha256": "6e0e5c2aa3bf870cfeba03cb2350c312c639f2875b6501029d0bc134916b2361",
+    "bytes": 4080,
+    "scope": "Apache POI external workbook link fixture, not a client audit workbook"
+  }
+]

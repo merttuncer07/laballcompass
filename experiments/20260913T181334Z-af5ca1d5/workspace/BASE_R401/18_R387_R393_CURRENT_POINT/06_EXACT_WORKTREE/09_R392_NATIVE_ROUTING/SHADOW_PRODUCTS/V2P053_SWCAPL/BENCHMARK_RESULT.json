@@ -1,0 +1,37 @@
+{
+  "evidence_boundary": "synthetic declared source-to-target shift shell; not empirical transportability, financial performance, deployment or novel-theory evidence",
+  "mechanism_removing_comparator": "same CAPL-style optimizer/rows/seed/constraints with uniform observation weights",
+  "product_id": "V2P053",
+  "release": "R392_SHADOW",
+  "result": {
+    "candidate_action_audit": {
+      "lower_bound_violations": 0,
+      "maximum_realized_turnover": 0.7999999999999999,
+      "maximum_sum_error": 0.0,
+      "maximum_weight": 0.9,
+      "minimum_weight": 0.10000000000000006,
+      "sum_violations": 0,
+      "turnover_violations": 0,
+      "upper_bound_violations": 0
+    },
+    "candidate_mean_weight_asset_1": 0.9,
+    "candidate_target_validation_objective": -0.030728082027365725,
+    "control_action_audit": {
+      "lower_bound_violations": 0,
+      "maximum_realized_turnover": 0.8,
+      "maximum_sum_error": 0.0,
+      "maximum_weight": 0.9,
+      "minimum_weight": 0.1,
+      "sum_violations": 0,
+      "turnover_violations": 0,
+      "upper_bound_violations": 0
+    },
+    "control_mean_weight_asset_0": 0.9,
+    "control_target_validation_objective": -0.012216045158622315,
+    "effective_sample_fraction": 0.30769230769230765,
+    "effective_sample_size": 24.615384615384613,
+    "status": "TARGET_WEIGHTED_POLICY_LEARNED",
+    "support_status": "SUPPORT_USABLE",
+    "target_validation_gain_vs_removed_mechanism": 0.01851203686874341
+  }
+}

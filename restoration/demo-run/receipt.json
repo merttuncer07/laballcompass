@@ -1,0 +1,557 @@
+{
+  "results": [
+    {
+      "component": "IM124_IM256_TSRC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM124_IM256_TSRC/demo_target_reduction.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.82,
+      "log": "IM124_IM256_TSRC__demo_target_reduction.py.log"
+    },
+    {
+      "component": "IM139_IM250_CCVC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM139_IM250_CCVC/demo_resource_circulation.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 1.24,
+      "log": "IM139_IM250_CCVC__demo_resource_circulation.py.log"
+    },
+    {
+      "component": "IM141_IM023_CDBL",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM141_IM023_CDBL/demo_deployable_network.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.84,
+      "log": "IM141_IM023_CDBL__demo_deployable_network.py.log"
+    },
+    {
+      "component": "IM178_IM326_TWMR",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM178_IM326_TWMR/demo_target_model_reduction.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "log": "IM178_IM326_TWMR__demo_target_model_reduction.py.log"
+    },
+    {
+      "component": "IM256_IM307_OTE",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM256_IM307_OTE/demo_orthogonal_target.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "log": "IM256_IM307_OTE__demo_orthogonal_target.py.log"
+    },
+    {
+      "component": "IM274_IM290_OWS",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM274_IM290_OWS/demo_weight_stabilization.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 1.2,
+      "log": "IM274_IM290_OWS__demo_weight_stabilization.py.log"
+    },
+    {
+      "component": "IM306_IM222_HMRM",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM306_IM222_HMRM/demo_hidden_resilience.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "log": "IM306_IM222_HMRM__demo_hidden_resilience.py.log"
+    },
+    {
+      "component": "IM334_IM094_DRE",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM334_IM094_DRE/demo_decision_exploration.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 2.64,
+      "log": "IM334_IM094_DRE__demo_decision_exploration.py.log"
+    },
+    {
+      "component": "IM340_IM280_CWC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM340_IM280_CWC/demo_coverage_control.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "log": "IM340_IM280_CWC__demo_coverage_control.py.log"
+    },
+    {
+      "component": "IM359_IM014_AICC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/demo_adaptive_channels.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 12.36,
+      "log": "IM359_IM014_AICC__demo_adaptive_channels.py.log"
+    },
+    {
+      "component": "IM374_IM272_DSDA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM374_IM272_DSDA/demo_fatigue_detection.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 32.71,
+      "log": "IM374_IM272_DSDA__demo_fatigue_detection.py.log"
+    },
+    {
+      "component": "IM401_IM030_MFPA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM401_IM030_MFPA/demo_failure_architecture.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "log": "IM401_IM030_MFPA__demo_failure_architecture.py.log"
+    },
+    {
+      "component": "IM406_IM037_ACRA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM406_IM037_ACRA/demo_resolution_allocation.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.52,
+      "log": "IM406_IM037_ACRA__demo_resolution_allocation.py.log"
+    },
+    {
+      "component": "IM421_IM094_DTPR",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM421_IM094_DTPR/demo_emergency_allocation.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 12.1,
+      "log": "IM421_IM094_DTPR__demo_emergency_allocation.py.log"
+    },
+    {
+      "component": "IM421_IM094_DTPR",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM421_IM094_DTPR/demo_multisite_allocation.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 1.83,
+      "log": "IM421_IM094_DTPR__demo_multisite_allocation.py.log"
+    },
+    {
+      "component": "IM440_IM029_REL",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/demo_relational_localization.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.04,
+      "log": "IM440_IM029_REL__demo_relational_localization.py.log"
+    },
+    {
+      "component": "IM445_IM085_CSID",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM445_IM085_CSID/demo_contract_design.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.04,
+      "log": "IM445_IM085_CSID__demo_contract_design.py.log"
+    },
+    {
+      "component": "IM452_IM015_LCM",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM452_IM015_LCM/demo_liquidity_conversion.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "log": "IM452_IM015_LCM__demo_liquidity_conversion.py.log"
+    },
+    {
+      "component": "IM455_IM094_DTTC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM455_IM094_DTTC/demo_trigger_design.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.74,
+      "log": "IM455_IM094_DTTC__demo_trigger_design.py.log"
+    },
+    {
+      "component": "R001_C313_BPISD",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R001_C313_BPISD/demo_persuasion.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.49,
+      "log": "R001_C313_BPISD__demo_persuasion.py.log"
+    },
+    {
+      "component": "R002_C326_HFAD",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R002_C326_HFAD/demo_flow_attribution.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.08,
+      "log": "R002_C326_HFAD__demo_flow_attribution.py.log"
+    },
+    {
+      "component": "R003_C333_RIC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R003_C333_RIC/demo_integrality_audit.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.6,
+      "log": "R003_C333_RIC__demo_integrality_audit.py.log"
+    },
+    {
+      "component": "R004_C344_OFLS",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R004_C344_OFLS/demo_redemption_policies.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.49,
+      "log": "R004_C344_OFLS__demo_redemption_policies.py.log"
+    },
+    {
+      "component": "R005_P572_SLERM",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R005_P572_SLERM/demo_lock_in.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R005_P572_SLERM__demo_lock_in.py.log"
+    },
+    {
+      "component": "R006_P579_P580_UTDIM",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R006_P579_P580_UTDIM/demo_double_diffusion.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R006_P579_P580_UTDIM__demo_double_diffusion.py.log"
+    },
+    {
+      "component": "R007_C349_BICC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/demo_influence_audit.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 6.87,
+      "log": "R007_C349_BICC__demo_influence_audit.py.log"
+    },
+    {
+      "component": "R008_E612_E613_LGID",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R008_E612_E613_LGID/demo_incidence.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.05,
+      "log": "R008_E612_E613_LGID__demo_incidence.py.log"
+    },
+    {
+      "component": "R009_P620_CSDC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R009_P620_CSDC/demo_coarsening.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "log": "R009_P620_CSDC__demo_coarsening.py.log"
+    },
+    {
+      "component": "R010_C359_PPSA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R010_C359_PPSA/demo_privacy_pipeline.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R010_C359_PPSA__demo_privacy_pipeline.py.log"
+    },
+    {
+      "component": "R011_C360_MCPR",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R011_C360_MCPR/demo_market_clear.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R011_C360_MCPR__demo_market_clear.py.log"
+    },
+    {
+      "component": "R012_P660_APTC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R012_P660_APTC/demo_ambipolar.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R012_P660_APTC__demo_ambipolar.py.log"
+    },
+    {
+      "component": "R013_C376_OWNM",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R013_C376_OWNM/demo_control_wedge.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.38,
+      "log": "R013_C376_OWNM__demo_control_wedge.py.log"
+    },
+    {
+      "component": "R014_S781_S792_ACSA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/demo_selection.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "log": "R014_S781_S792_ACSA__demo_selection.py.log"
+    },
+    {
+      "component": "R015_P767_PCBE",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R015_P767_PCBE/demo_breakthrough.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "log": "R015_P767_PCBE__demo_breakthrough.py.log"
+    },
+    {
+      "component": "R016_M821_M839_FCMS",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R016_M821_M839_FCMS/demo_microstructure.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "log": "R016_M821_M839_FCMS__demo_microstructure.py.log"
+    },
+    {
+      "component": "R017_C389_PRIU",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R017_C389_PRIU/demo_priority_reset.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R017_C389_PRIU__demo_priority_reset.py.log"
+    },
+    {
+      "component": "R018_M866_M880_MCSC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R018_M866_M880_MCSC/demo_comparative_statics.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R018_M866_M880_MCSC__demo_comparative_statics.py.log"
+    },
+    {
+      "component": "R019_P858_P859_VICO",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R019_P858_P859_VICO/demo_coupling.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "log": "R019_P858_P859_VICO__demo_coupling.py.log"
+    },
+    {
+      "component": "R020_P848_P851_SCCRT",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R020_P848_P851_SCCRT/demo_catalyst.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "log": "R020_P848_P851_SCCRT__demo_catalyst.py.log"
+    },
+    {
+      "component": "R021_M896_TFLD",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R021_M896_TFLD/demo_localization.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 1.15,
+      "log": "R021_M896_TFLD__demo_localization.py.log"
+    },
+    {
+      "component": "R022_E404_E405_CDA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R022_E404_E405_CDA/demo_channel_dominance.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.54,
+      "log": "R022_E404_E405_CDA__demo_channel_dominance.py.log"
+    },
+    {
+      "component": "R023_M421_M428_CORMA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R023_M421_M428_CORMA/demo_state_audit.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R023_M421_M428_CORMA__demo_state_audit.py.log"
+    },
+    {
+      "component": "R024_M423_M426_BRED",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R024_M423_M426_BRED/demo_balanced_reduction.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.31,
+      "log": "R024_M423_M426_BRED__demo_balanced_reduction.py.log"
+    },
+    {
+      "component": "R025_M435_M436_WBDP",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R025_M435_M436_WBDP/demo_distribution_plan.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R025_M435_M436_WBDP__demo_distribution_plan.py.log"
+    },
+    {
+      "component": "R026_S423_S424_EBC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/demo_evidence_borrowing.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R026_S423_S424_EBC__demo_evidence_borrowing.py.log"
+    },
+    {
+      "component": "R027_S426_S427_MIFF",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R027_S426_S427_MIFF/demo_firewall.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R027_S426_S427_MIFF__demo_firewall.py.log"
+    },
+    {
+      "component": "R028_S418_S439_TDSX",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R028_S418_S439_TDSX/demo_tipping_surface.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "log": "R028_S418_S439_TDSX__demo_tipping_surface.py.log"
+    },
+    {
+      "component": "R029_S440_SCE",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R029_S440_SCE/demo_specification_curve.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "log": "R029_S440_SCE__demo_specification_curve.py.log"
+    },
+    {
+      "component": "R030_P428_P429_ISPO",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R030_P428_P429_ISPO/demo_search.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R030_P428_P429_ISPO__demo_search.py.log"
+    },
+    {
+      "component": "R031_P430_RTO",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R031_P430_RTO/demo_heavy_tail_restart.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "log": "R031_P430_RTO__demo_heavy_tail_restart.py.log"
+    },
+    {
+      "component": "R032_M437_UMCA",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R032_M437_UMCA/demo_stock_reconciliation.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.49,
+      "log": "R032_M437_UMCA__demo_stock_reconciliation.py.log"
+    },
+    {
+      "component": "R033_M420_OASRD",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R033_M420_OASRD/demo_averaging.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "R033_M420_OASRD__demo_averaging.py.log"
+    },
+    {
+      "component": "R034_P435_RSPI",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R034_P435_RSPI/demo_remote_sync.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R034_P435_RSPI__demo_remote_sync.py.log"
+    },
+    {
+      "component": "R035_M007_ENPC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R035_M007_ENPC/demo_factor_neutral.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.47,
+      "log": "R035_M007_ENPC__demo_factor_neutral.py.log"
+    },
+    {
+      "component": "R036_DERIVATIVE_FREE_DFDPE",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R036_DERIVATIVE_FREE_DFDPE/demo_dynamic_estimation.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "log": "R036_DERIVATIVE_FREE_DFDPE__demo_dynamic_estimation.py.log"
+    },
+    {
+      "component": "R037_SUPPORT_COVARIANCE_SACPS",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R037_SUPPORT_COVARIANCE_SACPS/demo_covariance.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R037_SUPPORT_COVARIANCE_SACPS__demo_covariance.py.log"
+    },
+    {
+      "component": "R038_DECISION_HEDGE_DHCC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R038_DECISION_HEDGE_DHCC/demo_hedge.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "log": "R038_DECISION_HEDGE_DHCC__demo_hedge.py.log"
+    },
+    {
+      "component": "R039_DECISION_BELIEF_DSBC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R039_DECISION_BELIEF_DSBC/demo_belief_compression.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "log": "R039_DECISION_BELIEF_DSBC__demo_belief_compression.py.log"
+    },
+    {
+      "component": "R040_M147_SALC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R040_M147_SALC/demo_lumpability.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R040_M147_SALC__demo_lumpability.py.log"
+    },
+    {
+      "component": "R041_CONSTRAINED_POLICY_CAPL",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R041_CONSTRAINED_POLICY_CAPL/demo_policy.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 13.1,
+      "log": "R041_CONSTRAINED_POLICY_CAPL__demo_policy.py.log"
+    },
+    {
+      "component": "R042_PREDICTIVE_STATE_PSCT",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R042_PREDICTIVE_STATE_PSCT/demo_predictive_state.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.53,
+      "log": "R042_PREDICTIVE_STATE_PSCT__demo_predictive_state.py.log"
+    },
+    {
+      "component": "R043_S159_S930_SRCD",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R043_S159_S930_SRCD/demo_reporting_contracts.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.48,
+      "log": "R043_S159_S930_SRCD__demo_reporting_contracts.py.log"
+    },
+    {
+      "component": "R044_DECISION_LOSS_DLEW",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R044_DECISION_LOSS_DLEW/demo_decision_loss.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "log": "R044_DECISION_LOSS_DLEW__demo_decision_loss.py.log"
+    },
+    {
+      "component": "R045_TARGET_MEMORY_ATRC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R045_TARGET_MEMORY_ATRC/demo_retention.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 2.08,
+      "log": "R045_TARGET_MEMORY_ATRC__demo_retention.py.log"
+    },
+    {
+      "component": "R046_METRIC_DECISION_MDDC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R046_METRIC_DECISION_MDDC/demo_divergence.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "R046_METRIC_DECISION_MDDC__demo_divergence.py.log"
+    },
+    {
+      "component": "R047_MORTGAGE_COMPETING_MCRIS",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R047_MORTGAGE_COMPETING_MCRIS/demo_mortgage.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.05,
+      "log": "R047_MORTGAGE_COMPETING_MCRIS__demo_mortgage.py.log"
+    },
+    {
+      "component": "R048_MORTGAGE_BURNOUT_MBPF",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R048_MORTGAGE_BURNOUT_MBPF/demo_burnout.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "log": "R048_MORTGAGE_BURNOUT_MBPF__demo_burnout.py.log"
+    },
+    {
+      "component": "R049_S096_S803_MLHPE",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R049_S096_S803_MLHPE/demo_hidden_population.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 1.08,
+      "log": "R049_S096_S803_MLHPE__demo_hidden_population.py.log"
+    },
+    {
+      "component": "R050_M583_S745_CBAC",
+      "script": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R050_M583_S745_CBAC/demo_balanced_assignment.py",
+      "status": "EXECUTED",
+      "exit_code": 0,
+      "seconds": 0.38,
+      "log": "R050_M583_S745_CBAC__demo_balanced_assignment.py.log"
+    }
+  ],
+  "scope": "Shipped parent demo execution; not independent scientific validation"
+}

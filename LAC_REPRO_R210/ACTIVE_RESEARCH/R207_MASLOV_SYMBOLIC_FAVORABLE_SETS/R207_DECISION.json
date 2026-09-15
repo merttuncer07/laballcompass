@@ -1,0 +1,31 @@
+{
+  "status": "THEORETICAL_MECHANISM_RETAINED_COLLISION_HEAVY_NOT_BREAKTHROUGH",
+  "historical_line": "S. Yu. Maslov inverse method and favorable sets",
+  "scoped_theorem": "For a finite acyclic ground rule hypergraph, the upward closure of all subset-minimal proof supports is represented exactly by a monotone proof circuit with size linear in rule incidences, independent of the number of minimal supports.",
+  "confirmed_separation": {
+    "choice_blocks": 16,
+    "explicit_minimal_supports": 65536,
+    "explicit_support_atoms": 1048576,
+    "factored_circuit_nodes": 49,
+    "interleaved_bdd_nodes": 34,
+    "split_order_bdd_nodes": 131072
+  },
+  "large_factored_probe": {
+    "choice_blocks": 4096,
+    "implicit_minimal_supports": "2^4096",
+    "factored_circuit_nodes": 12289
+  },
+  "retained": [
+    "absorptive support-family semantics for favorable sets",
+    "factored monotone proof circuit in finite acyclic regions",
+    "canonical ROBDD fixed point in finite cyclic regions"
+  ],
+  "not_solved": [
+    "first-order unification and infinite term growth",
+    "variable-order-independent canonical compression",
+    "cheap general circuit equivalence",
+    "full Maslov-calculus prover and real corpus performance"
+  ],
+  "collision": "Strong: semiring provenance, absorptive fixed-point provenance, Datalog provenance circuits, ZDD and symbolic set-family methods.",
+  "next_action": "Do not deepen this collision-heavy line now; evaluate the already parked Doeblin source before adding candidates."
+}

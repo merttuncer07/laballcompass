@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "tests": 34,
+  "receipt": "runs/20260914T170000Z-ebc/receipt.json",
+  "ui": "restoration/20260914-ebc/ui-check.json",
+  "catalog_entries": 293,
+  "example": "examples/borrowing/index.html",
+  "scope": "Software repetition invariance across two-stage REL/EBC and BAMI; synthetic numerical illustration. No field, coverage, novelty or general covariance claim."
+}

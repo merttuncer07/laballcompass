@@ -1,0 +1,30 @@
+{
+  "samples": 2400,
+  "target_coverage": 0.9,
+  "calibration_error_controller": {
+    "coverage": 0.8983333333333333,
+    "rolling_coverage_rmse": 0.03732819546194301,
+    "mean_width": 4.940064867127224,
+    "width_step_variability": 0.053917258246106915,
+    "mean_interval_score": 6.233095930794023
+  },
+  "raw_interval_score_gradient": {
+    "coverage": 0.90125,
+    "rolling_coverage_rmse": 0.04328131802777776,
+    "mean_width": 4.691500000000087,
+    "width_step_variability": 0.07161153971394656,
+    "mean_interval_score": 5.940332327869485
+  },
+  "phase_coverage": {
+    "calibration_error_controller": [
+      0.90125,
+      0.895,
+      0.89875
+    ],
+    "raw_interval_score_gradient": [
+      0.89875,
+      0.8775,
+      0.9275
+    ]
+  }
+}

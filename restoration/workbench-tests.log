@@ -1,0 +1,24 @@
+test_all_truth_assignments_against_separate_oracle (test_workbench.DependencyTests.test_all_truth_assignments_against_separate_oracle) ... ok
+test_analytical_choice_blocks (test_workbench.DependencyTests.test_analytical_choice_blocks) ... ok
+test_axiom_and_no_scenarios (test_workbench.DependencyTests.test_axiom_and_no_scenarios) ... ok
+test_invalid_contracts_rejected (test_workbench.DependencyTests.test_invalid_contracts_rejected) ... ok
+test_report_finds_shared_single_and_joint_cuts (test_workbench.DependencyTests.test_report_finds_shared_single_and_joint_cuts) ... ok
+test_shared_source_collapses_derivative_identities (test_workbench.DependencyTests.test_shared_source_collapses_derivative_identities) ... ok
+test_analysis_preserves_input_and_existing_output (test_workbench.WorkbookTests.test_analysis_preserves_input_and_existing_output) ... ok
+test_conditional_branches_are_conservative (test_workbench.WorkbookTests.test_conditional_branches_are_conservative) ... ok
+test_cycles_do_not_become_independent_sources (test_workbench.WorkbookTests.test_cycles_do_not_become_independent_sources) ... ok
+test_empty_and_unresolved_only_workbooks_explain_failure (test_workbench.WorkbookTests.test_empty_and_unresolved_only_workbooks_explain_failure) ... ok
+test_error_cell_and_downstream_excluded (test_workbench.WorkbookTests.test_error_cell_and_downstream_excluded) ... ok
+test_identical_hardcodes_are_not_merged (test_workbench.WorkbookTests.test_identical_hardcodes_are_not_merged) ... ok
+test_independent_apache_poi_three_dimensional_fixture (test_workbench.WorkbookTests.test_independent_apache_poi_three_dimensional_fixture) ... ok
+test_invalid_ranges_never_become_dependency_free_formulas (test_workbench.WorkbookTests.test_invalid_ranges_never_become_dependency_free_formulas) ... ok
+test_quoted_sheet_names_names_and_case (test_workbench.WorkbookTests.test_quoted_sheet_names_names_and_case) ... ok
+test_ranges_and_copy_chain_trace_same_input (test_workbench.WorkbookTests.test_ranges_and_copy_chain_trace_same_input) ... ok
+test_strings_do_not_create_fake_references (test_workbench.WorkbookTests.test_strings_do_not_create_fake_references) ... ok
+test_three_dimensional_ranges_follow_tab_order_including_middle (test_workbench.WorkbookTests.test_three_dimensional_ranges_follow_tab_order_including_middle) ... ok
+test_unsupported_and_downstream_are_reported (test_workbench.WorkbookTests.test_unsupported_and_downstream_are_reported) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.324s
+
+OK

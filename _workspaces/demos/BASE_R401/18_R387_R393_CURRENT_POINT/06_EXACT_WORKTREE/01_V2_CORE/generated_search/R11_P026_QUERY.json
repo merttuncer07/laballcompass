@@ -1,0 +1,15 @@
+{
+  "problem_id": "R11_PRESSURE_GUIDED_DEPLOYABLE_TIPPING_SMOKE",
+  "search_generation": 0,
+  "objective": "Reduce exact search work when locating a deployable capacity tipping edge in a fixed series path without changing the P026 answer.",
+  "diagnosed_failure": "Many candidate capacity increases are scanned even when the edge capacity is not active at the baseline path state.",
+  "mechanism_needs": [
+    "hard-cap constraint pressure or minimum regulator correction",
+    "deployable bottleneck tipping under fixed topology lead time yields stock and horizon",
+    "safe pruning that preserves exact target-crossing results"
+  ],
+  "allowed_interventions": [
+    "single-edge capacity increases only",
+    "fail closed to full scan outside the certified shell"
+  ]
+}

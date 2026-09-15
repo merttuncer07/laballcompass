@@ -1,0 +1,36 @@
+{
+  "code_sha256": "d5070c4c7d77431338cf6db8288ce0e9be1cc79745b478e9e0c2fa2043f272d0",
+  "decision_changed_count": 533,
+  "decision_changed_fraction": 0.533,
+  "declared_gain_positive_count": 498,
+  "declared_gain_quantiles_all_shells": {
+    "maximum": 3.7660004814443475,
+    "median": 1.3322676295501878e-15,
+    "minimum": 0.0,
+    "p10": 0.0,
+    "p90": 0.4540265050686953
+  },
+  "declared_gain_quantiles_changed_shells": {
+    "maximum": 3.7660004814443475,
+    "median": 0.17350780427921597,
+    "minimum": 0.0,
+    "p10": 0.013883887562347534,
+    "p90": 0.6348230655636631
+  },
+  "evidence_boundary": "Synthetic deterministic sensitivity only; declared-objective improvement is not empirical validation.",
+  "miscalibrated_truth_gain_quantiles": {
+    "maximum": 3.354533225611397,
+    "median": 0.0,
+    "minimum": -1.1092494564909954,
+    "p10": 0.0,
+    "p90": 0.5751630462183901
+  },
+  "miscalibrated_truth_harm_count": 36,
+  "miscalibrated_truth_harm_fraction": 0.036,
+  "model_version": "R400_JARB_SENSITIVITY_V1",
+  "promotion_status": "EXPERIMENT_ONLY_NOT_V2P059",
+  "seed": 400,
+  "shell_count": 1000,
+  "status": "PASS_MECHANICS_EXPERIMENT_ONLY",
+  "test_sha256": "e637e923924b6188f8a021f0cbaaac77b8599c0ddbf06266fce5614291dce330"
+}

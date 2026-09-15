@@ -1,0 +1,14 @@
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+products/P008_CCTD/test_cctd.py::CCTDTests::test_design_returns_frozen_deployment
+products/P008_CCTD/test_cctd.py::CCTDTests::test_protected_gate_can_retain_incumbent
+  /Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-maintenance/.venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+    c /= stddev[:, None]
+
+products/P008_CCTD/test_cctd.py::CCTDTests::test_design_returns_frozen_deployment
+products/P008_CCTD/test_cctd.py::CCTDTests::test_protected_gate_can_retain_incumbent
+  /Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-maintenance/.venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+    c /= stddev[None, :]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 4 warnings in 0.13s

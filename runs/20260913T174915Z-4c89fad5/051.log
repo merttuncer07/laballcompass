@@ -1,0 +1,14 @@
+test_all_certified_matches_blind (test_pcfdlw.T.test_all_certified_matches_blind) ... ok
+test_blind_prefers_unsafe (test_pcfdlw.T.test_blind_prefers_unsafe) ... ok
+test_fidelity_floor_applies (test_pcfdlw.T.test_fidelity_floor_applies) ... ok
+test_guard_improves_holdout_regret_in_construction (test_pcfdlw.T.test_guard_improves_holdout_regret_in_construction) ... ok
+test_guarded_selects_safe (test_pcfdlw.T.test_guarded_selects_safe) ... ok
+test_key_mismatch (test_pcfdlw.T.test_key_mismatch) ... ok
+test_no_certified_abstains (test_pcfdlw.T.test_no_certified_abstains) ... ok
+test_rejection_visible (test_pcfdlw.T.test_rejection_visible) ... ok
+test_status (test_pcfdlw.T.test_status) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.005s
+
+OK

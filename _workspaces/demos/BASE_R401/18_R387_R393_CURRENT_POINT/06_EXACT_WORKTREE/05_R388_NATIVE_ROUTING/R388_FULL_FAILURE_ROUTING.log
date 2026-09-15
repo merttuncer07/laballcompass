@@ -1,0 +1,613 @@
+{
+  "summary": {
+    "boundaries": 128,
+    "successful_boundary_searches": 128,
+    "errors": 0,
+    "fresh_candidate_edges_ranked": 15589,
+    "elapsed_seconds": 3.2390737533569336
+  },
+  "top_edges": [
+    {
+      "rank": 1,
+      "supplier": "FOUNDRY:P093",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 97.83637340685962,
+      "native_score": 21.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 20,
+        "LOCAL_NOT_GLOBAL": 15,
+        "DECLARED_EXTERNAL": 7,
+        "CALIBRATION_REQUIRED": 6,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 2,
+      "supplier": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "failure_relevance_score": 97.31582219302007,
+      "native_score": 31.0,
+      "origin": "R388_PREVIOUSLY_HIDDEN_PARENT_PARENT",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [
+        "support",
+        "uncertainty"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 22,
+        "CALIBRATION_REQUIRED": 11,
+        "DECLARED_EXTERNAL": 4,
+        "FIXED_REFERENCE_OR_POLICY": 3,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 3,
+      "supplier": "FOUNDRY:P028",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 97.08704007916404,
+      "native_score": 16.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "FIXED_REFERENCE_OR_POLICY": 12,
+        "CALIBRATION_REQUIRED": 9,
+        "LOCAL_NOT_GLOBAL": 8,
+        "SUPPORT_IDENTIFICATION": 8,
+        "DECLARED_EXTERNAL": 3,
+        "NO_INFERENCE": 2
+      }
+    },
+    {
+      "rank": 4,
+      "supplier": "FOUNDRY:P090",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 97.00212781446848,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "support"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 18,
+        "FIXED_REFERENCE_OR_POLICY": 9,
+        "NO_INFERENCE": 8,
+        "DECLARED_EXTERNAL": 6,
+        "LOCAL_NOT_GLOBAL": 5,
+        "CALIBRATION_REQUIRED": 3
+      }
+    },
+    {
+      "rank": 5,
+      "supplier": "FOUNDRY:P032",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 96.94452506937458,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "support"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 24,
+        "FIXED_REFERENCE_OR_POLICY": 8,
+        "CALIBRATION_REQUIRED": 4,
+        "NO_INFERENCE": 3,
+        "DECLARED_EXTERNAL": 3,
+        "LOCAL_NOT_GLOBAL": 3
+      }
+    },
+    {
+      "rank": 6,
+      "supplier": "FOUNDRY:P078",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 96.89690790646726,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 12,
+        "SUPPORT_IDENTIFICATION": 12,
+        "FIXED_REFERENCE_OR_POLICY": 8,
+        "DECLARED_EXTERNAL": 7,
+        "LOCAL_NOT_GLOBAL": 7,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 7,
+      "supplier": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "consumer": "FOUNDRY:P031",
+      "failure_relevance_score": 96.76755956608767,
+      "native_score": 25.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "support",
+        "uncertainty"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 20,
+        "CALIBRATION_REQUIRED": 6,
+        "LOCAL_NOT_GLOBAL": 5,
+        "FIXED_REFERENCE_OR_POLICY": 4,
+        "DECLARED_EXTERNAL": 2
+      }
+    },
+    {
+      "rank": 8,
+      "supplier": "FOUNDRY:P082",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 96.75865226911355,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 20,
+        "DECLARED_EXTERNAL": 9,
+        "LOCAL_NOT_GLOBAL": 5,
+        "CALIBRATION_REQUIRED": 5,
+        "NO_INFERENCE": 3
+      }
+    },
+    {
+      "rank": 9,
+      "supplier": "FOUNDRY:P028",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "failure_relevance_score": 96.74964135513578,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 12,
+        "FIXED_REFERENCE_OR_POLICY": 7,
+        "LOCAL_NOT_GLOBAL": 5,
+        "DECLARED_EXTERNAL": 5,
+        "SUPPORT_IDENTIFICATION": 4,
+        "NO_INFERENCE": 2
+      }
+    },
+    {
+      "rank": 10,
+      "supplier": "FOUNDRY:P090",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "failure_relevance_score": 96.33288627338553,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "support"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 14,
+        "NO_INFERENCE": 8,
+        "DECLARED_EXTERNAL": 8,
+        "CALIBRATION_REQUIRED": 6,
+        "FIXED_REFERENCE_OR_POLICY": 4,
+        "LOCAL_NOT_GLOBAL": 2
+      }
+    },
+    {
+      "rank": 11,
+      "supplier": "FOUNDRY:P033",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 96.33149002443412,
+      "native_score": 19.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 20,
+        "FIXED_REFERENCE_OR_POLICY": 9,
+        "CALIBRATION_REQUIRED": 6,
+        "LOCAL_NOT_GLOBAL": 4,
+        "DECLARED_EXTERNAL": 2,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 12,
+      "supplier": "FOUNDRY:P091",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 96.33030296922135,
+      "native_score": 25.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 20,
+        "CALIBRATION_REQUIRED": 8,
+        "DECLARED_EXTERNAL": 8,
+        "LOCAL_NOT_GLOBAL": 6,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 13,
+      "supplier": "LCB-K084",
+      "consumer": "FOUNDRY:P100",
+      "failure_relevance_score": 96.29819308059913,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 14,
+        "DECLARED_EXTERNAL": 12,
+        "LOCAL_NOT_GLOBAL": 11,
+        "CALIBRATION_REQUIRED": 9,
+        "FIXED_REFERENCE_OR_POLICY": 2,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 14,
+      "supplier": "FOUNDRY:P086",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 96.27218554611895,
+      "native_score": 19.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "FIXED_REFERENCE_OR_POLICY": 11,
+        "SUPPORT_IDENTIFICATION": 10,
+        "CALIBRATION_REQUIRED": 9,
+        "DECLARED_EXTERNAL": 6,
+        "LOCAL_NOT_GLOBAL": 4,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 15,
+      "supplier": "FOUNDRY:P078",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "failure_relevance_score": 96.22093691225086,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 15,
+        "DECLARED_EXTERNAL": 9,
+        "SUPPORT_IDENTIFICATION": 8,
+        "LOCAL_NOT_GLOBAL": 4,
+        "FIXED_REFERENCE_OR_POLICY": 3,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 16,
+      "supplier": "LCB-K043",
+      "consumer": "FOUNDRY:P028",
+      "failure_relevance_score": 96.17480570038909,
+      "native_score": 15.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": [],
+      "categories": {
+        "NO_INFERENCE": 17,
+        "DECLARED_EXTERNAL": 6,
+        "LOCAL_NOT_GLOBAL": 6,
+        "CALIBRATION_REQUIRED": 6,
+        "SUPPORT_IDENTIFICATION": 4,
+        "FIXED_REFERENCE_OR_POLICY": 4
+      }
+    },
+    {
+      "rank": 17,
+      "supplier": "FOUNDRY:P095",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 96.07134017185672,
+      "native_score": 24.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [
+        "support"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 19,
+        "FIXED_REFERENCE_OR_POLICY": 8,
+        "CALIBRATION_REQUIRED": 4,
+        "DECLARED_EXTERNAL": 4,
+        "LOCAL_NOT_GLOBAL": 3,
+        "NO_INFERENCE": 2
+      }
+    },
+    {
+      "rank": 18,
+      "supplier": "PARENT:R044_DECISION_LOSS_DLEW",
+      "consumer": "FOUNDRY:P078",
+      "failure_relevance_score": 96.07093691225086,
+      "native_score": 19.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 15,
+        "DECLARED_EXTERNAL": 9,
+        "SUPPORT_IDENTIFICATION": 8,
+        "LOCAL_NOT_GLOBAL": 4,
+        "FIXED_REFERENCE_OR_POLICY": 3,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 19,
+      "supplier": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "consumer": "PARENT:IM359_IM014_AICC",
+      "failure_relevance_score": 95.99374622169353,
+      "native_score": 36.0,
+      "origin": "R388_PREVIOUSLY_HIDDEN_PARENT_PARENT",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [
+        "decision",
+        "support",
+        "uncertainty"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 22,
+        "CALIBRATION_REQUIRED": 6,
+        "DECLARED_EXTERNAL": 6,
+        "NO_INFERENCE": 1,
+        "LOCAL_NOT_GLOBAL": 1
+      }
+    },
+    {
+      "rank": 20,
+      "supplier": "FOUNDRY:P086",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "failure_relevance_score": 95.71802565944557,
+      "native_score": 20.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 12,
+        "DECLARED_EXTERNAL": 8,
+        "SUPPORT_IDENTIFICATION": 6,
+        "FIXED_REFERENCE_OR_POLICY": 6,
+        "LOCAL_NOT_GLOBAL": 1,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 21,
+      "supplier": "FOUNDRY:P030",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 95.66555452119592,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 19,
+        "CALIBRATION_REQUIRED": 7,
+        "FIXED_REFERENCE_OR_POLICY": 3,
+        "DECLARED_EXTERNAL": 3,
+        "NO_INFERENCE": 1
+      }
+    },
+    {
+      "rank": 22,
+      "supplier": "FOUNDRY:P017",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "failure_relevance_score": 95.55985385554723,
+      "native_score": 16.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "FIXED_REFERENCE_OR_POLICY": 12,
+        "SUPPORT_IDENTIFICATION": 8,
+        "LOCAL_NOT_GLOBAL": 7,
+        "CALIBRATION_REQUIRED": 6,
+        "DECLARED_EXTERNAL": 2,
+        "NO_INFERENCE": 2
+      }
+    },
+    {
+      "rank": 23,
+      "supplier": "FOUNDRY:P093",
+      "consumer": "LCB-K089",
+      "failure_relevance_score": 95.51019137789989,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "LOCAL_NOT_GLOBAL": 18,
+        "FIXED_REFERENCE_OR_POLICY": 10,
+        "DECLARED_EXTERNAL": 8,
+        "NO_INFERENCE": 7,
+        "CALIBRATION_REQUIRED": 3,
+        "SUPPORT_IDENTIFICATION": 1
+      }
+    },
+    {
+      "rank": 24,
+      "supplier": "PARENT:R027_S426_S427_MIFF",
+      "consumer": "FOUNDRY:P028",
+      "failure_relevance_score": 95.421794630909,
+      "native_score": 16.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": [],
+      "categories": {
+        "NO_INFERENCE": 8,
+        "DECLARED_EXTERNAL": 6,
+        "FIXED_REFERENCE_OR_POLICY": 6,
+        "CALIBRATION_REQUIRED": 6,
+        "LOCAL_NOT_GLOBAL": 5,
+        "SUPPORT_IDENTIFICATION": 1
+      }
+    },
+    {
+      "rank": 25,
+      "supplier": "LCB-K017",
+      "consumer": "FOUNDRY:P028",
+      "failure_relevance_score": 95.30520885712372,
+      "native_score": 15.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": [],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 9,
+        "CALIBRATION_REQUIRED": 9,
+        "DECLARED_EXTERNAL": 6,
+        "NO_INFERENCE": 5,
+        "LOCAL_NOT_GLOBAL": 5,
+        "FIXED_REFERENCE_OR_POLICY": 4
+      }
+    },
+    {
+      "rank": 26,
+      "supplier": "FOUNDRY:P092",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 95.28924178364873,
+      "native_score": 21.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 20,
+        "DECLARED_EXTERNAL": 7,
+        "CALIBRATION_REQUIRED": 7,
+        "NO_INFERENCE": 2,
+        "LOCAL_NOT_GLOBAL": 2
+      }
+    },
+    {
+      "rank": 27,
+      "supplier": "LCB-K043",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "failure_relevance_score": 95.21921668257201,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": [],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 22,
+        "NO_INFERENCE": 16,
+        "DECLARED_EXTERNAL": 5,
+        "CALIBRATION_REQUIRED": 5,
+        "LOCAL_NOT_GLOBAL": 1
+      }
+    },
+    {
+      "rank": 28,
+      "supplier": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "consumer": "LCB-K043",
+      "failure_relevance_score": 95.21921668257201,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [],
+      "addressed": [
+        "decision"
+      ],
+      "categories": {
+        "SUPPORT_IDENTIFICATION": 22,
+        "NO_INFERENCE": 16,
+        "CALIBRATION_REQUIRED": 5,
+        "DECLARED_EXTERNAL": 5,
+        "LOCAL_NOT_GLOBAL": 1
+      }
+    },
+    {
+      "rank": 29,
+      "supplier": "FOUNDRY:P028",
+      "consumer": "LCB-K010",
+      "failure_relevance_score": 95.21797858873886,
+      "native_score": 16.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 12,
+        "SUPPORT_IDENTIFICATION": 9,
+        "LOCAL_NOT_GLOBAL": 5,
+        "FIXED_REFERENCE_OR_POLICY": 4,
+        "DECLARED_EXTERNAL": 4,
+        "NO_INFERENCE": 2
+      }
+    },
+    {
+      "rank": 30,
+      "supplier": "FOUNDRY:P017",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "failure_relevance_score": 95.1334233092572,
+      "native_score": 18.0,
+      "origin": "PREEXISTING_GENERATABLE_NATIVE_UNIVERSE",
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [],
+      "categories": {
+        "CALIBRATION_REQUIRED": 9,
+        "FIXED_REFERENCE_OR_POLICY": 7,
+        "LOCAL_NOT_GLOBAL": 4,
+        "DECLARED_EXTERNAL": 4,
+        "SUPPORT_IDENTIFICATION": 4,
+        "NO_INFERENCE": 2
+      }
+    }
+  ]
+}

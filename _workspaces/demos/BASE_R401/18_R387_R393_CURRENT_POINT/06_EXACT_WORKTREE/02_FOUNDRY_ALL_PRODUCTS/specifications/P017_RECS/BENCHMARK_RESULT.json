@@ -1,0 +1,52 @@
+{
+  "product": "P017_RECS_v0.1",
+  "observed_violations": [
+    "invoice_vs_warehouse",
+    "warehouse_vs_carrier"
+  ],
+  "top_culprit_set": [
+    "warehouse"
+  ],
+  "posterior_culprit_probability_by_record": {
+    "invoice": 0.0010718113612004296,
+    "warehouse": 0.9978563772775992,
+    "carrier": 0.0010718113612004315
+  },
+  "prior_probability_by_record": {
+    "invoice": 0.02,
+    "warehouse": 0.02,
+    "carrier": 0.02
+  },
+  "prior_portfolio": {
+    "safeguards": [],
+    "total_cost": 0,
+    "expected_residual_loss": 14.0,
+    "objective": 14.0,
+    "evidence_families": [],
+    "coverage_by_failure": {
+      "invoice": 0.0,
+      "warehouse": 0.0,
+      "carrier": 0.0
+    }
+  },
+  "evidence_conditioned_portfolio": {
+    "safeguards": [
+      "warehouse_independent_audit"
+    ],
+    "total_cost": 30.0,
+    "expected_residual_loss": 25.156484458735285,
+    "objective": 55.156484458735285,
+    "evidence_families": [
+      "independent"
+    ],
+    "coverage_by_failure": {
+      "invoice": 0.020000000000000018,
+      "warehouse": 0.95,
+      "carrier": 0.020000000000000018
+    }
+  },
+  "prior_portfolio_objective_under_posterior": 499.1425509110397,
+  "adaptive_portfolio_objective_under_posterior": 55.156484458735285,
+  "posterior_objective_reduction_vs_prior_design": 0.8894975305990981,
+  "contract": "Record probabilities are REL marginals conditional on the enumerated non-empty culprit-set hypothesis space. CSID expected loss is valid for additive per-record consequences; the result is not an unconditional fraud probability estimate."
+}

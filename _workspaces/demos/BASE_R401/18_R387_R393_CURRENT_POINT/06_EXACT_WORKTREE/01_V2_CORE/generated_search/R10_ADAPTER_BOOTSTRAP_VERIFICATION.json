@@ -1,0 +1,186 @@
+{
+  "calibration_snapshot": {
+    "calibrations": [
+      {
+        "attempt_count": 12,
+        "axis_observation_counts": {
+          "declared_executable_contract_case_coverage": 12
+        },
+        "calibration_id": "5eceea1d085094688f58ffb648dde2dd17d18962d080f4b4c6225749b60846c2",
+        "compute_upper_seconds": 4.708320531000027,
+        "event_ids": [
+          "R10::V2P006::000::idasrotests_test_p025_uncertainty_can_revoke_certificate",
+          "R10::V2P006::001::idasrotests_test_p025_stable_system_survives",
+          "R10::V2P006::002::idasrotests_test_p025_zero_rate_limit_preserved",
+          "R10::V2P006::003::idasrotests_test_p025_invalid_gap_rejected",
+          "R10::V2P006::004::idasrotests_test_exact_radius_mapping_from_scalar_identification_interval",
+          "R10::V2P006::005::idasrotests_test_directional_robust_solution_soft_thresholds_parallel_component",
+          "R10::V2P006::006::idasrotests_test_orthogonal_component_is_unchanged",
+          "R10::V2P006::007::idasrotests_test_missing_sensitivity_certificate_fails_closed",
+          "R10::V2P006::008::idasrotests_test_certified_shell_requires_provenance",
+          "R10::V2P006::009::idasrotests_test_zero_sensitivity_exactly_reuses_nominal_action",
+          "R10::V2P006::010::idasrotests_test_larger_identification_se_never_increases_parallel_exposure",
+          "R10::V2P006::011::idasrotests_test_invalid_vector_or_z_contract_is_rejected"
+        ],
+        "excluded_counts": {
+          "failed_or_censored": 0,
+          "invalid_measurement": 0,
+          "unadjusted_backreaction": 0,
+          "unknown_backreaction": 0
+        },
+        "expected_resolution_lower_by_axis": {
+          "declared_executable_contract_case_coverage": 0.08333333333333337
+        },
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+        "reliability_lower_bound": 0.8159920848767768,
+        "target_generation": 2,
+        "test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+        "test_signature": "9576e8d17fc50fd4ec4737feb885db51465683cb01931f78e9099579908a76f0",
+        "usable_count": 12
+      }
+    ],
+    "excluded_global_counts": {
+      "not_calibration_eligible": 0,
+      "protected_validation": 0,
+      "same_or_future_generation": 0,
+      "wrong_shell": 0
+    },
+    "fingerprint": "fd5fa3831d99ce29d63382be8765b7cd00209d64da5730fae39c6d21b91c77e9",
+    "min_attempts": 5,
+    "min_axis_observations": 5,
+    "model_version": "LAB_EXPERIMENT_TELEMETRY_R5_V1",
+    "one_sided_z": 1.645,
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+    "schema_version": 1,
+    "target_generation": 2
+  },
+  "claim_scope": "bootstrap telemetry measures exact executable development-suite case behavior only; it is not evidence that the declared affine sensitivity is scientifically correct",
+  "composition": {
+    "consumer_id": "FOUNDRY:P025",
+    "product_id": "V2P006",
+    "supplier_id": "LCB-K068"
+  },
+  "cumulative_telemetry_events": 60,
+  "draft_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+  "future_plan": {
+    "blind_axes": [],
+    "contract_fingerprint": "2c17056134d2c954b4e9d270915589cc35ccda3546114cb37c20d0115603706a",
+    "decision_id": "COMPOSITION::LCB-K068->FOUNDRY:P025",
+    "model_version": "LAB_EXPERIMENT_SELECTOR_R5_V1",
+    "ranked_routes": [
+      {
+        "compute_seconds": 4.708320531000027,
+        "covered_axes": [
+          "declared_executable_contract_case_coverage"
+        ],
+        "expected_decision_progress": 0.0679993404063981,
+        "expected_progress_per_compute": 0.014442377055403095,
+        "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+        "reliability": 0.8159920848767768,
+        "status": "READY",
+        "test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+        "unknown_fields": []
+      }
+    ],
+    "schema_version": 2,
+    "search_generation": 2,
+    "selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+    "selection_round": 0,
+    "stop": false,
+    "stop_reason": "",
+    "unquantified_test_ids": [],
+    "unresolved_mass": 1.0
+  },
+  "model_version": "LABALLCOMPASS_R10_ADAPTER_BOOTSTRAP_VERIFICATION",
+  "pilot_complete_cases": 12,
+  "pilot_failed_cases": 0,
+  "queue_bootstrap_audit": {
+    "foundry_component_test_surfaces": 145,
+    "model_version": "LAB_EXPERIMENT_BOOTSTRAP_R6_V1",
+    "not_pilotable_existing_suite_rows": 994,
+    "pilotable_existing_suite_rows": 6,
+    "pilotable_rows": [
+      {
+        "case_count": 6,
+        "consumer_id": "FOUNDRY:P136",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd",
+        "product_id": "V2P002",
+        "queue_index": 0,
+        "supplier_id": "LCB-K048"
+      },
+      {
+        "case_count": 12,
+        "consumer_id": "FOUNDRY:P144",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f",
+        "product_id": "V2P003",
+        "queue_index": 1,
+        "supplier_id": "LCB-K048"
+      },
+      {
+        "case_count": 12,
+        "consumer_id": "FOUNDRY:P138",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c",
+        "product_id": "V2P004",
+        "queue_index": 2,
+        "supplier_id": "LCB-K081"
+      },
+      {
+        "case_count": 6,
+        "consumer_id": "FOUNDRY:P031",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d",
+        "product_id": "V2P001",
+        "queue_index": 3,
+        "supplier_id": "LCB-K003"
+      },
+      {
+        "case_count": 12,
+        "consumer_id": "FOUNDRY:P003",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e",
+        "product_id": "V2P005",
+        "queue_index": 4,
+        "supplier_id": "LCB-K019"
+      },
+      {
+        "case_count": 12,
+        "consumer_id": "FOUNDRY:P025",
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+        "product_id": "V2P006",
+        "queue_index": 5,
+        "supplier_id": "LCB-K068"
+      }
+    ],
+    "policy": "Completed composition suites can run fixed pilots now. Component-only suites are preserved as adapter/harness targets and are not counted as composition evidence.",
+    "queue_rows": 1000,
+    "status_counts": {
+      "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 117,
+      "FIXED_PILOT_SCHEDULE_AVAILABLE": 6,
+      "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+      "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 720
+    }
+  },
+  "suite": {
+    "cases": [
+      "IDASROTests.test_p025_uncertainty_can_revoke_certificate",
+      "IDASROTests.test_p025_stable_system_survives",
+      "IDASROTests.test_p025_zero_rate_limit_preserved",
+      "IDASROTests.test_p025_invalid_gap_rejected",
+      "IDASROTests.test_exact_radius_mapping_from_scalar_identification_interval",
+      "IDASROTests.test_directional_robust_solution_soft_thresholds_parallel_component",
+      "IDASROTests.test_orthogonal_component_is_unchanged",
+      "IDASROTests.test_missing_sensitivity_certificate_fails_closed",
+      "IDASROTests.test_certified_shell_requires_provenance",
+      "IDASROTests.test_zero_sensitivity_exactly_reuses_nominal_action",
+      "IDASROTests.test_larger_identification_se_never_increases_parallel_exposure",
+      "IDASROTests.test_invalid_vector_or_z_contract_is_rejected"
+    ],
+    "consumer_id": "FOUNDRY:P025",
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+    "product_dir": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R10_2026-08-26/01_V2_CORE/products/V2P006_IDASRO",
+    "product_id": "V2P006",
+    "source_hash": "340a498ca5804b752d52ce9bb85e82423eee788f2b1c84d872ce4ff51ead389a",
+    "supplier_id": "LCB-K068",
+    "test_file": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R10_2026-08-26/01_V2_CORE/products/V2P006_IDASRO/test_idasro.py",
+    "test_id": "BOOTSTRAP_UNIT_CASE::V2P006",
+    "test_signature": "9576e8d17fc50fd4ec4737feb885db51465683cb01931f78e9099579908a76f0"
+  }
+}

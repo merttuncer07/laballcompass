@@ -1,0 +1,848 @@
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/rel.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/rel.py
+@@ -1,4 +1,9 @@
+-"""Relational Evidence Localizer, built from IM-440 -> IM-029."""
++"""Relational Evidence Localizer: conditional scores under an explicit XOR model.
++
++Scores are not calibrated probabilities of alteration. Different record pairs
++still use a conditional-independence assumption; deduplication only removes
++identical deterministic comparisons, not general evidence dependence.
++"""
+ 
+ from __future__ import annotations
+ 
+@@ -32,6 +37,8 @@
+     def __post_init__(self):
+         if not self.name or not math.isfinite(self.tolerance) or self.tolerance < 0:
+             raise ValueError("relation name and finite non-negative tolerance are required")
++        if self.left == self.right:
++            raise ValueError("A relation must compare two distinct records")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -80,16 +87,30 @@
+     ) -> dict[str, Any]:
+         if not records:
+             raise ValueError("At least one evidence record is required")
+-        if not isinstance(max_colluding_records, int) or max_colluding_records < 1:
++        if type(max_colluding_records) is not int or max_colluding_records < 1:
+             raise ValueError("max_colluding_records must be at least one")
+         record_map = {record.name: record for record in records}
+         if len(record_map) != len(records):
+             raise ValueError("Evidence record names must be unique")
+         observed = self.violation_pattern(record_map, relations)
++        # Repeating the same comparison adds no observation. Reversing its
++        # endpoints also leaves abs(left - right) unchanged.
++        unique = {}
++        aliases = {}
++        for relation in relations:
++            pair = tuple(sorted((relation.left, relation.right)))
++            if pair in unique and unique[pair].tolerance != relation.tolerance:
++                raise ValueError("Multiple tolerances for the same record pair require a joint observation model")
++            unique.setdefault(pair, relation)
++            aliases.setdefault(unique[pair].name, []).append(relation.name)
++        limit = min(max_colluding_records, len(records))
++        if sum(math.comb(len(records), k) for k in range(limit + 1)) > 100000:
++            raise ValueError("Localization exceeds 100,000 candidate subsets")
+         candidates: list[tuple[tuple[str, ...], float, tuple[str, ...]]] = []
+ 
+-        for size in range(1, min(max_colluding_records, len(records)) + 1):
+-            for names in combinations(record_map, size):
++        # Include the null explanation; consistent data must not force blame.
++        for size in range(limit + 1):
++            for names in combinations(sorted(record_map), size):
+                 culprit = set(names)
+                 predicted: list[str] = []
+                 log_likelihood = sum(
+@@ -98,13 +119,13 @@
+                     else math.log(1.0 - record.alteration_prior)
+                     for record in records
+                 )
+-                for relation in relations:
++                for relation in unique.values():
+                     # XOR represents coherent collusion: two jointly altered
+                     # records can agree with each other while disagreeing with
+                     # independently generated records.
+                     affected = (relation.left in culprit) ^ (relation.right in culprit)
+                     if affected:
+-                        predicted.append(relation.name)
++                        predicted.extend(aliases[relation.name])
+                     probability = (
+                         self.detection
+                         if affected and observed[relation.name]
+@@ -133,6 +154,22 @@
+             "passing_relations": [name for name, violated in observed.items() if not violated],
+             "ranking": [candidate.as_dict() for candidate in ranked],
+             "top_candidate": ranked[0].as_dict(),
++            "observation_groups": aliases,
++            "unique_observation_count": len(unique),
++            "model": {
++                "weight_interpretation": "Conditional model weights, not calibrated alteration probabilities",
++                "null_candidate_included": True,
++                "maximum_altered_records": limit,
++                "detection_probability": self.detection,
++                "false_violation_probability": self.false_violation,
++                "additional_log_sparsity_penalty_per_record": 0.7,
++                "assumptions": [
++                    "XOR: two altered endpoints are assumed to agree coherently",
++                    "Distinct record-pair observations are assumed conditionally independent; overlapping comparisons may violate this",
++                    "Record priors are multiplied independently; party labels do not establish source independence",
++                    "Weights are normalized only over the enumerated subsets",
++                ],
++            },
+         }
+ 
+ 
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py
+@@ -45,6 +45,43 @@
+                 [ConsistencyRelation("missing", "a", "b")],
+             )
+ 
++    def test_consistent_records_do_not_force_a_suspect(self):
++        records = [EvidenceRecord(n, n, 10) for n in ('a', 'b', 'c')]
++        result = RelationalEvidenceLocalizer().localize(records, [ConsistencyRelation('ab', 'a', 'b')])
++        self.assertEqual(result['top_candidate']['records'], ())
++        self.assertGreater(result['top_candidate']['posterior'], 0.9)
++
++    def test_repeating_or_reversing_a_comparison_adds_no_weight(self):
++        records = [EvidenceRecord('a', 'a', 10), EvidenceRecord('b', 'b', 20)]
++        engine = RelationalEvidenceLocalizer()
++        once = engine.localize(records, [ConsistencyRelation('ab', 'a', 'b')])
++        repeated = engine.localize(records, [ConsistencyRelation(str(i), *('ab' if i % 2 else 'ba')) for i in range(100)])
++        weights = lambda r: {x['records']: x['posterior'] for x in r['ranking']}
++        self.assertEqual(weights(once), weights(repeated))
++        self.assertEqual(repeated['unique_observation_count'], 1)
++        self.assertEqual(len(repeated['observed_violations']), 100)
++
++    def test_different_thresholds_on_same_pair_are_not_independent_tests(self):
++        with self.assertRaisesRegex(ValueError, 'joint observation'):
++            RelationalEvidenceLocalizer().localize(
++                [EvidenceRecord('a', 'a', 10), EvidenceRecord('b', 'b', 20)],
++                [ConsistencyRelation('one', 'a', 'b', 0), ConsistencyRelation('two', 'b', 'a', 15)])
++
++    def test_no_observations_retains_null_and_normalized_model_prior(self):
++        result = RelationalEvidenceLocalizer().localize([EvidenceRecord('a', 'a', 10)], [])
++        self.assertEqual(result['top_candidate']['records'], ())
++        self.assertAlmostEqual(sum(x['posterior'] for x in result['ranking']), 1)
++        self.assertEqual(result['unique_observation_count'], 0)
++
++    def test_uninformative_sensor_does_not_change_prior_weights(self):
++        records = [EvidenceRecord('a', 'a', 10), EvidenceRecord('b', 'b', 20)]
++        engine = RelationalEvidenceLocalizer(detection_probability=.3, false_violation_probability=.3)
++        prior = engine.localize(records, [])
++        observed = engine.localize(records, [ConsistencyRelation('ab', 'a', 'b')])
++        for a, b in zip(prior['ranking'], observed['ranking']):
++            self.assertEqual(a['records'], b['records'])
++            self.assertAlmostEqual(a['posterior'], b['posterior'])
++
+ 
+ if __name__ == "__main__":
+     unittest.main()
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/rel.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/rel.py
+@@ -1,4 +1,9 @@
+-"""Relational Evidence Localizer, built from IM-440 -> IM-029."""
++"""Relational Evidence Localizer: conditional scores under an explicit XOR model.
++
++Scores are not calibrated probabilities of alteration. Different record pairs
++still use a conditional-independence assumption; deduplication only removes
++identical deterministic comparisons, not general evidence dependence.
++"""
+ 
+ from __future__ import annotations
+ 
+@@ -32,6 +37,8 @@
+     def __post_init__(self):
+         if not self.name or not math.isfinite(self.tolerance) or self.tolerance < 0:
+             raise ValueError("relation name and finite non-negative tolerance are required")
++        if self.left == self.right:
++            raise ValueError("A relation must compare two distinct records")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -80,16 +87,30 @@
+     ) -> dict[str, Any]:
+         if not records:
+             raise ValueError("At least one evidence record is required")
+-        if not isinstance(max_colluding_records, int) or max_colluding_records < 1:
++        if type(max_colluding_records) is not int or max_colluding_records < 1:
+             raise ValueError("max_colluding_records must be at least one")
+         record_map = {record.name: record for record in records}
+         if len(record_map) != len(records):
+             raise ValueError("Evidence record names must be unique")
+         observed = self.violation_pattern(record_map, relations)
++        # Repeating the same comparison adds no observation. Reversing its
++        # endpoints also leaves abs(left - right) unchanged.
++        unique = {}
++        aliases = {}
++        for relation in relations:
++            pair = tuple(sorted((relation.left, relation.right)))
++            if pair in unique and unique[pair].tolerance != relation.tolerance:
++                raise ValueError("Multiple tolerances for the same record pair require a joint observation model")
++            unique.setdefault(pair, relation)
++            aliases.setdefault(unique[pair].name, []).append(relation.name)
++        limit = min(max_colluding_records, len(records))
++        if sum(math.comb(len(records), k) for k in range(limit + 1)) > 100000:
++            raise ValueError("Localization exceeds 100,000 candidate subsets")
+         candidates: list[tuple[tuple[str, ...], float, tuple[str, ...]]] = []
+ 
+-        for size in range(1, min(max_colluding_records, len(records)) + 1):
+-            for names in combinations(record_map, size):
++        # Include the null explanation; consistent data must not force blame.
++        for size in range(limit + 1):
++            for names in combinations(sorted(record_map), size):
+                 culprit = set(names)
+                 predicted: list[str] = []
+                 log_likelihood = sum(
+@@ -98,13 +119,13 @@
+                     else math.log(1.0 - record.alteration_prior)
+                     for record in records
+                 )
+-                for relation in relations:
++                for relation in unique.values():
+                     # XOR represents coherent collusion: two jointly altered
+                     # records can agree with each other while disagreeing with
+                     # independently generated records.
+                     affected = (relation.left in culprit) ^ (relation.right in culprit)
+                     if affected:
+-                        predicted.append(relation.name)
++                        predicted.extend(aliases[relation.name])
+                     probability = (
+                         self.detection
+                         if affected and observed[relation.name]
+@@ -133,6 +154,22 @@
+             "passing_relations": [name for name, violated in observed.items() if not violated],
+             "ranking": [candidate.as_dict() for candidate in ranked],
+             "top_candidate": ranked[0].as_dict(),
++            "observation_groups": aliases,
++            "unique_observation_count": len(unique),
++            "model": {
++                "weight_interpretation": "Conditional model weights, not calibrated alteration probabilities",
++                "null_candidate_included": True,
++                "maximum_altered_records": limit,
++                "detection_probability": self.detection,
++                "false_violation_probability": self.false_violation,
++                "additional_log_sparsity_penalty_per_record": 0.7,
++                "assumptions": [
++                    "XOR: two altered endpoints are assumed to agree coherently",
++                    "Distinct record-pair observations are assumed conditionally independent; overlapping comparisons may violate this",
++                    "Record priors are multiplied independently; party labels do not establish source independence",
++                    "Weights are normalized only over the enumerated subsets",
++                ],
++            },
+         }
+ 
+ 
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/recs.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/recs.py
+@@ -74,7 +74,7 @@
+             "prior_portfolio_objective_under_posterior": prior_under_posterior["objective"],
+             "posterior_objective_reduction_vs_prior_design": float(reduction),
+             "posterior_semantics": (
+-                "conditional on REL's enumerated non-empty culprit-set hypothesis space; "
++                "conditional on REL's enumerated culprit-set hypothesis space including no altered records; "
+                 "not an unconditional fraud probability"
+             ),
+         }
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py
+@@ -1,4 +1,5 @@
+ import unittest
++import math
+ 
+ if __package__:
+     from .parents.csid import Safeguard
+@@ -41,7 +42,18 @@
+             safeguards=safeguards,
+             budget=30.0,
+         )
+-        self.assertGreater(result["posterior_culprit_probability_by_record"]["warehouse"], 0.95)
++        # Independent closed-form weights for this three-record pattern,
++        # including the null state. The old >.95 assertion omitted that state.
++        p, q, s = .02, .98, math.exp(-.7)
++        d, f = .95, .02
++        null = q**3 * f**2 * (1-f)
++        middle = p*q*q*s*d*d*(1-f)
++        endpoints = p*p*q*s*s*d*d*(1-f)
++        other_single = p*q*q*s*d*(1-d)*f
++        other_pair = p*p*q*s*s*d*(1-d)*f
++        expected = (middle+2*other_pair)/(null+middle+endpoints+2*other_single+2*other_pair)
++        self.assertAlmostEqual(result["posterior_culprit_probability_by_record"]["warehouse"], expected)
++        self.assertEqual(result["localization"]["top_candidate"]["records"], ("warehouse",))
+         self.assertEqual(
+             result["evidence_conditioned_portfolio"]["safeguards"],
+             ("warehouse_independent_audit",),
+@@ -58,6 +70,16 @@
+         )
+         self.assertNotEqual(result["prior_portfolio"], result["evidence_conditioned_portfolio"])
+         self.assertIn("conditional", result["posterior_semantics"])
++
++    def test_repeated_checks_do_not_change_safeguard_allocation(self):
++        records, relations, safeguards = self.fixture()
++        repeats = relations + [ConsistencyRelation('copy_'+r.name, r.right, r.left, r.tolerance) for r in relations]
++        kwargs = dict(records=records, consequences={'invoice':100.,'warehouse':500.,'carrier':100.}, safeguards=safeguards, budget=30.)
++        model = RelationalEvidenceConditionedSafeguards()
++        once = model.design(relations=relations, **kwargs)
++        twice = model.design(relations=repeats, **kwargs)
++        self.assertEqual(once['posterior_culprit_probability_by_record'],twice['posterior_culprit_probability_by_record'])
++        self.assertEqual(once['evidence_conditioned_portfolio'],twice['evidence_conditioned_portfolio'])
+ 
+     def test_names_must_match_exactly(self):
+         records, relations, safeguards = self.fixture()
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/rel.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/rel.py
+@@ -1,4 +1,9 @@
+-"""Relational Evidence Localizer, built from IM-440 -> IM-029."""
++"""Relational Evidence Localizer: conditional scores under an explicit XOR model.
++
++Scores are not calibrated probabilities of alteration. Different record pairs
++still use a conditional-independence assumption; deduplication only removes
++identical deterministic comparisons, not general evidence dependence.
++"""
+ 
+ from __future__ import annotations
+ 
+@@ -32,6 +37,8 @@
+     def __post_init__(self):
+         if not self.name or not math.isfinite(self.tolerance) or self.tolerance < 0:
+             raise ValueError("relation name and finite non-negative tolerance are required")
++        if self.left == self.right:
++            raise ValueError("A relation must compare two distinct records")
+ 
+ 
+ @dataclass(frozen=True)
+@@ -80,16 +87,30 @@
+     ) -> dict[str, Any]:
+         if not records:
+             raise ValueError("At least one evidence record is required")
+-        if not isinstance(max_colluding_records, int) or max_colluding_records < 1:
++        if type(max_colluding_records) is not int or max_colluding_records < 1:
+             raise ValueError("max_colluding_records must be at least one")
+         record_map = {record.name: record for record in records}
+         if len(record_map) != len(records):
+             raise ValueError("Evidence record names must be unique")
+         observed = self.violation_pattern(record_map, relations)
++        # Repeating the same comparison adds no observation. Reversing its
++        # endpoints also leaves abs(left - right) unchanged.
++        unique = {}
++        aliases = {}
++        for relation in relations:
++            pair = tuple(sorted((relation.left, relation.right)))
++            if pair in unique and unique[pair].tolerance != relation.tolerance:
++                raise ValueError("Multiple tolerances for the same record pair require a joint observation model")
++            unique.setdefault(pair, relation)
++            aliases.setdefault(unique[pair].name, []).append(relation.name)
++        limit = min(max_colluding_records, len(records))
++        if sum(math.comb(len(records), k) for k in range(limit + 1)) > 100000:
++            raise ValueError("Localization exceeds 100,000 candidate subsets")
+         candidates: list[tuple[tuple[str, ...], float, tuple[str, ...]]] = []
+ 
+-        for size in range(1, min(max_colluding_records, len(records)) + 1):
+-            for names in combinations(record_map, size):
++        # Include the null explanation; consistent data must not force blame.
++        for size in range(limit + 1):
++            for names in combinations(sorted(record_map), size):
+                 culprit = set(names)
+                 predicted: list[str] = []
+                 log_likelihood = sum(
+@@ -98,13 +119,13 @@
+                     else math.log(1.0 - record.alteration_prior)
+                     for record in records
+                 )
+-                for relation in relations:
++                for relation in unique.values():
+                     # XOR represents coherent collusion: two jointly altered
+                     # records can agree with each other while disagreeing with
+                     # independently generated records.
+                     affected = (relation.left in culprit) ^ (relation.right in culprit)
+                     if affected:
+-                        predicted.append(relation.name)
++                        predicted.extend(aliases[relation.name])
+                     probability = (
+                         self.detection
+                         if affected and observed[relation.name]
+@@ -133,6 +154,22 @@
+             "passing_relations": [name for name, violated in observed.items() if not violated],
+             "ranking": [candidate.as_dict() for candidate in ranked],
+             "top_candidate": ranked[0].as_dict(),
++            "observation_groups": aliases,
++            "unique_observation_count": len(unique),
++            "model": {
++                "weight_interpretation": "Conditional model weights, not calibrated alteration probabilities",
++                "null_candidate_included": True,
++                "maximum_altered_records": limit,
++                "detection_probability": self.detection,
++                "false_violation_probability": self.false_violation,
++                "additional_log_sparsity_penalty_per_record": 0.7,
++                "assumptions": [
++                    "XOR: two altered endpoints are assumed to agree coherently",
++                    "Distinct record-pair observations are assumed conditionally independent; overlapping comparisons may violate this",
++                    "Record priors are multiplied independently; party labels do not establish source independence",
++                    "Weights are normalized only over the enumerated subsets",
++                ],
++            },
+         }
+ 
+ 
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
+@@ -127,7 +127,7 @@
+         observed_violations=violations,
+         integrity_gate_active=active,
+         posterior_semantics=(
+-            "REL marginal suspect probabilities are conditional on the enumerated one-or-more-culprit hypothesis space; "
++            "REL marginal suspect probabilities are conditional on the enumerated culprit-set hypothesis space including no altered records; "
+             "they are used only as a declared borrowing-power gate, not as unconditional fraud probabilities."
+         ),
+         integrity_exponent=float(integrity_exponent),
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
+@@ -84,3 +84,13 @@
+     q = {x.name:x for x in hard.contributions}['C']
+     assert s.conditional_suspect_probability == pytest.approx(q.conditional_suspect_probability)
+     assert q.gated_maximum_power < s.gated_maximum_power
++
++
++def test_repeating_the_same_checks_does_not_increase_borrowing_penalty():
++    records, relations, history = fixture(True)
++    repeats = relations + [ConsistencyRelation('copy_'+r.name, r.right, r.left, r.tolerance) for r in relations]
++    kwargs = dict(current_estimate=1.0, current_standard_error=0.5, evidence_records=records, historical=history)
++    once = gate_and_borrow(relations=relations, **kwargs)
++    twice = gate_and_borrow(relations=repeats, **kwargs)
++    assert once.contributions == twice.contributions
++    assert once.gated == twice.gated
+--- before/maintenance/catalog.py
++++ after/maintenance/catalog.py
+@@ -21,7 +21,7 @@
+   imports=[];apis=[];interfaces=[];description=''
+   for f in files:
+    try:
+-   tree=ast.parse(f.read_text());description=description or ast.get_docstring(tree) or ''
++    tree=ast.parse(f.read_text());description=description or ast.get_docstring(tree) or ''
+     for assignment in tree.body:
+      if isinstance(assignment,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='PRODUCT_SPEC' for t in assignment.targets):
+       try: spec=ast.literal_eval(assignment.value)
+@@ -42,7 +42,7 @@
+   demos=sorted({f.name for pattern in ('demo*.py','run_experiment.py') for f in p.glob(pattern)})
+   if any('shared_foundry' in s for s in imports):fidelity='Shared reference reconstruction; not the lost historical implementation'
+   if any('spec_runtime' in s for s in imports):fidelity='Generic spec_runtime replacement; historical implementation equivalence unverified'
+-  rows.append({'id':p.name,'layer':layer,'description':description,'declared_status':declared,'source_fidelity':fidelity+'; change records: restoration/source-changes.json and restoration/20260914-product-repairs/changes.json','source_directory':relative,'python_sources':[{'path':f.relative_to(ROOT).as_posix(),'sha256':sha(f)} for f in files],'public_api':apis,'interfaces':interfaces,'demo_entries':demos,'direct_test_files':[f.name for f in sorted(p.glob('test_*.py'))],'latest_reproduction':latest.get(relative,{'status':'NOT_RUN','receipt':None}),'scientific_validity':'NOT_ESTABLISHED_BY_TEST_PASS'})
++  rows.append({'id':p.name,'layer':layer,'description':description,'declared_status':declared,'source_fidelity':fidelity+'; change records: restoration/source-changes.json and restoration/20260914-product-repairs/changes.json and restoration/20260914-rel-content/changes.json','source_directory':relative,'python_sources':[{'path':f.relative_to(ROOT).as_posix(),'sha256':sha(f)} for f in files],'public_api':apis,'interfaces':interfaces,'demo_entries':demos,'direct_test_files':[f.name for f in sorted(p.glob('test_*.py'))],'latest_reproduction':latest.get(relative,{'status':'NOT_RUN','receipt':None}),'scientific_validity':'NOT_ESTABLISHED_BY_TEST_PASS'})
+  for tier in ('CURRENT_PRODUCTS','RETRO_PRODUCTS'):
+   for p in sorted((ROOT/CORE/'02_FOUNDRY_ALL_PRODUCTS/parent_products'/tier).iterdir()):
+    if p.is_dir() and any(p.glob('*.py')):record(p,'parent',tier)
+--- before/restoration/build_explorer.py
++++ after/restoration/build_explorer.py
+@@ -3,6 +3,6 @@
+ BASE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(BASE))
+ from maintenance.catalog import build
+ build();data=json.loads((BASE/'catalog.json').read_text())['components']
+-page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel bağlantılarını otomatik oku; P103 akış inceleme hesabını gerçek motorlarla çalıştır. Yeni dört bileşenin 36 testi geçti.</p><nav><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
++page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
+ (BASE/'index.html').write_text(page.replace('PAYLOAD',json.dumps(data,ensure_ascii=False).replace('</','<\\/')))
+ print(len(data),'explorer entries')
+--- before/tests/test_content.py
++++ after/tests/test_content.py
+@@ -0,0 +1,99 @@
++from pathlib import Path
++import json
++import tempfile
++import unittest
++from openpyxl import Workbook
++from workbench.content import compare_content
++from workbench.cli import save_workbook_analysis
++
++
++class ContentTests(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.root = Path(self.tmp.name)
++    def tearDown(self):
++        self.tmp.cleanup()
++    def books(self, changed=False):
++        left, right = Workbook(), Workbook()
++        for r in range(1,5):
++            for c in range(1,4):
++                value = 100*r + 3*c
++                left.active.cell(r,c,value)
++                right.active.cell(r+6,c+2,value)
++        if changed:right.active['D9']=999
++        paths = [self.root/'ledger.xlsx',self.root/'support.xlsx']
++        for p,b in zip(paths,(left,right)):b.save(p)
++        return paths,[left,right]
++    def test_shifted_block_and_changed_interior_are_located(self):
++        paths,books=self.books(changed=True)
++        result=compare_content(paths,books)
++        self.assertEqual(len(result['blocks']),1)
++        b=result['blocks'][0]
++        self.assertEqual(b['left']['range'],'A1:C4')
++        self.assertEqual(b['right']['range'],'C7:E10')
++        self.assertEqual(b['matching_cells'],11)
++        self.assertEqual([(c['left'],c['right']) for c in b['cells'] if not c['equal']],[('B3','D9')])
++    def test_formula_free_files_produce_a_usable_report(self):
++        paths,_=self.books()
++        report=save_workbook_analysis(paths,self.root/'report')
++        data=json.loads(report.with_name('content.json').read_text())
++        self.assertTrue(report.exists())
++        self.assertFalse(data['lineage_available'])
++        self.assertEqual(data['blocks'][0]['matching_cells'],12)
++        self.assertFalse(report.with_name('problem.json').exists())
++    def test_matches_never_merge_formula_roots(self):
++        paths,books=self.books()
++        books[0].active['E1']='=SUM(A1:C4)'
++        books[1].active['G1']='=SUM(C7:E10)'
++        for p,b in zip(paths,books):b.save(p)
++        report=save_workbook_analysis(paths,self.root/'report')
++        data=json.loads(report.with_name('content.json').read_text())
++        problem=json.loads(report.with_name('problem.json').read_text())
++        self.assertEqual(len(set(problem['bases'].values())),24)
++        self.assertEqual(len(data['blocks'][0]['formula_targets']),2)
++        self.assertTrue(report.with_name('lineage.html').exists())
++    def test_numeric_text_and_numbers_do_not_match(self):
++        paths,books=self.books()
++        for row in books[1].active:
++            for cell in row:
++                if cell.value is not None:cell.value=str(cell.value)
++        self.assertEqual(compare_content(paths,books)['blocks'],[])
++    def test_formulas_are_not_compared_as_values(self):
++        paths,books=self.books()
++        for row in books[1].active:
++            for cell in row:
++                if cell.value is not None:cell.value='='+str(cell.value)
++        data=compare_content(paths,books)
++        self.assertEqual(data['blocks'],[])
++        self.assertEqual(data['excluded_cells']['formula'],12)
++    def test_common_boilerplate_does_not_seed_a_block(self):
++        paths,books=self.books()
++        for b in books:
++            for row in b.active:
++                for cell in row:cell.value=0
++        self.assertEqual(compare_content(paths,books)['blocks'],[])
++    def test_coincidental_equal_blocks_are_not_claimed_as_provenance(self):
++        paths,books=self.books()
++        result=compare_content(paths,books)
++        self.assertIn('not established',result['blocks'][0]['interpretation'])
++        self.assertNotIn('source_groups',result)
++    def test_output_is_preserved(self):
++        paths,_=self.books()
++        folder=self.root/'report';folder.mkdir();(folder/'keep.txt').write_text('original')
++        with self.assertRaisesRegex(ValueError,'preserved'):
++            save_workbook_analysis(paths,folder)
++        self.assertEqual((folder/'keep.txt').read_text(),'original')
++
++    def test_independently_authored_apache_workbook_shared_table(self):
++        from workbench.workbooks import open_workbooks
++        fixture = Path(__file__).resolve().parents[1]/'examples/public-workbooks/FormulaEvalTestData_Copy.xlsx'
++        with open_workbooks([fixture]) as (paths,books):
++            result=compare_content(paths,books)
++        block=next(b for b in result['blocks'] if b['left']['sheet']=='EverythingTests' and b['right']['sheet']=='FinanceLibTests')
++        self.assertEqual((block['left']['range'],block['right']['range']),('T7:X19','B2:F14'))
++        self.assertEqual(block['matching_cells'],63)
++        self.assertEqual([(c['left'],c['right'],c['right_value']) for c in block['cells'] if not c['equal']],
++                         [('T12','B7','=2/3'),('T13','B8','=2/3')])
++
++
++if __name__=='__main__':unittest.main()
+--- before/workbench/cli.py
++++ after/workbench/cli.py
+@@ -7,7 +7,9 @@
+ from .methods import mechanism_receipt
+ from .problems import evidence_demo
+ from .report import analyze_problem, write_report, write_benchmark_report
+-from .workbooks import analyze_workbooks
++from .workbooks import open_workbooks, _analyze_loaded, LineageUnavailable
++from .content import compare_content
++from .content_report import write_content_report
+ 
+ 
+ def save_analysis(problem, directory=None):
+@@ -23,6 +25,39 @@
+     (folder / 'problem.json').write_text(json.dumps(problem.to_dict(), indent=2, ensure_ascii=False) + '\n')
+     (folder / 'analysis.json').write_text(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
+     write_report(result, folder / 'index.html')
++    return folder / 'index.html'
++
++
++def save_workbook_analysis(paths, directory=None):
++    with open_workbooks(paths) as (paths, books):
++        content = compare_content(paths, books)
++        try:
++            problem = _analyze_loaded(paths, books)
++        except LineageUnavailable as error:
++            problem = None
++            content['lineage_unavailable_reason'] = str(error)
++    folder = Path(directory) if directory is not None else new_run('workbooks')
++    if folder.exists() and any(folder.iterdir()):
++        raise ValueError('Output folder must be new or empty; existing reports are preserved')
++    folder.mkdir(parents=True, exist_ok=True)
++    content['lineage_available'] = problem is not None
++    if problem is not None:
++        # Keep observed similarities separate from the actual formula graph.
++        report = save_analysis(problem, folder)
++        report.rename(folder / 'lineage.html')
++        analysis = json.loads((folder / 'analysis.json').read_text())
++        for block in content['blocks']:
++            targets = set()
++            for side in ('left', 'right'):
++                loc = block[side]
++                prefix = loc['workbook']+'::' if len(paths)>1 else ''
++                for cell in block['cells']:
++                    if cell['equal']:
++                        node = prefix+loc['sheet']+'!'+cell[side]
++                        targets.update(analysis['source_impacts'].get(node, []))
++            block['formula_targets'] = sorted(targets)
++    (folder / 'content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
++    write_content_report(content, folder / 'index.html')
+     return folder / 'index.html'
+ 
+ 
+@@ -48,7 +83,8 @@
+                 if path.is_dir():
+                     paths.extend(p for p in path.iterdir() if p.is_file() and p.suffix.lower() in ('.xlsx','.xlsm') and not p.name.startswith('~$'))
+                 else: paths.append(path)
+-            problem = analyze_workbooks(paths)
++            print(save_workbook_analysis(paths, args.output))
++            return 0
+         else: problem = DependencyProblem.from_dict(json.loads(Path(args.problem_json).read_text()))
+         print(save_analysis(problem, args.output))
+         return 0
+--- before/workbench/content.py
++++ after/workbench/content.py
+@@ -0,0 +1,153 @@
++"""Locate shared literal cell blocks. Content matches never merge source identities.
++
++This is a deterministic, bounded candidate finder, not a learned provenance
++classifier. Typed rare-value anchors propose translations; actual cells verify
++each block. No tolerance, formatting, filename or formula-cache similarity is
++silently treated as value equality.
++"""
++from collections import defaultdict
++from datetime import date, datetime, time, timedelta
++from itertools import combinations
++import hashlib
++import math
++
++
++def typed_value(cell):
++    value = cell.value
++    if value is None or cell.data_type in ('f', 'e'):
++        return None
++    if isinstance(value, bool):
++        return ('bool', value)
++    if isinstance(value, (int, float)):
++        return ('number', value) if math.isfinite(value) else None
++    if isinstance(value, str):
++        return ('text', value) if value.strip() else None
++    if isinstance(value, (datetime, date, time)):
++        return (type(value).__name__, value.isoformat())
++    if isinstance(value, timedelta):
++        return ('duration_seconds', value.total_seconds())
++    return None
++
++
++def _components(points):
++    """Join matching cells across at most one intervening changed cell."""
++    pending = set(points)
++    offsets = [(r, c) for r in range(-2, 3) for c in range(-2, 3) if (r, c) != (0, 0)]
++    while pending:
++        start = min(pending)
++        pending.remove(start)
++        group, todo = {start}, [start]
++        while todo:
++            r, c = todo.pop()
++            for dr, dc in offsets:
++                point = (r + dr, c + dc)
++                if point in pending:
++                    pending.remove(point); group.add(point); todo.append(point)
++        yield group
++
++
++def compare_content(paths, books):
++    from openpyxl.utils.cell import get_column_letter
++    sheets, index, excluded = [], defaultdict(list), defaultdict(int)
++    populated = 0
++    for path, book in zip(paths, books):
++        for sheet in book:
++            if sheet.max_row * sheet.max_column > 100000:
++                raise ValueError('Content comparison worksheet limit: 100,000 cells')
++            values, raw = {}, {}
++            sid = len(sheets)
++            for row in sheet.iter_rows():
++                for cell in row:
++                    if cell.value is None: continue
++                    populated += 1
++                    if populated > 20000:
++                        raise ValueError('Content comparison collection limit: 20,000 populated cells')
++                    point = (cell.row, cell.column)
++                    token = typed_value(cell)
++                    raw[point] = str(cell.value)
++                    if token is None:
++                        excluded['formula' if cell.data_type == 'f' else 'error_or_empty_text'] += 1
++                        continue
++                    values[point] = token
++                    # Trivial constants can verify a region, but cannot seed one.
++                    if token[0] != 'bool' and token not in (('number', 0), ('number', 1), ('number', -1)):
++                        index[token].append((sid, *point))
++            sheets.append({'workbook': path.name, 'sheet': sheet.title, 'values': values, 'raw': raw})
++    proposals = defaultdict(set)
++    joins, common = 0, 0
++    for token, positions in index.items():
++        if len(positions) > 64:
++            common += 1
++            continue
++        for (a, ar, ac), (b, br, bc) in combinations(positions, 2):
++            if a == b: continue
++            joins += 1
++            if joins > 200000:
++                raise ValueError('Content anchor comparison exceeds 200,000 pairs; supply a smaller collection')
++            proposals[(a, b, br-ar, bc-ac)].add(token)
++    candidates = sorted(k for k, tokens in proposals.items() if len(tokens) >= 3)
++    if len(candidates) > 10000:
++        raise ValueError('Too many content alignments; supply a smaller collection')
++    comparisons, blocks = 0, []
++    coord = lambda p: get_column_letter(p[1]) + str(p[0])
++    for a, b, dr, dc in candidates:
++        left, right = sheets[a], sheets[b]
++        av, bv = left['values'], right['values']
++        comparisons += len(av)
++        if comparisons > 5000000:
++            raise ValueError('Content comparison exceeds 5,000,000 cell checks; supply a smaller collection')
++        matches = {p for p, token in av.items() if bv.get((p[0]+dr, p[1]+dc)) == token}
++        for group in _components(matches):
++            if len(group) < 6: continue
++            if len({av[p] for p in group} & proposals[(a, b, dr, dc)]) < 3: continue
++            r1, r2 = min(r for r,c in group), max(r for r,c in group)
++            c1, c2 = min(c for r,c in group), max(c for r,c in group)
++            area = (r2-r1+1)*(c2-c1+1)
++            if len(group)/area < .8: continue
++            blocks.append({
++                'left': {'workbook':left['workbook'], 'sheet':left['sheet'], 'range':coord((r1,c1))+':'+coord((r2,c2))},
++                'right': {'workbook':right['workbook'], 'sheet':right['sheet'], 'range':coord((r1+dr,c1+dc))+':'+coord((r2+dr,c2+dc))},
++                'matching_cells':len(group), 'compared_positions':area, 'match_fraction':len(group)/area,
++                'different_or_uncompared_cells':area-len(group),
++                '_region':(a,b,r1,r2,c1,c2,dr,dc),
++                'interpretation':'Observed content overlap; direction, copying and common origin are not established',
++            })
++    blocks.sort(key=lambda b:(-b['matching_cells'], b['left']['workbook'], b['left']['sheet'], b['left']['range'], b['right']['workbook'], b['right']['sheet'], b['right']['range']))
++    # Materialize bounded report details only after ranking candidate regions.
++    selected, detail_cells = [], 0
++    for block in blocks:
++        if len(selected) >= 200 or detail_cells + block['compared_positions'] > 100000:
++            continue
++        a,b,r1,r2,c1,c2,dr,dc = block.pop('_region')
++        left,right = sheets[a],sheets[b]
++        av,bv = left['values'],right['values']
++        cells = []
++        for r in range(r1,r2+1):
++            for c in range(c1,c2+1):
++                p,q = (r,c),(r+dr,c+dc)
++                cells.append({'left':coord(p), 'right':coord(q),
++                              'left_value':left['raw'].get(p), 'right_value':right['raw'].get(q),
++                              'left_type':av[p][0] if p in av else 'uncompared',
++                              'right_type':bv[q][0] if q in bv else 'uncompared',
++                              'equal':p in av and av[p] == bv.get(q)})
++        block['cells'] = cells
++        block['matching_cells'] = sum(c['equal'] for c in cells)
++        block['different_or_uncompared_cells'] = len(cells)-block['matching_cells']
++        block['match_fraction'] = block['matching_cells']/len(cells)
++        selected.append(block)
++        detail_cells += len(cells)
++    return {'schema_version':1, 'method':'typed_rare_anchor_translation_v1',
++            'input_files':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths],
++            'sheet_count':len(sheets), 'populated_cells':populated,
++            'blocks':selected, 'total_blocks_found':len(blocks), 'blocks_omitted':len(blocks)-len(selected),
++            'excluded_cells':dict(excluded), 'common_anchor_values_skipped':common,
++            'candidate_alignments':len(candidates), 'verified_cell_lookups':comparisons,
++            'scope':[
++                'Only supplied workbooks; comparison is between distinct sheets, including sheets within one workbook.',
++                'At least 6 matching cells, 3 distinct nontrivial rare values, and 80% matching positions within the displayed rectangle.',
++                'Exact typed equality only: numeric text differs from a number; formatting is ignored. Formula cells, caches and errors cannot establish a match.',
++                'Only row/column translations are searched. Reordering, transposition, rounding and removed columns can be missed. Differences beyond the matching anchors are not located.',
++                'No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.',
++                'Thresholds are review heuristics, not calibrated confidence or an audit conclusion.',
++                'Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count.',
++            ]}
+--- before/workbench/content_report.py
++++ after/workbench/content_report.py
+@@ -0,0 +1,26 @@
++"""A local, self-contained viewer for verifiable content comparisons."""
++import json
++
++
++def write_content_report(result, path):
++    payload = json.dumps(result, ensure_ascii=False).replace('</', '<\\/')
++    page = r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lab · Tekrarlanan veri</title>
++<style>*{box-sizing:border-box}body{margin:0;background:#f2f5f6;color:#17333e;font:15px system-ui}header{background:#14333c;color:white;padding:30px max(24px,calc((100% - 1180px)/2))}h1{font-size:30px;margin:0 0 10px}h2{font-size:20px}p{line-height:1.55}main{max-width:1230px;padding:24px;margin:auto}.notice{background:#fff7e9;border-left:4px solid #ad7930;padding:14px}.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px}.panel{background:white;border:1px solid #d5e0e4;border-radius:8px;padding:20px;margin-bottom:20px}button,input{font:inherit}button{cursor:pointer;background:white;color:inherit;border:1px solid #b6c9cf;border-radius:5px;padding:10px}input[type=search]{width:100%;padding:10px;border:1px solid #bacbd1}.block{display:block;width:100%;margin-top:9px;text-align:left;overflow-wrap:anywhere}.block[aria-pressed=true]{background:#e0f2ed;border-color:#297767}.muted{color:#58707a;font-size:13px}.stats{font-size:18px;font-weight:650}.scroll{overflow:auto;max-height:560px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid #e2eaed;padding:10px;text-align:left;overflow-wrap:anywhere}tr.diff{background:#fff0df}a{color:#107664}pre{white-space:pre-wrap;overflow-wrap:anywhere}summary{cursor:pointer}#selection{overflow-wrap:anywhere}label{display:block;margin:14px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}h1{font-size:25px}.scroll{max-height:350px}}</style>
++<header><h1>Aynı veri nerede tekrar görünüyor?</h1><div id="files"></div></header><main>
++<p class="notice">Eşleşen içerik, kopyalamanın yönünü veya ortak kaynağı tek başına kanıtlamaz. Aşağıdaki hücreler inceleme için yan yana getirildi; bağımsız kanıt sayısı hesaplanmadı.</p>
++<section class="panel"><div id="stats" class="stats"></div><p id="coverage"></p><div id="lineage"></div></section>
++<div class="grid"><section class="panel"><h2>Eşleşen bölgeler</h2><input id="search" type="search" placeholder="Dosya veya sayfa ara" aria-label="Eşleşme ara"><div id="blocks" class="scroll"></div></section>
++<section class="panel"><h2 id="selection">Bir bölge seç</h2><p id="block-stats"></p><p id="impact"></p><label><input id="differences" type="checkbox"> Yalnız farklı veya karşılaştırılamayan hücreler</label><div class="scroll"><table><thead><tr><th>Sol hücre / değer</th><th>Sağ hücre / değer</th><th>Gözlem</th></tr></thead><tbody id="cells"></tbody></table></div><p id="cell-limit" class="muted"></p></section></div>
++<section class="panel"><details><summary>Aranan eşleşmeler ve kapsam</summary><ul id="scope"></ul><p class="muted">Yeni içerik karşılaştırıcısı eşleşmeleri bulur. Formül izi varsa labın R207 motoru ayrı olarak kaynak kaybı etkisini hesaplar. İçerik benzerliği, R207 grafiğine kanıtlanmış bağlantı olarak eklenmez.</p><p><a href="content.json">Hücreler ve dosya özetleri · JSON</a></p></details></section>
++</main><script>const data=PAYLOAD;
++const $=s=>document.querySelector(s),esc=s=>String(s??'∅').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
++const loc=b=>`${b.workbook} · ${b.sheet}!${b.range}`;
++let selected=data.blocks.length?0:-1;
++$('#files').textContent=data.input_files.map(f=>f.name).join(' · ');
++$('#stats').textContent=`${data.input_files.length} dosya · ${data.sheet_count} sayfa · ${data.total_blocks_found} eşleşen bölge çifti`;
++$('#coverage').textContent=`${data.populated_cells} dolu hücre okundu. ${data.excluded_cells.formula||0} formül içerik eşleştirmesine alınmadı. ${data.blocks_omitted} bölge çıktı sınırı nedeniyle gösterilmiyor. Bölge çiftleri örtüşebilir; sayıları bağımsız kaynak sayısı değildir.`;
++$('#lineage').innerHTML=data.lineage_available?'<a href="lineage.html">Formül bağlantılarını ve kaynak kaybı etkisini aç →</a>':'<p class="muted">Bu girdide çözülebilen formül izi yok. Değer eşleştirmesi yine yapıldı.</p>';
++function list(){const q=$('#search').value.toLowerCase();$('#blocks').innerHTML=data.blocks.map((b,i)=>({b,i})).filter(({b})=>(loc(b.left)+' '+loc(b.right)).toLowerCase().includes(q)).map(({b,i})=>`<button class="block" data-index="${i}" aria-pressed="${i===selected}"><b>${b.matching_cells} eşleşme · ${b.different_or_uncompared_cells} fark / kapsam dışı</b><br>${esc(loc(b.left))}<br>↔ ${esc(loc(b.right))}</button>`).join('')||'<p>Arama kapsamında eşleşme yok. Bu, kaynakların bağımsız olduğunu göstermez.</p>';}
++function detail(){if(selected<0){$('#selection').textContent='Arama kapsamında bölge bulunmadı';return}const b=data.blocks[selected];$('#selection').textContent=loc(b.left)+' ↔ '+loc(b.right);$('#block-stats').textContent=`${b.matching_cells} / ${b.compared_positions} konumda değer ve tür aynı. Eşleşen uç hücreler arasındaki alan gösteriliyor.`;$('#impact').textContent=b.formula_targets?.length?`Bu bölgelerdeki eşleşen hücrelere formülle bağlı ${b.formula_targets.length} sonuç var: `+b.formula_targets.slice(0,12).join(', '):'Bu bölge için çözülen formüllerde bağlı sonuç bulunmadı.';const cells=b.cells.filter(c=>!$('#differences').checked||!c.equal);$('#cells').innerHTML=cells.slice(0,500).map(c=>`<tr class="${c.equal?'':'diff'}"><td><b>${esc(c.left)}</b><br>${esc(c.left_value)}<br><small>${esc(c.left_type)}</small></td><td><b>${esc(c.right)}</b><br>${esc(c.right_value)}<br><small>${esc(c.right_type)}</small></td><td>${c.equal?'Aynı değer ve tür':'Farklı / karşılaştırılmadı'}</td></tr>`).join('');$('#cell-limit').textContent=cells.length>500?'İlk 500 konum gösteriliyor; tam bölge JSON dosyasında.':cells.length?'':'Bu seçimde gösterilecek fark yok.';}
++$('#blocks').addEventListener('click',e=>{const button=e.target.closest('[data-index]');if(!button)return;selected=Number(button.dataset.index);list();detail()});$('#search').addEventListener('input',list);$('#differences').addEventListener('change',detail);$('#scope').innerHTML=data.scope.map(s=>'<li>'+esc(s)+'</li>').join('');list();detail();</script></html>'''
++    path.write_text(page.replace('PAYLOAD', payload))
+--- before/workbench/workbooks.py
++++ after/workbench/workbooks.py
+@@ -1,6 +1,6 @@
+ """Conservative static XLSX lineage. Never computes or certifies spreadsheet values."""
+ from collections import defaultdict, deque
+-from contextlib import ExitStack
++from contextlib import ExitStack, contextmanager
+ import json
+ from urllib.parse import unquote, urlsplit
+ import hashlib
+@@ -26,6 +26,16 @@
+ 
+ 
+ def analyze_workbooks(paths):
++    with open_workbooks(paths) as (paths, books):
++        return _analyze_loaded(paths, books)
++
++
++class LineageUnavailable(ValueError):
++    """Valid workbook input without a resolved formula graph."""
++
++
++@contextmanager
++def open_workbooks(paths):
+     """Read only supplied files; external locators never trigger file/network access."""
+     from openpyxl import load_workbook
+     paths = sorted({Path(p).resolve() for p in paths}, key=lambda p: (p.name.casefold(), str(p)))
+@@ -48,7 +58,7 @@
+             workbook = load_workbook(path, data_only=False, keep_links=True, keep_vba=False)
+             stack.callback(workbook.close)
+             books.append(workbook)
+-        return _analyze_loaded(paths, books)
++        yield paths, books
+ 
+ 
+ def _analyze_loaded(paths, books):
+@@ -82,7 +92,7 @@
+                         formulas[node] = cell.value if isinstance(cell.value, str) else None
+                         locations[node] = (book_id, sheet.title)
+     if not formulas:
+-        raise ValueError('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
++        raise LineageUnavailable('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
+     if len(cells) > 20000: raise ValueError('Pilot populated-cell limit: 20,000')
+     dependencies = {}
+     issues = defaultdict(list)
+@@ -212,7 +222,7 @@
+     roots = {ref for node in safe for ref in dependencies[node] if ref not in formulas}
+     if len(roots) + len(safe) > 20000: raise ValueError('Expanded lineage exceeds 20,000 nodes')
+     if not safe:
+-        raise ValueError('No formula has a fully resolved static reference graph. ' + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]))
++        raise LineageUnavailable('No formula has a fully resolved static reference graph. ' + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]))
+     used = {ref for node in safe for ref in dependencies[node] if ref in safe}
+     targets = tuple(sorted(safe - used))
+     source_sets = {root: frozenset((root,)) for root in roots}

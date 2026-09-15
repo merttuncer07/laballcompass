@@ -1,0 +1,888 @@
+{
+  "edges": 6115,
+  "clusters": 368,
+  "cluster_sizes": [
+    [
+      1,
+      52
+    ],
+    [
+      2,
+      35
+    ],
+    [
+      3,
+      33
+    ],
+    [
+      4,
+      21
+    ],
+    [
+      5,
+      21
+    ],
+    [
+      6,
+      17
+    ],
+    [
+      11,
+      16
+    ],
+    [
+      9,
+      14
+    ],
+    [
+      8,
+      12
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      12,
+      9
+    ],
+    [
+      20,
+      8
+    ],
+    [
+      14,
+      8
+    ],
+    [
+      10,
+      8
+    ],
+    [
+      18,
+      7
+    ]
+  ],
+  "top_diverse": [
+    {
+      "selection_rank": 1,
+      "cluster": "R388C0001",
+      "supplier": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "diverse_score": 122.028,
+      "failure_rank": 1,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P039",
+      "family": "V2P039",
+      "collision": 0.034,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [
+        "support",
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 2,
+      "cluster": "R388C0004",
+      "supplier": "FOUNDRY:P028",
+      "consumer": "PARENT:R044_DECISION_LOSS_DLEW",
+      "diverse_score": 117.528,
+      "failure_rank": 10,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P041",
+      "family": "V2P041",
+      "collision": 0.018,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 3,
+      "cluster": "R388C0010",
+      "supplier": "FOUNDRY:P093",
+      "consumer": "PARENT:R027_S426_S427_MIFF",
+      "diverse_score": 112.528,
+      "failure_rank": 38,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P021",
+      "family": "DRE_PRECONDITION_VARIANTS",
+      "collision": 0.072,
+      "interfaces": [],
+      "addressed": [
+        "decision"
+      ]
+    },
+    {
+      "selection_rank": 4,
+      "cluster": "R388C0015",
+      "supplier": "FOUNDRY:P090",
+      "consumer": "PARENT:R014_S781_S792_ACSA",
+      "diverse_score": 110.323,
+      "failure_rank": 61,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P009",
+      "family": "V2P009",
+      "collision": 0.028,
+      "interfaces": [],
+      "addressed": [
+        "support"
+      ]
+    },
+    {
+      "selection_rank": 5,
+      "cluster": "R388C0009",
+      "supplier": "PARENT:R001_C313_BPISD",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "diverse_score": 108.268,
+      "failure_rank": 34,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P005",
+      "family": "V2P005",
+      "collision": 0.031,
+      "interfaces": [
+        "evidence",
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 6,
+      "cluster": "R388C0022",
+      "supplier": "PARENT:R033_M420_OASRD",
+      "consumer": "FOUNDRY:P017",
+      "diverse_score": 106.442,
+      "failure_rank": 169,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P027",
+      "family": "DRE_OUTBOUND_ROUTING_VARIANTS",
+      "collision": 0.014,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 7,
+      "cluster": "R388C0051",
+      "supplier": "PARENT:R038_DECISION_HEDGE_DHCC",
+      "consumer": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "diverse_score": 105.004,
+      "failure_rank": 624,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P030",
+      "family": "V2P030",
+      "collision": 0.015,
+      "interfaces": [],
+      "addressed": [
+        "decision"
+      ]
+    },
+    {
+      "selection_rank": 8,
+      "cluster": "R388C0023",
+      "supplier": "FOUNDRY:P095",
+      "consumer": "PARENT:R008_E612_E613_LGID",
+      "diverse_score": 103.962,
+      "failure_rank": 181,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P038",
+      "family": "V2P038",
+      "collision": 0.031,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [
+        "support"
+      ]
+    },
+    {
+      "selection_rank": 9,
+      "cluster": "R388C0025",
+      "supplier": "PARENT:R023_M421_M428_CORMA",
+      "consumer": "FOUNDRY:P086",
+      "diverse_score": 101.942,
+      "failure_rank": 190,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P045",
+      "family": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "collision": 0.025,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 10,
+      "cluster": "R388C0024",
+      "supplier": "FOUNDRY:P037",
+      "consumer": "PARENT:R011_C360_MCPR",
+      "diverse_score": 99.875,
+      "failure_rank": 185,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P036",
+      "family": "V2P036",
+      "collision": 0.036,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 11,
+      "cluster": "R388C0080",
+      "supplier": "PARENT:R050_M583_S745_CBAC",
+      "consumer": "PARENT:IM359_IM014_AICC",
+      "diverse_score": 99.68,
+      "failure_rank": 1436,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P010",
+      "family": "V2P010",
+      "collision": 0.042,
+      "interfaces": [],
+      "addressed": [
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 12,
+      "cluster": "R388C0028",
+      "supplier": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "consumer": "PARENT:IM406_IM037_ACRA",
+      "diverse_score": 97.581,
+      "failure_rank": 246,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P031",
+      "family": "V2P031",
+      "collision": 0.082,
+      "interfaces": [],
+      "addressed": [
+        "decision"
+      ]
+    },
+    {
+      "selection_rank": 13,
+      "cluster": "R388C0091",
+      "supplier": "PARENT:R028_S418_S439_TDSX",
+      "consumer": "PARENT:IM340_IM280_CWC",
+      "diverse_score": 94.752,
+      "failure_rank": 1636,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P042",
+      "family": "V2P042",
+      "collision": 0.047,
+      "interfaces": [
+        "boundary",
+        "gate"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 14,
+      "cluster": "R388C0058",
+      "supplier": "PARENT:R042_PREDICTIVE_STATE_PSCT",
+      "consumer": "FOUNDRY:P115",
+      "diverse_score": 93.501,
+      "failure_rank": 793,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P004",
+      "family": "V2P004",
+      "collision": 0.02,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 15,
+      "cluster": "R388C0054",
+      "supplier": "LCB-K043",
+      "consumer": "PARENT:R007_C349_BICC",
+      "diverse_score": 90.35,
+      "failure_rank": 738,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P012",
+      "family": "V2P012",
+      "collision": 0.017,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 16,
+      "cluster": "R388C0124",
+      "supplier": "PARENT:R036_DERIVATIVE_FREE_DFDPE",
+      "consumer": "PARENT:IM141_IM023_CDBL",
+      "diverse_score": 87.824,
+      "failure_rank": 2389,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P007",
+      "family": "V2P007",
+      "collision": 0.028,
+      "interfaces": [],
+      "addressed": [
+        "support"
+      ]
+    },
+    {
+      "selection_rank": 17,
+      "cluster": "R388C0034",
+      "supplier": "FOUNDRY:P082",
+      "consumer": "PARENT:R025_M435_M436_WBDP",
+      "diverse_score": 87.373,
+      "failure_rank": 332,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P041",
+      "family": "V2P041",
+      "collision": 0.029,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 18,
+      "cluster": "R388C0065",
+      "supplier": "PARENT:IM178_IM326_TWMR",
+      "consumer": "PARENT:R038_DECISION_HEDGE_DHCC",
+      "diverse_score": 85.083,
+      "failure_rank": 1013,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P032",
+      "family": "V2P032",
+      "collision": 0.076,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 19,
+      "cluster": "R388C0005",
+      "supplier": "PARENT:R044_DECISION_LOSS_DLEW",
+      "consumer": "FOUNDRY:P078",
+      "diverse_score": 84.248,
+      "failure_rank": 17,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P031",
+      "family": "V2P031",
+      "collision": 0.069,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 20,
+      "cluster": "R388C0141",
+      "supplier": "PARENT:R040_M147_SALC",
+      "consumer": "PARENT:IM455_IM094_DTTC",
+      "diverse_score": 82.132,
+      "failure_rank": 2776,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P008",
+      "family": "V2P008",
+      "collision": 0.031,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 21,
+      "cluster": "R388C0043",
+      "supplier": "PARENT:R048_MORTGAGE_BURNOUT_MBPF",
+      "consumer": "FOUNDRY:P033",
+      "diverse_score": 81.893,
+      "failure_rank": 523,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P039",
+      "family": "V2P039",
+      "collision": 0.036,
+      "interfaces": [],
+      "addressed": [
+        "support",
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 22,
+      "cluster": "R388C0069",
+      "supplier": "LCB-K084",
+      "consumer": "PARENT:R010_C359_PPSA",
+      "diverse_score": 79.833,
+      "failure_rank": 1134,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P037",
+      "family": "V2P037",
+      "collision": 0.041,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 23,
+      "cluster": "R388C0101",
+      "supplier": "PARENT:IM334_IM094_DRE",
+      "consumer": "PARENT:R008_E612_E613_LGID",
+      "diverse_score": 76.607,
+      "failure_rank": 1881,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P013",
+      "family": "V2P013",
+      "collision": 0.083,
+      "interfaces": [
+        "boundary",
+        "evidence",
+        "gate"
+      ],
+      "addressed": [
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 24,
+      "cluster": "R388C0044",
+      "supplier": "FOUNDRY:P019",
+      "consumer": "PARENT:R047_MORTGAGE_COMPETING_MCRIS",
+      "diverse_score": 76.434,
+      "failure_rank": 553,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P045",
+      "family": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "collision": 0.017,
+      "interfaces": [],
+      "addressed": [
+        "resilience"
+      ]
+    },
+    {
+      "selection_rank": 25,
+      "cluster": "R388C0082",
+      "supplier": "PARENT:R020_P848_P851_SCCRT",
+      "consumer": "FOUNDRY:P117",
+      "diverse_score": 74.301,
+      "failure_rank": 1473,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P011",
+      "family": "V2P011",
+      "collision": 0.022,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 26,
+      "cluster": "R388C0017",
+      "supplier": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "consumer": "PARENT:IM445_IM085_CSID",
+      "diverse_score": 74.164,
+      "failure_rank": 66,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P005",
+      "family": "V2P005",
+      "collision": 0.038,
+      "interfaces": [],
+      "addressed": [
+        "support",
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 27,
+      "cluster": "R388C0062",
+      "supplier": "PARENT:IM359_IM014_AICC",
+      "consumer": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "diverse_score": 70.812,
+      "failure_rank": 957,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P003",
+      "family": "V2P003",
+      "collision": 0.042,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": [
+        "decision"
+      ]
+    },
+    {
+      "selection_rank": 28,
+      "cluster": "R388C0021",
+      "supplier": "FOUNDRY:P093",
+      "consumer": "PARENT:R045_TARGET_MEMORY_ATRC",
+      "diverse_score": 69.902,
+      "failure_rank": 155,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P021",
+      "family": "DRE_PRECONDITION_VARIANTS",
+      "collision": 0.073,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 29,
+      "cluster": "R388C0098",
+      "supplier": "PARENT:R046_METRIC_DECISION_MDDC",
+      "consumer": "PARENT:IM401_IM030_MFPA",
+      "diverse_score": 68.703,
+      "failure_rank": 1794,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P031",
+      "family": "V2P031",
+      "collision": 0.03,
+      "interfaces": [],
+      "addressed": [
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 30,
+      "cluster": "R388C0050",
+      "supplier": "PARENT:R027_S426_S427_MIFF",
+      "consumer": "LCB-K010",
+      "diverse_score": 67.888,
+      "failure_rank": 609,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P046",
+      "family": "V2P046",
+      "collision": 0.034,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 31,
+      "cluster": "R388C0144",
+      "supplier": "PARENT:R028_S418_S439_TDSX",
+      "consumer": "PARENT:IM139_IM250_CCVC",
+      "diverse_score": 64.749,
+      "failure_rank": 2826,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P048",
+      "family": "V2P043",
+      "collision": 0.045,
+      "interfaces": [],
+      "addressed": [
+        "decision"
+      ]
+    },
+    {
+      "selection_rank": 32,
+      "cluster": "R388C0085",
+      "supplier": "FOUNDRY:P016",
+      "consumer": "PARENT:R029_S440_SCE",
+      "diverse_score": 64.349,
+      "failure_rank": 1548,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P042",
+      "family": "V2P042",
+      "collision": 0.033,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 33,
+      "cluster": "R388C0173",
+      "supplier": "PARENT:R005_P572_SLERM",
+      "consumer": "PARENT:IM274_IM290_OWS",
+      "diverse_score": 62.496,
+      "failure_rank": 3459,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P029",
+      "family": "V2P029",
+      "collision": 0.033,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 34,
+      "cluster": "R388C0036",
+      "supplier": "FOUNDRY:P091",
+      "consumer": "PARENT:R011_C360_MCPR",
+      "diverse_score": 62.187,
+      "failure_rank": 358,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P037",
+      "family": "V2P037",
+      "collision": 0.026,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 35,
+      "cluster": "R388C0039",
+      "supplier": "FOUNDRY:P017",
+      "consumer": "PARENT:R018_M866_M880_MCSC",
+      "diverse_score": 59.928,
+      "failure_rank": 401,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P036",
+      "family": "V2P036",
+      "collision": 0.024,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 36,
+      "cluster": "R388C0117",
+      "supplier": "LCB-K017",
+      "consumer": "PARENT:R013_C376_OWNM",
+      "diverse_score": 56.846,
+      "failure_rank": 2285,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P006",
+      "family": "V2P006",
+      "collision": 0.023,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 37,
+      "cluster": "R388C0072",
+      "supplier": "PARENT:R042_PREDICTIVE_STATE_PSCT",
+      "consumer": "FOUNDRY:P123",
+      "diverse_score": 53.431,
+      "failure_rank": 1163,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P019",
+      "family": "V2P019",
+      "collision": 0.023,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 38,
+      "cluster": "R388C0040",
+      "supplier": "PARENT:R038_DECISION_HEDGE_DHCC",
+      "consumer": "LCB-K081",
+      "diverse_score": 51.179,
+      "failure_rank": 452,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P034",
+      "family": "V2P034",
+      "collision": 0.054,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": [
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 39,
+      "cluster": "R388C0018",
+      "supplier": "FOUNDRY:P090",
+      "consumer": "PARENT:R033_M420_OASRD",
+      "diverse_score": 48.814,
+      "failure_rank": 86,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P009",
+      "family": "V2P009",
+      "collision": 0.025,
+      "interfaces": [],
+      "addressed": [
+        "decision"
+      ]
+    },
+    {
+      "selection_rank": 40,
+      "cluster": "R388C0027",
+      "supplier": "PARENT:IM139_IM250_CCVC",
+      "consumer": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "diverse_score": 47.41,
+      "failure_rank": 216,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P010",
+      "family": "V2P010",
+      "collision": 0.047,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 41,
+      "cluster": "R388C0146",
+      "supplier": "PARENT:R040_M147_SALC",
+      "consumer": "PARENT:IM274_IM290_OWS",
+      "diverse_score": 43.746,
+      "failure_rank": 2854,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P008",
+      "family": "V2P008",
+      "collision": 0.034,
+      "interfaces": [
+        "representation"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 42,
+      "cluster": "R388C0075",
+      "supplier": "FOUNDRY:P087",
+      "consumer": "PARENT:R007_C349_BICC",
+      "diverse_score": 43.15,
+      "failure_rank": 1251,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P013",
+      "family": "V2P013",
+      "collision": 0.04,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 43,
+      "cluster": "R388C0041",
+      "supplier": "FOUNDRY:P030",
+      "consumer": "PARENT:R010_C359_PPSA",
+      "diverse_score": 40.648,
+      "failure_rank": 467,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P045",
+      "family": "BOUNDARY_GATE_ROUTING_VARIANTS",
+      "collision": 0.05,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 44,
+      "cluster": "R388C0209",
+      "supplier": "PARENT:R003_C333_RIC",
+      "consumer": "PARENT:R008_E612_E613_LGID",
+      "diverse_score": 40.522,
+      "failure_rank": 4377,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P040",
+      "family": "V2P040",
+      "collision": 0.012,
+      "interfaces": [
+        "gate"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 45,
+      "cluster": "R388C0170",
+      "supplier": "FOUNDRY:P084",
+      "consumer": "PARENT:R006_P579_P580_UTDIM",
+      "diverse_score": 38.245,
+      "failure_rank": 3425,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P033",
+      "family": "V2P033",
+      "collision": 0.026,
+      "interfaces": [],
+      "addressed": [
+        "calibration"
+      ]
+    },
+    {
+      "selection_rank": 46,
+      "cluster": "R388C0006",
+      "supplier": "PARENT:R027_S426_S427_MIFF",
+      "consumer": "FOUNDRY:P028",
+      "diverse_score": 36.099,
+      "failure_rank": 22,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P025",
+      "family": "DRE_OUTBOUND_ROUTING_VARIANTS",
+      "collision": 0.027,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 47,
+      "cluster": "R388C0165",
+      "supplier": "PARENT:R005_P572_SLERM",
+      "consumer": "PARENT:IM340_IM280_CWC",
+      "diverse_score": 34.302,
+      "failure_rank": 3266,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P042",
+      "family": "V2P042",
+      "collision": 0.05,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 48,
+      "cluster": "R388C0042",
+      "supplier": "FOUNDRY:P096",
+      "consumer": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "diverse_score": 34.079,
+      "failure_rank": 507,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P011",
+      "family": "V2P011",
+      "collision": 0.028,
+      "interfaces": [
+        "evidence"
+      ],
+      "addressed": [
+        "uncertainty"
+      ]
+    },
+    {
+      "selection_rank": 49,
+      "cluster": "R388C0178",
+      "supplier": "PARENT:R018_M866_M880_MCSC",
+      "consumer": "PARENT:IM334_IM094_DRE",
+      "diverse_score": 31.977,
+      "failure_rank": 3529,
+      "origin": "R388_RETRO50_SAME_PARENT_EXPANSION",
+      "nearest": "V2P013",
+      "family": "V2P013",
+      "collision": 0.08,
+      "interfaces": [
+        "boundary",
+        "gate"
+      ],
+      "addressed": []
+    },
+    {
+      "selection_rank": 50,
+      "cluster": "R388C0097",
+      "supplier": "PARENT:R036_DERIVATIVE_FREE_DFDPE",
+      "consumer": "LCB-K064",
+      "diverse_score": 30.715,
+      "failure_rank": 1760,
+      "origin": "R388_RETRO50_EXISTING_NATIVE_SPACE",
+      "nearest": "V2P043",
+      "family": "V2P043",
+      "collision": 0.043,
+      "interfaces": [],
+      "addressed": [
+        "support"
+      ]
+    }
+  ]
+}

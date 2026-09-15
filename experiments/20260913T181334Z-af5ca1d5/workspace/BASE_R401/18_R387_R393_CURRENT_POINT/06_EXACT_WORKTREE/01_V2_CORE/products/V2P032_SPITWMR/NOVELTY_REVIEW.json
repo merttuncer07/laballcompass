@@ -1,0 +1,12 @@
+{
+  "consumer_id": "PARENT:IM178_IM326_TWMR",
+  "difference_from_nearest": "CADRE detects when an already-compressed representation can flip DRE; SPITWMR chooses what to retain before compression using policy sensitivity",
+  "mechanism_removing_comparator": "TWMR state-energy baseline rather than policy-target-weighted reduction",
+  "nearest_existing_product": "V2P013_CADRE",
+  "new_failure_mode": "state reduction preserves high-energy dynamics but deletes a low-energy state that controls the downstream search policy",
+  "non_additive_interaction": "SPIA policy sensitivity defines TWMR protected output; the reduction objective itself changes",
+  "product_id": "V2P032",
+  "short_name": "SPITWMR",
+  "supplier_id": "FOUNDRY:P138",
+  "verdict": "DISTINCT_PRODUCT"
+}

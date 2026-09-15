@@ -1,0 +1,12 @@
+{
+  "consumer_id": "LCB-K065",
+  "diversified_selected_rank": 22,
+  "operator": "persuasion/disclosure policy -> endogenous future information-production equilibrium",
+  "r386_external_prior_art_status": "EXACT_OR_VERY_CLOSE_PRIOR_ART",
+  "r386_family_id": "V2P035",
+  "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+  "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+  "raw_native_rank": 491,
+  "status": "SHADOW_RETRO_SWEEP",
+  "supplier_id": "PARENT:R001_C313_BPISD"
+}

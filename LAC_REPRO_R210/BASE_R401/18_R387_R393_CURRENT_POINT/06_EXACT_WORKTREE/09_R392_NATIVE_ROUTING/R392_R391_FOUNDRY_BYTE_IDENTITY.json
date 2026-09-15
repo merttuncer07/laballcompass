@@ -1,0 +1,8 @@
+{
+  "baseline": "R391 archive-of-record",
+  "byte_identical": true,
+  "matched": 1305,
+  "mismatch": [],
+  "release": "R392",
+  "scope": "02_FOUNDRY_ALL_PRODUCTS non-pycache files"
+}

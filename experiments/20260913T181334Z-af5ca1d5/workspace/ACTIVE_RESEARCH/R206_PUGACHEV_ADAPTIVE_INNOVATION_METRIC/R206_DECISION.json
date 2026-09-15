@@ -1,0 +1,50 @@
+{
+  "status": "PUGACHEV_INSPIRED_COMPILED_CLOSURE_SCOPED_PROJECT_COMPLETE",
+  "meaning": "The theory/experiment package is frozen with explicit solved scope and failure boundaries; this is not a universal filtering or novelty claim.",
+  "lineage": ["R197", "R198", "R202", "R203", "R204", "R206"],
+  "final_capabilities": [
+    "fixed-pass compiled conditional mean correction",
+    "convex PSD conditional covariance atoms",
+    "recursive tail calibration separated from dynamic covariance",
+    "automatic innovation dictionary scaling through dimension 16",
+    "structured single-stream online correlation adaptation",
+    "shared-sample general correlation adaptation",
+    "bounded-ray analytic anchor with support fallback"
+  ],
+  "r206_experiment": {
+    "case_count": 128,
+    "updates_per_case": 1400,
+    "dimensions": [2, 4, 8, 16],
+    "noise_regimes": ["gaussian", "mixture"],
+    "correlation_geometries": [
+      "independent",
+      "equicorrelation_0.32",
+      "equicorrelation_0.55",
+      "signed_rank_one_0.38"
+    ],
+    "all_safe_cases_finite_and_psd": true,
+    "unit_tests_passed": 6
+  },
+  "aggregate": {
+    "equicorrelated_legacy_rmse": 0.21866122579346825,
+    "equicorrelated_structured_rmse": 0.20906375001755478,
+    "equicorrelated_shared_full_rmse": 0.2072430090643244,
+    "equicorrelated_true_metric_rmse": 0.20609707380273187,
+    "equicorrelated_legacy_coverage90": 0.8579261363636363,
+    "equicorrelated_structured_coverage90": 0.8873579545454546,
+    "signed_legacy_rmse": 0.2195620266266531,
+    "signed_shared_full_rmse": 0.20957829663098523,
+    "signed_true_metric_rmse": 0.2078856064297793,
+    "signed_legacy_coverage90": 0.8565909090909091,
+    "signed_shared_full_coverage90": 0.8852840909090909
+  },
+  "rejected_or_bounded": [
+    "unrestricted full correlation from one short stream: sample-limited and undercovered",
+    "ungated analytic update: catastrophic nonlinear overshoot reproduced",
+    "conditional atoms at d=16: no sharpness advantage over a global atom",
+    "Gaussian home mean: no systematic edge over classical sigma-point filtering",
+    "correlation-state recursion: not a consistent covariance identifier without correct prior moments"
+  ],
+  "novelty": "not established; strong collisions exist with adaptive covariance estimation, conditional-mean filters, covariance regression, assumed-density filters, and learned Kalman hybrids",
+  "next_action": "Keep this scoped result frozen and return to the parked broad historical candidate portfolio after archive verification."
+}

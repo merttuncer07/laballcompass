@@ -1,0 +1,32 @@
+[
+  {
+    "file": "FormulaEvalTestData_Copy.xlsx",
+    "status": "ANALYZED",
+    "formulas": 1295,
+    "resolved": 573,
+    "unresolved": 722,
+    "sources": 1239,
+    "report": "workbench_runs/20260913T232856Z-5fa7284d-analysis/index.html",
+    "seconds": 0.631
+  },
+  {
+    "file": "shared_formulas.xlsx",
+    "status": "ANALYZED",
+    "formulas": 40,
+    "resolved": 40,
+    "unresolved": 0,
+    "sources": 40,
+    "report": "workbench_runs/20260913T232856Z-6b1135ce-analysis/index.html",
+    "seconds": 0.014
+  },
+  {
+    "file": "FormulaSheetRange.xlsx",
+    "status": "ANALYZED",
+    "formulas": 2,
+    "resolved": 2,
+    "unresolved": 0,
+    "sources": 16,
+    "report": "workbench_runs/20260913T232856Z-77f79b7b-analysis/index.html",
+    "seconds": 0.008
+  }
+]

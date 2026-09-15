@@ -1,0 +1,47 @@
+{
+  "package": "LABALLCOMPASS_REPRO_R210_2026-09-01",
+  "created_at_utc": "2026-08-31T21:47:32.370724+00:00",
+  "scope": "active executable/product code plus R193-R210 research and report reproduction",
+  "manifest_semantics": "all packaged files except 04_FILE_MANIFEST_SHA256.tsv",
+  "source_rows_before_generated_inventory": 2907,
+  "source_bytes_before_generated_inventory": 465328183,
+  "components": {
+    "package_tools": {
+      "files": 8,
+      "bytes": 28356
+    },
+    "base_r401_active_product_payload": {
+      "files": 2712,
+      "bytes": 456837425
+    },
+    "active_research_R193_R210": {
+      "files": 101,
+      "bytes": 3239534
+    },
+    "active_products": {
+      "files": 72,
+      "bytes": 4800527
+    },
+    "academic_report": {
+      "files": 5,
+      "bytes": 362527
+    },
+    "methodology_context": {
+      "files": 8,
+      "bytes": 57897
+    },
+    "repository_contract": {
+      "files": 1,
+      "bytes": 1917
+    }
+  },
+  "excluded": [
+    "Bridge",
+    "Regime Router",
+    "retired custom Lab skill/control plane",
+    "discarded R179-R192 branch",
+    "POST_R178_SALVAGE_ARCHIVE",
+    "R401 historical source/case-library and duplicate current-point layers",
+    "virtual environments and regenerable post-R401 caches"
+  ]
+}

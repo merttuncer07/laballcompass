@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "PARENT:IM139_IM250_CCVC",
+  "difference_from_nearest": "Cross-domain safety realization of the same action-boundary information-acquisition operator already established by V2P043.",
+  "directory": "V2P048_CBIACCVC",
+  "diversified_selected_rank": null,
+  "external_prior_art": [
+    "Preserved as cross-domain evidence, not a new family."
+  ],
+  "external_prior_art_status": "KNOWN_VALUE_OF_INFORMATION_SAFETY_PATTERN",
+  "family_id": "V2P043",
+  "mechanism_removing_comparator": "same CCVC using prior-midpoint state with information acquisition removed",
+  "nearest_existing_product": "V2P043_CBSCG",
+  "new_failure_mode": "Prior-midpoint safety control can violate viability when latent state uncertainty spans different CCVC-filtered safe actions.",
+  "non_additive_interaction": "CBIA buys the state measurement only when the calibrated shell spans different viability-filtered controls.",
+  "product_id": "V2P048",
+  "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+  "raw_native_rank": 550,
+  "short_name": "CBIACCVC",
+  "supplier_id": "FOUNDRY:P079",
+  "test_files": [
+    "test_cbiaccvc.py"
+  ],
+  "verdict": "EXECUTABLE_FAMILY_VARIANT"
+}

@@ -1,0 +1,68 @@
+{
+  "assignment": {
+    "tu_certificate": {
+      "is_totally_unimodular": true,
+      "max_absolute_subdeterminant": 1,
+      "violating_size": null,
+      "violating_rows": null,
+      "violating_columns": null,
+      "theorem_applies_with_integer_rhs": true
+    },
+    "lp_solution": [
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      1.0
+    ],
+    "integer_solution": [
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      1.0
+    ],
+    "lp_objective": 5.0,
+    "integer_objective": 5.0,
+    "integrality_gap": 0.0
+  },
+  "triangle_vertex_cover": {
+    "tu_certificate": {
+      "is_totally_unimodular": false,
+      "max_absolute_subdeterminant": 2,
+      "violating_size": 3,
+      "violating_rows": [
+        0,
+        1,
+        2
+      ],
+      "violating_columns": [
+        0,
+        1,
+        2
+      ],
+      "theorem_applies_with_integer_rhs": false
+    },
+    "lp_solution": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "integer_solution": [
+      1.0,
+      1.0,
+      -0.0
+    ],
+    "lp_objective": 1.5,
+    "integer_objective": 2.0,
+    "integrality_gap": 0.5
+  }
+}

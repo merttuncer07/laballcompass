@@ -1,0 +1,223 @@
+{
+  "claim_boundary": "development-shell adapter evidence only; estimated scalar backaction is valid only for the declared channel/history/effect contrast and is not a general causal model of target dynamics",
+  "composition": "LCB-K081 ObservationPolicyConfoundingGuardV0 -> FOUNDRY:P138 SPIA",
+  "confounded_harmful_backaction": {
+    "backaction_estimates": [
+      {
+        "adjusted_coefficient": 0.04999999999999992,
+        "belief_shift": [
+          -0.02499999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.02499999999999996
+        ],
+        "channel_name": "hotspot_contrast",
+        "naive_observed_minus_unobserved": -0.3139375,
+        "state_coefficient": 0.9,
+        "status": "OBSERVATION_POLICY_ADJUSTED_BACKACTION_ESTIMATED"
+      }
+    ],
+    "base_chosen_channel": "hotspot_contrast",
+    "base_ranked_channels": [
+      {
+        "cost": 0.02,
+        "expected_decision_improvement": 0.1018287293138318,
+        "name": "hotspot_contrast",
+        "net_value": 0.0818287293138318
+      }
+    ],
+    "chosen_channel": null,
+    "current_policy": "local",
+    "detection_time_vectors": [
+      [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      [
+        1.0,
+        2.0,
+        6.0,
+        7.0,
+        11.0,
+        3.5,
+        4.5,
+        8.5
+      ]
+    ],
+    "policy_names": [
+      "local",
+      "intermittent"
+    ],
+    "ranked_channels": [
+      {
+        "adjusted_expected_utility_change": -0.07802568231902729,
+        "adjusted_net_value": -0.0980256823190273,
+        "backaction_coefficient": 0.04999999999999992,
+        "base_expected_decision_improvement": 0.1018287293138318,
+        "base_net_value": 0.0818287293138318,
+        "cost": 0.02,
+        "name": "hotspot_contrast"
+      }
+    ],
+    "status": "OBSERVATION_POLICY_BACKACTION_GUARDED_SEARCH_ACQUISITION_COMPLETE"
+  },
+  "decision_flip": {
+    "adjusted_backaction_coefficient": 0.04999999999999992,
+    "base_chosen_channel": "hotspot_contrast",
+    "base_net_value": 0.0818287293138318,
+    "guarded_chosen_channel": null,
+    "guarded_net_value": -0.0980256823190273,
+    "naive_observed_minus_unobserved": -0.3139375
+  },
+  "neutral_far_boundary": {
+    "backaction_estimates": [
+      {
+        "adjusted_coefficient": -2.6020852139652106e-17,
+        "belief_shift": [
+          1.3010426069826053e-17,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -1.3010426069826053e-17
+        ],
+        "channel_name": "hotspot_contrast",
+        "naive_observed_minus_unobserved": -0.3639375,
+        "state_coefficient": 0.8999999999999999,
+        "status": "OBSERVATION_POLICY_ADJUSTED_BACKACTION_ESTIMATED"
+      }
+    ],
+    "base_chosen_channel": null,
+    "base_ranked_channels": [
+      {
+        "cost": 0.02,
+        "expected_decision_improvement": 9.21707155043805e-12,
+        "name": "hotspot_contrast",
+        "net_value": -0.01999999999078293
+      }
+    ],
+    "chosen_channel": null,
+    "current_policy": "local",
+    "detection_time_vectors": [
+      [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      [
+        1.0,
+        2.0,
+        6.0,
+        7.0,
+        11.0,
+        3.5,
+        4.5,
+        8.5
+      ]
+    ],
+    "policy_names": [
+      "local",
+      "intermittent"
+    ],
+    "ranked_channels": [
+      {
+        "adjusted_expected_utility_change": 9.21707155043805e-12,
+        "adjusted_net_value": -0.01999999999078293,
+        "backaction_coefficient": -2.6020852139652106e-17,
+        "base_expected_decision_improvement": 9.21707155043805e-12,
+        "base_net_value": -0.01999999999078293,
+        "cost": 0.02,
+        "name": "hotspot_contrast"
+      }
+    ],
+    "status": "OBSERVATION_POLICY_BACKACTION_GUARDED_SEARCH_ACQUISITION_COMPLETE"
+  },
+  "neutral_near_boundary": {
+    "backaction_estimates": [
+      {
+        "adjusted_coefficient": -2.6020852139652106e-17,
+        "belief_shift": [
+          1.3010426069826053e-17,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -1.3010426069826053e-17
+        ],
+        "channel_name": "hotspot_contrast",
+        "naive_observed_minus_unobserved": -0.3639375,
+        "state_coefficient": 0.8999999999999999,
+        "status": "OBSERVATION_POLICY_ADJUSTED_BACKACTION_ESTIMATED"
+      }
+    ],
+    "base_chosen_channel": "hotspot_contrast",
+    "base_ranked_channels": [
+      {
+        "cost": 0.02,
+        "expected_decision_improvement": 0.1018287293138318,
+        "name": "hotspot_contrast",
+        "net_value": 0.0818287293138318
+      }
+    ],
+    "chosen_channel": "hotspot_contrast",
+    "current_policy": "local",
+    "detection_time_vectors": [
+      [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      [
+        1.0,
+        2.0,
+        6.0,
+        7.0,
+        11.0,
+        3.5,
+        4.5,
+        8.5
+      ]
+    ],
+    "policy_names": [
+      "local",
+      "intermittent"
+    ],
+    "ranked_channels": [
+      {
+        "adjusted_expected_utility_change": 0.1018287293138318,
+        "adjusted_net_value": 0.0818287293138318,
+        "backaction_coefficient": -2.6020852139652106e-17,
+        "base_expected_decision_improvement": 0.1018287293138318,
+        "base_net_value": 0.0818287293138318,
+        "cost": 0.02,
+        "name": "hotspot_contrast"
+      }
+    ],
+    "status": "OBSERVATION_POLICY_BACKACTION_GUARDED_SEARCH_ACQUISITION_COMPLETE"
+  },
+  "product_id": "V2P004_OPIA"
+}

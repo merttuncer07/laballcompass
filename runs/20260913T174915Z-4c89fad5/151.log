@@ -1,0 +1,9 @@
+test_expectile_differs_from_mean_and_quantile (test_srcd.SRCDTests.test_expectile_differs_from_mean_and_quantile) ... ok
+test_payment_floor_can_destroy_strict_incentive (test_srcd.SRCDTests.test_payment_floor_can_destroy_strict_incentive) ... ok
+test_pinball_elicits_quantile (test_srcd.SRCDTests.test_pinball_elicits_quantile) ... ok
+test_squared_error_elicits_mean (test_srcd.SRCDTests.test_squared_error_elicits_mean) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK

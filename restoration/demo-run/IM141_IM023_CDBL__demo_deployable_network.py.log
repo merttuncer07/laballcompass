@@ -1,0 +1,58 @@
+{
+  "nominal_stock": 1500.0,
+  "active_stock": 830.0,
+  "deployable_to_deadline": 176.4,
+  "nominal_to_deployable_ratio": 0.11760000000000001,
+  "edge_flows": {
+    "mine_to_hub": 0.0,
+    "a_to_hub": 200.0,
+    "b_to_hub_late": 0.0,
+    "b_to_processor": 0.0,
+    "hub_to_processor": 189.47368421052633,
+    "processor_to_site": 180.0
+  },
+  "top_bottlenecks": [
+    {
+      "kind": "edge",
+      "name": "processor_to_site",
+      "added_capacity": 20.0,
+      "delivery_gain": 19.599999999999994,
+      "marginal_gain": 0.9799999999999998
+    },
+    {
+      "kind": "edge",
+      "name": "mine_to_hub",
+      "added_capacity": 20.0,
+      "delivery_gain": 0.0,
+      "marginal_gain": 0.0
+    },
+    {
+      "kind": "edge",
+      "name": "a_to_hub",
+      "added_capacity": 20.0,
+      "delivery_gain": 0.0,
+      "marginal_gain": 0.0
+    },
+    {
+      "kind": "edge",
+      "name": "b_to_hub_late",
+      "added_capacity": 20.0,
+      "delivery_gain": 0.0,
+      "marginal_gain": 0.0
+    },
+    {
+      "kind": "edge",
+      "name": "b_to_processor",
+      "added_capacity": 20.0,
+      "delivery_gain": 0.0,
+      "marginal_gain": 0.0
+    },
+    {
+      "kind": "edge",
+      "name": "hub_to_processor",
+      "added_capacity": 20.0,
+      "delivery_gain": 0.0,
+      "marginal_gain": 0.0
+    }
+  ]
+}

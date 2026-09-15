@@ -1,0 +1,40 @@
+{
+  "composed_realized_supported_value": 105.0,
+  "control_realized_supported_value": 55.0,
+  "evidence_boundary": "deterministic support-and-polymatroid mechanism shell only",
+  "mechanism_removing_comparator": {
+    "allocation": {
+      "anchor": 0.0,
+      "fragile_high_nominal": 10.0,
+      "supported_overlap": 5.0
+    },
+    "excluded": [],
+    "nominal_value": 135.0,
+    "order": [
+      "fragile_high_nominal",
+      "supported_overlap",
+      "anchor"
+    ],
+    "status": "SUPPORT_ADJUSTED_POLYMATROID_ALLOCATION",
+    "supported_value": 135.0
+  },
+  "model_version": "V2P029_SUSCA_V1",
+  "realized_gain": 50.0,
+  "support_aware": {
+    "allocation": {
+      "anchor": 0.0,
+      "fragile_high_nominal": 0.0,
+      "supported_overlap": 15.0
+    },
+    "excluded": [
+      "fragile_high_nominal"
+    ],
+    "nominal_value": 105.0,
+    "order": [
+      "supported_overlap",
+      "anchor"
+    ],
+    "status": "SUPPORT_ADJUSTED_POLYMATROID_ALLOCATION",
+    "supported_value": 105.0
+  }
+}

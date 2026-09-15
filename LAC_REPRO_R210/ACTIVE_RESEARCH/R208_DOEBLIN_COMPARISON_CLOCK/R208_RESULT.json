@@ -1,0 +1,107 @@
+{
+  "status": "SCOPED_ORDER_PRESERVING_DISCRETIZATION_CONFIRMED",
+  "historical_open_end": "Doeblin manuscript stops during same-diffusion ordered-drift comparison argument",
+  "theorem_scope": "one-dimensional smooth positive common diffusion; Lamperti coordinates; transformed drift base map monotone at chosen step",
+  "experiment": {
+    "paths_per_step_size": 50000,
+    "horizon": 1.0,
+    "records": [
+      {
+        "steps": 10,
+        "dt": 0.1,
+        "raw_order_failure_rate": 0.06272,
+        "raw_nonfinite_rate": 0.0,
+        "raw_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0018399999999999528
+        },
+        "transformed_order_failure_rate": 0.0,
+        "transformed_nonfinite_rate": 0.0,
+        "transformed_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0020799999999999708
+        },
+        "combined_seconds": 0.16338710000036372
+      },
+      {
+        "steps": 20,
+        "dt": 0.05,
+        "raw_order_failure_rate": 0.02664,
+        "raw_nonfinite_rate": 0.0,
+        "raw_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0020800000000000003
+        },
+        "transformed_order_failure_rate": 0.0,
+        "transformed_nonfinite_rate": 0.0,
+        "transformed_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.00214
+        },
+        "combined_seconds": 0.29046390000075917
+      },
+      {
+        "steps": 50,
+        "dt": 0.02,
+        "raw_order_failure_rate": 0.0008,
+        "raw_nonfinite_rate": 0.0,
+        "raw_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.00216
+        },
+        "transformed_order_failure_rate": 0.0,
+        "transformed_nonfinite_rate": 0.0,
+        "transformed_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0018799999999999928
+        },
+        "combined_seconds": 0.7466341999997894
+      },
+      {
+        "steps": 100,
+        "dt": 0.01,
+        "raw_order_failure_rate": 0.0,
+        "raw_nonfinite_rate": 0.0,
+        "raw_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0020599999999999998
+        },
+        "transformed_order_failure_rate": 0.0,
+        "transformed_nonfinite_rate": 0.0,
+        "transformed_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0020399999999999997
+        },
+        "combined_seconds": 1.4540649000000485
+      },
+      {
+        "steps": 200,
+        "dt": 0.005,
+        "raw_order_failure_rate": 0.0,
+        "raw_nonfinite_rate": 0.0,
+        "raw_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.0020200000000000218
+        },
+        "transformed_order_failure_rate": 0.0,
+        "transformed_nonfinite_rate": 0.0,
+        "transformed_cdf": {
+          "grid_size": 201,
+          "max_empirical_cdf_order_violation": -0.00216
+        },
+        "combined_seconds": 2.9167279000002964
+      }
+    ]
+  },
+  "retained": [
+    "Doeblin drift removal and quadratic-variation clock as historical mechanism",
+    "comparison-preserving transformed Euler for ordered drift envelopes",
+    "raw Euler order violation as a numerical failure boundary"
+  ],
+  "not_breakthrough_because": [
+    "continuous-time result is covered by modern one-dimensional SDE comparison theorems",
+    "Doeblin clock is subsumed by Dambis-Dubins-Schwarz",
+    "Lamperti and order-preserving SDE schemes are active modern literatures"
+  ],
+  "python": "3.12.13 (main, Aug  7 2026, 02:26:41) [MSC v.1944 64 bit (AMD64)]"
+}

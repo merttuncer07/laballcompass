@@ -1,0 +1,297 @@
+{
+  "demand_sweep": {
+    "119.0": {
+      "demand": 119.0,
+      "served_quantity": 119.0,
+      "unserved_quantity": 0.0,
+      "clearing_price": 45.0,
+      "status": "CLEARED",
+      "total_uniform_payment": 5355.0,
+      "total_as_bid_cost": 2605.0,
+      "total_inframarginal_rent": 2750.0,
+      "marginal_offer_names": [
+        "gas_A"
+      ],
+      "dispatch": [
+        {
+          "name": "solar",
+          "offered_quantity": 30.0,
+          "offer_price": 0.0,
+          "dispatched_quantity": 30.0,
+          "utilization": 1.0,
+          "revenue": 1350.0,
+          "offered_variable_cost": 0.0,
+          "inframarginal_rent": 1350.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "wind",
+          "offered_quantity": 40.0,
+          "offer_price": 10.0,
+          "dispatched_quantity": 40.0,
+          "utilization": 1.0,
+          "revenue": 1800.0,
+          "offered_variable_cost": 400.0,
+          "inframarginal_rent": 1400.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "gas_A",
+          "offered_quantity": 50.0,
+          "offer_price": 45.0,
+          "dispatched_quantity": 49.0,
+          "utilization": 0.98,
+          "revenue": 2205.0,
+          "offered_variable_cost": 2205.0,
+          "inframarginal_rent": 0.0,
+          "marginal_price_block": true
+        },
+        {
+          "name": "gas_B",
+          "offered_quantity": 60.0,
+          "offer_price": 70.0,
+          "dispatched_quantity": 0.0,
+          "utilization": 0.0,
+          "revenue": 0.0,
+          "offered_variable_cost": 0.0,
+          "inframarginal_rent": 0.0,
+          "marginal_price_block": false
+        }
+      ]
+    },
+    "120.0": {
+      "demand": 120.0,
+      "served_quantity": 120.0,
+      "unserved_quantity": 0.0,
+      "clearing_price": 45.0,
+      "status": "CLEARED",
+      "total_uniform_payment": 5400.0,
+      "total_as_bid_cost": 2650.0,
+      "total_inframarginal_rent": 2750.0,
+      "marginal_offer_names": [
+        "gas_A"
+      ],
+      "dispatch": [
+        {
+          "name": "solar",
+          "offered_quantity": 30.0,
+          "offer_price": 0.0,
+          "dispatched_quantity": 30.0,
+          "utilization": 1.0,
+          "revenue": 1350.0,
+          "offered_variable_cost": 0.0,
+          "inframarginal_rent": 1350.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "wind",
+          "offered_quantity": 40.0,
+          "offer_price": 10.0,
+          "dispatched_quantity": 40.0,
+          "utilization": 1.0,
+          "revenue": 1800.0,
+          "offered_variable_cost": 400.0,
+          "inframarginal_rent": 1400.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "gas_A",
+          "offered_quantity": 50.0,
+          "offer_price": 45.0,
+          "dispatched_quantity": 50.0,
+          "utilization": 1.0,
+          "revenue": 2250.0,
+          "offered_variable_cost": 2250.0,
+          "inframarginal_rent": 0.0,
+          "marginal_price_block": true
+        },
+        {
+          "name": "gas_B",
+          "offered_quantity": 60.0,
+          "offer_price": 70.0,
+          "dispatched_quantity": 0.0,
+          "utilization": 0.0,
+          "revenue": 0.0,
+          "offered_variable_cost": 0.0,
+          "inframarginal_rent": 0.0,
+          "marginal_price_block": false
+        }
+      ]
+    },
+    "121.0": {
+      "demand": 121.0,
+      "served_quantity": 121.0,
+      "unserved_quantity": 0.0,
+      "clearing_price": 70.0,
+      "status": "CLEARED",
+      "total_uniform_payment": 8470.0,
+      "total_as_bid_cost": 2720.0,
+      "total_inframarginal_rent": 5750.0,
+      "marginal_offer_names": [
+        "gas_B"
+      ],
+      "dispatch": [
+        {
+          "name": "solar",
+          "offered_quantity": 30.0,
+          "offer_price": 0.0,
+          "dispatched_quantity": 30.0,
+          "utilization": 1.0,
+          "revenue": 2100.0,
+          "offered_variable_cost": 0.0,
+          "inframarginal_rent": 2100.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "wind",
+          "offered_quantity": 40.0,
+          "offer_price": 10.0,
+          "dispatched_quantity": 40.0,
+          "utilization": 1.0,
+          "revenue": 2800.0,
+          "offered_variable_cost": 400.0,
+          "inframarginal_rent": 2400.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "gas_A",
+          "offered_quantity": 50.0,
+          "offer_price": 45.0,
+          "dispatched_quantity": 50.0,
+          "utilization": 1.0,
+          "revenue": 3500.0,
+          "offered_variable_cost": 2250.0,
+          "inframarginal_rent": 1250.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "gas_B",
+          "offered_quantity": 60.0,
+          "offer_price": 70.0,
+          "dispatched_quantity": 1.0,
+          "utilization": 0.016666666666666666,
+          "revenue": 70.0,
+          "offered_variable_cost": 70.0,
+          "inframarginal_rent": 0.0,
+          "marginal_price_block": true
+        }
+      ]
+    },
+    "150.0": {
+      "demand": 150.0,
+      "served_quantity": 150.0,
+      "unserved_quantity": 0.0,
+      "clearing_price": 70.0,
+      "status": "CLEARED",
+      "total_uniform_payment": 10500.0,
+      "total_as_bid_cost": 4750.0,
+      "total_inframarginal_rent": 5750.0,
+      "marginal_offer_names": [
+        "gas_B"
+      ],
+      "dispatch": [
+        {
+          "name": "solar",
+          "offered_quantity": 30.0,
+          "offer_price": 0.0,
+          "dispatched_quantity": 30.0,
+          "utilization": 1.0,
+          "revenue": 2100.0,
+          "offered_variable_cost": 0.0,
+          "inframarginal_rent": 2100.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "wind",
+          "offered_quantity": 40.0,
+          "offer_price": 10.0,
+          "dispatched_quantity": 40.0,
+          "utilization": 1.0,
+          "revenue": 2800.0,
+          "offered_variable_cost": 400.0,
+          "inframarginal_rent": 2400.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "gas_A",
+          "offered_quantity": 50.0,
+          "offer_price": 45.0,
+          "dispatched_quantity": 50.0,
+          "utilization": 1.0,
+          "revenue": 3500.0,
+          "offered_variable_cost": 2250.0,
+          "inframarginal_rent": 1250.0,
+          "marginal_price_block": false
+        },
+        {
+          "name": "gas_B",
+          "offered_quantity": 60.0,
+          "offer_price": 70.0,
+          "dispatched_quantity": 30.0,
+          "utilization": 0.5,
+          "revenue": 2100.0,
+          "offered_variable_cost": 2100.0,
+          "inframarginal_rent": 0.0,
+          "marginal_price_block": true
+        }
+      ]
+    }
+  },
+  "shortage_case": {
+    "demand": 200.0,
+    "served_quantity": 180.0,
+    "unserved_quantity": 20.0,
+    "clearing_price": 300.0,
+    "status": "SHORTAGE",
+    "total_uniform_payment": 54000.0,
+    "total_as_bid_cost": 6850.0,
+    "total_inframarginal_rent": 47150.0,
+    "marginal_offer_names": [],
+    "dispatch": [
+      {
+        "name": "solar",
+        "offered_quantity": 30.0,
+        "offer_price": 0.0,
+        "dispatched_quantity": 30.0,
+        "utilization": 1.0,
+        "revenue": 9000.0,
+        "offered_variable_cost": 0.0,
+        "inframarginal_rent": 9000.0,
+        "marginal_price_block": false
+      },
+      {
+        "name": "wind",
+        "offered_quantity": 40.0,
+        "offer_price": 10.0,
+        "dispatched_quantity": 40.0,
+        "utilization": 1.0,
+        "revenue": 12000.0,
+        "offered_variable_cost": 400.0,
+        "inframarginal_rent": 11600.0,
+        "marginal_price_block": false
+      },
+      {
+        "name": "gas_A",
+        "offered_quantity": 50.0,
+        "offer_price": 45.0,
+        "dispatched_quantity": 50.0,
+        "utilization": 1.0,
+        "revenue": 15000.0,
+        "offered_variable_cost": 2250.0,
+        "inframarginal_rent": 12750.0,
+        "marginal_price_block": false
+      },
+      {
+        "name": "gas_B",
+        "offered_quantity": 60.0,
+        "offer_price": 70.0,
+        "dispatched_quantity": 60.0,
+        "utilization": 1.0,
+        "revenue": 18000.0,
+        "offered_variable_cost": 4200.0,
+        "inframarginal_rent": 13800.0,
+        "marginal_price_block": false
+      }
+    ]
+  }
+}

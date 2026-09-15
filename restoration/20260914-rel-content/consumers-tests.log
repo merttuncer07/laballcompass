@@ -1,0 +1,22 @@
+.F........                                                               [100%]
+=================================== FAILURES ===================================
+___________ RECSTests.test_localizes_middle_record_and_routes_guard ____________
+
+self = <P017_RECS.test_recs.RECSTests testMethod=test_localizes_middle_record_and_routes_guard>
+
+    def test_localizes_middle_record_and_routes_guard(self):
+        records, relations, safeguards = self.fixture()
+        result = RelationalEvidenceConditionedSafeguards().design(
+            records=records,
+            relations=relations,
+            consequences={"invoice": 100.0, "warehouse": 500.0, "carrier": 100.0},
+            safeguards=safeguards,
+            budget=30.0,
+        )
+>       self.assertGreater(result["posterior_culprit_probability_by_record"]["warehouse"], 0.95)
+E       AssertionError: 0.9469562647442327 not greater than 0.95
+
+LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py:44: AssertionError
+=========================== short test summary info ============================
+FAILED LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py::RECSTests::test_localizes_middle_record_and_routes_guard
+1 failed, 9 passed in 42.97s

@@ -1,0 +1,12 @@
+{
+  "consumer_id": "LCB-K048",
+  "difference_from_nearest": "SGMB gates cheap proxy use by support; VCMF gates the entire fine/cheap count optimization by worst-case viability bias",
+  "mechanism_removing_comparator": "same budget/MSE enumeration with no viability-bias constraint",
+  "nearest_existing_product": "V2P009_SGMB",
+  "new_failure_mode": "multifidelity allocation minimizes variance/cost while cheap-channel bias can move the control state outside its viable region",
+  "non_additive_interaction": "CCVC viability margin becomes a hard feasibility constraint inside the K048-style budget search",
+  "product_id": "V2P033",
+  "short_name": "VCMF",
+  "supplier_id": "PARENT:IM139_IM250_CCVC",
+  "verdict": "DISTINCT_PRODUCT"
+}

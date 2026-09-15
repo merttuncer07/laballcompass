@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "shared_mandatory",
+  "mode": "declared_support",
+  "bases": {
+    "a": "A",
+    "b": "B",
+    "c": "C"
+  },
+  "rules": [
+    {
+      "head": "target",
+      "body": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "head": "target",
+      "body": [
+        "a",
+        "c"
+      ]
+    }
+  ],
+  "targets": [
+    "target"
+  ],
+  "metadata": {
+    "family": "shared_mandatory"
+  }
+}

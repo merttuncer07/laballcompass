@@ -1,0 +1,125 @@
+{
+  "mechanism_removing_comparator": "same CATF allocation with covariance coupling removed from the objective",
+  "evidence_boundary": "synthetic declared support covariance/exposure shell; low coupling correctly collapses to CATF and only sufficiently strong off-diagonal coupling changes the decision",
+  "parameter_sweep": {
+    "0": {
+      "allocation": [
+        "short",
+        "long"
+      ],
+      "objective": 28.0,
+      "local_loss": 28.0,
+      "covariance_penalty": 0.0,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 28.0,
+      "gain_vs_removed_mechanism": 0.0,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    },
+    "8": {
+      "allocation": [
+        "short",
+        "long"
+      ],
+      "objective": 29.52,
+      "local_loss": 28.0,
+      "covariance_penalty": 1.52,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 29.52,
+      "gain_vs_removed_mechanism": 0.0,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    },
+    "80": {
+      "allocation": [
+        "short",
+        "long"
+      ],
+      "objective": 43.2,
+      "local_loss": 28.0,
+      "covariance_penalty": 15.2,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 43.2,
+      "gain_vs_removed_mechanism": 0.0,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    },
+    "140": {
+      "allocation": [
+        "short",
+        "long"
+      ],
+      "objective": 54.6,
+      "local_loss": 28.0,
+      "covariance_penalty": 26.6,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 54.6,
+      "gain_vs_removed_mechanism": 0.0,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    },
+    "143": {
+      "allocation": [
+        "short",
+        "long"
+      ],
+      "objective": 55.17,
+      "local_loss": 28.0,
+      "covariance_penalty": 27.17,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 55.17,
+      "gain_vs_removed_mechanism": 0.0,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    },
+    "160": {
+      "allocation": [
+        "long",
+        "long"
+      ],
+      "objective": 56.52,
+      "local_loss": 55.0,
+      "covariance_penalty": 1.52,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 58.4,
+      "gain_vs_removed_mechanism": 1.8799999999999955,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    },
+    "200": {
+      "allocation": [
+        "long",
+        "long"
+      ],
+      "objective": 56.9,
+      "local_loss": 55.0,
+      "covariance_penalty": 1.9000000000000001,
+      "cost": 4.0,
+      "control_allocation": [
+        "short",
+        "long"
+      ],
+      "control_realized_objective": 66.0,
+      "gain_vs_removed_mechanism": 9.100000000000001,
+      "status": "SUPPORT_COVARIANCE_COUPLED_RESOLUTION_ALLOCATED"
+    }
+  }
+}

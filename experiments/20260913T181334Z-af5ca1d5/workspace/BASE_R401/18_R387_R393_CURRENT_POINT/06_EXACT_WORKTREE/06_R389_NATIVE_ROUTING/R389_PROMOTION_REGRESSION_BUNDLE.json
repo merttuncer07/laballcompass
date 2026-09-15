@@ -1,0 +1,59 @@
+{
+  "authority_role": "PROMOTION_REGRESSION_BUNDLE",
+  "checks": {
+    "candidate_closure": {
+      "status": "PASS",
+      "tests": 8
+    },
+    "core_split_fresh": {
+      "failed": [],
+      "run_count": 13,
+      "status": "PASS",
+      "tests_counted": 108
+    },
+    "foundry_inherited": {
+      "byte_identical": true,
+      "files_compared": 1305,
+      "source_release": "R388",
+      "status": "PASS",
+      "test_files_failed": 0,
+      "test_files_passed": 214,
+      "tests_counted": 806
+    },
+    "telemetry_pilot": {
+      "status": "PASS",
+      "v2p050_events": 13
+    },
+    "v2_direct": {
+      "failed": 0,
+      "fresh_v2p050_tests": 13,
+      "inherited_byte_identical_suites": 48,
+      "passed": 49,
+      "status": "PASS",
+      "test_files": 49,
+      "tests_counted": 411
+    }
+  },
+  "coverage_statement": "R389 uses provenance-preserving split receipts: unchanged R388 Foundry and 48 canonical product surfaces are inherited only after byte-tree identity against the R388 archive-of-record; V2P050 and every state-sensitive core/search/experiment/closure surface are freshly executed.",
+  "evidence_sha256": {
+    "01_V2_CORE/PRODUCT_QUALITY_AUDIT_R389.json": "7e0d273c9fc2add4cfa4bbf18bdf1147fe0d44e5f32913448a2ee9ee1329f55c",
+    "01_V2_CORE/R389_PRODUCT_OVERLAY_STATE.json": "c00dbf081100a3e69ccae0a79e5eea0fe33478d9d61570610fafb591db375b3a",
+    "04_INTEGRITY/run_packaged_regression.py": "603a785535af4c5c16d463dc032c0359ff5335b7472b591a404bdcace81ea864",
+    "05_R388_NATIVE_ROUTING/R388_PROMOTION_REGRESSION_BUNDLE.json": "132e16c45ea8bb28899904ecceeef0db8dc8e20708ef0f71ed1c310482f4d6e1",
+    "06_R389_NATIVE_ROUTING/R389_ALL_V2_DIRECT_DISCOVERY_REGRESSION.json": "61dfba1ccd849a1d6559cc4412ce60706abb6b77100bcc58d3f44a67fe3ac289",
+    "06_R389_NATIVE_ROUTING/R389_CANDIDATE_CLOSURE.log": "8d54467f354b2655eedff783fdfdce986815fd0eb63cbe693a94ccdef8902d90",
+    "06_R389_NATIVE_ROUTING/R389_R388_CANONICAL_PRODUCT_BYTE_IDENTITY.json": "465c036f578b4191fc81edca1994d48e7312babe9a38fedba780e1a852b499a7",
+    "06_R389_NATIVE_ROUTING/R389_R388_FOUNDRY_BYTE_IDENTITY.json": "936ac55ff81cba2f6ba7ae68a4a7e03163abd2c09392bc9297ac2b0696181bd2",
+    "06_R389_NATIVE_ROUTING/R389_SPLIT_CORE_REGRESSION.json": "7f4f1ab8de0e0a187fe755a12072361cf311c4535c1d439f31f1b8fc216b958d",
+    "06_R389_NATIVE_ROUTING/R389_V2P050_CORE_DIRECT_TEST.log": "26e4fc70ea6b6384bf46375bf00ad2ce38024aabcad5482770bd95e72ba6bbc6",
+    "06_R389_NATIVE_ROUTING/R389_V2P050_RAPID_PILOT.json": "8e9586f1aca48a964ac404a55869676d195a5707a6f59403362a104b28a4aef6"
+  },
+  "nonclaims": [
+    "test closure is not empirical validation",
+    "inherited regression evidence is valid only under recorded byte identity",
+    "V2P050 internal distinct-family promotion is not a new-theory claim",
+    "Registry455 remains unchanged"
+  ],
+  "release": "R389",
+  "status": "PASS"
+}

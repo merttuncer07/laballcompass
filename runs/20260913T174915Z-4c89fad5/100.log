@@ -1,0 +1,8 @@
+test_decision_relevant_channel_beats_high_variance_nuisance (test_aicc.AICCTests.test_decision_relevant_channel_beats_high_variance_nuisance) ... ok
+test_irrelevant_channel_has_zero_decision_value (test_aicc.AICCTests.test_irrelevant_channel_has_zero_decision_value) ... ok
+test_measurement_reduces_variance_in_its_direction (test_aicc.AICCTests.test_measurement_reduces_variance_in_its_direction) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+OK

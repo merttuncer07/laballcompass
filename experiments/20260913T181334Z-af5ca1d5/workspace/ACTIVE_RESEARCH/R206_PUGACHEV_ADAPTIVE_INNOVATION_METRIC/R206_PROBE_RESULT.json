@@ -1,0 +1,2413 @@
+{
+  "summary": {
+    "case_count": 32,
+    "aggregate": {
+      "independent": {
+        "diagonal": {
+          "rmse": 0.20580273386480213,
+          "coverage90": 0.9057954545454545,
+          "axis90": 0.7161192762402164
+        },
+        "adaptive_compound": {
+          "rmse": 0.20989435258658495,
+          "coverage90": 0.8926136363636363,
+          "axis90": 0.7146034337191052
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21201085500483985,
+          "coverage90": 0.8167045454545454,
+          "axis90": 0.7067741826644105
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20892184466839087,
+          "coverage90": 0.8855681818181819,
+          "axis90": 0.7143066435738945
+        },
+        "oracle": {
+          "rmse": 0.20820649269129685,
+          "coverage90": 0.9029545454545453,
+          "axis90": 0.7161887236212203
+        }
+      },
+      "equicorrelated": {
+        "diagonal": {
+          "rmse": 0.2185296709183944,
+          "coverage90": 0.857784090909091,
+          "axis90": 0.7268015701499082
+        },
+        "adaptive_compound": {
+          "rmse": 0.20946470627767355,
+          "coverage90": 0.889375,
+          "axis90": 0.7069433366465661
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21774054862366435,
+          "coverage90": 0.8118181818181818,
+          "axis90": 0.7014026227196042
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20725055347787352,
+          "coverage90": 0.8859659090909091,
+          "axis90": 0.7039463147809957
+        },
+        "oracle": {
+          "rmse": 0.20641633281158206,
+          "coverage90": 0.8678977272727273,
+          "axis90": 0.6695482602023142
+        }
+      },
+      "signed_rank_one": {
+        "diagonal": {
+          "rmse": 0.22002485117063708,
+          "coverage90": 0.854659090909091,
+          "axis90": 0.7249148456892631
+        },
+        "adaptive_compound": {
+          "rmse": 0.22192778424246667,
+          "coverage90": 0.8371590909090909,
+          "axis90": 0.7230418797426366
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21985346307766315,
+          "coverage90": 0.8064772727272728,
+          "axis90": 0.7022653556729688
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.21014969755568225,
+          "coverage90": 0.884090909090909,
+          "axis90": 0.7072281719779376
+        },
+        "oracle": {
+          "rmse": 0.2086559059034818,
+          "coverage90": 0.8763636363636363,
+          "axis90": 0.6858946436085565
+        }
+      }
+    },
+    "cells": {
+      "d2:home_independent": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.20037309883113757,
+          "coverage90": 0.9081818181818182,
+          "axis90": 0.4352081096584749
+        },
+        "adaptive_compound": {
+          "rmse": 0.20821472500370491,
+          "coverage90": 0.8886363636363637,
+          "axis90": 0.43183115383023224,
+          "correlation_rmse": 0.18012317121041682
+        },
+        "adaptive_full_local": {
+          "rmse": 0.20595047663684615,
+          "coverage90": 0.8995454545454545,
+          "axis90": 0.4337216495252495,
+          "correlation_rmse": 0.11154789240528676
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20493050869362128,
+          "coverage90": 0.9013636363636364,
+          "axis90": 0.43456869914860813,
+          "correlation_rmse": 0.05484712113701909
+        },
+        "oracle": {
+          "rmse": 0.20462797951761674,
+          "coverage90": 0.9027272727272727,
+          "axis90": 0.43488323835451165
+        },
+        "ukf_diagonal": {
+          "rmse": 0.22749229675458135,
+          "coverage90": 0.8668181818181818,
+          "axis90": 0.441865254338773
+        },
+        "ukf_oracle": {
+          "rmse": 0.22749229675458135,
+          "coverage90": 0.8668181818181818,
+          "axis90": 0.441865254338773
+        }
+      },
+      "d2:dense_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.20345815509715162,
+          "coverage90": 0.9022727272727272,
+          "axis90": 0.42563861238207457
+        },
+        "adaptive_compound": {
+          "rmse": 0.21350766291956086,
+          "coverage90": 0.8613636363636363,
+          "axis90": 0.41967012805488924,
+          "correlation_rmse": 0.2566120677016799
+        },
+        "adaptive_full_local": {
+          "rmse": 0.20910506654853817,
+          "coverage90": 0.8913636363636364,
+          "axis90": 0.42242081241731744,
+          "correlation_rmse": 0.21527226186089948
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20605999960163338,
+          "coverage90": 0.9013636363636364,
+          "axis90": 0.42238149382284385,
+          "correlation_rmse": 0.13276282602634237
+        },
+        "oracle": {
+          "rmse": 0.20565553869176706,
+          "coverage90": 0.8995454545454545,
+          "axis90": 0.41708998775319983
+        },
+        "ukf_diagonal": {
+          "rmse": 0.21817473901721274,
+          "coverage90": 0.8754545454545455,
+          "axis90": 0.4263818097781773
+        },
+        "ukf_oracle": {
+          "rmse": 0.21657924429480438,
+          "coverage90": 0.8768181818181818,
+          "axis90": 0.4198350004179886
+        }
+      },
+      "d2:strong_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2120075787392537,
+          "coverage90": 0.8927272727272728,
+          "axis90": 0.4371055420278265
+        },
+        "adaptive_compound": {
+          "rmse": 0.21609749706412082,
+          "coverage90": 0.8677272727272727,
+          "axis90": 0.42736558001334635,
+          "correlation_rmse": 0.3167997442554048
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21483739947725933,
+          "coverage90": 0.8913636363636364,
+          "axis90": 0.43134312173363487,
+          "correlation_rmse": 0.30646073500087323
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20909577991339473,
+          "coverage90": 0.9009090909090909,
+          "axis90": 0.4305347465825805,
+          "correlation_rmse": 0.2076127177251508
+        },
+        "oracle": {
+          "rmse": 0.20965919208736927,
+          "coverage90": 0.8868181818181818,
+          "axis90": 0.4182642912065767
+        },
+        "ukf_diagonal": {
+          "rmse": 0.2288386773523474,
+          "coverage90": 0.8681818181818182,
+          "axis90": 0.43172981658767806
+        },
+        "ukf_oracle": {
+          "rmse": 0.22236582995140147,
+          "coverage90": 0.865909090909091,
+          "axis90": 0.4176636007619565
+        }
+      },
+      "d2:signed_rank_one": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2191707055580216,
+          "coverage90": 0.8809090909090909,
+          "axis90": 0.4346254776025328
+        },
+        "adaptive_compound": {
+          "rmse": 0.22369431078000776,
+          "coverage90": 0.8595454545454546,
+          "axis90": 0.43198445160808113,
+          "correlation_rmse": 0.24954048637658488
+        },
+        "adaptive_full_local": {
+          "rmse": 0.22182441792473692,
+          "coverage90": 0.8754545454545455,
+          "axis90": 0.433765361546046,
+          "correlation_rmse": 0.22908447869471005
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.21900350726171813,
+          "coverage90": 0.8868181818181817,
+          "axis90": 0.4349907535646255,
+          "correlation_rmse": 0.1446537668706504
+        },
+        "oracle": {
+          "rmse": 0.22000840761190174,
+          "coverage90": 0.8795454545454546,
+          "axis90": 0.4334194986626476
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23760338019684124,
+          "coverage90": 0.8454545454545455,
+          "axis90": 0.4336992015199109
+        },
+        "ukf_oracle": {
+          "rmse": 0.23444420845358271,
+          "coverage90": 0.8454545454545455,
+          "axis90": 0.4320093599208924
+        }
+      },
+      "d4:home_independent": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.20887702162420896,
+          "coverage90": 0.8913636363636364,
+          "axis90": 0.5888351112144563
+        },
+        "adaptive_compound": {
+          "rmse": 0.21629172061419963,
+          "coverage90": 0.8727272727272728,
+          "axis90": 0.5873760107444697,
+          "correlation_rmse": 0.09530959550140644
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21609656208260575,
+          "coverage90": 0.8672727272727272,
+          "axis90": 0.5855107973717002,
+          "correlation_rmse": 0.12354287445336137
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.2145506588572331,
+          "coverage90": 0.8827272727272728,
+          "axis90": 0.5886403607409549,
+          "correlation_rmse": 0.05355073960540313
+        },
+        "oracle": {
+          "rmse": 0.2141748708874232,
+          "coverage90": 0.8854545454545455,
+          "axis90": 0.589360483036334
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23702010083120495,
+          "coverage90": 0.8468181818181818,
+          "axis90": 0.6168445817376642
+        },
+        "ukf_oracle": {
+          "rmse": 0.23702010083120495,
+          "coverage90": 0.8468181818181818,
+          "axis90": 0.6168445817376642
+        }
+      },
+      "d4:dense_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.212318851293979,
+          "coverage90": 0.8836363636363637,
+          "axis90": 0.595227240385777
+        },
+        "adaptive_compound": {
+          "rmse": 0.2124192063758681,
+          "coverage90": 0.8827272727272727,
+          "axis90": 0.5887961821786697,
+          "correlation_rmse": 0.19877019653462522
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21544935419590794,
+          "coverage90": 0.8627272727272728,
+          "axis90": 0.5873951151086834,
+          "correlation_rmse": 0.25491223398798996
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20808811226186547,
+          "coverage90": 0.9009090909090909,
+          "axis90": 0.5902140916049253,
+          "correlation_rmse": 0.15631121810438273
+        },
+        "oracle": {
+          "rmse": 0.20640744594554902,
+          "coverage90": 0.9009090909090909,
+          "axis90": 0.5803367222240474
+        },
+        "ukf_diagonal": {
+          "rmse": 0.22750561513565518,
+          "coverage90": 0.8686363636363637,
+          "axis90": 0.6125540505343875
+        },
+        "ukf_oracle": {
+          "rmse": 0.22143712582043573,
+          "coverage90": 0.8781818181818182,
+          "axis90": 0.5996664151310429
+        }
+      },
+      "d4:strong_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2205126217044061,
+          "coverage90": 0.8663636363636363,
+          "axis90": 0.5901779117178303
+        },
+        "adaptive_compound": {
+          "rmse": 0.2125290071150142,
+          "coverage90": 0.8854545454545455,
+          "axis90": 0.5774897668557217,
+          "correlation_rmse": 0.30213609608853637
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21555410630677863,
+          "coverage90": 0.8627272727272728,
+          "axis90": 0.5785802313251673,
+          "correlation_rmse": 0.3645154168894328
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.2086099999879248,
+          "coverage90": 0.9013636363636364,
+          "axis90": 0.578727378354065,
+          "correlation_rmse": 0.2615174583615215
+        },
+        "oracle": {
+          "rmse": 0.2108829514468657,
+          "coverage90": 0.8613636363636363,
+          "axis90": 0.5499823407920978
+        },
+        "ukf_diagonal": {
+          "rmse": 0.22831460536426307,
+          "coverage90": 0.8613636363636363,
+          "axis90": 0.6010455384794944
+        },
+        "ukf_oracle": {
+          "rmse": 0.21569975380923972,
+          "coverage90": 0.8536363636363636,
+          "axis90": 0.5709029350339202
+        }
+      },
+      "d4:signed_rank_one": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.21166993658381056,
+          "coverage90": 0.8768181818181818,
+          "axis90": 0.589727588857259
+        },
+        "adaptive_compound": {
+          "rmse": 0.21377182207432033,
+          "coverage90": 0.8590909090909091,
+          "axis90": 0.5871688712734482,
+          "correlation_rmse": 0.33571376918371565
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21294016487769707,
+          "coverage90": 0.8686363636363637,
+          "axis90": 0.581375420420172,
+          "correlation_rmse": 0.2898518299066361
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20575582529031666,
+          "coverage90": 0.8995454545454545,
+          "axis90": 0.583714186886238,
+          "correlation_rmse": 0.1974382036877953
+        },
+        "oracle": {
+          "rmse": 0.2042777892837862,
+          "coverage90": 0.8899999999999999,
+          "axis90": 0.56816807001321
+        },
+        "ukf_diagonal": {
+          "rmse": 0.22454901813677847,
+          "coverage90": 0.8640909090909091,
+          "axis90": 0.6070282489853537
+        },
+        "ukf_oracle": {
+          "rmse": 0.2180288507124622,
+          "coverage90": 0.8627272727272728,
+          "axis90": 0.58928803785323
+        }
+      },
+      "d8:home_independent": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.20249757416222997,
+          "coverage90": 0.9204545454545454,
+          "axis90": 0.7781789787153162
+        },
+        "adaptive_compound": {
+          "rmse": 0.20354588589028655,
+          "coverage90": 0.9104545454545454,
+          "axis90": 0.7772815657714168,
+          "correlation_rmse": 0.04674795128239684
+        },
+        "adaptive_full_local": {
+          "rmse": 0.20773956998448595,
+          "coverage90": 0.8222727272727273,
+          "axis90": 0.7682455514859872,
+          "correlation_rmse": 0.11920819785871466
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20338221672454276,
+          "coverage90": 0.9018181818181819,
+          "axis90": 0.7764103674731981,
+          "correlation_rmse": 0.03986247643601142
+        },
+        "oracle": {
+          "rmse": 0.20255987951853177,
+          "coverage90": 0.9204545454545454,
+          "axis90": 0.7782562677214071
+        },
+        "ukf_diagonal": {
+          "rmse": 0.22971200447567253,
+          "coverage90": 0.8295454545454546,
+          "axis90": 0.8016923005045649
+        },
+        "ukf_oracle": {
+          "rmse": 0.22971200447567253,
+          "coverage90": 0.8295454545454546,
+          "axis90": 0.8016923005045649
+        }
+      },
+      "d8:dense_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.21876619597567495,
+          "coverage90": 0.8522727272727273,
+          "axis90": 0.7932988611429235
+        },
+        "adaptive_compound": {
+          "rmse": 0.20758419441741224,
+          "coverage90": 0.8904545454545454,
+          "axis90": 0.7786807532397896,
+          "correlation_rmse": 0.18470522928131788
+        },
+        "adaptive_full_local": {
+          "rmse": 0.2196891012624176,
+          "coverage90": 0.7681818181818182,
+          "axis90": 0.7704099682093237,
+          "correlation_rmse": 0.26733964940653054
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20788167377842787,
+          "coverage90": 0.8754545454545455,
+          "axis90": 0.7763660251374698,
+          "correlation_rmse": 0.16670127179636648
+        },
+        "oracle": {
+          "rmse": 0.20515013414459976,
+          "coverage90": 0.8700000000000001,
+          "axis90": 0.7551175967639316
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23720710068739648,
+          "coverage90": 0.7890909090909091,
+          "axis90": 0.792399106480336
+        },
+        "ukf_oracle": {
+          "rmse": 0.22824717641188763,
+          "coverage90": 0.7831818181818182,
+          "axis90": 0.7639525649292367
+        }
+      },
+      "d8:strong_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.22518331310204975,
+          "coverage90": 0.8277272727272728,
+          "axis90": 0.7955700707890903
+        },
+        "adaptive_compound": {
+          "rmse": 0.20412965158982357,
+          "coverage90": 0.895909090909091,
+          "axis90": 0.7652296052300724,
+          "correlation_rmse": 0.2973803450793686
+        },
+        "adaptive_full_local": {
+          "rmse": 0.2151564819299927,
+          "coverage90": 0.8195454545454546,
+          "axis90": 0.761696388612642,
+          "correlation_rmse": 0.38428972511020176
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.2025423507243062,
+          "coverage90": 0.895,
+          "axis90": 0.7612884481131639,
+          "correlation_rmse": 0.27272606195311233
+        },
+        "oracle": {
+          "rmse": 0.2036560381610724,
+          "coverage90": 0.8395454545454546,
+          "axis90": 0.700552100078873
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23604810279870184,
+          "coverage90": 0.7877272727272727,
+          "axis90": 0.7816854313259884
+        },
+        "ukf_oracle": {
+          "rmse": 0.21596068691692474,
+          "coverage90": 0.7736363636363637,
+          "axis90": 0.7202674639266844
+        }
+      },
+      "d8:signed_rank_one": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2211973896781979,
+          "coverage90": 0.8459090909090909,
+          "axis90": 0.7935560247181541
+        },
+        "adaptive_compound": {
+          "rmse": 0.22193846684498375,
+          "coverage90": 0.834090909090909,
+          "axis90": 0.7918722527275341,
+          "correlation_rmse": 0.35571963978043963
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21796817553474845,
+          "coverage90": 0.7940909090909091,
+          "axis90": 0.768008534915132,
+          "correlation_rmse": 0.2795852266051776
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.20581713647964064,
+          "coverage90": 0.8936363636363636,
+          "axis90": 0.7727017144680121,
+          "correlation_rmse": 0.1686433262573777
+        },
+        "oracle": {
+          "rmse": 0.205169415634261,
+          "coverage90": 0.8736363636363635,
+          "axis90": 0.7487014268703187
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23680204715182923,
+          "coverage90": 0.7836363636363637,
+          "axis90": 0.7926463297895308
+        },
+        "ukf_oracle": {
+          "rmse": 0.22579296894511364,
+          "coverage90": 0.7863636363636364,
+          "axis90": 0.7591876497816437
+        }
+      },
+      "d16:home_independent": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2114632408416321,
+          "coverage90": 0.9031818181818181,
+          "axis90": 1.0622549053726185
+        },
+        "adaptive_compound": {
+          "rmse": 0.21152507883814875,
+          "coverage90": 0.8986363636363637,
+          "axis90": 1.0619250045303024,
+          "correlation_rmse": 0.012315774025706458
+        },
+        "adaptive_full_local": {
+          "rmse": 0.21825681131542152,
+          "coverage90": 0.6777272727272727,
+          "axis90": 1.0396187322747048,
+          "correlation_rmse": 0.10425891012208387
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.2128239943981663,
+          "coverage90": 0.8563636363636363,
+          "axis90": 1.0576071469328165,
+          "correlation_rmse": 0.03967417690051641
+        },
+        "oracle": {
+          "rmse": 0.21146324084161566,
+          "coverage90": 0.9031818181818181,
+          "axis90": 1.0622549053726282
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23296187822853193,
+          "coverage90": 0.7395454545454545,
+          "axis90": 1.0575028731338159
+        },
+        "ukf_oracle": {
+          "rmse": 0.23296187822853193,
+          "coverage90": 0.7395454545454545,
+          "axis90": 1.0575028731338159
+        }
+      },
+      "d16:dense_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2262116977531942,
+          "coverage90": 0.8295454545454546,
+          "axis90": 1.0834350548171756
+        },
+        "adaptive_compound": {
+          "rmse": 0.20840233246865453,
+          "coverage90": 0.9063636363636364,
+          "axis90": 1.0551534204535271,
+          "correlation_rmse": 0.16589949850238023
+        },
+        "adaptive_full_local": {
+          "rmse": 0.23066846631440557,
+          "coverage90": 0.6468181818181818,
+          "axis90": 1.0301503930966438,
+          "correlation_rmse": 0.2623937045521764
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.21158500071451342,
+          "coverage90": 0.8504545454545455,
+          "axis90": 1.043782384894937,
+          "correlation_rmse": 0.1553883456063702
+        },
+        "oracle": {
+          "rmse": 0.206920928229948,
+          "coverage90": 0.8754545454545455,
+          "axis90": 1.013366769187876
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23675009482946113,
+          "coverage90": 0.6804545454545454,
+          "axis90": 1.0305751979206468
+        },
+        "ukf_oracle": {
+          "rmse": 0.2256586796315632,
+          "coverage90": 0.6686363636363637,
+          "axis90": 0.9854364376676528
+        }
+      },
+      "d16:strong_equicorrelation": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.2297789536814459,
+          "coverage90": 0.8077272727272727,
+          "axis90": 1.0939592679365688
+        },
+        "adaptive_compound": {
+          "rmse": 0.20104809827093395,
+          "coverage90": 0.925,
+          "axis90": 1.043161257146512,
+          "correlation_rmse": 0.3165796540797827
+        },
+        "adaptive_full_local": {
+          "rmse": 0.22146441295401492,
+          "coverage90": 0.7518181818181818,
+          "axis90": 1.029224951253421,
+          "correlation_rmse": 0.4157653985899921
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.2041415108409223,
+          "coverage90": 0.8622727272727273,
+          "axis90": 1.0282759497379796,
+          "correlation_rmse": 0.2950242483850235
+        },
+        "oracle": {
+          "rmse": 0.20299843378548546,
+          "coverage90": 0.8095454545454546,
+          "axis90": 0.921676273611911
+        },
+        "ukf_diagonal": {
+          "rmse": 0.24131561480871389,
+          "coverage90": 0.649090909090909,
+          "axis90": 1.0095326065630963
+        },
+        "ukf_oracle": {
+          "rmse": 0.21791036871006547,
+          "coverage90": 0.5449999999999999,
+          "axis90": 0.9210781074353234
+        }
+      },
+      "d16:signed_rank_one": {
+        "case_count": 2,
+        "diagonal": {
+          "rmse": 0.22806137286251824,
+          "coverage90": 0.815,
+          "axis90": 1.0817502915791066
+        },
+        "adaptive_compound": {
+          "rmse": 0.22830653727055478,
+          "coverage90": 0.7959090909090909,
+          "axis90": 1.0811419433614826,
+          "correlation_rmse": 0.3680771469998656
+        },
+        "adaptive_full_local": {
+          "rmse": 0.2266810939734701,
+          "coverage90": 0.6877272727272727,
+          "axis90": 1.0259121058105254,
+          "correlation_rmse": 0.2927249318401034
+        },
+        "adaptive_full_shared": {
+          "rmse": 0.21002232119105357,
+          "coverage90": 0.8563636363636363,
+          "axis90": 1.037506032992875,
+          "correlation_rmse": 0.18765562515583348
+        },
+        "oracle": {
+          "rmse": 0.20516801108397825,
+          "coverage90": 0.8622727272727273,
+          "axis90": 0.9932895788880494
+        },
+        "ukf_diagonal": {
+          "rmse": 0.23641537208706995,
+          "coverage90": 0.7,
+          "axis90": 1.0297885236338642
+        },
+        "ukf_oracle": {
+          "rmse": 0.22056886725777236,
+          "coverage90": 0.6686363636363637,
+          "axis90": 0.9716760062722303
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.1955142570686555,
+        "coverage90": 0.9145454545454546,
+        "mean_axis_radius90": 0.4376904492082273,
+        "minimum_covariance_eigenvalue": 0.019798401654838826
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19551425706865605,
+        "coverage90": 0.9145454545454546,
+        "mean_axis_radius90": 0.43769044920822975,
+        "minimum_covariance_eigenvalue": 0.019798401654838815
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.1984789880212069,
+        "coverage90": 0.8927272727272727,
+        "mean_axis_radius90": 0.43302764403809396,
+        "minimum_covariance_eigenvalue": 6.197164709472944e-06,
+        "correlation_rmse": 0.22411474261922174
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.19676072395288918,
+        "coverage90": 0.9081818181818182,
+        "mean_axis_radius90": 0.4358201854254605,
+        "minimum_covariance_eigenvalue": 0.014770456485207308,
+        "correlation_rmse": 0.14600755942945123
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.19593956500047985,
+        "coverage90": 0.9136363636363637,
+        "mean_axis_radius90": 0.437387072285039,
+        "minimum_covariance_eigenvalue": 0.019798402368582033,
+        "correlation_rmse": 0.06927259697391268
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.19159367557607976,
+        "coverage90": 0.8672727272727273,
+        "mean_axis_radius90": 0.38575260940340794,
+        "minimum_covariance_eigenvalue": 0.019036264393552632
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19159367557607976,
+        "coverage90": 0.8672727272727273,
+        "mean_axis_radius90": 0.38575260940340794,
+        "minimum_covariance_eigenvalue": 0.019036264393552632
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.19701252102911307,
+        "coverage90": 0.899090909090909,
+        "mean_axis_radius90": 0.4221778329955155,
+        "minimum_covariance_eigenvalue": 0.001479186891577123
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19479089414480721,
+        "coverage90": 0.8963636363636364,
+        "mean_axis_radius90": 0.4151037618690382,
+        "minimum_covariance_eigenvalue": 0.001343928789740443
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.20532254315794843,
+        "coverage90": 0.8427272727272728,
+        "mean_axis_radius90": 0.4154907727631809,
+        "minimum_covariance_eigenvalue": 3.066982439453494e-07,
+        "correlation_rmse": 0.2740996054968047
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.1985333755536253,
+        "coverage90": 0.8872727272727273,
+        "mean_axis_radius90": 0.41873469845453404,
+        "minimum_covariance_eigenvalue": 0.0010444943054446632,
+        "correlation_rmse": 0.2189552721290577
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.19481597771582404,
+        "coverage90": 0.9018181818181819,
+        "mean_axis_radius90": 0.4186847131616815,
+        "minimum_covariance_eigenvalue": 0.0013989378315830956,
+        "correlation_rmse": 0.10472367181892785
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.1905564362767138,
+        "coverage90": 0.8581818181818182,
+        "mean_axis_radius90": 0.36970902125992766,
+        "minimum_covariance_eigenvalue": 0.002502351450742226
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.1892215370528125,
+        "coverage90": 0.8554545454545455,
+        "mean_axis_radius90": 0.3653426060143487,
+        "minimum_covariance_eigenvalue": 0.0023639222061654897
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.44999999999999996,
+      "diagonal": {
+        "rmse_per_coordinate": 0.1972480842135154,
+        "coverage90": 0.8954545454545455,
+        "mean_axis_radius90": 0.429655609469589,
+        "minimum_covariance_eigenvalue": 0.002437624716144402
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19623174614378847,
+        "coverage90": 0.8881818181818182,
+        "mean_axis_radius90": 0.4137830542611447,
+        "minimum_covariance_eigenvalue": 0.0017713479791473179
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.19694331564901746,
+        "coverage90": 0.87,
+        "mean_axis_radius90": 0.42118772008888994,
+        "minimum_covariance_eigenvalue": 1.5587130986604442e-06,
+        "correlation_rmse": 0.31611277941333427
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.19611900216745942,
+        "coverage90": 0.8963636363636364,
+        "mean_axis_radius90": 0.4249697059262112,
+        "minimum_covariance_eigenvalue": 0.001957252989185567,
+        "correlation_rmse": 0.29923302449007755
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.195586617229918,
+        "coverage90": 0.9054545454545454,
+        "mean_axis_radius90": 0.4249335778807995,
+        "minimum_covariance_eigenvalue": 0.0020522271794942925,
+        "correlation_rmse": 0.21251662236388646
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.19495070185239366,
+        "coverage90": 0.8518181818181818,
+        "mean_axis_radius90": 0.37408471499328505,
+        "minimum_covariance_eigenvalue": 0.004929096556507777
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19056082507298935,
+        "coverage90": 0.86,
+        "mean_axis_radius90": 0.3646160339657449,
+        "minimum_covariance_eigenvalue": 0.004358584475310375
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.6200000000000001,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20883073689129902,
+        "coverage90": 0.88,
+        "mean_axis_radius90": 0.4328409848454482,
+        "minimum_covariance_eigenvalue": 0.003156437803747349
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.2096200541376527,
+        "coverage90": 0.8772727272727273,
+        "mean_axis_radius90": 0.4312039226495055,
+        "minimum_covariance_eigenvalue": 0.002932679117701858
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.21333456980903723,
+        "coverage90": 0.8427272727272728,
+        "mean_axis_radius90": 0.42890395113657986,
+        "minimum_covariance_eigenvalue": 3.3588223562509845e-06,
+        "correlation_rmse": 0.28938283191665
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.21072357865215405,
+        "coverage90": 0.8672727272727273,
+        "mean_axis_radius90": 0.43159019244071284,
+        "minimum_covariance_eigenvalue": 0.002583681360182302,
+        "correlation_rmse": 0.24542723871631472
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2090060999564945,
+        "coverage90": 0.8827272727272727,
+        "mean_axis_radius90": 0.43312558320671324,
+        "minimum_covariance_eigenvalue": 0.003183141305350766,
+        "correlation_rmse": 0.16458265830566404
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.20435316463693762,
+        "coverage90": 0.8181818181818182,
+        "mean_axis_radius90": 0.3775899507004495,
+        "minimum_covariance_eigenvalue": 0.004529833103518213
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2025479773744719,
+        "coverage90": 0.8118181818181818,
+        "mean_axis_radius90": 0.3757929108076684,
+        "minimum_covariance_eigenvalue": 0.004656409707650081
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20523194059361968,
+        "coverage90": 0.9018181818181819,
+        "mean_axis_radius90": 0.43272577010872254,
+        "minimum_covariance_eigenvalue": 0.028934678275835932
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21374170196657746,
+        "coverage90": 0.8909090909090909,
+        "mean_axis_radius90": 0.43207602750079355,
+        "minimum_covariance_eigenvalue": 0.028934678275835946
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.21795046198620294,
+        "coverage90": 0.8845454545454545,
+        "mean_axis_radius90": 0.4306346636223705,
+        "minimum_covariance_eigenvalue": 0.016810018093129018,
+        "correlation_rmse": 0.13613159980161188
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.21514022932080312,
+        "coverage90": 0.8909090909090909,
+        "mean_axis_radius90": 0.43162311362503847,
+        "minimum_covariance_eigenvalue": 0.025406625286137914,
+        "correlation_rmse": 0.0770882253811223
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2139214523867627,
+        "coverage90": 0.889090909090909,
+        "mean_axis_radius90": 0.4317503260121773,
+        "minimum_covariance_eigenvalue": 0.028934682563845193,
+        "correlation_rmse": 0.0404216453001255
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.26339091793308295,
+        "coverage90": 0.8663636363636363,
+        "mean_axis_radius90": 0.497977899274138,
+        "minimum_covariance_eigenvalue": 0.03093998549599174
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.26339091793308295,
+        "coverage90": 0.8663636363636363,
+        "mean_axis_radius90": 0.497977899274138,
+        "minimum_covariance_eigenvalue": 0.03093998549599174
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20990378916519017,
+        "coverage90": 0.9054545454545454,
+        "mean_axis_radius90": 0.4290993917686337,
+        "minimum_covariance_eigenvalue": 0.005849387083972122
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21652018323872688,
+        "coverage90": 0.9027272727272727,
+        "mean_axis_radius90": 0.4190762136373614,
+        "minimum_covariance_eigenvalue": 0.005340695522925163
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2216927826811733,
+        "coverage90": 0.88,
+        "mean_axis_radius90": 0.4238494833465976,
+        "minimum_covariance_eigenvalue": 4.013996630920346e-05,
+        "correlation_rmse": 0.2391245299065551
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.21967675754345103,
+        "coverage90": 0.8954545454545455,
+        "mean_axis_radius90": 0.4261069263801009,
+        "minimum_covariance_eigenvalue": 0.00453559298222779,
+        "correlation_rmse": 0.21158925159274128
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2173040214874427,
+        "coverage90": 0.9009090909090909,
+        "mean_axis_radius90": 0.42607827448400615,
+        "minimum_covariance_eigenvalue": 0.005862173420229833,
+        "correlation_rmse": 0.16080198023375689
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2457930417577117,
+        "coverage90": 0.8927272727272727,
+        "mean_axis_radius90": 0.4830545982964269,
+        "minimum_covariance_eigenvalue": 0.008971837316792824
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.24393695153679626,
+        "coverage90": 0.8981818181818182,
+        "mean_axis_radius90": 0.4743273948216285,
+        "minimum_covariance_eigenvalue": 0.008144201533370567
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.44999999999999996,
+      "diagonal": {
+        "rmse_per_coordinate": 0.22676707326499196,
+        "coverage90": 0.89,
+        "mean_axis_radius90": 0.44455547458606404,
+        "minimum_covariance_eigenvalue": 0.0038138155919474307
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.2230866380309501,
+        "coverage90": 0.8854545454545455,
+        "mean_axis_radius90": 0.4227455281520088,
+        "minimum_covariance_eigenvalue": 0.002999607233030644
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.23525167847922418,
+        "coverage90": 0.8654545454545455,
+        "mean_axis_radius90": 0.4335434399378028,
+        "minimum_covariance_eigenvalue": 3.940335064238701e-05,
+        "correlation_rmse": 0.3174867090974754
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.23355579678705923,
+        "coverage90": 0.8863636363636364,
+        "mean_axis_radius90": 0.4377165375410586,
+        "minimum_covariance_eigenvalue": 0.0033455792588756006,
+        "correlation_rmse": 0.31368844551166886
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.22260494259687147,
+        "coverage90": 0.8963636363636364,
+        "mean_axis_radius90": 0.4361359152843615,
+        "minimum_covariance_eigenvalue": 0.003902751295284327,
+        "correlation_rmse": 0.20270881308641514
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2627266528523011,
+        "coverage90": 0.8845454545454545,
+        "mean_axis_radius90": 0.4893749181820711,
+        "minimum_covariance_eigenvalue": 0.006299863976119512
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2541708348298136,
+        "coverage90": 0.8718181818181818,
+        "mean_axis_radius90": 0.47071116755816816,
+        "minimum_covariance_eigenvalue": 0.00505706674029675
+      }
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.6200000000000001,
+      "diagonal": {
+        "rmse_per_coordinate": 0.22951067422474414,
+        "coverage90": 0.8818181818181818,
+        "mean_axis_radius90": 0.4364099703596173,
+        "minimum_covariance_eigenvalue": 0.004015737059764974
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.2303967610861508,
+        "coverage90": 0.8818181818181818,
+        "mean_axis_radius90": 0.43563507467578977,
+        "minimum_covariance_eigenvalue": 0.003666652888112981
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2340540517509783,
+        "coverage90": 0.8763636363636363,
+        "mean_axis_radius90": 0.4350649520795824,
+        "minimum_covariance_eigenvalue": 0.00029283990233585104,
+        "correlation_rmse": 0.20969814083651978
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2329252571973198,
+        "coverage90": 0.8836363636363637,
+        "mean_axis_radius90": 0.43594053065137917,
+        "minimum_covariance_eigenvalue": 0.003450196641991413,
+        "correlation_rmse": 0.21274171867310537
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2290009145669418,
+        "coverage90": 0.8909090909090909,
+        "mean_axis_radius90": 0.4368559239225378,
+        "minimum_covariance_eigenvalue": 0.00392035031642143,
+        "correlation_rmse": 0.12472487543563673
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2708535957567449,
+        "coverage90": 0.8727272727272727,
+        "mean_axis_radius90": 0.4898084523393723,
+        "minimum_covariance_eigenvalue": 0.007773806730690239
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.26634043953269354,
+        "coverage90": 0.8790909090909091,
+        "mean_axis_radius90": 0.48822580903411644,
+        "minimum_covariance_eigenvalue": 0.0076254240582702085
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20725098198836336,
+        "coverage90": 0.89,
+        "mean_axis_radius90": 0.573429905092485,
+        "minimum_covariance_eigenvalue": 0.014623277232640012
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.20725098198836336,
+        "coverage90": 0.89,
+        "mean_axis_radius90": 0.573429905092485,
+        "minimum_covariance_eigenvalue": 0.01462327723263999
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.20850025033401753,
+        "coverage90": 0.8763636363636363,
+        "mean_axis_radius90": 0.5709094576862564,
+        "minimum_covariance_eigenvalue": 0.0138084423936102,
+        "correlation_rmse": 0.11626623531190912
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.20958585057847465,
+        "coverage90": 0.8536363636363636,
+        "mean_axis_radius90": 0.5675561385980988,
+        "minimum_covariance_eigenvalue": 0.01158051332090484,
+        "correlation_rmse": 0.165851381180704
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.20763174536952855,
+        "coverage90": 0.8863636363636364,
+        "mean_axis_radius90": 0.5725810493345944,
+        "minimum_covariance_eigenvalue": 0.01460873545643508,
+        "correlation_rmse": 0.06490719936454888
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2025173830379389,
+        "coverage90": 0.8190909090909091,
+        "mean_axis_radius90": 0.5113928449393401,
+        "minimum_covariance_eigenvalue": 0.014151401686034607
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2025173830379389,
+        "coverage90": 0.8190909090909091,
+        "mean_axis_radius90": 0.5113928449393401,
+        "minimum_covariance_eigenvalue": 0.014151401686034607
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999998,
+      "diagonal": {
+        "rmse_per_coordinate": 0.1985542869248505,
+        "coverage90": 0.8981818181818182,
+        "mean_axis_radius90": 0.563544189183391,
+        "minimum_covariance_eigenvalue": 0.004075480931149985
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19519528638129605,
+        "coverage90": 0.9118181818181819,
+        "mean_axis_radius90": 0.5519488133490746,
+        "minimum_covariance_eigenvalue": 0.003241031668492179
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.1997010737098692,
+        "coverage90": 0.8909090909090909,
+        "mean_axis_radius90": 0.5565050343232354,
+        "minimum_covariance_eigenvalue": 0.0005142462723828835,
+        "correlation_rmse": 0.19770289339222583
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2020161481289083,
+        "coverage90": 0.8572727272727273,
+        "mean_axis_radius90": 0.5545615567075366,
+        "minimum_covariance_eigenvalue": 0.0019212611202349373,
+        "correlation_rmse": 0.2595411832793151
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.19612850967668158,
+        "coverage90": 0.9118181818181819,
+        "mean_axis_radius90": 0.5584687452839985,
+        "minimum_covariance_eigenvalue": 0.0036402199197850607,
+        "correlation_rmse": 0.14275977823992309
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.19208838800509664,
+        "coverage90": 0.8518181818181818,
+        "mean_axis_radius90": 0.4984745530049408,
+        "minimum_covariance_eigenvalue": 0.007858693903598672
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.18721275009921207,
+        "coverage90": 0.8663636363636363,
+        "mean_axis_radius90": 0.48955643742923105,
+        "minimum_covariance_eigenvalue": 0.007273591499861441
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.4499999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.19390444773727142,
+        "coverage90": 0.899090909090909,
+        "mean_axis_radius90": 0.5557377631560501,
+        "minimum_covariance_eigenvalue": 0.0018032871924831726
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19232108288546593,
+        "coverage90": 0.8781818181818182,
+        "mean_axis_radius90": 0.5251036273109841,
+        "minimum_covariance_eigenvalue": 0.0010575588896485839
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.19094619786519784,
+        "coverage90": 0.9136363636363637,
+        "mean_axis_radius90": 0.5470356040973121,
+        "minimum_covariance_eigenvalue": 0.0011659335504796585,
+        "correlation_rmse": 0.3170901443365007
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.1922236348831805,
+        "coverage90": 0.8772727272727273,
+        "mean_axis_radius90": 0.5454585413655998,
+        "minimum_covariance_eigenvalue": 0.0011130393890074431,
+        "correlation_rmse": 0.3765849541634703
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.1888194719916292,
+        "coverage90": 0.9363636363636364,
+        "mean_axis_radius90": 0.5484307222097098,
+        "minimum_covariance_eigenvalue": 0.001395577634578363,
+        "correlation_rmse": 0.28380591811169525
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.19215007922531407,
+        "coverage90": 0.8472727272727273,
+        "mean_axis_radius90": 0.49175505624160076,
+        "minimum_covariance_eigenvalue": 0.006656659121516592
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.18357084914547891,
+        "coverage90": 0.84,
+        "mean_axis_radius90": 0.47164615230641216,
+        "minimum_covariance_eigenvalue": 0.006080756565230287
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.62,
+      "diagonal": {
+        "rmse_per_coordinate": 0.204661641668155,
+        "coverage90": 0.8745454545454545,
+        "mean_axis_radius90": 0.5656116151817824,
+        "minimum_covariance_eigenvalue": 0.0053104861290889805
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19929940120660344,
+        "coverage90": 0.8909090909090909,
+        "mean_axis_radius90": 0.5481833028780291,
+        "minimum_covariance_eigenvalue": 0.004328024491413277
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2061720644818308,
+        "coverage90": 0.8527272727272728,
+        "mean_axis_radius90": 0.5625805824153985,
+        "minimum_covariance_eigenvalue": 5.20825952172604e-06,
+        "correlation_rmse": 0.34237016878499044
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2042349154584332,
+        "coverage90": 0.8590909090909091,
+        "mean_axis_radius90": 0.5562771395471865,
+        "minimum_covariance_eigenvalue": 0.002564704149040011,
+        "correlation_rmse": 0.29369529512057274
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.20074246142677996,
+        "coverage90": 0.8963636363636364,
+        "mean_axis_radius90": 0.5597301969772474,
+        "minimum_covariance_eigenvalue": 0.004306987658704708,
+        "correlation_rmse": 0.19605870733742148
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.19867894436402833,
+        "coverage90": 0.8327272727272728,
+        "mean_axis_radius90": 0.5002621651386042,
+        "minimum_covariance_eigenvalue": 0.009382969171529438
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19255507600601998,
+        "coverage90": 0.8372727272727273,
+        "mean_axis_radius90": 0.48715520039842636,
+        "minimum_covariance_eigenvalue": 0.008174308582041845
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.21050306126005455,
+        "coverage90": 0.8927272727272727,
+        "mean_axis_radius90": 0.6042403173364276,
+        "minimum_covariance_eigenvalue": 0.022230677413721468
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.22109875978648305,
+        "coverage90": 0.8809090909090909,
+        "mean_axis_radius90": 0.605291060980183,
+        "minimum_covariance_eigenvalue": 0.022230677413721492
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.22408319089438172,
+        "coverage90": 0.8690909090909091,
+        "mean_axis_radius90": 0.6038425638026829,
+        "minimum_covariance_eigenvalue": 0.019306663978288518,
+        "correlation_rmse": 0.07435295569090376
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.22260727358673682,
+        "coverage90": 0.8809090909090909,
+        "mean_axis_radius90": 0.6034654561453016,
+        "minimum_covariance_eigenvalue": 0.020468846279177375,
+        "correlation_rmse": 0.08123436772601873
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.22146957234493764,
+        "coverage90": 0.8790909090909091,
+        "mean_axis_radius90": 0.6046996721473153,
+        "minimum_covariance_eigenvalue": 0.02136581483127512,
+        "correlation_rmse": 0.04219427984625739
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.27152281862447103,
+        "coverage90": 0.8745454545454545,
+        "mean_axis_radius90": 0.7222963185359884,
+        "minimum_covariance_eigenvalue": 0.03180804407982371
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.27152281862447103,
+        "coverage90": 0.8745454545454545,
+        "mean_axis_radius90": 0.7222963185359884,
+        "minimum_covariance_eigenvalue": 0.03180804407982371
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999998,
+      "diagonal": {
+        "rmse_per_coordinate": 0.22608341566310752,
+        "coverage90": 0.8690909090909091,
+        "mean_axis_radius90": 0.626910291588163,
+        "minimum_covariance_eigenvalue": 0.011696143043716871
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.217619605509802,
+        "coverage90": 0.89,
+        "mean_axis_radius90": 0.6087246310990202,
+        "minimum_covariance_eigenvalue": 0.009325744870992974
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.22513733904186703,
+        "coverage90": 0.8745454545454545,
+        "mean_axis_radius90": 0.621087330034104,
+        "minimum_covariance_eigenvalue": 0.01133086973376536,
+        "correlation_rmse": 0.1998374996770246
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.22888256026290754,
+        "coverage90": 0.8681818181818182,
+        "mean_axis_radius90": 0.62022867350983,
+        "minimum_covariance_eigenvalue": 0.005192137639915982,
+        "correlation_rmse": 0.25028328469666483
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.22004771484704935,
+        "coverage90": 0.89,
+        "mean_axis_radius90": 0.6219594379258522,
+        "minimum_covariance_eigenvalue": 0.010920371323654943,
+        "correlation_rmse": 0.16986265796884237
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2629228422662137,
+        "coverage90": 0.8854545454545455,
+        "mean_axis_radius90": 0.7266335480638342,
+        "minimum_covariance_eigenvalue": 0.01883174054939292
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2556615015416594,
+        "coverage90": 0.89,
+        "mean_axis_radius90": 0.7097763928328547,
+        "minimum_covariance_eigenvalue": 0.017265474118050284
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.4499999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.2471207956715408,
+        "coverage90": 0.8336363636363636,
+        "mean_axis_radius90": 0.6246180602796104,
+        "minimum_covariance_eigenvalue": 0.0026524078087482314
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.22944482000826544,
+        "coverage90": 0.8445454545454546,
+        "mean_axis_radius90": 0.5748610542732115,
+        "minimum_covariance_eigenvalue": 0.001660374495087758
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.23411181636483058,
+        "coverage90": 0.8572727272727273,
+        "mean_axis_radius90": 0.6079439296141314,
+        "minimum_covariance_eigenvalue": 0.0015895565925111638,
+        "correlation_rmse": 0.28718204784057205
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.23888457773037672,
+        "coverage90": 0.8481818181818181,
+        "mean_axis_radius90": 0.611701921284735,
+        "minimum_covariance_eigenvalue": 0.0014248850430320825,
+        "correlation_rmse": 0.3524458796153952
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2284005279842204,
+        "coverage90": 0.8663636363636363,
+        "mean_axis_radius90": 0.6090240344984201,
+        "minimum_covariance_eigenvalue": 0.0022582120937975,
+        "correlation_rmse": 0.23922899861134775
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.26447913150321206,
+        "coverage90": 0.8754545454545455,
+        "mean_axis_radius90": 0.7103360207173879,
+        "minimum_covariance_eigenvalue": 0.00914916124806627
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2478286584730005,
+        "coverage90": 0.8672727272727273,
+        "mean_axis_radius90": 0.6701597177614282,
+        "minimum_covariance_eigenvalue": 0.008255889609953843
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.62,
+      "diagonal": {
+        "rmse_per_coordinate": 0.2186782314994661,
+        "coverage90": 0.8790909090909091,
+        "mean_axis_radius90": 0.6138435625327355,
+        "minimum_covariance_eigenvalue": 0.007430067165338686
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.20925617736096894,
+        "coverage90": 0.889090909090909,
+        "mean_axis_radius90": 0.588152837148391,
+        "minimum_covariance_eigenvalue": 0.005425618167201767
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.22137157966680984,
+        "coverage90": 0.8654545454545455,
+        "mean_axis_radius90": 0.6117571601314977,
+        "minimum_covariance_eigenvalue": 0.0055725630582073304,
+        "correlation_rmse": 0.3290573695824409
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2216454142969609,
+        "coverage90": 0.8781818181818182,
+        "mean_axis_radius90": 0.6064737012931575,
+        "minimum_covariance_eigenvalue": 0.005622247594766162,
+        "correlation_rmse": 0.28600836469269947
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2107691891538534,
+        "coverage90": 0.9027272727272727,
+        "mean_axis_radius90": 0.6076981767952286,
+        "minimum_covariance_eigenvalue": 0.006710986524616118,
+        "correlation_rmse": 0.1988177000381691
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2504190919095286,
+        "coverage90": 0.8954545454545455,
+        "mean_axis_radius90": 0.7137943328321031,
+        "minimum_covariance_eigenvalue": 0.016000181306865674
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.24350262541890444,
+        "coverage90": 0.8881818181818182,
+        "mean_axis_radius90": 0.6914208753080338,
+        "minimum_covariance_eigenvalue": 0.012267836830509624
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20469791729751605,
+        "coverage90": 0.9145454545454546,
+        "mean_axis_radius90": 0.7469301505352205,
+        "minimum_covariance_eigenvalue": 0.01770793313516821
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.2046979172975169,
+        "coverage90": 0.9145454545454546,
+        "mean_axis_radius90": 0.7469301505352,
+        "minimum_covariance_eigenvalue": 0.017707933135168216
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.20632091514800852,
+        "coverage90": 0.8954545454545455,
+        "mean_axis_radius90": 0.7454268516851819,
+        "minimum_covariance_eigenvalue": 0.01191461455887079,
+        "correlation_rmse": 0.0635472612092294
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2131282474320763,
+        "coverage90": 0.7290909090909091,
+        "mean_axis_radius90": 0.7288258703507505,
+        "minimum_covariance_eigenvalue": 0.008485830377763745,
+        "correlation_rmse": 0.18520034644181788
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.20634380210185774,
+        "coverage90": 0.8772727272727273,
+        "mean_axis_radius90": 0.7432384566006389,
+        "minimum_covariance_eigenvalue": 0.01632385338986412,
+        "correlation_rmse": 0.07972495287202284
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.19810060665396734,
+        "coverage90": 0.7854545454545454,
+        "mean_axis_radius90": 0.6451955955349816,
+        "minimum_covariance_eigenvalue": 0.01774437762887501
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19810060665396734,
+        "coverage90": 0.7854545454545454,
+        "mean_axis_radius90": 0.6451955955349816,
+        "minimum_covariance_eigenvalue": 0.01774437762887501
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999996,
+      "diagonal": {
+        "rmse_per_coordinate": 0.2043042581129551,
+        "coverage90": 0.8781818181818182,
+        "mean_axis_radius90": 0.7453945613148177,
+        "minimum_covariance_eigenvalue": 0.0033963634330894496
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19895927078643288,
+        "coverage90": 0.8790909090909091,
+        "mean_axis_radius90": 0.7125405823531878,
+        "minimum_covariance_eigenvalue": 0.002584299844205637
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.1994524637658233,
+        "coverage90": 0.9063636363636364,
+        "mean_axis_radius90": 0.7347542054744963,
+        "minimum_covariance_eigenvalue": 0.0033985829193917505,
+        "correlation_rmse": 0.1955180844753563
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.20855432627969728,
+        "coverage90": 0.7381818181818182,
+        "mean_axis_radius90": 0.7226525406985208,
+        "minimum_covariance_eigenvalue": 0.002088571353501654,
+        "correlation_rmse": 0.2874701568214483
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2004770374101318,
+        "coverage90": 0.8881818181818182,
+        "mean_axis_radius90": 0.7317553505047568,
+        "minimum_covariance_eigenvalue": 0.003051936528186678,
+        "correlation_rmse": 0.18792203013174463
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2018158594262698,
+        "coverage90": 0.7418181818181818,
+        "mean_axis_radius90": 0.6337317066278619,
+        "minimum_covariance_eigenvalue": 0.01035406417395904
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19539701567554685,
+        "coverage90": 0.7290909090909091,
+        "mean_axis_radius90": 0.6137344631456316,
+        "minimum_covariance_eigenvalue": 0.009879367598878816
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.44999999999999984,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20123699285208457,
+        "coverage90": 0.8527272727272728,
+        "mean_axis_radius90": 0.7359001447882566,
+        "minimum_covariance_eigenvalue": 0.002151348034445192
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19008827246271262,
+        "coverage90": 0.8618181818181818,
+        "mean_axis_radius90": 0.6585176052100871,
+        "minimum_covariance_eigenvalue": 0.0009965763822465026
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.18870121442198032,
+        "coverage90": 0.9327272727272727,
+        "mean_axis_radius90": 0.7126984135104855,
+        "minimum_covariance_eigenvalue": 0.0018117568957951935,
+        "correlation_rmse": 0.3047356743597079
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.1981796946507598,
+        "coverage90": 0.8263636363636364,
+        "mean_axis_radius90": 0.708457234332802,
+        "minimum_covariance_eigenvalue": 0.0009656343792073833,
+        "correlation_rmse": 0.39678344528016
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.1890707452367882,
+        "coverage90": 0.9272727272727272,
+        "mean_axis_radius90": 0.7097347638041589,
+        "minimum_covariance_eigenvalue": 0.001811031087883047,
+        "correlation_rmse": 0.28029141758707404
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2015570488030594,
+        "coverage90": 0.7272727272727273,
+        "mean_axis_radius90": 0.625437521101433,
+        "minimum_covariance_eigenvalue": 0.01247598529060035
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.18672244653083014,
+        "coverage90": 0.7263636363636363,
+        "mean_axis_radius90": 0.5856295184971916,
+        "minimum_covariance_eigenvalue": 0.01103810904573932
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.6199999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20374405347736266,
+        "coverage90": 0.87,
+        "mean_axis_radius90": 0.7458636625966376,
+        "minimum_covariance_eigenvalue": 0.0014339238500230495
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19517691904572962,
+        "coverage90": 0.8972727272727272,
+        "mean_axis_radius90": 0.7076368430708021,
+        "minimum_covariance_eigenvalue": 0.0009750518107140478
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2038757669435749,
+        "coverage90": 0.8545454545454545,
+        "mean_axis_radius90": 0.7442841608978831,
+        "minimum_covariance_eigenvalue": 0.00024365444867742735,
+        "correlation_rmse": 0.3559469131569263
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.20472264160679612,
+        "coverage90": 0.7845454545454545,
+        "mean_axis_radius90": 0.7222095566872118,
+        "minimum_covariance_eigenvalue": 0.000640942481636829,
+        "correlation_rmse": 0.30416535336252576
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.19600620871913177,
+        "coverage90": 0.9236363636363636,
+        "mean_axis_radius90": 0.7301146434406289,
+        "minimum_covariance_eigenvalue": 0.0011621453674748542,
+        "correlation_rmse": 0.1900875320606539
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.1996288683275065,
+        "coverage90": 0.7390909090909091,
+        "mean_axis_radius90": 0.6335676117338251,
+        "minimum_covariance_eigenvalue": 0.006639701341269296
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19088842562820277,
+        "coverage90": 0.7518181818181818,
+        "mean_axis_radius90": 0.6091696998606346,
+        "minimum_covariance_eigenvalue": 0.006337287177774181
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20029723102694386,
+        "coverage90": 0.9263636363636364,
+        "mean_axis_radius90": 0.8094278068954119,
+        "minimum_covariance_eigenvalue": 0.02116675457963255
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.20042184173954666,
+        "coverage90": 0.9263636363636364,
+        "mean_axis_radius90": 0.8095823849076141,
+        "minimum_covariance_eigenvalue": 0.021166754579632577
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.20077085663256455,
+        "coverage90": 0.9254545454545454,
+        "mean_axis_radius90": 0.8091362798576518,
+        "minimum_covariance_eigenvalue": 0.021166751244330154,
+        "correlation_rmse": 0.029948641355564267
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2023508925368956,
+        "coverage90": 0.9154545454545454,
+        "mean_axis_radius90": 0.8076652326212239,
+        "minimum_covariance_eigenvalue": 0.01767461556370263,
+        "correlation_rmse": 0.05321604927561144
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.20042063134722782,
+        "coverage90": 0.9263636363636364,
+        "mean_axis_radius90": 0.8095822783457575,
+        "minimum_covariance_eigenvalue": 0.021166754580998925,
+        "correlation_rmse": 0.0
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2613234022973777,
+        "coverage90": 0.8736363636363637,
+        "mean_axis_radius90": 0.958189005474148,
+        "minimum_covariance_eigenvalue": 0.02800109082475193
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2613234022973777,
+        "coverage90": 0.8736363636363637,
+        "mean_axis_radius90": 0.958189005474148,
+        "minimum_covariance_eigenvalue": 0.02800109082475193
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999996,
+      "diagonal": {
+        "rmse_per_coordinate": 0.2332281338383948,
+        "coverage90": 0.8263636363636364,
+        "mean_axis_radius90": 0.8412031609710291,
+        "minimum_covariance_eigenvalue": 0.005213425868724341
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21134099750276664,
+        "coverage90": 0.860909090909091,
+        "mean_axis_radius90": 0.7976946111746753,
+        "minimum_covariance_eigenvalue": 0.003941984071336266
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2157159250690012,
+        "coverage90": 0.8745454545454545,
+        "mean_axis_radius90": 0.8226073010050828,
+        "minimum_covariance_eigenvalue": 0.005063576083655495,
+        "correlation_rmse": 0.17389237408727948
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.23082387624513795,
+        "coverage90": 0.7981818181818182,
+        "mean_axis_radius90": 0.8181673957201265,
+        "minimum_covariance_eigenvalue": 0.0024311064307730584,
+        "correlation_rmse": 0.24720914199161279
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.21528631014672397,
+        "coverage90": 0.8627272727272727,
+        "mean_axis_radius90": 0.8209766997701827,
+        "minimum_covariance_eigenvalue": 0.0044282917889286065,
+        "correlation_rmse": 0.14548051346098834
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2725983419485231,
+        "coverage90": 0.8363636363636363,
+        "mean_axis_radius90": 0.9510665063328099,
+        "minimum_covariance_eigenvalue": 0.015107244648705855
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2610973371482284,
+        "coverage90": 0.8372727272727273,
+        "mean_axis_radius90": 0.9141706667128418,
+        "minimum_covariance_eigenvalue": 0.013045590769961894
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.44999999999999984,
+      "diagonal": {
+        "rmse_per_coordinate": 0.24912963335201493,
+        "coverage90": 0.8027272727272727,
+        "mean_axis_radius90": 0.8552399967899238,
+        "minimum_covariance_eigenvalue": 0.0033601523837140873
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21722380385943216,
+        "coverage90": 0.8172727272727273,
+        "mean_axis_radius90": 0.7425865949476591,
+        "minimum_covariance_eigenvalue": 0.0016686510513465595
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.21955808875766683,
+        "coverage90": 0.8590909090909091,
+        "mean_axis_radius90": 0.8177607969496594,
+        "minimum_covariance_eigenvalue": 0.0024477540739350004,
+        "correlation_rmse": 0.2900250157990293
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2321332692092256,
+        "coverage90": 0.8127272727272727,
+        "mean_axis_radius90": 0.8149355428924819,
+        "minimum_covariance_eigenvalue": 0.0019984349767523035,
+        "correlation_rmse": 0.37179600494024356
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.21601395621182418,
+        "coverage90": 0.8627272727272727,
+        "mean_axis_radius90": 0.8128421324221687,
+        "minimum_covariance_eigenvalue": 0.002252449250919727,
+        "correlation_rmse": 0.26516070631915056
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.27053915679434426,
+        "coverage90": 0.8481818181818181,
+        "mean_axis_radius90": 0.937933341550544,
+        "minimum_covariance_eigenvalue": 0.01588234282384295
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.24519892730301934,
+        "coverage90": 0.8209090909090909,
+        "mean_axis_radius90": 0.8549054093561772,
+        "minimum_covariance_eigenvalue": 0.012296507450453145
+      }
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.6199999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.23865072587903316,
+        "coverage90": 0.8218181818181818,
+        "mean_axis_radius90": 0.8412483868396707,
+        "minimum_covariance_eigenvalue": 0.009179466757005166
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.2151619122227924,
+        "coverage90": 0.85,
+        "mean_axis_radius90": 0.7897660106698353,
+        "minimum_covariance_eigenvalue": 0.006472009949505507
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.24000116674639257,
+        "coverage90": 0.8136363636363636,
+        "mean_axis_radius90": 0.8394603445571852,
+        "minimum_covariance_eigenvalue": 0.005445638825793322,
+        "correlation_rmse": 0.35549236640395304
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2312137094627008,
+        "coverage90": 0.8036363636363636,
+        "mean_axis_radius90": 0.8138075131430521,
+        "minimum_covariance_eigenvalue": 0.004199490918991775,
+        "correlation_rmse": 0.2550050998478295
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.21562806424014952,
+        "coverage90": 0.8636363636363636,
+        "mean_axis_radius90": 0.8152887854953952,
+        "minimum_covariance_eigenvalue": 0.006730909432128432,
+        "correlation_rmse": 0.14719912045410155
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2739752259761519,
+        "coverage90": 0.8281818181818181,
+        "mean_axis_radius90": 0.9517250478452364,
+        "minimum_covariance_eigenvalue": 0.02122020332186549
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2606975122620245,
+        "coverage90": 0.8209090909090909,
+        "mean_axis_radius90": 0.9092055997026528,
+        "minimum_covariance_eigenvalue": 0.01774551485269411
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20977529176607326,
+        "coverage90": 0.9072727272727272,
+        "mean_axis_radius90": 1.012758831837605,
+        "minimum_covariance_eigenvalue": 0.014350635209504407
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.20977529176604037,
+        "coverage90": 0.9072727272727272,
+        "mean_axis_radius90": 1.0127588318376242,
+        "minimum_covariance_eigenvalue": 0.01435063520950447
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.20986555408161692,
+        "coverage90": 0.8981818181818182,
+        "mean_axis_radius90": 1.0121113855149597,
+        "minimum_covariance_eigenvalue": 0.001735273645382944,
+        "correlation_rmse": 0.021466666601395658
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2224489042485026,
+        "coverage90": 0.4618181818181818,
+        "mean_axis_radius90": 0.9688905826253578,
+        "minimum_covariance_eigenvalue": 0.007065021126138336,
+        "correlation_rmse": 0.18172847251179128
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.212496798624865,
+        "coverage90": 0.8136363636363636,
+        "mean_axis_radius90": 1.0034633148794858,
+        "minimum_covariance_eigenvalue": 0.010823698866362846,
+        "correlation_rmse": 0.07934835380103282
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2028473176452367,
+        "coverage90": 0.6318181818181818,
+        "mean_axis_radius90": 0.8417566897205502,
+        "minimum_covariance_eigenvalue": 0.020461274371989756
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2028473176452367,
+        "coverage90": 0.6318181818181818,
+        "mean_axis_radius90": 0.8417566897205502,
+        "minimum_covariance_eigenvalue": 0.020461274371989756
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999982,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20397767913141002,
+        "coverage90": 0.8754545454545455,
+        "mean_axis_radius90": 1.0076349703785168,
+        "minimum_covariance_eigenvalue": 0.004114890369726123
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19542814105725956,
+        "coverage90": 0.8981818181818182,
+        "mean_axis_radius90": 0.9458498911680346,
+        "minimum_covariance_eigenvalue": 0.002918385525413138
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.19582002618880182,
+        "coverage90": 0.9454545454545454,
+        "mean_axis_radius90": 0.9857247537078716,
+        "minimum_covariance_eigenvalue": 0.0034731674859458384,
+        "correlation_rmse": 0.17150971259928938
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.21174305684209982,
+        "coverage90": 0.6072727272727273,
+        "mean_axis_radius90": 0.9594203247610137,
+        "minimum_covariance_eigenvalue": 0.0020688815641713046,
+        "correlation_rmse": 0.27744097540293566
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.19802685253390281,
+        "coverage90": 0.8663636363636363,
+        "mean_axis_radius90": 0.9738455266331034,
+        "minimum_covariance_eigenvalue": 0.0029961401852629066,
+        "correlation_rmse": 0.16952274040763243
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.20194196891066327,
+        "coverage90": 0.5772727272727273,
+        "mean_axis_radius90": 0.8197699564893455,
+        "minimum_covariance_eigenvalue": 0.018927239350523553
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19261585805183024,
+        "coverage90": 0.5636363636363636,
+        "mean_axis_radius90": 0.7887321962549447,
+        "minimum_covariance_eigenvalue": 0.01642229532511077
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.4499999999999992,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20288896025934758,
+        "coverage90": 0.8472727272727273,
+        "mean_axis_radius90": 1.0071120034799936,
+        "minimum_covariance_eigenvalue": 0.002223444569022446
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.18283402179987418,
+        "coverage90": 0.8454545454545455,
+        "mean_axis_radius90": 0.858823825704826,
+        "minimum_covariance_eigenvalue": 0.0010529105478652215
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.18263204752823414,
+        "coverage90": 0.9718181818181818,
+        "mean_axis_radius90": 0.9649936045429841,
+        "minimum_covariance_eigenvalue": 0.0011866562235958752,
+        "correlation_rmse": 0.3147834892904658
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.19770208888314178,
+        "coverage90": 0.76,
+        "mean_axis_radius90": 0.9534083861669863,
+        "minimum_covariance_eigenvalue": 0.0010042802114634498,
+        "correlation_rmse": 0.4241573894085731
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.18506442812849794,
+        "coverage90": 0.8781818181818182,
+        "mean_axis_radius90": 0.9512783881112243,
+        "minimum_covariance_eigenvalue": 0.001370699512538195,
+        "correlation_rmse": 0.3000953124136486
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2102080219391206,
+        "coverage90": 0.5045454545454545,
+        "mean_axis_radius90": 0.8111218886673469,
+        "minimum_covariance_eigenvalue": 0.019087125633272316
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.1909447160447761,
+        "coverage90": 0.37363636363636366,
+        "mean_axis_radius90": 0.7549687003265234,
+        "minimum_covariance_eigenvalue": 0.01082047759054047
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "gaussian",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.619999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.20783379280930275,
+        "coverage90": 0.8518181818181818,
+        "mean_axis_radius90": 1.0147596236880054,
+        "minimum_covariance_eigenvalue": 0.0037725329393366283
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.19358528378736614,
+        "coverage90": 0.8963636363636364,
+        "mean_axis_radius90": 0.9386076851837445,
+        "minimum_covariance_eigenvalue": 0.0025455154274974306
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.20817760943064217,
+        "coverage90": 0.8145454545454546,
+        "mean_axis_radius90": 1.013840273880661,
+        "minimum_covariance_eigenvalue": 5.1465832759631695e-05,
+        "correlation_rmse": 0.36818112389403695
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.20878552138087714,
+        "coverage90": 0.6627272727272727,
+        "mean_axis_radius90": 0.9644659043289758,
+        "minimum_covariance_eigenvalue": 0.0019366638623673415,
+        "correlation_rmse": 0.30234162366667455
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.198007705318865,
+        "coverage90": 0.8709090909090909,
+        "mean_axis_radius90": 0.9764684985256066,
+        "minimum_covariance_eigenvalue": 0.002070793180734304,
+        "correlation_rmse": 0.19525500649793995
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.20565311462597996,
+        "coverage90": 0.5727272727272728,
+        "mean_axis_radius90": 0.821149615878361,
+        "minimum_covariance_eigenvalue": 0.018689706960386507
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.19242210668086346,
+        "coverage90": 0.5290909090909091,
+        "mean_axis_radius90": 0.7800140110378394,
+        "minimum_covariance_eigenvalue": 0.01591866362069731
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "home_independent",
+      "truth_minimum_correlation_eigenvalue": 1.0,
+      "diagonal": {
+        "rmse_per_coordinate": 0.21315118991719095,
+        "coverage90": 0.899090909090909,
+        "mean_axis_radius90": 1.111750978907632,
+        "minimum_covariance_eigenvalue": 0.0214383742050864
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21315118991719095,
+        "coverage90": 0.899090909090909,
+        "mean_axis_radius90": 1.111750978907632,
+        "minimum_covariance_eigenvalue": 0.02143837420508647
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2131846035946806,
+        "coverage90": 0.899090909090909,
+        "mean_axis_radius90": 1.111738623545645,
+        "minimum_covariance_eigenvalue": 0.02143837420508647,
+        "correlation_rmse": 0.0031648814500172587
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.21406471838234042,
+        "coverage90": 0.8936363636363637,
+        "mean_axis_radius90": 1.1103468819240516,
+        "minimum_covariance_eigenvalue": 0.01479478742222309,
+        "correlation_rmse": 0.026789347732376446
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.2131511901714676,
+        "coverage90": 0.899090909090909,
+        "mean_axis_radius90": 1.111750978986147,
+        "minimum_covariance_eigenvalue": 0.021438374205086423,
+        "correlation_rmse": 0.0
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.2630764388118272,
+        "coverage90": 0.8472727272727273,
+        "mean_axis_radius90": 1.2732490565470813,
+        "minimum_covariance_eigenvalue": 0.02677832722238002
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2630764388118272,
+        "coverage90": 0.8472727272727273,
+        "mean_axis_radius90": 1.2732490565470813,
+        "minimum_covariance_eigenvalue": 0.02677832722238002
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "dense_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.6799999999999982,
+      "diagonal": {
+        "rmse_per_coordinate": 0.24844571637497836,
+        "coverage90": 0.7836363636363637,
+        "mean_axis_radius90": 1.1592351392558344,
+        "minimum_covariance_eigenvalue": 0.00769971175251521
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21841371540263646,
+        "coverage90": 0.8527272727272728,
+        "mean_axis_radius90": 1.0808836472077177,
+        "minimum_covariance_eigenvalue": 0.005166094825636442
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.22098463874850727,
+        "coverage90": 0.8672727272727273,
+        "mean_axis_radius90": 1.1245820871991825,
+        "minimum_covariance_eigenvalue": 0.006196801565000415,
+        "correlation_rmse": 0.16028928440547108
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.24959387578671133,
+        "coverage90": 0.6863636363636364,
+        "mean_axis_radius90": 1.1008804614322738,
+        "minimum_covariance_eigenvalue": 0.0035492069979274924,
+        "correlation_rmse": 0.2473464337014172
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.22514314889512402,
+        "coverage90": 0.8345454545454546,
+        "mean_axis_radius90": 1.1137192431567704,
+        "minimum_covariance_eigenvalue": 0.006110691300234712,
+        "correlation_rmse": 0.14125395080510794
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.27155822074825897,
+        "coverage90": 0.7836363636363637,
+        "mean_axis_radius90": 1.2413804393519479,
+        "minimum_covariance_eigenvalue": 0.027387910638456046
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.25870150121129615,
+        "coverage90": 0.7736363636363637,
+        "mean_axis_radius90": 1.1821406790803608,
+        "minimum_covariance_eigenvalue": 0.024407704444988947
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "strong_equicorrelation",
+      "truth_minimum_correlation_eigenvalue": 0.4499999999999992,
+      "diagonal": {
+        "rmse_per_coordinate": 0.2566689471035442,
+        "coverage90": 0.7681818181818182,
+        "mean_axis_radius90": 1.1808065323931443,
+        "minimum_covariance_eigenvalue": 0.005314120504291386
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.22316284577109674,
+        "coverage90": 0.7736363636363637,
+        "mean_axis_radius90": 0.984528721518996,
+        "minimum_covariance_eigenvalue": 0.0025576461830567722
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.21946414901363373,
+        "coverage90": 0.8781818181818182,
+        "mean_axis_radius90": 1.1213289097500398,
+        "minimum_covariance_eigenvalue": 0.0037987662276295826,
+        "correlation_rmse": 0.3183758188690996
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.2452267370248881,
+        "coverage90": 0.7436363636363637,
+        "mean_axis_radius90": 1.1050415163398557,
+        "minimum_covariance_eigenvalue": 0.002219151818524749,
+        "correlation_rmse": 0.4073734077714111
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.22321859355334667,
+        "coverage90": 0.8463636363636363,
+        "mean_axis_radius90": 1.1052735113647352,
+        "minimum_covariance_eigenvalue": 0.0032250279695914584,
+        "correlation_rmse": 0.28995318435639844
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.27242320767830713,
+        "coverage90": 0.7936363636363636,
+        "mean_axis_radius90": 1.2079433244588458,
+        "minimum_covariance_eigenvalue": 0.03139577116683336
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2448760213753548,
+        "coverage90": 0.7163636363636363,
+        "mean_axis_radius90": 1.0871875145441234,
+        "minimum_covariance_eigenvalue": 0.02113432018544121
+      }
+    },
+    {
+      "dimension": 16,
+      "seed": 0,
+      "regime": "mixture",
+      "scenario": "signed_rank_one",
+      "truth_minimum_correlation_eigenvalue": 0.619999999999999,
+      "diagonal": {
+        "rmse_per_coordinate": 0.24828895291573372,
+        "coverage90": 0.7781818181818182,
+        "mean_axis_radius90": 1.1487409594702078,
+        "minimum_covariance_eigenvalue": 0.009640072430363078
+      },
+      "oracle": {
+        "rmse_per_coordinate": 0.21675073838059034,
+        "coverage90": 0.8281818181818181,
+        "mean_axis_radius90": 1.0479714725923543,
+        "minimum_covariance_eigenvalue": 0.006723851115481544
+      },
+      "adaptive_compound": {
+        "rmse_per_coordinate": 0.2484354651104674,
+        "coverage90": 0.7772727272727272,
+        "mean_axis_radius90": 1.1484436128423043,
+        "minimum_covariance_eigenvalue": 0.008647247820544983,
+        "correlation_rmse": 0.3679731701056943
+      },
+      "adaptive_full_local": {
+        "rmse_per_coordinate": 0.24457666656606308,
+        "coverage90": 0.7127272727272728,
+        "mean_axis_radius90": 1.087358307292075,
+        "minimum_covariance_eigenvalue": 0.005046662639049178,
+        "correlation_rmse": 0.2831082400135323
+      },
+      "adaptive_full_shared": {
+        "rmse_per_coordinate": 0.22203693706324212,
+        "coverage90": 0.8418181818181818,
+        "mean_axis_radius90": 1.0985435674601431,
+        "minimum_covariance_eigenvalue": 0.007686071374236615,
+        "correlation_rmse": 0.180056243813727
+      },
+      "ukf_diagonal": {
+        "rmse_per_coordinate": 0.26717762954815993,
+        "coverage90": 0.8272727272727273,
+        "mean_axis_radius90": 1.2384274313893675,
+        "minimum_covariance_eigenvalue": 0.030538719897109413
+      },
+      "ukf_oracle": {
+        "rmse_per_coordinate": 0.2487156278346813,
+        "coverage90": 0.8081818181818182,
+        "mean_axis_radius90": 1.163338001506621,
+        "minimum_covariance_eigenvalue": 0.026594101940434753
+      }
+    }
+  ],
+  "elapsed_seconds": 46.6562684999999
+}

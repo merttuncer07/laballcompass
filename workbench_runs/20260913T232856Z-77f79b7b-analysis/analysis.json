@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "problem": {
+    "schema_version": 1,
+    "id": "workbook_1943a81a9d43",
+    "mode": "static_formula_lineage",
+    "bases": {
+      "Sheet2!A11": "Sheet2!A11",
+      "Sheet2!A12": "Sheet2!A12",
+      "Sheet2!B12": "Sheet2!B12",
+      "Sheet2!C12": "Sheet2!C12",
+      "Sheet3!A11": "Sheet3!A11",
+      "Sheet3!A12": "Sheet3!A12",
+      "Sheet3!B12": "Sheet3!B12",
+      "Sheet3!C12": "Sheet3!C12",
+      "Sheet4!A11": "Sheet4!A11",
+      "Sheet4!A12": "Sheet4!A12",
+      "Sheet4!B12": "Sheet4!B12",
+      "Sheet4!C12": "Sheet4!C12",
+      "Sheet5!A11": "Sheet5!A11",
+      "Sheet5!A12": "Sheet5!A12",
+      "Sheet5!B12": "Sheet5!B12",
+      "Sheet5!C12": "Sheet5!C12"
+    },
+    "rules": [
+      {
+        "head": "test!D11",
+        "body": [
+          "Sheet2!A11",
+          "Sheet3!A11",
+          "Sheet4!A11",
+          "Sheet5!A11"
+        ]
+      },
+      {
+        "head": "test!D12",
+        "body": [
+          "Sheet2!A12",
+          "Sheet2!B12",
+          "Sheet2!C12",
+          "Sheet3!A12",
+          "Sheet3!B12",
+          "Sheet3!C12",
+          "Sheet4!A12",
+          "Sheet4!B12",
+          "Sheet4!C12",
+          "Sheet5!A12",
+          "Sheet5!B12",
+          "Sheet5!C12"
+        ]
+      }
+    ],
+    "targets": [
+      "test!D11",
+      "test!D12"
+    ],
+    "metadata": {
+      "title": "FormulaSheetRange.xlsx",
+      "input_sha256": "1943a81a9d439e3bb843b66fd2f9bcdcf37e31232c850ea31d47681b5d5efa12",
+      "origin": "Workbook formulas parsed automatically; workbook values were not recalculated.",
+      "labels": {
+        "test!A1": "test!A1",
+        "test!A2": "test!A2",
+        "test!B2": "test!B2",
+        "test!A3": "test!A3",
+        "test!B3": "test!B3",
+        "test!A4": "test!A4",
+        "test!B4": "test!B4",
+        "test!A10": "test!A10",
+        "test!B10": "test!B10",
+        "test!C10": "test!C10",
+        "test!D10": "test!D10",
+        "test!A11": "test!A11",
+        "test!B11": "test!B11",
+        "test!C11": "test!C11",
+        "test!D11": "test!D11",
+        "test!A12": "test!A12",
+        "test!B12": "test!B12",
+        "test!C12": "test!C12",
+        "test!D12": "test!D12",
+        "test!A14": "test!A14",
+        "Sheet2!A11": "Sheet2!A11",
+        "Sheet2!A12": "Sheet2!A12",
+        "Sheet2!B12": "Sheet2!B12",
+        "Sheet2!C12": "Sheet2!C12",
+        "Sheet3!A11": "Sheet3!A11",
+        "Sheet3!A12": "Sheet3!A12",
+        "Sheet3!B12": "Sheet3!B12",
+        "Sheet3!C12": "Sheet3!C12",
+        "Sheet4!A11": "Sheet4!A11",
+        "Sheet4!A12": "Sheet4!A12",
+        "Sheet4!B12": "Sheet4!B12",
+        "Sheet4!C12": "Sheet4!C12",
+        "Sheet5!A11": "Sheet5!A11",
+        "Sheet5!A12": "Sheet5!A12",
+        "Sheet5!B12": "Sheet5!B12",
+        "Sheet5!C12": "Sheet5!C12"
+      },
+      "formula_text": {
+        "test!D11": "=SUM(Sheet2:Sheet5!A11)",
+        "test!D12": "=SUM(Sheet2:Sheet5!A12:C12)"
+      },
+      "formula_count": 2,
+      "resolved_formula_count": 2,
+      "unresolved": [],
+      "same_origin_groups": [],
+      "assumptions": [
+        "All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.",
+        "Distinct root cells are not evidence of statistically independent sources.",
+        "External links, dynamic references, table references and cyclic paths are unresolved; no external file was fetched.",
+        "Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion."
+      ]
+    }
+  },
+  "engine": "R207 compiled circuit + bitset evaluation",
+  "circuit_nodes": [
+    [
+      "false",
+      null
+    ],
+    [
+      "true",
+      null
+    ],
+    [
+      "var",
+      "Sheet2!A11"
+    ],
+    [
+      "var",
+      "Sheet2!A12"
+    ],
+    [
+      "var",
+      "Sheet2!B12"
+    ],
+    [
+      "var",
+      "Sheet2!C12"
+    ],
+    [
+      "var",
+      "Sheet3!A11"
+    ],
+    [
+      "var",
+      "Sheet3!A12"
+    ],
+    [
+      "var",
+      "Sheet3!B12"
+    ],
+    [
+      "var",
+      "Sheet3!C12"
+    ],
+    [
+      "var",
+      "Sheet4!A11"
+    ],
+    [
+      "var",
+      "Sheet4!A12"
+    ],
+    [
+      "var",
+      "Sheet4!B12"
+    ],
+    [
+      "var",
+      "Sheet4!C12"
+    ],
+    [
+      "var",
+      "Sheet5!A11"
+    ],
+    [
+      "var",
+      "Sheet5!A12"
+    ],
+    [
+      "var",
+      "Sheet5!B12"
+    ],
+    [
+      "var",
+      "Sheet5!C12"
+    ],
+    [
+      "and",
+      [
+        2,
+        6,
+        10,
+        14
+      ]
+    ],
+    [
+      "and",
+      [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17
+      ]
+    ]
+  ],
+  "roots": {
+    "test!D11": 18,
+    "test!D12": 19
+  },
+  "source_impacts": {
+    "Sheet2!A11": [
+      "test!D11"
+    ],
+    "Sheet2!A12": [
+      "test!D12"
+    ],
+    "Sheet2!B12": [
+      "test!D12"
+    ],
+    "Sheet2!C12": [
+      "test!D12"
+    ],
+    "Sheet3!A11": [
+      "test!D11"
+    ],
+    "Sheet3!A12": [
+      "test!D12"
+    ],
+    "Sheet3!B12": [
+      "test!D12"
+    ],
+    "Sheet3!C12": [
+      "test!D12"
+    ],
+    "Sheet4!A11": [
+      "test!D11"
+    ],
+    "Sheet4!A12": [
+      "test!D12"
+    ],
+    "Sheet4!B12": [
+      "test!D12"
+    ],
+    "Sheet4!C12": [
+      "test!D12"
+    ],
+    "Sheet5!A11": [
+      "test!D11"
+    ],
+    "Sheet5!A12": [
+      "test!D12"
+    ],
+    "Sheet5!B12": [
+      "test!D12"
+    ],
+    "Sheet5!C12": [
+      "test!D12"
+    ]
+  },
+  "observed_cuts_up_to_two": {
+    "test!D11": [
+      [
+        "Sheet2!A11"
+      ],
+      [
+        "Sheet3!A11"
+      ],
+      [
+        "Sheet4!A11"
+      ],
+      [
+        "Sheet5!A11"
+      ]
+    ],
+    "test!D12": [
+      [
+        "Sheet2!A12"
+      ],
+      [
+        "Sheet2!B12"
+      ],
+      [
+        "Sheet2!C12"
+      ],
+      [
+        "Sheet3!A12"
+      ],
+      [
+        "Sheet3!B12"
+      ],
+      [
+        "Sheet3!C12"
+      ],
+      [
+        "Sheet4!A12"
+      ],
+      [
+        "Sheet4!B12"
+      ],
+      [
+        "Sheet4!C12"
+      ],
+      [
+        "Sheet5!A12"
+      ],
+      [
+        "Sheet5!B12"
+      ],
+      [
+        "Sheet5!C12"
+      ]
+    ]
+  },
+  "scenario_count": 138,
+  "cut_scope": "All single-source failures and at most 512 sampled source pairs. Pair lists are not exhaustive when the source count is large; larger cuts are not searched.",
+  "interpretation": "Potential static formula dependency; not a necessary value change or an audit conclusion.",
+  "mechanism_receipt": {
+    "id": "R207",
+    "source": "LAC_REPRO_R210/ACTIVE_RESEARCH/R207_MASLOV_SYMBOLIC_FAVORABLE_SETS/symbolic_favorable.py",
+    "sha256": "96c91044d3a77002b461b3f4609c2c0dfc00369bbee4a6f05e596bdf2b08ecaf",
+    "invoked_functions": [
+      "Rule",
+      "compile_circuit_acyclic"
+    ],
+    "extension": "R207Batch evaluates the compiled circuit over integer bitsets; it is a new adapter, not historical R207 code."
+  }
+}

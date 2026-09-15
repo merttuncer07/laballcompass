@@ -1,0 +1,43 @@
+{
+  "companies": [
+    {
+      "company": "HoldCo",
+      "ultimate_cash_exposure": 0.51,
+      "commanded_voting_power": 0.51,
+      "controlled": true,
+      "control_round": 0,
+      "control_to_cash_wedge": 1.9607843137254901
+    },
+    {
+      "company": "MidCo",
+      "ultimate_cash_exposure": 0.2601,
+      "commanded_voting_power": 0.51,
+      "controlled": true,
+      "control_round": 1,
+      "control_to_cash_wedge": 3.8446751249519417
+    },
+    {
+      "company": "OperatingCo",
+      "ultimate_cash_exposure": 0.132651,
+      "commanded_voting_power": 0.51,
+      "controlled": true,
+      "control_round": 2,
+      "control_to_cash_wedge": 7.538578676376357
+    },
+    {
+      "company": "DualClassTech",
+      "ultimate_cash_exposure": 0.1,
+      "commanded_voting_power": 0.6,
+      "controlled": true,
+      "control_round": 0,
+      "control_to_cash_wedge": 10.0
+    }
+  ],
+  "controlled_asset_value": 2100.0,
+  "cash_at_risk_value": 331.681,
+  "controlled_asset_to_cash_at_risk": 6.3313846738281665,
+  "cash_majority_baseline_would_control": [
+    "HoldCo"
+  ],
+  "cross_ownership_components": []
+}

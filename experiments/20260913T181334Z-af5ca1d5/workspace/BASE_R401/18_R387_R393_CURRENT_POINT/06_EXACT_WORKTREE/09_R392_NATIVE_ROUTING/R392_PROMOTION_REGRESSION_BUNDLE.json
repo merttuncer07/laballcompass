@@ -1,0 +1,58 @@
+{
+  "checks": {
+    "candidate_closure": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "core_split_fresh": {
+      "failed": [],
+      "parts": [
+        {
+          "name": "A",
+          "status": 0,
+          "tests": 80
+        },
+        {
+          "name": "B",
+          "status": 0,
+          "tests": 62
+        }
+      ],
+      "release": "R392",
+      "run_count": 16,
+      "status": "PASS",
+      "tests_counted": 142
+    },
+    "foundry_inherited": {
+      "byte_identical": true,
+      "matched_files": 1305,
+      "test_files_failed": 0,
+      "test_files_passed": 214,
+      "tests_counted": 806
+    },
+    "v2_direct": {
+      "coverage": {
+        "fresh_product_id": "V2P053",
+        "fresh_r392_suites": 1,
+        "fresh_tests": 12,
+        "inherited_r391_byte_identical_suites": 51
+      },
+      "failed": 0,
+      "fresh_receipt": "09_R392_NATIVE_ROUTING/R392_V2P053_CORE_DIRECT_TEST.log",
+      "inheritance_proof": "09_R392_NATIVE_ROUTING/R392_R391_CANONICAL_PRODUCT_BYTE_IDENTITY.json",
+      "inherited_receipt": "08_R391_NATIVE_ROUTING/R391_ALL_V2_DIRECT_DISCOVERY_REGRESSION.json",
+      "passed": 52,
+      "release": "R392",
+      "rule": "R391 direct results inherited only after byte-identical proof; V2P053 freshly executed.",
+      "status": "PASS",
+      "test_files": 52,
+      "tests_counted": 447
+    }
+  },
+  "product_byte_identity": {
+    "byte_identical": true,
+    "matched_files": 412
+  },
+  "release": "R392",
+  "status": "PASS"
+}

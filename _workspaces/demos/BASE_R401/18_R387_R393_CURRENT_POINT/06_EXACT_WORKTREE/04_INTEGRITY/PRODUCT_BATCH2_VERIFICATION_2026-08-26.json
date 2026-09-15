@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "baseline": "R12 product-generation continuation",
+  "product_generation_continuation": true,
+  "base_registry_records": 310,
+  "completed_v2_products": 13,
+  "total_addressable_artifacts": 323,
+  "focused_core_tests": {
+    "passed": 86,
+    "total": 86
+  },
+  "v2_product_contract": {
+    "passed_events": 144,
+    "total_events": 144,
+    "completed_suites": 13,
+    "note": "canonical fixed-pilot telemetry; every discovered executable suite case completed and exact-matched"
+  },
+  "telemetry": {
+    "calibrated_completed_suites": 13,
+    "canonical_ledger": "search_data/EXPERIMENT_TELEMETRY.jsonl",
+    "completed_suites": 13,
+    "events": 144,
+    "exact_current_suite_matches": 144,
+    "unmatched_events": 0
+  },
+  "interaction_map": {
+    "edges": 1057,
+    "fingerprint": "561cedfdbcccc86a96b4efbf80e7e31d3f85b7262bf005694c8834081e899be5",
+    "node_counts": {
+      "CAPABILITY": 310,
+      "PRIMITIVE": 4000
+    },
+    "nodes": 4310,
+    "path": "generated_search/INTERACTION_MAP_R12.json",
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 13,
+      "INFERRED_CANDIDATE": 987,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 4
+    }
+  },
+  "campaign_memory": {
+    "events": 17,
+    "evidence_levels": {
+      "INTERFACE_ADJUDICATION": 4,
+      "MECHANICS": 13
+    },
+    "failure_codes": {
+      "EXPLICIT_INTERFACE_REJECTION": 4
+    },
+    "fingerprint": "53de697a4614e45824b346c6ba1172a66cca271351d37d0a9341ec2effef1fa6",
+    "learning_eligible_events": 0,
+    "model_version": "LAB_CAMPAIGN_MEMORY_R12_V1",
+    "outcomes": {
+      "EXECUTABLE_CONTRACT_PASS": 13,
+      "REJECTED_CURRENT_INTERFACE": 4
+    },
+    "policy": "Mechanics/bootstrap events remain mechanics; only explicitly eligible non-protected empirical outcomes may train future relevance."
+  },
+  "new_products": {
+    "V2P011_BIVCP": {
+      "model_version": "V2P011_BIVCP_V1",
+      "mechanism_removing_comparator": "variance-aware capacity commitment without boundary-information acquisition",
+      "result": {
+        "baseline_action": "reserve",
+        "baseline_loss": 2.5,
+        "channel": "probe",
+        "expected_post_measurement_loss": 1.6000000000000003,
+        "information_value": 0.8999999999999997,
+        "channel_cost": 0.4,
+        "acquired": true,
+        "expected_total_loss": 2.0000000000000004,
+        "status": "BOUNDARY_INFORMATION_ACQUIRED_BEFORE_CAPACITY_COMMITMENT"
+      },
+      "expected_loss_reduction": 0.49999999999999956,
+      "evidence_boundary": "deterministic two-state decision-information benchmark only"
+    },
+    "V2P012_SARCP": {
+      "model_version": "V2P012_SARCP_V1",
+      "mechanism_removing_comparator": "variance-aware capacity reserve that ignores cohort-support erosion",
+      "result": {
+        "ess_fraction": 0.64,
+        "nominal_sigma": 10.0,
+        "effective_sigma": 12.5,
+        "nominal_reserve": 116.45,
+        "support_adjusted_reserve": 120.5625,
+        "support_fragile": true,
+        "status": "SUPPORT_FRAGILITY_INFLATES_CAPACITY_UNCERTAINTY"
+      },
+      "realized_demand": 122.0,
+      "nominal_shortfall": 5.549999999999997,
+      "support_adjusted_shortfall": 1.4375,
+      "evidence_boundary": "deterministic support-to-uncertainty routing benchmark only"
+    },
+    "V2P013_CADRE": {
+      "model_version": "V2P013_CADRE_V1",
+      "mechanism_removing_comparator": "DRE executed on compressed states without P091-style compression tipping certificate",
+      "result": {
+        "compressed_choice": "A",
+        "compressed_score_margin": 0.020000000000000018,
+        "compression_decision_bound": 0.1,
+        "compression_certified": false,
+        "final_choice": "B",
+        "used_full_resolution": true,
+        "status": "COMPRESSION_TIPPING_TRIGGERED_FULL_RESOLUTION_DRE"
+      },
+      "blind_choice": "A",
+      "guarded_choice": "B",
+      "evidence_boundary": "deterministic compressed-vs-full Gaussian-arm mechanism benchmark only"
+    }
+  },
+  "nonclaims": [
+    "No empirical campaign outcome is yet learning-eligible.",
+    "Bootstrap telemetry is executable-mechanics calibration, not scientific validation.",
+    "Foundry source tree was not modified in this batch; prior Foundry regression baseline remains the source baseline."
+  ]
+}

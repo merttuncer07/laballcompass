@@ -1,0 +1,13 @@
+{
+  "name": "action_a_vs_action_b",
+  "mode": "action_branches",
+  "system_a": [[-1, 0], [0, -2]],
+  "output_a": [1, 0],
+  "system_b": [[-1, 20], [0, -2]],
+  "output_b": [1, 0],
+  "uncertainty_map": [[1, 0], [0, 1]],
+  "uncertainty_radius": 0.1,
+  "horizon": 4.0,
+  "grid_points": 4001,
+  "nominal_gap": 0.2
+}

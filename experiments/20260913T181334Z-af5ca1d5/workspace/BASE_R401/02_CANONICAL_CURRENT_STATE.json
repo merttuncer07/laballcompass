@@ -1,0 +1,77 @@
+{
+  "architecture_policy": "R12 historical scientific base + explicit product-authority promotions through R397 + R398 candidate overlay frozen before promotion; exact-byte source boundary separately tracked",
+  "archive_revision": "FINAL_RETIREMENT_R398_CANDIDATE",
+  "date": "2026-08-30",
+  "canonical_lab_revision": "R12_HISTORICAL_SCIENTIFIC_BASE",
+  "logical_current_product_authority_release": "R397",
+  "byte_complete_exact_worktree_authority_release": "R392",
+  "authority_source_fidelity_warning": true,
+  "registry_families": 455,
+  "registry455_unchanged": true,
+  "historical_base_products_executable": 38,
+  "historical_base_quality_distinct_families": 28,
+  "logical_products_executable": 56,
+  "logical_quality_distinct_families": 43,
+  "r398_candidate_products_executable_if_promoted": 57,
+  "r398_candidate_quality_distinct_families_if_promoted": 44,
+  "canonical_capabilities": 310,
+  "lcb_kernels": 96,
+  "foundry_parent_capabilities": 69,
+  "retro50_parent_capabilities": 50,
+  "nonretro_parent_capabilities": 19,
+  "foundry_executable_compositions": 145,
+  "logical_operational_entity_records": 366,
+  "persistent_candidate_universe_rows": 16594,
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "learning_eligible_empirical_campaign_events": 0,
+  "logical_r397_control_plane": {
+    "completed_composition_edges": 56,
+    "inferred_candidate_edges": 16533,
+    "parent_of_edges": 53,
+    "rejected_current_interface_edges": 5,
+    "total_edges": 16647,
+    "telemetry_events": 502,
+    "telemetry_exact_matches": 502,
+    "calibrated_suites": 56,
+    "unmatched_events": 0
+  },
+  "r398_candidate_observed_control_plane": {
+    "status": "CANDIDATE_OVERLAY_NOT_PROMOTED",
+    "completed_composition_edges": 57,
+    "inferred_candidate_edges": 16532,
+    "parent_of_edges": 53,
+    "rejected_current_interface_edges": 5,
+    "total_edges": 16647,
+    "telemetry_events": 516,
+    "telemetry_exact_matches": 516,
+    "calibrated_suites": 57,
+    "unmatched_events": 0,
+    "candidate_closure": "31/31 PASS",
+    "fresh_post_R393_direct_tests": "69/69 PASS",
+    "promotion_regression_state_sensitive_receipts": "PARTIAL: first reported batch 34/34 PASS; remaining batches not terminally receipted before retirement",
+    "promotion_status": "NOT_PROMOTED"
+  },
+  "r398_frontier_before_v2p058_admission": {
+    "starting_fresh_after_r397": 15537,
+    "mechanism_clusters": 653,
+    "wave1_after_12_dispositions": 15525,
+    "wave2_after_12_dispositions": 15513,
+    "wave3_reclustered_clusters": 632,
+    "v2p058_emerged_in_wave4": true
+  },
+  "source_fidelity": {
+    "exact_byte_complete_through": "R392 exact worktree embedded by R393 archive-of-record",
+    "receipt_supported_but_ephemeral_source_bytes_missing": [
+      "R394/V2P054",
+      "R395/V2P055",
+      "R396/V2P056",
+      "R397/V2P057",
+      "R398/V2P058 candidate"
+    ],
+    "cause": "container/runtime remount after the work erased the unsurfaced ephemeral worktrees; exact R393 archive remained mounted",
+    "policy": "do not treat recovered reference implementations as byte-identical canonical source; replay/reconstruct before any future exact-byte authority claim"
+  },
+  "retirement_instruction": "This is the final handoff from this instance. Do not infer a later checkpoint. Resume only from the explicit authority/source-fidelity boundaries recorded here."
+}

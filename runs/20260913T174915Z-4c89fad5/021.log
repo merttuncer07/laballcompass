@@ -1,0 +1,12 @@
+test_cli_writes_artifacts (test_trigger_designer.TriggerPolicyDesignerTests.test_cli_writes_artifacts) ... Wrote /var/folders/87/7zcwj9x95fq3g0bv00f1t_gh0000gn/T/tmp7ptj63au/policy.json and /var/folders/87/7zcwj9x95fq3g0bv00f1t_gh0000gn/T/tmp7ptj63au/policy.md; selected=temperature_c, evaluation_cost_per_row=0.200
+ok
+test_high_direction_finds_separating_threshold (test_trigger_designer.TriggerPolicyDesignerTests.test_high_direction_finds_separating_threshold) ... ok
+test_low_direction_is_supported (test_trigger_designer.TriggerPolicyDesignerTests.test_low_direction_is_supported) ... ok
+test_selection_uses_calibration_not_evaluation (test_trigger_designer.TriggerPolicyDesignerTests.test_selection_uses_calibration_not_evaluation) ... ok
+test_small_partitions_are_rejected (test_trigger_designer.TriggerPolicyDesignerTests.test_small_partitions_are_rejected) ... ok
+test_verification_cost_can_prefer_fewer_triggers (test_trigger_designer.TriggerPolicyDesignerTests.test_verification_cost_can_prefer_fewer_triggers) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+OK

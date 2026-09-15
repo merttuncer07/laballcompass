@@ -1,0 +1,81 @@
+{
+  "original_order": 6,
+  "effective_io_order": 6,
+  "selected_order": 2,
+  "error_budget": 0.02,
+  "hankel_singular_values": [
+    7.213221644822892,
+    0.2892778994049046,
+    0.007838064431855729,
+    7.362468857852995e-05,
+    2.8124349289890436e-07,
+    4.983857432861338e-10
+  ],
+  "options": [
+    {
+      "order": 1,
+      "hankel_error_upper_bound": 0.594379740534435,
+      "retained_hankel_share": 0.9604296156515398
+    },
+    {
+      "order": 2,
+      "hankel_error_upper_bound": 0.015823941724625805,
+      "retained_hankel_share": 0.998946532976733
+    },
+    {
+      "order": 3,
+      "hankel_error_upper_bound": 0.0001478128609143443,
+      "retained_hankel_share": 0.9999901594699161
+    },
+    {
+      "order": 4,
+      "hankel_error_upper_bound": 5.63483757284381e-07,
+      "retained_hankel_share": 0.9999999624864926
+    },
+    {
+      "order": 5,
+      "hankel_error_upper_bound": 9.967714865722676e-10,
+      "retained_hankel_share": 0.9999999999336407
+    },
+    {
+      "order": 6,
+      "hankel_error_upper_bound": 0.0,
+      "retained_hankel_share": 1.0
+    }
+  ],
+  "theoretical_error_upper_bound": 0.015823941724625805,
+  "impulse_maximum_absolute_error": 0.0030597165798420534,
+  "impulse_l2_error": 0.006720523249535965,
+  "original_spectral_radius": 0.92,
+  "reduced_spectral_radius": 0.9189947655885282,
+  "reduced_a": [
+    [
+      0.9013871002482925,
+      0.057734407288981965
+    ],
+    [
+      0.05773440728898138,
+      0.729687340634631
+    ]
+  ],
+  "reduced_b": [
+    [
+      -1.162550425896902
+    ],
+    [
+      0.3333733898400477
+    ]
+  ],
+  "reduced_c": [
+    [
+      -1.1625504258969024,
+      0.3333733898400459
+    ]
+  ],
+  "reduced_d": [
+    [
+      0.0
+    ]
+  ],
+  "status": "BUDGET_SATISFIED"
+}

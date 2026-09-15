@@ -1,0 +1,1279 @@
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py
+@@ -3,9 +3,72 @@
+ from __future__ import annotations
+ 
+ from dataclasses import dataclass
++import math
+ 
+ import numpy as np
+-from numpy.polynomial.hermite import hermgauss
++
++
++def affine_information_value(intercepts, slopes) -> float:
++    """E[max_i(a_i+b_i Z)]-max_i(a_i), Z~N(0,1), via its upper envelope.
++
++    Implements the known Gaussian knowledge-gradient identity, not a new
++    acquisition rule. Reference: Frazier, Powell & Dayanik (2009), and their
++    INFORMSJoC/1080.0314 ckg/LogEmaxAffine.m and AffineBreakpoints.m.
++    No fixed-node quadrature: breakpoints explicitly capture decision changes.
++    """
++    a, b = np.asarray(intercepts, dtype=float), np.asarray(slopes, dtype=float)
++    if a.ndim != 1 or not a.size or b.shape != a.shape or not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
++        raise ValueError('finite, nonempty, matching affine utility vectors required')
++    best = {}
++    for ai, bi in zip(a, b):
++        best[float(bi)] = max(best.get(float(bi), -math.inf), float(ai))
++    hull, starts = [], []
++    for bi, ai in sorted(best.items()):
++        crossing = -math.inf
++        while hull:
++            bj, aj = hull[-1]
++            crossing = (aj-ai)/(bi-bj)
++            if len(hull) == 1 or crossing > starts[-1]: break
++            hull.pop(); starts.pop()
++        hull.append((bi, ai)); starts.append(crossing)
++    terms = []
++    for i in range(1, len(hull)):
++        x = abs(starts[i])
++        if not math.isfinite(x): continue
++        density = math.exp(-.5*x*x)/math.sqrt(2*math.pi)
++        if x <= 10:
++            tail_value = density - x*.5*math.erfc(x/math.sqrt(2))
++        else:
++            # Asymptotic normal-loss series avoids subtracting almost equal
++            # tail terms. Stop at convergence or the least term.
++            inv = 1/(x*x); term = total = inv
++            for k in range(1, 100):
++                following = term * (-(2*k+1)*inv)
++                if abs(following) >= abs(term): break
++                total += following
++                if abs(following) < abs(total)*1e-16: break
++                term = following
++            tail_value = density*total
++        terms.append((hull[i][0]-hull[i-1][0])*max(0., tail_value))
++    value = math.fsum(terms)
++    if not math.isfinite(value): raise ValueError('utility scale overflows floating-point information value')
++    return value
++
++
++def _psd_factor(matrix, label):
++    """Square-root factor without adding fictitious independent noise."""
++    matrix = np.asarray(matrix, dtype=float)
++    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1] or not np.all(np.isfinite(matrix)):
++        raise ValueError(label+' must be a finite square matrix')
++    scale = float(np.max(np.abs(matrix), initial=0.))
++    if scale == 0: return np.zeros_like(matrix)
++    normalized = matrix/scale
++    if not np.allclose(normalized, normalized.T, rtol=0, atol=1e-12):
++        raise ValueError(label+' must be symmetric')
++    values, vectors = np.linalg.eigh((normalized+normalized.T)*.5)
++    if values.min(initial=0.) < -1e-12:
++        raise ValueError(label+' must be positive semidefinite')
++    return vectors*np.sqrt(np.maximum(values, 0.)*scale)
+ 
+ 
+ @dataclass(frozen=True)
+@@ -32,7 +95,14 @@
+ 
+ 
+ class AdaptiveInformationController:
+-    """Select the available Gaussian channel with maximum downstream decision value."""
++    """One-step Gaussian information selection with affine action utilities.
++
++    Default: each update is a fresh independent noise draw. To represent a
++    finite set of potentially overlapping observations, supply the named joint
++    channel noise covariance. In that mode a channel denotes one observation,
++    so repeating it cannot add information. Noise is initially independent of
++    the latent state. Neither mode infers dependence from matching numbers.
++    """
+ 
+     def __init__(
+         self,
+@@ -42,6 +112,9 @@
+         action_intercepts: np.ndarray,
+         channels: list[InformationChannel],
+         quadrature_points: int = 31,
++        *,
++        channel_noise_covariance: np.ndarray | None = None,
++        covariance_channel_names: list[str] | None = None,
+     ) -> None:
+         self.mean = np.asarray(belief_mean, dtype=float)
+         self.covariance = np.asarray(belief_covariance, dtype=float)
+@@ -63,10 +136,51 @@
+             raise ValueError("channel and state dimensions differ")
+         if not isinstance(quadrature_points, int) or quadrature_points < 2:
+             raise ValueError("quadrature_points must be an integer at least two")
+-        self.nodes, self.weights = hermgauss(quadrature_points)
+-        self.weights = self.weights / np.sqrt(np.pi)
++        # Retained for call compatibility; exact affine integration has no grid.
+         if self.action_slopes.shape[1] != self.mean.size:
+             raise ValueError("action and state dimensions differ")
++        self.information_mode = 'fresh_independent_measurements'
++        self._joint_factor = None
++        if channel_noise_covariance is None:
++            if covariance_channel_names is not None:
++                raise ValueError('covariance_channel_names requires channel_noise_covariance')
++        else:
++            m = len(self.channels)
++            if not m or m+d > 1000:
++                raise ValueError('finite joint observation model requires channels and at most 1000 combined dimensions')
++            if list(covariance_channel_names or []) != [c.name for c in self.channels]:
++                raise ValueError('covariance_channel_names must match offered channel order exactly')
++            noise = np.asarray(channel_noise_covariance, dtype=float)
++            if noise.shape != (m, m): raise ValueError('channel noise covariance dimensions differ')
++            noise_factor = _psd_factor(noise, 'channel noise covariance')
++            variances = np.array([c.noise_variance for c in self.channels])
++            if not np.allclose(np.diag(noise), variances, rtol=1e-10, atol=0):
++                raise ValueError('channel noise covariance diagonal must match channel noise_variance')
++            state_factor = _psd_factor(self.covariance, 'belief covariance')
++            h = np.vstack([c.measurement_vector for c in self.channels])
++            self._joint_factor = np.block([[state_factor, np.zeros((d, m))], [h@state_factor, noise_factor]])
++            self._joint_mean = np.concatenate([self.mean, h@self.mean])
++            self._initial_joint_variances = np.sum(self._joint_factor**2, axis=1)
++            self._channel_indices = {c.name: d+i for i, c in enumerate(self.channels)}
++            self.information_mode = 'finite_joint_observations'
++
++    def _predict(self, channel):
++        h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError('channel and state dimensions differ')
++        if self._joint_factor is None:
++            return float(h@self.mean), float(h@self.covariance@h+channel.noise_variance), self.covariance@h, None
++        index = self._channel_indices.get(channel.name)
++        if index is None: raise ValueError('channel not in finite joint observation model')
++        original = self.channels[index-self.mean.size]
++        if not np.array_equal(h, original.measurement_vector) or channel.noise_variance != original.noise_variance:
++            raise ValueError('channel definition differs from finite joint observation model')
++        row = self._joint_factor[index]
++        variance = float(row@row)
++        tolerance = (64*np.finfo(float).eps)**2*self._initial_joint_variances[index]
++        if variance <= tolerance: variance = 0.
++        cross = self._joint_factor[:self.mean.size]@row
++        return float(self._joint_mean[index]), variance, cross, index
+ 
+     def expected_action_utilities(self, mean: np.ndarray | None = None) -> np.ndarray:
+         location = self.mean if mean is None else np.asarray(mean, dtype=float)
+@@ -76,22 +190,11 @@
+         return int(np.argmax(self.expected_action_utilities()))
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+-        h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        _, predictive_variance, cross, _ = self._predict(channel)
+         if predictive_variance <= 0:
+             improvement = 0.0
+         else:
+-            kalman_gain = self.covariance @ h / predictive_variance
+-            current_value = float(np.max(self.expected_action_utilities()))
+-            posterior_value = 0.0
+-            # Predictive residual is Normal(0, predictive_variance).
+-            for node, weight in zip(self.nodes, self.weights):
+-                residual = np.sqrt(2.0 * predictive_variance) * node
+-                posterior_mean = self.mean + kalman_gain * residual
+-                posterior_value += float(weight) * float(np.max(self.expected_action_utilities(posterior_mean)))
+-            improvement = max(0.0, posterior_value - current_value)
++            improvement = affine_information_value(self.expected_action_utilities(), self.action_slopes@cross/np.sqrt(predictive_variance))
+         return ChannelValue(channel.name, improvement, channel.cost, improvement - channel.cost)
+ 
+     def rank_channels(self) -> list[ChannelValue]:
+@@ -106,17 +209,30 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        predicted_mean, predictive_variance, cross, index = self._predict(channel)
+         if not np.isfinite(observation):
+             raise ValueError("observation must be finite")
+         if predictive_variance <= 0:
+-            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++            tolerance = max(1e-12, 64*np.finfo(float).eps*max(abs(observation), abs(predicted_mean))) if index is not None else 1e-12
++            if not np.isclose(observation, predicted_mean, rtol=0, atol=tolerance):
+                 raise ValueError("observation contradicts a deterministic zero-variance belief")
+             return
+-        gain = self.covariance @ h / predictive_variance
+-        residual = float(observation - h @ self.mean)
++        residual = float(observation - predicted_mean)
++        if index is not None:
++            # Condition the augmented [state, finite observations] Gaussian by
++            # projecting its square root. Avoid a covariance subtraction that
++            # could turn a perfect duplicate into spurious residual variance.
++            direction = self._joint_factor[index]/np.sqrt(predictive_variance)
++            projection = self._joint_factor@direction
++            self._joint_mean += projection*(residual/np.sqrt(predictive_variance))
++            self._joint_factor -= np.outer(projection, direction)
++            self._joint_factor[index] = 0.
++            self._joint_mean[index] = observation
++            self.mean = self._joint_mean[:self.mean.size].copy()
++            state_factor = self._joint_factor[:self.mean.size]
++            self.covariance = state_factor@state_factor.T
++            return
++        gain = cross / predictive_variance
+         self.mean = self.mean + gain * residual
+         identity = np.eye(self.mean.size)
+         # Joseph form keeps the covariance symmetric and positive under rounding.
+@@ -127,3 +243,49 @@
+         )
+         self.covariance = 0.5 * (self.covariance + self.covariance.T)
+ 
++
++def run_information_sequence(config):
++    """Rank information before/after supplied observations; never invent data."""
++    from dataclasses import asdict
++    channels = [InformationChannel(c['name'], np.asarray(c['measurement_vector'], dtype=float),
++                                   c['noise_variance'], c.get('cost', 0.)) for c in config['channels']]
++    controller = AdaptiveInformationController(config['belief_mean'], config['belief_covariance'],
++        config['action_slopes'], config['action_intercepts'], channels,
++        channel_noise_covariance=config.get('channel_noise_covariance'),
++        covariance_channel_names=config.get('covariance_channel_names'))
++    def state():
++        ranked = controller.rank_channels()
++        return {'mean': controller.mean.tolist(), 'covariance': controller.covariance.tolist(),
++                'action_index': controller.action(), 'ranked_channels': [asdict(v) for v in ranked],
++                'chosen_channel': ranked[0].name if ranked and ranked[0].net_value > 0 else None}
++    result = {'information_mode': controller.information_mode, 'initial': state(), 'steps': [],
++              'value_method': 'Gaussian affine upper-envelope integration',
++              'scope': 'One-step expected value under supplied Gaussian belief, affine utilities and costs on the same utility scale. Finite joint mode models one observation per channel, with supplied noise covariance initially independent of the state. Default mode treats each update as a fresh independent noise draw. No inferred covariance, audit probability, or globally optimal multi-step policy.'}
++    lookup = {c.name: c for c in channels}
++    for event in config.get('observations', []):
++        if event['channel'] not in lookup: raise ValueError('unknown observation channel')
++        controller.update(lookup[event['channel']], event['value'])
++        result['steps'].append({'observation': dict(event), **state()})
++    return result
++
++
++if __name__ == '__main__':
++    import argparse
++    import hashlib
++    import json
++    from pathlib import Path
++    parser = argparse.ArgumentParser(description='AICC: rank Gaussian measurements and condition on supplied observations')
++    parser.add_argument('input'); parser.add_argument('--output')
++    args = parser.parse_args()
++    try:
++        source = Path(args.input)
++        raw = source.read_bytes()
++        result = run_information_sequence(json.loads(raw))
++        result['input_sha256'] = hashlib.sha256(raw).hexdigest()
++        result['engine_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++        if args.output:
++            with Path(args.output).open('x') as handle: json.dump(result, handle, indent=2, allow_nan=False)
++            print(args.output)
++        else: print(json.dumps(result, indent=2, allow_nan=False))
++    except (ValueError, TypeError, KeyError, OSError) as error:
++        parser.error(str(error))
+--- /dev/null
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/test_information_values.py
+@@ -0,0 +1,153 @@
++import unittest
++import math
++import numpy as np
++from scipy.integrate import quad
++from aicc import AdaptiveInformationController, InformationChannel, affine_information_value
++
++
++def controller(channels, noise=None, **kwargs):
++    return AdaptiveInformationController(np.zeros(1), np.eye(1), np.array([[0.], [1.]]),
++        np.zeros(2), channels, channel_noise_covariance=noise,
++        covariance_channel_names=[c.name for c in channels] if noise is not None else None, **kwargs)
++
++
++class ExactValueTests(unittest.TestCase):
++    def test_cost_boundary_rejected_by_old_31_node_quadrature(self):
++        c = InformationChannel('measure', np.ones(1), 0., .393)
++        ctl = controller([c])
++        self.assertAlmostEqual(ctl.channel_value(c).expected_decision_improvement, 1/math.sqrt(2*math.pi), places=14)
++        self.assertEqual(ctl.choose_channel().name, 'measure')
++
++    def test_quadrature_parameter_no_longer_changes_decision(self):
++        c = InformationChannel('measure', np.ones(1), 0., .393)
++        values = [controller([c], quadrature_points=n).channel_value(c).net_value for n in (2, 3, 31, 100)]
++        self.assertEqual(len(set(values)), 1)
++
++    def test_duplicate_dominated_and_common_slope_invariance(self):
++        expected = 1/math.sqrt(2*math.pi)
++        self.assertAlmostEqual(affine_information_value([0, 0, -4, 0], [0, 1, 1, 0]), expected, places=14)
++        self.assertAlmostEqual(affine_information_value([7, 7, 3, 7], [20, 21, 21, 20]), expected, places=14)
++        self.assertEqual(affine_information_value([1, 2, 3], [5, 5, 5]), 0.)
++
++    def test_random_actions_against_independent_piecewise_numerical_integration(self):
++        rng = np.random.default_rng(9184)
++        for _ in range(24):
++            a, b = rng.normal(size=(2, 7))
++            # All pair crossings, including dominated lines: independent of
++            # the production upper-envelope construction.
++            cuts = sorted({-12., 12.} | {(a[j]-a[i])/(b[i]-b[j]) for i in range(7) for j in range(i)
++                          if b[i] != b[j] and -12 < (a[j]-a[i])/(b[i]-b[j]) < 12})
++            baseline = max(a)
++            value = sum(quad(lambda z: (max(a+b*z)-baseline)*math.exp(-z*z/2)/math.sqrt(2*math.pi), lo, hi,
++                             epsabs=1e-12)[0] for lo, hi in zip(cuts, cuts[1:]))
++            self.assertAlmostEqual(affine_information_value(a, b), value, places=10)
++
++    def test_small_positive_tail_does_not_cancel_to_zero(self):
++        for x in (8., 12., 25.):
++            reference = quad(lambda z: (z-x)*math.exp(-z*z/2)/math.sqrt(2*math.pi), x, x+8,
++                             epsabs=1e-155, epsrel=1e-10)[0]
++            actual = affine_information_value([0., -x], [0., 1.])
++            self.assertGreater(actual, 0.)
++            self.assertAlmostEqual(actual/reference, 1., places=9)
++
++
++class JointObservationTests(unittest.TestCase):
++    def channels(self, count=2):
++        return [InformationChannel(str(i), np.ones(1), 1.) for i in range(count)]
++
++    def test_perfect_alias_does_not_gain_information_or_shift_belief(self):
++        channels = self.channels(3)
++        ctl = controller(channels, np.array([[1, 1, 0], [1, 1, 0], [0, 0, 1.]]))
++        ctl.update(channels[0], 1.)
++        self.assertEqual(ctl.channel_value(channels[1]).expected_decision_improvement, 0.)
++        self.assertEqual(ctl.choose_channel().name, '2')
++        ctl.update(channels[1], 1.)
++        np.testing.assert_allclose(ctl.mean, [.5], atol=1e-14)
++        np.testing.assert_allclose(ctl.covariance, [[.5]], atol=1e-14)
++        ctl.update(channels[2], 1.)
++        np.testing.assert_allclose(ctl.covariance, [[1/3]], atol=1e-14)
++
++    def test_distinct_independent_equal_values_are_not_merged(self):
++        channels = self.channels()
++        ctl = controller(channels, np.eye(2))
++        for c in channels: ctl.update(c, 1.)
++        np.testing.assert_allclose(ctl.mean, [2/3], atol=1e-14)
++        np.testing.assert_allclose(ctl.covariance, [[1/3]], atol=1e-14)
++
++    def test_repeated_finite_observation_is_idempotent_but_default_is_fresh(self):
++        c = self.channels(1)[0]
++        for noise, expected in ((np.eye(1), .5), (None, 1/3)):
++            ctl = controller([c], noise)
++            ctl.update(c, 1.); ctl.update(c, 1.)
++            self.assertAlmostEqual(ctl.covariance[0, 0], expected, places=13)
++
++    def test_partial_noise_dependence_matches_batch_conditioning_in_any_order(self):
++        channels = self.channels()
++        r = np.array([[1, .8], [.8, 1.]])
++        cross = np.ones((1, 2)); predictive = np.ones((2, 2))+r
++        y = np.array([1., .6])
++        expected_mean = cross@np.linalg.solve(predictive, y)
++        expected_cov = np.eye(1)-cross@np.linalg.solve(predictive, cross.T)
++        for order in ((0, 1), (1, 0)):
++            ctl = controller(channels, r)
++            for i in order: ctl.update(channels[i], y[i])
++            np.testing.assert_allclose(ctl.mean, expected_mean, atol=1e-13)
++            np.testing.assert_allclose(ctl.covariance, expected_cov, atol=1e-13)
++
++    def test_remaining_channel_value_uses_conditional_noise_and_predictive_mean(self):
++        channels = self.channels()
++        ctl = controller(channels, np.array([[1, .8], [.8, 1.]]))
++        ctl.update(channels[0], 1.)
++        mu, variance, cross, _ = ctl._predict(channels[1])
++        self.assertAlmostEqual(mu, .9, places=13)
++        self.assertAlmostEqual(variance, .38, places=13)
++        self.assertAlmostEqual(cross[0], .1, places=13)
++        scale = .1/math.sqrt(.38)
++        reference = quad(lambda z: (max(0., .5+scale*z)-.5)*math.exp(-z*z/2)/math.sqrt(2*math.pi),
++                         -12, 12, points=[-.5/scale], epsabs=1e-12)[0]
++        self.assertAlmostEqual(ctl.channel_value(channels[1]).expected_decision_improvement, reference, places=12)
++
++    def test_opposite_common_error_cancels_and_identifies_state(self):
++        channels = self.channels()
++        ctl = controller(channels, np.array([[1, -1], [-1, 1.]]))
++        ctl.update(channels[0], .1); ctl.update(channels[1], .7)
++        np.testing.assert_allclose(ctl.mean, [.4], atol=1e-14)
++        self.assertLess(ctl.covariance[0, 0], 1e-27)
++
++    def test_conflicting_repeat_rejected_without_state_mutation(self):
++        channels = self.channels()
++        ctl = controller(channels, np.ones((2, 2)))
++        ctl.update(channels[0], 1.)
++        before = ctl.mean.copy(), ctl.covariance.copy()
++        with self.assertRaisesRegex(ValueError, 'contradicts'): ctl.update(channels[1], 2.)
++        np.testing.assert_array_equal(ctl.mean, before[0]); np.testing.assert_array_equal(ctl.covariance, before[1])
++
++    def test_joint_model_validation(self):
++        channels = self.channels()
++        for noise in (np.array([[1, 2], [2, 1]]), np.eye(2)*2, np.array([[1, .2], [.8, 1]])):
++            with self.assertRaises(ValueError): controller(channels, noise)
++        with self.assertRaisesRegex(ValueError, 'order'):
++            AdaptiveInformationController([0], [[1]], [[0], [1]], [0, 0], channels,
++                                          channel_noise_covariance=np.eye(2), covariance_channel_names=['1', '0'])
++        ctl = controller(channels, np.eye(2))
++        with self.assertRaisesRegex(ValueError, 'definition'):
++            ctl.channel_value(InformationChannel('0', np.array([2.]), 1.))
++
++    def test_multidimensional_joint_matches_direct_batch_reference(self):
++        rng = np.random.default_rng(3781)
++        p0 = rng.normal(size=(3, 3)); p = p0@p0.T
++        r0 = rng.normal(size=(4, 4)); r = r0@r0.T + .2*np.eye(4)
++        h = rng.normal(size=(4, 3)); mu = rng.normal(size=3); y = rng.normal(size=4)
++        channels = [InformationChannel(str(i), h[i], r[i, i]) for i in range(4)]
++        cross = p@h.T; pred = h@p@h.T+r
++        expected_mean = mu+cross@np.linalg.solve(pred, y-h@mu)
++        expected_cov = p-cross@np.linalg.solve(pred, cross.T)
++        for order in ((0, 1, 2, 3), (3, 1, 0, 2)):
++            ctl = AdaptiveInformationController(mu, p, [[0, 0, 0], [1, 0, 0]], [0, 0], channels,
++                    channel_noise_covariance=r, covariance_channel_names=[c.name for c in channels])
++            for i in order: ctl.update(channels[i], y[i])
++            np.testing.assert_allclose(ctl.mean, expected_mean, atol=1e-12)
++            np.testing.assert_allclose(ctl.covariance, expected_cov, atol=1e-12)
++
++
++if __name__ == '__main__': unittest.main()
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/README.md
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/README.md
+@@ -20,3 +20,11 @@
+ v0.1 assumes shared sender/receiver action value, Gaussian linear channels, and a finite offered
+ channel set. Next layers are strategic objective mismatch, endogenous/garbled signal design,
+ non-Gaussian beliefs, repeated-agent response, and disclosure constraints.
++
++## September 2026 repair
++
++Channel values now use analytic affine Gaussian upper-envelope integration instead of fixed-node quadrature. `quadrature_points` remains accepted for call compatibility and has no numerical effect. This is the known knowledge-gradient identity, not a new algorithm.
++
++Optional `channel_noise_covariance` with `covariance_channel_names` in exact offered-channel order models a finite joint set of observations. A channel is observed once; replay is idempotent and a deterministic contradiction is rejected. Correlated errors are initially independent of the latent state. The augmented Gaussian is conditioned using square-root projections; singular shared errors are retained without jitter. Without these parameters, every update remains a fresh independent measurement.
++
++Lab CLI: `.venv/bin/python lab.py select-information examples/information-selection/input.json`. See the lab's `examples/information-selection/README.md` and `research/aicc-knowledge-gradient/OBSERVATIONS.md` for exact semantics, numerical limits and upstream references. Current parent tests: 17; three consumers: 19. This verifies numerical behavior, not calibrated real-world utilities or acquisition outcomes.
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/test_qaig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/test_qaig.py
+@@ -18,3 +18,10 @@
+     n,p=prof(.08); r=gate_quasineutral_measurement(X,n,p,transport_kwargs=KW,belief_variance=.0004,channels=CH); assert r.transport_status=='QUASINEUTRAL_PACKET_ASSUMPTION_EXCEEDED'
+ def test_status_contract():
+     n,p=prof(.005); assert 'VALIDITY_BOUNDARY' in gate_quasineutral_measurement(X,n,p,transport_kwargs=KW,belief_variance=.000025,channels=CH).status
++
++def test_exact_information_value_changes_cost_boundary_choice():
++    n,p=prof(.05)
++    channels=[InformationChannel('boundary_check',np.array([1.]),0.,.01575)]
++    result=gate_quasineutral_measurement(X,n,p,transport_kwargs=KW,belief_variance=.0004,channels=channels)
++    assert result.chosen_channel=='boundary_check'
++    assert abs(result.ranked_channels[0]['expected_decision_improvement']-.02*np.sqrt(2/np.pi))<1e-12
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P144_DPAI/parents/aicc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P144_DPAI/parents/aicc.py
+@@ -3,9 +3,72 @@
+ from __future__ import annotations
+ 
+ from dataclasses import dataclass
++import math
+ 
+ import numpy as np
+-from numpy.polynomial.hermite import hermgauss
++
++
++def affine_information_value(intercepts, slopes) -> float:
++    """E[max_i(a_i+b_i Z)]-max_i(a_i), Z~N(0,1), via its upper envelope.
++
++    Implements the known Gaussian knowledge-gradient identity, not a new
++    acquisition rule. Reference: Frazier, Powell & Dayanik (2009), and their
++    INFORMSJoC/1080.0314 ckg/LogEmaxAffine.m and AffineBreakpoints.m.
++    No fixed-node quadrature: breakpoints explicitly capture decision changes.
++    """
++    a, b = np.asarray(intercepts, dtype=float), np.asarray(slopes, dtype=float)
++    if a.ndim != 1 or not a.size or b.shape != a.shape or not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
++        raise ValueError('finite, nonempty, matching affine utility vectors required')
++    best = {}
++    for ai, bi in zip(a, b):
++        best[float(bi)] = max(best.get(float(bi), -math.inf), float(ai))
++    hull, starts = [], []
++    for bi, ai in sorted(best.items()):
++        crossing = -math.inf
++        while hull:
++            bj, aj = hull[-1]
++            crossing = (aj-ai)/(bi-bj)
++            if len(hull) == 1 or crossing > starts[-1]: break
++            hull.pop(); starts.pop()
++        hull.append((bi, ai)); starts.append(crossing)
++    terms = []
++    for i in range(1, len(hull)):
++        x = abs(starts[i])
++        if not math.isfinite(x): continue
++        density = math.exp(-.5*x*x)/math.sqrt(2*math.pi)
++        if x <= 10:
++            tail_value = density - x*.5*math.erfc(x/math.sqrt(2))
++        else:
++            # Asymptotic normal-loss series avoids subtracting almost equal
++            # tail terms. Stop at convergence or the least term.
++            inv = 1/(x*x); term = total = inv
++            for k in range(1, 100):
++                following = term * (-(2*k+1)*inv)
++                if abs(following) >= abs(term): break
++                total += following
++                if abs(following) < abs(total)*1e-16: break
++                term = following
++            tail_value = density*total
++        terms.append((hull[i][0]-hull[i-1][0])*max(0., tail_value))
++    value = math.fsum(terms)
++    if not math.isfinite(value): raise ValueError('utility scale overflows floating-point information value')
++    return value
++
++
++def _psd_factor(matrix, label):
++    """Square-root factor without adding fictitious independent noise."""
++    matrix = np.asarray(matrix, dtype=float)
++    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1] or not np.all(np.isfinite(matrix)):
++        raise ValueError(label+' must be a finite square matrix')
++    scale = float(np.max(np.abs(matrix), initial=0.))
++    if scale == 0: return np.zeros_like(matrix)
++    normalized = matrix/scale
++    if not np.allclose(normalized, normalized.T, rtol=0, atol=1e-12):
++        raise ValueError(label+' must be symmetric')
++    values, vectors = np.linalg.eigh((normalized+normalized.T)*.5)
++    if values.min(initial=0.) < -1e-12:
++        raise ValueError(label+' must be positive semidefinite')
++    return vectors*np.sqrt(np.maximum(values, 0.)*scale)
+ 
+ 
+ @dataclass(frozen=True)
+@@ -32,7 +95,14 @@
+ 
+ 
+ class AdaptiveInformationController:
+-    """Select the available Gaussian channel with maximum downstream decision value."""
++    """One-step Gaussian information selection with affine action utilities.
++
++    Default: each update is a fresh independent noise draw. To represent a
++    finite set of potentially overlapping observations, supply the named joint
++    channel noise covariance. In that mode a channel denotes one observation,
++    so repeating it cannot add information. Noise is initially independent of
++    the latent state. Neither mode infers dependence from matching numbers.
++    """
+ 
+     def __init__(
+         self,
+@@ -42,6 +112,9 @@
+         action_intercepts: np.ndarray,
+         channels: list[InformationChannel],
+         quadrature_points: int = 31,
++        *,
++        channel_noise_covariance: np.ndarray | None = None,
++        covariance_channel_names: list[str] | None = None,
+     ) -> None:
+         self.mean = np.asarray(belief_mean, dtype=float)
+         self.covariance = np.asarray(belief_covariance, dtype=float)
+@@ -63,10 +136,51 @@
+             raise ValueError("channel and state dimensions differ")
+         if not isinstance(quadrature_points, int) or quadrature_points < 2:
+             raise ValueError("quadrature_points must be an integer at least two")
+-        self.nodes, self.weights = hermgauss(quadrature_points)
+-        self.weights = self.weights / np.sqrt(np.pi)
++        # Retained for call compatibility; exact affine integration has no grid.
+         if self.action_slopes.shape[1] != self.mean.size:
+             raise ValueError("action and state dimensions differ")
++        self.information_mode = 'fresh_independent_measurements'
++        self._joint_factor = None
++        if channel_noise_covariance is None:
++            if covariance_channel_names is not None:
++                raise ValueError('covariance_channel_names requires channel_noise_covariance')
++        else:
++            m = len(self.channels)
++            if not m or m+d > 1000:
++                raise ValueError('finite joint observation model requires channels and at most 1000 combined dimensions')
++            if list(covariance_channel_names or []) != [c.name for c in self.channels]:
++                raise ValueError('covariance_channel_names must match offered channel order exactly')
++            noise = np.asarray(channel_noise_covariance, dtype=float)
++            if noise.shape != (m, m): raise ValueError('channel noise covariance dimensions differ')
++            noise_factor = _psd_factor(noise, 'channel noise covariance')
++            variances = np.array([c.noise_variance for c in self.channels])
++            if not np.allclose(np.diag(noise), variances, rtol=1e-10, atol=0):
++                raise ValueError('channel noise covariance diagonal must match channel noise_variance')
++            state_factor = _psd_factor(self.covariance, 'belief covariance')
++            h = np.vstack([c.measurement_vector for c in self.channels])
++            self._joint_factor = np.block([[state_factor, np.zeros((d, m))], [h@state_factor, noise_factor]])
++            self._joint_mean = np.concatenate([self.mean, h@self.mean])
++            self._initial_joint_variances = np.sum(self._joint_factor**2, axis=1)
++            self._channel_indices = {c.name: d+i for i, c in enumerate(self.channels)}
++            self.information_mode = 'finite_joint_observations'
++
++    def _predict(self, channel):
++        h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError('channel and state dimensions differ')
++        if self._joint_factor is None:
++            return float(h@self.mean), float(h@self.covariance@h+channel.noise_variance), self.covariance@h, None
++        index = self._channel_indices.get(channel.name)
++        if index is None: raise ValueError('channel not in finite joint observation model')
++        original = self.channels[index-self.mean.size]
++        if not np.array_equal(h, original.measurement_vector) or channel.noise_variance != original.noise_variance:
++            raise ValueError('channel definition differs from finite joint observation model')
++        row = self._joint_factor[index]
++        variance = float(row@row)
++        tolerance = (64*np.finfo(float).eps)**2*self._initial_joint_variances[index]
++        if variance <= tolerance: variance = 0.
++        cross = self._joint_factor[:self.mean.size]@row
++        return float(self._joint_mean[index]), variance, cross, index
+ 
+     def expected_action_utilities(self, mean: np.ndarray | None = None) -> np.ndarray:
+         location = self.mean if mean is None else np.asarray(mean, dtype=float)
+@@ -76,22 +190,11 @@
+         return int(np.argmax(self.expected_action_utilities()))
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+-        h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        _, predictive_variance, cross, _ = self._predict(channel)
+         if predictive_variance <= 0:
+             improvement = 0.0
+         else:
+-            kalman_gain = self.covariance @ h / predictive_variance
+-            current_value = float(np.max(self.expected_action_utilities()))
+-            posterior_value = 0.0
+-            # Predictive residual is Normal(0, predictive_variance).
+-            for node, weight in zip(self.nodes, self.weights):
+-                residual = np.sqrt(2.0 * predictive_variance) * node
+-                posterior_mean = self.mean + kalman_gain * residual
+-                posterior_value += float(weight) * float(np.max(self.expected_action_utilities(posterior_mean)))
+-            improvement = max(0.0, posterior_value - current_value)
++            improvement = affine_information_value(self.expected_action_utilities(), self.action_slopes@cross/np.sqrt(predictive_variance))
+         return ChannelValue(channel.name, improvement, channel.cost, improvement - channel.cost)
+ 
+     def rank_channels(self) -> list[ChannelValue]:
+@@ -106,17 +209,30 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        predicted_mean, predictive_variance, cross, index = self._predict(channel)
+         if not np.isfinite(observation):
+             raise ValueError("observation must be finite")
+         if predictive_variance <= 0:
+-            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++            tolerance = max(1e-12, 64*np.finfo(float).eps*max(abs(observation), abs(predicted_mean))) if index is not None else 1e-12
++            if not np.isclose(observation, predicted_mean, rtol=0, atol=tolerance):
+                 raise ValueError("observation contradicts a deterministic zero-variance belief")
+             return
+-        gain = self.covariance @ h / predictive_variance
+-        residual = float(observation - h @ self.mean)
++        residual = float(observation - predicted_mean)
++        if index is not None:
++            # Condition the augmented [state, finite observations] Gaussian by
++            # projecting its square root. Avoid a covariance subtraction that
++            # could turn a perfect duplicate into spurious residual variance.
++            direction = self._joint_factor[index]/np.sqrt(predictive_variance)
++            projection = self._joint_factor@direction
++            self._joint_mean += projection*(residual/np.sqrt(predictive_variance))
++            self._joint_factor -= np.outer(projection, direction)
++            self._joint_factor[index] = 0.
++            self._joint_mean[index] = observation
++            self.mean = self._joint_mean[:self.mean.size].copy()
++            state_factor = self._joint_factor[:self.mean.size]
++            self.covariance = state_factor@state_factor.T
++            return
++        gain = cross / predictive_variance
+         self.mean = self.mean + gain * residual
+         identity = np.eye(self.mean.size)
+         # Joseph form keeps the covariance symmetric and positive under rounding.
+@@ -127,3 +243,49 @@
+         )
+         self.covariance = 0.5 * (self.covariance + self.covariance.T)
+ 
++
++def run_information_sequence(config):
++    """Rank information before/after supplied observations; never invent data."""
++    from dataclasses import asdict
++    channels = [InformationChannel(c['name'], np.asarray(c['measurement_vector'], dtype=float),
++                                   c['noise_variance'], c.get('cost', 0.)) for c in config['channels']]
++    controller = AdaptiveInformationController(config['belief_mean'], config['belief_covariance'],
++        config['action_slopes'], config['action_intercepts'], channels,
++        channel_noise_covariance=config.get('channel_noise_covariance'),
++        covariance_channel_names=config.get('covariance_channel_names'))
++    def state():
++        ranked = controller.rank_channels()
++        return {'mean': controller.mean.tolist(), 'covariance': controller.covariance.tolist(),
++                'action_index': controller.action(), 'ranked_channels': [asdict(v) for v in ranked],
++                'chosen_channel': ranked[0].name if ranked and ranked[0].net_value > 0 else None}
++    result = {'information_mode': controller.information_mode, 'initial': state(), 'steps': [],
++              'value_method': 'Gaussian affine upper-envelope integration',
++              'scope': 'One-step expected value under supplied Gaussian belief, affine utilities and costs on the same utility scale. Finite joint mode models one observation per channel, with supplied noise covariance initially independent of the state. Default mode treats each update as a fresh independent noise draw. No inferred covariance, audit probability, or globally optimal multi-step policy.'}
++    lookup = {c.name: c for c in channels}
++    for event in config.get('observations', []):
++        if event['channel'] not in lookup: raise ValueError('unknown observation channel')
++        controller.update(lookup[event['channel']], event['value'])
++        result['steps'].append({'observation': dict(event), **state()})
++    return result
++
++
++if __name__ == '__main__':
++    import argparse
++    import hashlib
++    import json
++    from pathlib import Path
++    parser = argparse.ArgumentParser(description='AICC: rank Gaussian measurements and condition on supplied observations')
++    parser.add_argument('input'); parser.add_argument('--output')
++    args = parser.parse_args()
++    try:
++        source = Path(args.input)
++        raw = source.read_bytes()
++        result = run_information_sequence(json.loads(raw))
++        result['input_sha256'] = hashlib.sha256(raw).hexdigest()
++        result['engine_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++        if args.output:
++            with Path(args.output).open('x') as handle: json.dump(result, handle, indent=2, allow_nan=False)
++            print(args.output)
++        else: print(json.dumps(result, indent=2, allow_nan=False))
++    except (ValueError, TypeError, KeyError, OSError) as error:
++        parser.error(str(error))
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA/parents/aicc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA/parents/aicc.py
+@@ -3,9 +3,72 @@
+ from __future__ import annotations
+ 
+ from dataclasses import dataclass
++import math
+ 
+ import numpy as np
+-from numpy.polynomial.hermite import hermgauss
++
++
++def affine_information_value(intercepts, slopes) -> float:
++    """E[max_i(a_i+b_i Z)]-max_i(a_i), Z~N(0,1), via its upper envelope.
++
++    Implements the known Gaussian knowledge-gradient identity, not a new
++    acquisition rule. Reference: Frazier, Powell & Dayanik (2009), and their
++    INFORMSJoC/1080.0314 ckg/LogEmaxAffine.m and AffineBreakpoints.m.
++    No fixed-node quadrature: breakpoints explicitly capture decision changes.
++    """
++    a, b = np.asarray(intercepts, dtype=float), np.asarray(slopes, dtype=float)
++    if a.ndim != 1 or not a.size or b.shape != a.shape or not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
++        raise ValueError('finite, nonempty, matching affine utility vectors required')
++    best = {}
++    for ai, bi in zip(a, b):
++        best[float(bi)] = max(best.get(float(bi), -math.inf), float(ai))
++    hull, starts = [], []
++    for bi, ai in sorted(best.items()):
++        crossing = -math.inf
++        while hull:
++            bj, aj = hull[-1]
++            crossing = (aj-ai)/(bi-bj)
++            if len(hull) == 1 or crossing > starts[-1]: break
++            hull.pop(); starts.pop()
++        hull.append((bi, ai)); starts.append(crossing)
++    terms = []
++    for i in range(1, len(hull)):
++        x = abs(starts[i])
++        if not math.isfinite(x): continue
++        density = math.exp(-.5*x*x)/math.sqrt(2*math.pi)
++        if x <= 10:
++            tail_value = density - x*.5*math.erfc(x/math.sqrt(2))
++        else:
++            # Asymptotic normal-loss series avoids subtracting almost equal
++            # tail terms. Stop at convergence or the least term.
++            inv = 1/(x*x); term = total = inv
++            for k in range(1, 100):
++                following = term * (-(2*k+1)*inv)
++                if abs(following) >= abs(term): break
++                total += following
++                if abs(following) < abs(total)*1e-16: break
++                term = following
++            tail_value = density*total
++        terms.append((hull[i][0]-hull[i-1][0])*max(0., tail_value))
++    value = math.fsum(terms)
++    if not math.isfinite(value): raise ValueError('utility scale overflows floating-point information value')
++    return value
++
++
++def _psd_factor(matrix, label):
++    """Square-root factor without adding fictitious independent noise."""
++    matrix = np.asarray(matrix, dtype=float)
++    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1] or not np.all(np.isfinite(matrix)):
++        raise ValueError(label+' must be a finite square matrix')
++    scale = float(np.max(np.abs(matrix), initial=0.))
++    if scale == 0: return np.zeros_like(matrix)
++    normalized = matrix/scale
++    if not np.allclose(normalized, normalized.T, rtol=0, atol=1e-12):
++        raise ValueError(label+' must be symmetric')
++    values, vectors = np.linalg.eigh((normalized+normalized.T)*.5)
++    if values.min(initial=0.) < -1e-12:
++        raise ValueError(label+' must be positive semidefinite')
++    return vectors*np.sqrt(np.maximum(values, 0.)*scale)
+ 
+ 
+ @dataclass(frozen=True)
+@@ -32,7 +95,14 @@
+ 
+ 
+ class AdaptiveInformationController:
+-    """Select the available Gaussian channel with maximum downstream decision value."""
++    """One-step Gaussian information selection with affine action utilities.
++
++    Default: each update is a fresh independent noise draw. To represent a
++    finite set of potentially overlapping observations, supply the named joint
++    channel noise covariance. In that mode a channel denotes one observation,
++    so repeating it cannot add information. Noise is initially independent of
++    the latent state. Neither mode infers dependence from matching numbers.
++    """
+ 
+     def __init__(
+         self,
+@@ -42,6 +112,9 @@
+         action_intercepts: np.ndarray,
+         channels: list[InformationChannel],
+         quadrature_points: int = 31,
++        *,
++        channel_noise_covariance: np.ndarray | None = None,
++        covariance_channel_names: list[str] | None = None,
+     ) -> None:
+         self.mean = np.asarray(belief_mean, dtype=float)
+         self.covariance = np.asarray(belief_covariance, dtype=float)
+@@ -63,10 +136,51 @@
+             raise ValueError("channel and state dimensions differ")
+         if not isinstance(quadrature_points, int) or quadrature_points < 2:
+             raise ValueError("quadrature_points must be an integer at least two")
+-        self.nodes, self.weights = hermgauss(quadrature_points)
+-        self.weights = self.weights / np.sqrt(np.pi)
++        # Retained for call compatibility; exact affine integration has no grid.
+         if self.action_slopes.shape[1] != self.mean.size:
+             raise ValueError("action and state dimensions differ")
++        self.information_mode = 'fresh_independent_measurements'
++        self._joint_factor = None
++        if channel_noise_covariance is None:
++            if covariance_channel_names is not None:
++                raise ValueError('covariance_channel_names requires channel_noise_covariance')
++        else:
++            m = len(self.channels)
++            if not m or m+d > 1000:
++                raise ValueError('finite joint observation model requires channels and at most 1000 combined dimensions')
++            if list(covariance_channel_names or []) != [c.name for c in self.channels]:
++                raise ValueError('covariance_channel_names must match offered channel order exactly')
++            noise = np.asarray(channel_noise_covariance, dtype=float)
++            if noise.shape != (m, m): raise ValueError('channel noise covariance dimensions differ')
++            noise_factor = _psd_factor(noise, 'channel noise covariance')
++            variances = np.array([c.noise_variance for c in self.channels])
++            if not np.allclose(np.diag(noise), variances, rtol=1e-10, atol=0):
++                raise ValueError('channel noise covariance diagonal must match channel noise_variance')
++            state_factor = _psd_factor(self.covariance, 'belief covariance')
++            h = np.vstack([c.measurement_vector for c in self.channels])
++            self._joint_factor = np.block([[state_factor, np.zeros((d, m))], [h@state_factor, noise_factor]])
++            self._joint_mean = np.concatenate([self.mean, h@self.mean])
++            self._initial_joint_variances = np.sum(self._joint_factor**2, axis=1)
++            self._channel_indices = {c.name: d+i for i, c in enumerate(self.channels)}
++            self.information_mode = 'finite_joint_observations'
++
++    def _predict(self, channel):
++        h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError('channel and state dimensions differ')
++        if self._joint_factor is None:
++            return float(h@self.mean), float(h@self.covariance@h+channel.noise_variance), self.covariance@h, None
++        index = self._channel_indices.get(channel.name)
++        if index is None: raise ValueError('channel not in finite joint observation model')
++        original = self.channels[index-self.mean.size]
++        if not np.array_equal(h, original.measurement_vector) or channel.noise_variance != original.noise_variance:
++            raise ValueError('channel definition differs from finite joint observation model')
++        row = self._joint_factor[index]
++        variance = float(row@row)
++        tolerance = (64*np.finfo(float).eps)**2*self._initial_joint_variances[index]
++        if variance <= tolerance: variance = 0.
++        cross = self._joint_factor[:self.mean.size]@row
++        return float(self._joint_mean[index]), variance, cross, index
+ 
+     def expected_action_utilities(self, mean: np.ndarray | None = None) -> np.ndarray:
+         location = self.mean if mean is None else np.asarray(mean, dtype=float)
+@@ -76,22 +190,11 @@
+         return int(np.argmax(self.expected_action_utilities()))
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+-        h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        _, predictive_variance, cross, _ = self._predict(channel)
+         if predictive_variance <= 0:
+             improvement = 0.0
+         else:
+-            kalman_gain = self.covariance @ h / predictive_variance
+-            current_value = float(np.max(self.expected_action_utilities()))
+-            posterior_value = 0.0
+-            # Predictive residual is Normal(0, predictive_variance).
+-            for node, weight in zip(self.nodes, self.weights):
+-                residual = np.sqrt(2.0 * predictive_variance) * node
+-                posterior_mean = self.mean + kalman_gain * residual
+-                posterior_value += float(weight) * float(np.max(self.expected_action_utilities(posterior_mean)))
+-            improvement = max(0.0, posterior_value - current_value)
++            improvement = affine_information_value(self.expected_action_utilities(), self.action_slopes@cross/np.sqrt(predictive_variance))
+         return ChannelValue(channel.name, improvement, channel.cost, improvement - channel.cost)
+ 
+     def rank_channels(self) -> list[ChannelValue]:
+@@ -106,17 +209,30 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        predicted_mean, predictive_variance, cross, index = self._predict(channel)
+         if not np.isfinite(observation):
+             raise ValueError("observation must be finite")
+         if predictive_variance <= 0:
+-            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++            tolerance = max(1e-12, 64*np.finfo(float).eps*max(abs(observation), abs(predicted_mean))) if index is not None else 1e-12
++            if not np.isclose(observation, predicted_mean, rtol=0, atol=tolerance):
+                 raise ValueError("observation contradicts a deterministic zero-variance belief")
+             return
+-        gain = self.covariance @ h / predictive_variance
+-        residual = float(observation - h @ self.mean)
++        residual = float(observation - predicted_mean)
++        if index is not None:
++            # Condition the augmented [state, finite observations] Gaussian by
++            # projecting its square root. Avoid a covariance subtraction that
++            # could turn a perfect duplicate into spurious residual variance.
++            direction = self._joint_factor[index]/np.sqrt(predictive_variance)
++            projection = self._joint_factor@direction
++            self._joint_mean += projection*(residual/np.sqrt(predictive_variance))
++            self._joint_factor -= np.outer(projection, direction)
++            self._joint_factor[index] = 0.
++            self._joint_mean[index] = observation
++            self.mean = self._joint_mean[:self.mean.size].copy()
++            state_factor = self._joint_factor[:self.mean.size]
++            self.covariance = state_factor@state_factor.T
++            return
++        gain = cross / predictive_variance
+         self.mean = self.mean + gain * residual
+         identity = np.eye(self.mean.size)
+         # Joseph form keeps the covariance symmetric and positive under rounding.
+@@ -127,3 +243,49 @@
+         )
+         self.covariance = 0.5 * (self.covariance + self.covariance.T)
+ 
++
++def run_information_sequence(config):
++    """Rank information before/after supplied observations; never invent data."""
++    from dataclasses import asdict
++    channels = [InformationChannel(c['name'], np.asarray(c['measurement_vector'], dtype=float),
++                                   c['noise_variance'], c.get('cost', 0.)) for c in config['channels']]
++    controller = AdaptiveInformationController(config['belief_mean'], config['belief_covariance'],
++        config['action_slopes'], config['action_intercepts'], channels,
++        channel_noise_covariance=config.get('channel_noise_covariance'),
++        covariance_channel_names=config.get('covariance_channel_names'))
++    def state():
++        ranked = controller.rank_channels()
++        return {'mean': controller.mean.tolist(), 'covariance': controller.covariance.tolist(),
++                'action_index': controller.action(), 'ranked_channels': [asdict(v) for v in ranked],
++                'chosen_channel': ranked[0].name if ranked and ranked[0].net_value > 0 else None}
++    result = {'information_mode': controller.information_mode, 'initial': state(), 'steps': [],
++              'value_method': 'Gaussian affine upper-envelope integration',
++              'scope': 'One-step expected value under supplied Gaussian belief, affine utilities and costs on the same utility scale. Finite joint mode models one observation per channel, with supplied noise covariance initially independent of the state. Default mode treats each update as a fresh independent noise draw. No inferred covariance, audit probability, or globally optimal multi-step policy.'}
++    lookup = {c.name: c for c in channels}
++    for event in config.get('observations', []):
++        if event['channel'] not in lookup: raise ValueError('unknown observation channel')
++        controller.update(lookup[event['channel']], event['value'])
++        result['steps'].append({'observation': dict(event), **state()})
++    return result
++
++
++if __name__ == '__main__':
++    import argparse
++    import hashlib
++    import json
++    from pathlib import Path
++    parser = argparse.ArgumentParser(description='AICC: rank Gaussian measurements and condition on supplied observations')
++    parser.add_argument('input'); parser.add_argument('--output')
++    args = parser.parse_args()
++    try:
++        source = Path(args.input)
++        raw = source.read_bytes()
++        result = run_information_sequence(json.loads(raw))
++        result['input_sha256'] = hashlib.sha256(raw).hexdigest()
++        result['engine_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++        if args.output:
++            with Path(args.output).open('x') as handle: json.dump(result, handle, indent=2, allow_nan=False)
++            print(args.output)
++        else: print(json.dumps(result, indent=2, allow_nan=False))
++    except (ValueError, TypeError, KeyError, OSError) as error:
++        parser.error(str(error))
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/parents/aicc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG/parents/aicc.py
+@@ -3,9 +3,72 @@
+ from __future__ import annotations
+ 
+ from dataclasses import dataclass
++import math
+ 
+ import numpy as np
+-from numpy.polynomial.hermite import hermgauss
++
++
++def affine_information_value(intercepts, slopes) -> float:
++    """E[max_i(a_i+b_i Z)]-max_i(a_i), Z~N(0,1), via its upper envelope.
++
++    Implements the known Gaussian knowledge-gradient identity, not a new
++    acquisition rule. Reference: Frazier, Powell & Dayanik (2009), and their
++    INFORMSJoC/1080.0314 ckg/LogEmaxAffine.m and AffineBreakpoints.m.
++    No fixed-node quadrature: breakpoints explicitly capture decision changes.
++    """
++    a, b = np.asarray(intercepts, dtype=float), np.asarray(slopes, dtype=float)
++    if a.ndim != 1 or not a.size or b.shape != a.shape or not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
++        raise ValueError('finite, nonempty, matching affine utility vectors required')
++    best = {}
++    for ai, bi in zip(a, b):
++        best[float(bi)] = max(best.get(float(bi), -math.inf), float(ai))
++    hull, starts = [], []
++    for bi, ai in sorted(best.items()):
++        crossing = -math.inf
++        while hull:
++            bj, aj = hull[-1]
++            crossing = (aj-ai)/(bi-bj)
++            if len(hull) == 1 or crossing > starts[-1]: break
++            hull.pop(); starts.pop()
++        hull.append((bi, ai)); starts.append(crossing)
++    terms = []
++    for i in range(1, len(hull)):
++        x = abs(starts[i])
++        if not math.isfinite(x): continue
++        density = math.exp(-.5*x*x)/math.sqrt(2*math.pi)
++        if x <= 10:
++            tail_value = density - x*.5*math.erfc(x/math.sqrt(2))
++        else:
++            # Asymptotic normal-loss series avoids subtracting almost equal
++            # tail terms. Stop at convergence or the least term.
++            inv = 1/(x*x); term = total = inv
++            for k in range(1, 100):
++                following = term * (-(2*k+1)*inv)
++                if abs(following) >= abs(term): break
++                total += following
++                if abs(following) < abs(total)*1e-16: break
++                term = following
++            tail_value = density*total
++        terms.append((hull[i][0]-hull[i-1][0])*max(0., tail_value))
++    value = math.fsum(terms)
++    if not math.isfinite(value): raise ValueError('utility scale overflows floating-point information value')
++    return value
++
++
++def _psd_factor(matrix, label):
++    """Square-root factor without adding fictitious independent noise."""
++    matrix = np.asarray(matrix, dtype=float)
++    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1] or not np.all(np.isfinite(matrix)):
++        raise ValueError(label+' must be a finite square matrix')
++    scale = float(np.max(np.abs(matrix), initial=0.))
++    if scale == 0: return np.zeros_like(matrix)
++    normalized = matrix/scale
++    if not np.allclose(normalized, normalized.T, rtol=0, atol=1e-12):
++        raise ValueError(label+' must be symmetric')
++    values, vectors = np.linalg.eigh((normalized+normalized.T)*.5)
++    if values.min(initial=0.) < -1e-12:
++        raise ValueError(label+' must be positive semidefinite')
++    return vectors*np.sqrt(np.maximum(values, 0.)*scale)
+ 
+ 
+ @dataclass(frozen=True)
+@@ -32,7 +95,14 @@
+ 
+ 
+ class AdaptiveInformationController:
+-    """Select the available Gaussian channel with maximum downstream decision value."""
++    """One-step Gaussian information selection with affine action utilities.
++
++    Default: each update is a fresh independent noise draw. To represent a
++    finite set of potentially overlapping observations, supply the named joint
++    channel noise covariance. In that mode a channel denotes one observation,
++    so repeating it cannot add information. Noise is initially independent of
++    the latent state. Neither mode infers dependence from matching numbers.
++    """
+ 
+     def __init__(
+         self,
+@@ -42,6 +112,9 @@
+         action_intercepts: np.ndarray,
+         channels: list[InformationChannel],
+         quadrature_points: int = 31,
++        *,
++        channel_noise_covariance: np.ndarray | None = None,
++        covariance_channel_names: list[str] | None = None,
+     ) -> None:
+         self.mean = np.asarray(belief_mean, dtype=float)
+         self.covariance = np.asarray(belief_covariance, dtype=float)
+@@ -63,10 +136,51 @@
+             raise ValueError("channel and state dimensions differ")
+         if not isinstance(quadrature_points, int) or quadrature_points < 2:
+             raise ValueError("quadrature_points must be an integer at least two")
+-        self.nodes, self.weights = hermgauss(quadrature_points)
+-        self.weights = self.weights / np.sqrt(np.pi)
++        # Retained for call compatibility; exact affine integration has no grid.
+         if self.action_slopes.shape[1] != self.mean.size:
+             raise ValueError("action and state dimensions differ")
++        self.information_mode = 'fresh_independent_measurements'
++        self._joint_factor = None
++        if channel_noise_covariance is None:
++            if covariance_channel_names is not None:
++                raise ValueError('covariance_channel_names requires channel_noise_covariance')
++        else:
++            m = len(self.channels)
++            if not m or m+d > 1000:
++                raise ValueError('finite joint observation model requires channels and at most 1000 combined dimensions')
++            if list(covariance_channel_names or []) != [c.name for c in self.channels]:
++                raise ValueError('covariance_channel_names must match offered channel order exactly')
++            noise = np.asarray(channel_noise_covariance, dtype=float)
++            if noise.shape != (m, m): raise ValueError('channel noise covariance dimensions differ')
++            noise_factor = _psd_factor(noise, 'channel noise covariance')
++            variances = np.array([c.noise_variance for c in self.channels])
++            if not np.allclose(np.diag(noise), variances, rtol=1e-10, atol=0):
++                raise ValueError('channel noise covariance diagonal must match channel noise_variance')
++            state_factor = _psd_factor(self.covariance, 'belief covariance')
++            h = np.vstack([c.measurement_vector for c in self.channels])
++            self._joint_factor = np.block([[state_factor, np.zeros((d, m))], [h@state_factor, noise_factor]])
++            self._joint_mean = np.concatenate([self.mean, h@self.mean])
++            self._initial_joint_variances = np.sum(self._joint_factor**2, axis=1)
++            self._channel_indices = {c.name: d+i for i, c in enumerate(self.channels)}
++            self.information_mode = 'finite_joint_observations'
++
++    def _predict(self, channel):
++        h = np.asarray(channel.measurement_vector, dtype=float)
++        if h.shape != self.mean.shape:
++            raise ValueError('channel and state dimensions differ')
++        if self._joint_factor is None:
++            return float(h@self.mean), float(h@self.covariance@h+channel.noise_variance), self.covariance@h, None
++        index = self._channel_indices.get(channel.name)
++        if index is None: raise ValueError('channel not in finite joint observation model')
++        original = self.channels[index-self.mean.size]
++        if not np.array_equal(h, original.measurement_vector) or channel.noise_variance != original.noise_variance:
++            raise ValueError('channel definition differs from finite joint observation model')
++        row = self._joint_factor[index]
++        variance = float(row@row)
++        tolerance = (64*np.finfo(float).eps)**2*self._initial_joint_variances[index]
++        if variance <= tolerance: variance = 0.
++        cross = self._joint_factor[:self.mean.size]@row
++        return float(self._joint_mean[index]), variance, cross, index
+ 
+     def expected_action_utilities(self, mean: np.ndarray | None = None) -> np.ndarray:
+         location = self.mean if mean is None else np.asarray(mean, dtype=float)
+@@ -76,22 +190,11 @@
+         return int(np.argmax(self.expected_action_utilities()))
+ 
+     def channel_value(self, channel: InformationChannel) -> ChannelValue:
+-        h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        _, predictive_variance, cross, _ = self._predict(channel)
+         if predictive_variance <= 0:
+             improvement = 0.0
+         else:
+-            kalman_gain = self.covariance @ h / predictive_variance
+-            current_value = float(np.max(self.expected_action_utilities()))
+-            posterior_value = 0.0
+-            # Predictive residual is Normal(0, predictive_variance).
+-            for node, weight in zip(self.nodes, self.weights):
+-                residual = np.sqrt(2.0 * predictive_variance) * node
+-                posterior_mean = self.mean + kalman_gain * residual
+-                posterior_value += float(weight) * float(np.max(self.expected_action_utilities(posterior_mean)))
+-            improvement = max(0.0, posterior_value - current_value)
++            improvement = affine_information_value(self.expected_action_utilities(), self.action_slopes@cross/np.sqrt(predictive_variance))
+         return ChannelValue(channel.name, improvement, channel.cost, improvement - channel.cost)
+ 
+     def rank_channels(self) -> list[ChannelValue]:
+@@ -106,17 +209,30 @@
+ 
+     def update(self, channel: InformationChannel, observation: float) -> None:
+         h = np.asarray(channel.measurement_vector, dtype=float)
+-        if h.shape != self.mean.shape:
+-            raise ValueError("channel and state dimensions differ")
+-        predictive_variance = float(h @ self.covariance @ h + channel.noise_variance)
++        predicted_mean, predictive_variance, cross, index = self._predict(channel)
+         if not np.isfinite(observation):
+             raise ValueError("observation must be finite")
+         if predictive_variance <= 0:
+-            if not np.isclose(observation, float(h @ self.mean), rtol=0, atol=1e-12):
++            tolerance = max(1e-12, 64*np.finfo(float).eps*max(abs(observation), abs(predicted_mean))) if index is not None else 1e-12
++            if not np.isclose(observation, predicted_mean, rtol=0, atol=tolerance):
+                 raise ValueError("observation contradicts a deterministic zero-variance belief")
+             return
+-        gain = self.covariance @ h / predictive_variance
+-        residual = float(observation - h @ self.mean)
++        residual = float(observation - predicted_mean)
++        if index is not None:
++            # Condition the augmented [state, finite observations] Gaussian by
++            # projecting its square root. Avoid a covariance subtraction that
++            # could turn a perfect duplicate into spurious residual variance.
++            direction = self._joint_factor[index]/np.sqrt(predictive_variance)
++            projection = self._joint_factor@direction
++            self._joint_mean += projection*(residual/np.sqrt(predictive_variance))
++            self._joint_factor -= np.outer(projection, direction)
++            self._joint_factor[index] = 0.
++            self._joint_mean[index] = observation
++            self.mean = self._joint_mean[:self.mean.size].copy()
++            state_factor = self._joint_factor[:self.mean.size]
++            self.covariance = state_factor@state_factor.T
++            return
++        gain = cross / predictive_variance
+         self.mean = self.mean + gain * residual
+         identity = np.eye(self.mean.size)
+         # Joseph form keeps the covariance symmetric and positive under rounding.
+@@ -127,3 +243,49 @@
+         )
+         self.covariance = 0.5 * (self.covariance + self.covariance.T)
+ 
++
++def run_information_sequence(config):
++    """Rank information before/after supplied observations; never invent data."""
++    from dataclasses import asdict
++    channels = [InformationChannel(c['name'], np.asarray(c['measurement_vector'], dtype=float),
++                                   c['noise_variance'], c.get('cost', 0.)) for c in config['channels']]
++    controller = AdaptiveInformationController(config['belief_mean'], config['belief_covariance'],
++        config['action_slopes'], config['action_intercepts'], channels,
++        channel_noise_covariance=config.get('channel_noise_covariance'),
++        covariance_channel_names=config.get('covariance_channel_names'))
++    def state():
++        ranked = controller.rank_channels()
++        return {'mean': controller.mean.tolist(), 'covariance': controller.covariance.tolist(),
++                'action_index': controller.action(), 'ranked_channels': [asdict(v) for v in ranked],
++                'chosen_channel': ranked[0].name if ranked and ranked[0].net_value > 0 else None}
++    result = {'information_mode': controller.information_mode, 'initial': state(), 'steps': [],
++              'value_method': 'Gaussian affine upper-envelope integration',
++              'scope': 'One-step expected value under supplied Gaussian belief, affine utilities and costs on the same utility scale. Finite joint mode models one observation per channel, with supplied noise covariance initially independent of the state. Default mode treats each update as a fresh independent noise draw. No inferred covariance, audit probability, or globally optimal multi-step policy.'}
++    lookup = {c.name: c for c in channels}
++    for event in config.get('observations', []):
++        if event['channel'] not in lookup: raise ValueError('unknown observation channel')
++        controller.update(lookup[event['channel']], event['value'])
++        result['steps'].append({'observation': dict(event), **state()})
++    return result
++
++
++if __name__ == '__main__':
++    import argparse
++    import hashlib
++    import json
++    from pathlib import Path
++    parser = argparse.ArgumentParser(description='AICC: rank Gaussian measurements and condition on supplied observations')
++    parser.add_argument('input'); parser.add_argument('--output')
++    args = parser.parse_args()
++    try:
++        source = Path(args.input)
++        raw = source.read_bytes()
++        result = run_information_sequence(json.loads(raw))
++        result['input_sha256'] = hashlib.sha256(raw).hexdigest()
++        result['engine_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++        if args.output:
++            with Path(args.output).open('x') as handle: json.dump(result, handle, indent=2, allow_nan=False)
++            print(args.output)
++        else: print(json.dumps(result, indent=2, allow_nan=False))
++    except (ValueError, TypeError, KeyError, OSError) as error:
++        parser.error(str(error))
+--- before/lab.py
++++ after/lab.py
+@@ -9,6 +9,11 @@
+ elif len(sys.argv)>1 and sys.argv[1]=='flow-review':
+  import runpy
+  source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/cfai.py'
++ sys.argv=[str(source),*sys.argv[2:]]
++ runpy.run_path(str(source),run_name='__main__')
++elif len(sys.argv)>1 and sys.argv[1]=='select-information':
++ import runpy
++ source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC/aicc.py'
+  sys.argv=[str(source),*sys.argv[2:]]
+  runpy.run_path(str(source),run_name='__main__')
+ elif len(sys.argv)>1 and sys.argv[1]=='borrow-evidence':
+--- before/restoration/build_explorer.py
++++ after/restoration/build_explorer.py
+@@ -3,6 +3,6 @@
+ BASE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(BASE))
+ from maintenance.catalog import build
+ build();data=json.loads((BASE/'catalog.json').read_text())['components']
+-page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
++page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/information-selection/index.html">Hangi ölçüm yeni bilgi katıyor?</a><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
+ (BASE/'index.html').write_text(page.replace('PAYLOAD',json.dumps(data,ensure_ascii=False).replace('</','<\\/')))
+ print(len(data),'explorer entries')

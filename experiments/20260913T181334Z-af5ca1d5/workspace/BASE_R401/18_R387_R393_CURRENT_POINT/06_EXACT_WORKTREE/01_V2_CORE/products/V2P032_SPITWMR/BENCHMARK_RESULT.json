@@ -1,0 +1,38 @@
+{
+  "evidence_boundary": "linear-system synthetic mechanism shell only",
+  "mechanism_removing_comparator": "TWMR energy baseline with no search-policy target",
+  "model_version": "V2P032_SPITWMR_V1",
+  "result": {
+    "energy_baseline": {
+      "evaluated_subsets": 1,
+      "relative_target_error": 1.0,
+      "removed_states": [
+        "policy",
+        "minor"
+      ],
+      "retained_states": [
+        "energy"
+      ],
+      "target_impulse_error": 1.6884151034196895
+    },
+    "policy_target": [
+      0.0,
+      0.9998000599800071,
+      0.01999600119960014
+    ],
+    "reduction": {
+      "evaluated_subsets": 3,
+      "relative_target_error": 0.014803823233992711,
+      "removed_states": [
+        "energy",
+        "minor"
+      ],
+      "retained_states": [
+        "policy"
+      ],
+      "target_impulse_error": 0.024994998736628606
+    },
+    "relative_error_gain": 0.9851961767660072,
+    "status": "SEARCH_POLICY_TARGET_PRESERVED_DURING_REDUCTION"
+  }
+}

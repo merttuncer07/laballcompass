@@ -1,0 +1,16 @@
+{
+  "selected_oxidant_scale": 4.0,
+  "selected": {
+    "total_product": 387.39389731194433,
+    "total_lattice_species_consumed": 387.39389731194433,
+    "total_lattice_species_restored": 382.74511521155745,
+    "final_active_fraction": 0.9535121789961385,
+    "minimum_active_fraction": 0.4723360507653569,
+    "passive_catalyst_product_prediction": 559.9999999999973,
+    "passive_overprediction_fraction": 0.4455571032113186,
+    "material_balance_error": 7.247535904753022e-13,
+    "status": "CATALYTIC_STATE_CYCLE_SUSTAINED"
+  },
+  "feasible": true,
+  "status": "MINIMUM_REGENERATION_CAPACITY_FOUND"
+}

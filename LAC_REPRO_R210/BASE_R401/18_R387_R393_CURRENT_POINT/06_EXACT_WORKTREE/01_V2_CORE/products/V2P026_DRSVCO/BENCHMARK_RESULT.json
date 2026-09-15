@@ -1,0 +1,8 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P026_DRSVCO_V1",
+  "result": {
+    "evaluate": "state_boundary",
+    "status": "FEASIBILITY_BOUNDARY_CYCLE_EVALUATION"
+  }
+}

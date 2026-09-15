@@ -1,0 +1,52 @@
+{
+  "current": {
+    "nominal_resource": 1080000,
+    "verified_resource": 900000,
+    "financeable_face": 900000,
+    "deployable_liquidity": 588970.5882352941,
+    "allocations": [
+      {
+        "claim_id": "C1",
+        "channel": "BankA",
+        "financed_face": 146153.84615384616,
+        "deployable_liquidity": 124230.76923076923
+      },
+      {
+        "claim_id": "C1",
+        "channel": "Fintech",
+        "financed_face": 153846.15384615384,
+        "deployable_liquidity": 100000.0
+      },
+      {
+        "claim_id": "C2",
+        "channel": "BankA",
+        "financed_face": 100904.9773755656,
+        "deployable_liquidity": 85769.23076923077
+      },
+      {
+        "claim_id": "C3",
+        "channel": "BankA",
+        "financed_face": 164705.88235294117,
+        "deployable_liquidity": 140000.0
+      },
+      {
+        "claim_id": "C3",
+        "channel": "BankB",
+        "financed_face": 35294.117647058825,
+        "deployable_liquidity": 26470.58823529412
+      },
+      {
+        "claim_id": "C5",
+        "channel": "BankB",
+        "financed_face": 150000.0,
+        "deployable_liquidity": 112500.0
+      }
+    ],
+    "unused_nominal": 329095.02262443444
+  },
+  "verify_C4_with_independent_audit": {
+    "before_deployable": 588970.5882352941,
+    "after_deployable": 700000.0,
+    "marginal_deployable_liquidity": 111029.4117647059
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "release": "R391",
+  "status": "PASS",
+  "passed": 51,
+  "failed": 0,
+  "test_files": 51,
+  "tests_counted": 435,
+  "coverage": {
+    "inherited_r390_byte_identical_suites": 50,
+    "fresh_r391_suites": 1,
+    "fresh_product_id": "V2P052",
+    "fresh_tests": 12
+  },
+  "inheritance_proof": "08_R391_NATIVE_ROUTING/R391_R390_CANONICAL_PRODUCT_BYTE_IDENTITY.json",
+  "inherited_receipt": "07_R390_NATIVE_ROUTING/R390_ALL_V2_DIRECT_DISCOVERY_REGRESSION.json",
+  "fresh_receipt": "08_R391_NATIVE_ROUTING/R391_V2P052_CORE_DIRECT_TEST.log",
+  "rule": "R390 direct results are inherited only because every R390 canonical product file is byte-identical to the R390 archive-of-record; V2P052 is freshly executed."
+}

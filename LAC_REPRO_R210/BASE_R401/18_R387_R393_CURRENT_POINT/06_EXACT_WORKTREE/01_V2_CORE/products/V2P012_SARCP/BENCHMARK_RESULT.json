@@ -1,0 +1,17 @@
+{
+  "model_version": "V2P012_SARCP_V1",
+  "mechanism_removing_comparator": "variance-aware capacity reserve that ignores cohort-support erosion",
+  "result": {
+    "ess_fraction": 0.64,
+    "nominal_sigma": 10.0,
+    "effective_sigma": 12.5,
+    "nominal_reserve": 116.45,
+    "support_adjusted_reserve": 120.5625,
+    "support_fragile": true,
+    "status": "SUPPORT_FRAGILITY_INFLATES_CAPACITY_UNCERTAINTY"
+  },
+  "realized_demand": 122.0,
+  "nominal_shortfall": 5.549999999999997,
+  "support_adjusted_shortfall": 1.4375,
+  "evidence_boundary": "deterministic support-to-uncertainty routing benchmark only"
+}

@@ -1,0 +1,9 @@
+test_full_swing_internalizes_actual_cost (test_ofls.OFLSTests.test_full_swing_internalizes_actual_cost) ... ok
+test_gate_defers_units_and_reduces_forced_sale (test_ofls.OFLSTests.test_gate_defers_units_and_reduces_forced_sale) ... ok
+test_ordinary_nav_leaves_sale_cost_to_remaining_holders (test_ofls.OFLSTests.test_ordinary_nav_leaves_sale_cost_to_remaining_holders) ... ok
+test_unfundable_redemption_is_explicit (test_ofls.OFLSTests.test_unfundable_redemption_is_explicit) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

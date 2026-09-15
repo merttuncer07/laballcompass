@@ -1,0 +1,21 @@
+{
+  "source": "https://wviechtb.github.io/metadat/reference/dat.linde2015.html",
+  "scope": "Source-propagation arithmetic check only. Distinct treatment contrasts are NOT pooled as estimates of one common effect. No clinical inference or recommendation.",
+  "contrasts": [
+    0.09472725935645765,
+    0.6649763035932492
+  ],
+  "contrast_covariance": [
+    [
+      0.11541732077446362,
+      0.05654761904761904
+    ],
+    [
+      0.05654761904761904,
+      0.12876984126984126
+    ]
+  ],
+  "difference_variance_joint": 0.1310919239490668,
+  "difference_variance_diagonal": 0.24418716204430488,
+  "direct_treatment_difference_variance": 0.1310919239490668
+}

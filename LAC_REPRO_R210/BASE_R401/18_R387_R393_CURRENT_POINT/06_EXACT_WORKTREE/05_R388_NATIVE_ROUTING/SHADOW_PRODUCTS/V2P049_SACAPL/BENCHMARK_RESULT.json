@@ -1,0 +1,97 @@
+{
+  "mechanism_removing_comparator": "same CAPL linear-softmax action map, constraints, optimizer, seed, returns and transaction costs, but the policy risk objective uses the unstructured raw sample covariance instead of SACPS support-aware covariance",
+  "evidence_boundary": "deterministic synthetic sparse-covariance shell with declared correct support and deliberately finite-sample off-support nuisance covariance; establishes the composition mechanism and a working region, not empirical market alpha or a universal portfolio theorem",
+  "working_region": "declared covariance support is materially informative and the raw risk sample contains off-support estimation error large enough to change policy selection",
+  "collapse_region": "with fully dense declared support and shrinkage fixed at zero, SACPS covariance equals raw covariance and the candidate collapses exactly to the removal control",
+  "result": {
+    "selected_shrinkage": 0.0,
+    "supported_covariance_condition_number": 18.323344193412698,
+    "raw_covariance_condition_number": 47.27675415308978,
+    "supported_off_support_max_abs_covariance": 0.0,
+    "raw_off_support_max_abs_covariance": 0.0019790217067331387,
+    "candidate_training_covariance_metrics": {
+      "mean_net_return": 0.006787706330432938,
+      "predicted_variance": 0.00018622478303648675,
+      "covariance_certainty_equivalent": 0.004925458500068071,
+      "average_turnover": 0.4231111361738634,
+      "objective": -0.004925458500068071
+    },
+    "control_training_covariance_metrics": {
+      "mean_net_return": 0.009825469061983253,
+      "predicted_variance": 0.00014561184000360324,
+      "covariance_certainty_equivalent": 0.00836935066194722,
+      "average_turnover": 0.1825700669430947,
+      "objective": -0.00836935066194722
+    },
+    "candidate_validation_metrics": {
+      "mean_return": 0.0038942456637263,
+      "return_volatility": 0.01214052621161077,
+      "certainty_equivalent": 0.0024203218967782185,
+      "average_turnover": 0.428454037321035,
+      "total_transaction_cost": 0.051414484478524196,
+      "objective": -0.0024203218967782185
+    },
+    "control_validation_metrics": {
+      "mean_return": 0.005561589937398493,
+      "return_volatility": 0.021906958292038814,
+      "certainty_equivalent": 0.000762441721307211,
+      "average_turnover": 0.1913414320637465,
+      "total_transaction_cost": 0.022960971847649583,
+      "objective": -0.000762441721307211
+    },
+    "candidate_validation_audit": {
+      "maximum_sum_error": 2.220446049250313e-16,
+      "minimum_weight": 0.0015482898898370873,
+      "maximum_weight": 0.8000000000000002,
+      "maximum_realized_turnover": 0.8000000000000002,
+      "sum_violations": 0,
+      "lower_bound_violations": 0,
+      "upper_bound_violations": 0,
+      "turnover_violations": 0
+    },
+    "control_validation_audit": {
+      "maximum_sum_error": 2.220446049250313e-16,
+      "minimum_weight": 0.009637749310897652,
+      "maximum_weight": 0.6381334676758457,
+      "maximum_realized_turnover": 0.8000000000000002,
+      "sum_violations": 0,
+      "lower_bound_violations": 0,
+      "upper_bound_violations": 0,
+      "turnover_violations": 0
+    },
+    "candidate_coefficients": [
+      [
+        -0.7406856291254423,
+        0.1442468947479399,
+        -0.8061021642853148,
+        1.1701266659695437
+      ],
+      [
+        1.2686619408155395,
+        0.38233641250054656,
+        1.6758841792899588,
+        -0.22311279136005607
+      ]
+    ],
+    "control_coefficients": [
+      [
+        0.6081176692357868,
+        0.7686974477998427,
+        -0.8580035263197958,
+        -1.6911297164070698
+      ],
+      [
+        0.3252520471920489,
+        0.02654272101590234,
+        -0.2201297638551118,
+        -0.38184864995796824
+      ]
+    ],
+    "policies_identical": false,
+    "candidate_evaluated": 301,
+    "control_evaluated": 301,
+    "validation_certainty_equivalent_gain_vs_raw_covariance": 0.0016578801754710075,
+    "validation_variance_change_fraction_vs_raw_covariance": -0.6928780482323726,
+    "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+  }
+}

@@ -1,0 +1,2791 @@
+{
+  "counts": {
+    "current_parents": 19,
+    "lcb_classes_in_latest_consolidated_source": 91,
+    "parent_domain_counts": {
+      "allocation": 5,
+      "causal_inference": 1,
+      "compression": 9,
+      "decision": 37,
+      "dynamics": 17,
+      "finance": 7,
+      "measurement": 9,
+      "robustness": 2,
+      "safety": 8
+    },
+    "parent_products": 69,
+    "parent_test_methods": 271,
+    "retro_parents": 50
+  },
+  "interpretation_boundary": "Parents are standalone executable products; LCB classes are reusable kernels. This inventory does not relabel either layer as a promoted V2 product.",
+  "lcb_executable_classes_parsed": 91,
+  "lcb_kernels": [
+    {
+      "class_name": "ClosureFinderV0",
+      "docstring": "",
+      "public_methods": [
+        "fit",
+        "lift",
+        "predict_horizon"
+      ]
+    },
+    {
+      "class_name": "CycleFlowAnalyzerV0",
+      "docstring": "",
+      "public_methods": [
+        "decompose",
+        "cycle_score",
+        "node_net_flow"
+      ]
+    },
+    {
+      "class_name": "SharedCapacityAllocatorV0",
+      "docstring": "Linear-value optimizer over a polymatroid given a monotone rank oracle f(S).\n\nFor nonnegative item values, Edmonds' greedy construction returns an exact\noptimizer: sort by value, then allocate each item's marginal rank increment.\nThis is useful when capacity belongs to subsets/pools rather than independent items.",
+      "public_methods": [
+        "allocate"
+      ]
+    },
+    {
+      "class_name": "TruncatedPoolRankV0",
+      "docstring": "Example monotone-submodular rank oracle: sum_r min(C_r, sum_{i in S} a_{ri}).",
+      "public_methods": []
+    },
+    {
+      "class_name": "DiscrepancyRandomizerV0",
+      "docstring": "Randomize inside a low-discrepancy set of balanced assignments.\n\nThe objective is max absolute standardized mean difference across columns.\nThis is designed for many-guardrail balance. It is not universally superior\nto L2/Mahalanobis balance, and causal analysis must use the actual design law.",
+      "public_methods": [
+        "score",
+        "assign"
+      ]
+    },
+    {
+      "class_name": "DeepTailScannerV0",
+      "docstring": "Multiscale joint-tail diagnostic for hidden dependence.\n\nIt estimates how the observed joint-exceedance rate deviates from the\nproduct-of-marginals benchmark as the tail threshold deepens. This is a\ndiagnostic/forecasting component, not a proof of regular variation.",
+      "public_methods": [
+        "fit",
+        "predict_excess_ratio",
+        "report"
+      ]
+    },
+    {
+      "class_name": "ObservationTimingSensorV0",
+      "docstring": "Bayesian event-time evidence layer for two latent states with exponential interarrival models.",
+      "public_methods": [
+        "timing_log_likelihood_ratio",
+        "posterior_from_log_mark_lr"
+      ]
+    },
+    {
+      "class_name": "DecisionFluctuationGuardV0",
+      "docstring": "Decision-risk guard based on aggregate fluctuation scale relative to action gap.\n\nUnder a Gaussian aggregate-error shell, P(flip)=Phi(-gap/aggregate_sd).\nFor non-Gaussian/dependent systems, pass an empirically/certifiably estimated aggregate_sd\nor replace the Gaussian probability with a validated quantile model. Do not infer aggregate_sd\nfrom raw N when common-mode dependence is present.",
+      "public_methods": [
+        "evaluate"
+      ]
+    },
+    {
+      "class_name": "ConstraintPressureMonitorV0",
+      "docstring": "Feature kernel for hard-cap systems whose reported state saturates.\n\nFeed the *minimum correction* needed to enforce the cap at each step.\nThe monitor returns current regulator pressure plus local-time-like recent\naccumulation. It is a telemetry/state-augmentation primitive, not by itself\na probabilistic risk model.",
+      "public_methods": [
+        "upper_cap_correction",
+        "update",
+        "reset"
+      ]
+    },
+    {
+      "class_name": "CoverageFeedbackControllerV0",
+      "docstring": "Online interval-width controller for a target miss rate.\n\nUpdate law: q <- max(min_width, q + eta * (miss - alpha)).\nIt is intentionally simple: callers must separately validate the exchangeability/\ndrift shell and the meaning of the residual score being covered.",
+      "public_methods": [
+        "interval",
+        "update_from_residual"
+      ]
+    },
+    {
+      "class_name": "MemoryKernelClosureV0",
+      "docstring": "Linear finite-memory closure diagnostic for a scalar observed process.\n\nFits AR(p) candidates and only promotes memory beyond AR(1) when held-out\none-step RMSE improves by a minimum relative amount. This is a small\noperational kernel, not a general Mori-Zwanzig solver.",
+      "public_methods": [
+        "fit",
+        "forecast"
+      ]
+    },
+    {
+      "class_name": "PolicyAwareTimingSensorV0",
+      "docstring": "Policy-conditioned event-time likelihood layer for binary hidden state.\n\nLearns exponential event rates separately by hidden state and observed\nmeasurement-policy regime. Use when policy can alter event/visit intensity.",
+      "public_methods": [
+        "fit",
+        "timing_log_likelihood_ratio",
+        "posterior"
+      ]
+    },
+    {
+      "class_name": "RepairDebtMonitorV0",
+      "docstring": "State augmentation for imperfect-repair systems.\n\nTracks observable repair count and cumulative repair severity instead of\nassuming a visible functional reset implies an as-good-as-new hidden state.",
+      "public_methods": [
+        "reset",
+        "advance",
+        "record_repair",
+        "features"
+      ]
+    },
+    {
+      "class_name": "PersistenceAwareTransientRiskV0",
+      "docstring": "Receiver-frame persistence correction for advecting Gaussian disturbances.",
+      "public_methods": [
+        "absolute_growth_rate",
+        "classify"
+      ]
+    },
+    {
+      "class_name": "VarianceAwareCapacityPlannerV0",
+      "docstring": "Minimum M/G/1 service-speed factor for a target mean queue wait.\n\nAssumes Poisson arrivals and iid service times. The caller supplies the\nservice-time mean and variance for the unscaled workload.",
+      "public_methods": [
+        "required_capacity",
+        "predicted_mean_wait"
+      ]
+    },
+    {
+      "class_name": "BoundaryAccessibilityRankerV0",
+      "docstring": "Rank boundary locations by modeled first-hit/accessibility probability.\n\nV0 accepts already-computed nonnegative accessibility weights. It deliberately\ndoes not infer the diffusion/PDE model: model calibration is a hard external gate.",
+      "public_methods": [
+        "rank",
+        "select_fraction",
+        "report"
+      ]
+    },
+    {
+      "class_name": "SupportFunctionActiveSensingV0",
+      "docstring": "Choose a directional support query for a binary downstream target.\n\nInputs are posterior parameter samples, candidate linear support-feature\nvectors, and a boolean target label for each posterior sample. The V0 score\nis a normalized between-target-class separation criterion. Convexity,\ntarget-sector correctness, and the feature model are external hard gates.",
+      "public_methods": [
+        "score_candidates",
+        "choose",
+        "calibration_gate"
+      ]
+    },
+    {
+      "class_name": "ModularRiskFirewallV0",
+      "docstring": "Small-gain-style cap for a proposed inter-module feedback weight.\n\nThis is a gate, not a gain estimator. The supplied downstream_gain_ucb must\nalready be a calibrated upper confidence/robustness bound. If that contract\nis understated, the safety interpretation is invalid.",
+      "public_methods": [
+        "max_feedback_weight",
+        "gate"
+      ]
+    },
+    {
+      "class_name": "EffectiveDiversityGuardV0",
+      "docstring": "Convert nominal multiplicity into effective independent count.\n\nRX-113 adds the important shell where pairwise correlation may vanish with N\nwhile (N-1)*rho remains decision-relevant. This is a merged core, not a new theory.",
+      "public_methods": [
+        "report",
+        "gate"
+      ]
+    },
+    {
+      "class_name": "BackreactionAwareSensorV0",
+      "docstring": "Bayes update followed by an action-dependent sensing backreaction transition.",
+      "public_methods": [
+        "update",
+        "choose_location"
+      ]
+    },
+    {
+      "class_name": "LieTransientReachabilityGuardV0",
+      "docstring": "Compare direct-direction risk with risk after a supplied reachable/Lie closure.\n\nThis class deliberately does not infer Lie brackets or system dynamics. The caller\nsupplies validated direction matrices and finite-time propagators. The output is a\ntarget-consequence audit; reachability and propagator calibration are hard gates.",
+      "public_methods": [
+        "direction_scores",
+        "compare"
+      ]
+    },
+    {
+      "class_name": "RareWeakLayerMismatchGateV0",
+      "docstring": "Empirical-null gate for rare/weak residual structure after a candidate two-layer fit.\n\nThis class does NOT solve blind deconvolution. The caller must supply a held-out or\ncross-fitted standardized residual from an upstream structured layer solver, plus\nindependent correct-layer calibration statistics. HC is only recommended when the\ndeclared mismatch shell is rare/weak; max and energy remain mandatory controls.",
+      "public_methods": [
+        "statistics",
+        "empirical_upper_p",
+        "evaluate"
+      ]
+    },
+    {
+      "class_name": "LiquidityLoadSharingStressV0",
+      "docstring": "Propagate unmet load from failed nodes through a calibrated network.\n\n`redistribution` is a scenario parameter, not an inferred truth. Set it to zero\nwhen exits do not materially transfer burden.",
+      "public_methods": [
+        "run"
+      ]
+    },
+    {
+      "class_name": "PipelineRiskStateV0",
+      "docstring": "Maintain a calibrated cumulative burden state for history-dependent failure.",
+      "public_methods": [
+        "reset",
+        "update",
+        "features"
+      ]
+    },
+    {
+      "class_name": "LinkageUncertaintyPropagatorV0",
+      "docstring": "Propagate linkage probabilities into a downstream numeric quantity.\n\nThis returns posterior means/variances; it does not assert that posterior-mean\naction is optimal under every loss. Preserve the MAP path for absolute/exact-match loss.",
+      "public_methods": [
+        "mixture"
+      ]
+    },
+    {
+      "class_name": "RarePathImportanceSamplerV0",
+      "docstring": "Gaussian endpoint rare-event importance sampler with a rarity gate.\n\nV0 is intentionally narrow. General systems need a calibrated change-of-measure\nor dominant-path solver plus exact likelihood correction.",
+      "public_methods": [
+        "estimate_gaussian_sum_tail"
+      ]
+    },
+    {
+      "class_name": "RelationalMotifBeamLocatorV0",
+      "docstring": "Find a high-scoring simple directed k-node motif with beam search.\n\nThis is the empirically preferred RX-070 product surface in the tested sparse\ntransaction-graph shell. Color-coding remains an optional fallback, not the default.",
+      "public_methods": [
+        "best_path"
+      ]
+    },
+    {
+      "class_name": "ZeroCauseMetadataDiscriminatorV0",
+      "docstring": "Fit P(latent nonzero | observed zero, context, observation metadata).",
+      "public_methods": [
+        "fit",
+        "predict_proba"
+      ]
+    },
+    {
+      "class_name": "ReliabilityTemperedEvidenceV0",
+      "docstring": "Continuously blend proxy and direct evidence using current MSE contracts.",
+      "public_methods": [
+        "combine"
+      ]
+    },
+    {
+      "class_name": "OptionValueCapacityReserverV0",
+      "docstring": "Empirically fit static and signal-contingent protection levels.",
+      "public_methods": [
+        "fit",
+        "reserve"
+      ]
+    },
+    {
+      "class_name": "ClusterCauseInvarianceFeaturesV0",
+      "docstring": "Extract pooled and cross-environment association features.\n\nClassification is only meaningful when environments change exposure/prevalence\nwithout rewriting the candidate mechanism itself.",
+      "public_methods": [
+        "features"
+      ]
+    },
+    {
+      "class_name": "HiddenMassLinkageV0",
+      "docstring": "Propagate calibrated match probabilities into two-list hidden-mass estimates.",
+      "public_methods": [
+        "estimate"
+      ]
+    },
+    {
+      "class_name": "DynamicNetworkTwinV0",
+      "docstring": "Iterate assignment rewiring and overload-induced topology changes.",
+      "public_methods": [
+        "simulate"
+      ]
+    },
+    {
+      "class_name": "CausalEdgeValidatorFeaturesV0",
+      "docstring": "Produce control/mediator diagnostics; does not certify causality by itself.",
+      "public_methods": [
+        "summarize"
+      ]
+    },
+    {
+      "class_name": "ConsequenceCoverageAllocatorV0",
+      "docstring": "Guarantee critical-region coverage, then allocate depth by marginal consequence.",
+      "public_methods": [
+        "allocate"
+      ]
+    },
+    {
+      "class_name": "PerimeterMigrationScannerV0",
+      "docstring": "Map legal/category counts into calibrated functional-risk equivalents.",
+      "public_methods": [
+        "functional_volume",
+        "migration_share"
+      ]
+    },
+    {
+      "class_name": "LiquidityStateEngineV0",
+      "docstring": "Convert nominal balance-sheet stock into current deployable liquidity.",
+      "public_methods": [
+        "compute"
+      ]
+    },
+    {
+      "class_name": "CompetingExitExposureV0",
+      "docstring": "Simulate first-exit exposure when exit intensity depends on exposure state.",
+      "public_methods": [
+        "simulate"
+      ]
+    },
+    {
+      "class_name": "CutQueryCompressorV0",
+      "docstring": "Build a Gomory-Hu tree for repeated undirected min-cut queries.",
+      "public_methods": [
+        "fit",
+        "min_cut_value"
+      ]
+    },
+    {
+      "class_name": "TriggerQualityVerifierV0",
+      "docstring": "Allocate a finite verification budget using expected error plus gaming suspicion.",
+      "public_methods": [
+        "rank_for_verification"
+      ]
+    },
+    {
+      "class_name": "ActiveThresholdSensingV0",
+      "docstring": "Choose the next ordered threshold by expected posterior-entropy reduction.",
+      "public_methods": [
+        "choose",
+        "observe"
+      ]
+    },
+    {
+      "class_name": "EffectiveRedundancyBackstopV0",
+      "docstring": "Decide whether independent backstop value exceeds disagreement/escalation cost.",
+      "public_methods": [
+        "break_even_escalation_cost"
+      ]
+    },
+    {
+      "class_name": "DesignAwareRandomizationInferenceV0",
+      "docstring": "Exact paired randomization p-value for one-treated-per-pair designs.",
+      "public_methods": [
+        "paired_pvalue"
+      ]
+    },
+    {
+      "class_name": "ReachableSubspaceAuditV0",
+      "docstring": "Audit whether requested target directions lie in a finite-horizon controllable subspace.",
+      "public_methods": [
+        "audit"
+      ]
+    },
+    {
+      "class_name": "BandSpecificRelationGateV0",
+      "docstring": "Estimate band-averaged Welch coherence instead of trusting one raw Fourier ordinate.",
+      "public_methods": [
+        "score"
+      ]
+    },
+    {
+      "class_name": "TargetPopulationAnchorCalibratorV0",
+      "docstring": "Logistic recalibration using a small trusted target-population anchor.",
+      "public_methods": [
+        "fit",
+        "transform"
+      ]
+    },
+    {
+      "class_name": "AtomicComplementaryCommitV0",
+      "docstring": "Gate atomic commit on complementarity and expected stranded-loss economics.",
+      "public_methods": [
+        "expected_atomic_value",
+        "should_use_atomic"
+      ]
+    },
+    {
+      "class_name": "MultiFidelityBudgetControllerV0",
+      "docstring": "Choose fine/cheap counts from pilot cross-fidelity correlation under a fixed budget.",
+      "public_methods": [
+        "allocate"
+      ]
+    },
+    {
+      "class_name": "BarrierAwareTransitionPlannerV0",
+      "docstring": "Shortest expected transition-time path where edge crossing time grows as exp(barrier/T).",
+      "public_methods": [
+        "path"
+      ]
+    },
+    {
+      "class_name": "ResilientFlowRouterV0",
+      "docstring": "Recompute max throughput on surviving topology, then minimize barrier cost.",
+      "public_methods": [
+        "reroute"
+      ]
+    },
+    {
+      "class_name": "TreatmentConfounderFeedbackGuardV0",
+      "docstring": "Detect treatment-affected confounders and expose stabilized sequential weights.",
+      "public_methods": [
+        "stabilized_weights"
+      ]
+    },
+    {
+      "class_name": "BurstAwareSamplerV0",
+      "docstring": "Allocate finite expensive measurements to the highest calibrated burst-risk times.",
+      "public_methods": [
+        "select"
+      ]
+    },
+    {
+      "class_name": "ActiveSetMapV0",
+      "docstring": "Piecewise-affine parametric optimizer indexed by predicted active-set label.",
+      "public_methods": [
+        "fit",
+        "predict"
+      ]
+    },
+    {
+      "class_name": "TimescaleBottleneckDetectorV0",
+      "docstring": "Convert nominal stage capacity into effective completion capacity.",
+      "public_methods": [
+        "analyze"
+      ]
+    },
+    {
+      "class_name": "InterfaceWidthOptimizerV0",
+      "docstring": "Exact QUBO DP for band-limited coupling graphs with known interface width.",
+      "public_methods": [
+        "solve_linear_order"
+      ]
+    },
+    {
+      "class_name": "BurdenReliefControllerV0",
+      "docstring": "Use reserved capacity as an explicit burden-export channel when burden accumulates.",
+      "public_methods": [
+        "action"
+      ]
+    },
+    {
+      "class_name": "SelectionWithinAttributionV0",
+      "docstring": "Decompose observed aggregate trend from within-unit trend under changing composition.",
+      "public_methods": [
+        "slopes"
+      ]
+    },
+    {
+      "class_name": "SafeProblemReducerV0",
+      "docstring": "Safe QUBO variable fixing from one-sided marginal-cost bounds.",
+      "public_methods": [
+        "reduce"
+      ]
+    },
+    {
+      "class_name": "ArrivalFrontierEngineV0",
+      "docstring": "Assign each target to the source with minimum start+travel+barrier arrival time.",
+      "public_methods": [
+        "assign"
+      ]
+    },
+    {
+      "class_name": "EndogenousHotspotGuardV0",
+      "docstring": "Forecast overflow when occupancy changes retention/service persistence.",
+      "public_methods": [
+        "overflow_probability"
+      ]
+    },
+    {
+      "class_name": "RiskShiftContractGuardV0",
+      "docstring": "Evaluate post-contract risk choice under downside and upside sharing.",
+      "public_methods": [
+        "choose_risk"
+      ]
+    },
+    {
+      "class_name": "DelayedVerificationIncentiveGateV0",
+      "docstring": "Solve present misreport choice when future verification can claw back payoff.",
+      "public_methods": [
+        "optimal_misreport"
+      ]
+    },
+    {
+      "class_name": "SolverCertificateAuditV0",
+      "docstring": "Independently validate primal feasibility or a Farkas infeasibility witness.",
+      "public_methods": [
+        "validate_primal",
+        "validate_farkas"
+      ]
+    },
+    {
+      "class_name": "StrategicCapacityResponseGuardV0",
+      "docstring": "Solve Wardrop path equilibrium for affine edge costs before/after a network change.",
+      "public_methods": [
+        "wardrop"
+      ]
+    },
+    {
+      "class_name": "InformationProductionEquilibriumGuardV0",
+      "docstring": "Model endogenous producer entry under copying/dissemination friction.",
+      "public_methods": [
+        "equilibrium"
+      ]
+    },
+    {
+      "class_name": "EffectiveComplexityMeterV0",
+      "docstring": "Compute ridge effective degrees of freedom rather than nominal parameter count.",
+      "public_methods": [
+        "ridge_effective_df"
+      ]
+    },
+    {
+      "class_name": "TimescaleAwareDeadZoneV0",
+      "docstring": "Convert one-step subthreshold crossing risk into cumulative horizon risk.",
+      "public_methods": [
+        "cumulative_crossing_probability",
+        "from_gaussian_gap"
+      ]
+    },
+    {
+      "class_name": "AdmissibleShiftRobustOptimizerV0",
+      "docstring": "Quadratic robust decision under a declared admissible uncertainty direction.",
+      "public_methods": [
+        "solve"
+      ]
+    },
+    {
+      "class_name": "PredictableVarianceAlarmV0",
+      "docstring": "Freedman-style finite-horizon alarm using accumulated predictable variance.",
+      "public_methods": [
+        "boundary",
+        "alarm"
+      ]
+    },
+    {
+      "class_name": "GroundTruthFreeRiskTunerV0",
+      "docstring": "SURE soft-threshold tuner with an explicit Gaussian-noise validity gate.",
+      "public_methods": [
+        "soft_threshold",
+        "tune"
+      ]
+    },
+    {
+      "class_name": "GuaranteeTransportGateV0",
+      "docstring": "Audit whether the residual/conditional law supporting a deployed guarantee still holds.",
+      "public_methods": [
+        "residual_shift_score"
+      ]
+    },
+    {
+      "class_name": "EffectiveRedundancyAuditV0",
+      "docstring": "Estimate effective coherent-path gain from cross-path covariance, not route count.",
+      "public_methods": [
+        "audit"
+      ]
+    },
+    {
+      "class_name": "ConsumableSafeguardStateV0",
+      "docstring": "Track remaining sacrificial protection stock and next-shock failure risk.",
+      "public_methods": [
+        "absorb",
+        "failure_probability_gamma"
+      ]
+    },
+    {
+      "class_name": "InformationSearchTippingGuardV0",
+      "docstring": "Map search-participation equilibria and hysteresis under acquisition friction.",
+      "public_methods": [
+        "fixed_point"
+      ]
+    },
+    {
+      "class_name": "ScreeningByDegradationAuditV0",
+      "docstring": "Compare pooled quality with an incentive-compatible two-type versioning menu.",
+      "public_methods": [
+        "canonical_prices"
+      ]
+    },
+    {
+      "class_name": "ModeConversionRouterV0",
+      "docstring": "Propagate modal state through geometry conversion before downstream transmission.",
+      "public_methods": [
+        "delivered_power"
+      ]
+    },
+    {
+      "class_name": "SacrificialDeflectionGuardV0",
+      "docstring": "Compare direct strengthening with a weak path that dissipates/redirects propagation energy.",
+      "public_methods": [
+        "effective_load",
+        "core_failure_probability"
+      ]
+    },
+    {
+      "class_name": "AtomicPackageExecutionV0",
+      "docstring": "All-or-none execution gate for complementary legs.",
+      "public_methods": [
+        "decide"
+      ]
+    },
+    {
+      "class_name": "LeadingEdgeEarlyWarningV0",
+      "docstring": "Score precursor evidence in a declared low-mass frontier region.",
+      "public_methods": [
+        "standardized_residual_score"
+      ]
+    },
+    {
+      "class_name": "CompressionTopologyGuardV0",
+      "docstring": "Audit a compressed closed manifold for seam/collision failure hidden by local metric tests.",
+      "public_methods": [
+        "closed_loop_seam_ratio"
+      ]
+    },
+    {
+      "class_name": "ObservationPolicyConfoundingGuardV0",
+      "docstring": "Use observation-policy metadata jointly with a passive state proxy before estimating measurement backaction.",
+      "public_methods": [
+        "posterior_state_grid",
+        "adjusted_backaction"
+      ]
+    },
+    {
+      "class_name": "MicroMemoryDiagnosticV0",
+      "docstring": "Measure directional transition memory that can survive cancellation of the macro projection.",
+      "public_methods": [
+        "directional_autocorrelation",
+        "population_summary"
+      ]
+    },
+    {
+      "class_name": "CodedBottleneckRouterV0",
+      "docstring": "Exploit receiver side information with a linear/XOR mixture across a narrow interface.",
+      "public_methods": [
+        "two_packet_xor",
+        "recover_from_xor"
+      ]
+    },
+    {
+      "class_name": "DecisionWeightedCalibrationV0",
+      "docstring": "Allocate finite calibration samples by downstream consequence sensitivity.",
+      "public_methods": [
+        "allocate"
+      ]
+    },
+    {
+      "class_name": "IrreversibleExplorationBudgetV0",
+      "docstring": "Distribution-gated continuation threshold for irreversible sequential selection.",
+      "public_methods": [
+        "normal_continuation_threshold",
+        "should_commit"
+      ]
+    },
+    {
+      "class_name": "TestingWealthControllerV0",
+      "docstring": "Finite-horizon LORD-like online testing budget that recycles alpha after discoveries.",
+      "public_methods": [
+        "next_alpha",
+        "test"
+      ]
+    },
+    {
+      "class_name": "DecisionSufficientCompressorV0",
+      "docstring": "Quantize a decision-relevant scalar score under a fixed code budget.",
+      "public_methods": [
+        "fit",
+        "encode",
+        "predict"
+      ]
+    },
+    {
+      "class_name": "CandidateSetDecoderV0",
+      "docstring": "Return the smallest likelihood/posterior candidate list reaching a requested mass.",
+      "public_methods": [
+        "posterior_list"
+      ]
+    },
+    {
+      "class_name": "SelectionAwareReferenceLawV0",
+      "docstring": "Simultaneous/selection-aware interval for a data-selected maximum estimate.",
+      "public_methods": [
+        "sidak_selected_interval"
+      ]
+    },
+    {
+      "class_name": "ObservabilityCoveragePlannerV0",
+      "docstring": "Greedily select measurements to increase state-space rank and conditioning.",
+      "public_methods": [
+        "select"
+      ]
+    },
+    {
+      "class_name": "ReachAvoidViabilityPlannerV0",
+      "docstring": "Validate path segments against circular avoid regions and choose a safe detour.",
+      "public_methods": [
+        "segment_clearance",
+        "path_safe"
+      ]
+    }
+  ],
+  "lcb_latest_prototype_file": "03_LCB_EXECUTABLE_AND_EVIDENCE\\prototypes\\LABCOMPASS__LCB-7F3A91__20260825-1048-TR__PRODUCT_PROTOTYPES__r38.py",
+  "model_version": "R401_CAPABILITY_INVENTORY_V1",
+  "parent_products": [
+    {
+      "capability_id": "IM124_IM256_TSRC",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "pathlib",
+        "scipy",
+        "tsrc",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "FeatureSpec",
+        "ReductionCertificate",
+        "TargetSufficientReductionCertifier"
+      ],
+      "public_functions": [
+        "as_dict",
+        "evaluate",
+        "margin_on_values",
+        "optimize",
+        "target_error_bound"
+      ],
+      "source_lines": 245,
+      "summary": "TSRC is an executable feature-deletion optimizer and action-preservation certifier. It maximizes measurement/computation cost saved while bounding the deleted features' total contribution below the protected distance to the nearest action boundary.",
+      "test_methods": 4,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM139_IM250_CCVC",
+      "domains": [
+        "safety"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "ccvc",
+        "dataclasses",
+        "demo_resource_circulation",
+        "itertools",
+        "json",
+        "numpy",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "ConservationConstrainedViability",
+        "LocalCertificate"
+      ],
+      "public_functions": [
+        "certify_vertices",
+        "drift",
+        "filter_control",
+        "in_safe_set",
+        "local_certificate",
+        "objective",
+        "on_manifold",
+        "velocity",
+        "vertices"
+      ],
+      "source_lines": 329,
+      "summary": "**Composition:** IM-139 → IM-250 **Product:** Conservation-Constrained Viability Certifier **Status:** working reference product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM141_IM023_CDBL",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "cdbl",
+        "dataclasses",
+        "demo_deployable_network",
+        "json",
+        "numpy",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "BottleneckImpact",
+        "ConnectedDeployableNetwork",
+        "DeploymentResult",
+        "StockNode",
+        "TransportEdge"
+      ],
+      "public_functions": [
+        "active_stock",
+        "rank_bottlenecks",
+        "solve"
+      ],
+      "source_lines": 253,
+      "summary": "**Composition:** IM-141 → IM-023 **Product:** Connected Deployable Bottleneck Locator **Status:** working reference product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM178_IM326_TWMR",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "numpy",
+        "pathlib",
+        "twmr",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ReductionResult",
+        "TargetWeightedModelReducer"
+      ],
+      "public_functions": [
+        "as_dict",
+        "energy_baseline",
+        "evaluate_subset",
+        "reduce",
+        "target_sequence"
+      ],
+      "source_lines": 185,
+      "summary": "TWMR reduces a linear dynamical model according to the full past-input to protected-future-output bridge rather than state magnitude or input energy alone.",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM256_IM307_OTE",
+      "domains": [
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "ote",
+        "pathlib",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "OrthogonalEstimate",
+        "OrthogonalTargetEstimator"
+      ],
+      "public_functions": [
+        "as_dict",
+        "estimate_from_nuisance_predictions",
+        "fit"
+      ],
+      "source_lines": 197,
+      "summary": "OTE uses a compact target-relevant representation to estimate nuisance functions, then solves a cross-fitted orthogonal score so small nuisance errors do not enter the target score at first order.",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM274_IM290_OWS",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "ows",
+        "pathlib",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "OverlapAwareWeightStabilizer",
+        "StabilizedEstimate",
+        "SupportAudit"
+      ],
+      "public_functions": [
+        "as_dict",
+        "audit",
+        "fit"
+      ],
+      "source_lines": 236,
+      "summary": "OWS audits support before transport/reweighting and replaces explosive exact weights with an explicit bias-variance choice when that improves the declared operating objective.",
+      "test_methods": 4,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM299_IM127_DTRM",
+      "domains": [
+        "decision",
+        "robustness",
+        "dynamics",
+        "finance"
+      ],
+      "has_demo": false,
+      "has_result": true,
+      "imports": [
+        "argparse",
+        "dataclasses",
+        "dtrm",
+        "json",
+        "numpy",
+        "pathlib",
+        "scipy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "DecisionRiskResult",
+        "DecisionTransientRiskMonitor",
+        "FiniteHorizonEnvelope"
+      ],
+      "public_functions": [
+        "analyze_action_branches",
+        "analyze_common_flow",
+        "analyze_config",
+        "as_dict",
+        "gronwall_decision_envelope",
+        "main",
+        "run_file"
+      ],
+      "source_lines": 327,
+      "summary": "DTRM turns the existing finite-horizon operator into an executable monitor. Given a linearized system, bounded uncertainty map, action contrast, nominal action gap, and horizon, it returns:",
+      "test_methods": 7,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM306_IM222_HMRM",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "hmrm",
+        "json",
+        "numpy",
+        "unittest"
+      ],
+      "public_classes": [
+        "HiddenModeResilienceMonitor",
+        "ModeRisk",
+        "ResilienceAssessment"
+      ],
+      "public_functions": [
+        "assess",
+        "fit_transition"
+      ],
+      "source_lines": 213,
+      "summary": "**Composition:** IM-306 → IM-222 **Product:** Hidden-Mode Resilience Monitor **Status:** working reference product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM334_IM094_DRE",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dre",
+        "json",
+        "math",
+        "numpy",
+        "pathlib",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "DecisionRelevantExplorer",
+        "ExplorationScore",
+        "GaussianArm"
+      ],
+      "public_functions": [
+        "choose",
+        "greedy_choice",
+        "score",
+        "uncertainty_only_choice",
+        "update"
+      ],
+      "source_lines": 174,
+      "summary": "**Composition:** IM-334 → IM-094 **Product:** Decision-Relevant Explorer **Status:** working reference product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM340_IM280_CWC",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "cwc",
+        "dataclasses",
+        "json",
+        "numpy",
+        "unittest"
+      ],
+      "public_classes": [
+        "CalibrationWidthController",
+        "IntervalObservation",
+        "RawIntervalScoreController"
+      ],
+      "public_functions": [
+        "interval",
+        "interval_score",
+        "multiplier",
+        "observe",
+        "summarize"
+      ],
+      "source_lines": 209,
+      "summary": "**Composition:** IM-340 → IM-280 **Product:** Calibration Width Controller **Status:** working reference product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM359_IM014_AICC",
+      "domains": [
+        "measurement",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "aicc",
+        "dataclasses",
+        "json",
+        "numpy",
+        "unittest"
+      ],
+      "public_classes": [
+        "AdaptiveInformationController",
+        "ChannelValue",
+        "InformationChannel"
+      ],
+      "public_functions": [
+        "action",
+        "channel_value",
+        "choose_channel",
+        "expected_action_utilities",
+        "rank_channels",
+        "update"
+      ],
+      "source_lines": 222,
+      "summary": "**Composition:** IM-359 → IM-014 **Product:** Adaptive Information-Channel Controller **Status:** working reference product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM374_IM272_DSDA",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dsda",
+        "json",
+        "numpy",
+        "unittest"
+      ],
+      "public_classes": [
+        "DamageState",
+        "DirectionalSubcriticalDamageAccumulator"
+      ],
+      "public_functions": [
+        "update"
+      ],
+      "source_lines": 190,
+      "summary": "**Composition:** IM-374 → IM-272 **Product:** Directional Subcritical-Damage Accumulator **Status:** working reference product",
+      "test_methods": 4,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM401_IM030_MFPA",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "demo_failure_architecture",
+        "itertools",
+        "json",
+        "mfpa",
+        "numpy",
+        "unittest"
+      ],
+      "public_classes": [
+        "ArchitectureResult",
+        "DissipationMechanism",
+        "MultiRouteFailurePathArchitect"
+      ],
+      "public_functions": [
+        "best_single_route",
+        "capacity",
+        "evaluate",
+        "optimize"
+      ],
+      "source_lines": 225,
+      "summary": "**Composition:** IM-401 → IM-030 **Product:** Multi-Route Failure-Path Architect **Status:** working surrogate product",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM406_IM037_ACRA",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "acra",
+        "dataclasses",
+        "json",
+        "numpy",
+        "pathlib",
+        "scipy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "AdaptiveConsequenceResolutionAllocator",
+        "DecisionRegion",
+        "RegionAllocation",
+        "ResolutionOption"
+      ],
+      "public_functions": [
+        "allocate",
+        "as_dict",
+        "fixed_option",
+        "loss"
+      ],
+      "source_lines": 193,
+      "summary": "ACRA allocates time/frequency resolution according to marginal decision consequence rather than using one fixed measurement window everywhere.",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM421_IM094_DTPR",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "argparse",
+        "bisect",
+        "csv",
+        "dataclasses",
+        "dtpr",
+        "dtpr_cli",
+        "hashlib",
+        "json",
+        "math",
+        "pathlib",
+        "random",
+        "tempfile",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "BudgetAllocation",
+        "DecisionSpec",
+        "DecisionTargetedPrivateRelease",
+        "HashChainLedger",
+        "PrivateActionRelease",
+        "PrivateSelectionRelease"
+      ],
+      "public_functions": [
+        "action_for",
+        "allocate_budget",
+        "append",
+        "as_dict",
+        "count_score",
+        "epsilon_spent",
+        "fingerprint",
+        "ledger",
+        "main",
+        "release",
+        "release_argmax",
+        "release_plan",
+        "release_top_k",
+        "remaining_epsilon",
+        "run_policy"
+      ],
+      "source_lines": 894,
+      "summary": "The composition now exists as executable software rather than only a proposed connection.",
+      "test_methods": 9,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM440_IM029_REL",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "rel",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ConsistencyRelation",
+        "EvidenceRecord",
+        "LocalizationCandidate",
+        "RelationalEvidenceLocalizer"
+      ],
+      "public_functions": [
+        "as_dict",
+        "localize",
+        "records_from_dict",
+        "violation_pattern"
+      ],
+      "source_lines": 242,
+      "summary": "REL converts counterparty-generated records into a consistency graph and uses its violation pattern to locate one altered record or a coherent altered pair.",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM445_IM085_CSID",
+      "domains": [
+        "allocation",
+        "decision",
+        "finance"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "csid",
+        "dataclasses",
+        "itertools",
+        "json",
+        "pathlib",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ContractSafeguardDesigner",
+        "FailureMode",
+        "PortfolioResult",
+        "Safeguard"
+      ],
+      "public_functions": [
+        "as_dict",
+        "design",
+        "designer_from_config",
+        "evaluate"
+      ],
+      "source_lines": 277,
+      "summary": "CSID is an executable portfolio designer for contracts whose visible decision margin may be aligned while hidden effort, reporting, or relocated decision rights remain exposed.",
+      "test_methods": 4,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM452_IM015_LCM",
+      "domains": [
+        "allocation",
+        "measurement",
+        "safety"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "lcm",
+        "numpy",
+        "pathlib",
+        "scipy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "Claim",
+        "FundingAllocation",
+        "FundingChannel",
+        "LiquidityConversionMap"
+      ],
+      "public_functions": [
+        "as_dict",
+        "marginal_verification_value",
+        "solve"
+      ],
+      "source_lines": 255,
+      "summary": "LCM is an executable allocation engine that prevents nominal claims from being counted as immediately usable liquidity. It maps each claim through verification, financing eligibility, channel capacity, advance rate, time horizon, and anchor-concentration constraints.",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "IM455_IM094_DTTC",
+      "domains": [
+        "measurement",
+        "decision",
+        "finance"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dttc",
+        "json",
+        "numpy",
+        "pathlib",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "DecisionTargetedTriggerDesigner",
+        "TriggerCandidate",
+        "TriggerDesignResult"
+      ],
+      "public_functions": [
+        "as_dict",
+        "design",
+        "design_from_config",
+        "fit_candidate",
+        "save_result"
+      ],
+      "source_lines": 272,
+      "summary": "DTTC is now executable software. It takes one common event field, candidate trigger channels, a protected action definition, asymmetric action-error costs, verification cost, and manipulation exposure. It searches candidate thresholds, ranks complete trigger policies, and returns the policy with the lowest declared operational objective.",
+      "test_methods": 3,
+      "tier": "CURRENT_PRODUCTS"
+    },
+    {
+      "capability_id": "R001_C313_BPISD",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "bpisd",
+        "dataclasses",
+        "json",
+        "numpy",
+        "scipy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "PersuasionDesign",
+        "SignalPolicy"
+      ],
+      "public_functions": [
+        "design_binary_persuasion",
+        "to_dict"
+      ],
+      "source_lines": 106,
+      "summary": "**Retro candidate:** R-001 / C-313 / E-401 + E-402 + E-403 **Historical decision:** variant of IM-359 **Product:** Binary Persuasion Information-Structure Designer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R002_C326_HFAD",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "demo_flow_attribution",
+        "hfad",
+        "json",
+        "numpy",
+        "unittest"
+      ],
+      "public_classes": [
+        "HodgeFlowAttributionDecomposer",
+        "HodgeFlowResult"
+      ],
+      "public_functions": [
+        "decompose",
+        "incidence_from_edges"
+      ],
+      "source_lines": 178,
+      "summary": "**Retro candidate:** R-002 / C-326 / M-497–M-498 **Historical decision:** `VARIANT_OF IM-320` **Product:** Hodge Flow Attribution Decomposer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R003_C333_RIC",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "numpy",
+        "ric",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "RelaxationComparison",
+        "TUCertificate"
+      ],
+      "public_functions": [
+        "assignment_equalities",
+        "certify_total_unimodularity",
+        "compare_lp_and_integer"
+      ],
+      "source_lines": 211,
+      "summary": "**Retro candidate:** R-003 / C-333 / M-532–M-536 **Historical decision:** `VARIANT_OF IM-321` **Product:** Relaxation Integrality Certifier **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R004_C344_OFLS",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "ofls",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "RedemptionScenario"
+      ],
+      "public_functions": [
+        "fixed_point",
+        "net",
+        "sale_for_payout",
+        "simulate_redemption",
+        "to_dict"
+      ],
+      "source_lines": 154,
+      "summary": "**Retro candidate:** R-004 / C-344 / E-575 + E-576 + E-577 **Historical decision:** variant of IM-351 **Product:** Open-Fund Liquidity and Swing-pricing Simulator **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R005_P572_SLERM",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "slerm",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "LockInMonitorResult",
+        "LockInWindow"
+      ],
+      "public_functions": [
+        "monitor_lock_in",
+        "to_dict"
+      ],
+      "source_lines": 193,
+      "summary": "**Product route:** reconstructed standalone synchronization/energy-transfer monitor **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R006_P579_P580_UTDIM",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest",
+        "utdim"
+      ],
+      "public_classes": [
+        "DoubleDiffusiveResult",
+        "ModeGrowth"
+      ],
+      "public_functions": [
+        "monitor_double_diffusive_instability",
+        "to_dict"
+      ],
+      "source_lines": 172,
+      "summary": "**Product route:** reconstructed standalone unequal-transport instability monitor **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R007_C349_BICC",
+      "domains": [
+        "decision",
+        "safety"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "bicc",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ConcentrationAudit",
+        "CoordinateInfluence"
+      ],
+      "public_functions": [
+        "audit_concentration",
+        "mcdiarmid_two_sided_tail_bound",
+        "to_dict"
+      ],
+      "source_lines": 250,
+      "summary": "**Retro candidate:** R-007 / C-349 / M-621 + M-622 **Historical decision:** variant of IM-318 **Product:** Bounded-Influence Concentration Certificate **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R008_E612_E613_LGID",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "lgid",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "LocalIncidenceResult"
+      ],
+      "public_functions": [
+        "decompose_local_incidence",
+        "to_dict"
+      ],
+      "source_lines": 177,
+      "summary": "**Product route:** standalone local-gain incidence calculator **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R009_P620_CSDC",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "csdc",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "CoarseningResult",
+        "CoarseningState"
+      ],
+      "public_functions": [
+        "simulate_curvature_coarsening",
+        "to_dict"
+      ],
+      "source_lines": 168,
+      "summary": "**Product route:** reconstructed standalone coarsening simulator/controller **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R010_C359_PPSA",
+      "domains": [
+        "decision",
+        "safety"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "ppsa",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "PrivacyAccount",
+        "Release"
+      ],
+      "public_functions": [
+        "account_privacy",
+        "to_dict"
+      ],
+      "source_lines": 215,
+      "summary": "**Retro candidate:** R-010 / C-359 / S-679 + S-680 **Historical decision:** variant of IM-421 **Product:** Privacy Pipeline Safety Accountant **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R011_C360_MCPR",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "mcpr",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "Dispatch",
+        "MarketClear",
+        "Offer"
+      ],
+      "public_functions": [
+        "clear_uniform_price_market",
+        "to_dict"
+      ],
+      "source_lines": 193,
+      "summary": "**Retro candidate:** R-011 / C-360 / E-641 + E-642 + E-643 **Historical decision:** variant of IM-023 **Product:** Marginal Clearing Price and Rent Calculator **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R012_P660_APTC",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "aptc",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "AmbipolarResult"
+      ],
+      "public_functions": [
+        "calculate_ambipolar_transport",
+        "to_dict"
+      ],
+      "source_lines": 161,
+      "summary": "**Product route:** reconstructed standalone coupled-charge transport calculator **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R013_C376_OWNM",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "ownm",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "OwnershipControlResult",
+        "OwnershipWedgeNetworkMapper"
+      ],
+      "public_functions": [
+        "analyze"
+      ],
+      "source_lines": 198,
+      "summary": "**Retro candidate:** R-013 / C-376 / E-749–E-752 **Historical decision:** `VARIANT_OF IM-008` **Product:** Ownership Wedge Network Mapper **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R014_S781_S792_ACSA",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "acsa",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "SelectionAudit"
+      ],
+      "public_functions": [
+        "audit_adaptive_selection",
+        "to_dict"
+      ],
+      "source_lines": 193,
+      "summary": "**Product route:** standalone adaptive candidate-selection audit **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R015_P767_PCBE",
+      "domains": [
+        "measurement"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "heapq",
+        "json",
+        "numpy",
+        "pcbe",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "BreakthroughResult"
+      ],
+      "public_functions": [
+        "estimate_channel_breakthrough",
+        "to_dict"
+      ],
+      "source_lines": 190,
+      "summary": "**Product route:** reconstructed standalone preferential-channel breakthrough estimator **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R016_M821_M839_FCMS",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "fcms",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "LaminateNode",
+        "MicrostructureResult"
+      ],
+      "public_functions": [
+        "synthesize_compatible_microstructure",
+        "to_dict"
+      ],
+      "source_lines": 220,
+      "summary": "**Product route:** reconstructed standalone compatible-microstructure synthesizer **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R017_C389_PRIU",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "priu",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "Claim",
+        "PriorityArrangement",
+        "PriorityResetAudit",
+        "Scenario"
+      ],
+      "public_functions": [
+        "audit_priority_reset",
+        "to_dict"
+      ],
+      "source_lines": 223,
+      "summary": "**Retro candidate:** R-017 / C-389 / E-806 + E-807 + E-808 **Historical decision:** variant of IM-355 **Product:** Priority-Reset Investment Unlocker **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R018_M866_M880_MCSC",
+      "domains": [
+        "decision",
+        "safety"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "mcsc",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ComparativeStaticsCertificate",
+        "DifferenceWitness"
+      ],
+      "public_functions": [
+        "certify_monotone_comparative_statics",
+        "to_dict"
+      ],
+      "source_lines": 70,
+      "summary": "**Product route:** standalone structural decision certificate **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R019_P858_P859_VICO",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest",
+        "vico"
+      ],
+      "public_classes": [
+        "CouplingResult",
+        "MonotonicityViolation"
+      ],
+      "public_functions": [
+        "optimize_coupling",
+        "to_dict"
+      ],
+      "source_lines": 232,
+      "summary": "**Product route:** standalone two-bottleneck operating-point optimizer **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R020_P848_P851_SCCRT",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "sccrt",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "CatalystCycleResult",
+        "RegenerationDesign"
+      ],
+      "public_functions": [
+        "design_regeneration_capacity",
+        "simulate_catalyst_cycle",
+        "to_dict"
+      ],
+      "source_lines": 212,
+      "summary": "**Product route:** reconstructed standalone catalyst-state and regeneration-capacity tracker **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R021_M896_TFLD",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "scipy",
+        "tfld",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "LocalizationDesign",
+        "WindowCandidate"
+      ],
+      "public_functions": [
+        "design_localization",
+        "to_dict"
+      ],
+      "source_lines": 107,
+      "summary": "**Retro candidate:** R-021 / C-399 / M-896 **Historical decision:** variant of IM-406 **Product:** Time-Frequency Localization Designer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R022_E404_E405_CDA",
+      "domains": [
+        "measurement",
+        "decision",
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "cda",
+        "dataclasses",
+        "json",
+        "numpy",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "ChannelAudit",
+        "GarblingCertificate"
+      ],
+      "public_functions": [
+        "audit_channels",
+        "best_garbling",
+        "decision_value"
+      ],
+      "source_lines": 193,
+      "summary": "**Retro candidate:** R-022 / E-404–E-405 **Historical decision:** merged into IM-034 **Product:** Channel Dominance Auditor **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R023_M421_M428_CORMA",
+      "domains": [
+        "measurement",
+        "decision",
+        "compression",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "corma",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "StateSpaceAudit"
+      ],
+      "public_functions": [
+        "audit_state_space",
+        "to_dict"
+      ],
+      "source_lines": 195,
+      "summary": "**Retro candidate:** R-023 / M-421 + M-422 + M-427 + M-428 **Historical decision:** merged into IM-177 / IM-179 **Product:** Controllability, Observability, and Realization Minimality Auditor **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R024_M423_M426_BRED",
+      "domains": [
+        "allocation",
+        "decision",
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "bred",
+        "dataclasses",
+        "json",
+        "numpy",
+        "scipy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "BalancedReduction",
+        "OrderOption"
+      ],
+      "public_functions": [
+        "design_balanced_reduction",
+        "to_dict"
+      ],
+      "source_lines": 207,
+      "summary": "**Retro candidate:** R-024 / M-423 + M-424 + M-425 + M-426 **Historical decision:** merged into IM-178 / IM-124 **Product:** Balanced Reduction Error-budget Designer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R025_M435_M436_WBDP",
+      "domains": [
+        "decision",
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest",
+        "wbdp"
+      ],
+      "public_classes": [
+        "Distribution",
+        "DistributionPlan"
+      ],
+      "public_functions": [
+        "displacement_interpolation",
+        "to_dict",
+        "wasserstein_barycenter",
+        "wasserstein_distance"
+      ],
+      "source_lines": 159,
+      "summary": "**Retro candidate:** R-025 / M-435 + M-436 **Historical decision:** merged into IM-187 **Product:** Wasserstein Barycenter and Displacement Planner **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R026_S423_S424_EBC",
+      "domains": [
+        "decision",
+        "compression",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "ebc",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "BorrowingContribution",
+        "BorrowingResult",
+        "HistoricalEstimate"
+      ],
+      "public_functions": [
+        "borrow_evidence",
+        "to_dict"
+      ],
+      "source_lines": 196,
+      "summary": "**Retro candidate:** R-026 / S-423 + S-424 **Historical decision:** merged into IM-081 / IM-131 **Product:** Evidence Borrowing Controller **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R027_S426_S427_MIFF",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "collections",
+        "dataclasses",
+        "json",
+        "miff",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "FirewallResult",
+        "InformationFlow"
+      ],
+      "public_functions": [
+        "design_inference_firewall",
+        "to_dict"
+      ],
+      "source_lines": 253,
+      "summary": "**Product route:** standalone modular inference firewall **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R028_S418_S439_TDSX",
+      "domains": [
+        "decision",
+        "robustness",
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "numpy",
+        "tdsx",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "SensitivitySurface",
+        "TippingPoint"
+      ],
+      "public_functions": [
+        "confounding_e_value",
+        "decision",
+        "explore_sensitivity_surface",
+        "missing_mean_tipping_value",
+        "to_dict"
+      ],
+      "source_lines": 210,
+      "summary": "**Retro candidate:** R-028 / S-418 + S-436 + S-437 + S-439 **Historical decision:** merged into IM-128 **Product:** Tipping-Distance and Sensitivity-surface Explorer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R029_S440_SCE",
+      "domains": [
+        "decision",
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "numpy",
+        "sce",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "SpecificationCurve",
+        "SpecificationResult"
+      ],
+      "public_functions": [
+        "run_specification_curve",
+        "to_dict"
+      ],
+      "source_lines": 228,
+      "summary": "**Retro candidate:** R-029 / S-440 **Historical decision:** merged into IM-129 **Product:** Specification Curve Engine **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R030_P428_P429_ISPO",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "ispo",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "PolicyEvaluation",
+        "SearchOptimization"
+      ],
+      "public_functions": [
+        "evaluate_periodic_policy",
+        "optimize_search_policy",
+        "to_dict"
+      ],
+      "source_lines": 217,
+      "summary": "**Product route:** standalone intermittent search controller **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R031_P430_RTO",
+      "domains": [
+        "decision",
+        "compression"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "rto",
+        "unittest"
+      ],
+      "public_classes": [
+        "RestartPolicy"
+      ],
+      "public_functions": [
+        "evaluate_restart_threshold",
+        "optimize_restart_threshold"
+      ],
+      "source_lines": 143,
+      "summary": "**Retro candidate:** R-031 / P-430 **Historical decision:** merged into IM-221 **Product:** Restart Timing Optimizer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R032_M437_UMCA",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "scipy",
+        "umca",
+        "unittest"
+      ],
+      "public_classes": [
+        "UnbalancedAccountingResult"
+      ],
+      "public_functions": [
+        "normalized_balanced_baseline",
+        "solve_unbalanced_transport"
+      ],
+      "source_lines": 246,
+      "summary": "**Retro candidate:** R-032 / M-437 **Historical decision:** held without new IM ID **Product:** Unbalanced Movement-Creation Accountant **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R033_M420_OASRD",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "oasrd",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "AveragingRun",
+        "AveragingSelection"
+      ],
+      "public_functions": [
+        "run_averaged_operator",
+        "select_operator_averaging",
+        "to_dict"
+      ],
+      "source_lines": 166,
+      "summary": "**Product route:** reconstructed standalone fixed-point stabilizer **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R034_P435_RSPI",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "collections",
+        "dataclasses",
+        "json",
+        "numpy",
+        "rspi",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "RemotePair",
+        "RemoteSynchronizationResult"
+      ],
+      "public_functions": [
+        "identify_remote_synchronization",
+        "to_dict"
+      ],
+      "source_lines": 162,
+      "summary": "**Product route:** reconstructed standalone remote-synchronization pathway identifier **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R035_M007_ENPC",
+      "domains": [
+        "allocation",
+        "decision",
+        "finance"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "enpc",
+        "json",
+        "numpy",
+        "scipy",
+        "unittest"
+      ],
+      "public_classes": [
+        "PortfolioSolution"
+      ],
+      "public_functions": [
+        "construct_portfolio",
+        "gradient",
+        "objective"
+      ],
+      "source_lines": 209,
+      "summary": "**Retro candidate:** R-035 / M-007 with M-216 solvability shell **Historical decision:** prior-art collision **Product:** Exposure-Neutral Portfolio Constructor **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R036_DERIVATIVE_FREE_DFDPE",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dfdpe",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "DynamicEstimationResult",
+        "DynamicParameterEstimate",
+        "FiniteDifferenceBaseline",
+        "WindowEquation"
+      ],
+      "public_functions": [
+        "estimate_affine_dynamics",
+        "simulate_affine_dynamics",
+        "to_dict"
+      ],
+      "source_lines": 379,
+      "summary": "**Product route:** standalone differentiation-free dynamic parameter estimator **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R037_SUPPORT_COVARIANCE_SACPS",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "sacps",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "CovarianceDecisionResult"
+      ],
+      "public_functions": [
+        "estimate_support_aware_covariance",
+        "to_dict"
+      ],
+      "source_lines": 189,
+      "summary": "**Product route:** standalone covariance/precision decision service **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R038_DECISION_HEDGE_DHCC",
+      "domains": [
+        "decision",
+        "finance"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dhcc",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "HedgeCalibrationResult",
+        "HedgeCandidate"
+      ],
+      "public_functions": [
+        "calibrate_hedge_covariance",
+        "to_dict"
+      ],
+      "source_lines": 184,
+      "summary": "**Product route:** standalone decision-focused hedge calibrator **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R039_DECISION_BELIEF_DSBC",
+      "domains": [
+        "decision",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dsbc",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "BeliefCluster",
+        "BeliefCompressionResult"
+      ],
+      "public_functions": [
+        "compress_beliefs",
+        "to_dict"
+      ],
+      "source_lines": 243,
+      "summary": "**Product route:** standalone decision-sufficient belief-state compressor **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R040_M147_SALC",
+      "domains": [
+        "decision",
+        "safety",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "salc",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "LumpabilityCertificate"
+      ],
+      "public_functions": [
+        "audit_lumpability",
+        "to_dict"
+      ],
+      "source_lines": 159,
+      "summary": "**Retro candidate:** R-040 / M-147 **Historical decision:** prior-art collision **Product:** State Aggregation and Lumpability Certificate **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R041_CONSTRAINED_POLICY_CAPL",
+      "domains": [
+        "allocation",
+        "decision",
+        "safety",
+        "finance"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "capl",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ActionAudit",
+        "PolicyMetrics",
+        "PortfolioPolicyResult"
+      ],
+      "public_functions": [
+        "learn_portfolio_policy",
+        "to_dict"
+      ],
+      "source_lines": 317,
+      "summary": "**Product route:** standalone constraint-aware portfolio policy learner **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R042_PREDICTIVE_STATE_PSCT",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "collections",
+        "dataclasses",
+        "json",
+        "math",
+        "numpy",
+        "psct",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ClosureTransition",
+        "PredictiveState",
+        "PredictiveStateResult"
+      ],
+      "public_functions": [
+        "discover_predictive_states",
+        "to_dict"
+      ],
+      "source_lines": 291,
+      "summary": "**Product route:** standalone predictive-state discovery and closure tester **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R043_S159_S930_SRCD",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "scipy",
+        "srcd",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ReportingContract"
+      ],
+      "public_functions": [
+        "design_reporting_contract",
+        "equation",
+        "to_dict"
+      ],
+      "source_lines": 204,
+      "summary": "**Retro candidate:** R-043 / S-159 + S-238 + S-930 **Historical decision:** prior-art collision **Product:** Scoring-Rule and Reporting-Contract Designer **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R044_DECISION_LOSS_DLEW",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "dlew",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "CandidateDecisionMetrics",
+        "DecisionLossWorkbenchResult"
+      ],
+      "public_functions": [
+        "evaluate_decision_models",
+        "to_dict"
+      ],
+      "source_lines": 242,
+      "summary": "**Product route:** standalone decision-loss training and evaluation workbench **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R045_TARGET_MEMORY_ATRC",
+      "domains": [
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "atrc",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "EvictionRecord",
+        "RetentionResult"
+      ],
+      "public_functions": [
+        "control_memory_retention",
+        "to_dict"
+      ],
+      "source_lines": 160,
+      "summary": "**Product route:** standalone target-aware memory retention controller **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R046_METRIC_DECISION_MDDC",
+      "domains": [
+        "decision"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "mddc",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ApproximationScore",
+        "DivergenceResult",
+        "RankingInversion"
+      ],
+      "public_functions": [
+        "diagnose_metric_decision_divergence",
+        "to_dict",
+        "valid"
+      ],
+      "source_lines": 77,
+      "summary": "**Product route:** standalone metric-versus-decision divergence diagnostic **Result:** working product; 4/4 focused tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R047_MORTGAGE_COMPETING_MCRIS",
+      "domains": [
+        "causal_inference",
+        "finance"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "mcris",
+        "unittest"
+      ],
+      "public_classes": [
+        "Intervention",
+        "InterventionResult",
+        "MonthlyTransitionRates",
+        "ScenarioResult"
+      ],
+      "public_functions": [
+        "simulate_mortgage_intervention",
+        "to_dict"
+      ],
+      "source_lines": 222,
+      "summary": "**Product route:** standalone mortgage transition/intervention simulator **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R048_MORTGAGE_BURNOUT_MBPF",
+      "domains": [],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "json",
+        "mbpf",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "BurnoutForecast"
+      ],
+      "public_functions": [
+        "forecast_burnout_prepayment",
+        "to_dict"
+      ],
+      "source_lines": 160,
+      "summary": "**Product route:** standalone burnout-adjusted prepayment forecaster **Result:** working product; 4/4 tests pass",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R049_S096_S803_MLHPE",
+      "domains": [
+        "decision",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "mlhpe",
+        "numpy",
+        "scipy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "ChapmanEstimate",
+        "LogLinearEstimate",
+        "MultiListAudit"
+      ],
+      "public_functions": [
+        "audit_three_lists",
+        "chapman_two_list",
+        "gradient",
+        "objective",
+        "to_dict"
+      ],
+      "source_lines": 237,
+      "summary": "**Retro candidate:** R-049 / S-096 + S-803 + S-812 **Historical decision:** positive-control / broadly transferred **Product:** Multi-List Hidden Population Estimator **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    },
+    {
+      "capability_id": "R050_M583_S745_CBAC",
+      "domains": [
+        "decision",
+        "safety",
+        "dynamics"
+      ],
+      "has_demo": true,
+      "has_result": true,
+      "imports": [
+        "cbac",
+        "dataclasses",
+        "json",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "public_classes": [
+        "AssignmentCertificate"
+      ],
+      "public_functions": [
+        "design_balanced_assignment",
+        "to_dict"
+      ],
+      "source_lines": 154,
+      "summary": "**Retro candidate:** R-050 / M-583 + M-585 + S-744 + S-745 **Historical decision:** positive-control / known transfer **Product:** Covariate-Balanced Assignment Certificate **Status:** independent working product",
+      "test_methods": 4,
+      "tier": "RETRO_PRODUCTS"
+    }
+  ]
+}

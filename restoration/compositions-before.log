@@ -1,0 +1,7 @@
+test_circulation_row_order_invariant (test_engines.CompositionRepairs.test_circulation_row_order_invariant) ... ok
+test_frontier_matches_exhaustive_oracle (test_engines.CompositionRepairs.test_frontier_matches_exhaustive_oracle) ... ok
+test_large_frontier_allocation (test_engines.CompositionRepairs.test_large_frontier_allocation) ... ok
+test_plain_transfer_not_circulation (test_engines.CompositionRepairs.test_plain_transfer_not_circulation) ... FAIL
+test_transport_invariant_to_row_order (test_engines.CompositionRepairs.test_transport_invariant_to_row_order) ... FAIL
+test_transport_zero_mass_not_nan (test_engines.CompositionRepairs.test_transport_zero_mass_not_nan) ... /Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/shared_foundry.py:70: RuntimeWarning: invalid value encountered in divide
+  a=np.asarray(a,float); b=np.asarray(b,float); a=a/a.sum(); b=b/b.sum(); i=j=0; left=a.copy(); right=b.copy(); cost=0.

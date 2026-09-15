@@ -1,0 +1,24 @@
+{
+  "evidence_boundary": "bounded-bias multifidelity estimator under declared viability margin only",
+  "mechanism_removing_comparator": {
+    "unconstrained_choice": [
+      0,
+      10
+    ],
+    "unconstrained_worst_case_bias": 0.5
+  },
+  "model_version": "V2P033_VCMF_V1",
+  "result": {
+    "cheap_count": 0,
+    "cost": 10.0,
+    "estimator_variance": 0.02,
+    "fine_count": 2,
+    "status": "VIABILITY_CONSTRAINED_MULTIFIDELITY_PLAN",
+    "unconstrained_choice": [
+      0,
+      10
+    ],
+    "unconstrained_worst_case_bias": 0.5,
+    "worst_case_bias": 0.0
+  }
+}

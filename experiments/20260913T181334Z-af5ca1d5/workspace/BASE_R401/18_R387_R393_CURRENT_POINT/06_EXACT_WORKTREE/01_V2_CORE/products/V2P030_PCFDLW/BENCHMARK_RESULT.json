@@ -1,0 +1,65 @@
+{
+  "evidence_boundary": "synthetic recursive-state certification plus decision-loss shell only",
+  "mechanism_removing_comparator": {
+    "blind_selected": "unsafe",
+    "blind_validation_regret": 1.0
+  },
+  "model_version": "V2P030_PCFDLW_V1",
+  "result": {
+    "blind_selected": "unsafe",
+    "blind_validation_regret": 1.0,
+    "certified_candidates": [
+      "safe"
+    ],
+    "decision_result": {
+      "prediction_selected_validation_decision_regret": 0.0,
+      "selected_by_training_decision_loss": "safe",
+      "selected_by_training_prediction_rmse": "safe",
+      "selected_validation_decision_regret": 0.0,
+      "selection_ranking_diverges": false,
+      "status": "DECISION_AND_PREDICTION_SELECTION_AGREE",
+      "training_candidates": [
+        {
+          "action_agreement_with_oracle": 0.75,
+          "actions": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "mean_decision_regret": 0.25,
+          "mean_oracle_payoff_given_previous_action": 1.0,
+          "mean_realized_payoff": 0.75,
+          "name": "safe",
+          "prediction_rmse": 0.3,
+          "total_turnover": 5.0
+        }
+      ],
+      "transaction_cost": 0.0,
+      "validation_candidates": [
+        {
+          "action_agreement_with_oracle": 1.0,
+          "actions": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "mean_decision_regret": 0.0,
+          "mean_oracle_payoff_given_previous_action": 1.0,
+          "mean_realized_payoff": 1.0,
+          "name": "safe",
+          "prediction_rmse": 0.0,
+          "total_turnover": 7.0
+        }
+      ],
+      "validation_regret_reduction_from_decision_selection": 0.0
+    },
+    "guarded_validation_regret": 0.0,
+    "rejected_candidates": [
+      "unsafe"
+    ],
+    "selected": "safe",
+    "status": "CLOSURE_FIDELITY_GATED_DECISION_SELECTION"
+  }
+}

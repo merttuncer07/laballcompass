@@ -1,0 +1,3247 @@
+{
+  "engine": "LABALLCOMPASS_SEARCH_TO_FOUNDRY_R11",
+  "problem_id": "R11_PRESSURE_GUIDED_DEPLOYABLE_TIPPING_SMOKE",
+  "search_generation": 0,
+  "relevance_snapshot_fingerprint": null,
+  "contract": {
+    "problem_id": "R11_PRESSURE_GUIDED_DEPLOYABLE_TIPPING_SMOKE",
+    "search_generation": 0,
+    "objective": "Reduce exact search work when locating a deployable capacity tipping edge in a fixed series path without changing the P026 answer.",
+    "diagnosed_failure": "Many candidate capacity increases are scanned even when the edge capacity is not active at the baseline path state.",
+    "mechanism_needs": [
+      "hard-cap constraint pressure or minimum regulator correction",
+      "deployable bottleneck tipping under fixed topology lead time yields stock and horizon",
+      "safe pruning that preserves exact target-crossing results"
+    ],
+    "allowed_interventions": [
+      "single-edge capacity increases only",
+      "fail closed to full scan outside the certified shell"
+    ]
+  },
+  "semantics": {
+    "capabilities": "direct problem relevance only; interaction graph not allowed to inflate first-stage relevance",
+    "primitives": "direct donor retrieval with max two selected donors per source domain",
+    "interaction_expansions": "directly relevant capability is identity-seeded, then active known composition interactions are used to retrieve possible complements/repairs; edges rejected by explicit adjudication are suppressed without deleting either component",
+    "promotion": "none; this packet is a search/frontier artifact, not product evidence",
+    "relevance_learning": "optional frozen prior from closed earlier search generations; same-generation and protected-validation outcomes are excluded by construction",
+    "experiment_selection": "next-test routing uses declared contracts; R5 calibration may fill only UNKNOWN fields from frozen prior-generation exact-shell/test-signature telemetry; R6-R11 may bootstrap a fixed non-adaptive pilot only when an executable composition suite exists; R7-R11 create such suites by independently validating a real adapter against consumer invariants plus contrastive composition cases; scientific weakness axes remain unquantified"
+  },
+  "direct_capabilities": [
+    {
+      "rank": 1,
+      "document_id": "FOUNDRY:P026",
+      "name": "P026 DBTE",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 31.669434,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P026 DBTE v0.1 — Deployable Bottleneck Tipping Explorer",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P026",
+        "static_prior": 1.3599999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:p026",
+            "contribution": 2.5440157451236383,
+            "dependency_coefficient": 5.300032802340914
+          },
+          {
+            "feature": "tok:yields",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:topology",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:stock",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:lead",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:even",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:edge",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:deployable",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          },
+          {
+            "feature": "tok:active",
+            "contribution": 1.4537232829277933,
+            "dependency_coefficient": 3.0285901727662363
+          }
+        ]
+      }
+    },
+    {
+      "rank": 2,
+      "document_id": "LCB-K009",
+      "name": "ConstraintPressureMonitorV0",
+      "family": "LCB_KERNEL",
+      "score": 21.350938,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-K009",
+        "static_prior": 1.8699999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:pressure",
+            "contribution": 2.683147025062834,
+            "dependency_coefficient": 5.589889635547571
+          },
+          {
+            "feature": "tok:constraint",
+            "contribution": 2.683147025062834,
+            "dependency_coefficient": 5.589889635547571
+          },
+          {
+            "feature": "tok:regulator",
+            "contribution": 1.5332268714644768,
+            "dependency_coefficient": 3.1942226488843266
+          },
+          {
+            "feature": "tok:hard",
+            "contribution": 1.5332268714644768,
+            "dependency_coefficient": 3.1942226488843266
+          },
+          {
+            "feature": "tok:correction",
+            "contribution": 1.5332268714644768,
+            "dependency_coefficient": 3.1942226488843266
+          },
+          {
+            "feature": "tok:cap",
+            "contribution": 1.5332268714644768,
+            "dependency_coefficient": 3.1942226488843266
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 1.4547846592034008,
+            "dependency_coefficient": 3.0308013733404184
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.3495911726159284,
+            "dependency_coefficient": 2.8116482762831843
+          },
+          {
+            "feature": "root:press",
+            "contribution": 0.8943823416876114,
+            "dependency_coefficient": 5.589889635547571
+          },
+          {
+            "feature": "root:const",
+            "contribution": 0.8371554303485148,
+            "dependency_coefficient": 5.232221439678217
+          }
+        ]
+      }
+    },
+    {
+      "rank": 3,
+      "document_id": "PARENT:IM141_IM023_CDBL",
+      "name": "IM141_IM023_CDBL",
+      "family": "FOUNDRY_PARENT",
+      "score": 19.343108,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 3,
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM141_IM023_CDBL"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "PARENT:IM141_IM023_CDBL",
+        "static_prior": 2.07,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:stock",
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573
+          },
+          {
+            "feature": "tok:edge",
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573
+          },
+          {
+            "feature": "tok:deployable",
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573
+          },
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573
+          },
+          {
+            "feature": "tok:active",
+            "contribution": 1.6086345531162034,
+            "dependency_coefficient": 3.3513219856587573
+          },
+          {
+            "feature": "tok:capacity",
+            "contribution": 1.526334369487465,
+            "dependency_coefficient": 3.1798632697655522
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.4159672213264471,
+            "dependency_coefficient": 2.949931711096765
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.2806520048281536,
+            "dependency_coefficient": 2.6680250100586536
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 0.9285746895580291,
+            "dependency_coefficient": 1.9345306032458942
+          },
+          {
+            "feature": "root:locat",
+            "contribution": 0.5362115177054012,
+            "dependency_coefficient": 3.3513219856587573
+          }
+        ]
+      }
+    },
+    {
+      "rank": 4,
+      "document_id": "FOUNDRY:P027",
+      "name": "P027 IDAC",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 15.2593,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P027 IDAC v0.1 — Integral Deployability Audit Certificate",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P027",
+        "static_prior": 1.3599999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:without",
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679
+          },
+          {
+            "feature": "tok:stock",
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679
+          },
+          {
+            "feature": "tok:even",
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679
+          },
+          {
+            "feature": "tok:deployable",
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679
+          },
+          {
+            "feature": "tok:active",
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679
+          },
+          {
+            "feature": "tok:exact",
+            "contribution": 1.3041061601169326,
+            "dependency_coefficient": 2.716887833576943
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.2891594688239947,
+            "dependency_coefficient": 2.6857488933833222
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 0.7779341201955842,
+            "dependency_coefficient": 1.6206960837408004
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.7533986115392657,
+            "dependency_coefficient": 1.5695804407068035
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.6072075103132201,
+            "dependency_coefficient": 1.2650156464858753
+          }
+        ]
+      }
+    },
+    {
+      "rank": 5,
+      "document_id": "FOUNDRY:P045",
+      "name": "P045 BDTS",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 14.35671,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P045 BDTS v0.1 — Breakthrough Distance-to-Tipping Surface",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P045",
+        "static_prior": 1.3599999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:crossing",
+            "contribution": 1.8004988255805505,
+            "dependency_coefficient": 3.7510392199594804
+          },
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 1.8004988255805505,
+            "dependency_coefficient": 3.7510392199594804
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 1.7083825747630146,
+            "dependency_coefficient": 3.5591303640896137
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.3963799036248516,
+            "dependency_coefficient": 2.909124799218441
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.3846876954341132,
+            "dependency_coefficient": 2.8847660321544026
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.0393271950887173,
+            "dependency_coefficient": 2.1652649897681613
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 0.9563675381373596,
+            "dependency_coefficient": 1.9924323711194993
+          },
+          {
+            "feature": "root:cross",
+            "contribution": 0.6001662751935168,
+            "dependency_coefficient": 3.7510392199594804
+          },
+          {
+            "feature": "root:bottl",
+            "contribution": 0.6001662751935168,
+            "dependency_coefficient": 3.7510392199594804
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.5344089194884654,
+            "dependency_coefficient": 3.3400557468029084
+          }
+        ]
+      }
+    },
+    {
+      "rank": 6,
+      "document_id": "LCB-R50-039",
+      "name": "constraint-preserving conditional fiber sampling",
+      "family": "LCB_KERNEL",
+      "score": 14.336695,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r50_saved_results_no_executable_source_in_rescue",
+          "adoption_state": "STANDALONE_KERNEL_CANDIDATE"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-R50-039",
+        "static_prior": 1.18,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:constraint",
+            "contribution": 3.094097909340463,
+            "dependency_coefficient": 6.446037311125965
+          },
+          {
+            "feature": "tok:outside",
+            "contribution": 1.7680559481945501,
+            "dependency_coefficient": 3.68344989207198
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.407569164989911,
+            "dependency_coefficient": 2.9324357603956477
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.3597372469902562,
+            "dependency_coefficient": 2.832785931229701
+          },
+          {
+            "feature": "root:const",
+            "contribution": 0.9653741828678569,
+            "dependency_coefficient": 6.033588642924106
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 0.9391349166355173,
+            "dependency_coefficient": 1.9565310763239945
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.9095152454083849,
+            "dependency_coefficient": 1.8948234279341354
+          },
+          {
+            "feature": "root:outsi",
+            "contribution": 0.5893519827315168,
+            "dependency_coefficient": 3.68344989207198
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.5503943095282213,
+            "dependency_coefficient": 3.439964434551383
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.45324574899675213,
+            "dependency_coefficient": 2.832785931229701
+          }
+        ]
+      }
+    },
+    {
+      "rank": 7,
+      "document_id": "PARENT:R040_M147_SALC",
+      "name": "R040_M147_SALC",
+      "family": "FOUNDRY_PARENT",
+      "score": 14.019066,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R040_M147_SALC"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "PARENT:R040_M147_SALC",
+        "static_prior": 2.07,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:preserves",
+            "contribution": 1.8341545773229215,
+            "dependency_coefficient": 3.8211553694227534
+          },
+          {
+            "feature": "tok:certified",
+            "contribution": 1.8341545773229215,
+            "dependency_coefficient": 3.8211553694227534
+          },
+          {
+            "feature": "tok:horizon",
+            "contribution": 1.7913176991372588,
+            "dependency_coefficient": 3.731911873202623
+          },
+          {
+            "feature": "tok:exact",
+            "contribution": 1.6331950100426993,
+            "dependency_coefficient": 3.402489604255624
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.4601910247812853,
+            "dependency_coefficient": 3.042064634961011
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.0587547768010919,
+            "dependency_coefficient": 2.2057391183356083
+          },
+          {
+            "feature": "root:horiz",
+            "contribution": 0.5971058997124197,
+            "dependency_coefficient": 3.731911873202623
+          },
+          {
+            "feature": "root:certi",
+            "contribution": 0.5052798892089461,
+            "dependency_coefficient": 3.1579993075559125
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.4701903047940615,
+            "dependency_coefficient": 2.938689404962884
+          },
+          {
+            "feature": "root:reduc",
+            "contribution": 0.4384534138490247,
+            "dependency_coefficient": 2.7403338365564043
+          }
+        ]
+      }
+    },
+    {
+      "rank": 8,
+      "document_id": "PARENT:R015_P767_PCBE",
+      "name": "R015_P767_PCBE",
+      "family": "FOUNDRY_PARENT",
+      "score": 13.359943,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R015_P767_PCBE"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "PARENT:R015_P767_PCBE",
+        "static_prior": 2.07,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:pressure",
+            "contribution": 2.0878277065920385,
+            "dependency_coefficient": 4.34964105540008
+          },
+          {
+            "feature": "tok:full",
+            "contribution": 2.0878277065920385,
+            "dependency_coefficient": 4.34964105540008
+          },
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 2.0878277065920385,
+            "dependency_coefficient": 4.34964105540008
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.6056602172857584,
+            "dependency_coefficient": 3.3451254526786633
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.2051860758204833,
+            "dependency_coefficient": 2.5108043246260072
+          },
+          {
+            "feature": "root:press",
+            "contribution": 0.6959425688640128,
+            "dependency_coefficient": 4.34964105540008
+          },
+          {
+            "feature": "root:bottl",
+            "contribution": 0.6959425688640128,
+            "dependency_coefficient": 4.34964105540008
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.530815137346938,
+            "dependency_coefficient": 3.3175946084183625
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.2929130245828729,
+            "dependency_coefficient": 1.8307064036429554
+          }
+        ]
+      }
+    },
+    {
+      "rank": 9,
+      "document_id": "PARENT:R028_S418_S439_TDSX",
+      "name": "R028_S418_S439_TDSX",
+      "family": "FOUNDRY_PARENT",
+      "score": 13.227004,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R028_S418_S439_TDSX"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "PARENT:R028_S418_S439_TDSX",
+        "static_prior": 2.07,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:without",
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "tok:full",
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.6297081752128717,
+            "dependency_coefficient": 3.3952253650268163
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.4359019483568902,
+            "dependency_coefficient": 2.991462392410188
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.4238788130495905,
+            "dependency_coefficient": 2.9664141938533137
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.068743499196855,
+            "dependency_coefficient": 2.2265489566601144
+          },
+          {
+            "feature": "root:witho",
+            "contribution": 0.617152912077423,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.47863398278563013,
+            "dependency_coefficient": 2.991462392410188
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.47072003128529977,
+            "dependency_coefficient": 2.9420001955331236
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.32934715791387786,
+            "dependency_coefficient": 2.0584197369617367
+          }
+        ]
+      }
+    },
+    {
+      "rank": 10,
+      "document_id": "FOUNDRY:P084",
+      "name": "P084 CAVT",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 13.079724,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P084_CAVT — Control Authority Viability Tipping",
+          "parents": "CCVC + TDSX"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P084",
+        "static_prior": 1.5199999999999998,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:safe",
+            "contribution": 2.133217725045664,
+            "dependency_coefficient": 4.444203593845134
+          },
+          {
+            "feature": "tok:certified",
+            "contribution": 2.133217725045664,
+            "dependency_coefficient": 4.444203593845134
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.6544206077721908,
+            "dependency_coefficient": 3.4467095995253976
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.640567765769161,
+            "dependency_coefficient": 3.4178495120190857
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 1.133097203412549,
+            "dependency_coefficient": 2.360619173776144
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.8844259609721535,
+            "dependency_coefficient": 1.8425540853586533
+          },
+          {
+            "feature": "root:certi",
+            "contribution": 0.587666944267513,
+            "dependency_coefficient": 3.672918401671956
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.5514735359240637,
+            "dependency_coefficient": 3.4467095995253976
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.5423552221937713,
+            "dependency_coefficient": 3.3897201387110703
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.2992810441034232,
+            "dependency_coefficient": 1.8705065256463949
+          }
+        ]
+      }
+    },
+    {
+      "rank": 11,
+      "document_id": "FOUNDRY:P092",
+      "name": "P092 PDAT",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 12.956998,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P092_PDAT — Private Decision Accuracy Tipping",
+          "parents": "UNEXTRACTED"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P092",
+        "static_prior": 1.5199999999999998,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:exact",
+            "contribution": 1.8790655034612553,
+            "dependency_coefficient": 3.9147197988776155
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.6800165113525032,
+            "dependency_coefficient": 3.5000343986510485
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.6366301852019927,
+            "dependency_coefficient": 3.4096462191708183
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.6229263064746104,
+            "dependency_coefficient": 3.3810964718221053
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 1.120912709356371,
+            "dependency_coefficient": 2.3352348111591064
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.874915494586622,
+            "dependency_coefficient": 1.8227406137221291
+          },
+          {
+            "feature": "root:corre",
+            "contribution": 0.7034262234597762,
+            "dependency_coefficient": 4.396413896623601
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.545543395067331,
+            "dependency_coefficient": 3.4096462191708183
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.5409754354915368,
+            "dependency_coefficient": 3.3810964718221053
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.5365231329773696,
+            "dependency_coefficient": 3.35326958110856
+          }
+        ]
+      }
+    },
+    {
+      "rank": 12,
+      "document_id": "FOUNDRY:P044",
+      "name": "P044 MFTS",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 12.558305,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P044 MFTS v0.1 — Manufacturing-Feasibility Tipping Surface",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P044",
+        "static_prior": 1.3599999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:minimum",
+            "contribution": 1.6334502375982227,
+            "dependency_coefficient": 3.403021328329631
+          },
+          {
+            "feature": "tok:exact",
+            "contribution": 1.5329067202072146,
+            "dependency_coefficient": 3.193555667098364
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.3705262512496723,
+            "dependency_coefficient": 2.8552630234368173
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.3351324925974524,
+            "dependency_coefficient": 2.7815260262446926
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.3239531229823887,
+            "dependency_coefficient": 2.7582356728799766
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 0.9144197590626921,
+            "dependency_coefficient": 1.905041164713942
+          },
+          {
+            "feature": "root:const",
+            "contribution": 0.5371248503377232,
+            "dependency_coefficient": 3.3570303146107694
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.5109689067357382,
+            "dependency_coefficient": 3.193555667098364
+          },
+          {
+            "feature": "root:certi",
+            "contribution": 0.4742525742432313,
+            "dependency_coefficient": 2.9640785890201955
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.4450441641991508,
+            "dependency_coefficient": 2.7815260262446926
+          }
+        ]
+      }
+    },
+    {
+      "rank": 13,
+      "document_id": "LCB-K015",
+      "name": "VarianceAwareCapacityPlannerV0",
+      "family": "LCB_KERNEL",
+      "score": 12.459652,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-K015",
+        "static_prior": 1.72,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:capacity",
+            "contribution": 2.671085146603064,
+            "dependency_coefficient": 5.564760722089717
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 1.526334369487465,
+            "dependency_coefficient": 3.1798632697655522
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.4159672213264471,
+            "dependency_coefficient": 2.949931711096765
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.2806520048281536,
+            "dependency_coefficient": 2.6680250100586536
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 0.8903617155343547,
+            "dependency_coefficient": 5.564760722089717
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.8275064213007018,
+            "dependency_coefficient": 1.723971711043129
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.6669352798774226,
+            "dependency_coefficient": 1.3894484997446306
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.4774613796848493,
+            "dependency_coefficient": 2.984133623030308
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.41237765899531426,
+            "dependency_coefficient": 2.577360368720714
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.28615232293484844,
+            "dependency_coefficient": 1.7884520183428028
+          }
+        ]
+      }
+    },
+    {
+      "rank": 14,
+      "document_id": "FOUNDRY:P103",
+      "name": "P103 CFAI",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 12.054533,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "Product result — P103_CFAI v0.1",
+          "parents": "HFAD + BICC + ACRA"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P103",
+        "static_prior": 1.27,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:topology",
+            "contribution": 1.9625517987700265,
+            "dependency_coefficient": 4.0886495807708885
+          },
+          {
+            "feature": "tok:edge",
+            "contribution": 1.9625517987700265,
+            "dependency_coefficient": 4.0886495807708885
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.5624094924513139,
+            "dependency_coefficient": 3.2550197759402373
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.5093158011545535,
+            "dependency_coefficient": 3.1444079190719867
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 1.0424449078168907,
+            "dependency_coefficient": 2.1717602246185224
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.8136683565891772,
+            "dependency_coefficient": 1.695142409560786
+          },
+          {
+            "feature": "root:topol",
+            "contribution": 0.6541839329233422,
+            "dependency_coefficient": 4.0886495807708885
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.5031052670515179,
+            "dependency_coefficient": 3.1444079190719867
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.49896464125147766,
+            "dependency_coefficient": 3.1185290078217354
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.2753373669020924,
+            "dependency_coefficient": 1.7208585431380772
+          }
+        ]
+      }
+    },
+    {
+      "rank": 15,
+      "document_id": "PARENT:IM178_IM326_TWMR",
+      "name": "IM178_IM326_TWMR",
+      "family": "FOUNDRY_PARENT",
+      "score": 11.937654,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 3,
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM178_IM326_TWMR"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "PARENT:IM178_IM326_TWMR",
+        "static_prior": 2.07,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:reduce",
+            "contribution": 1.7522690316651086,
+            "dependency_coefficient": 3.650560482635643
+          },
+          {
+            "feature": "tok:horizon",
+            "contribution": 1.7113445992394047,
+            "dependency_coefficient": 3.5653012484154267
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.3950010237272983,
+            "dependency_coefficient": 2.906252132765205
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.3475961954346605,
+            "dependency_coefficient": 2.8074920738222096
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.01148683456325,
+            "dependency_coefficient": 2.1072642386734373
+          },
+          {
+            "feature": "root:horiz",
+            "contribution": 0.5704481997464683,
+            "dependency_coefficient": 3.5653012484154267
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.5200937576636905,
+            "dependency_coefficient": 3.2505859853980654
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.44919873181155356,
+            "dependency_coefficient": 2.8074920738222096
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.4455017642381773,
+            "dependency_coefficient": 2.784386026488608
+          },
+          {
+            "feature": "root:reduc",
+            "contribution": 0.41887872942359244,
+            "dependency_coefficient": 2.617992058897453
+          }
+        ]
+      }
+    },
+    {
+      "rank": 16,
+      "document_id": "PARENT:R036_DERIVATIVE_FREE_DFDPE",
+      "name": "R036_DERIVATIVE_FREE_DFDPE",
+      "family": "FOUNDRY_PARENT",
+      "score": 11.860025,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "test_methods": 4,
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R036_DERIVATIVE_FREE_DFDPE"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "PARENT:R036_DERIVATIVE_FREE_DFDPE",
+        "static_prior": 2.07,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:without",
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "tok:series",
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.6297081752128717,
+            "dependency_coefficient": 3.3952253650268163
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.4238788130495905,
+            "dependency_coefficient": 2.9664141938533137
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.068743499196855,
+            "dependency_coefficient": 2.2265489566601144
+          },
+          {
+            "feature": "root:witho",
+            "contribution": 0.617152912077423,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "root:serie",
+            "contribution": 0.617152912077423,
+            "dependency_coefficient": 3.8572057004838936
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.47072003128529977,
+            "dependency_coefficient": 2.9420001955331236
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.25975149990005664,
+            "dependency_coefficient": 1.6234468743753538
+          }
+        ]
+      }
+    },
+    {
+      "rank": 17,
+      "document_id": "FOUNDRY:P088",
+      "name": "P088 LFTS",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 11.782902,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P088_LFTS — Lumpability Fragility Tipping Surface",
+          "parents": "SALC + TDSX"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P088",
+        "static_prior": 1.5199999999999998,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:fail",
+            "contribution": 2.1102786703793286,
+            "dependency_coefficient": 4.396413896623601
+          },
+          {
+            "feature": "tok:exact",
+            "contribution": 1.8790655034612553,
+            "dependency_coefficient": 3.9147197988776155
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.6366301852019927,
+            "dependency_coefficient": 3.4096462191708183
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.218145760597039,
+            "dependency_coefficient": 2.537803667910498
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 1.120912709356371,
+            "dependency_coefficient": 2.3352348111591064
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.874915494586622,
+            "dependency_coefficient": 1.8227406137221291
+          },
+          {
+            "feature": "root:certi",
+            "contribution": 0.5813476061137562,
+            "dependency_coefficient": 3.6334225382109766
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.545543395067331,
+            "dependency_coefficient": 3.4096462191708183
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.2960627958436777,
+            "dependency_coefficient": 1.8503924740229856
+          }
+        ]
+      }
+    },
+    {
+      "rank": 18,
+      "document_id": "FOUNDRY:P029",
+      "name": "P029 RATR",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 11.741208,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P029 RATR v0.1 — Resilience-Aware Target Reduction",
+          "parents": "see PARENT_PROVENANCE.md / historical result"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P029",
+        "static_prior": 1.3599999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:safe",
+            "contribution": 1.4325002729298537,
+            "dependency_coefficient": 2.984375568603862
+          },
+          {
+            "feature": "tok:preserves",
+            "contribution": 1.4325002729298537,
+            "dependency_coefficient": 2.984375568603862
+          },
+          {
+            "feature": "tok:full",
+            "contribution": 1.4325002729298537,
+            "dependency_coefficient": 2.984375568603862
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.2609286721341104,
+            "dependency_coefficient": 2.62693473361273
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.1404295294358089,
+            "dependency_coefficient": 2.3758948529912685
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 0.7608984465520438,
+            "dependency_coefficient": 1.5852050969834246
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.7369002313596528,
+            "dependency_coefficient": 1.53520881533261
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.5939105116200635,
+            "dependency_coefficient": 1.2373135658751322
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.425182683902354,
+            "dependency_coefficient": 2.6573917743897124
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.3672251773509487,
+            "dependency_coefficient": 2.2951573584434293
+          }
+        ]
+      }
+    },
+    {
+      "rank": 19,
+      "document_id": "LCB-K074",
+      "name": "InformationSearchTippingGuardV0",
+      "family": "LCB_KERNEL",
+      "score": 11.465077,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-K074",
+        "static_prior": 1.8699999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:search",
+            "contribution": 3.094097909340463,
+            "dependency_coefficient": 6.446037311125965
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 2.399632856776556,
+            "dependency_coefficient": 4.999235118284492
+          },
+          {
+            "feature": "root:searc",
+            "contribution": 1.0313659697801543,
+            "dependency_coefficient": 6.446037311125965
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.9095152454083849,
+            "dependency_coefficient": 1.8948234279341354
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.7998776189255188,
+            "dependency_coefficient": 4.999235118284492
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.7330309338213585,
+            "dependency_coefficient": 1.527147778794497
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.31451103401612646,
+            "dependency_coefficient": 1.9656939626007903
+          },
+          {
+            "feature": "root:deplo",
+            "contribution": 0.31304497221183913,
+            "dependency_coefficient": 1.9565310763239945
+          }
+        ]
+      }
+    },
+    {
+      "rank": 20,
+      "document_id": "LCB-K054",
+      "name": "TimescaleBottleneckDetectorV0",
+      "family": "LCB_KERNEL",
+      "score": 11.264082,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-K054",
+        "static_prior": 1.8699999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 3.3671198925828696,
+            "dependency_coefficient": 7.014833109547645
+          },
+          {
+            "feature": "tok:capacity",
+            "contribution": 1.8256302467485728,
+            "dependency_coefficient": 3.80339634739286
+          },
+          {
+            "feature": "root:bottl",
+            "contribution": 1.1223732975276233,
+            "dependency_coefficient": 7.014833109547645
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.9897705131363324,
+            "dependency_coefficient": 2.062021902367359
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.7977132952701599,
+            "dependency_coefficient": 1.6619026984794998
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 0.6085434155828576,
+            "dependency_coefficient": 3.80339634739286
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.3422633640246512,
+            "dependency_coefficient": 2.1391460251540697
+          },
+          {
+            "feature": "root:deplo",
+            "contribution": 0.34066793750305663,
+            "dependency_coefficient": 2.129174609394104
+          }
+        ]
+      }
+    },
+    {
+      "rank": 21,
+      "document_id": "FOUNDRY:P087",
+      "name": "P087 EVTS",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 11.003483,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "P087_EVTS — Exploration Value Tipping Surface",
+          "parents": "DRE + TDSX"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P087",
+        "static_prior": 1.5199999999999998,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:horizon",
+            "contribution": 2.0833961947553146,
+            "dependency_coefficient": 4.340408739073572
+          },
+          {
+            "feature": "tok:tipping",
+            "contribution": 1.6544206077721908,
+            "dependency_coefficient": 3.4467095995253976
+          },
+          {
+            "feature": "tok:baseline",
+            "contribution": 1.640567765769161,
+            "dependency_coefficient": 3.4178495120190857
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 1.133097203412549,
+            "dependency_coefficient": 2.360619173776144
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.8844259609721535,
+            "dependency_coefficient": 1.8425540853586533
+          },
+          {
+            "feature": "root:horiz",
+            "contribution": 0.6944653982517716,
+            "dependency_coefficient": 4.340408739073572
+          },
+          {
+            "feature": "root:tippi",
+            "contribution": 0.5514735359240637,
+            "dependency_coefficient": 3.4467095995253976
+          },
+          {
+            "feature": "root:basel",
+            "contribution": 0.5423552221937713,
+            "dependency_coefficient": 3.3897201387110703
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.2992810441034232,
+            "dependency_coefficient": 1.8705065256463949
+          }
+        ]
+      }
+    },
+    {
+      "rank": 22,
+      "document_id": "FOUNDRY:P116",
+      "name": "P116 FCAC",
+      "family": "FOUNDRY_PRODUCT",
+      "score": 10.984181,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "title": "Product result — P116_FCAC v0.1",
+          "parents": "FCMS + AICC"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "FOUNDRY:P116",
+        "static_prior": 1.27,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:outside",
+            "contribution": 2.1102786703793286,
+            "dependency_coefficient": 4.396413896623601
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 2.0023136128442984,
+            "dependency_coefficient": 4.171486693425622
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 1.6800165113525032,
+            "dependency_coefficient": 3.5000343986510485
+          },
+          {
+            "feature": "tok:results",
+            "contribution": 1.120912709356371,
+            "dependency_coefficient": 2.3352348111591064
+          },
+          {
+            "feature": "root:outsi",
+            "contribution": 0.7034262234597762,
+            "dependency_coefficient": 4.396413896623601
+          },
+          {
+            "feature": "root:chang",
+            "contribution": 0.633839555031048,
+            "dependency_coefficient": 3.96149721894405
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.6263551678204184,
+            "dependency_coefficient": 3.9147197988776155
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.5409754354915368,
+            "dependency_coefficient": 3.3810964718221053
+          },
+          {
+            "feature": "root:resul",
+            "contribution": 0.2960627958436777,
+            "dependency_coefficient": 1.8503924740229856
+          }
+        ]
+      }
+    },
+    {
+      "rank": 23,
+      "document_id": "LCB-K064",
+      "name": "StrategicCapacityResponseGuardV0",
+      "family": "LCB_KERNEL",
+      "score": 10.964525,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-K064",
+        "static_prior": 1.8699999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:capacity",
+            "contribution": 2.80925066109706,
+            "dependency_coefficient": 5.852605543952208
+          },
+          {
+            "feature": "tok:edge",
+            "contribution": 1.69184336469107,
+            "dependency_coefficient": 3.5246736764397295
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 0.9766064791443884,
+            "dependency_coefficient": 2.034596831550809
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 0.9364168870323534,
+            "dependency_coefficient": 5.852605543952208
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.8703103171598432,
+            "dependency_coefficient": 1.8131464940830067
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.7014334149127843,
+            "dependency_coefficient": 1.461319614401634
+          },
+          {
+            "feature": "root:chang",
+            "contribution": 0.5081590694679484,
+            "dependency_coefficient": 3.1759941841746775
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.3009539412854374,
+            "dependency_coefficient": 1.8809621330339836
+          },
+          {
+            "feature": "root:deplo",
+            "contribution": 0.29955107451623625,
+            "dependency_coefficient": 1.8721942157264764
+          }
+        ]
+      }
+    },
+    {
+      "rank": 24,
+      "document_id": "LCB-K080",
+      "name": "CompressionTopologyGuardV0",
+      "family": "LCB_KERNEL",
+      "score": 10.963698,
+      "metadata": {
+        "kind": "capability",
+        "source": {
+          "origin": "r49_executable_library",
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM"
+        },
+        "rich_text_present": true
+      },
+      "score_explanation": {
+        "document_id": "LCB-K080",
+        "static_prior": 1.8699999999999999,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:topology",
+            "contribution": 3.06647080541394,
+            "dependency_coefficient": 6.388480844612375
+          },
+          {
+            "feature": "tok:closed",
+            "contribution": 1.7522690316651086,
+            "dependency_coefficient": 3.650560482635643
+          },
+          {
+            "feature": "root:topol",
+            "contribution": 1.02215693513798,
+            "dependency_coefficient": 6.388480844612375
+          },
+          {
+            "feature": "tok:shell",
+            "contribution": 0.9013942120914364,
+            "dependency_coefficient": 1.877904608523826
+          },
+          {
+            "feature": "tok:not",
+            "contribution": 0.726485723429372,
+            "dependency_coefficient": 1.5135119238111918
+          },
+          {
+            "feature": "root:close",
+            "contribution": 0.5840896772217029,
+            "dependency_coefficient": 3.650560482635643
+          },
+          {
+            "feature": "root:reduc",
+            "contribution": 0.41887872942359244,
+            "dependency_coefficient": 2.617992058897453
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.3117027747827741,
+            "dependency_coefficient": 1.9481423423923379
+          },
+          {
+            "feature": "root:deplo",
+            "contribution": 0.310249803398705,
+            "dependency_coefficient": 1.9390612712419062
+          }
+        ]
+      }
+    }
+  ],
+  "primitive_donors": [
+    {
+      "rank": 1,
+      "document_id": "PRIMITIVE:M-329",
+      "name": "Skorokhod reflection",
+      "family": "PRIMITIVE",
+      "score": 11.763232,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-329",
+        "domain": "Mathematics",
+        "primitive": "Unconstrained path boundary’yi aşacaksa minimum correction ekleyerek feasible region içine geri it",
+        "constraint_shell": "Hard state constraint"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-329",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:path",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "tok:hard",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "tok:correction",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "tok:constraint",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "root:corre",
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "root:const",
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075
+          }
+        ]
+      }
+    },
+    {
+      "rank": 2,
+      "document_id": "PRIMITIVE:E-124",
+      "name": "Bottleneck pricing",
+      "family": "PRIMITIVE",
+      "score": 10.916228,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-124",
+        "domain": "Economics / Econometrics",
+        "primitive": "En kıt geçiş noktasındaki yoğunluğu zaman/fiyat ile yay",
+        "constraint_shell": "Capacity constraint"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-124",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 3.803179760698775,
+            "dependency_coefficient": 7.923291168122448
+          },
+          {
+            "feature": "tok:constraint",
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275
+          },
+          {
+            "feature": "tok:capacity",
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275
+          },
+          {
+            "feature": "root:bottl",
+            "contribution": 1.2677265868995917,
+            "dependency_coefficient": 7.923291168122448
+          },
+          {
+            "feature": "root:const",
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275
+          }
+        ]
+      }
+    },
+    {
+      "rank": 3,
+      "document_id": "PRIMITIVE:E-652",
+      "name": "Minimum up/down time",
+      "family": "PRIMITIVE",
+      "score": 9.952961,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-652",
+        "domain": "Economics / Econometrics",
+        "primitive": "Generator açıldıktan/kapatıldıktan hemen sonra tersine çevrilemez; state belirli süre locked kalır",
+        "constraint_shell": "Technical intertemporal constraint"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-652",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:time",
+            "contribution": 3.199418102468518,
+            "dependency_coefficient": 6.665454380142746
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 3.199418102468518,
+            "dependency_coefficient": 6.665454380142746
+          },
+          {
+            "feature": "tok:constraint",
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 1.0664727008228394,
+            "dependency_coefficient": 6.665454380142746
+          },
+          {
+            "feature": "root:const",
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835
+          }
+        ]
+      }
+    },
+    {
+      "rank": 4,
+      "document_id": "PRIMITIVE:P-430",
+      "name": "Reset-assisted search",
+      "family": "PRIMITIVE",
+      "score": 9.479999,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "P-430",
+        "domain": "Physics",
+        "primitive": "Çok kötü trajectories’i random reset ederek average target time düşürülebilir",
+        "constraint_shell": "Broad first-passage times"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-430",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:search",
+            "contribution": 3.53624972184803,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "tok:target",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "root:searc",
+            "contribution": 1.1787499072826768,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131
+          }
+        ]
+      }
+    },
+    {
+      "rank": 5,
+      "document_id": "PRIMITIVE:P-699",
+      "name": "Acoustic nonreciprocity by active/time modulation",
+      "family": "PRIMITIVE",
+      "score": 8.601342,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "P-699",
+        "domain": "Physics",
+        "primitive": "A→B transmission ile B→A transmission’ı time-varying/active medium kullanarak farklılaştır",
+        "constraint_shell": "Broken reciprocity"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-699",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:time",
+            "contribution": 3.664860709648036,
+            "dependency_coefficient": 7.635126478433408
+          },
+          {
+            "feature": "tok:active",
+            "contribution": 3.664860709648036,
+            "dependency_coefficient": 7.635126478433408
+          },
+          {
+            "feature": "root:activ",
+            "contribution": 1.2216202365493454,
+            "dependency_coefficient": 7.635126478433408
+          }
+        ]
+      }
+    },
+    {
+      "rank": 6,
+      "document_id": "PRIMITIVE:M-659",
+      "name": "Condenser capacity",
+      "family": "PRIMITIVE",
+      "score": 8.319231,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-659",
+        "domain": "Mathematics",
+        "primitive": "İki separated plates/sets arasında fixed potential difference taşımak için minimum field energy’sini ölç",
+        "constraint_shell": "Two-boundary geometry"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-659",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:capacity",
+            "contribution": 3.10096145574485,
+            "dependency_coefficient": 6.460336366135104
+          },
+          {
+            "feature": "tok:minimum",
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631
+          },
+          {
+            "feature": "tok:fixed",
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 1.0336538185816166,
+            "dependency_coefficient": 6.460336366135104
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631
+          }
+        ]
+      }
+    },
+    {
+      "rank": 7,
+      "document_id": "PRIMITIVE:S-065",
+      "name": "Fixed effects",
+      "family": "PRIMITIVE",
+      "score": 7.760108,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "S-065",
+        "domain": "Statistics",
+        "primitive": "Remove all time-stable differences between units before estimating changing relationships",
+        "constraint_shell": "Within-unit variation required"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-065",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:fixed",
+            "contribution": 3.3043318321283692,
+            "dependency_coefficient": 6.8840246502674365
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "tok:changing",
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "root:chang",
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392
+          }
+        ]
+      }
+    },
+    {
+      "rank": 8,
+      "document_id": "PRIMITIVE:S-060",
+      "name": "Data augmentation",
+      "family": "PRIMITIVE",
+      "score": 7.459285,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "S-060",
+        "domain": "Statistics",
+        "primitive": "Add artificial hidden variables that make the hard calculation easier",
+        "constraint_shell": "Augmented model preserves target"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-060",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:target",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "tok:preserves",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "tok:hard",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "root:prese",
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131
+          }
+        ]
+      }
+    },
+    {
+      "rank": 9,
+      "document_id": "PRIMITIVE:E-653",
+      "name": "Ramp constraint",
+      "family": "PRIMITIVE",
+      "score": 8.132857,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-653",
+        "domain": "Economics / Econometrics",
+        "primitive": "Generator output’u bir interval’dan diğerine arbitrary hızlı değişemez",
+        "constraint_shell": "Rate-of-change capacity"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-653",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:constraint",
+            "contribution": 3.53624972184803,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "tok:capacity",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "root:const",
+            "contribution": 1.1787499072826768,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "root:chang",
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131
+          }
+        ]
+      }
+    },
+    {
+      "rank": 10,
+      "document_id": "PRIMITIVE:E-798",
+      "name": "Audit-capacity bottleneck",
+      "family": "PRIMITIVE",
+      "score": 7.839795,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-798",
+        "domain": "Economics / Econometrics",
+        "primitive": "Information discrepancy bulunması tek başına collection değildir; authority follow-up/enforcement capacity insufficient ise detected noncompliance persist edebilir",
+        "constraint_shell": "Administrative capacity"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-798",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:capacity",
+            "contribution": 2.9211731895473148,
+            "dependency_coefficient": 6.085777478223573
+          },
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 2.9211731895473148,
+            "dependency_coefficient": 6.085777478223573
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 0.9737243965157717,
+            "dependency_coefficient": 6.085777478223573
+          },
+          {
+            "feature": "root:bottl",
+            "contribution": 0.9737243965157717,
+            "dependency_coefficient": 6.085777478223573
+          }
+        ]
+      }
+    },
+    {
+      "rank": 11,
+      "document_id": "PRIMITIVE:M-875",
+      "name": "Single-crossing property",
+      "family": "PRIMITIVE",
+      "score": 7.839795,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-875",
+        "domain": "Mathematics",
+        "primitive": "Two actions’ın payoff ranking’i parameter boyunca bir kez direction değiştiriyorsa higher parameter lower action’a geri dönmesin",
+        "constraint_shell": "Ordered alternatives"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-875",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:single",
+            "contribution": 2.9211731895473148,
+            "dependency_coefficient": 6.085777478223573
+          },
+          {
+            "feature": "tok:crossing",
+            "contribution": 2.9211731895473148,
+            "dependency_coefficient": 6.085777478223573
+          },
+          {
+            "feature": "root:singl",
+            "contribution": 0.9737243965157717,
+            "dependency_coefficient": 6.085777478223573
+          },
+          {
+            "feature": "root:cross",
+            "contribution": 0.9737243965157717,
+            "dependency_coefficient": 6.085777478223573
+          }
+        ]
+      }
+    },
+    {
+      "rank": 12,
+      "document_id": "PRIMITIVE:E-139",
+      "name": "Capacity hysteresis",
+      "family": "PRIMITIVE",
+      "score": 7.728571,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-139",
+        "domain": "Economics / Econometrics",
+        "primitive": "Demand geçici düşse bile capacity hemen kapanmaz; geri açma maliyeti kararları path-dependent yapar",
+        "constraint_shell": "Fixed/sunk adjustment costs"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-139",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:capacity",
+            "contribution": 3.10096145574485,
+            "dependency_coefficient": 6.460336366135104
+          },
+          {
+            "feature": "tok:path",
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631
+          },
+          {
+            "feature": "tok:fixed",
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631
+          },
+          {
+            "feature": "root:capac",
+            "contribution": 1.0336538185816166,
+            "dependency_coefficient": 6.460336366135104
+          }
+        ]
+      }
+    },
+    {
+      "rank": 13,
+      "document_id": "PRIMITIVE:E-133",
+      "name": "Base-stock policy",
+      "family": "PRIMITIVE",
+      "score": 7.627678,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-133",
+        "domain": "Economics / Econometrics",
+        "primitive": "Her dönemde inventory position’ı hedef seviyeye geri çek",
+        "constraint_shell": "Lead time/demand"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-133",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:stock",
+            "contribution": 3.53624972184803,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "tok:lead",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          }
+        ]
+      }
+    },
+    {
+      "rank": 14,
+      "document_id": "PRIMITIVE:M-526",
+      "name": "Constraint qualification",
+      "family": "PRIMITIVE",
+      "score": 7.602758,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-526",
+        "domain": "Mathematics",
+        "primitive": "KKT gibi local certificates’in gerçekten geçerli olması için active constraints fazla degenerate olmamalı",
+        "constraint_shell": "Local constraint geometry"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-526",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:constraint",
+            "contribution": 3.3043318321283692,
+            "dependency_coefficient": 6.8840246502674365
+          },
+          {
+            "feature": "tok:active",
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "root:const",
+            "contribution": 1.10144394404279,
+            "dependency_coefficient": 6.8840246502674365
+          },
+          {
+            "feature": "root:certi",
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "root:activ",
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392
+          }
+        ]
+      }
+    },
+    {
+      "rank": 15,
+      "document_id": "PRIMITIVE:M-858",
+      "name": "Metric projection onto convex set",
+      "family": "PRIMITIVE",
+      "score": 7.602758,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-858",
+        "domain": "Mathematics",
+        "primitive": "Outside point’i convex target içindeki nearest point’e map et; Hilbert geometry’de projection nonexpansive olabilir",
+        "constraint_shell": "Closed convex set"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-858",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:target",
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "tok:outside",
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "tok:closed",
+            "contribution": 1.8881896183590683,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "root:targe",
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "root:outsi",
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392
+          },
+          {
+            "feature": "root:close",
+            "contribution": 0.6293965394530228,
+            "dependency_coefficient": 3.933728371581392
+          }
+        ]
+      }
+    },
+    {
+      "rank": 16,
+      "document_id": "PRIMITIVE:M-572",
+      "name": "Minimum fill-in",
+      "family": "PRIMITIVE",
+      "score": 7.578284,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-572",
+        "domain": "Mathematics",
+        "primitive": "Elimination kolaylaşsın diye mümkün olan en az artificial edge ekle",
+        "constraint_shell": "Sparse factorization"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-572",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:minimum",
+            "contribution": 3.952349192511038,
+            "dependency_coefficient": 8.23406081773133
+          },
+          {
+            "feature": "tok:edge",
+            "contribution": 2.2584852528634505,
+            "dependency_coefficient": 4.705177610132188
+          },
+          {
+            "feature": "root:minim",
+            "contribution": 1.3174497308370128,
+            "dependency_coefficient": 8.23406081773133
+          }
+        ]
+      }
+    },
+    {
+      "rank": 17,
+      "document_id": "PRIMITIVE:P-399",
+      "name": "Chiral edge transport",
+      "family": "PRIMITIVE",
+      "score": 7.515309,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "P-399",
+        "domain": "Physics",
+        "primitive": "Boundary modes yalnız tek yönde ilerleyip ordinary backscattering channels’ını azaltabilir",
+        "constraint_shell": "Broken time-reversal/topology"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-399",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:edge",
+            "contribution": 3.199418102468518,
+            "dependency_coefficient": 6.665454380142746
+          },
+          {
+            "feature": "tok:topology",
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835
+          },
+          {
+            "feature": "tok:time",
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835
+          },
+          {
+            "feature": "root:topol",
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835
+          }
+        ]
+      }
+    },
+    {
+      "rank": 18,
+      "document_id": "PRIMITIVE:E-352",
+      "name": "Single-homing",
+      "family": "PRIMITIVE",
+      "score": 7.459285,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "E-352",
+        "domain": "Economics / Econometrics",
+        "primitive": "Bir side yalnız tek platform seçebiliyorsa o side’a erişim bottleneck haline gelebilir",
+        "constraint_shell": "Exclusive platform use"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-352",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:single",
+            "contribution": 3.53624972184803,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "tok:bottleneck",
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131
+          },
+          {
+            "feature": "root:singl",
+            "contribution": 1.1787499072826768,
+            "dependency_coefficient": 7.36718692051673
+          },
+          {
+            "feature": "root:bottl",
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131
+          }
+        ]
+      }
+    },
+    {
+      "rank": 19,
+      "document_id": "PRIMITIVE:S-616",
+      "name": "Edge correction",
+      "family": "PRIMITIVE",
+      "score": 7.285577,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "S-616",
+        "domain": "Statistics",
+        "primitive": "Observation window dışındaki unobserved neighbors yüzünden boundary events’in neighborhood’unu eksik sayma bias’ını düzelt",
+        "constraint_shell": "Finite spatial window"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-616",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:edge",
+            "contribution": 3.10096145574485,
+            "dependency_coefficient": 6.460336366135104
+          },
+          {
+            "feature": "tok:correction",
+            "contribution": 3.10096145574485,
+            "dependency_coefficient": 6.460336366135104
+          },
+          {
+            "feature": "root:corre",
+            "contribution": 1.0336538185816166,
+            "dependency_coefficient": 6.460336366135104
+          }
+        ]
+      }
+    },
+    {
+      "rank": 20,
+      "document_id": "PRIMITIVE:M-764",
+      "name": "Kernelization",
+      "family": "PRIMITIVE",
+      "score": 7.208086,
+      "metadata": {
+        "kind": "primitive",
+        "primitive_id": "M-764",
+        "domain": "Mathematics",
+        "primitive": "Large instance’i polynomial time’da aynı yes/no answer’ı taşıyan size-bounded smaller instance’a indir",
+        "constraint_shell": "Safe reductions"
+      },
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-764",
+        "static_prior": 0.05,
+        "learned_relevance_prior": 0.0,
+        "feature_contributions": [
+          {
+            "feature": "tok:time",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "tok:safe",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "tok:answer",
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "root:reduc",
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075
+          },
+          {
+            "feature": "root:answe",
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075
+          }
+        ]
+      }
+    }
+  ],
+  "interaction_expansions": [
+    {
+      "seed_rank": 1,
+      "seed_id": "FOUNDRY:P026",
+      "seed_name": "P026 DBTE",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "LCB-K003",
+      "neighbor_name": "SharedCapacityAllocatorV0",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P026",
+        "consumer_id": "LCB-K003",
+        "score": 25.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P026",
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 1,
+      "seed_id": "FOUNDRY:P026",
+      "seed_name": "P026 DBTE",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P026",
+        "consumer_id": "PARENT:IM334_IM094_DRE",
+        "score": 27.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "boundary",
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P026",
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 1,
+      "seed_id": "FOUNDRY:P026",
+      "seed_name": "P026 DBTE",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:R014_S781_S792_ACSA",
+      "neighbor_name": "R014_S781_S792_ACSA",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P026",
+        "consumer_id": "PARENT:R014_S781_S792_ACSA",
+        "score": 26.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P026",
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 1,
+      "seed_id": "FOUNDRY:P026",
+      "seed_name": "P026 DBTE",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:R018_M866_M880_MCSC",
+      "neighbor_name": "R018_M866_M880_MCSC",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P026",
+        "consumer_id": "PARENT:R018_M866_M880_MCSC",
+        "score": 27.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "boundary",
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P026",
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 1,
+      "seed_id": "FOUNDRY:P026",
+      "seed_name": "P026 DBTE",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "neighbor_name": "R044_DECISION_LOSS_DLEW",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P026",
+        "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+        "score": 26.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P026",
+        "experiment_bootstrap_case_count": 4,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 1,
+      "seed_id": "FOUNDRY:P026",
+      "seed_name": "P026 DBTE",
+      "direction": "UPSTREAM_SUPPLIER",
+      "neighbor_id": "LCB-K009",
+      "neighbor_name": "ConstraintPressureMonitorV0",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "LCB-K009",
+        "consumer_id": "FOUNDRY:P026",
+        "score": 49,
+        "interface_matches": [],
+        "addressed_weaknesses": [],
+        "shared_domains": [],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "curated": true,
+        "curated_rationale": "Use constraint pressure to target deployable bottleneck scans",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+        "experiment_bootstrap_product_id": "V2P007",
+        "experiment_bootstrap_case_count": 12,
+        "experiment_bootstrap_problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023"
+      }
+    },
+    {
+      "seed_rank": 2,
+      "seed_id": "LCB-K009",
+      "seed_name": "ConstraintPressureMonitorV0",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "FOUNDRY:P026",
+      "neighbor_name": "P026 DBTE",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "LCB-K009",
+        "consumer_id": "FOUNDRY:P026",
+        "score": 49,
+        "interface_matches": [],
+        "addressed_weaknesses": [],
+        "shared_domains": [],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "curated": true,
+        "curated_rationale": "Use constraint pressure to target deployable bottleneck scans",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+        "experiment_bootstrap_product_id": "V2P007",
+        "experiment_bootstrap_case_count": 12,
+        "experiment_bootstrap_problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023"
+      }
+    },
+    {
+      "seed_rank": 3,
+      "seed_id": "PARENT:IM141_IM023_CDBL",
+      "seed_name": "IM141_IM023_CDBL",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 3,
+      "seed_id": "PARENT:IM141_IM023_CDBL",
+      "seed_name": "IM141_IM023_CDBL",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 3,
+      "seed_id": "PARENT:IM141_IM023_CDBL",
+      "seed_name": "IM141_IM023_CDBL",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 4,
+      "seed_id": "FOUNDRY:P027",
+      "seed_name": "P027 IDAC",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 4,
+      "seed_id": "FOUNDRY:P027",
+      "seed_name": "P027 IDAC",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 4,
+      "seed_id": "FOUNDRY:P027",
+      "seed_name": "P027 IDAC",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 5,
+      "seed_id": "FOUNDRY:P045",
+      "seed_name": "P045 BDTS",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "LCB-K003",
+      "neighbor_name": "SharedCapacityAllocatorV0",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P045",
+        "consumer_id": "LCB-K003",
+        "score": 25.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P045",
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 5,
+      "seed_id": "FOUNDRY:P045",
+      "seed_name": "P045 BDTS",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "LCB-K010",
+      "neighbor_name": "CoverageFeedbackControllerV0",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P045",
+        "consumer_id": "LCB-K010",
+        "score": 25.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P045",
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 5,
+      "seed_id": "FOUNDRY:P045",
+      "seed_name": "P045 BDTS",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P045",
+        "consumer_id": "PARENT:IM334_IM094_DRE",
+        "score": 27.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "boundary",
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P045",
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 5,
+      "seed_id": "FOUNDRY:P045",
+      "seed_name": "P045 BDTS",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:R014_S781_S792_ACSA",
+      "neighbor_name": "R014_S781_S792_ACSA",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P045",
+        "consumer_id": "PARENT:R014_S781_S792_ACSA",
+        "score": 26.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P045",
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 5,
+      "seed_id": "FOUNDRY:P045",
+      "seed_name": "P045 BDTS",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:R018_M866_M880_MCSC",
+      "neighbor_name": "R018_M866_M880_MCSC",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P045",
+        "consumer_id": "PARENT:R018_M866_M880_MCSC",
+        "score": 27.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "boundary",
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P045",
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 5,
+      "seed_id": "FOUNDRY:P045",
+      "seed_name": "P045 BDTS",
+      "direction": "DOWNSTREAM_CONSUMER",
+      "neighbor_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "neighbor_name": "R044_DECISION_LOSS_DLEW",
+      "known_composition_edge": true,
+      "edge": {
+        "supplier_id": "FOUNDRY:P045",
+        "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+        "score": 26.0,
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "shared_domains": [
+          "calibration",
+          "transfer"
+        ],
+        "curated": false,
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "adjudication_state": "UNADJUDICATED",
+        "active_for_build": true,
+        "decision_id": null,
+        "uncertainty_axes": null,
+        "test_channels": null,
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_bootstrap_product_id": "P045",
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null
+      }
+    },
+    {
+      "seed_rank": 6,
+      "seed_id": "LCB-R50-039",
+      "seed_name": "constraint-preserving conditional fiber sampling",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P026",
+      "neighbor_name": "P026 DBTE",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 6,
+      "seed_id": "LCB-R50-039",
+      "seed_name": "constraint-preserving conditional fiber sampling",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 6,
+      "seed_id": "LCB-R50-039",
+      "seed_name": "constraint-preserving conditional fiber sampling",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 7,
+      "seed_id": "PARENT:R040_M147_SALC",
+      "seed_name": "R040_M147_SALC",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P026",
+      "neighbor_name": "P026 DBTE",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 7,
+      "seed_id": "PARENT:R040_M147_SALC",
+      "seed_name": "R040_M147_SALC",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 7,
+      "seed_id": "PARENT:R040_M147_SALC",
+      "seed_name": "R040_M147_SALC",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 8,
+      "seed_id": "PARENT:R015_P767_PCBE",
+      "seed_name": "R015_P767_PCBE",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P026",
+      "neighbor_name": "P026 DBTE",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 8,
+      "seed_id": "PARENT:R015_P767_PCBE",
+      "seed_name": "R015_P767_PCBE",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false
+    },
+    {
+      "seed_rank": 8,
+      "seed_id": "PARENT:R015_P767_PCBE",
+      "seed_name": "R015_P767_PCBE",
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false
+    }
+  ],
+  "relevance_snapshot": null,
+  "experiment_selection": {
+    "status": "NOT_READY_WITHOUT_DECLARED_EXPERIMENT_CONTRACT",
+    "policy": "do not infer information gain, reliability, or compute cost from prose",
+    "required_fields": [
+      "decision_id",
+      "uncertainty_axes",
+      "test_channels[*].test_signature",
+      "test_channels[*].expected_resolution_by_axis",
+      "test_channels[*].compute_seconds",
+      "test_channels[*].reliability",
+      "test_channels[*].calibration_id",
+      "test_channels[*].measurement_backreaction",
+      "test_channels[*].backreaction_adjusted",
+      "test_channels[*].evidence_role",
+      "test_channels[*].selection_generation"
+    ]
+  },
+  "experiment_bootstrap_opportunities": [
+    {
+      "supplier_id": "LCB-K009",
+      "consumer_id": "FOUNDRY:P026",
+      "product_id": "V2P007",
+      "case_count": 12,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023",
+      "status": "FIXED_NONADAPTIVE_PILOT_AVAILABLE_NUMERIC_ROUTING_STILL_UNKNOWN"
+    }
+  ],
+  "counts": {
+    "capabilities_returned": 24,
+    "primitive_donors_returned": 20,
+    "interaction_expansions_returned": 28
+  }
+}

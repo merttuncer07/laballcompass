@@ -1,0 +1,16 @@
+{
+  "episodes_per_class": 1600,
+  "results": {
+    "healthy": {
+      "sequential_false_alarm_rate": 0.0,
+      "one_shot_false_alarm_rate": 0.443125
+    },
+    "fatigue": {
+      "failure_episodes": 1600,
+      "sequential_detection_rate": 1.0,
+      "one_shot_detection_rate": 0.8,
+      "median_sequential_lead_cycles": 297.0,
+      "median_one_shot_lead_cycles": 330.0
+    }
+  }
+}

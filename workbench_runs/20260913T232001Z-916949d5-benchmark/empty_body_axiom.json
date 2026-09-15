@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "empty_body_axiom",
+  "mode": "declared_support",
+  "bases": {
+    "a": "A"
+  },
+  "rules": [
+    {
+      "head": "truth",
+      "body": []
+    }
+  ],
+  "targets": [
+    "truth"
+  ],
+  "metadata": {
+    "family": "axiom"
+  }
+}

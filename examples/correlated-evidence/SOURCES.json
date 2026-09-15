@@ -1,0 +1,22 @@
+{
+  "acquisition": "Numeric data transcribed from the full tables in official metadat HTML. Direct CSV download was unavailable (DNS/network environment); no downloaded CSV byte identity claimed.",
+  "data": {
+    "file": "dat.konstantopoulos2011.csv",
+    "url": "https://wviechtb.github.io/metadat/reference/dat.konstantopoulos2011.html",
+    "rows": 56,
+    "sha256": "0145ae037fd65822ef8394973030b8d251a348b06e7cf6bd8ef8111454191244"
+  },
+  "parameters": {
+    "url": "https://www.metafor-project.org/doku.php/tips:weights_in_rma.mv_models",
+    "district_variance": 0.0651,
+    "school_variance": 0.0327,
+    "precision": "Rounded published fitted values; not refitted here"
+  },
+  "shared_control": {
+    "file": "shared-control.json",
+    "url": "https://wviechtb.github.io/metadat/reference/dat.linde2015.html",
+    "row": "Lecrubier 1997, id 1",
+    "sha256": "aa70cb6a57577b4ec17c94c0e156cee971e5ed35eb36b29f7ab04cf3ff4d5f43"
+  },
+  "use": "Numerical reference for covariance propagation and GLS limit, not medical, educational or audit advice"
+}

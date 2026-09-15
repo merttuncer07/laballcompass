@@ -1,0 +1,841 @@
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py
+@@ -1,8 +1,13 @@
+-"""Evidence Borrowing Controller (EBC) v0.1 for normal estimates."""
++"""Adaptive borrowing of normal estimates, with declared observation identity.
++
++An observation_id identifies repetitions of ONE underlying estimate, not an
++entire organization/study or merely equal numbers. Partly overlapping estimates
++need a covariance model; the independent-observation model here cannot infer it.
++"""
+ 
+ from __future__ import annotations
+ 
+-from dataclasses import asdict, dataclass
++from dataclasses import asdict, dataclass, replace
+ from typing import Sequence
+ 
+ import numpy as np
+@@ -14,6 +19,7 @@
+     estimate: float
+     standard_error: float
+     maximum_power: float = 1.0
++    observation_id: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -26,6 +32,8 @@
+     pre_cap_power: float
+     final_power: float
+     borrowed_precision: float
++    observation_id: str | None = None
++    counted_as: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -42,11 +50,48 @@
+     cap_scale: float
+     current_information_share: float
+     contributions: tuple[BorrowingContribution, ...]
++    distinct_historical_observations: int = 0
++    duplicate_history_count: int = 0
++    current_overlap_count: int = 0
++    dependency_model: str = "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared"
++    interval_semantics: str = "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+ 
+     def to_dict(self) -> dict:
+         payload = asdict(self)
+         payload["contributions"] = [asdict(item) for item in self.contributions]
+         return payload
++
++
++def coalesce_history(historical):
++    """Validate and collapse declared aliases; retain the largest allowed power.
++
++    With identical observations their compatibility is identical, so the largest
++    power dominates the smaller policy allowances. Equal estimates with different
++    identities are left separate. Return representatives and alias -> name map.
++    """
++    records = tuple(historical)
++    if len({record.name for record in records}) != len(records):
++        raise ValueError("historical estimate names must be unique")
++    groups = {}
++    for record in records:
++        if (not isinstance(record.name, str) or not record.name
++            or not np.isfinite(record.estimate) or not np.isfinite(record.standard_error)
++            or not np.isfinite(record.maximum_power) or record.standard_error <= 0
++            or not 0 <= record.maximum_power <= 1):
++            raise ValueError("historical estimates require finite values, positive SE, and power in [0,1]")
++        if record.observation_id is not None and (not isinstance(record.observation_id, str) or not record.observation_id.strip()):
++            raise ValueError("observation_id must be a nonempty string or None")
++        key = ('observation', record.observation_id) if record.observation_id is not None else ('record', record.name)
++        groups.setdefault(key, []).append(record)
++    chosen, mapping = [], {}
++    for group in groups.values():
++        first = group[0]
++        if any((x.estimate, x.standard_error) != (first.estimate, first.standard_error) for x in group):
++            raise ValueError("One observation_id has conflicting estimate/SE; partial overlap requires a covariance model")
++        representative = min(group, key=lambda x: (-x.maximum_power, x.name))
++        chosen.append(representative)
++        mapping.update({x.name: representative.name for x in group})
++    return tuple(chosen), mapping
+ 
+ 
+ def borrow_evidence(
+@@ -57,6 +102,7 @@
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
+     confidence_z: float = 1.96,
++    current_observation_id: str | None = None,
+ ) -> BorrowingResult:
+     """Combine current and historical normal estimates with conflict-adaptive power weights."""
+ 
+@@ -66,18 +112,14 @@
+     if borrowing_cap_ratio < 0 or confidence_z <= 0:
+         raise ValueError("borrowing cap must be non-negative and confidence_z positive")
+     records = tuple(historical)
+-    if len({record.name for record in records}) != len(records):
+-        raise ValueError("historical estimate names must be unique")
++    unique, aliases = coalesce_history(records)
++    if current_observation_id is not None and (not isinstance(current_observation_id, str) or not current_observation_id.strip()):
++        raise ValueError("current_observation_id must be a nonempty string or None")
++    overlap = {r.name for r in records if current_observation_id is not None and r.observation_id == current_observation_id}
+     for record in records:
+-        if (
+-            not record.name
+-            or not np.isfinite(record.estimate)
+-            or not np.isfinite(record.standard_error)
+-            or not np.isfinite(record.maximum_power)
+-            or record.standard_error <= 0
+-            or not 0 <= record.maximum_power <= 1
+-        ):
+-            raise ValueError("historical estimates require finite values, positive SE, and power in [0,1]")
++        if record.name in overlap and (record.estimate, record.standard_error) != (current_estimate, current_standard_error):
++            raise ValueError("Current and historical observation identity conflicts with estimate/SE")
++    counted = {r.name for r in unique if r.name not in overlap}
+ 
+     current_precision = 1.0 / current_standard_error**2
+     provisional: list[tuple[HistoricalEstimate, float, float, float]] = []
+@@ -87,7 +129,7 @@
+             record.standard_error**2 + current_standard_error**2
+         )
+         compatibility = float(np.exp(-0.5 * (conflict_z / compatibility_scale) ** 2))
+-        pre_cap_power = record.maximum_power * compatibility
++        pre_cap_power = record.maximum_power * compatibility if record.name in counted else 0.0
+         precision = pre_cap_power / record.standard_error**2
+         provisional.append((record, conflict_z, compatibility, pre_cap_power))
+         pre_cap_precision += precision
+@@ -106,6 +148,7 @@
+             BorrowingContribution(
+                 record.name, record.estimate, record.standard_error, float(conflict_z), compatibility,
+                 float(pre_cap_power), float(final_power), float(precision),
++                record.observation_id, 'current' if record.name in overlap else aliases[record.name],
+             )
+         )
+ 
+@@ -125,4 +168,51 @@
+         cap_scale=float(cap_scale),
+         current_information_share=float(current_precision / total_precision),
+         contributions=tuple(contributions),
++        distinct_historical_observations=len(counted),
++        duplicate_history_count=len(records)-len(unique),
++        current_overlap_count=len(overlap),
+     )
++
++
++def review_identity(config):
++    """Compare the declared identities with the explicit independence baseline."""
++    arguments = dict(config)
++    history = [HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    grouped = borrow_evidence(historical=history, **arguments)
++    independent_args = {k:v for k,v in arguments.items() if k != 'current_observation_id'}
++    independent = borrow_evidence(historical=[replace(h,observation_id=None) for h in history], **independent_args)
++    return {'identity_preserved':grouped.to_dict(),
++            'independence_assumed':independent.to_dict(),
++            'estimate_shift_from_counting_aliases':independent.posterior_estimate-grouped.posterior_estimate,
++            'se_change_from_counting_aliases':independent.posterior_standard_error-grouped.posterior_standard_error,
++            'interpretation':'The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.'}
++
++
++def main(argv=None):
++    import argparse, hashlib, json
++    from pathlib import Path
++    parser=argparse.ArgumentParser(description='EBC: combine normal estimates while preserving declared observation identity')
++    parser.add_argument('input_json');parser.add_argument('--output');parser.add_argument('--review',action='store_true')
++    args=parser.parse_args(argv)
++    try:
++        raw=Path(args.input_json).read_bytes();config=json.loads(raw)
++        if args.review:
++            result=review_identity(config)
++        else:
++            config=dict(config)
++            history=[HistoricalEstimate(**r) for r in config.pop('historical')]
++            result=borrow_evidence(historical=history,**config).to_dict()
++        result['mechanism']={'engine':'R026 EBC','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
++                             'input_sha256':hashlib.sha256(raw).hexdigest()}
++        text=json.dumps(result,indent=2,allow_nan=False)+'\n'
++        if args.output:
++            with Path(args.output).open('x') as f:f.write(text)
++            print(args.output)
++        else:print(text,end='')
++        return 0
++    except (ValueError,TypeError,KeyError,OSError) as error:
++        parser.error(str(error))
++
++
++if __name__=='__main__':
++    raise SystemExit(main())
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/test_ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/test_ebc.py
+@@ -1,9 +1,17 @@
+ import unittest
++import math
++import numpy as np
+ 
+-from ebc import HistoricalEstimate, borrow_evidence
++from ebc import HistoricalEstimate, borrow_evidence, review_identity
+ 
+ 
+ class EBCTests(unittest.TestCase):
++    def test_review_separates_assumed_independence_from_declared_identity(self):
++        result=review_identity({'current_estimate':0,'current_standard_error':1,'historical':[
++            {'name':str(i),'estimate':1,'standard_error':1,'observation_id':'same'} for i in range(5)]})
++        self.assertLess(result['identity_preserved']['posterior_estimate'],.6)
++        self.assertGreater(result['independence_assumed']['posterior_estimate'],.6)
++        self.assertGreater(result['estimate_shift_from_counting_aliases'],0)
+     def test_compatible_history_reduces_uncertainty(self) -> None:
+         result = borrow_evidence(
+             1.0, 0.3, [HistoricalEstimate("old", 1.05, 0.2)], borrowing_cap_ratio=3.0
+@@ -31,6 +39,62 @@
+         self.assertAlmostEqual(result.posterior_estimate, 2.0)
+         self.assertAlmostEqual(result.posterior_standard_error, 0.4)
+ 
++    def test_declared_copies_do_not_shift_estimate_or_shrink_uncertainty(self):
++        one = borrow_evidence(0,1,[HistoricalEstimate('original',1,1,observation_id='study:estimate')])
++        copied = borrow_evidence(0,1,[HistoricalEstimate(str(i),1,1,observation_id='study:estimate') for i in range(100)])
++        self.assertEqual(one.posterior_estimate,copied.posterior_estimate)
++        self.assertEqual(one.posterior_standard_error,copied.posterior_standard_error)
++        self.assertEqual(copied.distinct_historical_observations,1)
++        self.assertEqual(copied.duplicate_history_count,99)
++        self.assertEqual(sum(c.borrowed_precision>0 for c in copied.contributions),1)
++        power=math.exp(-1/9)
++        self.assertAlmostEqual(copied.posterior_estimate,power/(1+power))
++        self.assertAlmostEqual(copied.posterior_standard_error,1/math.sqrt(1+power))
++
++    def test_matches_gls_reference_for_perfectly_repeated_estimates(self):
++        # A separate covariance calculation: perfect within-observation
++        # correlation, independent groups, EBC powers held fixed.
++        history=[HistoricalEstimate('a'+str(i),1,2,observation_id='a') for i in range(3)]
++        history += [HistoricalEstimate('b'+str(i),-1,1.5,observation_id='b') for i in range(2)]
++        values=np.array([h.estimate for h in history])
++        covariance=np.zeros((5,5))
++        for i,h in enumerate(history):
++            power=math.exp(-.5*((h.estimate/math.sqrt(h.standard_error**2+1))/1.5)**2)
++            for j,k in enumerate(history):
++                if h.observation_id==k.observation_id:covariance[i,j]=h.standard_error**2/power
++        precision=np.linalg.pinv(covariance);ones=np.ones(5)
++        total=1+ones@precision@ones
++        result=borrow_evidence(0,1,history,borrowing_cap_ratio=100)
++        self.assertAlmostEqual(result.posterior_estimate,(ones@precision@values)/total)
++        self.assertAlmostEqual(result.posterior_standard_error,1/math.sqrt(total))
++
++    def test_equal_values_alone_do_not_establish_duplicate_identity(self):
++        one=borrow_evidence(0,1,[HistoricalEstimate('a',1,1)])
++        distinct=borrow_evidence(0,1,[HistoricalEstimate('a',1,1),HistoricalEstimate('b',1,1)])
++        self.assertGreater(distinct.posterior_estimate,one.posterior_estimate)
++        self.assertEqual(distinct.duplicate_history_count,0)
++
++    def test_current_observation_cannot_be_borrowed_again(self):
++        result=borrow_evidence(2,.4,[HistoricalEstimate('copy',2,.4,observation_id='current')],current_observation_id='current')
++        self.assertEqual(result.posterior_estimate,2)
++        self.assertAlmostEqual(result.posterior_standard_error,.4)
++        self.assertEqual(result.borrowed_precision,0)
++        self.assertEqual(result.current_overlap_count,1)
++
++    def test_conflicting_values_under_one_identity_require_joint_model(self):
++        with self.assertRaisesRegex(ValueError,'covariance'):
++            borrow_evidence(0,1,[HistoricalEstimate('a',1,1,observation_id='x'),HistoricalEstimate('b',2,1,observation_id='x')])
++        with self.assertRaisesRegex(ValueError,'conflicts'):
++            borrow_evidence(0,1,[HistoricalEstimate('a',1,1,observation_id='x')],current_observation_id='x')
++
++    def test_duplicate_power_policy_is_max_not_sum_and_order_invariant(self):
++        history=[HistoricalEstimate('a',1,1,.2,'x'),HistoricalEstimate('b',1,1,.6,'x')]
++        a=borrow_evidence(0,1,history);b=borrow_evidence(0,1,list(reversed(history)))
++        once=borrow_evidence(0,1,[history[1]])
++        self.assertEqual(a.posterior_estimate,b.posterior_estimate)
++        self.assertEqual(a.posterior_estimate,once.posterior_estimate)
++        self.assertEqual(a.contributions[0].counted_as,'b')
++
+ 
+ if __name__ == "__main__":
+     unittest.main()
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
+@@ -73,11 +73,13 @@
+     *,
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
++    current_observation_id: str | None = None,
+ ) -> BorrowedDefaultEffect:
+     """Use EBC on a normal-scale log default-rate multiplier, then exponentiate."""
+     borrowing = borrow_evidence(
+         current_log_multiplier, current_standard_error, historical,
+         compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio,
++        current_observation_id=current_observation_id,
+     )
+     multiplier = float(math.exp(borrowing.posterior_estimate))
+     return BorrowedDefaultEffect(
+@@ -265,10 +267,12 @@
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
+     sensitivity_grids: Mapping[str, Sequence[float]] | None = None,
++    current_observation_id: str | None = None,
+ ) -> BAMIWorkbenchResult:
+     effect = borrow_default_multiplier(
+         current_log_default_multiplier, current_standard_error, historical_effects,
+         compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio,
++        current_observation_id=current_observation_id,
+     )
+     intervention = replace(
+         intervention_template,
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/ebc.py
+@@ -1,8 +1,13 @@
+-"""Evidence Borrowing Controller (EBC) v0.1 for normal estimates."""
++"""Adaptive borrowing of normal estimates, with declared observation identity.
++
++An observation_id identifies repetitions of ONE underlying estimate, not an
++entire organization/study or merely equal numbers. Partly overlapping estimates
++need a covariance model; the independent-observation model here cannot infer it.
++"""
+ 
+ from __future__ import annotations
+ 
+-from dataclasses import asdict, dataclass
++from dataclasses import asdict, dataclass, replace
+ from typing import Sequence
+ 
+ import numpy as np
+@@ -14,6 +19,7 @@
+     estimate: float
+     standard_error: float
+     maximum_power: float = 1.0
++    observation_id: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -26,6 +32,8 @@
+     pre_cap_power: float
+     final_power: float
+     borrowed_precision: float
++    observation_id: str | None = None
++    counted_as: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -42,11 +50,48 @@
+     cap_scale: float
+     current_information_share: float
+     contributions: tuple[BorrowingContribution, ...]
++    distinct_historical_observations: int = 0
++    duplicate_history_count: int = 0
++    current_overlap_count: int = 0
++    dependency_model: str = "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared"
++    interval_semantics: str = "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+ 
+     def to_dict(self) -> dict:
+         payload = asdict(self)
+         payload["contributions"] = [asdict(item) for item in self.contributions]
+         return payload
++
++
++def coalesce_history(historical):
++    """Validate and collapse declared aliases; retain the largest allowed power.
++
++    With identical observations their compatibility is identical, so the largest
++    power dominates the smaller policy allowances. Equal estimates with different
++    identities are left separate. Return representatives and alias -> name map.
++    """
++    records = tuple(historical)
++    if len({record.name for record in records}) != len(records):
++        raise ValueError("historical estimate names must be unique")
++    groups = {}
++    for record in records:
++        if (not isinstance(record.name, str) or not record.name
++            or not np.isfinite(record.estimate) or not np.isfinite(record.standard_error)
++            or not np.isfinite(record.maximum_power) or record.standard_error <= 0
++            or not 0 <= record.maximum_power <= 1):
++            raise ValueError("historical estimates require finite values, positive SE, and power in [0,1]")
++        if record.observation_id is not None and (not isinstance(record.observation_id, str) or not record.observation_id.strip()):
++            raise ValueError("observation_id must be a nonempty string or None")
++        key = ('observation', record.observation_id) if record.observation_id is not None else ('record', record.name)
++        groups.setdefault(key, []).append(record)
++    chosen, mapping = [], {}
++    for group in groups.values():
++        first = group[0]
++        if any((x.estimate, x.standard_error) != (first.estimate, first.standard_error) for x in group):
++            raise ValueError("One observation_id has conflicting estimate/SE; partial overlap requires a covariance model")
++        representative = min(group, key=lambda x: (-x.maximum_power, x.name))
++        chosen.append(representative)
++        mapping.update({x.name: representative.name for x in group})
++    return tuple(chosen), mapping
+ 
+ 
+ def borrow_evidence(
+@@ -57,6 +102,7 @@
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
+     confidence_z: float = 1.96,
++    current_observation_id: str | None = None,
+ ) -> BorrowingResult:
+     """Combine current and historical normal estimates with conflict-adaptive power weights."""
+ 
+@@ -66,18 +112,14 @@
+     if borrowing_cap_ratio < 0 or confidence_z <= 0:
+         raise ValueError("borrowing cap must be non-negative and confidence_z positive")
+     records = tuple(historical)
+-    if len({record.name for record in records}) != len(records):
+-        raise ValueError("historical estimate names must be unique")
++    unique, aliases = coalesce_history(records)
++    if current_observation_id is not None and (not isinstance(current_observation_id, str) or not current_observation_id.strip()):
++        raise ValueError("current_observation_id must be a nonempty string or None")
++    overlap = {r.name for r in records if current_observation_id is not None and r.observation_id == current_observation_id}
+     for record in records:
+-        if (
+-            not record.name
+-            or not np.isfinite(record.estimate)
+-            or not np.isfinite(record.standard_error)
+-            or not np.isfinite(record.maximum_power)
+-            or record.standard_error <= 0
+-            or not 0 <= record.maximum_power <= 1
+-        ):
+-            raise ValueError("historical estimates require finite values, positive SE, and power in [0,1]")
++        if record.name in overlap and (record.estimate, record.standard_error) != (current_estimate, current_standard_error):
++            raise ValueError("Current and historical observation identity conflicts with estimate/SE")
++    counted = {r.name for r in unique if r.name not in overlap}
+ 
+     current_precision = 1.0 / current_standard_error**2
+     provisional: list[tuple[HistoricalEstimate, float, float, float]] = []
+@@ -87,7 +129,7 @@
+             record.standard_error**2 + current_standard_error**2
+         )
+         compatibility = float(np.exp(-0.5 * (conflict_z / compatibility_scale) ** 2))
+-        pre_cap_power = record.maximum_power * compatibility
++        pre_cap_power = record.maximum_power * compatibility if record.name in counted else 0.0
+         precision = pre_cap_power / record.standard_error**2
+         provisional.append((record, conflict_z, compatibility, pre_cap_power))
+         pre_cap_precision += precision
+@@ -106,6 +148,7 @@
+             BorrowingContribution(
+                 record.name, record.estimate, record.standard_error, float(conflict_z), compatibility,
+                 float(pre_cap_power), float(final_power), float(precision),
++                record.observation_id, 'current' if record.name in overlap else aliases[record.name],
+             )
+         )
+ 
+@@ -125,4 +168,51 @@
+         cap_scale=float(cap_scale),
+         current_information_share=float(current_precision / total_precision),
+         contributions=tuple(contributions),
++        distinct_historical_observations=len(counted),
++        duplicate_history_count=len(records)-len(unique),
++        current_overlap_count=len(overlap),
+     )
++
++
++def review_identity(config):
++    """Compare the declared identities with the explicit independence baseline."""
++    arguments = dict(config)
++    history = [HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    grouped = borrow_evidence(historical=history, **arguments)
++    independent_args = {k:v for k,v in arguments.items() if k != 'current_observation_id'}
++    independent = borrow_evidence(historical=[replace(h,observation_id=None) for h in history], **independent_args)
++    return {'identity_preserved':grouped.to_dict(),
++            'independence_assumed':independent.to_dict(),
++            'estimate_shift_from_counting_aliases':independent.posterior_estimate-grouped.posterior_estimate,
++            'se_change_from_counting_aliases':independent.posterior_standard_error-grouped.posterior_standard_error,
++            'interpretation':'The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.'}
++
++
++def main(argv=None):
++    import argparse, hashlib, json
++    from pathlib import Path
++    parser=argparse.ArgumentParser(description='EBC: combine normal estimates while preserving declared observation identity')
++    parser.add_argument('input_json');parser.add_argument('--output');parser.add_argument('--review',action='store_true')
++    args=parser.parse_args(argv)
++    try:
++        raw=Path(args.input_json).read_bytes();config=json.loads(raw)
++        if args.review:
++            result=review_identity(config)
++        else:
++            config=dict(config)
++            history=[HistoricalEstimate(**r) for r in config.pop('historical')]
++            result=borrow_evidence(historical=history,**config).to_dict()
++        result['mechanism']={'engine':'R026 EBC','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
++                             'input_sha256':hashlib.sha256(raw).hexdigest()}
++        text=json.dumps(result,indent=2,allow_nan=False)+'\n'
++        if args.output:
++            with Path(args.output).open('x') as f:f.write(text)
++            print(args.output)
++        else:print(text,end='')
++        return 0
++    except (ValueError,TypeError,KeyError,OSError) as error:
++        parser.error(str(error))
++
++
++if __name__=='__main__':
++    raise SystemExit(main())
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
+@@ -16,6 +16,16 @@
+ 
+ 
+ class BAMITests(unittest.TestCase):
++    def test_copying_one_effect_does_not_change_default_multiplier(self):
++        one=borrow_default_multiplier(0,1,[HistoricalEstimate('a',-.5,1,observation_id='effect')])
++        copies=borrow_default_multiplier(0,1,[HistoricalEstimate(str(i),-.5,1,observation_id='effect') for i in range(10)])
++        self.assertEqual(one.posterior_default_multiplier,copies.posterior_default_multiplier)
++        self.assertEqual(copies.borrowing.duplicate_history_count,9)
++
++    def test_current_observation_identity_survives_bami_adapter(self):
++        result=borrow_default_multiplier(-.5,1,[HistoricalEstimate('copy',-.5,1,observation_id='current')],current_observation_id='current')
++        self.assertEqual(result.borrowing.borrowed_precision,0)
++
+     def setUp(self):
+         self.rates = MonthlyTransitionRates(0.002, 0.0, 0.01, 0.05, 0.005, 0.20)
+         self.base = np.full(36, 0.025)
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/ebc.py
+@@ -1,8 +1,13 @@
+-"""Evidence Borrowing Controller (EBC) v0.1 for normal estimates."""
++"""Adaptive borrowing of normal estimates, with declared observation identity.
++
++An observation_id identifies repetitions of ONE underlying estimate, not an
++entire organization/study or merely equal numbers. Partly overlapping estimates
++need a covariance model; the independent-observation model here cannot infer it.
++"""
+ 
+ from __future__ import annotations
+ 
+-from dataclasses import asdict, dataclass
++from dataclasses import asdict, dataclass, replace
+ from typing import Sequence
+ 
+ import numpy as np
+@@ -14,6 +19,7 @@
+     estimate: float
+     standard_error: float
+     maximum_power: float = 1.0
++    observation_id: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -26,6 +32,8 @@
+     pre_cap_power: float
+     final_power: float
+     borrowed_precision: float
++    observation_id: str | None = None
++    counted_as: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -42,11 +50,48 @@
+     cap_scale: float
+     current_information_share: float
+     contributions: tuple[BorrowingContribution, ...]
++    distinct_historical_observations: int = 0
++    duplicate_history_count: int = 0
++    current_overlap_count: int = 0
++    dependency_model: str = "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared"
++    interval_semantics: str = "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+ 
+     def to_dict(self) -> dict:
+         payload = asdict(self)
+         payload["contributions"] = [asdict(item) for item in self.contributions]
+         return payload
++
++
++def coalesce_history(historical):
++    """Validate and collapse declared aliases; retain the largest allowed power.
++
++    With identical observations their compatibility is identical, so the largest
++    power dominates the smaller policy allowances. Equal estimates with different
++    identities are left separate. Return representatives and alias -> name map.
++    """
++    records = tuple(historical)
++    if len({record.name for record in records}) != len(records):
++        raise ValueError("historical estimate names must be unique")
++    groups = {}
++    for record in records:
++        if (not isinstance(record.name, str) or not record.name
++            or not np.isfinite(record.estimate) or not np.isfinite(record.standard_error)
++            or not np.isfinite(record.maximum_power) or record.standard_error <= 0
++            or not 0 <= record.maximum_power <= 1):
++            raise ValueError("historical estimates require finite values, positive SE, and power in [0,1]")
++        if record.observation_id is not None and (not isinstance(record.observation_id, str) or not record.observation_id.strip()):
++            raise ValueError("observation_id must be a nonempty string or None")
++        key = ('observation', record.observation_id) if record.observation_id is not None else ('record', record.name)
++        groups.setdefault(key, []).append(record)
++    chosen, mapping = [], {}
++    for group in groups.values():
++        first = group[0]
++        if any((x.estimate, x.standard_error) != (first.estimate, first.standard_error) for x in group):
++            raise ValueError("One observation_id has conflicting estimate/SE; partial overlap requires a covariance model")
++        representative = min(group, key=lambda x: (-x.maximum_power, x.name))
++        chosen.append(representative)
++        mapping.update({x.name: representative.name for x in group})
++    return tuple(chosen), mapping
+ 
+ 
+ def borrow_evidence(
+@@ -57,6 +102,7 @@
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
+     confidence_z: float = 1.96,
++    current_observation_id: str | None = None,
+ ) -> BorrowingResult:
+     """Combine current and historical normal estimates with conflict-adaptive power weights."""
+ 
+@@ -66,18 +112,14 @@
+     if borrowing_cap_ratio < 0 or confidence_z <= 0:
+         raise ValueError("borrowing cap must be non-negative and confidence_z positive")
+     records = tuple(historical)
+-    if len({record.name for record in records}) != len(records):
+-        raise ValueError("historical estimate names must be unique")
++    unique, aliases = coalesce_history(records)
++    if current_observation_id is not None and (not isinstance(current_observation_id, str) or not current_observation_id.strip()):
++        raise ValueError("current_observation_id must be a nonempty string or None")
++    overlap = {r.name for r in records if current_observation_id is not None and r.observation_id == current_observation_id}
+     for record in records:
+-        if (
+-            not record.name
+-            or not np.isfinite(record.estimate)
+-            or not np.isfinite(record.standard_error)
+-            or not np.isfinite(record.maximum_power)
+-            or record.standard_error <= 0
+-            or not 0 <= record.maximum_power <= 1
+-        ):
+-            raise ValueError("historical estimates require finite values, positive SE, and power in [0,1]")
++        if record.name in overlap and (record.estimate, record.standard_error) != (current_estimate, current_standard_error):
++            raise ValueError("Current and historical observation identity conflicts with estimate/SE")
++    counted = {r.name for r in unique if r.name not in overlap}
+ 
+     current_precision = 1.0 / current_standard_error**2
+     provisional: list[tuple[HistoricalEstimate, float, float, float]] = []
+@@ -87,7 +129,7 @@
+             record.standard_error**2 + current_standard_error**2
+         )
+         compatibility = float(np.exp(-0.5 * (conflict_z / compatibility_scale) ** 2))
+-        pre_cap_power = record.maximum_power * compatibility
++        pre_cap_power = record.maximum_power * compatibility if record.name in counted else 0.0
+         precision = pre_cap_power / record.standard_error**2
+         provisional.append((record, conflict_z, compatibility, pre_cap_power))
+         pre_cap_precision += precision
+@@ -106,6 +148,7 @@
+             BorrowingContribution(
+                 record.name, record.estimate, record.standard_error, float(conflict_z), compatibility,
+                 float(pre_cap_power), float(final_power), float(precision),
++                record.observation_id, 'current' if record.name in overlap else aliases[record.name],
+             )
+         )
+ 
+@@ -125,4 +168,51 @@
+         cap_scale=float(cap_scale),
+         current_information_share=float(current_precision / total_precision),
+         contributions=tuple(contributions),
++        distinct_historical_observations=len(counted),
++        duplicate_history_count=len(records)-len(unique),
++        current_overlap_count=len(overlap),
+     )
++
++
++def review_identity(config):
++    """Compare the declared identities with the explicit independence baseline."""
++    arguments = dict(config)
++    history = [HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    grouped = borrow_evidence(historical=history, **arguments)
++    independent_args = {k:v for k,v in arguments.items() if k != 'current_observation_id'}
++    independent = borrow_evidence(historical=[replace(h,observation_id=None) for h in history], **independent_args)
++    return {'identity_preserved':grouped.to_dict(),
++            'independence_assumed':independent.to_dict(),
++            'estimate_shift_from_counting_aliases':independent.posterior_estimate-grouped.posterior_estimate,
++            'se_change_from_counting_aliases':independent.posterior_standard_error-grouped.posterior_standard_error,
++            'interpretation':'The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.'}
++
++
++def main(argv=None):
++    import argparse, hashlib, json
++    from pathlib import Path
++    parser=argparse.ArgumentParser(description='EBC: combine normal estimates while preserving declared observation identity')
++    parser.add_argument('input_json');parser.add_argument('--output');parser.add_argument('--review',action='store_true')
++    args=parser.parse_args(argv)
++    try:
++        raw=Path(args.input_json).read_bytes();config=json.loads(raw)
++        if args.review:
++            result=review_identity(config)
++        else:
++            config=dict(config)
++            history=[HistoricalEstimate(**r) for r in config.pop('historical')]
++            result=borrow_evidence(historical=history,**config).to_dict()
++        result['mechanism']={'engine':'R026 EBC','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
++                             'input_sha256':hashlib.sha256(raw).hexdigest()}
++        text=json.dumps(result,indent=2,allow_nan=False)+'\n'
++        if args.output:
++            with Path(args.output).open('x') as f:f.write(text)
++            print(args.output)
++        else:print(text,end='')
++        return 0
++    except (ValueError,TypeError,KeyError,OSError) as error:
++        parser.error(str(error))
++
++
++if __name__=='__main__':
++    raise SystemExit(main())
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
+@@ -9,7 +9,7 @@
+ """
+ from __future__ import annotations
+ 
+-from dataclasses import asdict, dataclass
++from dataclasses import asdict, dataclass, replace
+ from typing import Sequence
+ 
+ if __package__:
+@@ -17,9 +17,9 @@
+ else:
+     from parents.rel import EvidenceRecord, ConsistencyRelation, RelationalEvidenceLocalizer
+ if __package__:
+-    from .parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence
++    from .parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence, coalesce_history
+ else:
+-    from parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence
++    from parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence, coalesce_history
+ 
+ 
+ @dataclass(frozen=True)
+@@ -40,6 +40,7 @@
+     contributions: tuple[IntegrityContribution, ...]
+     ungated: BorrowingResult
+     gated: BorrowingResult
++    observation_aliases: tuple[tuple[str, str], ...] = ()
+ 
+     def to_dict(self) -> dict:
+         return {
+@@ -50,6 +51,7 @@
+             "contributions": [asdict(x) for x in self.contributions],
+             "ungated": self.ungated.to_dict(),
+             "gated": self.gated.to_dict(),
++            "observation_aliases": dict(self.observation_aliases),
+         }
+ 
+ 
+@@ -73,6 +75,7 @@
+     integrity_exponent: float = 1.0,
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
++    current_observation_id: str | None = None,
+ ) -> IntegrityBorrowingResult:
+     """Run REL integrity localization, then EBC with source-specific gated powers.
+ 
+@@ -93,7 +96,19 @@
+         raise ValueError("evidence-record names must match historical-estimate names exactly")
+ 
+     localizer = RelationalEvidenceLocalizer()
+-    localized = localizer.localize(records, relations, max_colluding_records=max_colluding_records)
++    # Identity must survive BOTH stages: otherwise duplicate records would
++    # alter REL's priors/relations before EBC had a chance to collapse them.
++    unique_history, aliases = coalesce_history(history)
++    record_map = {r.name:r for r in records}
++    localizer.violation_pattern(record_map, relations)
++    for record in records:
++        representative = record_map[aliases[record.name]]
++        if (record.value, record.alteration_prior) != (representative.value, representative.alteration_prior):
++            raise ValueError('Observation aliases must have identical REL values and alteration priors')
++    unique_records = tuple(record_map[h.name] for h in unique_history)
++    unique_relations = tuple(ConsistencyRelation(r.name,aliases[r.left],aliases[r.right],r.tolerance)
++                             for r in relations if aliases[r.left] != aliases[r.right])
++    localized = localizer.localize(unique_records, unique_relations, max_colluding_records=max_colluding_records)
+     violations = tuple(localized["observed_violations"])
+     active = bool(violations)
+     marginals = _marginal_conditional_suspect(localized) if active else {}
+@@ -102,14 +117,14 @@
+     integrity_rows: list[IntegrityContribution] = []
+     for item in history:
+         if active:
+-            p = min(1.0, max(0.0, float(marginals.get(item.name, 0.0))))
++            p = min(1.0, max(0.0, float(marginals.get(aliases[item.name], 0.0))))
+             multiplier = (1.0 - p) ** integrity_exponent
+             conditional: float | None = p
+         else:
+             multiplier = 1.0
+             conditional = None
+         gated_power = item.maximum_power * multiplier
+-        gated_history.append(HistoricalEstimate(item.name, item.estimate, item.standard_error, gated_power))
++        gated_history.append(replace(item, maximum_power=gated_power))
+         integrity_rows.append(
+             IntegrityContribution(
+                 name=item.name,
+@@ -120,7 +135,8 @@
+             )
+         )
+ 
+-    kwargs = dict(compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio)
++    kwargs = dict(compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio,
++                  current_observation_id=current_observation_id)
+     ungated = borrow_evidence(current_estimate, current_standard_error, history, **kwargs)
+     gated = borrow_evidence(current_estimate, current_standard_error, gated_history, **kwargs)
+     return IntegrityBorrowingResult(
+@@ -134,4 +150,5 @@
+         contributions=tuple(integrity_rows),
+         ungated=ungated,
+         gated=gated,
++        observation_aliases=tuple(sorted(aliases.items())),
+     )
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
+@@ -94,3 +94,30 @@
+     twice = gate_and_borrow(relations=repeats, **kwargs)
+     assert once.contributions == twice.contributions
+     assert once.gated == twice.gated
++
++
++def test_copied_observation_is_one_record_in_rel_and_one_in_ebc():
++    from dataclasses import replace
++    records, relations, history = fixture(True)
++    history = [replace(h, observation_id=h.name) for h in history]
++    kwargs = dict(current_estimate=1.0,current_standard_error=.5)
++    one=gate_and_borrow(evidence_records=records,relations=relations,historical=history,**kwargs)
++    records.append(replace(records[-1],name='C_copy'))
++    history.append(replace(history[-1],name='C_copy'))
++    relations += [ConsistencyRelation('A_copy','A','C_copy',.2),ConsistencyRelation('B_copy','B','C_copy',.2),ConsistencyRelation('same','C','C_copy',.2)]
++    copied=gate_and_borrow(evidence_records=records,relations=relations,historical=history,**kwargs)
++    assert copied.gated.posterior_estimate == one.gated.posterior_estimate
++    assert copied.gated.posterior_standard_error == one.gated.posterior_standard_error
++    assert copied.ungated.posterior_estimate == one.ungated.posterior_estimate
++    assert dict(copied.observation_aliases)['C_copy']=='C'
++    assert copied.gated.duplicate_history_count==1
++
++
++def test_aliases_with_conflicting_integrity_data_are_rejected():
++    from dataclasses import replace
++    records, relations, history = fixture(True)
++    history = [replace(h, observation_id=h.name) for h in history]
++    history.append(replace(history[-1],name='C_copy'))
++    records.append(replace(records[-1],name='C_copy',value=999))
++    with pytest.raises(ValueError,match='identical REL'):
++        gate_and_borrow(current_estimate=1,current_standard_error=.5,evidence_records=records,relations=relations,historical=history)
+--- before/lab.py
++++ after/lab.py
+@@ -9,6 +9,11 @@
+ elif len(sys.argv)>1 and sys.argv[1]=='flow-review':
+  import runpy
+  source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/cfai.py'
++ sys.argv=[str(source),*sys.argv[2:]]
++ runpy.run_path(str(source),run_name='__main__')
++elif len(sys.argv)>1 and sys.argv[1]=='borrow-evidence':
++ import runpy
++ source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py'
+  sys.argv=[str(source),*sys.argv[2:]]
+  runpy.run_path(str(source),run_name='__main__')
+ elif len(sys.argv)>1 and sys.argv[1] in ('components','show','check','demo'):

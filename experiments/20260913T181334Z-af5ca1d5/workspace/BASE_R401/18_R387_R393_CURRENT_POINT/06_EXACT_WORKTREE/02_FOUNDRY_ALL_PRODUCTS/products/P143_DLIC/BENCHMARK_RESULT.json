@@ -1,0 +1,170 @@
+{
+  "unit_rate_integer_rhs": {
+    "lcm_result": {
+      "nominal_resource": 10,
+      "verified_resource": 10,
+      "financeable_face": 10,
+      "deployable_liquidity": 10.0,
+      "allocations": [
+        {
+          "claim_id": "c1",
+          "channel": "x",
+          "financed_face": 5.0,
+          "deployable_liquidity": 5.0
+        },
+        {
+          "claim_id": "c2",
+          "channel": "x",
+          "financed_face": 5.0,
+          "deployable_liquidity": 5.0
+        }
+      ],
+      "unused_nominal": 0.0
+    },
+    "constraint_matrix": [
+      [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "tu_certificate": {
+      "is_totally_unimodular": true,
+      "max_absolute_subdeterminant": 1,
+      "violating_size": null,
+      "violating_rows": null,
+      "violating_columns": null,
+      "theorem_applies_with_integer_rhs": true
+    },
+    "integer_rhs": true,
+    "discrete_unit_interpretation_certified": true,
+    "status": "DISCRETE_LIQUIDITY_UNITS_CERTIFIED"
+  },
+  "fractional_advance": {
+    "lcm_result": {
+      "nominal_resource": 10,
+      "verified_resource": 10,
+      "financeable_face": 10,
+      "deployable_liquidity": 8.0,
+      "allocations": [
+        {
+          "claim_id": "c1",
+          "channel": "x",
+          "financed_face": 5.0,
+          "deployable_liquidity": 4.0
+        },
+        {
+          "claim_id": "c2",
+          "channel": "x",
+          "financed_face": 5.0,
+          "deployable_liquidity": 4.0
+        }
+      ],
+      "unused_nominal": 0.0
+    },
+    "constraint_matrix": [
+      [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.8,
+        0.0,
+        0.8,
+        0.0
+      ],
+      [
+        0.0,
+        0.8,
+        0.0,
+        0.8
+      ],
+      [
+        0.8,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.8,
+        0.0
+      ],
+      [
+        0.0,
+        0.8,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.8
+      ]
+    ],
+    "tu_certificate": {
+      "is_totally_unimodular": false,
+      "max_absolute_subdeterminant": 0,
+      "violating_size": 1,
+      "violating_rows": null,
+      "violating_columns": null,
+      "theorem_applies_with_integer_rhs": false
+    },
+    "integer_rhs": true,
+    "discrete_unit_interpretation_certified": false,
+    "status": "CONTINUOUS_ALLOCATION_ONLY_NO_DISCRETE_CERTIFICATE"
+  }
+}

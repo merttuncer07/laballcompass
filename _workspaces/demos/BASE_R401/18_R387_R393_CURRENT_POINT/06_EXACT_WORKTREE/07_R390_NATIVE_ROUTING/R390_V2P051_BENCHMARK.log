@@ -1,0 +1,7 @@
+{
+  "gain": 0.002317731014771703,
+  "candidate": "A_signal",
+  "control": "B_stable",
+  "dense_collapse": true,
+  "zero_risk_parent": "A_signal"
+}

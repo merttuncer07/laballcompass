@@ -1,0 +1,46 @@
+{
+  "claim_boundary": "development/bootstrap mechanics only; no scientific promotion or protected validation",
+  "cumulative_bootstrap_events": 36,
+  "focused_engine_tests": {
+    "failed": 0,
+    "passed": 63
+  },
+  "foundry_r7_r8_identity": {
+    "byte_identical": true,
+    "changed": [],
+    "r7_files": 1305,
+    "r8_files": 1305,
+    "same_paths": true
+  },
+  "inventory": {
+    "base_registry_records": 310,
+    "completed_v2_product_directories": 4,
+    "family_counts": {
+      "FOUNDRY_PARENT": 69,
+      "FOUNDRY_PRODUCT": 145,
+      "LCB_KERNEL": 96
+    },
+    "foundry_parent_test_files": 69,
+    "foundry_product_directories": 145,
+    "status": "INVENTORY_COMPLETE",
+    "total_addressable_artifacts_including_v2_composites": 314
+  },
+  "p138_original_tests": {
+    "failed": 0,
+    "passed": 6
+  },
+  "queue_bootstrap_counts": {
+    "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 122,
+    "FIXED_PILOT_SCHEDULE_AVAILABLE": 4,
+    "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+    "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 717
+  },
+  "status": "PASS",
+  "v2_product_tests": {
+    "V2P001": 6,
+    "V2P002": 6,
+    "V2P003": 12,
+    "V2P004": 12
+  },
+  "version": "R8"
+}

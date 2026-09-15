@@ -1,0 +1,20 @@
+{
+  "claim_scope": "two separate CLI processes using JSON router snapshot; same corpus/scorer fingerprint",
+  "first_run_status": "FULL_SEARCH",
+  "first_run_exact_rescores": 310,
+  "restore_status": {
+    "capability": true,
+    "primitive": true,
+    "suppliers": {}
+  },
+  "second_run_status": "COMPETITIVE_FRONTIER_EXACT_REFRESH",
+  "second_run_exact_rescores": 21,
+  "capability_documents": 310,
+  "second_run_top_ids": [
+    "FOUNDRY:P137",
+    "PARENT:R044_DECISION_LOSS_DLEW",
+    "LCB-K071",
+    "FOUNDRY:P099",
+    "PARENT:R045_TARGET_MEMORY_ATRC"
+  ]
+}

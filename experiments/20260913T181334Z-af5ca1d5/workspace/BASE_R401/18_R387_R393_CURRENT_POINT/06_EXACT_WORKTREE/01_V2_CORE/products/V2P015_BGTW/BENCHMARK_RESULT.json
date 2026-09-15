@@ -1,0 +1,11 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P015_BGTW_V1",
+  "result": {
+    "spent": 0.0,
+    "status": "ACTION_INVARIANT_WEALTH_PRESERVED",
+    "test": false,
+    "wealth_after": 10,
+    "wealth_before": 10
+  }
+}

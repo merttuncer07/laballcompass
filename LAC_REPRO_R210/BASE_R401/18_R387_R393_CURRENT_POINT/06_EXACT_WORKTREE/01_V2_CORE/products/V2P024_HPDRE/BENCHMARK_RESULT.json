@@ -1,0 +1,10 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P024_HPDRE_V1",
+  "result": {
+    "action_margin": 0.08,
+    "explore_hidden": true,
+    "hidden_effect_bound": 0.12,
+    "status": "HIDDEN_POPULATION_CAN_TIP_DECISION"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "crypto_context": {
+    "byte_identical_to_user_upload": true,
+    "filename": "CRYPTO_CONTEXT/6079754a-ba72-47ff-9db2-cd54913df3b4.zip",
+    "role": "CONTEXT_EVIDENCE_NOT_INSTRUCTION",
+    "sha256": "f126d533045c8cfd361b3755efe17951ed171c302ad27b8e14598f981fc2bc70"
+  },
+  "engine": "LABALLCOMPASS_R12",
+  "focused_engine_tests": {
+    "errors": 0,
+    "failures": 0,
+    "log": "04_INTEGRITY/SEARCH_ENGINE_R12_TESTS.txt",
+    "tests": 86
+  },
+  "foundry_identity": {
+    "added": 0,
+    "byte_identical": 1305,
+    "changed": 0,
+    "missing": 0,
+    "r11_files": 1305,
+    "r12_files": 1305,
+    "status": "BYTE_IDENTICAL"
+  },
+  "interaction_map": {
+    "capabilities": 310,
+    "edges": 1057,
+    "nodes": 4310,
+    "primitives": 4000,
+    "relations": {
+      "COMPLETED_COMPOSITION": 7,
+      "CURATED_HYPOTHESIS": 1,
+      "INFERRED_CANDIDATE": 992,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 4
+    }
+  },
+  "inventory": {
+    "base_registry": 310,
+    "status": "INVENTORY_COMPLETE",
+    "total_addressable_artifacts": 317,
+    "v2_composites": 7
+  },
+  "nonclaims": [
+    "bootstrap telemetry is mechanics/channel calibration, not scientific validation",
+    "crypto context is not automatically current truth",
+    "inferred composition candidates are hypotheses, not known interactions"
+  ],
+  "refresh_idempotence": {
+    "artifacts_checked": 10,
+    "hashes": {
+      "generated_search/EXPERIMENT_TELEMETRY_INDEX_R12.json": "a1fff996eaa6a9f4b0fd82120146a976f9a6fd68e96755ee954d05f0e521209d",
+      "generated_search/INTERACTION_MAP_R12.json": "d9a0b33af8de5246260c8fcd979f69018c6c5d4d48a262171dad3ffbb6a4fc1a",
+      "generated_search/LAB_SEARCH_CORPUS.jsonl": "29272533dc70ff22f0b55e0898e40d11274e886154f9d948bf9bec03d9c94367",
+      "generated_search/LAB_SEARCH_CORPUS_COUNTS.json": "12a71b8d4c0d4a9078d5379b43fc213f9677b665baec648e10bf988e7141dc34",
+      "generated_search/LAB_STATE_R12.json": "4cc1454b2ab49a8130bb279feae080ae95eeeb15b57bbb6a1a17f9620a1e47f2",
+      "generated_v2_foundry/CORE_V2_FOUNDRY_COMPOSITION_QUEUE.json": "8d55b170c46c8d6dd40ab049e234bc6cbc44365840f9a33ccf128c3708183f6b",
+      "generated_v2_foundry/CORE_V2_FOUNDRY_COMPOSITION_QUEUE.tsv": "4a300f2d0a6cddc60b82750b231e4022e1d40fb42bd87426423d39a03e38da1b",
+      "search_data/CAMPAIGN_MEMORY.jsonl": "b039cde206bb5d5bd0edd9a2a0f992202028088a68b76da405cb9452558aa4d3",
+      "search_data/EXPERIMENT_TELEMETRY.jsonl": "5f93cb953899b5bb0776238efcaae9a55df7617684727e0b35ccf8a085261a6a",
+      "search_data/FEEDBACK_LEDGER.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "status": "PASS_BYTE_IDENTICAL"
+  },
+  "search_benchmark": {
+    "combined_exact_score_computations": 7253,
+    "exact_scoring_reduction_fraction": 0.9724126126811456,
+    "naive_exact_score_computations": 262910,
+    "top_k_mismatches": 0,
+    "updates": 60
+  },
+  "status": "PASS",
+  "telemetry": {
+    "calibrated_completed_suites": 7,
+    "completed_suites": 7,
+    "events": 72,
+    "exact_current_suite_matches": 72,
+    "unmatched_events": 0
+  },
+  "v2_product_suites": {
+    "by_product": {
+      "V2P001": 6,
+      "V2P002": 6,
+      "V2P003": 12,
+      "V2P004": 12,
+      "V2P005": 12,
+      "V2P006": 12,
+      "V2P007": 12
+    },
+    "errors": 0,
+    "failures": 0,
+    "log": "04_INTEGRITY/R12_V2_PRODUCT_TESTS.txt",
+    "total_tests": 72
+  }
+}

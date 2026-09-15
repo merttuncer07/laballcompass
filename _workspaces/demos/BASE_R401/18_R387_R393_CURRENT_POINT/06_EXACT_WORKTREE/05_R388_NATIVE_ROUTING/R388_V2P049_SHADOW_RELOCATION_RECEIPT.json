@@ -1,0 +1,60 @@
+{
+  "release": "R388",
+  "action": "RELOCATE_SHADOW_EXECUTABLE_OUTSIDE_CANONICAL_PRODUCTS_DISCOVERY",
+  "product_id": "V2P049",
+  "from": "01_V2_CORE/products/V2P049_SACAPL",
+  "to": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL",
+  "reason": "Preserve executable candidate while preventing physical-suite discovery from treating SHADOW_ONLY_NOT_CANONICAL as current canonical suite.",
+  "files": [
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/BENCHMARK_RESULT.json",
+      "sha256": "6c548a3dc5a1452e6b38d2313bfff7c6d5cf6c333524663fac38851c0dd66409",
+      "bytes": 4108
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/COMPOSITION.json",
+      "sha256": "c43b5266ff53be1da76fc9054f1213d3d40a06397b19f69964b01f8f6f561c16",
+      "bytes": 426
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/NOVELTY_REVIEW_R388.json",
+      "sha256": "8c550ecea5fc9b7dd9c30ec81825f8d248f3ff40463e695378f4fc4435a71c13",
+      "bytes": 2007
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/PRODUCT_RESULT.md",
+      "sha256": "13adb82372d144ccd65c38f25379fa94a9ab39e69e13f4183e71225dd81aa4d9",
+      "bytes": 1002
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/README.md",
+      "sha256": "aa5500f89d9956aa219d7d40879e6306ada3e90a8c7e81826566c57ad5b0e53b",
+      "bytes": 1205
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/__pycache__/sacapl.cpython-313.pyc",
+      "sha256": "5db58c715dd8ebf650ad60ed2b00cd007cdefe7205dab0fca01d5c80bc5ae5ce",
+      "bytes": 17558
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/__pycache__/test_sacapl.cpython-313.pyc",
+      "sha256": "44b4d763f21b196985458dae7a954404477db685bdf348cab21f300b64923beb",
+      "bytes": 10440
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/benchmark.py",
+      "sha256": "64e7f3a321d6b591c136c548e81d20f9a426e16e45bd70b71f49797b9f1c64b7",
+      "bytes": 1146
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/sacapl.py",
+      "sha256": "7c8123fec3a69c27fedc3824bec604fc3b33b6d95d8a1dee6cb7e538e0add3f6",
+      "bytes": 14446
+    },
+    {
+      "path": "05_R388_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P049_SACAPL/test_sacapl.py",
+      "sha256": "c7e33228ae2819215235a869bae14895be4ecb4f8ccf2a32544bd4803a91f50f",
+      "bytes": 6964
+    }
+  ]
+}

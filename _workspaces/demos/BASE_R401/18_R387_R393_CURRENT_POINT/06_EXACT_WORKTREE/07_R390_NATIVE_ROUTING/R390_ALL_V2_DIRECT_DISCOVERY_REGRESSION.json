@@ -1,0 +1,18 @@
+{
+  "coverage": {
+    "fresh_product_id": "V2P051",
+    "fresh_r390_suites": 1,
+    "fresh_tests": 12,
+    "inherited_r389_byte_identical_suites": 49
+  },
+  "failed": 0,
+  "fresh_receipt": "07_R390_NATIVE_ROUTING/R390_V2P051_CORE_DIRECT_TEST.log",
+  "inheritance_proof": "07_R390_NATIVE_ROUTING/R390_R389_CANONICAL_PRODUCT_BYTE_IDENTITY.json",
+  "inherited_receipt": "06_R389_NATIVE_ROUTING/R389_ALL_V2_DIRECT_DISCOVERY_REGRESSION.json",
+  "passed": 50,
+  "release": "R390",
+  "rule": "R389 direct results are inherited only because every R389 canonical product file is byte-identical to the R389 archive-of-record; V2P051 is freshly executed.",
+  "status": "PASS",
+  "test_files": 50,
+  "tests_counted": 423
+}

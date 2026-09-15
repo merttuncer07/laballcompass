@@ -1,0 +1,90 @@
+{
+  "product": "P016_CATR_v0.1",
+  "scenario": {
+    "observations": 3000,
+    "design_observations": 2000,
+    "fresh_observations": 1000,
+    "protected_loss_threshold": 1.2,
+    "false_negative_cost": 8.0,
+    "false_positive_cost": 1.0,
+    "target_coverage": 0.9,
+    "forecast_regime": "30% high-uncertainty forecasts with scale-linked conservative underprediction"
+  },
+  "result": {
+    "selected_signal": "calibrated_upper",
+    "threshold": 1.2233486259634045,
+    "design_result": {
+      "selected": {
+        "candidate": "calibrated_upper",
+        "threshold": 1.2233486259634045,
+        "objective": 0.0325,
+        "false_negative_rate": 0.0005,
+        "false_positive_rate": 0.0285,
+        "verification_cost": 0.0,
+        "manipulation_cost": 0.0,
+        "correlation_with_loss": 0.9757683191571227,
+        "event_rate": 0.117
+      },
+      "ranking": [
+        {
+          "candidate": "calibrated_upper",
+          "threshold": 1.2233486259634045,
+          "objective": 0.0325,
+          "false_negative_rate": 0.0005,
+          "false_positive_rate": 0.0285,
+          "verification_cost": 0.0,
+          "manipulation_cost": 0.0,
+          "correlation_with_loss": 0.9757683191571227,
+          "event_rate": 0.117
+        },
+        {
+          "candidate": "center",
+          "threshold": 0.77234722406366,
+          "objective": 0.179,
+          "false_negative_rate": 0.019,
+          "false_positive_rate": 0.027,
+          "verification_cost": 0.0,
+          "manipulation_cost": 0.0,
+          "correlation_with_loss": 0.9438160155956982,
+          "event_rate": 0.117
+        }
+      ],
+      "objective_definition": {
+        "false_negative_cost": 8.0,
+        "false_positive_cost": 1.0,
+        "manipulation_cost_weight": 1.0
+      }
+    },
+    "design_metrics": {
+      "observations": 2000,
+      "coverage": 0.901,
+      "false_negative_rate": 0.0005,
+      "false_positive_rate": 0.0285,
+      "decision_objective": 0.0325,
+      "event_rate": 0.117
+    },
+    "fresh_metrics": {
+      "observations": 1000,
+      "coverage": 0.899,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.034,
+      "decision_objective": 0.034,
+      "event_rate": 0.11
+    },
+    "center_fresh_objective": 0.149,
+    "upper_fresh_objective": 0.034,
+    "fresh_objective_gain_vs_center": 0.11499999999999999,
+    "final_cwc_multiplier": 1.1267793237597445,
+    "contract": "calibrated_upper is the CWC interval endpoint generated before each outcome. DTTC prices false negatives and false positives and may reject that signal in favor of center. The fresh threshold/channel are fixed from the design segment; only CWC's prequential calibration state may update from earlier fresh outcomes."
+  },
+  "comparison": {
+    "selected_signal": "calibrated_upper",
+    "fresh_selected_objective": 0.034,
+    "fresh_center_objective": 0.149,
+    "fresh_upper_objective": 0.034,
+    "absolute_gain_vs_center": 0.11499999999999999,
+    "relative_gain_vs_center": 0.7718120805369127,
+    "fresh_coverage": 0.899
+  },
+  "claim_boundary": "CATR evaluates a fixed DTTC-selected channel/threshold on a fresh sequential segment. CWC state may update from earlier fresh outcomes, but each endpoint is formed before its own outcome. This is prequential deployment evaluation, not a frozen-feature i.i.d. test."
+}

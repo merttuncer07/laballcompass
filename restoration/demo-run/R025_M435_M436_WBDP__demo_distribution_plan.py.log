@@ -1,0 +1,69 @@
+{
+  "midpoint": {
+    "name": "INTERPOLATION_0.5",
+    "positions": [
+      4.0,
+      6.0,
+      7.0
+    ],
+    "masses": [
+      0.4,
+      0.29999999999999993,
+      0.30000000000000004
+    ],
+    "mean": 5.5,
+    "variance": 1.65,
+    "source_wasserstein_distances": {
+      "WEST": 4.969909455915671,
+      "EAST": 4.969909455915671
+    },
+    "weighted_squared_transport_objective": 49.4,
+    "path_fraction": 0.5
+  },
+  "weighted_barycenter": {
+    "name": "BARYCENTER",
+    "positions": [
+      5.2,
+      7.800000000000001,
+      8.5
+    ],
+    "masses": [
+      0.4,
+      0.29999999999999993,
+      0.30000000000000004
+    ],
+    "mean": 6.970000000000001,
+    "variance": 2.1621,
+    "source_wasserstein_distances": {
+      "WEST": 6.460882292690372,
+      "EAST": 3.478936619140969
+    },
+    "weighted_squared_transport_objective": 22.476999999999997,
+    "path_fraction": null
+  },
+  "point_mass_comparison": {
+    "displacement_midpoint": {
+      "name": "INTERPOLATION_0.5",
+      "positions": [
+        5.0
+      ],
+      "masses": [
+        1.0
+      ],
+      "mean": 5.0,
+      "variance": 0.0,
+      "source_wasserstein_distances": {
+        "A": 5.0,
+        "B": 5.0
+      },
+      "weighted_squared_transport_objective": 50.0,
+      "path_fraction": 0.5
+    },
+    "ordinary_mixture_positions": [
+      0.0,
+      10.0
+    ],
+    "ordinary_mixture_variance": 25.0,
+    "endpoint_wasserstein_distance": 10.0
+  }
+}

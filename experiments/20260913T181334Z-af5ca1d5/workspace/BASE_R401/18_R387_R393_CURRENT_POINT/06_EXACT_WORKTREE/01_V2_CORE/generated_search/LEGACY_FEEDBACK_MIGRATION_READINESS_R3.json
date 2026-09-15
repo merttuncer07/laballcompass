@@ -1,0 +1,25 @@
+{
+  "audit": "R3 legacy feedback migration readiness",
+  "capability_records": 310,
+  "benchmark_result_files": 33,
+  "foundry_evidence_inventory_rows": 145,
+  "required_learning_contract_fields": [
+    "selection_generation",
+    "release_generation",
+    "feedback_role"
+  ],
+  "capability_metadata_field_presence": {
+    "selection_generation": 0,
+    "release_generation": 0,
+    "feedback_role": 0
+  },
+  "evidence_inventory_field_presence": {
+    "selection_generation": 0,
+    "release_generation": 0,
+    "feedback_role": 0
+  },
+  "auto_imported_feedback_events": 0,
+  "active_feedback_ledger_events": 0,
+  "decision": "DO_NOT_AUTO_IMPORT_LEGACY_RESULTS",
+  "reason": "Legacy evidence generally predates explicit search-generation, release-generation, and train-vs-protect role declarations. Converting it silently would create unverifiable leakage semantics. Migrate only individual results with explicit provenance and role assignment."
+}

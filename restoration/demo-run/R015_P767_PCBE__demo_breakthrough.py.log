@@ -1,0 +1,11 @@
+{
+  "spanning": true,
+  "widest_path_bottleneck": 100.0,
+  "widest_path": "40 cells",
+  "path_tortuosity": 1.0,
+  "effective_conductance": 3.0512820512818255,
+  "baseline_effective_conductance": 0.5128205128204948,
+  "conductance_jump_ratio": 5.949999999999769,
+  "channel_threshold": 50.0,
+  "status": "SPANNING_CHANNEL_BREAKTHROUGH_DETECTED"
+}

@@ -1,0 +1,119 @@
+{
+  "benchmark_decision_flip": {
+    "adjusted_backaction_coefficient": 0.04999999999999992,
+    "base_chosen_channel": "hotspot_contrast",
+    "base_net_value": 0.0818287293138318,
+    "guarded_chosen_channel": null,
+    "guarded_net_value": -0.0980256823190273,
+    "naive_observed_minus_unobserved": -0.3139375
+  },
+  "calibration": {
+    "calibrations": [
+      {
+        "attempt_count": 12,
+        "axis_observation_counts": {
+          "declared_executable_contract_case_coverage": 12
+        },
+        "calibration_id": "bce3488ce5d8d6ce85d914fe277be2522768a92d7bd0580ef6905f4ebc0a2eb2",
+        "compute_upper_seconds": 0.6328097579998939,
+        "event_ids": [
+          "R8::V2P004::000::p138invariantpreservationtests_test_near_boundary_still_acquires_under_zero_backaction",
+          "R8::V2P004::001::p138invariantpreservationtests_test_far_boundary_still_skips_under_zero_backaction",
+          "R8::V2P004::002::p138invariantpreservationtests_test_expected_time_is_linear_policy_utility",
+          "R8::V2P004::003::p138invariantpreservationtests_test_covariance_must_preserve_probability_sum",
+          "R8::V2P004::004::p138invariantpreservationtests_test_channel_must_be_contrast",
+          "R8::V2P004::005::p138invariantpreservationtests_test_policy_vectors_cover_all_locations",
+          "R8::V2P004::006::k081contrastivecompositiontests_test_policy_adjustment_recovers_backaction_hidden_by_naive_diffe",
+          "R8::V2P004::007::k081contrastivecompositiontests_test_harmful_backaction_flips_acquisition_decision",
+          "R8::V2P004::008::k081contrastivecompositiontests_test_estimated_shift_stays_in_simplex_tangent_space",
+          "R8::V2P004::009::k081contrastivecompositiontests_test_non_tangent_effect_contrast_rejected",
+          "R8::V2P004::010::k081contrastivecompositiontests_test_missing_channel_model_fails_closed",
+          "R8::V2P004::011::k081contrastivecompositiontests_test_zero_backaction_preserves_base_net_value"
+        ],
+        "excluded_counts": {
+          "failed_or_censored": 0,
+          "invalid_measurement": 0,
+          "unadjusted_backreaction": 0,
+          "unknown_backreaction": 0
+        },
+        "expected_resolution_lower_by_axis": {
+          "declared_executable_contract_case_coverage": 0.08333333333333337
+        },
+        "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c",
+        "reliability_lower_bound": 0.8159920848767768,
+        "target_generation": 2,
+        "test_id": "BOOTSTRAP_UNIT_CASE::V2P004",
+        "test_signature": "1655d0ba87b59f85f5c4bcf7f3babc5e3410d298609f55e6a88e0e285b84e649",
+        "usable_count": 12
+      }
+    ],
+    "excluded_global_counts": {
+      "not_calibration_eligible": 0,
+      "protected_validation": 0,
+      "same_or_future_generation": 0,
+      "wrong_shell": 0
+    },
+    "fingerprint": "efd6ba51428273ffdb5cbf65b89d14a08c3e0cf83daeeee51e22f0038a239946",
+    "min_attempts": 5,
+    "min_axis_observations": 5,
+    "model_version": "LAB_EXPERIMENT_TELEMETRY_R5_V1",
+    "one_sided_z": 1.645,
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c",
+    "schema_version": 1,
+    "target_generation": 2
+  },
+  "claim_boundaries": [
+    "finite-suite calibration concerns executable case coverage only",
+    "adjusted backaction is shell/channel/contrast specific",
+    "no protected validation used",
+    "no scientific promotion implied"
+  ],
+  "composition_order": "K081 observation-policy confounding adjustment -> simplex-tangent backaction shift -> P138 acquisition value",
+  "consumer_id": "FOUNDRY:P138",
+  "future_selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P004",
+  "pilot": {
+    "complete": 12,
+    "event_ids": [
+      "R8::V2P004::000::p138invariantpreservationtests_test_near_boundary_still_acquires_under_zero_backaction",
+      "R8::V2P004::001::p138invariantpreservationtests_test_far_boundary_still_skips_under_zero_backaction",
+      "R8::V2P004::002::p138invariantpreservationtests_test_expected_time_is_linear_policy_utility",
+      "R8::V2P004::003::p138invariantpreservationtests_test_covariance_must_preserve_probability_sum",
+      "R8::V2P004::004::p138invariantpreservationtests_test_channel_must_be_contrast",
+      "R8::V2P004::005::p138invariantpreservationtests_test_policy_vectors_cover_all_locations",
+      "R8::V2P004::006::k081contrastivecompositiontests_test_policy_adjustment_recovers_backaction_hidden_by_naive_diffe",
+      "R8::V2P004::007::k081contrastivecompositiontests_test_harmful_backaction_flips_acquisition_decision",
+      "R8::V2P004::008::k081contrastivecompositiontests_test_estimated_shift_stays_in_simplex_tangent_space",
+      "R8::V2P004::009::k081contrastivecompositiontests_test_non_tangent_effect_contrast_rejected",
+      "R8::V2P004::010::k081contrastivecompositiontests_test_missing_channel_model_fails_closed",
+      "R8::V2P004::011::k081contrastivecompositiontests_test_zero_backaction_preserves_base_net_value"
+    ],
+    "events": 12
+  },
+  "product_id": "V2P004",
+  "suite": {
+    "cases": [
+      "P138InvariantPreservationTests.test_near_boundary_still_acquires_under_zero_backaction",
+      "P138InvariantPreservationTests.test_far_boundary_still_skips_under_zero_backaction",
+      "P138InvariantPreservationTests.test_expected_time_is_linear_policy_utility",
+      "P138InvariantPreservationTests.test_covariance_must_preserve_probability_sum",
+      "P138InvariantPreservationTests.test_channel_must_be_contrast",
+      "P138InvariantPreservationTests.test_policy_vectors_cover_all_locations",
+      "K081ContrastiveCompositionTests.test_policy_adjustment_recovers_backaction_hidden_by_naive_difference",
+      "K081ContrastiveCompositionTests.test_harmful_backaction_flips_acquisition_decision",
+      "K081ContrastiveCompositionTests.test_estimated_shift_stays_in_simplex_tangent_space",
+      "K081ContrastiveCompositionTests.test_non_tangent_effect_contrast_rejected",
+      "K081ContrastiveCompositionTests.test_missing_channel_model_fails_closed",
+      "K081ContrastiveCompositionTests.test_zero_backaction_preserves_base_net_value"
+    ],
+    "consumer_id": "FOUNDRY:P138",
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c",
+    "product_dir": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R8_2026-08-26/01_V2_CORE/products/V2P004_OPIA",
+    "product_id": "V2P004",
+    "source_hash": "c97c5268857dd59c442187769031380a5fd4d6e422aa2b6b07a7ee8ef8f95774",
+    "supplier_id": "LCB-K081",
+    "test_file": "/mnt/data/recovered/LABALLCOMPASS_V2_SEARCH_ENGINE_R8_2026-08-26/01_V2_CORE/products/V2P004_OPIA/test_opia.py",
+    "test_id": "BOOTSTRAP_UNIT_CASE::V2P004",
+    "test_signature": "1655d0ba87b59f85f5c4bcf7f3babc5e3410d298609f55e6a88e0e285b84e649"
+  },
+  "supplier_id": "LCB-K081"
+}

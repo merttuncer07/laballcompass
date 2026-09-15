@@ -1,0 +1,17 @@
+{
+  "model_version": "V2P011_BIVCP_V1",
+  "mechanism_removing_comparator": "variance-aware capacity commitment without boundary-information acquisition",
+  "result": {
+    "baseline_action": "reserve",
+    "baseline_loss": 2.5,
+    "channel": "probe",
+    "expected_post_measurement_loss": 1.6000000000000003,
+    "information_value": 0.8999999999999997,
+    "channel_cost": 0.4,
+    "acquired": true,
+    "expected_total_loss": 2.0000000000000004,
+    "status": "BOUNDARY_INFORMATION_ACQUIRED_BEFORE_CAPACITY_COMMITMENT"
+  },
+  "expected_loss_reduction": 0.49999999999999956,
+  "evidence_boundary": "deterministic two-state decision-information benchmark only"
+}

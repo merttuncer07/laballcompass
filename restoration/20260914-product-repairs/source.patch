@@ -1,0 +1,666 @@
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/benchmark_sweep.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/benchmark_sweep.py
+@@ -18,9 +18,9 @@
+       rng=np.random.default_rng(seed); z=rng.normal(size=n); b=rho*z+np.sqrt(max(0.,1-rho*rho))*rng.normal(size=n); e=np.column_stack((z,b,rng.normal(size=n)))
+       s=np.eye(3,dtype=bool); s[0,1]=s[1,0]=True
+       r=support_covariance_independence_guard(CSID,SACPS.estimate_support_aware_covariance,FAIL,SAFE,e,s,budget=12.,correlation_threshold=.6,ambiguity_band=.05,shrinkage_grid=[0.])
+-      counts[r['status']]+=1
+-      if r['status']!='ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS':
+-        gains.append(r['gain_vs_declared_family_removal_control_under_adjusted_reality'])
++      counts[r['status']]=counts.get(r['status'],0)+1
++      if not r['status'].startswith('ABSTAIN_'):
++        gains.append(r['objective_improvement_under_assumed_partition'])
+         selected.append(r['candidate_dependence_adjusted_partition']['selected']['safeguards'])
+         edge=r['cross_family_covariance_edges'][0] if r['cross_family_covariance_edges'] else None
+         if edge: corrs.append(edge['absolute_correlation'])
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/scig.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/scig.py
+@@ -7,7 +7,6 @@
+ """
+ from __future__ import annotations
+ 
+-from dataclasses import asdict
+ from typing import Sequence
+ import numpy as np
+ 
+@@ -29,20 +28,21 @@
+     ambiguity_band: float = 0.05,
+     shrinkage_grid: Sequence[float] = tuple(np.linspace(0.0, 1.0, 21)),
+ ) -> dict:
+-    """Rebuild CSID evidence-family independence from support-aware covariance.
++    """Build a conditional common-mode stress partition from observed covariance.
+ 
+     Declared same-family safeguards are always kept common-mode. Distinct
+     declared families are merged only when SACPS retains their covariance edge
+-    and its absolute correlation clears the declared threshold. Correlations
++    and its positive correlation clears the declared threshold. Strong signed
++    associations excluded by support, or hidden by regularization, cause abstention. Correlations
+     too close to the threshold cause abstention rather than an arbitrary merge.
+     """
+     safeguards = tuple(safeguards)
+     failures = tuple(failure_modes)
+     if len(safeguards) < 2:
+         raise ValueError("at least two safeguards are required")
+-    if budget < 0:
++    if not np.isfinite(budget) or budget < 0:
+         raise ValueError("budget must be nonnegative")
+-    if not 0 < correlation_threshold < 1 or ambiguity_band < 0 or correlation_threshold - ambiguity_band < 0 or correlation_threshold + ambiguity_band > 1:
++    if not np.isfinite(correlation_threshold) or not np.isfinite(ambiguity_band) or not 0 < correlation_threshold < 1 or ambiguity_band < 0 or correlation_threshold - ambiguity_band < 0 or correlation_threshold + ambiguity_band > 1:
+         raise ValueError("correlation threshold and ambiguity band are invalid")
+     evidence = np.asarray(evidence_returns, dtype=float)
+     if evidence.ndim != 2 or evidence.shape[0] < 5 or evidence.shape[1] != len(safeguards) or not np.all(np.isfinite(evidence)):
+@@ -51,12 +51,62 @@
+     if support.shape != (len(safeguards), len(safeguards)) or not np.array_equal(support, support.T) or not np.all(np.diag(support)):
+         raise ValueError("support_mask must be symmetric, square, and include every safeguard diagonal")
+ 
++    # Validate the decision inputs even when diagnostics later abstain.
++    control_designer = csid_module.ContractSafeguardDesigner(failures, safeguards)
++    centered = evidence - evidence.mean(axis=0)
++    marginal_scale = np.linalg.norm(centered, axis=0)
++    if np.any(marginal_scale == 0) or not np.all(np.isfinite(marginal_scale)):
++        raise ValueError("evidence columns must have finite, nonzero variation")
++    standardized = centered / marginal_scale
++    raw_correlation = np.clip(standardized.T @ standardized, -1.0, 1.0)
++    upper = correlation_threshold + ambiguity_band
++    lower = correlation_threshold - ambiguity_band
++    diagnostics = {"sample_rows": int(evidence.shape[0]),
++                   "assumptions": [
++                       "Pearson correlation is a diagnostic, not proof of common provenance or independence.",
++                       "Family merging defines a common-mode stress model, not an observed failure law.",
++                       "CSID multiplies coverage across remaining families under a conditional independence assumption.",
++                       "Thresholds and ambiguity bands are user settings, not calibrated confidence intervals."],
++                   "independence_certified": False}
++    conflicts = []
++    negative = []
++    for i in range(len(safeguards)):
++        for j in range(i + 1, len(safeguards)):
++            if safeguards[i].evidence_family == safeguards[j].evidence_family:
++                continue
++            rho = float(raw_correlation[i, j])
++            edge = {"left": safeguards[i].name, "right": safeguards[j].name,
++                    "raw_correlation": rho, "supported": bool(support[i, j])}
++            if abs(rho) > upper and not support[i, j]:
++                conflicts.append(edge)
++            elif rho < -upper:
++                negative.append(edge)
++    if conflicts or negative:
++        return {"status": "ABSTAIN_SUPPORT_CONTRADICTED" if conflicts else "ABSTAIN_NEGATIVE_DEPENDENCE",
++                "support_conflicts": conflicts, "negative_dependence_edges": negative,
++                "diagnostics": diagnostics,
++                "fallback": "No portfolio is certified or selected. Reconcile the support model with the observations; signed association alone cannot determine shared failure coverage."}
++
+     estimate = covariance_estimator(evidence, support, shrinkage_grid=shrinkage_grid)
+     covariance = np.asarray(estimate.covariance, dtype=float)
++    if covariance.shape != support.shape or not np.all(np.isfinite(covariance)) or not np.allclose(covariance, covariance.T):
++        raise ValueError("covariance estimator returned an invalid covariance matrix")
+     scale = np.sqrt(np.diag(covariance))
+     if np.any(scale <= 0) or not np.all(np.isfinite(scale)):
+         raise RuntimeError("support-aware covariance has nonpositive marginal scale")
+     correlation = covariance / np.outer(scale, scale)
++    hidden = []
++    for i in range(len(safeguards)):
++        for j in range(i + 1, len(safeguards)):
++            if (safeguards[i].evidence_family != safeguards[j].evidence_family
++                    and raw_correlation[i, j] > upper and correlation[i, j] < lower):
++                hidden.append({"left": safeguards[i].name, "right": safeguards[j].name,
++                               "raw_correlation": float(raw_correlation[i, j]),
++                               "regularized_correlation": float(correlation[i, j])})
++    if hidden:
++        return {"status": "ABSTAIN_REGULARIZATION_MASKS_DEPENDENCE", "hidden_dependence_edges": hidden,
++                "selected_shrinkage": float(estimate.selected_shrinkage), "diagnostics": diagnostics,
++                "fallback": "Regularization removed a strong observed association. No independence-based portfolio is selected."}
+ 
+     parent = list(range(len(safeguards)))
+     def find(i):
+@@ -96,7 +146,8 @@
+             "ambiguous_edges":ambiguous,
+             "correlation_threshold":float(correlation_threshold),
+             "ambiguity_band":float(ambiguity_band),
+-            "fallback":"retain the original CSID evidence-family partition or collect more dependence evidence; SCIG does not silently merge an ambiguous family boundary",
++            "diagnostics": diagnostics,
++            "fallback":"No portfolio is selected. Resolve the ambiguous family boundary; retaining the original partition would not certify independence.",
+         }
+ 
+     roots={find(i) for i in range(len(safeguards))}
+@@ -108,7 +159,6 @@
+         family_map[safeguard.name]=family
+         adjusted.append(csid_module.Safeguard(safeguard.name, safeguard.cost, family, safeguard.coverage))
+ 
+-    control_designer=csid_module.ContractSafeguardDesigner(failures,safeguards)
+     candidate_designer=csid_module.ContractSafeguardDesigner(failures,adjusted)
+     control=control_designer.design(budget,family_aware=True)
+     candidate=candidate_designer.design(budget,family_aware=True)
+@@ -121,6 +171,7 @@
+         for i in range(len(safeguards)) for j in range(i+1,len(safeguards))
+     )
+     return {
++        "diagnostics": diagnostics,
+         "selected_shrinkage":float(estimate.selected_shrinkage),
+         "cross_family_covariance_edges":cross_family_edges,
+         "dependence_adjusted_family_map":family_map,
+@@ -128,6 +179,6 @@
+         "control_declared_partition":control,
+         "control_revalued_under_dependence_partition":control_under_adjusted,
+         "candidate_dependence_adjusted_partition":candidate,
+-        "gain_vs_declared_family_removal_control_under_adjusted_reality":float(control_under_adjusted["objective"]-candidate_selected["objective"]),
++        "objective_improvement_under_assumed_partition":float(control_under_adjusted["objective"]-candidate_selected["objective"]),
+         "status":"SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION" if merged_cross_family else "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES",
+     }
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/test_scig.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/test_scig.py
+@@ -50,8 +50,8 @@
+         self.assertEqual(tuple(r['control_declared_partition']['selected']['safeguards']),('A','B'))
+         self.assertNotEqual(tuple(r['candidate_dependence_adjusted_partition']['selected']['safeguards']),('A','B'))
+ 
+-    def test_candidate_beats_removal_control_under_adjusted_reality(self):
+-        self.assertGreater(case(True)['gain_vs_declared_family_removal_control_under_adjusted_reality'],5.)
++    def test_candidate_improves_objective_under_its_assumed_partition(self):
++        self.assertGreater(case(True)['objective_improvement_under_assumed_partition'],5.)
+ 
+     def test_candidate_does_not_exhaust_budget_blindly(self):
+         self.assertLessEqual(case(True)['candidate_dependence_adjusted_partition']['selected']['total_cost'],12.)
+@@ -62,14 +62,14 @@
+         self.assertEqual(r['status'],'SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES')
+         self.assertEqual(r['candidate_dependence_adjusted_partition']['selected']['safeguards'],r['control_declared_partition']['selected']['safeguards'])
+ 
+-    def test_strong_raw_dependence_without_declared_support_does_not_merge(self):
++    def test_strong_raw_dependence_without_declared_support_abstains(self):
+         s=np.eye(3,dtype=bool)
+         r=support_covariance_independence_guard(
+             CSID,SACPS.estimate_support_aware_covariance,FAIL,SAFE,evidence(True,seed=17,n=400,rho=.95),s,
+             budget=12.,correlation_threshold=.6,ambiguity_band=.05,shrinkage_grid=[0.]
+         )
+-        self.assertFalse(r['merged_cross_family'])
+-        self.assertEqual(r['status'],'SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES')
++        self.assertEqual(r['status'],'ABSTAIN_SUPPORT_CONTRADICTED')
++        self.assertNotIn('candidate_dependence_adjusted_partition',r)
+ 
+     def test_supported_but_clearly_weak_dependence_collapses(self):
+         s=np.eye(3,dtype=bool); s[0,1]=s[1,0]=True
+@@ -94,7 +94,7 @@
+         self.assertFalse(r['merged_cross_family'])
+         self.assertEqual(r['status'],'SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES')
+         self.assertEqual(r['candidate_dependence_adjusted_partition']['selected']['safeguards'],r['control_declared_partition']['selected']['safeguards'])
+-        self.assertAlmostEqual(r['gain_vs_declared_family_removal_control_under_adjusted_reality'],0.0,places=12)
++        self.assertAlmostEqual(r['objective_improvement_under_assumed_partition'],0.0,places=12)
+ 
+     def test_ambiguous_dependence_abstains(self):
+         rng=np.random.default_rng(4)
+@@ -119,7 +119,7 @@
+             budget=12.,correlation_threshold=.6,ambiguity_band=.05,shrinkage_grid=[0.]
+         )
+         self.assertEqual(set(r['candidate_dependence_adjusted_partition']['selected']['safeguards']),set(base['candidate_dependence_adjusted_partition']['selected']['safeguards']))
+-        self.assertAlmostEqual(r['gain_vs_declared_family_removal_control_under_adjusted_reality'],base['gain_vs_declared_family_removal_control_under_adjusted_reality'],places=12)
++        self.assertAlmostEqual(r['objective_improvement_under_assumed_partition'],base['objective_improvement_under_assumed_partition'],places=12)
+ 
+     def test_bad_dimension_rejected(self):
+         with self.assertRaises(ValueError):
+@@ -133,4 +133,37 @@
+     def test_deterministic(self):
+         self.assertEqual(case(True),case(True))
+ 
+-if __name__=='__main__': unittest.main()
++
++class DependenceRepairTests(unittest.TestCase):
++    def run_case(self, e, support=None, **kwargs):
++        if support is None: support=np.ones((3,3),dtype=bool)
++        return support_covariance_independence_guard(CSID,SACPS.estimate_support_aware_covariance,
++            FAIL,SAFE,e,support,budget=12.,**kwargs)
++
++    def test_negative_association_is_not_merged_as_shared_failure(self):
++        e=evidence(True,n=400,rho=.97);e[:,1]*=-1
++        r=self.run_case(e,shrinkage_grid=[0.])
++        self.assertEqual(r['status'],'ABSTAIN_NEGATIVE_DEPENDENCE')
++        self.assertLess(r['negative_dependence_edges'][0]['raw_correlation'],-.9)
++        self.assertNotIn('candidate_dependence_adjusted_partition',r)
++
++    def test_regularization_cannot_hide_strong_observed_dependence(self):
++        r=self.run_case(evidence(True,n=400,rho=.97),shrinkage_grid=[1.])
++        self.assertEqual(r['status'],'ABSTAIN_REGULARIZATION_MASKS_DEPENDENCE')
++        self.assertNotIn('candidate_dependence_adjusted_partition',r)
++
++    def test_constant_evidence_cannot_certify_independence(self):
++        e=evidence();e[:,1]=1
++        with self.assertRaisesRegex(ValueError,'variation'):self.run_case(e)
++
++    def test_nonfinite_ambiguity_band_is_rejected(self):
++        with self.assertRaises(ValueError):self.run_case(evidence(),ambiguity_band=float('nan'))
++
++    def test_model_gain_is_not_reported_as_empirical_reality(self):
++        r=case(True)
++        self.assertFalse(r['diagnostics']['independence_certified'])
++        self.assertIn('objective_improvement_under_assumed_partition',r)
++        self.assertNotIn('gain_vs_declared_family_removal_control_under_adjusted_reality',r)
++
++if __name__ == "__main__":
++    unittest.main()
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/cfai.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/cfai.py
+@@ -1,6 +1,163 @@
+-from products.spec_runtime import evaluate_spec_product
++"""Circular-Flow Audit Allocation: new native implementation, 2026-09-14.
+ 
+-PRODUCT_SPEC = {'product_id': 'P103', 'short_name': 'CFAI', 'title': 'Product result — P103_CFAI v0.1', 'parents_raw': 'HFAD + BICC + ACRA', 'historical_promotion_state': '', 'claim_boundary_raw': 'Circulation is a flow-topology signal, not a fraud label. The current benchmark uses empirical influence only because no global edge-flow bound is supplied.', 'execution_mode': 'selection'}
++The historical composition description survives; its original source does not.
++This implementation invokes the packaged HFAD, BICC and ACRA mechanisms. It
++allocates an explicit sensitivity proxy, not fraud probability or audit risk.
++"""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import sys
++from typing import Mapping
++
++import numpy as np
++
++PRODUCT_SPEC = {
++    'product_id': 'P103', 'short_name': 'CFAI',
++    'title': 'Circular-Flow Audit Allocation', 'parents_raw': 'HFAD + BICC + ACRA',
++    'execution_mode': 'native_flow_allocation',
++    'implementation_version': 'native_reimplementation_20260914',
++    'claim_boundary_raw': 'Observed replacement sensitivity of circulation energy; neither a fraud label nor a calibrated audit benefit.'}
++
++PARENTS = {
++    'hfad': 'RETRO_PRODUCTS/R002_C326_HFAD/hfad.py',
++    'bicc': 'RETRO_PRODUCTS/R007_C349_BICC/bicc.py',
++    'acra': 'CURRENT_PRODUCTS/IM406_IM037_ACRA/acra.py',
++}
++
++
++def _parent(name):
++    path = Path(__file__).resolve().parents[2] / 'parent_products' / PARENTS[name]
++    module_id = '_cfai_native_' + name
++    if module_id not in sys.modules:
++        spec = importlib.util.spec_from_file_location(module_id, path)
++        module = importlib.util.module_from_spec(spec)
++        sys.modules[module_id] = module
++        spec.loader.exec_module(module)
++    return sys.modules[module_id], path
++
++
++def allocate_flow_review(node_count, edges, base_flows, replacement_flows=None, *,
++                         budget, options=None, edge_names=None):
++    """Rank actual graph edges and choose one resolution option per edge.
++
++    Each row is a deterministic scenario. Coordinate replacements change only
++    that edge; other edges remain fixed. With no replacement_flows, probes set
++    each edge to zero. Options specify cost and an assumed residual_error
++    multiplier. Allocation minimizes sum(RMS replacement effect squared times
++    multiplier squared), subject to the budget. These are explicit modelling
++    choices, not learned probabilities or measured inspection effectiveness.
++    """
++    if not isinstance(node_count, int) or isinstance(node_count, bool) or not 1 <= node_count <= 2000:
++        raise ValueError('node_count must be an integer between 1 and 2000')
++    edges = [tuple(edge) for edge in edges]
++    if not edges or len(edges) > 200 or any(len(e) != 2 for e in edges):
++        raise ValueError('Provide between 1 and 200 oriented edges, each with two endpoints')
++    base = np.asarray(base_flows, dtype=float)
++    if base.ndim != 2 or base.shape[0] < 1 or base.shape[1] != len(edges) or not np.all(np.isfinite(base)):
++        raise ValueError('base_flows must be a finite scenario-by-edge matrix')
++    if base.size > 20000:
++        raise ValueError('This dense implementation supports up to 20,000 scenario-edge entries')
++    replacement = np.zeros_like(base) if replacement_flows is None else np.asarray(replacement_flows, dtype=float)
++    if replacement.shape != base.shape or not np.all(np.isfinite(replacement)):
++        raise ValueError('replacement_flows must be finite and match base_flows')
++    names = list(edge_names) if edge_names is not None else [f'{a}->{b} [{i}]' for i, (a,b) in enumerate(edges)]
++    if len(names) != len(edges) or any(not isinstance(n,str) or not n for n in names) or len(set(names)) != len(names):
++        raise ValueError('edge_names must contain one unique nonempty name per edge')
++    if not np.isfinite(budget) or budget < 0:
++        raise ValueError('budget must be finite and nonnegative')
++    option_rows = list(options) if options is not None else [
++        {'name': 'unreviewed', 'cost': 0.0, 'residual_error': 1.0},
++        {'name': 'reviewed', 'cost': 1.0, 'residual_error': 0.0}]
++    for option in option_rows:
++        if set(option) != {'name','cost','residual_error'}:
++            raise ValueError('Each option needs name, cost and residual_error')
++        if not isinstance(option['name'],str) or not option['name'] or any(
++                not np.isfinite(option[k]) or option[k] < 0 for k in ('cost','residual_error')):
++            raise ValueError('Option names must be nonempty; cost and residual_error finite and nonnegative')
++
++    hfad, hfad_path = _parent('hfad')
++    bicc, bicc_path = _parent('bicc')
++    acra, acra_path = _parent('acra')
++    decomposer = hfad.HodgeFlowAttributionDecomposer(hfad.incidence_from_edges(node_count, edges))
++
++    def cycle_energy(flow):
++        result = decomposer.decompose(flow)
++        return result.local_cycle_energy + result.harmonic_energy
++
++    influence = bicc.audit_concentration(cycle_energy, base, replacement, sampling_model='scenario_pairs')
++    regions = [acra.DecisionRegion(names[i.coordinate], i.rms_replacement_effect**2, 0.0, 1.0)
++               for i in influence.influences]
++    resolution = [acra.ResolutionOption(o['name'],o['cost'],o['residual_error'],0.0) for o in option_rows]
++    allocator = acra.AdaptiveConsequenceResolutionAllocator(regions, resolution)
++    plan = allocator.allocate(float(budget))
++    priority = sorted(influence.influences, key=lambda x: (-x.rms_replacement_effect, names[x.coordinate]))
++    return {
++        'product': PRODUCT_SPEC,
++        'reconstruction_tier': 'NATIVE_REIMPLEMENTATION_NOT_HISTORICAL_SOURCE',
++        'scenario_count': int(len(base)), 'edge_count': len(edges),
++        'baseline_cycle_energy': [cycle_energy(row) for row in base],
++        'probe': 'each edge replaced by zero' if replacement_flows is None else 'supplied coordinate replacement scenarios',
++        'edge_priority': [{'edge_index': x.coordinate, 'edge_name': names[x.coordinate],
++                           'source': edges[x.coordinate][0], 'target': edges[x.coordinate][1],
++                           'rms_energy_change': x.rms_replacement_effect,
++                           'maximum_observed_energy_change': x.maximum_observed_replacement_effect}
++                          for x in priority],
++        'plan': {'budget': plan['budget'], 'total_cost': plan['total_cost'],
++                 'remaining_influence_score': plan['total_decision_loss'],
++                 'allocations': [{'edge_name': a['region'], 'option': a['option'], 'cost': a['cost'],
++                                  'residual_influence_score': a['decision_loss']} for a in plan['allocations']]},
++        'options': option_rows,
++        'influence_scope': influence.certificate_status,
++        'probabilistic_certificate': None,
++        'assumptions': [
++            'Hodge circulation is a signed cycle-space projection; it does not establish a directed circular payment or fraud.',
++            'Coordinate probes are scenarios, not independent draws. No concentration guarantee is reported.',
++            'The additive allocation score ignores joint inspection interactions.',
++            'Resolution multipliers are assumptions; default reviewed=0 models complete removal of that edge sensitivity.',
++            'No claim is made that this score equals monetary loss or actual auditor benefit.'],
++        'mechanisms': [{'name': name.upper(), 'source': str(path.relative_to(Path(__file__).resolve().parents[2])),
++                        'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
++                       for name,path in [('hfad',hfad_path),('bicc',bicc_path),('acra',acra_path)]]}
++
+ 
+ def evaluate(records, *, baseline=None, budget=None):
+-    return evaluate_spec_product(PRODUCT_SPEC, records, baseline=baseline, budget=budget)
++    """Execute a graph configuration; the old score-only placeholder is retired."""
++    if not isinstance(records, Mapping):
++        raise ValueError('CFAI requires a graph configuration: node_count, edges and base_flows; score-only records do not run its mechanisms')
++    if baseline is not None:
++        raise ValueError('baseline score records are not a circular-flow comparison')
++    allowed = {'node_count','edges','base_flows','replacement_flows','budget','options','edge_names'}
++    if set(records) - allowed:
++        raise ValueError('Unknown CFAI fields: ' + ', '.join(sorted(set(records) - allowed)))
++    if not {'node_count','edges','base_flows'} <= set(records):
++        raise ValueError('CFAI needs node_count, edges and base_flows')
++    kwargs = dict(records)
++    if budget is not None: kwargs['budget'] = budget
++    if 'budget' not in kwargs: raise ValueError('CFAI needs an inspection budget')
++    return allocate_flow_review(**kwargs)
++
++
++def main(argv=None):
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('config', help='JSON graph and flow configuration')
++    parser.add_argument('--output', help='New JSON result file; existing files are preserved')
++    args = parser.parse_args(argv)
++    try:
++        result = evaluate(json.loads(Path(args.config).read_text()))
++        content = json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False) + '\n'
++        if args.output:
++            with Path(args.output).open('x') as handle: handle.write(content)
++            print(args.output)
++        else: print(content, end='')
++    except (ValueError, OSError, RuntimeError, TypeError) as error:
++        parser.error(str(error))
++    return 0
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/demo_circular_flow.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/demo_circular_flow.py
+@@ -0,0 +1,9 @@
++"""An explicit synthetic counterexample to ranking flow edges by amount alone."""
++import json
++from cfai import evaluate
++
++if __name__ == '__main__':
++    result = evaluate({'node_count':4, 'edges':[[0,1],[1,2],[2,0],[2,3]],
++        'edge_names':['cycle_a','cycle_b','cycle_c','large_bridge'],
++        'base_flows':[[10.,10.,10.,1000.]], 'replacement_flows':[[0.,9.,9.5,0.]], 'budget':1.})
++    print(json.dumps(result,indent=2,allow_nan=False))
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/test_cfai.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/test_cfai.py
+@@ -1,11 +1,88 @@
+-from .cfai import *
++from itertools import product
++import math
++import numpy as np
++import pytest
++from .cfai import allocate_flow_review, evaluate, PRODUCT_SPEC
+ 
+-def test_identity_preserved(): assert PRODUCT_SPEC['product_id'].startswith('P') and PRODUCT_SPEC['short_name']
+-def test_reconstruction_tier_explicit():
+- records=[{'name':'a','score':1,'value':1,'cost':1,'parameter':0,'decision':False,'selection_score':2,'protected_score':0},{'name':'b','score':2,'value':2,'cost':1,'parameter':1,'decision':True,'selection_score':1,'protected_score':3}]
+- kwargs={'budget':1} if PRODUCT_SPEC['execution_mode']=='allocation' else ({'baseline':records[0]} if PRODUCT_SPEC['execution_mode']=='tipping' else {})
+- assert evaluate(records,**kwargs)['reconstruction_tier']=='SPEC_EXECUTABLE_NOT_HISTORICAL_SOURCE'
+-def test_empty_input_rejected():
+- try: evaluate([])
+- except ValueError: return
+- assert False
++
++def config():
++    return {'node_count':4,'edges':[[0,1],[1,2],[2,0],[2,3]],
++            'base_flows':[[10.,10.,10.,1000.]],'budget':1.,
++            'edge_names':['cycle_a','cycle_b','cycle_c','large_bridge']}
++
++
++def test_native_composition_uses_graph_not_supplied_priority_scores():
++    r=evaluate(config())
++    assert r['reconstruction_tier']=='NATIVE_REIMPLEMENTATION_NOT_HISTORICAL_SOURCE'
++    assert {m['name'] for m in r['mechanisms']}=={'HFAD','BICC','ACRA'}
++    assert r['baseline_cycle_energy'][0]==pytest.approx(300.)
++    priority={x['edge_name']:x for x in r['edge_priority']}
++    assert priority['cycle_a']['rms_energy_change']==pytest.approx(500./3.)
++    assert priority['large_bridge']['rms_energy_change'] < 1e-8
++    selected=[x['edge_name'] for x in r['plan']['allocations'] if x['option']=='reviewed']
++    assert len(selected)==1 and selected[0]!='large_bridge'
++    assert r['probabilistic_certificate'] is None
++    assert r['influence_scope']=='EMPIRICAL_SCENARIO_INFLUENCE'
++
++
++def test_same_flow_values_on_a_tree_have_no_circulation_signal():
++    c=config();c['node_count']=5;c['edges']=[[0,1],[1,2],[2,3],[3,4]]
++    r=evaluate(c)
++    assert max(r['baseline_cycle_energy']) < 1e-16
++    assert max(x['rms_energy_change'] for x in r['edge_priority']) < 1e-16
++
++
++def test_allocation_matches_independent_exhaustive_budget_oracle():
++    c=config();c['budget']=2.5
++    c['replacement_flows']=[[0.,9.,9.5,0.]]
++    c['options']=[{'name':'coarse','cost':0.,'residual_error':1.},
++                  {'name':'medium','cost':.75,'residual_error':.4},
++                  {'name':'fine','cost':2.,'residual_error':.05}]
++    r=evaluate(c)
++    effects={p['edge_name']:p['rms_energy_change'] for p in r['edge_priority']}
++    losses=[]
++    for choices in product(c['options'],repeat=4):
++        if sum(o['cost'] for o in choices)<=c['budget']+1e-12:
++            losses.append(sum((effects[name]*o['residual_error'])**2 for name,o in zip(c['edge_names'],choices)))
++    assert r['plan']['remaining_influence_score']==pytest.approx(min(losses))
++    assert r['plan']['total_cost']<=c['budget']
++
++
++def test_custom_replacement_changes_which_edge_receives_resolution():
++    c=config();c['replacement_flows']=[[9.9,0.,9.9,0.]]
++    r=evaluate(c)
++    assert next(a['edge_name'] for a in r['plan']['allocations'] if a['option']=='reviewed')=='cycle_b'
++
++
++def test_permuting_edges_preserves_priorities_and_objective():
++    c=config();r=evaluate(c);perm=[3,1,0,2]
++    c['edges']=[c['edges'][i] for i in perm]
++    c['edge_names']=[c['edge_names'][i] for i in perm]
++    c['base_flows']=[[c['base_flows'][0][i] for i in perm]]
++    p=evaluate(c)
++    assert {x['edge_name']:x['rms_energy_change'] for x in p['edge_priority']}==pytest.approx({x['edge_name']:x['rms_energy_change'] for x in r['edge_priority']},abs=1e-8)
++    assert p['plan']['remaining_influence_score']==pytest.approx(r['plan']['remaining_influence_score'])
++
++
++def test_score_only_placeholder_inputs_no_longer_fake_native_execution():
++    with pytest.raises(ValueError,match='graph configuration'):evaluate([{'name':'a','score':100}])
++    with pytest.raises(ValueError):evaluate({})
++
++
++def test_invalid_flow_resolution_and_budget_rejected():
++    c=config();c['base_flows']=[[1.,2.]]
++    with pytest.raises(ValueError):evaluate(c)
++    c=config();c['budget']=float('nan')
++    with pytest.raises(ValueError):evaluate(c)
++    c=config();c['options']=[{'name':'bad','cost':float('nan'),'residual_error':1.}]
++    with pytest.raises(ValueError):evaluate(c)
++    c=config();c['options']=[{'name':'same','cost':0.,'residual_error':1.},{'name':'same','cost':1.,'residual_error':0.}]
++    with pytest.raises(ValueError):evaluate(c)
++    c=config();c['options']=[{'name':'expensive','cost':2.,'residual_error':.1}]
++    with pytest.raises(RuntimeError,match='allocation failed'):evaluate(c)
++
++
++def test_acyclic_directed_graph_projection_is_not_a_circular_payment_claim():
++    r=allocate_flow_review(3,[(0,1),(1,2),(0,2)],[[10.,10.,10.]],budget=1.)
++    assert r['baseline_cycle_energy'][0]==pytest.approx(100./3.)
++    assert 'does not establish a directed circular payment' in r['assumptions'][0]
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM406_IM037_ACRA/acra.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM406_IM037_ACRA/acra.py
+@@ -44,14 +44,18 @@
+             raise ValueError("At least one region and one resolution option are required")
+         self.regions = tuple(regions)
+         self.options = tuple(options)
++        if len({r.name for r in self.regions}) != len(self.regions) or any(not r.name for r in self.regions):
++            raise ValueError("Region names must be nonempty and unique")
++        if len({o.name for o in self.options}) != len(self.options) or any(not o.name for o in self.options):
++            raise ValueError("Resolution option names must be nonempty and unique")
+         if any(
+-            value < 0
++            not np.isfinite(value) or value < 0
+             for region in regions
+             for value in (region.time_importance, region.frequency_importance, region.consequence_weight)
+         ):
+             raise ValueError("Region importance and consequence values must be non-negative")
+         if any(
+-            value < 0
++            not np.isfinite(value) or value < 0
+             for option in options
+             for value in (option.cost, option.time_error, option.frequency_error)
+         ):
+@@ -65,7 +69,7 @@
+         )
+ 
+     def allocate(self, budget: float) -> dict[str, Any]:
+-        if budget < 0:
++        if not np.isfinite(budget) or budget < 0:
+             raise ValueError("budget must be non-negative")
+         pairs = [(i, j) for i in range(len(self.regions)) for j in range(len(self.options))]
+         objective = np.array([self.loss(self.regions[i], self.options[j]) for i, j in pairs])
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/bicc.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/bicc.py
+@@ -24,7 +24,7 @@
+     coordinates: int
+     output_mean: float
+     empirical_output_variance: float
+-    efron_stein_variance_upper_proxy: float
++    efron_stein_variance_upper_proxy: float | None
+     supplied_bound_square_sum: float | None
+     mcdiarmid_two_sided_radius: float | None
+     delta: float
+@@ -32,11 +32,12 @@
+     effective_coordinates: float | None
+     certificate_status: str
+     influences: tuple[CoordinateInfluence, ...]
++    sampling_model: str = "product_iid"
+ 
+     def mcdiarmid_two_sided_tail_bound(self, deviation: float) -> float | None:
+-        if self.supplied_bound_square_sum is None:
++        if self.supplied_bound_square_sum is None or self.certificate_status != "ASSUMPTION_CONDITIONAL_CERTIFICATE":
+             return None
+-        if deviation < 0:
++        if not np.isfinite(deviation) or deviation < 0:
+             raise ValueError("deviation must be non-negative")
+         if self.supplied_bound_square_sum == 0:
+             return 0.0 if deviation > 0 else 1.0
+@@ -63,18 +64,26 @@
+     global_coordinate_bounds: Sequence[float] | None = None,
+     delta: float = 0.05,
+     violation_tolerance: float = 1e-12,
++    sampling_model: str = "product_iid",
+ ) -> ConcentrationAudit:
+     """Audit coordinate replacement influence on a scalar black-box output.
+ 
+-    Rows in ``base_samples`` and ``replacement_samples`` must be independent paired
+-    draws from the same product-input law. Supplied global bounds are assumptions;
+-    the audit can falsify them on observed replacements but cannot prove globality.
++    ``product_iid`` declares independent paired draws from the same product-input
++    law; this assumption is supplied by the caller, not established by the code.
++    ``scenario_pairs`` accepts deterministic or dependent probes and reports only
++    observed sensitivity: no Efron-Stein proxy or concentration certificate.
++    Supplied global bounds can be falsified on probes, never proved globally.
+     """
+ 
+     base = np.asarray(base_samples, dtype=float)
+     replacement = np.asarray(replacement_samples, dtype=float)
+-    if base.ndim != 2 or base.shape != replacement.shape or base.shape[0] < 2 or base.shape[1] < 1:
+-        raise ValueError("base and replacement samples must have identical (n>=2, d>=1) shapes")
++    if sampling_model not in ("product_iid", "scenario_pairs"):
++        raise ValueError("sampling_model must be product_iid or scenario_pairs")
++    minimum_rows = 2 if sampling_model == "product_iid" else 1
++    if base.ndim != 2 or base.shape != replacement.shape or base.shape[0] < minimum_rows or base.shape[1] < 1:
++        raise ValueError(f"base and replacement samples must have identical (n>={minimum_rows}, d>=1) shapes")
++    if not np.isfinite(violation_tolerance) or violation_tolerance < 0:
++        raise ValueError("violation_tolerance must be finite and nonnegative")
+     if not np.all(np.isfinite(base)) or not np.all(np.isfinite(replacement)):
+         raise ValueError("samples must be finite")
+     if not 0 < delta < 1:
+@@ -125,12 +134,18 @@
+             effective = float(1.0 / np.sum(shares**2))
+         status = "OBSERVED_BOUND_VIOLATION" if any_violation else "ASSUMPTION_CONDITIONAL_CERTIFICATE"
+ 
++    if sampling_model == "scenario_pairs":
++        radius = None
++        status = "OBSERVED_BOUND_VIOLATION" if any_violation else "EMPIRICAL_SCENARIO_INFLUENCE"
++    elif any_violation:
++        radius = None
++
+     return ConcentrationAudit(
+         sample_size=base.shape[0],
+         coordinates=base.shape[1],
+         output_mean=float(np.mean(output)),
+-        empirical_output_variance=float(np.var(output, ddof=1)),
+-        efron_stein_variance_upper_proxy=0.5 * squared_effect_total,
++        empirical_output_variance=float(np.var(output, ddof=1)) if len(output) > 1 else 0.0,
++        efron_stein_variance_upper_proxy=0.5 * squared_effect_total if sampling_model == "product_iid" else None,
+         supplied_bound_square_sum=square_sum,
+         mcdiarmid_two_sided_radius=radius,
+         delta=delta,
+@@ -138,4 +153,5 @@
+         effective_coordinates=effective,
+         certificate_status=status,
+         influences=tuple(influence_rows),
++        sampling_model=sampling_model,
+     )
+--- before/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/test_bicc.py
++++ after/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/test_bicc.py
+@@ -52,5 +52,28 @@
+         self.assertLess(even.mcdiarmid_two_sided_radius, concentrated.mcdiarmid_two_sided_radius)
+ 
+ 
++
++class CertificateRepairTests(unittest.TestCase):
++    def test_observed_violation_removes_radius_and_tail_guarantees(self):
++        r=audit_concentration(lambda x:float(x[0]),[[0.],[0.]],[[1.],[1.]],global_coordinate_bounds=[.1])
++        self.assertEqual(r.certificate_status,'OBSERVED_BOUND_VIOLATION')
++        self.assertIsNone(r.mcdiarmid_two_sided_radius)
++        self.assertIsNone(r.mcdiarmid_two_sided_tail_bound(1.))
++
++    def test_single_deterministic_probe_has_sensitivity_but_no_probability_certificate(self):
++        r=audit_concentration(lambda x:float(x[0]+x[1]),[[1.,1.]],[[0.,0.]],
++            global_coordinate_bounds=[1.,1.],sampling_model='scenario_pairs')
++        self.assertEqual([i.rms_replacement_effect for i in r.influences],[1.,1.])
++        self.assertEqual(r.certificate_status,'EMPIRICAL_SCENARIO_INFLUENCE')
++        self.assertIsNone(r.efron_stein_variance_upper_proxy)
++        self.assertIsNone(r.mcdiarmid_two_sided_radius)
++        self.assertIsNone(r.mcdiarmid_two_sided_tail_bound(1.))
++
++    def test_invalid_tolerance_cannot_hide_observed_violation(self):
++        for tolerance in (float('nan'),float('inf'),-1.):
++            with self.assertRaises(ValueError):
++                audit_concentration(lambda x:float(x[0]),[[0.],[0.]],[[1.],[1.]],
++                    global_coordinate_bounds=[.1],violation_tolerance=tolerance)
++
+ if __name__ == "__main__":
+     unittest.main()

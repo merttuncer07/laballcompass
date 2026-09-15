@@ -1,0 +1,11 @@
+{
+  "name": "dispatch_now_vs_wait",
+  "mode": "common_flow",
+  "system_matrix": [[-1, 20], [0, -2]],
+  "uncertainty_map": [[1, 0], [0, 1]],
+  "uncertainty_radius": 0.1,
+  "horizon": 4.0,
+  "grid_points": 4001,
+  "decision_contrast": [1, 0],
+  "nominal_gap": 0.2
+}

@@ -1,0 +1,126 @@
+{
+  "certified": {
+    "action_count": 7,
+    "parameter_count": 6,
+    "increasing_differences": true,
+    "decreasing_differences": false,
+    "maximum_increasing_differences_violation": 0.0,
+    "maximum_decreasing_differences_violation": 30.0,
+    "increasing_violation_witness": null,
+    "decreasing_violation_witness": {
+      "low_action": 0.0,
+      "high_action": 6.0,
+      "low_parameter": 0.0,
+      "high_parameter": 5.0,
+      "low_parameter_advantage": -18.0,
+      "high_parameter_advantage": 12.0,
+      "difference_change": 30.0
+    },
+    "optimal_action_sets": [
+      [
+        0.0
+      ],
+      [
+        1.0
+      ],
+      [
+        2.0
+      ],
+      [
+        3.0
+      ],
+      [
+        4.0
+      ],
+      [
+        5.0
+      ]
+    ],
+    "least_optimal_selection": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "greatest_optimal_selection": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "least_selection_nondecreasing": true,
+    "greatest_selection_nondecreasing": true,
+    "certified_direction": "NONDECREASING",
+    "status": "STRUCTURAL_DIRECTION_CERTIFIED"
+  },
+  "broken": {
+    "action_count": 7,
+    "parameter_count": 6,
+    "increasing_differences": false,
+    "decreasing_differences": false,
+    "maximum_increasing_differences_violation": 19.0,
+    "maximum_decreasing_differences_violation": 25.0,
+    "increasing_violation_witness": {
+      "low_action": 5.0,
+      "high_action": 6.0,
+      "low_parameter": 4.0,
+      "high_parameter": 5.0,
+      "low_parameter_advantage": -1.5,
+      "high_parameter_advantage": -20.5,
+      "difference_change": -19.0
+    },
+    "decreasing_violation_witness": {
+      "low_action": 0.0,
+      "high_action": 5.0,
+      "low_parameter": 0.0,
+      "high_parameter": 5.0,
+      "low_parameter_advantage": -12.5,
+      "high_parameter_advantage": 12.5,
+      "difference_change": 25.0
+    },
+    "optimal_action_sets": [
+      [
+        0.0
+      ],
+      [
+        1.0
+      ],
+      [
+        2.0
+      ],
+      [
+        3.0
+      ],
+      [
+        4.0
+      ],
+      [
+        5.0
+      ]
+    ],
+    "least_optimal_selection": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "greatest_optimal_selection": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "least_selection_nondecreasing": true,
+    "greatest_selection_nondecreasing": true,
+    "certified_direction": "NO_GLOBAL_MONOTONE_DIRECTION_CERTIFIED",
+    "status": "STRUCTURAL_CERTIFICATE_FAILED_WITH_WITNESS"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "selected": {
+    "candidate": "regional",
+    "threshold": 1.1589691530463995,
+    "objective": 0.2546733333333333,
+    "false_negative_rate": 0.018033333333333332,
+    "false_positive_rate": 0.12450666666666667,
+    "verification_cost": 0.04,
+    "manipulation_cost": 0.0,
+    "correlation_with_loss": 0.8637046332793663,
+    "event_rate": 0.13852666666666666
+  },
+  "ranking": [
+    {
+      "candidate": "regional",
+      "threshold": 1.1589691530463995,
+      "objective": 0.2546733333333333,
+      "false_negative_rate": 0.018033333333333332,
+      "false_positive_rate": 0.12450666666666667,
+      "verification_cost": 0.04,
+      "manipulation_cost": 0.0,
+      "correlation_with_loss": 0.8637046332793663,
+      "event_rate": 0.13852666666666666
+    },
+    {
+      "candidate": "local",
+      "threshold": 1.3141191533392482,
+      "objective": 0.5732533333333334,
+      "false_negative_rate": 0.0032133333333333332,
+      "false_positive_rate": 0.34718666666666664,
+      "verification_cost": 0.01,
+      "manipulation_cost": 0.2,
+      "correlation_with_loss": 0.550070169044597,
+      "event_rate": 0.13852666666666666
+    }
+  ],
+  "objective_definition": {
+    "false_negative_cost": 5.0,
+    "false_positive_cost": 1.0,
+    "manipulation_cost_weight": 1.0
+  },
+  "scenario": {
+    "seed": 20260825,
+    "cases": 300000,
+    "event_rate": 0.13852666666666666,
+    "realized_local_manipulation_rate": 0.3447033333333333,
+    "loss_distribution": "Normal(0.2, 1.2^2)"
+  }
+}

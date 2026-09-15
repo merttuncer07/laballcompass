@@ -1,0 +1,1000 @@
+{
+  "model_version": "R389_SCIG_SENSITIVITY_SWEEP_V1",
+  "threshold": 0.6,
+  "ambiguity_band": 0.05,
+  "seeds_per_cell": 12,
+  "mechanism_removing_comparator": "same CSID shell with covariance-based cross-family partition repair removed",
+  "interpretation": "Clear low-correlation supported edges should collapse to declared CSID families; clear high-correlation supported edges should merge and can change portfolio choice; finite-sample cases near the threshold should abstain rather than force a merge. This is deterministic synthetic sensitivity evidence only.",
+  "rows": [
+    {
+      "sample_size": 80,
+      "true_rho": 0.0,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 12,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.05675255457650349
+    },
+    {
+      "sample_size": 80,
+      "true_rho": 0.25,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 12,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.23288529989183068
+    },
+    {
+      "sample_size": 80,
+      "true_rho": 0.5,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 10,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 2,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.46727164606180127
+    },
+    {
+      "sample_size": 80,
+      "true_rho": 0.6,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 4,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 6,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 2
+      },
+      "mean_gain_nonabstain": 2.6666666666666665,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.5745309539297384
+    },
+    {
+      "sample_size": 80,
+      "true_rho": 0.7,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 2,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 10
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.702772246518273
+    },
+    {
+      "sample_size": 80,
+      "true_rho": 0.9,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 12
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.8954187933293039
+    },
+    {
+      "sample_size": 160,
+      "true_rho": 0.0,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 12,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.05419817159521601
+    },
+    {
+      "sample_size": 160,
+      "true_rho": 0.25,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 12,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.2323883048809967
+    },
+    {
+      "sample_size": 160,
+      "true_rho": 0.5,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 11,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 1,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.46535206806903334
+    },
+    {
+      "sample_size": 160,
+      "true_rho": 0.6,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 4,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 7,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 1
+      },
+      "mean_gain_nonabstain": 1.6,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.5578668967302062
+    },
+    {
+      "sample_size": 160,
+      "true_rho": 0.7,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 4,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 8
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.7012099792039097
+    },
+    {
+      "sample_size": 160,
+      "true_rho": 0.9,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 12
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.8906823092653666
+    },
+    {
+      "sample_size": 400,
+      "true_rho": 0.0,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 12,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.05156886980121549
+    },
+    {
+      "sample_size": 400,
+      "true_rho": 0.25,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 12,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.25876944115323447
+    },
+    {
+      "sample_size": 400,
+      "true_rho": 0.5,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 9,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 3,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 0
+      },
+      "mean_gain_nonabstain": 0.0,
+      "min_gain_nonabstain": 0.0,
+      "max_gain_nonabstain": 0.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.48359626011737017
+    },
+    {
+      "sample_size": 400,
+      "true_rho": 0.6,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 11,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 1
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.6511211952077001
+    },
+    {
+      "sample_size": 400,
+      "true_rho": 0.7,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 12
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.698307870619905
+    },
+    {
+      "sample_size": 400,
+      "true_rho": 0.9,
+      "status_counts": {
+        "SUPPORT_COVARIANCE_COLLAPSED_TO_DECLARED_FAMILIES": 0,
+        "ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS": 0,
+        "SUPPORT_COVARIANCE_CHANGED_CSID_INDEPENDENCE_PARTITION": 12
+      },
+      "mean_gain_nonabstain": 8.0,
+      "min_gain_nonabstain": 8.0,
+      "max_gain_nonabstain": 8.0,
+      "selected_portfolios_nonabstain": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "mean_observed_abs_corr_nonabstain": 0.8978086057210043
+    }
+  ]
+}

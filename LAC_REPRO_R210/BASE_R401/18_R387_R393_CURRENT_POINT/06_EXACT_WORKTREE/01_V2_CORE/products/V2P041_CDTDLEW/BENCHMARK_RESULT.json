@@ -1,0 +1,23 @@
+{
+  "mechanism_removing_comparator": "ordinary DLEW selection at the nominal channel regime only",
+  "evidence_boundary": "synthetic declared channel grid; no extrapolation beyond CDTS grid or empirical channel model",
+  "result": {
+    "tipping_parameter": 0.9,
+    "protected_regimes": [
+      0.7,
+      0.8,
+      0.9
+    ],
+    "baseline_selected": "fragile",
+    "selected": "stable",
+    "worst_case_training_regret": {
+      "stable": 0.0011755103168099282,
+      "fragile": 0.017824204314813855
+    },
+    "evaluation_channel": 0.9,
+    "candidate_validation_regret": 0.0008163360448084598,
+    "baseline_validation_regret": 0.019119489650987236,
+    "gain_vs_removed_mechanism": 0.018303153606178776,
+    "status": "CHANNEL_TIPPING_CHANGED_DLEW_SELECTION"
+  }
+}

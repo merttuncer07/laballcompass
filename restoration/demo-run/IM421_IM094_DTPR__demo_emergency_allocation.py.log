@@ -1,0 +1,22 @@
+{
+  "full_dashboard_uniform": {
+    "epsilon_for_dispatch": 0.08333333333333333,
+    "laplace_scale": 12.0,
+    "overall_action_error_rate": 0.28112258064516127,
+    "false_negative_rate_all_cases": 0.1489548387096774,
+    "false_positive_rate_all_cases": 0.13216774193548386,
+    "mean_operational_cost": 0.876941935483871
+  },
+  "decision_targeted": {
+    "epsilon_for_dispatch": 1.0,
+    "laplace_scale": 1.0,
+    "overall_action_error_rate": 0.035274193548387095,
+    "false_negative_rate_all_cases": 0.025903225806451612,
+    "false_positive_rate_all_cases": 0.009370967741935484,
+    "mean_operational_cost": 0.13888709677419356
+  },
+  "operational_cost_reduction": 0.8416233833115078,
+  "action_error_reduction": 0.8745237985954928
+}
+
+Saved reproducible results to /Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/_workspaces/demos/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM421_IM094_DTPR/evaluation_results.json

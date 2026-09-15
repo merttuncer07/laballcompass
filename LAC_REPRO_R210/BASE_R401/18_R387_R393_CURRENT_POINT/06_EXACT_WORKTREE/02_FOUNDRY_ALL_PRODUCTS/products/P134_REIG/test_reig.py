@@ -1,0 +1,151 @@
+import pytest
+
+if __package__:
+    from .reig import gate_and_borrow
+else:
+    from reig import gate_and_borrow
+if __package__:
+    from .parents.rel import EvidenceRecord, ConsistencyRelation
+else:
+    from parents.rel import EvidenceRecord, ConsistencyRelation
+if __package__:
+    from .parents.ebc import HistoricalEstimate
+else:
+    from parents.ebc import HistoricalEstimate
+
+
+def fixture(violating=True):
+    c = 1.05 if violating else 0.11
+    records = [
+        EvidenceRecord('A','a',0.10,0.05),
+        EvidenceRecord('B','b',0.12,0.05),
+        EvidenceRecord('C','c',c,0.05),
+    ]
+    relations = [
+        ConsistencyRelation('AB','A','B',0.20),
+        ConsistencyRelation('AC','A','C',0.20),
+        ConsistencyRelation('BC','B','C',0.20),
+    ]
+    hist = [
+        HistoricalEstimate('A',0.10,0.15,1.0),
+        HistoricalEstimate('B',0.12,0.15,1.0),
+        HistoricalEstimate('C',c,0.15,1.0),
+    ]
+    return records, relations, hist
+
+
+def test_discrepancy_localizes_and_downweights_outlier():
+    r, rel, h = fixture(True)
+    out = gate_and_borrow(current_estimate=1.0,current_standard_error=0.5,evidence_records=r,relations=rel,historical=h)
+    rows = {x.name:x for x in out.contributions}
+    assert out.integrity_gate_active
+    assert rows['C'].conditional_suspect_probability > 0.95
+    assert rows['C'].gated_maximum_power < 0.05
+    assert rows['A'].gated_maximum_power > 0.9
+
+
+def test_integrity_gate_can_reverse_downstream_threshold_decision():
+    r, rel, h = fixture(True)
+    out = gate_and_borrow(current_estimate=1.0,current_standard_error=0.5,evidence_records=r,relations=rel,historical=h)
+    threshold = 0.60
+    assert out.ungated.posterior_estimate > threshold
+    assert out.gated.posterior_estimate < threshold
+
+
+def test_no_declared_violation_means_no_integrity_penalty():
+    r, rel, h = fixture(False)
+    out = gate_and_borrow(current_estimate=0.1,current_standard_error=0.5,evidence_records=r,relations=rel,historical=h)
+    assert not out.integrity_gate_active
+    assert all(x.conditional_suspect_probability is None for x in out.contributions)
+    assert all(x.integrity_multiplier == 1.0 for x in out.contributions)
+    assert out.gated.posterior_estimate == pytest.approx(out.ungated.posterior_estimate)
+
+
+def test_conditional_semantics_are_explicit():
+    r, rel, h = fixture(True)
+    out = gate_and_borrow(current_estimate=1.0,current_standard_error=0.5,evidence_records=r,relations=rel,historical=h)
+    text = out.posterior_semantics.lower()
+    assert 'conditional' in text
+    assert 'not as unconditional fraud probabilities' in text
+
+
+def test_source_name_mapping_must_be_exact():
+    r, rel, h = fixture(True)
+    bad = h[:-1] + [HistoricalEstimate('D',1.05,0.15,1.0)]
+    with pytest.raises(ValueError):
+        gate_and_borrow(current_estimate=1.0,current_standard_error=0.5,evidence_records=r,relations=rel,historical=bad)
+
+
+def test_integrity_exponent_controls_policy_strength_without_changing_rel():
+    r, rel, h = fixture(True)
+    soft = gate_and_borrow(current_estimate=1.0,current_standard_error=0.5,evidence_records=r,relations=rel,historical=h,integrity_exponent=0.5)
+    hard = gate_and_borrow(current_estimate=1.0,current_standard_error=0.5,evidence_records=r,relations=rel,historical=h,integrity_exponent=2.0)
+    s = {x.name:x for x in soft.contributions}['C']
+    q = {x.name:x for x in hard.contributions}['C']
+    assert s.conditional_suspect_probability == pytest.approx(q.conditional_suspect_probability)
+    assert q.gated_maximum_power < s.gated_maximum_power
+
+
+def test_repeating_the_same_checks_does_not_increase_borrowing_penalty():
+    records, relations, history = fixture(True)
+    repeats = relations + [ConsistencyRelation('copy_'+r.name, r.right, r.left, r.tolerance) for r in relations]
+    kwargs = dict(current_estimate=1.0, current_standard_error=0.5, evidence_records=records, historical=history)
+    once = gate_and_borrow(relations=relations, **kwargs)
+    twice = gate_and_borrow(relations=repeats, **kwargs)
+    assert once.contributions == twice.contributions
+    assert once.gated == twice.gated
+
+
+def test_copied_observation_is_one_record_in_rel_and_one_in_ebc():
+    from dataclasses import replace
+    records, relations, history = fixture(True)
+    history = [replace(h, observation_id=h.name) for h in history]
+    kwargs = dict(current_estimate=1.0,current_standard_error=.5)
+    one=gate_and_borrow(evidence_records=records,relations=relations,historical=history,**kwargs)
+    records.append(replace(records[-1],name='C_copy'))
+    history.append(replace(history[-1],name='C_copy'))
+    relations += [ConsistencyRelation('A_copy','A','C_copy',.2),ConsistencyRelation('B_copy','B','C_copy',.2),ConsistencyRelation('same','C','C_copy',.2)]
+    copied=gate_and_borrow(evidence_records=records,relations=relations,historical=history,**kwargs)
+    assert copied.gated.posterior_estimate == one.gated.posterior_estimate
+    assert copied.gated.posterior_standard_error == one.gated.posterior_standard_error
+    assert copied.ungated.posterior_estimate == one.ungated.posterior_estimate
+    assert dict(copied.observation_aliases)['C_copy']=='C'
+    assert copied.gated.duplicate_history_count==1
+
+
+def test_aliases_with_conflicting_integrity_data_are_rejected():
+    from dataclasses import replace
+    records, relations, history = fixture(True)
+    history = [replace(h, observation_id=h.name) for h in history]
+    history.append(replace(history[-1],name='C_copy'))
+    records.append(replace(records[-1],name='C_copy',value=999))
+    with pytest.raises(ValueError,match='identical REL'):
+        gate_and_borrow(current_estimate=1,current_standard_error=.5,evidence_records=records,relations=relations,historical=history)
+
+
+def test_joint_covariance_reaches_both_sides_of_integrity_gate():
+    import numpy as np
+    records,relations,history=fixture(False)
+    scale=np.array([.5,.15,.15,.15])
+    cov=(.4*np.ones((4,4))+.6*np.eye(4))*np.outer(scale,scale)
+    result=gate_and_borrow(current_estimate=.1,current_standard_error=.5,evidence_records=records,relations=relations,historical=history,covariance=cov,covariance_names=['current','A','B','C'])
+    assert result.gated==result.ungated
+    assert result.gated.retained_names==('current','A','B','C')
+    assert sum(result.gated.linear_weights)==pytest.approx(1)
+
+
+def test_active_gate_preserves_covariance_and_observation_aliases_together():
+    from dataclasses import replace
+    import numpy as np
+    records,relations,history=fixture(True)
+    history=[replace(h,observation_id=h.name) for h in history]
+    scale=np.array([.5,.15,.15,.15]);cov=(.3*np.ones((4,4))+.7*np.eye(4))*np.outer(scale,scale)
+    kwargs=dict(current_estimate=1,current_standard_error=.5)
+    one=gate_and_borrow(evidence_records=records,relations=relations,historical=history,covariance=cov,covariance_names=['current','A','B','C'],**kwargs)
+    records.append(replace(records[-1],name='C_copy'));history.append(replace(history[-1],name='C_copy'))
+    expanded=cov[np.ix_([0,1,2,3,3],[0,1,2,3,3])]
+    relations.append(ConsistencyRelation('copied','A','C_copy',.2))
+    copied=gate_and_borrow(evidence_records=records,relations=relations,historical=history,covariance=expanded,covariance_names=['current','A','B','C','C_copy'],**kwargs)
+    assert copied.integrity_gate_active
+    assert copied.gated.posterior_estimate==one.gated.posterior_estimate
+    assert copied.gated.posterior_standard_error==one.gated.posterior_standard_error

@@ -1,0 +1,13 @@
+{
+  "claim": "new internal executable composition/failure-mode family only, conditional on declared transport weights and support",
+  "external_prior_art_boundary": "importance-weighted/domain-adaptive policy learning is established prior art; no new-theory claim",
+  "internal_distinctness": "PASS_COMPOSITION_DISTINCT",
+  "nearest_internal": [
+    "V2P049_SACAPL",
+    "V2P052_REICAPL",
+    "P090_SWDL",
+    "R041_CAPL"
+  ],
+  "product_id": "V2P053",
+  "release": "R392"
+}

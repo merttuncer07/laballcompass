@@ -1,0 +1,56 @@
+{
+  "neutral_portfolio": {
+    "weights": [
+      0.16789892762977776,
+      0.12032486270734151,
+      0.16854552360392994,
+      0.18070094774611584,
+      0.17279617375526155,
+      0.18973356455757345
+    ],
+    "expected_return": 0.016596336086131903,
+    "volatility": 0.06511257399923205,
+    "objective_value": -0.010236865146923698,
+    "factor_exposure": [
+      -2.7755575615628914e-17,
+      0.0
+    ],
+    "budget_residual": 0.0,
+    "maximum_constraint_residual": 2.7755575615628914e-17,
+    "neutral_subspace_dimension": 3
+  },
+  "unconstrained_portfolio": {
+    "weights": [
+      0.3753251960286159,
+      0.22563405749728158,
+      0.25645260306133844,
+      0.12043512423750831,
+      0.04879990968183888,
+      -0.026646890506583223
+    ],
+    "expected_return": 0.09791691991740295,
+    "volatility": 0.1762671158498229,
+    "objective_value": -0.05131177572238062,
+    "factor_exposure": [],
+    "budget_residual": 1.1102230246251565e-16,
+    "maximum_constraint_residual": 0.0,
+    "neutral_subspace_dimension": 5
+  },
+  "nominal_expected_return_cost_of_neutrality": 0.08132058383127105,
+  "factor_stress_returns": {
+    "neutral": [
+      -0.0,
+      6.938893903907228e-18,
+      6.938893903907228e-18,
+      -6.938893903907228e-18
+    ],
+    "unconstrained": [
+      -0.12393104993730429,
+      -0.157334210893325,
+      -0.2812652608306293,
+      0.2812652608306293
+    ],
+    "unconstrained_worst_loss": -0.2812652608306293,
+    "neutral_worst_loss": -6.938893903907228e-18
+  }
+}

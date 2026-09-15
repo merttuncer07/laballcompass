@@ -1,0 +1,76 @@
+{
+  "model_version": "R400_PAIR_FRONTIER_WAVE1_V1",
+  "source_queue": "R392_EXACT_BASE/10_R393_NATIVE_ROUTING/R393_FULL_FRESH_ADJUDICATION_QUEUE.jsonl",
+  "purpose": "Code-semantic triage after R399 rehydration and higher-order JARB rejection",
+  "promoted_products": [],
+  "rows": [
+    {
+      "rank": 1,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:IM359_IM014_AICC",
+      "disposition": "FULL_OR_DEEP_FAMILY_COLLISION",
+      "reason": "Both parents already price information by downstream decision-boundary change; no additional state/objective/feasible-set operator was identified beyond the existing acquisition family."
+    },
+    {
+      "rank": 2,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:IM406_IM037_ACRA",
+      "disposition": "DEEP_FAMILY_COLLISION",
+      "reason": "Reusing DRE information value as ACRA consequence would reproduce consequence-weighted resolution allocation already represented by V2P031/V2P054 without a new native operator."
+    },
+    {
+      "rank": 3,
+      "pair": "PARENT:R037_SUPPORT_COVARIANCE_SACPS->PARENT:IM334_IM094_DRE",
+      "disposition": "PERSISTED_R398_COLLISION",
+      "reason": "Covariance-aware acquisition is already represented in the V2P010 neighborhood."
+    },
+    {
+      "rank": 4,
+      "pair": "PARENT:R037_SUPPORT_COVARIANCE_SACPS->PARENT:IM359_IM014_AICC",
+      "disposition": "PERSISTED_R398_COLLISION",
+      "reason": "The support-aware covariance acquisition path is already represented by V2P010."
+    },
+    {
+      "rank": 5,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:IM340_IM280_CWC",
+      "disposition": "MISSING_NATIVE_INTERFACE",
+      "reason": "DRE action information value does not natively define CWC coverage error, target coverage, or PI width-control state."
+    },
+    {
+      "rank": 6,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:R008_E612_E613_LGID",
+      "disposition": "MISSING_NATIVE_INTERFACE",
+      "reason": "DRE action values do not supply the incidence/exposure table required by LGID."
+    },
+    {
+      "rank": 7,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:R014_S781_S792_ACSA",
+      "disposition": "MISSING_NATIVE_INTERFACE",
+      "reason": "Decision-relevant exploration scores are not adaptive-control-variate samples or a valid sampling-law contract."
+    },
+    {
+      "rank": 8,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:R018_M866_M880_MCSC",
+      "disposition": "DEEP_FAMILY_COLLISION",
+      "reason": "Turning a DRE parameter sweep into an ordered payoff table would repeat the generic ordered-payoff structural certificate family already exercised by V2P036."
+    },
+    {
+      "rank": 9,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "disposition": "MISSING_NATIVE_INTERFACE_AND_FAMILY_COLLISION",
+      "reason": "DRE information value does not define CAPL constraints or heterogeneous caps; inventing that map would also enter the V2P052/V2P053 constrained-policy neighborhood."
+    },
+    {
+      "rank": 10,
+      "pair": "PARENT:IM334_IM094_DRE->PARENT:R044_DECISION_LOSS_DLEW",
+      "disposition": "FULL_OR_DEEP_FAMILY_COLLISION",
+      "reason": "Both mechanisms already rank choices by downstream decision regret; no distinct coupling survived removal-control analysis."
+    },
+    {
+      "rank": 11,
+      "pair": "PARENT:R037_SUPPORT_COVARIANCE_SACPS->PARENT:IM178_IM326_TWMR",
+      "disposition": "MISSING_NATIVE_INTERFACE",
+      "reason": "Statistical covariance support cannot replace or edit TWMR system dynamics A/B/C without separately declared system-identification authority."
+    }
+  ],
+  "next_unresolved_direction": "Select a different diversity cluster below this wave or design an independently measured tournament around an existing product weakness; do not retune JARB or recycle these rejected pairs.",
+  "evidence_boundary": "Pair-local code-semantic adjudication; no global mechanism death and no empirical-learning event."
+}

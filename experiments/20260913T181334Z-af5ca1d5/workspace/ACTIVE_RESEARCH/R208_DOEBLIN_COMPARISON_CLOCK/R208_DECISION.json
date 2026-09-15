@@ -1,0 +1,30 @@
+{
+  "status": "HISTORICALLY_REAL_SCOPED_NUMERICAL_INVARIANT_RETAINED_NOT_BREAKTHROUGH",
+  "historical_line": "Wolfgang Doeblin's sealed Kolmogorov manuscript: drift removal, variance clock, and interrupted ordered-drift comparison",
+  "scoped_theorem": "For one-dimensional SDEs with a common smooth positive diffusion, if Lamperti-coordinate drifts are beta_j(y)=g(y)+o_j with ordered offsets and y+h*g(y) nondecreasing, shared-noise transformed Euler preserves pathwise order at every step.",
+  "benchmark": {
+    "paths_per_step_size": 50000,
+    "raw_order_failure_rate": {
+      "10_steps": 0.06272,
+      "20_steps": 0.02664,
+      "50_steps": 0.0008,
+      "100_steps": 0.0,
+      "200_steps": 0.0
+    },
+    "transformed_order_failure_rate_all_step_sizes": 0.0,
+    "nonfinite_rate_all_cases": 0.0
+  },
+  "retained": [
+    "Doeblin drift-removal and quadratic-variation-clock mechanism as historical lineage",
+    "step-size-certified pathwise comparison in transformed coordinates",
+    "raw Euler finite-step order violation as an executable failure boundary"
+  ],
+  "not_solved": [
+    "discontinuous or vanishing diffusion and the resulting local-time correction",
+    "multidimensional partial orders",
+    "order preservation when the transformed Euler base map is not monotone",
+    "novelty beyond active Lamperti and order-preserving numerical-scheme literatures"
+  ],
+  "collision": "Strong: Dambis-Dubins-Schwarz subsumes the continuous martingale clock, modern SDE comparison theory subsumes the continuous ordered-drift result, and order-preserving/Lamperti numerical schemes are active literatures.",
+  "next_action": "Close the R205 parked-source pass. Do not deepen or productize this line unless a later independent problem specifically requires pathwise stochastic-order certificates."
+}

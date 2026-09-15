@@ -1,0 +1,28 @@
+{
+  "record": "https://zenodo.org/records/7613379",
+  "files": [
+    {
+      "file": "readme.md",
+      "url": "https://zenodo.org/api/records/7613379/files/readme.md/content",
+      "sha256": "0898b3ae8106b9407c9d0905781d92106359bf4c789bed6f12a4b8dcf95879c5"
+    },
+    {
+      "file": "data_process.py",
+      "url": "https://zenodo.org/api/records/7613379/files/data_process.py/content",
+      "sha256": "f37e3f0aeae9509808cc1963d6e6798e332e7a583bcf6c15ef7669952ae52ab2"
+    },
+    {
+      "file": "train.py",
+      "url": "https://zenodo.org/api/records/7613379/files/train.py/content",
+      "sha256": "14c4a6872c0dfbdcc6c908d3524d63c58db998a62a63cddd96520d9fa133dc55"
+    },
+    {
+      "file": "feature_utils.py",
+      "url": "https://zenodo.org/api/records/7613379/files/feature_utils.py/content",
+      "sha256": "a8dbbe20946529a68b36743cfaf3a572d529ca0c5314c511e1ba8192aee40024"
+    }
+  ],
+  "zenodo_metadata_license": "CC-BY-4.0",
+  "readme_code_license": "CC-BY-NC-SA-4.0",
+  "usage": "Read-only research reference. Not imported or executed by the product."
+}

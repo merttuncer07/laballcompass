@@ -1,0 +1,11 @@
+{
+  "candidate_identity": "R400_JARB_HIGHER_ORDER_EXPERIMENT",
+  "composition": ["V2P054_CADSBC", "V2P057_REOC"],
+  "question": "Does an acquisition/representation interaction term change the best allocation under an identical shared budget and feasible set?",
+  "mechanism_removal": "Set coupling to zero while preserving declared consequence, sensor geometry, mode costs, sensor costs, feasible decisions, total budget, and tie-breaking.",
+  "working_region": "A scarce shared budget where state observability and representation fidelity are complementary.",
+  "collapse_regions": ["minimum feasible budget", "full acquisition plus fine representation", "zero coupling"],
+  "failure_region": "Miscalibrated declared consequence can make the coupled allocation worse under hidden truth.",
+  "promotion_status": "EXPERIMENT_ONLY_NOT_V2P059",
+  "evidence_boundary": "DETERMINISTIC_MECHANICS_NOT_EMPIRICAL_VALIDATION"
+}

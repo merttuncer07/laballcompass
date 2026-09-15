@@ -1,0 +1,20 @@
+{
+  "mechanism_removing_comparator": "same CCVC and same low/high latent states, but state information is removed and CCVC filters only at the prior-midpoint state",
+  "evidence_boundary": "synthetic two-state conservation shell; demonstrates value of boundary-targeted state acquisition for a viability filter, not a new safe-learning theorem",
+  "quality_disposition": "FAMILY_VARIANT_OF_V2P043_ACTION_BOUNDARY_INFORMATION_ACQUISITION",
+  "result": {
+    "low_safe_control": 0.8,
+    "high_safe_control": 0.5000000000000002,
+    "midpoint_control": 0.8,
+    "action_boundary_crossed": true,
+    "measurement_used": true,
+    "cbia_selected": [
+      "state_probe"
+    ],
+    "removal_expected_violation": 0.015000000000000013,
+    "resolved_expected_violation": 0.0,
+    "candidate_violation_plus_measurement_cost": 0.001,
+    "gain_vs_removed_information": 0.014000000000000012,
+    "status": "SAFETY_BOUNDARY_MEASURED"
+  }
+}

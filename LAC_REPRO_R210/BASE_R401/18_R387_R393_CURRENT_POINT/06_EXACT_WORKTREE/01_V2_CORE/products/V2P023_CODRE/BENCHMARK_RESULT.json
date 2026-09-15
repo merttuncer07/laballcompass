@@ -1,0 +1,11 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P023_CODRE_V1",
+  "result": {
+    "choice": "moderate_supported",
+    "rejected": [
+      "high_gain_low_overlap"
+    ],
+    "status": "OVERLAP_GATED_DRE_CHOICE"
+  }
+}

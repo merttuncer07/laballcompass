@@ -1,0 +1,371 @@
+--- before/workbench/workbooks.py
++++ workbench/workbooks.py
+@@ -8,6 +8,7 @@
+ import re
+ import zipfile
+ from .contracts import DependencyProblem
++from .table_references import TableReferences, split_sheet_reference
+ 
+ DIRECT = re.compile(r'^\$?[A-Za-z]{1,3}\$?[1-9][0-9]*(?::\$?[A-Za-z]{1,3}\$?[1-9][0-9]*)?$')
+ DYNAMIC = {'INDIRECT', 'OFFSET', 'LAMBDA', 'LET'}
+@@ -67,6 +68,8 @@
+     multiple = len(paths) > 1
+     book_names = {p.name.casefold(): i for i, p in enumerate(paths)}
+     linked_workbooks = {}
++    tables = TableReferences(books)
++    table_links = {}
+     formulas = {}
+     cells = {}
+     labels = {}
+@@ -90,17 +93,17 @@
+                         raise ValueError('Pilot collection populated-cell limit: 20,000')
+                     if cell.data_type == 'f':
+                         formulas[node] = cell.value if isinstance(cell.value, str) else None
+-                        locations[node] = (book_id, sheet.title)
++                        locations[node] = (book_id, sheet.title, cell.coordinate)
+     if not formulas:
+         raise LineageUnavailable('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
+     if len(cells) > 20000: raise ValueError('Pilot populated-cell limit: 20,000')
+     dependencies = {}
+     issues = defaultdict(list)
+ 
+-    def reference(token, book_id, current_sheet, names_seen=frozenset()):
++    def reference(token, book_id, current_sheet, current_coordinate=None, names_seen=frozenset()):
+         workbook = books[book_id]
+-        if '!' in token:
+-            sheet_name, address = token.rsplit('!', 1)
++        sheet_name, address = split_sheet_reference(token)
++        if sheet_name is not None:
+             if sheet_name.startswith("'") and sheet_name.endswith("'"):
+                 sheet_name = sheet_name[1:-1].replace("''", "'")
+         else:
+@@ -139,7 +142,7 @@
+                 raise ValueError('Unsupported 3D worksheet range: ' + token)
+             results = set()
+             for sheet in workbook.sheetnames[first:last + 1]:
+-                results.update(reference("'" + sheet.replace("'", "''") + "'!" + address, book_id, current_sheet))
++                results.update(reference("'" + sheet.replace("'", "''") + "'!" + address, book_id, current_sheet, current_coordinate))
+                 if len(results) > 10000:
+                     raise ValueError('Reference expansion exceeds 10,000 cells: ' + token)
+             return results
+@@ -156,8 +159,13 @@
+                 raise ValueError('Reference expansion exceeds 10,000 cells: ' + token)
+             return {key(book_id, sheet_name, f'{get_column_letter(col)}{row}')
+                     for col in range(low_col, high_col + 1) for row in range(low_row, high_row + 1)}
++        table_reference = tables.resolve(address, book_id, sheet_name, current_coordinate)
++        if table_reference is not None:
++            table_sheet, coordinates = table_reference
++            table_links[(book_id,token,current_coordinate)] = {'workbook':paths[book_id].name,'token':token,'formula_coordinate':current_coordinate,'sheet':table_sheet,'referenced_cells':len(coordinates)}
++            return {key(book_id,table_sheet,c) for c in coordinates}
+         if '[' in address or '#' in address or '@' in address:
+-            raise ValueError('Table, spill or implicit-intersection reference: ' + token)
++            raise ValueError('Unsupported table, spill or implicit-intersection reference: ' + token)
+         if address.casefold() in names_seen:
+             raise ValueError('Recursive defined name: ' + address)
+         def find_name(mapping):
+@@ -169,7 +177,7 @@
+         results = set()
+         for destination_sheet, destination in name.destinations:
+             results.update(reference("'" + destination_sheet.replace("'", "''") + "'!" + destination,
+-                                     book_id, current_sheet, names_seen | {address.casefold()}))
++                                     book_id, current_sheet, current_coordinate, names_seen | {address.casefold()}))
+         if not results: raise ValueError('Empty defined name: ' + address)
+         return results
+ 
+@@ -244,6 +252,7 @@
+     metadata = {'title': f'{len(paths)} workbooks: ' + ', '.join(p.name for p in paths) if multiple else paths[0].name,
+                 'input_sha256': digest, 'input_files': input_files,
+                 'linked_workbooks': list(linked_workbooks.values()),
++                'structured_references': list(table_links.values()),
+                 'origin': 'Workbook formulas parsed automatically; workbook values were not recalculated.',
+                 'labels': labels, 'formula_text': {n: formulas[n] for n in sorted(safe)},
+                 'formula_count': len(formulas), 'resolved_formula_count': len(safe),
+@@ -251,7 +260,7 @@
+                 'same_origin_groups': same_origins,
+                 'assumptions': ['All static references are treated as potential dependencies, including unused IF branches and algebraic cancellations.',
+                                 'Distinct root cells are not evidence of statistically independent sources.',
+-                                'External links resolve only to uniquely named, explicitly supplied files. Missing files, dynamic/table references and cyclic paths remain unresolved; no external file was fetched.',
++                                'External links resolve only to uniquely named, explicitly supplied files. Saved table metadata resolves supported structured references. Missing files, unsupported dynamic references and cyclic paths remain unresolved; no external file was fetched.',
+                                 'Matching a referenced filename does not prove that the supplied file is the original version or is authentic.',
+                                 'Switching a source off reports structural sensitivity, not a false numeric value, audit failure or opinion.']}
+     problem = DependencyProblem('workbook_' + metadata['input_sha256'][:12], {r: r for r in sorted(roots)},
+--- /dev/null
++++ workbench/table_references.py
+@@ -0,0 +1,156 @@
++"""Resolve saved Excel table metadata into static cell references.
++
++No table-size inference from nearby values, formula evaluation or refresh.
++Invalid/missing selectors stay unresolved rather than becoming empty evidence.
++"""
++from openpyxl.utils.cell import range_boundaries, coordinate_to_tuple, get_column_letter
++
++
++def split_sheet_reference(token):
++    """Find ! outside table brackets/quoted sheet names (headers may contain !)."""
++    depth=0;quoted=False;last=None;i=0
++    while i<len(token):
++        c=token[i]
++        if c=="'":
++            if depth:
++                if i+1<len(token) and token[i+1] in "[]#'@":i+=2;continue
++            elif quoted and i+1<len(token) and token[i+1]=="'":i+=2;continue
++            else:quoted=not quoted
++        elif not quoted:
++            if c=='[':depth+=1
++            elif c==']':depth-=1
++            elif c=='!' and depth==0:last=i
++        i+=1
++    return (token[:last],token[last+1:]) if last is not None else (None,token)
++
++
++def _parse_selector(text):
++    """Return leaf specifiers/operators, preserving escapes until classification."""
++    def group(start,depth=0):
++        if depth>3 or start>=len(text) or text[start]!='[':raise ValueError('Invalid table selector')
++        i=start+1
++        while i<len(text) and text[i].isspace():i+=1
++        prefix=[]
++        if text[i:i+2]=='@[':prefix=[('leaf','#This Row')];i+=1
++        if i<len(text) and text[i]=='[':
++            tokens=prefix
++            while True:
++                child,i=group(i,depth+1);tokens.extend(child)
++                while i<len(text) and text[i].isspace():i+=1
++                if i>=len(text):raise ValueError('Unclosed table selector')
++                if text[i]==']':return tokens,i+1
++                if text[i] not in ',:':raise ValueError('Invalid table selector separator')
++                tokens.append(('operator',text[i]));i+=1
++                while i<len(text) and text[i].isspace():i+=1
++        # A leaf header may contain commas/colons; only unescaped brackets split it.
++        i=start+1;value=''
++        while i<len(text):
++            c=text[i]
++            if c=="'" and i+1<len(text) and text[i+1] in "[]#'@":
++                value+=text[i:i+2];i+=2;continue
++            if c==']':
++                if not value:raise ValueError('Empty nested table selector')
++                return [('leaf',value)],i+1
++            if c=='[':raise ValueError('Unescaped bracket in table column')
++            value+=c;i+=1
++        raise ValueError('Unclosed table selector')
++    if text in ('','[]'):return []
++    tokens,end=group(0)
++    if text[end:].strip():raise ValueError('Unsupported suffix after table selector')
++    return tokens
++
++
++def _unescape(value):
++    out='';i=0
++    while i<len(value):
++        if value[i]=="'" and i+1<len(value) and value[i+1] in "[]#'@":i+=1
++        out+=value[i];i+=1
++    return out
++
++
++class TableReferences:
++    def __init__(self,books):
++        self.tables=[]
++        for workbook in books:
++            lookup={}
++            for sheet in workbook:
++                for table in sheet.tables.values():
++                    name=table.displayName.casefold()
++                    lookup.setdefault(name,[]).append((sheet.title,table))
++            self.tables.append(lookup)
++
++    def resolve(self,address,book_id,current_sheet,current_coordinate):
++        """Return (table sheet, coordinates) or None for an ordinary named range."""
++        name,separator,rest=address.partition('[')
++        if not separator and name.casefold() not in self.tables[book_id]:return None
++        selector='['+rest if separator else ''
++        if name:
++            choices=self.tables[book_id].get(name.casefold(),[])
++            if len(choices)!=1:raise ValueError('Unknown or ambiguous table: '+name)
++            sheet,table=choices[0]
++        else:
++            if current_coordinate is None:raise ValueError('Unqualified table reference requires a formula location')
++            row,col=coordinate_to_tuple(current_coordinate)
++            choices=[]
++            for entries in self.tables[book_id].values():
++                for sheet,table in entries:
++                    c1,r1,c2,r2=range_boundaries(table.ref)
++                    if sheet==current_sheet and r1<=row<=r2 and c1<=col<=c2:choices.append((sheet,table))
++            if len(choices)!=1:raise ValueError('Unqualified table reference is outside one unambiguous table')
++            sheet,table=choices[0]
++        c1,r1,c2,r2=range_boundaries(table.ref)
++        headers=1 if table.headerRowCount is None else table.headerRowCount
++        totals=table.totalsRowCount or 0
++        if headers not in (0,1) or totals not in (0,1) or r2-r1+1<headers+totals:
++            raise ValueError('Unsupported table row metadata')
++        columns={}
++        for i,column in enumerate(table.tableColumns):columns.setdefault(column.name.casefold(),[]).append(c1+i)
++        if len(table.tableColumns)!=c2-c1+1 or any(len(v)!=1 for v in columns.values()):
++            raise ValueError('Table column metadata is missing or ambiguous')
++        tokens=_parse_selector(selector);selectors=[];colnames=[];operators=[]
++        for kind,token in tokens:
++            if kind=='operator':operators.append(token);continue
++            if not token:continue
++            if token.startswith('@'):
++                selectors.append('#this row');token=token[1:]
++                if not token:continue
++            if token.startswith('#'):selectors.append(token.casefold())
++            else:colnames.append(_unescape(token))
++        if not set(selectors)<={'#all','#data','#headers','#totals','#this row'}:
++            raise ValueError('Unknown table item selector')
++        if len(selectors)!=len(set(selectors)):raise ValueError('Repeated table item selector')
++        if '#this row' in selectors and len(selectors)>1 or '#all' in selectors and len(selectors)>1:
++            raise ValueError('Incompatible table item selectors')
++        if len(selectors)>1 and set(selectors) not in ({'#headers','#data'},{'#data','#totals'}):
++            raise ValueError('Unsupported combination of table row selectors')
++        if len(colnames)>2 or operators.count(':')>1 or (len(colnames)==2 and operators.count(':')!=1) or (':' in operators and len(colnames)!=2):
++            raise ValueError('Unsupported table column union/range')
++        if colnames:
++            try:chosen=[columns[n.casefold()][0] for n in colnames]
++            except KeyError as error:raise ValueError('Unknown table column: '+str(error)) from error
++            left,right=min(chosen),max(chosen)
++        else:left,right=c1,c2
++        selectors=set(selectors) or {'#data'}
++        data_start,data_end=r1+headers,r2-totals
++        selected_rows=set()
++        def add_rows(start,end):
++            if (end-start+1)*(right-left+1)>10000:
++                raise ValueError('Table reference expansion exceeds 10,000 cells')
++            selected_rows.update(range(start,end+1))
++        for item in selectors:
++            if item=='#all':add_rows(r1,r2)
++            elif item=='#headers':
++                if not headers:raise ValueError('Table has no header row')
++                selected_rows.add(r1)
++            elif item=='#totals':
++                if not totals:raise ValueError('Table has no totals row')
++                selected_rows.add(r2)
++            elif item=='#this row':
++                if current_coordinate is None:raise ValueError('This Row requires a formula location')
++                row,_=coordinate_to_tuple(current_coordinate)
++                if not data_start<=row<=data_end:raise ValueError('This Row is outside table data rows')
++                selected_rows.add(row)
++            else:add_rows(data_start,data_end)
++        if not selected_rows:raise ValueError('Table reference has no data rows')
++        if len(selected_rows)*(right-left+1)>10000:raise ValueError('Table reference expansion exceeds 10,000 cells')
++        return sheet,{f'{get_column_letter(col)}{row}' for row in selected_rows for col in range(left,right+1)}
+--- /dev/null
++++ tests/test_table_references.py
+@@ -0,0 +1,108 @@
++from pathlib import Path
++import pytest
++from openpyxl import Workbook,load_workbook
++from openpyxl.worksheet.table import Table,TableColumn
++from workbench.table_references import TableReferences,split_sheet_reference
++from workbench.workbooks import analyze_workbook,analyze_workbooks
++
++
++def table_book(headers=True,totals=True,names=('Amount','Rate','Computed')):
++    book=Workbook();sheet=book.active;sheet.title='Data'
++    sheet.append(list(names))
++    for row in ((10,.1,1),(20,.2,4),(30,.3,9),(40,.4,16)):sheet.append(row)
++    table=Table(displayName='Sales',ref='A1:C5',headerRowCount=int(headers),totalsRowCount=int(totals),
++                tableColumns=[TableColumn(id=i+1,name=n) for i,n in enumerate(names)])
++    sheet.add_table(table)
++    return book
++
++
++@pytest.mark.parametrize('token,expected',[
++    ('Sales[Amount]',{'A2','A3','A4'}),
++    ('Sales',{'A2','A3','A4','B2','B3','B4','C2','C3','C4'}),
++    ('Sales[]',{'A2','A3','A4','B2','B3','B4','C2','C3','C4'}),
++    ('Sales[[#Totals],[Amount]]',{'A5'}),
++    ('Sales[[#Headers],[Amount]:[Rate]]',{'A1','B1'}),
++    ('Sales[[#Data],[#Totals],[Rate]]',{'B2','B3','B4','B5'}),
++    ('Sales[[#Headers],[#Data],[Rate]]',{'B1','B2','B3','B4'}),
++    ('Sales[[#All],[Rate]]',{'B1','B2','B3','B4','B5'}),
++    ('Sales[[#This Row],[Amount]]',{'A3'}),
++    ('Sales[@Amount]',{'A3'}),
++    ('Sales[@[Amount]:[Rate]]',{'A3','B3'}),
++    ('[@Rate]',{'B3'}),
++    ('[[#This Row],[Rate]]',{'B3'}),
++    ('Sales[ [Amount]:[Rate] ]',{'A2','A3','A4','B2','B3','B4'}),
++])
++def test_selectors_resolve_exact_metadata_cells(token,expected):
++    assert TableReferences([table_book()]).resolve(token,0,'Data','C3')==('Data',expected)
++
++
++def test_escaped_header_characters_and_sheet_separator():
++    name="x]#@!'"
++    tables=TableReferences([table_book(names=(name,'Rate','Computed'))])
++    token="Sales[x']'#'@!'']"
++    assert split_sheet_reference(token)==(None,token)
++    assert tables.resolve(token,0,'Data','C3')==('Data',{'A2','A3','A4'})
++    assert split_sheet_reference("'O''Brien'!"+token)==("'O''Brien'",token)
++    punctuation=TableReferences([table_book(names=(',',':','!'))])
++    assert punctuation.resolve('Sales[[,]:[:]]',0,'Data','C3')[1]=={'A2','A3','A4','B2','B3','B4'}
++
++
++def test_missing_headers_totals_and_outside_this_row_are_unresolved():
++    tables=TableReferences([table_book(headers=False,totals=False)])
++    assert tables.resolve('Sales[Amount]',0,'Data','C3')[1]=={'A1','A2','A3','A4','A5'}
++    for token in ('Sales[#Headers]','Sales[#Totals]'):
++        with pytest.raises(ValueError,match='no .* row'):tables.resolve(token,0,'Data','C3')
++    tables=TableReferences([table_book()])
++    for coordinate in ('C1','C5','C6'):
++        with pytest.raises(ValueError,match='outside table data'):tables.resolve('Sales[@Amount]',0,'Data',coordinate)
++
++
++@pytest.mark.parametrize('token',['Sales[[#All],[#This Row],[Amount]]','Sales[[Amount],[Rate]]','Sales[[#Headers],[#Totals]]',
++                                'Sales[Unknown]','Sales[[Amount]','Sales[Amount]junk','Sales[[#Data],[Amount]:]','Sales[[]]'])
++def test_malformed_or_unknown_reference_does_not_invent_roots(token):
++    with pytest.raises(ValueError):TableReferences([table_book()]).resolve(token,0,'Data','C3')
++
++
++def test_unqualified_reference_needs_containing_table():
++    with pytest.raises(ValueError,match='outside'):TableReferences([table_book()]).resolve('[@Amount]',0,'Data','F3')
++
++
++def test_same_table_name_in_different_workbooks_stays_separate(tmp_path):
++    for name in ('a.xlsx','b.xlsx'):
++        book=table_book();book['Data']['C3']='=[@Amount]*[@Rate]';book.save(tmp_path/name)
++    p=analyze_workbooks([tmp_path/'a.xlsx',tmp_path/'b.xlsx'])
++    assert set(p.bases)=={'a.xlsx::Data!A3','a.xlsx::Data!B3','b.xlsx::Data!A3','b.xlsx::Data!B3'}
++    assert dict(p.rules)['a.xlsx::Data!C3']==('a.xlsx::Data!A3','a.xlsx::Data!B3')
++
++
++def test_failed_table_reference_blocks_downstream_without_hiding_valid_formula(tmp_path):
++    book=table_book(totals=False);s=book['Data']
++    s['F1']='=SUM(Sales[#Totals])';s['F2']='=F1+1';s['C3']='=[@Amount]*[@Rate]'
++    path=tmp_path/'table.xlsx';book.save(path);p=analyze_workbook(path)
++    assert p.metadata['resolved_formula_count']==1
++    assert {r['cell'] for r in p.metadata['unresolved']}=={'Data!F1','Data!F2'}
++    assert set(p.bases)=={'Data!A3','Data!B3'}
++
++
++def test_public_apache_references_match_independently_authored_expected_ranges():
++    root=Path(__file__).resolve().parents[1]
++    path=root/'examples/public-tables/StructuredReferences.xlsx'
++    book=load_workbook(path);tables=TableReferences([book])
++    # Expected values are from Apache POI TestXSSFFormulaParser.java, not this parser.
++    for token,expected in [('\\_Prime.1[Name]',{'B2','B3','B4','B5','B6','B7'}),
++                           ("\\_Prime.1[calc='#*'#]",{'A2','A3','A4','A5','A6','A7'}),
++                           ('\\_Prime.1[[#Headers],[Number]]',{'C1'}),
++                           ('\\_Prime.1[[#This Row],[Number]]',{'C3'})]:
++        assert tables.resolve(token,0,'Table','C3')==('Table',expected)
++    book.close()
++    p=analyze_workbook(path)
++    assert p.metadata['resolved_formula_count']==p.metadata['formula_count']==9
++    assert dict(p.rules)['Table!A3']==('Table!C3',)
++    assert set(dict(p.rules)['Formulas!A1'])=={'Table!A2','Table!A3','Table!A4','Table!A5','Table!A6','Table!A7'}
++
++
++def test_public_apache_table_range_completes_formula_lineage():
++    path=Path(__file__).resolve().parents[1]/'examples/public-tables/evaluate_formula_with_structured_table_references.xlsx'
++    p=analyze_workbook(path)
++    assert set(p.bases)=={'Tabelle1!A2','Tabelle1!A3','Tabelle1!B2','Tabelle1!B3'}
++    assert dict(p.rules)['Tabelle1!C3']==tuple(sorted(p.bases))
+--- before/restoration/build_explorer.py
++++ restoration/build_explorer.py
+@@ -3,6 +3,6 @@
+ BASE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(BASE))
+ from maintenance.catalog import build
+ build();data=json.loads((BASE/'catalog.json').read_text())['components']
+-page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/evidence-acquisition/verified/index.html">Kanıt → ek ölçüm kararı</a><a href="examples/information-selection/index.html">Hangi ölçüm yeni bilgi katıyor?</a><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 89 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
++page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/public-tables/StructuredReferences-report/lineage.html">Excel tablolarında kaynak izi</a><a href="examples/evidence-acquisition/verified/index.html">Kanıt → ek ölçüm kararı</a><a href="examples/information-selection/index.html">Hangi ölçüm yeni bilgi katıyor?</a><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 89 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
+ (BASE/'index.html').write_text(page.replace('PAYLOAD',json.dumps(data,ensure_ascii=False).replace('</','<\\/')))
+ print(len(data),'explorer entries')

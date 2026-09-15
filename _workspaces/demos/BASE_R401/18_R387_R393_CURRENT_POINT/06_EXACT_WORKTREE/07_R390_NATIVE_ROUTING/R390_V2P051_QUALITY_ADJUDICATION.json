@@ -1,0 +1,45 @@
+{
+  "canonical_authority_before_admission": "R389 / Products49 / Quality36",
+  "canonical_authority_mutated": false,
+  "evidence_sha256": {
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/BENCHMARK_RESULT.json": "750288cd9f01bd2e2c4ef0eec893662a23c2cfbdfb629bbe6aa1dc0a459b8a87",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/BENCHMARK_SWEEP_RESULT.json": "544a90745bf0f0527640c1cdefe442da0e6e5ddc6b6ce3266462521aec55f21a",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/COMPOSITION.json": "a94dc6bc6e15d4d1a97636212271024fb355951f65ad25337b881bcb60ee5273",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/NOVELTY_REVIEW_R390.json": "4aaf1457ac5d7abf0f6eeebd358b19c2cc98c568f1f58f0342c321a2cda9020f",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/PRODUCT_RESULT.md": "eeb1b0d0817b9186578cc51b31e20160557a12780589b3012cc0b87216ce37c7",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/README.md": "a249fef8171ae2c79a95b0d9908f979f05930b82939868e637f17b0d4d018cab",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/benchmark.py": "8022517d40d95c092f019cbbeb090930d84835739e9aa297e858d56470677596",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/benchmark_sweep.py": "f29783e621e452be1af3302e6fe8161867060989e3aab973c8b64ac6412dd75b",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/sacdlw.py": "929d8ca9dfb31b4da0c41301ee79d2b9dfefbeedea6881ad6890acd3b0e32855",
+    "07_R390_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P051_SACDLW/test_sacdlw.py": "91faf97c96e3837b094df8368ed86293e26a8ac52d43ae0ad225b2a058204dbb"
+  },
+  "next_gate": "copy exact shadow bytes into core candidate overlay; refresh; run fresh exact-shell pilot for every current V2P051 test method; require 50/50 calibrated closure before promotion",
+  "prior_art_status": "STRONG_CLOSE_PRIOR_ART_ON_DECISION_FOCUSED_LEARNING_AND_COVARIANCE_AWARE_PORTFOLIO_DECISIONS; INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+  "product_id": "V2P051",
+  "quality_basis": {
+    "dense_support_collapse_gain": 0.0,
+    "hardened_tests": "12/12 PASS",
+    "nearest_family_collision_review": [
+      "V2P049",
+      "V2P041",
+      "V2P030"
+    ],
+    "rho_minus_0_95_mean_gain": 0.0014326881661303095,
+    "rho_minus_0_95_nonabstain": 12,
+    "rho_minus_0_95_positive_gain_cases": 7,
+    "sensitivity_cells": 6,
+    "working_gain": 0.002317731014771703,
+    "zero_risk_collapse_gain": 0.0
+  },
+  "registry455_unchanged": true,
+  "release": "R390",
+  "source_frontier": {
+    "candidate_universe_rank": 214,
+    "native_score": 31.0,
+    "pair": [
+      "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "PARENT:R044_DECISION_LOSS_DLEW"
+    ]
+  },
+  "verdict": "ADMIT_R390_CANDIDATE_OVERLAY_PENDING_TELEMETRY_CLOSURE_AND_REGRESSION"
+}

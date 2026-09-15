@@ -1,0 +1,39 @@
+{
+  "surface": {
+    "parameter_names": [
+      "hidden_confounding",
+      "missing_outcome_penalty"
+    ],
+    "grid_shape": [
+      81,
+      81
+    ],
+    "evaluated_points": 6561,
+    "baseline_parameters": {
+      "hidden_confounding": 0.0,
+      "missing_outcome_penalty": 0.0
+    },
+    "baseline_metric": 12.0,
+    "decision_threshold": 0.0,
+    "baseline_decision": true,
+    "robust_surface_share": 0.9213534522176497,
+    "tipping_point": {
+      "parameters": {
+        "hidden_confounding": 1.975,
+        "missing_outcome_penalty": 0.525
+      },
+      "metric": -0.0012500000000001954,
+      "normalized_euclidean_distance": 1.118383319796929,
+      "normalized_manhattan_distance": 1.5125000000000002
+    },
+    "one_way_tipping_values": {
+      "hidden_confounding": null,
+      "missing_outcome_penalty": null
+    },
+    "metric_minimum": -2.0,
+    "metric_maximum": 12.0,
+    "status": "TIPPING_POINT_FOUND"
+  },
+  "risk_ratio_2_e_value": 3.414213562373095,
+  "missing_value_needed_to_tip_mean": 5.0
+}

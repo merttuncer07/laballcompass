@@ -1,0 +1,8 @@
+{
+  "authority": "R391_CANONICAL_PRODUCT_AUTHORITY",
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "product_id": "V2P052",
+  "short_name": "REICAPL",
+  "status": "R391_PROMOTED_CANONICAL_PRODUCT",
+  "supplier_id": "FOUNDRY:P028"
+}

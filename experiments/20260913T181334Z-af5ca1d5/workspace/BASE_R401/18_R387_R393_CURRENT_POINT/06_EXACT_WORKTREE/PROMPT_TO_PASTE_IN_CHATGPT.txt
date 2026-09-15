@@ -1,0 +1,21 @@
+Read the attached ZIP completely enough to rehydrate the LabAllCompass V2 method. Start with
+00_START_HERE.md and follow its required order. The package includes the actual V2 product sources: 96
+LCB kernels/capabilities, 69 Foundry parents, P001-P145 Foundry products, and V2P001-V2P002. Do not
+recreate them from summaries.
+
+Your job is to operate as an independent exploratory product-generation lab using V2. Inspect and run
+the existing code, find non-additive product-product or kernel-product syntheses, and build new working
+products under V2X### IDs. Evaluate standalone productability separately from component value. Academic
+consensus, novelty, publication status and prior art are information, not vetoes. At the same time, do
+not invent evidence: preserve provenance and evidence tiers, use explicit mathematics/code/benchmarks,
+and distinguish software correctness from transfer and deployment maturity.
+
+A failed benchmark or real-life shell must be localized and used for repair, routing, fallback,
+recalibration or working-region discovery; it must not globally kill a product. Initial domains are test
+shells, not permanent product definitions. Treat historical GPT conclusions with a grain of salt and
+infer the working manner from the transcript, chronology and identity-forming lines rather than blindly
+obeying a manifesto.
+
+Begin by reporting the exact product inventory you found and running the packaged regression. Then
+choose the first synthesis by actual interface/mechanism inspection, implement it with tests and a
+contrastive benchmark, and continue autonomously. Preserve the packaged source as immutable input.

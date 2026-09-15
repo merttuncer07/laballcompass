@@ -1,0 +1,30 @@
+{
+  "canonical_authority_before_admission": "R388 / Products48 / Quality35",
+  "canonical_authority_mutated": false,
+  "evidence_sha256": {
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/BENCHMARK_RESULT.json": "4591008f1e41bc3fc7f55df6b2f136f3146064aa4e39ec79c0a697379571f77a",
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/BENCHMARK_SWEEP_RESULT.json": "ee3dcbfde0dbf732c846057ac18968b466892d1cc03bfd6b8a1c2e183bf8b9a7",
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/NOVELTY_REVIEW_R389.json": "f5a01b3b828402d11170eb03668716a7557d09b6f48c002709f3120d368cf666",
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/benchmark.py": "88cbb0dbb74a3d98717e3771acefd6764fd3b468746d55ab89de512997728a4c",
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/benchmark_sweep.py": "2c1f2bfc260958757df83ac99bd6ab58714d9c93d36cf83e6230f1b51443d73a",
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/scig.py": "0f26582c58254a2f3d4f89b2fc9e7eebb1b7db7d4de9032a82cb5e2a0422dcb3",
+    "06_R389_NATIVE_ROUTING/SHADOW_PRODUCTS/V2P050_SCIG/test_scig.py": "6080cc0e2c8939b53f9a00a958fdd902a89b5d1fc0ff324587a9afdd280c3103"
+  },
+  "next_gate": "copy exact shadow candidate to core candidate overlay, rebuild Foundry/refresh state, run fixed-pilot exact-shell telemetry, then R389 quality/closure regression before any authority promotion",
+  "product_id": "V2P050",
+  "quality_basis": {
+    "collapse_gain": 0.0,
+    "hardened_tests": "13/13 PASS",
+    "nearest_family_collision_review": [
+      "V2P005",
+      "V2P039",
+      "V2P049",
+      "V2P034"
+    ],
+    "sensitivity_cells": 18,
+    "working_gain": 8.0
+  },
+  "registry455_unchanged": true,
+  "release": "R389",
+  "verdict": "ADMIT_R389_CANDIDATE_OVERLAY_PENDING_TELEMETRY_AND_CLOSURE"
+}

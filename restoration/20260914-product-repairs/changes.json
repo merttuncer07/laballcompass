@@ -1,0 +1,66 @@
+{
+  "scope": "Incremental source changes after the original restoration; originals preserved in before/.",
+  "files": [
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/benchmark_sweep.py",
+      "before_sha256": "2c1f2bfc260958757df83ac99bd6ab58714d9c93d36cf83e6230f1b51443d73a",
+      "after_sha256": "bb39ba4e16a5c2301140940e65a502329e7a6836619e886666eccac735b96e9a",
+      "previous_file": "restoration/20260914-product-repairs/before/V2P050_SCIG/benchmark_sweep.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/scig.py",
+      "before_sha256": "0f26582c58254a2f3d4f89b2fc9e7eebb1b7db7d4de9032a82cb5e2a0422dcb3",
+      "after_sha256": "ce1ee28a08a07f94e71a0576418422c490a83b3c1238ec79cc42e001623827dc",
+      "previous_file": "restoration/20260914-product-repairs/before/V2P050_SCIG/scig.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG/test_scig.py",
+      "before_sha256": "6080cc0e2c8939b53f9a00a958fdd902a89b5d1fc0ff324587a9afdd280c3103",
+      "after_sha256": "3993ab198ff675b1bc2c8dfba3fbc3b8b28aa0fd0c29281d8a27602d4621213b",
+      "previous_file": "restoration/20260914-product-repairs/before/V2P050_SCIG/test_scig.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/cfai.py",
+      "before_sha256": "5b5cb1766fe021360de29ef582f1d2cc0be05f9d1d91849461a0ef8c37277497",
+      "after_sha256": "e86f47a92a3adcc367ac8292a3415c6602def6a9e030fa4bea85c39d275ee83e",
+      "previous_file": "restoration/20260914-product-repairs/before/P103_CFAI/cfai.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/demo_circular_flow.py",
+      "before_sha256": null,
+      "after_sha256": "8eae33fa36cf227c7e201cad7ce11d856f1c6e2769d26c9f93f524c13fb0a591",
+      "previous_file": null
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI/test_cfai.py",
+      "before_sha256": "c46953653418507fd119aa1b0f75a0b553b0484b5e5f5d71e48063ee67c5f309",
+      "after_sha256": "88e82108e33341f051149f65a7fdc39d588d5b48f4c927a1b0ef1ee30173a5a5",
+      "previous_file": "restoration/20260914-product-repairs/before/P103_CFAI/test_cfai.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM406_IM037_ACRA/acra.py",
+      "before_sha256": "be06cb7e7a8dae11bb483f8213cbf9749bc134b83a61bd18c4a03271296a5562",
+      "after_sha256": "76b49ee7295b2125039a8a0de6ccd34122be44190ec74cfa52e2db1fef23b3a6",
+      "previous_file": "restoration/20260914-product-repairs/before/IM406_IM037_ACRA/acra.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/bicc.py",
+      "before_sha256": "841fb44ab3a2abff7cf79b6bcc76fffc483905a1b91f9aecd65f3754b49f622f",
+      "after_sha256": "3f0e410fadaf1108b0513e43a03b9ca712dd121245353ce303d0d57ef59e11e2",
+      "previous_file": "restoration/20260914-product-repairs/before/R007_C349_BICC/bicc.py"
+    },
+    {
+      "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC/test_bicc.py",
+      "before_sha256": "599c44ea904c0e615f295b37625906d780cae8fcc44adde1a500818a4018f460",
+      "after_sha256": "013dcf37474ba6c28c63315e913fd736ae6e7da65d5e48fc81d168a641f41530",
+      "previous_file": "restoration/20260914-product-repairs/before/R007_C349_BICC/test_bicc.py"
+    }
+  ],
+  "supporting_edits": [
+    "maintenance/catalog.py",
+    "restoration/build_explorer.py",
+    "PRODUCT_REPAIRS.md",
+    "README.md",
+    "RECOVERY_LIMITS.md"
+  ]
+}

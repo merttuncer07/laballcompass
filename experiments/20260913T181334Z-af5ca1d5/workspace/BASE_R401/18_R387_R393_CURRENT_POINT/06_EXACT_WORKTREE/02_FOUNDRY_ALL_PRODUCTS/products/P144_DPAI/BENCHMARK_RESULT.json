@@ -1,0 +1,34 @@
+{
+  "near_boundary": {
+    "persistence_estimate": 0.020272880515952902,
+    "persistence_standard_error": 0.08259726356495987,
+    "validation_rollout_rmse": null,
+    "current_action": "UNSTABLE_SIDE",
+    "chosen_channel": "identification_experiment",
+    "ranked_channels": [
+      {
+        "name": "identification_experiment",
+        "expected_decision_improvement": 0.03913639432286878,
+        "cost": 0.005,
+        "net_value": 0.03413639432286878
+      }
+    ],
+    "status": "DYNAMIC_PERSISTENCE_INFORMATION_ACQUISITION_COMPLETE"
+  },
+  "far_stable": {
+    "persistence_estimate": -0.49675564339363215,
+    "persistence_standard_error": 0.008100149232686262,
+    "validation_rollout_rmse": null,
+    "current_action": "STABLE_SIDE",
+    "chosen_channel": null,
+    "ranked_channels": [
+      {
+        "name": "identification_experiment",
+        "expected_decision_improvement": 0.0,
+        "cost": 0.005,
+        "net_value": -0.005
+      }
+    ],
+    "status": "DYNAMIC_PERSISTENCE_INFORMATION_ACQUISITION_COMPLETE"
+  }
+}

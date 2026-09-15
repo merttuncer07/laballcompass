@@ -1,0 +1,12 @@
+{
+  "consumer_id": "LCB-K003",
+  "difference_from_nearest": "SARCP inflates queue-capacity reserve from support erosion; SUSCA reallocates overlapping subset capacity by support-adjusted marginal value",
+  "mechanism_removing_comparator": "same polymatroid allocation with support fractions forced to 1.0",
+  "nearest_existing_product": "V2P012_SARCP",
+  "new_failure_mode": "shared capacity is consumed by a high nominal-value item whose surviving cohort has inadequate effective support",
+  "non_additive_interaction": "support changes the greedy value order while polymatroid rank prevents overlap double counting; neither operation alone reproduces the composed allocation",
+  "product_id": "V2P029",
+  "short_name": "SUSCA",
+  "supplier_id": "FOUNDRY:P140",
+  "verdict": "DISTINCT_PRODUCT"
+}

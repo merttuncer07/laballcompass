@@ -1,0 +1,42 @@
+{
+  "candidate_added_suite_ids": [
+    "V2P052"
+  ],
+  "candidate_counts": {
+    "products_executable_suites": 51,
+    "quality_distinct_families": 38
+  },
+  "candidate_new_distinct_family_ids": [
+    "V2P052"
+  ],
+  "current_authority_file": "CURRENT_PRODUCT_AUTHORITY.json",
+  "evidence_boundary": "R391 candidate overlay is executable/mechanics evidence only; no empirical scientific, finance, deployment or novel-theory claim.",
+  "model_version": "R391_PRODUCT_OVERLAY_STATE_V1",
+  "prior_canonical_authority": "R390 / Registry455 / Products50 / Quality37",
+  "promoted_as_authority_release": "R391",
+  "promotion_regression_receipt": "08_R391_NATIVE_ROUTING/R391_PROMOTION_REGRESSION_BUNDLE.json",
+  "quarantined": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "source_quality_audit": "PRODUCT_QUALITY_AUDIT_R391.json",
+  "status": "PROMOTED_TO_R391_PRODUCT_AUTHORITY",
+  "telemetry_gate": {
+    "calibrated_suites": 51,
+    "current_completed_suites": 51,
+    "events": 435,
+    "exact_matches": 435,
+    "status": "PASS_EXACT_SHELL",
+    "unmatched": 0,
+    "v2p052_current_case_count": 12,
+    "v2p052_pilot_namespace": "R391"
+  },
+  "visibility_inheritance": {
+    "current_parent_records": 19,
+    "from_release": "R390",
+    "full_candidate_universe_rows": 16594,
+    "previously_hidden_rank_compatible_parent_pairs": 890,
+    "retro50_parent_records": 50,
+    "top1000_is_operational_window_only": true
+  }
+}

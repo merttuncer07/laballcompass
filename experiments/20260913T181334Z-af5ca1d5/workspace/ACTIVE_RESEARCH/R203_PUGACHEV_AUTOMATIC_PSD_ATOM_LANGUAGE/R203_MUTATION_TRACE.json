@@ -1,0 +1,44 @@
+{
+  "purpose": "Preserve failed algebraic variants; coverage alone was not accepted as success.",
+  "variants": [
+    {
+      "name": "direct_prior_whitened_dense_mean_plus_automatic_atoms",
+      "d2_home_rmse_per_coordinate": 0.20225347790514747,
+      "d4_home_rmse_per_coordinate": 0.37580208714125996,
+      "d8_home_rmse_per_coordinate": 0.7721960206044606,
+      "d4_axis_radius90": 1.0267136710862295,
+      "d8_axis_radius90": 2.9373077410246125,
+      "decision": "reject",
+      "reason": "dense mean map was not recursively stable as dimension grew"
+    },
+    {
+      "name": "linear_mean_anchor_but_prior_whitened_covariance_replacement",
+      "d4_home_rmse_per_coordinate": 0.3564888815277368,
+      "d8_home_rmse_per_coordinate": 0.5737218094645936,
+      "d4_axis_radius90": 0.9769124580562565,
+      "d8_axis_radius90": 2.072591594927757,
+      "decision": "reject",
+      "reason": "safe mean anchor did not prevent learned covariance feedback from moving later gains out of domain"
+    },
+    {
+      "name": "joseph_posterior_chart_with_support_unstable_features",
+      "d4_home_rmse_per_coordinate": 0.569068107391994,
+      "d8_home_rmse_per_coordinate": 1.07224547213416,
+      "d4_axis_radius90": 1.5385733149766496,
+      "d8_axis_radius90": 4.741766371821171,
+      "decision": "reject",
+      "reason": "structural-zero Cholesky features acquired nonzero support under recursive propagation and exploded after normalization"
+    },
+    {
+      "name": "joseph_posterior_chart_plus_support_stable_features_plus_trust_bound",
+      "d2_home_rmse_per_coordinate": 0.20431135668595046,
+      "d4_home_rmse_per_coordinate": 0.20515247065880024,
+      "d8_home_rmse_per_coordinate": 0.20499358327248884,
+      "d2_axis_radius90": 0.4343827614409093,
+      "d4_axis_radius90": 0.5884939109875108,
+      "d8_axis_radius90": 0.778724282169642,
+      "decision": "survives_first_pass",
+      "reason": "all five prespecified gates pass across d=2,4,8"
+    }
+  ]
+}

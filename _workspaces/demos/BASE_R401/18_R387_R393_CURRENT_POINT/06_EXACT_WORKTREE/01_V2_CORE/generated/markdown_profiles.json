@@ -1,0 +1,3001 @@
+[
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0336-TR__BENCH_IM223_IM227_CONSTRAINT_PRESSURE_DOSSIER__r01.md",
+    "bytes": 4169,
+    "headings": [
+      "# IM-223 + IM-227 — Constraint Pressure Monitor benchmark",
+      "## Mechanism transfer",
+      "## Synthetic shell",
+      "## Results",
+      "### Persistent pressure, rho = 0.95",
+      "### Destructive negative control, rho = 0",
+      "## Interpretation",
+      "## Failure conditions",
+      "## Novelty boundary"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_IM280_IM453_COVERAGE_FEEDBACK_DOSSIER__r01.md",
+    "bytes": 2915,
+    "headings": [
+      "# IM-280 → IM-453 — Coverage Feedback Controller benchmark",
+      "## Mechanism",
+      "## Benchmark shell",
+      "## Results — 100 independent seeds",
+      "## Negative control",
+      "## Interpretation",
+      "## Novelty boundary"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX076_REPAIR_DEBT_DOSSIER__r01.md",
+    "bytes": 1968,
+    "headings": [
+      "# RX-076 — RepairDebtMonitor destructive benchmark",
+      "## Hypothesis",
+      "## Synthetic shell",
+      "## Results",
+      "## Verdict",
+      "## Prior-art boundary"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX088_PERSISTENCE_TRANSIENT_DOSSIER__r01.md",
+    "bytes": 1825,
+    "headings": [
+      "# RX-088 — PersistenceAwareTransientRisk destructive benchmark",
+      "## Hypothesis",
+      "## Benchmark",
+      "## Results",
+      "## Verdict",
+      "## Prior-art boundary"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0355-TR__BENCH_RX091_VARIANCE_CAPACITY_DOSSIER__r01.md",
+    "bytes": 1643,
+    "headings": [
+      "# RX-091 — VarianceAwareCapacityPlanner destructive benchmark",
+      "## Hypothesis",
+      "## Benchmark",
+      "## Results",
+      "## Verdict",
+      "## Prior-art boundary"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0358-TR__BENCH_IM190_IM040_POLICY_AWARE_TIMING_DOSSIER__r01.md",
+    "bytes": 2415,
+    "headings": [
+      "# PolicyAwareTimingSensor — destructive benchmark",
+      "## Mechanism",
+      "## Destructive design",
+      "## Policy-mix shift result",
+      "## Negative control",
+      "## Product implication",
+      "## Prior-art adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES DESTRUCTIVE BENCHMARK WITH POLICY-CONDITIONING GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0358-TR__BENCH_IM292_IM050_MEMORY_KERNEL_CLOSURE_DOSSIER__r01.md",
+    "bytes": 2592,
+    "headings": [
+      "# MemoryKernelClosure — destructive benchmark",
+      "## Mechanism",
+      "## Destructive design",
+      "## Main result",
+      "## Negative control",
+      "## Product implication",
+      "## Prior-art adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES SCIENTIFIC BENCHMARK; HIGH PRIOR-ART / COMMODITY COLLISION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX062_MODULAR_RISK_FIREWALL_DOSSIER__r01.md",
+    "bytes": 3267,
+    "headings": [
+      "# RX-062 — ModularRiskFirewall destructive benchmark",
+      "## Transfer",
+      "## Simulator",
+      "## Main regime — median results",
+      "## Negative control",
+      "## Prior-art boundary"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES_DESTRUCTIVE_BENCHMARK_WITH_GAIN-CONTRACT_GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX128_DETECTABILITY_AWARE_SENSING_DOSSIER__r01.md",
+    "bytes": 1754,
+    "headings": [
+      "# RX-128 — DetectabilityAwareSensing destructive benchmark",
+      "## Test",
+      "## Results (median AUC over 20 independent seeds)",
+      "### Below broad BBP regime: beta=0.8, n=48",
+      "### Same broad geometry, twice as many samples: beta=0.8, n=96",
+      "### Above-threshold control: beta=2.0, n=96",
+      "## Prior-art collision",
+      "## Verdict"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX143_SUPPORT_FUNCTION_ACTIVE_SENSING_DOSSIER__r01.md",
+    "bytes": 3348,
+    "headings": [
+      "# RX-143 — SupportFunctionActiveSensing destructive benchmark",
+      "## Mechanism tested",
+      "## Baselines",
+      "## Main result — medians across 6 independent seeds × 240 convex bodies",
+      "## Destructive controls",
+      "## Prior-art adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES_WITH_TARGET_CALIBRATION_GATE; PRODUCT NOVELTY DEMOTED BY PRIOR ART**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0406-TR__BENCH_RX145_BOUNDARY_ACCESSIBILITY_DOSSIER__r01.md",
+    "bytes": 2468,
+    "headings": [
+      "# RX-145 — BoundaryAccessibilityRanker destructive benchmark",
+      "## Hypothesis",
+      "## Main result — 10% boundary budget",
+      "## Negative control",
+      "## Misspecification stress",
+      "## Prior-art disposition",
+      "## Verdict"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0426-TR__BENCH_RX098_LIE_REACHABILITY_TRANSIENT_DOSSIER__r01.md",
+    "bytes": 3360,
+    "headings": [
+      "# RX-098 — LieReachabilityRisk destructive benchmark",
+      "## Transfer being tested",
+      "## Toy shell",
+      "## Main benchmark",
+      "## Destructive controls",
+      "### Commuting-field control",
+      "### Weak-amplifier control",
+      "### Gain-miscalibration control",
+      "## Product implication",
+      "## Prior-art adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH REACHABILITY + TRANSIENT-GAIN CALIBRATION GATES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0426-TR__BENCH_RX113_COLLECTIVE_DEPENDENCE_DOSSIER__r01.md",
+    "bytes": 1438,
+    "headings": [
+      "# RX-113 — CollectiveDependenceGuard destructive benchmark",
+      "## Mechanism",
+      "## Destructive result",
+      "## Negative control",
+      "## Ontology adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SCIENTIFIC MECHANISM SURVIVES; PRODUCT COLLAPSES INTO EXISTING EFFECTIVE-DIVERSITY CORE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0430-TR__BENCH_RX024_BACKREACTION_AWARE_SENSING_DOSSIER__r01.md",
+    "bytes": 2078,
+    "headings": [
+      "# RX-024 — BackreactionAwareSensor destructive benchmark",
+      "## Setup",
+      "## Main shell: q=0.8",
+      "## Negative control",
+      "## Calibration failure control",
+      "## Prior-art adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH BACKREACTION-MODEL CALIBRATION GATE; PRIOR-ART COLLISION HIGH**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__BENCH_RX074_INVARIANT_AWARE_ALLOCATOR_DOSSIER__r01.md",
+    "bytes": 2645,
+    "headings": [
+      "# RX-074 — InvariantAwareAllocator destructive benchmark",
+      "## Mechanism",
+      "## Main shell",
+      "## Negative control",
+      "## Product implication",
+      "## Prior-art adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS A GATED EXTENSION; NOT A BROAD NOVELTY CLAIM**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__BENCH_RX140_DYKSTRA_LEDGER_DOSSIER__r01.md",
+    "bytes": 3256,
+    "headings": [
+      "# RX-140 — AuditableConstraintRepair destructive benchmark",
+      "## Claim tested",
+      "## Destructive construction",
+      "## Results",
+      "## Interpretation",
+      "### Surviving product surface",
+      "## Ontology consequence"
+    ],
+    "verdict_lines": [
+      "Verdict: **REPAIR SURVIVES; PER-CONSTRAINT AUDIT LEDGER FAILS WITHOUT CANONICAL ATTRIBUTION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__BENCH_RX200_DYNAMIC_BOUNDARY_ACCESSIBILITY_DOSSIER__r01.md",
+    "bytes": 3440,
+    "headings": [
+      "# RX-200 — DynamicBoundaryAccessibility destructive benchmark",
+      "## Mechanism",
+      "## Destructive shell",
+      "## State-estimation lag control",
+      "## Negative control",
+      "## Product/ontology consequence",
+      "## Prior-art correction"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS A MOVING-BOUNDARY EXTENSION; PARENT STATIC NOVELTY DEMOTED**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__BENCH_RX201_RARE_WEAK_LAYER_MISMATCH_DOSSIER__r01.md",
+    "bytes": 4075,
+    "headings": [
+      "# RX-201 — RareWeakLayerMismatchGate destructive benchmark",
+      "## Exact operator tested",
+      "## Calibration",
+      "### Exact-correct-layer null",
+      "## Main rare/weak layer-mismatch shell",
+      "## Strong-single mismatch control",
+      "## Dense-weak mismatch control",
+      "## Product rule",
+      "## Novelty adjudication"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE ALL CONTROLS**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__BENCH_RX201_RARE_WEAK_LAYER_MISMATCH_DOSSIER__r02.md",
+    "bytes": 3309,
+    "headings": [
+      "# RX-201 — RareWeakLayerMismatchGate destructive benchmark r02",
+      "## Why r02 exists",
+      "## Reduced blind-deconvolution layer gate",
+      "## Exact correct-layer null",
+      "## Rare/weak mismatch shell",
+      "## Strong-single mismatch control",
+      "## Dense weak mismatch control",
+      "## Decision",
+      "## Novelty status"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES ALL DESTRUCTIVE CONTROLS**",
+      "Overall destructive verdict: **SURVIVES**."
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__BENCH_RX201_SYMMETRY_QUOTIENT_DOSSIER__r01.md",
+    "bytes": 1752,
+    "headings": [
+      "# RX-201 — symmetry-quotient destructive control",
+      "## Correct/equivalent layers — rejection rates (energy / max / HC)",
+      "## What happens if the quotient is omitted",
+      "## Genuine mismatch remains detectable after quotienting",
+      "## Product correction"
+    ],
+    "verdict_lines": [
+      "Verdict: **PASS**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0646-TR__BENCH_RX033_LIQUIDITY_LOAD_SHARING_DOSSIER__r01.md",
+    "bytes": 3400,
+    "headings": [
+      "# RX-033 — LiquidityLoadSharingStress destructive benchmark",
+      "## Value question",
+      "## Simulator",
+      "## Main shell — rho=0.55, shock scale=0.80",
+      "## Stronger redistribution shell — rho=0.75, shock scale=0.80",
+      "## Exact negative control — rho=0",
+      "## Product implication",
+      "## Economic value"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0654-TR__BENCH_RX037_PIPELINE_RISK_STATE_DOSSIER__r01.md",
+    "bytes": 2244,
+    "headings": [
+      "# RX-037 — PipelineRiskState destructive benchmark",
+      "## Product question",
+      "## Main cumulative-fatigue shell",
+      "## Negative control — memoryless failure",
+      "## Product interpretation",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0702-TR__BENCH_RX037_PIPELINE_RISK_STATE_DOSSIER__r02.md",
+    "bytes": 2707,
+    "headings": [
+      "# RX-037 — PipelineRiskState destructive benchmark r02",
+      "## Why r02 exists",
+      "## Matched-current-state construction",
+      "### Strong baseline",
+      "### Pipeline state",
+      "## Main result",
+      "## Negative control — memoryless future risk",
+      "## Product decision",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES MATCHED-CURRENT-STATE SHELL**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0710-TR__BENCH_RX013_LINKAGE_UNCERTAINTY_PROPAGATION_DOSSIER__r01.md",
+    "bytes": 2557,
+    "headings": [
+      "# RX-013 — LinkageUncertaintyPropagation destructive benchmark",
+      "## Product question",
+      "## Exact two-identity block",
+      "## Moderate ambiguity",
+      "## High ambiguity",
+      "## Clean-identifier negative control",
+      "## Miscalibrated-posterior control",
+      "## Product implication",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0718-TR__BENCH_RX042_RARE_PATH_IMPORTANCE_SAMPLING_DOSSIER__r01.md",
+    "bytes": 2498,
+    "headings": [
+      "# RX-042 — RarePathImportanceSampler destructive benchmark",
+      "## Product question",
+      "## Reduced rare-path model",
+      "## Extreme rare shell — a=35, T=50",
+      "## Moderate rare shell — a=20, T=50",
+      "## Non-rare negative control",
+      "## Product implication",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0738-TR__BENCH_RX070_COLOR_CODING_MOTIF_LOCATOR_DOSSIER__r01.md",
+    "bytes": 2744,
+    "headings": [
+      "# RX-070 — MotifErrorLocator / color-coding destructive benchmark",
+      "## Product question",
+      "## Exact-baseline verification",
+      "## Main coherent motif shell",
+      "## Weak-prefix / back-loaded shell",
+      "## Runtime scaling",
+      "## Product salvage"
+    ],
+    "verdict_lines": [
+      "Verdict: **COLOR-CODING OPERATOR FAILS VALUE-FIRST PRODUCT GATE; RELATIONAL MOTIF SEARCH SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0752-TR__BENCH_RX025_ZERO_CAUSE_METADATA_DOSSIER__r01.md",
+    "bytes": 3163,
+    "headings": [
+      "# RX-025 — ZeroCauseMetadata discriminator destructive benchmark",
+      "## Product question",
+      "## Baseline and added operator",
+      "## Hidden nonzero discrimination",
+      "## Downstream escalation prediction",
+      "## Metadata-randomization destructive control",
+      "## Uninformative-metadata negative control",
+      "## Product implication",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0804-TR__BENCH_RX047_RELIABILITY_TEMPERED_EVIDENCE_DOSSIER__r01.md",
+    "bytes": 2990,
+    "headings": [
+      "# RX-047 — ReliabilityTemperedEvidence destructive benchmark",
+      "## Product question",
+      "## Main shell",
+      "## Direct-evidence-is-already-precise control",
+      "## Proxy-bias-shift destructive control",
+      "## Product implication",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0816-TR__BENCH_RX047_RELIABILITY_TEMPERED_EVIDENCE_DOSSIER__r02.md",
+    "bytes": 2394,
+    "headings": [
+      "# RX-047 — ReliabilityTemperedEvidence destructive benchmark r02",
+      "## Main result",
+      "## Negative control — direct evidence nearly exact immediately",
+      "## Destructive proxy-drift control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH PROXY-DRIFT GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0828-TR__BENCH_RX058_OPTION_VALUE_CAPACITY_DOSSIER__r01.md",
+    "bytes": 3409,
+    "headings": [
+      "# RX-058 — OptionValueCapacityReserver destructive benchmark",
+      "## Product question",
+      "## Strong baselines",
+      "## Main informative-signal shell",
+      "## Uninformative-signal negative control",
+      "## No-future-premium control",
+      "## Signal-mapping shift destructive control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH SIGNAL-CALIBRATION GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0830-TR__BENCH_RH003_EVIDENCE_FLOW_DOSSIER__r01.md",
+    "bytes": 613,
+    "headings": [
+      "# RH-003 — EvidenceFlowEngine destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0830-TR__BENCH_RX014_SET_VALUED_ABSTENTION_DOSSIER__r01.md",
+    "bytes": 474,
+    "headings": [
+      "# RX-014 — SetValuedAbstention destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS SELECTIVE-DECISION COMPONENT**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0830-TR__BENCH_RX059_VALIDATION_BLINDSPOT_DOSSIER__r01.md",
+    "bytes": 709,
+    "headings": [
+      "# RX-059 — ValidationBlindSpotAudit destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0842-TR__BENCH_RX029_CLUSTER_CAUSE_INVARIANCE_DOSSIER__r01.md",
+    "bytes": 3321,
+    "headings": [
+      "# RX-029 — ClusterCauseDiscriminator destructive benchmark",
+      "## Product question",
+      "## Fairness construction",
+      "### Strong pooled baseline",
+      "### Invariance layer",
+      "## Main environment-shift shell",
+      "## No-environment-shift negative control",
+      "## Destructive environment-validity control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH ENVIRONMENT-VALIDITY GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0850-TR__BENCH_RX059_VALIDATION_BLINDSPOT_DOSSIER__r02.md",
+    "bytes": 1045,
+    "headings": [
+      "# RX-059 — ValidationBlindSpotAudit destructive benchmark r02",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0905-TR__BENCH_RX073_BOTTLENECK_FRAGMENTATION_DOSSIER__r01.md",
+    "bytes": 929,
+    "headings": [
+      "# RX-073 — BottleneckRegimeMonitor destructive benchmark",
+      "## Single-bottleneck negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0906-TR__BENCH_RX124_EXPONENTIAL_TAIL_DOSSIER__r02.md",
+    "bytes": 1184,
+    "headings": [
+      "# RX-124 — ExponentialWorkTailGuard destructive benchmark r02",
+      "## Rare-weight shell (sigma=2.4)",
+      "## Mild-weight control (sigma=.45)"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES; MERGE INTO EXISTING RARE-PATH FAMILY**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0908-TR__BENCH_RX040_HIDDEN_MASS_LINKAGE_DOSSIER__r01.md",
+    "bytes": 2605,
+    "headings": [
+      "# RX-040 — HiddenMassLinkage destructive benchmark",
+      "## Product question",
+      "## Moderate linkage ambiguity",
+      "## High ambiguity",
+      "## Clean-identifier negative control",
+      "## Overconfident-linkage destructive control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH LINKAGE-CALIBRATION GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0915-TR__BENCH_RX056_STRATEGIC_CAPACITY_DOSSIER__r01.md",
+    "bytes": 1025,
+    "headings": [
+      "# RX-056 — StrategicCapacityResponseGuard destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0915-TR__BENCH_RX165_MEASUREMENT_INVARIANCE_DOSSIER__r01.md",
+    "bytes": 1061,
+    "headings": [
+      "# RX-165 — MeasurementInvarianceGate destructive benchmark",
+      "## Invariant-map negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0920-TR__BENCH_RH001_RESIDUAL_GUIDED_CLOSURE_DOSSIER__r01.md",
+    "bytes": 1380,
+    "headings": [
+      "# RH-001 — ResidualGuidedClosureFinder destructive benchmark",
+      "## Globally smooth control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0924-TR__BENCH_RX072_DYNAMIC_NETWORK_TWIN_DOSSIER__r01.md",
+    "bytes": 3678,
+    "headings": [
+      "# RX-072 — DynamicNetworkTwin destructive benchmark",
+      "## Product question",
+      "## Synthetic supply network",
+      "## Main result — 100 independent networks/shocks",
+      "## Exact negative control — topology cannot change",
+      "## Miscalibrated-dynamics destructive control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH TOPOLOGY-DYNAMICS CALIBRATION GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0928-TR__BENCH_RX045_SOLVER_CERTIFICATE_DOSSIER__r01.md",
+    "bytes": 1108,
+    "headings": [
+      "# RX-045 — SolverCertificateAudit destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS AN ASSURANCE COMPONENT**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0928-TR__BENCH_RX136_DELAYED_VERIFICATION_DOSSIER__r01.md",
+    "bytes": 1086,
+    "headings": [
+      "# RX-136 — DelayedVerificationIncentiveGate destructive benchmark",
+      "## Uninformative-audit negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0928-TR__BENCH_RX188_RISK_SHIFT_CONTRACT_DOSSIER__r01.md",
+    "bytes": 1154,
+    "headings": [
+      "# RX-188 — RiskShiftContractGuard destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0935-TR__BENCH_RX005_CYCLE_RESIDUAL_LOCALIZATION_DOSSIER__r01.md",
+    "bytes": 954,
+    "headings": [
+      "# RX-005 — CycleResidualLocalizer destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE STRONG LOCALIZATION BASELINE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0935-TR__BENCH_RX028_TIMESCALE_DEADZONE_DOSSIER__r01.md",
+    "bytes": 989,
+    "headings": [
+      "# RX-028 — TimescaleAwareDeadZone destructive benchmark",
+      "## Zero-noise negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0935-TR__BENCH_RX134_EFFECTIVE_COMPLEXITY_DOSSIER__r01.md",
+    "bytes": 886,
+    "headings": [
+      "# RX-134 — EffectiveComplexityMeter destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0940-TR__BENCH_RX082_DIRECTIONAL_NETWORK_DOSSIER__r01.md",
+    "bytes": 1137,
+    "headings": [
+      "# RX-082 — DirectionalNetworkState destructive benchmark",
+      "## Directional shell",
+      "## Reciprocal negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0940-TR__BENCH_RX095_ENDOGENOUS_HOTSPOT_DOSSIER__r01.md",
+    "bytes": 1145,
+    "headings": [
+      "# RX-095 — EndogenousHotspotGuard destructive benchmark",
+      "## Occupancy-feedback shell",
+      "## Constant-retention negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0940-TR__BENCH_RX146_PROCESS_VISIBILITY_DOSSIER__r01.md",
+    "bytes": 982,
+    "headings": [
+      "# RX-146 — ProcessVisibilityCoverageGuard destructive benchmark",
+      "## Concentrated-process shell",
+      "## Uniform-process negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0942-TR__BENCH_RX050_CAUSAL_EDGE_VALIDATOR_DOSSIER__r01.md",
+    "bytes": 3134,
+    "headings": [
+      "# RX-050 — CausalEdgeValidator destructive benchmark",
+      "## Product question",
+      "## Matched-association construction",
+      "## Main held-out result",
+      "## Negative information control",
+      "## Invalid-negative-control destructive test",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES ONLY WITH VALID-CONTROL GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0955-TR__BENCH_RX028_TIMESCALE_DEADZONE_DOSSIER__r02.md",
+    "bytes": 877,
+    "headings": [
+      "# RX-028 — TimescaleAwareDeadZone destructive benchmark r02",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0955-TR__BENCH_RX053_INFORMATION_PRODUCTION_DOSSIER__r01.md",
+    "bytes": 1357,
+    "headings": [
+      "# RX-053 — InformationProductionEquilibriumGuard destructive benchmark",
+      "## Low-cost-production negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0955-TR__BENCH_RX069_SPECIFICATION_RISK_DOSSIER__r01.md",
+    "bytes": 1122,
+    "headings": [
+      "# RX-069 — SpecificationRiskMap destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE STRONG FRAGILITY BASELINE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-0958-TR__BENCH_RH009_CONSEQUENCE_COVERAGE_DOSSIER__r01.md",
+    "bytes": 3522,
+    "headings": [
+      "# RH-009 — ConsequenceWeightedCoverage destructive benchmark",
+      "## Product question",
+      "## Audit model",
+      "## Main result — 5,000 independent consequence maps",
+      "## Equal-consequence negative control",
+      "## Miscalibrated consequence-map destructive control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH CONSEQUENCE-MAP CALIBRATION GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1005-TR__BENCH_RX073_BOTTLENECK_FRAGMENTATION_DOSSIER__r02.md",
+    "bytes": 1009,
+    "headings": [
+      "# RX-073 — BottleneckRegimeMonitor destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE STRONG ONLINE BASELINES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1014-TR__BENCH_RX077_PERIMETER_MIGRATION_DOSSIER__r01.md",
+    "bytes": 2993,
+    "headings": [
+      "# RX-077 — PerimeterMigrationScanner destructive benchmark",
+      "## Product question",
+      "## Main migration shell",
+      "## No-migration negative control",
+      "## Non-equivalent-substitute destructive control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH FUNCTION-EQUIVALENCE CALIBRATION GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX022_SACRIFICIAL_DEFLECTION_DOSSIER__r01.md",
+    "bytes": 1299,
+    "headings": [
+      "# RX-022 — SacrificialDeflectionGuard destructive benchmark",
+      "## Dissipative/deflecting shell",
+      "## No-dissipation destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX055_ATOMIC_PACKAGE_DOSSIER__r01.md",
+    "bytes": 1008,
+    "headings": [
+      "# RX-055 — AtomicPackageExecution destructive benchmark",
+      "## Complement shell",
+      "## Additive-use negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX079_LEADING_EDGE_DOSSIER__r01.md",
+    "bytes": 847,
+    "headings": [
+      "# RX-079 — LeadingEdgeEarlyWarning destructive benchmark",
+      "## Bulk-visible negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX095_ENDOGENOUS_HOTSPOT_DOSSIER__r02.md",
+    "bytes": 958,
+    "headings": [
+      "# RX-095 — EndogenousHotspotGuard destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1015-TR__BENCH_RX150_GREEDY_EXACTNESS_DOSSIER__r01.md",
+    "bytes": 845,
+    "headings": [
+      "# RX-150 — GreedyExactnessGate destructive benchmark",
+      "## Nonexchange destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS SHARED-CAPACITY EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1018-TR__BENCH_RX133_SURE_TUNER_VALUE_ADJUDICATION__r03.md",
+    "bytes": 1031,
+    "headings": [
+      "# RX-133 — GroundTruthFreeRiskTuner value-first adjudication r03"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS A NOISE-SHELL-GATED TUNING CORE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1020-TR__BENCH_RX014_SET_VALUED_ABSTENTION_DOSSIER__r02.md",
+    "bytes": 1140,
+    "headings": [
+      "# RX-014 — SetValuedAbstention destructive benchmark r02",
+      "## Coarse set-valued observation shell",
+      "## Near-point negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT BEAT MIDPOINT SELECTIVE BASELINE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX016_CALIBRATION_SHARPNESS_DOSSIER__r01.md",
+    "bytes": 1194,
+    "headings": [
+      "# RX-016 — CalibrationSharpnessProxyGate destructive benchmark",
+      "## All-calibrated negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX095_ENDOGENOUS_HOTSPOT_DOSSIER__r03.md",
+    "bytes": 914,
+    "headings": [
+      "# RX-095 — EndogenousHotspotGuard destructive benchmark r03"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES ON CALIBRATED OVERFLOW RISK**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX124_EXPONENTIAL_TAIL_DOSSIER__r01.md",
+    "bytes": 1170,
+    "headings": [
+      "# RX-124 — ExponentialWorkTailGuard destructive benchmark",
+      "## Rare-weight shell (sigma=2.4)",
+      "## Mild-weight negative control (sigma=.45)",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX150_GREEDY_EXACTNESS_DOSSIER__r01.md",
+    "bytes": 488,
+    "headings": [
+      "# RX-150 — GreedyExactnessGate destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS SHARED-CAPACITY EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1035-TR__BENCH_RX172_DISTRIBUTED_CAPACITY_DOSSIER__r01.md",
+    "bytes": 742,
+    "headings": [
+      "# RX-172 — DistributedSharedCapacitySolver destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1040-TR__BENCH_RX055_ATOMIC_PACKAGE_DOSSIER__r02.md",
+    "bytes": 997,
+    "headings": [
+      "# RX-055 — AtomicPackageExecution destructive benchmark r02",
+      "## Complement shell",
+      "## Additive-leg destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1040-TR__BENCH_RX079_LEADING_EDGE_DOSSIER__r02.md",
+    "bytes": 791,
+    "headings": [
+      "# RX-079 — LeadingEdgeEarlyWarning destructive benchmark r02",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1040-TR__BENCH_RX130_COMPRESSION_TOPOLOGY_DOSSIER__r01.md",
+    "bytes": 1137,
+    "headings": [
+      "# RX-130 — CompressionTopologyGuard destructive benchmark",
+      "## Interval negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RH010_OBSERVATION_POLICY_DOSSIER__r01.md",
+    "bytes": 908,
+    "headings": [
+      "# RH-010 — ObservationPolicyConfoundingGuard destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX020_MICRO_MEMORY_DOSSIER__r01.md",
+    "bytes": 642,
+    "headings": [
+      "# RX-020 — MicroMemoryDiagnostic destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX105_CLOCK_STATE_DOSSIER__r01.md",
+    "bytes": 856,
+    "headings": [
+      "# RX-105 — ClockStateSelector destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX118_EVENT_INNOVATION_DOSSIER__r01.md",
+    "bytes": 558,
+    "headings": [
+      "# RX-118 — EventInnovationSensor destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1045-TR__BENCH_RX154_DECISION_SUFFICIENT_COMPRESSION_DOSSIER__r01.md",
+    "bytes": 1111,
+    "headings": [
+      "# RX-154 — DecisionSufficientCompressor destructive benchmark",
+      "## High-dimensional nuisance shell",
+      "## Aligned negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX010_ADMISSIBLE_ROBUST_DOSSIER__r01.md",
+    "bytes": 999,
+    "headings": [
+      "# RX-010 — AdmissibleShiftRobustOptimizer destructive benchmark",
+      "## Ambient-shift destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX127_DEPENDENT_STREAM_DOSSIER__r01.md",
+    "bytes": 997,
+    "headings": [
+      "# RX-127 — DependentStreamDeviationGuard destructive benchmark",
+      "## Constant-variance negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX131_SMALL_CONFLICT_DOSSIER__r01.md",
+    "bytes": 1254,
+    "headings": [
+      "# RX-131 — SmallConflictCertificate destructive benchmark",
+      "## Feasible negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1055-TR__BENCH_RX133_SURE_TUNER_DOSSIER__r01.md",
+    "bytes": 934,
+    "headings": [
+      "# RX-133 — GroundTruthFreeRiskTuner destructive benchmark",
+      "## Heavy-tailed destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RH005_LIQUIDITY_STATE_DOSSIER__r01.md",
+    "bytes": 1598,
+    "headings": [
+      "# RH-005 — LiquidityStateEngine destructive benchmark",
+      "## Product question",
+      "## Main shell",
+      "## Stress-shift deployment",
+      "## All-assets-cash-equivalent negative control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RH010_OBSERVATION_POLICY_DOSSIER__r02.md",
+    "bytes": 904,
+    "headings": [
+      "# RH-010 — ObservationPolicyConfoundingGuard destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX015_VALIDATOR_NOT_ORACLE_DOSSIER__r01.md",
+    "bytes": 887,
+    "headings": [
+      "# RX-015 — ValidatorNotTruthOracle destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX021_COMPETING_EXIT_EXPOSURE_DOSSIER__r01.md",
+    "bytes": 1661,
+    "headings": [
+      "# RX-021 — CompetingExitExposure destructive benchmark",
+      "## Product question",
+      "## Strategic-exit shell",
+      "## Exogenous-exit negative control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX090_LOAD_AWARE_CONNECTIVITY_DOSSIER__r01.md",
+    "bytes": 822,
+    "headings": [
+      "# RX-090 — LoadAwareConnectivity destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES; MERGE INTO FLOW/SHARED-CAPACITY FAMILY**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1100-TR__BENCH_RX118_EVENT_INNOVATION_DOSSIER__r02.md",
+    "bytes": 689,
+    "headings": [
+      "# RX-118 — EventInnovationSensor destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES SEASONAL-EXPOSURE SHELL**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1105-TR__BENCH_RX065_GUARANTEE_TRANSPORT_DOSSIER__r01.md",
+    "bytes": 968,
+    "headings": [
+      "# RX-065 — GuaranteeTransportGate destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1105-TR__BENCH_RX078_BRANCH_CHANGE_DOSSIER__r01.md",
+    "bytes": 853,
+    "headings": [
+      "# RX-078 — BranchChangeRiskMonitor destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1105-TR__BENCH_RX104_REGENERATIVE_RATE_DOSSIER__r01.md",
+    "bytes": 875,
+    "headings": [
+      "# RX-104 — RegenerativeRateEstimator destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1110-TR__BENCH_RH002_MECHANISM_DISCRIMINATOR_DOSSIER__r01.md",
+    "bytes": 926,
+    "headings": [
+      "# RH-002 — MechanismDiscriminator destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1110-TR__BENCH_RX061_CERTIFICATE_GEOMETRY_DOSSIER__r01.md",
+    "bytes": 1111,
+    "headings": [
+      "# RX-061 — CertificateVerifier destructive benchmark",
+      "## Degenerate deceptive shell",
+      "## Regular convex control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES; MERGE INTO SOLVER ASSURANCE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1120-TR__BENCH_RH005_LIQUIDITY_STATE_DOSSIER__r02.md",
+    "bytes": 1147,
+    "headings": [
+      "# RH-005 — LiquidityStateEngine destructive benchmark r02",
+      "## Main",
+      "## Run-stress shift",
+      "## Cash-equivalent control",
+      "## Decision"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES ON DECISION VALUE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1120-TR__BENCH_RX043_QUERY_PRESERVING_COMPRESSION_DOSSIER__r01.md",
+    "bytes": 1078,
+    "headings": [
+      "# RX-043 — QueryPreservingNetworkCompression destructive benchmark",
+      "## Negative query control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES FOR DECLARED CUT QUERIES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__BENCH_RH002_MECHANISM_DISCRIMINATOR_DOSSIER__r02.md",
+    "bytes": 1215,
+    "headings": [
+      "# RH-002 — MechanismDiscriminator destructive benchmark r02",
+      "## Macro-equivalent source, proxy mechanism breaks in target",
+      "## Stable-proxy negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES; MERGE INTO CAUSAL VALIDATION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__BENCH_RX107_CANDIDATE_SET_DOSSIER__r01.md",
+    "bytes": 1186,
+    "headings": [
+      "# RX-107 — CandidateSetDecoder destructive benchmark",
+      "## Moderate ambiguity shell",
+      "## Low-noise negative control",
+      "## Severe-ambiguity failure shell",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__BENCH_RX139_LOOPY_EVIDENCE_DOSSIER__r01.md",
+    "bytes": 1007,
+    "headings": [
+      "# RX-139 — LoopyEvidenceGuard destructive benchmark",
+      "## Tree/unique-evidence negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS EFFECTIVE-DIVERSITY / EVIDENCE-PROVENANCE EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1135-TR__BENCH_RX107_CANDIDATE_SET_DOSSIER__r02.md",
+    "bytes": 1144,
+    "headings": [
+      "# RX-107 — CandidateSetDecoder destructive benchmark r02",
+      "## Moderate ambiguity shell",
+      "## Clear unique-recovery control",
+      "## Severe-ambiguity failure shell",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX023_FORECAST_PARTIAL_ORDER_DOSSIER__r01.md",
+    "bytes": 1213,
+    "headings": [
+      "# RX-023 — ForecastQualityPartialOrder destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX048_ADAPTIVE_REGIME_MEMORY_DOSSIER__r01.md",
+    "bytes": 1639,
+    "headings": [
+      "# RX-048 — AdaptiveRegimeMemory destructive benchmark",
+      "## Product question",
+      "## Heavy-tailed regime shell",
+      "## Stationary negative control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX106_CODED_BOTTLENECK_DOSSIER__r01.md",
+    "bytes": 1146,
+    "headings": [
+      "# RX-106 — CodedBottleneckRouter destructive benchmark",
+      "## No-side-information destructive control"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES; ESTABLISHED MECHANISM BUT HIGH OPERATIONAL VALUE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1140-TR__BENCH_RX127_DEPENDENT_STREAM_DOSSIER__r02.md",
+    "bytes": 687,
+    "headings": [
+      "# RX-127 — DependentStreamDeviationGuard destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1145-TR__BENCH_RX107_CANDIDATE_SET_DOSSIER__r03.md",
+    "bytes": 1020,
+    "headings": [
+      "# RX-107 — CandidateSetDecoder destructive benchmark r03",
+      "## Moderate ambiguity shell",
+      "## Clear unique-recovery control",
+      "## Severe-ambiguity failure shell",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1145-TR__BENCH_RX139_LOOPY_EVIDENCE_DOSSIER__r01.md",
+    "bytes": 856,
+    "headings": [
+      "# RX-139 — LoopyEvidenceGuard destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS EFFECTIVE-DIVERSITY / EVIDENCE-PROVENANCE EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1150-TR__BENCH_RX133_SURE_TUNER_DOSSIER__r02.md",
+    "bytes": 629,
+    "headings": [
+      "# RX-133 — GroundTruthFreeRiskTuner destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1200-TR__BENCH_RH008_TRIGGER_QUALITY_DOSSIER__r01.md",
+    "bytes": 1940,
+    "headings": [
+      "# RH-008 — TriggerQualityEngine destructive benchmark",
+      "## Product question",
+      "## Main",
+      "## Perfect-trigger negative control",
+      "## Deployment-shift destructive control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1200-TR__BENCH_RX172_DISTRIBUTED_CAPACITY_DOSSIER__r02.md",
+    "bytes": 775,
+    "headings": [
+      "# RX-172 — DistributedSharedCapacitySolver destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX121_DECISION_WEIGHTED_CALIBRATION_DOSSIER__r01.md",
+    "bytes": 1191,
+    "headings": [
+      "# RX-121 — DecisionWeightedCalibration destructive benchmark",
+      "## Equal-consequence negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX161_IRREVERSIBLE_EXPLORATION_DOSSIER__r01.md",
+    "bytes": 1247,
+    "headings": [
+      "# RX-161 — IrreversibleExplorationBudget destructive benchmark",
+      "## Normal shell",
+      "## Heavy-tail destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH DISTRIBUTION-SHELL GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX183_TESTING_WEALTH_DOSSIER__r01.md",
+    "bytes": 1062,
+    "headings": [
+      "# RX-183 — TestingWealthController destructive benchmark",
+      "## Bursty-signal shell",
+      "## Uniform-signal comparison",
+      "## Global-null negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1205-TR__BENCH_RX190_POSTTREATMENT_CONFOUNDING_DOSSIER__r01.md",
+    "bytes": 1265,
+    "headings": [
+      "# RX-190 — PostTreatmentConfoundingGuard destructive benchmark",
+      "## Baseline-only confounder control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1210-TR__BENCH_RX155_DECISION_RATE_DISTORTION_DOSSIER__r01.md",
+    "bytes": 961,
+    "headings": [
+      "# RX-155 — DecisionRateDistortion destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES; MERGE INTO DECISION COMPRESSION FAMILY**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1210-TR__BENCH_RX196_SELECTION_AWARE_DOSSIER__r01.md",
+    "bytes": 825,
+    "headings": [
+      "# RX-196 — SelectionAwareReferenceLaw destructive benchmark",
+      "## No-selection control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RH006_EFFECTIVE_REDUNDANCY_DOSSIER__r01.md",
+    "bytes": 1221,
+    "headings": [
+      "# RH-006 — EffectiveRedundancyGuard destructive benchmark",
+      "## Common-mode shell",
+      "## Independent-error control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RX035_DESIGN_AWARE_INFERENCE_DOSSIER__r01.md",
+    "bytes": 979,
+    "headings": [
+      "# RX-035 — DesignAwareInference destructive benchmark",
+      "## Null calibration",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RX097_OBSERVABILITY_COVERAGE_DOSSIER__r01.md",
+    "bytes": 1022,
+    "headings": [
+      "# RX-097 — ObservabilityCoveragePlanner destructive benchmark",
+      "## Generic-sensor negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1235-TR__BENCH_RX116_MARKOVIZATION_DOSSIER__r01.md",
+    "bytes": 821,
+    "headings": [
+      "# RX-116 — MarkovizationFinder destructive benchmark",
+      "## Geometric-dwell negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX081_EFFECTIVE_REDUNDANCY_DOSSIER__r01.md",
+    "bytes": 877,
+    "headings": [
+      "# RX-081 — EffectiveRedundancyAudit destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX097_OBSERVABILITY_COVERAGE_DOSSIER__r02.md",
+    "bytes": 1203,
+    "headings": [
+      "# RX-097 — ObservabilityCoveragePlanner adjudication r02",
+      "## Block-coverage shell, same 8-sensor budget",
+      "## Generic-sensor negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX160_CONSUMABLE_SAFEGUARD_DOSSIER__r01.md",
+    "bytes": 827,
+    "headings": [
+      "# RX-160 — ConsumableSafeguardState destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX175_SEARCH_TIPPING_DOSSIER__r01.md",
+    "bytes": 854,
+    "headings": [
+      "# RX-175 — InformationSearchTippingGuard destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX180_SCREENING_DEGRADATION_DOSSIER__r01.md",
+    "bytes": 995,
+    "headings": [
+      "# RX-180 — ScreeningByDegradationAudit destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1250-TR__BENCH_RX186_MODE_CONVERSION_DOSSIER__r01.md",
+    "bytes": 801,
+    "headings": [
+      "# RX-186 — ModeConversionRouter destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1255-TR__BENCH_RH006_EFFECTIVE_REDUNDANCY_DOSSIER__r02.md",
+    "bytes": 1358,
+    "headings": [
+      "# RH-006 — EffectiveRedundancyGuard destructive benchmark r02",
+      "## Common-mode shell",
+      "## Independent-error negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES COMMON-MODE SHELL**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1255-TR__BENCH_RX035_DESIGN_AWARE_INFERENCE_DOSSIER__r02.md",
+    "bytes": 1226,
+    "headings": [
+      "# RX-035 — DesignAwareInference destructive benchmark r02",
+      "## Same observed table, different admissible designs",
+      "## Null calibration",
+      "## Power under a real effect",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1310-TR__BENCH_RX163_REACH_AVOID_DOSSIER__r01.md",
+    "bytes": 1050,
+    "headings": [
+      "# RX-163 — ReachAvoidViabilityPlanner destructive benchmark",
+      "## Moving-obstacle shell",
+      "## Stationary-obstacle negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1315-TR__BENCH_RX160_CONSUMABLE_SAFEGUARD_DOSSIER__r02.md",
+    "bytes": 711,
+    "headings": [
+      "# RX-160 — ConsumableSafeguardState destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1315-TR__BENCH_RX175_SEARCH_TIPPING_DOSSIER__r02.md",
+    "bytes": 858,
+    "headings": [
+      "# RX-175 — InformationSearchTippingGuard destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1315-TR__BENCH_RX180_SCREENING_DEGRADATION_DOSSIER__r02.md",
+    "bytes": 860,
+    "headings": [
+      "# RX-180 — ScreeningByDegradationAudit destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1320-TR__BENCH_RX030_SPECTRAL_RELATION_DOSSIER__r01.md",
+    "bytes": 1365,
+    "headings": [
+      "# RX-030 — SpectralRelationGate destructive benchmark",
+      "## Narrow-band relation detection power",
+      "## Broadband relation control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1320-TR__BENCH_RX057_CONTROL_RANK_AUDIT_DOSSIER__r01.md",
+    "bytes": 1557,
+    "headings": [
+      "# RX-057 — ActuatorRankAudit destructive benchmark",
+      "## Main shell",
+      "## Full-controllability negative control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1325-TR__BENCH_RX163_REACH_AVOID_DOSSIER__r02.md",
+    "bytes": 1101,
+    "headings": [
+      "# RX-163 — ReachAvoidViabilityPlanner destructive benchmark r02",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1345-TR__BENCH_RX030_SPECTRAL_RELATION_DOSSIER__r02.md",
+    "bytes": 876,
+    "headings": [
+      "# RX-030 — SpectralRelationGate destructive benchmark r02",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES BAND-SPECIFIC SHELL**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1345-TR__BENCH_RX160_CONSUMABLE_SAFEGUARD_DOSSIER__r03.md",
+    "bytes": 799,
+    "headings": [
+      "# RX-160 — ConsumableSafeguardState destructive benchmark r03"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1345-TR__BENCH_RX180_SCREENING_DEGRADATION_DOSSIER__r03.md",
+    "bytes": 826,
+    "headings": [
+      "# RX-180 — ScreeningByDegradationAudit destructive benchmark r03"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES SERVE-BOTH SCREENING SHELL**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1405-TR__BENCH_RH004_ACTIVE_SENSING_DOSSIER__r01.md",
+    "bytes": 1331,
+    "headings": [
+      "# RH-004 — ValueOfInformationActiveSensing destructive benchmark",
+      "## Main shell: five measurements, 90% response accuracy",
+      "## One-measurement negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES ORDERED-THRESHOLD SHELL**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1450-TR__BENCH_RX046_TARGET_ANCHOR_DOSSIER__r01.md",
+    "bytes": 1085,
+    "headings": [
+      "# RX-046 — TargetPopulationAnchor destructive benchmark",
+      "## Target-shift shell",
+      "## No-shift negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1450-TR__BENCH_RX052_ATOMIC_SETTLEMENT_DOSSIER__r01.md",
+    "bytes": 1119,
+    "headings": [
+      "# RX-052 — AtomicComplementarySettlement destructive benchmark",
+      "## Complementary shell",
+      "## Substitutable negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1510-TR__BENCH_RX046_TARGET_ANCHOR_DOSSIER__r02.md",
+    "bytes": 1110,
+    "headings": [
+      "# RX-046 — TargetPopulationAnchor destructive benchmark r02",
+      "## Target-shift portfolio reserve",
+      "## No-shift control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES ON DEPLOYMENT CALIBRATION VALUE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1510-TR__BENCH_RX052_ATOMIC_SETTLEMENT_DOSSIER__r02.md",
+    "bytes": 748,
+    "headings": [
+      "# RX-052 — AtomicComplementarySettlement stress-sensitivity benchmark r02",
+      "## Decision"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS STRESS-DEPENDENT COMPONENT**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1530-TR__BENCH_RH007_MULTIFIDELITY_DOSSIER__r01.md",
+    "bytes": 1530,
+    "headings": [
+      "# RH-007 — MultiFidelityMeasurementController destructive benchmark",
+      "## Negative-value control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1530-TR__BENCH_RX031_BARRIER_TRANSITION_DOSSIER__r01.md",
+    "bytes": 1283,
+    "headings": [
+      "# RX-031 — BarrierAwareTransitionPlanner destructive benchmark",
+      "## Heterogeneous-barrier shell",
+      "## Equal-barrier negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1550-TR__BENCH_RX036_RESILIENT_REROUTING_DOSSIER__r01.md",
+    "bytes": 1360,
+    "headings": [
+      "# RX-036 — ResilientFlowRouter destructive benchmark",
+      "## 10% dynamic blockage shell",
+      "## Zero-blockage negative control",
+      "## Product rule",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1630-TR__BENCH_RX060_TARGET_SENSOR_PLACEMENT_DOSSIER__r01.md",
+    "bytes": 1112,
+    "headings": [
+      "# RX-060 — TargetRelevantSensorPlanner destructive benchmark",
+      "## Symmetric-information negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1630-TR__BENCH_RX068_DECISION_FLIP_MARGIN_DOSSIER__r01.md",
+    "bytes": 1366,
+    "headings": [
+      "# RX-068 — DecisionFlipMargin destructive benchmark",
+      "## Zero-hidden-bias control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1630-TR__BENCH_RX084_BURST_AWARE_SENSING_DOSSIER__r01.md",
+    "bytes": 1073,
+    "headings": [
+      "# RX-084 — BurstAwareSampler destructive benchmark",
+      "## Homogeneous-burst negative control",
+      "## Stale/inverted precursor destructive control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1700-TR__BENCH_RX041_TREATMENT_CONFOUNDER_FEEDBACK_DOSSIER__r01.md",
+    "bytes": 1338,
+    "headings": [
+      "# RX-041 — TreatmentConfounderFeedbackGuard destructive benchmark",
+      "## Negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1725-TR__BENCH_RX049_HIDDEN_STATE_MEMORY_AUDIT_DOSSIER__r01.md",
+    "bytes": 1346,
+    "headings": [
+      "# RX-049 — HiddenStateModelReductionAudit destructive benchmark",
+      "## Persistent hidden-state shell",
+      "## Fast-hidden-state negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1745-TR__BENCH_RX049_HIDDEN_STATE_MEMORY_AUDIT_DOSSIER__r02.md",
+    "bytes": 1149,
+    "headings": [
+      "# RX-049 — HiddenStateModelReductionAudit destructive benchmark r02",
+      "## Persistent hidden-state shell",
+      "## Truly memoryless hidden-state control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS MEMORY-KERNEL EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1805-TR__BENCH_RX060_TARGET_SENSOR_PLACEMENT_DOSSIER__r02.md",
+    "bytes": 744,
+    "headings": [
+      "# RX-060 — TargetRelevantSensorPlanner value-first adjudication r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **MODERATE-EFFECT COMPONENT; NOT A MAJOR-CORE PROMOTION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1805-TR__BENCH_RX084_BURST_AWARE_SENSING_DOSSIER__r02.md",
+    "bytes": 930,
+    "headings": [
+      "# RX-084 — BurstAwareSampler value-first adjudication r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES WITH PRECURSOR-CALIBRATION GATE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1835-TR__BENCH_RX085_UNIVERSALITY_TRANSFER_GATE_DOSSIER__r01.md",
+    "bytes": 849,
+    "headings": [
+      "# RX-085 — UniversalityTransferGate destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1835-TR__BENCH_RX086_SCALE_AWARE_GATE_DOSSIER__r01.md",
+    "bytes": 716,
+    "headings": [
+      "# RX-086 — ScaleAwareModelGate destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1835-TR__BENCH_RX087_ACTIVE_SET_MAP_DOSSIER__r01.md",
+    "bytes": 820,
+    "headings": [
+      "# RX-087 — ActiveSetMap destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1905-TR__BENCH_RX089_TIMESCALE_BOTTLENECK_DOSSIER__r01.md",
+    "bytes": 1295,
+    "headings": [
+      "# RX-089 — TimescaleBottleneckDetector destructive benchmark",
+      "## Heterogeneous-timescale shell",
+      "## Equal-timescale negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1905-TR__BENCH_RX093_COUPLING_DISTANCE_DOSSIER__r01.md",
+    "bytes": 1732,
+    "headings": [
+      "# RX-093 — CouplingDistanceExplainer destructive benchmark",
+      "## Zero-distance control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1925-TR__BENCH_RX089_TIMESCALE_BOTTLENECK_DOSSIER__r02.md",
+    "bytes": 1648,
+    "headings": [
+      "# RX-089 — TimescaleBottleneckDetector destructive benchmark r02",
+      "## Heterogeneous-timescale shell",
+      "## Equal-timescale negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2015-TR__BENCH_RX011_CONSEQUENCE_RESOLUTION_DOSSIER__r01.md",
+    "bytes": 960,
+    "headings": [
+      "# RX-011 — ConsequenceWeightedResolution destructive benchmark",
+      "## Equal-consequence control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS EXISTING-COVERAGE FAMILY EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2015-TR__BENCH_RX012_SELF_AVERAGING_CERTIFICATE_DOSSIER__r01.md",
+    "bytes": 992,
+    "headings": [
+      "# RX-012 — SelfAveragingCertificate destructive benchmark",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS EFFECTIVE-DIVERSITY FAMILY EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2045-TR__BENCH_RX011_CONSEQUENCE_RESOLUTION_DOSSIER__r01.md",
+    "bytes": 689,
+    "headings": [
+      "# RX-011 — ConsequenceWeightedResolution destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS EXISTING-COVERAGE FAMILY EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2055-TR__BENCH_RX012_SELF_AVERAGING_CERTIFICATE_DOSSIER__r01.md",
+    "bytes": 864,
+    "headings": [
+      "# RX-012 — SelfAveragingCertificate destructive benchmark"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES AS EFFECTIVE-DIVERSITY FAMILY EXTENSION**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2110-TR__BENCH_RX019_INTERNAL_CLOCK_DOSSIER__r01.md",
+    "bytes": 1261,
+    "headings": [
+      "# RX-019 — InternalClockForecaster destructive benchmark",
+      "## Heterogeneous-clock shell",
+      "## Wall-clock negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2125-TR__BENCH_RX017_EFFECTIVE_TOPOLOGY_DOSSIER__r01.md",
+    "bytes": 826,
+    "headings": [
+      "# RX-017 — EffectiveTopologyRouter destructive benchmark",
+      "## All-open control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES BUT MERGES INTO EXISTING DYNAMIC-TOPOLOGY FAMILY**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2145-TR__BENCH_RX038_INTERFACE_WIDTH_OPTIMIZER_DOSSIER__r01.md",
+    "bytes": 1687,
+    "headings": [
+      "# RX-038 — InterfaceWidthOptimizer destructive benchmark",
+      "## Product interpretation",
+      "## Value"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2225-TR__BENCH_RX026_SELECTION_WITHIN_DOSSIER__r01.md",
+    "bytes": 963,
+    "headings": [
+      "# RX-026 — SelectionVsWithinAttribution destructive benchmark",
+      "## Selection-only shell",
+      "## Selection + true improvement",
+      "## No-selection control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2225-TR__BENCH_RX032_ARRIVAL_FRONTIER_DOSSIER__r01.md",
+    "bytes": 737,
+    "headings": [
+      "# RX-032 — ArrivalFrontierEngine destructive benchmark",
+      "## Homogeneous control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2225-TR__BENCH_RX075_BURDEN_RELIEF_DOSSIER__r01.md",
+    "bytes": 1200,
+    "headings": [
+      "# RX-075 — BurdenReliefController destructive benchmark",
+      "## Accumulating-burden shell",
+      "## Fast-natural-relief negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2250-TR__BENCH_RX018_VERIFICATION_STATE_LIQUIDITY_DOSSIER__r01.md",
+    "bytes": 1136,
+    "headings": [
+      "# RX-018 — VerificationStateLiquidity destructive benchmark",
+      "## Heterogeneous verification shell",
+      "## Homogeneous verification control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2250-TR__BENCH_RX075_BURDEN_RELIEF_DOSSIER__r02.md",
+    "bytes": 965,
+    "headings": [
+      "# RX-075 — BurdenReliefController destructive benchmark r02",
+      "## Accumulating-burden shell",
+      "## Fast-natural-relief negative control",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2315-TR__BENCH_RX066_SAFE_KERNELIZATION_DOSSIER__r01.md",
+    "bytes": 1237,
+    "headings": [
+      "# RX-066 — SafeProblemReducer destructive benchmark",
+      "## Removable-components shell",
+      "## Few-safe-reductions control",
+      "## Exactness",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LABCOMPASS__LCB-7F3A91__20260825-2340-TR__BENCH_RX066_SAFE_KERNELIZATION_DOSSIER__r02.md",
+    "bytes": 1183,
+    "headings": [
+      "# RX-066 — SafeProblemReducer destructive benchmark r02",
+      "## Removable-components shell",
+      "## Few-safe-reductions negative control",
+      "## Exactness",
+      "## Product rule"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM011_IM347_INVARIANCE_GATE.md",
+    "bytes": 1292,
+    "headings": [
+      "# IM-011 × IM-347 — InvarianceGate benchmark",
+      "## Transfer",
+      "## Benchmark",
+      "## Product residual"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM043_IM320_CYCLE_FLOW.md",
+    "bytes": 1666,
+    "headings": [
+      "# IM-043 × IM-320 — CycleFlow benchmark",
+      "## Transfer",
+      "## Construction",
+      "## Monte Carlo",
+      "## Product residual"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM050_IM314_CLOSURE_FINDER.md",
+    "bytes": 1758,
+    "headings": [
+      "# IM-050 × IM-314 — ClosureFinder benchmark",
+      "## Transfer",
+      "## Synthetic system",
+      "## Results",
+      "## Product residual",
+      "## Next destructive tests"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM058_IM069_POLYMATROID_ALLOCATOR.md",
+    "bytes": 2304,
+    "headings": [
+      "# IM-058 × IM-069 — shared-capacity allocator benchmark",
+      "## Transfer",
+      "## Test geometry",
+      "## Results",
+      "## Product interpretation"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM074_IM435_DISCREPANCY_RANDOMIZATION.md",
+    "bytes": 4422,
+    "headings": [
+      "# IM-074 → IM-435 benchmark — discrepancy-scored randomization",
+      "## Transfer",
+      "## Benchmark design",
+      "## Results",
+      "### Randomized `n=120,d=50`",
+      "### Exact oracle `n=40,d=10`",
+      "### Candidate-screen scalability",
+      "## Product interpretation",
+      "## Verdict"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM154_IM282_DEEP_TAIL.md",
+    "bytes": 3182,
+    "headings": [
+      "# IM-154 → IM-282 benchmark — hidden deep-tail dependence as an overbooking/capacity-risk correction",
+      "## Transfer",
+      "## Synthetic destructive case",
+      "## Results",
+      "## Product implication"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM190_OBSERVATION_TIMING_SENSOR.md",
+    "bytes": 1586,
+    "headings": [
+      "# IM-190 observation-timing sensor — destructive benchmark",
+      "## Mechanism transfer",
+      "## Test",
+      "## Median results",
+      "## Verdict",
+      "## Product surface"
+    ],
+    "verdict_lines": [
+      "## Verdict"
+    ]
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BENCH_IM204_TO_IM127_DECISION_FLUCTUATION_GUARD.md",
+    "bytes": 3254,
+    "headings": [
+      "# IM-204 → IM-127 destructive benchmark — Decision Fluctuation Guard",
+      "## Status",
+      "## Donor mechanics",
+      "## Composition",
+      "## Benchmark A — fixed decision gap",
+      "## Benchmark B — shrinking local decision gap",
+      "## Failure shell — common-mode dependence",
+      "## Product operator",
+      "## Collision / novelty note"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BRIDGE_BENCHMARK_IM361_TO_IM449.md",
+    "bytes": 2358,
+    "headings": [
+      "# Bridge benchmark: IM-361 → IM-449 — strategic disclosure makes missingness informative",
+      "## Transfer",
+      "## Synthetic benchmark",
+      "## What survives",
+      "## Next composition"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/benchmarks/LCB-7F3A91__BRIDGE_BENCHMARK_IM414_TO_IM337.md",
+    "bytes": 2360,
+    "headings": [
+      "# Bridge benchmark: IM-414 → IM-337 — multiplicity is not diversity",
+      "## Transfer",
+      "## Destructive benchmark",
+      "### n = 100 components",
+      "## What survives",
+      "## Next composition"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/NAMING_STANDARD.md",
+    "bytes": 427,
+    "headings": [
+      "# Naming standard"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__DIRECT_THEORY_COLLISION_SWEEP__r24.md",
+    "bytes": 2273,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 — direct-theory collision sweep r24",
+      "## Purpose",
+      "## Result",
+      "## Representative direct collisions",
+      "## Surviving score-3 wrappers",
+      "## Consequence"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0450-TR__NOVELTY_AWARE_MINING_REPORT__r01.md",
+    "bytes": 3037,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 — novelty-aware re-mining report r01",
+      "## Why this pass exists",
+      "## Prefilter",
+      "## Manual top-50 adjudication",
+      "### Promoted",
+      "### Deep-research holds",
+      "### Rejected example",
+      "## Binding next line"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__CURRENT_FRONTIER__r26.md",
+    "bytes": 2994,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r26",
+      "## Canonical state",
+      "## New survivor — RX-201 RareWeakLayerMismatchGate",
+      "### r01 calibration failure retained",
+      "### r02 finite-sample empirical-null calibration",
+      "### symmetry-quotient safety control",
+      "## Novelty status",
+      "## Binding next line"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0532-TR__PRIOR_ART_RX201__r01.md",
+    "bytes": 975,
+    "headings": [
+      "# RX-201 prior-art note"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0632-TR__CURRENT_FRONTIER__r27.md",
+    "bytes": 714,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r27 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0728-TR__CURRENT_FRONTIER__r28.md",
+    "bytes": 1184,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r28 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0856-TR__CURRENT_FRONTIER__r29.md",
+    "bytes": 1165,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r29 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0900-TR__CURRENT_FRONTIER__r38.md",
+    "bytes": 1013,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r38 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0906-TR__CURRENT_FRONTIER__r39.md",
+    "bytes": 866,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r39 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-0917-TR__CURRENT_FRONTIER__r40.md",
+    "bytes": 846,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r40 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1005-TR__CURRENT_FRONTIER__r41.md",
+    "bytes": 883,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r41 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1018-TR__CURRENT_FRONTIER__r42.md",
+    "bytes": 742,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r42 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1032-TR__CURRENT_FRONTIER__r30.md",
+    "bytes": 1131,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r30 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__CURRENT_FRONTIER__r49.md",
+    "bytes": 987,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r49 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1115-TR__CURRENT_FRONTIER__r45.md",
+    "bytes": 1011,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r45 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__CURRENT_FRONTIER__r46.md",
+    "bytes": 1066,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r46 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1155-TR__CURRENT_FRONTIER__r48.md",
+    "bytes": 1095,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r48 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1215-TR__CURRENT_FRONTIER__r47.md",
+    "bytes": 964,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r47 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__CURRENT_FRONTIER__r31.md",
+    "bytes": 1027,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r31 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__CURRENT_FRONTIER__r43.md",
+    "bytes": 800,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r43 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1405-TR__CURRENT_FRONTIER__r44.md",
+    "bytes": 954,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r44 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1420-TR__CURRENT_FRONTIER__r32.md",
+    "bytes": 1082,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r32 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1605-TR__CURRENT_FRONTIER__r33.md",
+    "bytes": 858,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r33 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1805-TR__CURRENT_FRONTIER__r34.md",
+    "bytes": 939,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r34 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-1945-TR__CURRENT_FRONTIER__r35.md",
+    "bytes": 752,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r35 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-2205-TR__CURRENT_FRONTIER__r36.md",
+    "bytes": 804,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r36 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/notes/LABCOMPASS__LCB-7F3A91__20260825-2355-TR__CURRENT_FRONTIER__r37.md",
+    "bytes": 825,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 current frontier r37 — VALUE-FIRST"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/README.md",
+    "bytes": 8246,
+    "headings": [
+      "# stokastik benchmark özeti ürünleri",
+      "## r28 value-first benchmark batch — 2026-08-25 07:28 TR",
+      "## r29 value-first batch 2 — 2026-08-25 08:56 TR",
+      "## r30 value-first batch 3 — 2026-08-25 10:32 TR",
+      "## r31 value-first batch 4 — 2026-08-25 12:18 TR",
+      "## r32 value-first batch 5 — 2026-08-25 14:20 TR",
+      "## r33 value-first batch 6 — 2026-08-25 16:05 TR",
+      "## r34 value-first batch 7 — 2026-08-25 18:05 TR",
+      "## r35 value-first batch 8 — 2026-08-25 19:45 TR",
+      "## r36 value-first batch 9 — 2026-08-25 22:05 TR",
+      "## r37 value-first batch 10 — 2026-08-25 23:55 TR",
+      "## r38 value-first batch 11 — 2026-08-25",
+      "## r39 value-first batch 12 — 2026-08-25",
+      "## r40 value-first batch 13 — 2026-08-25",
+      "## r41 value-first batch 14 — 2026-08-25",
+      "## r42 value-first batch 15 — 2026-08-25",
+      "## r43 value-first batch 16 — 2026-08-25",
+      "## r44 value-first batch 17 — 2026-08-25",
+      "## r45 value-first batch 18 — 2026-08-25",
+      "## r46 value-first batch 19 — 2026-08-25",
+      "## r47 value-first batch 20 — 2026-08-25",
+      "## r48 value-first batch 21 — 2026-08-25",
+      "## r49 value-first batch 22 — 2026-08-25"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-0632-TR__VALUE_FIRST_REASSESSMENT__r01.md",
+    "bytes": 12833,
+    "headings": [
+      "# LABCOMPASS value-first reassessment — all previous candidates",
+      "## Objective correction",
+      "## Highest validated value",
+      "## Highest-upside unvalidated candidates",
+      "## Biggest revivals from novelty-heavy scoring",
+      "## Next five destructive benchmarks",
+      "## Important reversals",
+      "## Still genuinely blocked",
+      "## Post-queue 50 correction",
+      "## Binding research rule"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-0728-TR__VALUE_FIRST_BATCH1_RESULTS__r01.md",
+    "bytes": 1435,
+    "headings": [
+      "# Value-first benchmark batch 1",
+      "## RX-033 — systemic liquidity load sharing",
+      "## RX-037 — PipelineRiskState",
+      "## RX-013 — linkage uncertainty propagation",
+      "## RX-042 — rare-event path-informed sampling"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-0856-TR__VALUE_FIRST_BATCH2_RESULTS__r01.md",
+    "bytes": 2131,
+    "headings": [
+      "# Value-first benchmark batch 2",
+      "## RX-070 — RelationalMotif search",
+      "## RX-025 — ZeroCauseMetadata",
+      "## RX-047 — ReliabilityTemperedEvidence",
+      "## RX-058 — OptionValueCapacityReserver",
+      "## RX-029 — ClusterCauseDiscriminator"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-0900-TR__VALUE_FIRST_BATCH11_RESULTS__r01.md",
+    "bytes": 1618,
+    "headings": [
+      "# Value-first benchmark batch 11",
+      "## RH-001 — ResidualGuidedClosureFinder",
+      "## RH-003 — EvidenceFlowEngine",
+      "## RX-014 — SetValuedAbstention",
+      "## RX-059 — ValidationBlindSpotAudit",
+      "## RX-073 — BottleneckRegimeMonitor"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-0906-TR__VALUE_FIRST_BATCH12_RESULTS__r01.md",
+    "bytes": 1738,
+    "headings": [
+      "# Value-first benchmark batch 12",
+      "## RX-016 — CalibrationSharpnessProxyGate",
+      "## RX-082 — DirectionalNetworkState",
+      "## RX-095 — EndogenousHotspotGuard",
+      "## RX-124 — ExponentialWorkTailGuard",
+      "## RX-146 — ProcessVisibilityCoverageGuard"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-0917-TR__VALUE_FIRST_BATCH13_RESULTS__r01.md",
+    "bytes": 1630,
+    "headings": [
+      "# Value-first benchmark batch 13",
+      "## RX-188 — RiskShiftContractGuard",
+      "## RX-136 — DelayedVerificationIncentiveGate",
+      "## RX-045 — SolverCertificateAudit",
+      "## RX-056 — StrategicCapacityResponseGuard",
+      "## RX-165 — MeasurementInvarianceGate"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1005-TR__VALUE_FIRST_BATCH14_RESULTS__r01.md",
+    "bytes": 1493,
+    "headings": [
+      "# Value-first benchmark batch 14",
+      "## RX-005 — CycleResidualLocalizer",
+      "## RX-053 — InformationProductionEquilibriumGuard",
+      "## RX-134 — EffectiveComplexityMeter",
+      "## RX-028 — TimescaleAwareDeadZone",
+      "## RX-069 — SpecificationRiskMap"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1018-TR__VALUE_FIRST_BATCH15_RESULTS__r01.md",
+    "bytes": 1555,
+    "headings": [
+      "# Value-first benchmark batch 15",
+      "## RX-150 — GreedyExactnessGate",
+      "## RX-172 — DistributedSharedCapacitySolver",
+      "## RX-010 — AdmissibleShiftRobustOptimizer",
+      "## RX-127 — DependentStreamDeviationGuard",
+      "## RX-133 — GroundTruthFreeRiskTuner"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1032-TR__VALUE_FIRST_BATCH3_RESULTS__r01.md",
+    "bytes": 2640,
+    "headings": [
+      "# Value-first benchmark batch 3",
+      "## RX-040 — HiddenMassLinkage",
+      "## RX-072 — DynamicNetworkTwin",
+      "## RX-050 — CausalEdgeValidator",
+      "## RH-009 — ConsequenceWeightedCoverage",
+      "## RX-077 — PerimeterMigrationScanner",
+      "## RX-016 not forced into this checkpoint"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1048-TR__VALUE_FIRST_BATCH22_RESULTS__r01.md",
+    "bytes": 1616,
+    "headings": [
+      "# Value-first benchmark batch 22",
+      "## RX-155 — DecisionRateDistortion",
+      "## RX-196 — SelectionAwareReferenceLaw",
+      "## RX-097 — ObservabilityCoveragePlanner",
+      "## RX-116 — MarkovizationFinder",
+      "## RX-163 — ReachAvoidViabilityPlanner"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1115-TR__VALUE_FIRST_BATCH18_RESULTS__r01.md",
+    "bytes": 1755,
+    "headings": [
+      "# Value-first benchmark batch 18",
+      "## RX-022 — SacrificialDeflectionGuard",
+      "## RX-055 — AtomicPackageExecution",
+      "## RX-079 — LeadingEdgeEarlyWarning",
+      "## RX-130 — CompressionTopologyGuard",
+      "## RX-131 — SmallConflictCertificate"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1125-TR__VALUE_FIRST_BATCH19_RESULTS__r01.md",
+    "bytes": 1883,
+    "headings": [
+      "# Value-first benchmark batch 19",
+      "## RH-010 — ObservationPolicyConfoundingGuard",
+      "## RX-020 — MicroMemoryDiagnostic",
+      "## RX-118 — EventInnovationSensor",
+      "## RX-090 — LoadAwareConnectivity",
+      "## RX-015 — ValidatorNotTruthOracle"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1155-TR__VALUE_FIRST_BATCH21_RESULTS__r01.md",
+    "bytes": 1796,
+    "headings": [
+      "# Value-first benchmark batch 21",
+      "## RX-154 — DecisionSufficientCompressor",
+      "## RX-061 — CertificateVerifier",
+      "## RH-002 — MechanismDiscriminator",
+      "## RX-105 — ClockStateSelector",
+      "## RX-107 — CandidateSetDecoder"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1215-TR__VALUE_FIRST_BATCH20_RESULTS__r01.md",
+    "bytes": 1758,
+    "headings": [
+      "# Value-first benchmark batch 20",
+      "## RX-023 — ForecastQualityPartialOrder",
+      "## RX-106 — CodedBottleneckRouter",
+      "## RX-121 — DecisionWeightedCalibration",
+      "## RX-161 — IrreversibleExplorationBudget",
+      "## RX-183 — TestingWealthController"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__VALUE_FIRST_BATCH16_RESULTS__r01.md",
+    "bytes": 1588,
+    "headings": [
+      "# Value-first benchmark batch 16",
+      "## RX-065 — GuaranteeTransportGate",
+      "## RX-078 — BranchChangeRiskMonitor",
+      "## RX-104 — RegenerativeRateEstimator",
+      "## RX-139 — LoopyEvidenceGuard",
+      "## RX-190 — PostTreatmentConfoundingGuard"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__VALUE_FIRST_BATCH4_RESULTS__r01.md",
+    "bytes": 1837,
+    "headings": [
+      "# Value-first benchmark batch 4",
+      "## RH-005 — LiquidityStateEngine",
+      "## RX-021 — CompetingExitExposure",
+      "## RX-043 — QueryPreservingNetworkCompression",
+      "## RX-048 — AdaptiveRegimeMemory",
+      "## RH-008 — TriggerQualityEngine"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1405-TR__VALUE_FIRST_BATCH17_RESULTS__r01.md",
+    "bytes": 1562,
+    "headings": [
+      "# Value-first benchmark batch 17",
+      "## RX-081 — EffectiveRedundancyAudit",
+      "## RX-160 — ConsumableSafeguardState",
+      "## RX-175 — InformationSearchTippingGuard",
+      "## RX-180 — ScreeningByDegradationAudit",
+      "## RX-186 — ModeConversionRouter"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1420-TR__VALUE_FIRST_BATCH5_RESULTS__r01.md",
+    "bytes": 1999,
+    "headings": [
+      "# Value-first benchmark batch 5",
+      "## RH-004 — ValueOfInformationActiveSensing",
+      "## RH-006 — EffectiveRedundancyGuard",
+      "## RX-035 — DesignAwareInference",
+      "## RX-057 — ReachableSubspaceAudit",
+      "## RX-030 — SpectralRelationGate"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1605-TR__VALUE_FIRST_BATCH6_RESULTS__r01.md",
+    "bytes": 1442,
+    "headings": [
+      "# Value-first benchmark batch 6",
+      "## RX-046 — TargetPopulationAnchor",
+      "## RX-052 — AtomicComplementarySettlement",
+      "## RH-007 — MultiFidelityMeasurementController",
+      "## RX-031 — BarrierAwareTransitionPlanner",
+      "## RX-036 — ResilientFlowRouter"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1805-TR__VALUE_FIRST_BATCH7_RESULTS__r01.md",
+    "bytes": 1451,
+    "headings": [
+      "# Value-first benchmark batch 7",
+      "## RX-041 — TreatmentConfounderFeedbackGuard",
+      "## RX-049 — HiddenStateModelReductionAudit",
+      "## RX-060 — TargetRelevantSensorPlanner",
+      "## RX-068 — DecisionFlipMargin",
+      "## RX-084 — BurstAwareSampler"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-1945-TR__VALUE_FIRST_BATCH8_RESULTS__r01.md",
+    "bytes": 1402,
+    "headings": [
+      "# Value-first benchmark batch 8",
+      "## RX-085 — UniversalityTransferGate",
+      "## RX-086 — ScaleAwareModelGate",
+      "## RX-087 — ActiveSetMap",
+      "## RX-089 — TimescaleBottleneckDetector",
+      "## RX-093 — CouplingDistanceExplainer"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-2205-TR__VALUE_FIRST_BATCH9_RESULTS__r01.md",
+    "bytes": 1469,
+    "headings": [
+      "# Value-first benchmark batch 9",
+      "## RX-011 — ConsequenceWeightedResolution",
+      "## RX-012 — SelfAveragingCertificate",
+      "## RX-019 — InternalClockForecaster",
+      "## RX-038 — InterfaceWidthOptimizer",
+      "## RX-017 — EffectiveTopologyRouter"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r49_checkpoint/reports/LABCOMPASS__LCB-7F3A91__20260825-2355-TR__VALUE_FIRST_BATCH10_RESULTS__r01.md",
+    "bytes": 1439,
+    "headings": [
+      "# Value-first benchmark batch 10",
+      "## RX-075 — BurdenReliefController",
+      "## RX-018 — VerificationStateLiquidity",
+      "## RX-026 — SelectionVsWithinAttribution",
+      "## RX-066 — SafeProblemReducer",
+      "## RX-032 — ArrivalFrontierEngine"
+    ],
+    "verdict_lines": []
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1120-TR__BENCH_RX149_SUBMODULAR_ALLOCATOR_DOSSIER__r01.md",
+    "bytes": 383,
+    "headings": [
+      "# RX-149 — SubmodularMarginalAllocator"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1128-TR__BENCH_RX067_REPRESENTATIVE_DP_DOSSIER__r01.md",
+    "bytes": 387,
+    "headings": [
+      "# RX-067 — RepresentativeStateDP"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1134-TR__BENCH_RX039_FIBER_SAMPLER_DOSSIER__r01.md",
+    "bytes": 447,
+    "headings": [
+      "# RX-039 — FiberSampler"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1142-TR__BENCH_RX137_RENEGOTIATION_DOSSIER__r01.md",
+    "bytes": 580,
+    "headings": [
+      "# RX-137 — RenegotiationProofCommitment"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1150-TR__BENCH_RX138_IMPLEMENTABILITY_IRONER_DOSSIER__r01.md",
+    "bytes": 619,
+    "headings": [
+      "# RX-138 — ImplementabilityIroner"
+    ],
+    "verdict_lines": [
+      "Verdict: **DOES NOT SURVIVE**"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1210-TR__BENCH_RX138_IMPLEMENTABILITY_IRONER_DOSSIER__r02.md",
+    "bytes": 737,
+    "headings": [
+      "# RX-138 — ImplementabilityIroner destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "r50_partial_benchmarks/LABCOMPASS__LCB-7F3A91__20260825-1218-TR__BENCH_RX138_IMPLEMENTABILITY_IRONER_DOSSIER__r02.md",
+    "bytes": 754,
+    "headings": [
+      "# RX-138 — ImplementabilityIroner destructive benchmark r02"
+    ],
+    "verdict_lines": [
+      "Verdict: **SURVIVES**"
+    ]
+  },
+  {
+    "file": "RESCUE_START_HERE.md",
+    "bytes": 3316,
+    "headings": [
+      "# LABCOMPASS LCB-7F3A91 — RESCUE START HERE",
+      "## Canonical base",
+      "## r50 partial work already completed",
+      "### RX-149 — SubmodularMarginalAllocator",
+      "### RX-067 — RepresentativeStateDP",
+      "### RX-039 — FiberSampler",
+      "### RX-137 — RenegotiationProofCommitment",
+      "### RX-138 — ImplementabilityIroner",
+      "## Immediate next action after rehydration",
+      "## Binding evaluation rule"
+    ],
+    "verdict_lines": [
+      "- Additional r02 artifacts exist in the rescue folder (timestamps 1210 and 1218). Treat RX-138 as **PENDING RECHECK/ADJUDICATION** until those saved artifacts are inspected; do not infer a verdict from r01 alone."
+    ]
+  }
+]

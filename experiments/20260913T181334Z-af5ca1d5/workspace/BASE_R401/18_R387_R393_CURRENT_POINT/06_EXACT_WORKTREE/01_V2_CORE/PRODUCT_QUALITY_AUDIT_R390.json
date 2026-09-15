@@ -1,0 +1,126 @@
+{
+  "authority_scope": "PRODUCT_OVERLAY_ONLY_REGISTRY455_UNCHANGED",
+  "candidate_added_suite_ids": [
+    "V2P051"
+  ],
+  "candidate_distinct_product_ids": [
+    "V2P051"
+  ],
+  "candidate_family_variant_ids": [],
+  "model_version": "R390_PRODUCT_QUALITY_AUDIT_V1",
+  "physical_candidate_suite_ids": [
+    "V2P001",
+    "V2P002",
+    "V2P003",
+    "V2P004",
+    "V2P005",
+    "V2P006",
+    "V2P007",
+    "V2P008",
+    "V2P009",
+    "V2P010",
+    "V2P011",
+    "V2P012",
+    "V2P013",
+    "V2P014",
+    "V2P015",
+    "V2P016",
+    "V2P017",
+    "V2P018",
+    "V2P019",
+    "V2P020",
+    "V2P021",
+    "V2P022",
+    "V2P023",
+    "V2P024",
+    "V2P025",
+    "V2P026",
+    "V2P027",
+    "V2P028",
+    "V2P029",
+    "V2P030",
+    "V2P031",
+    "V2P032",
+    "V2P033",
+    "V2P034",
+    "V2P035",
+    "V2P036",
+    "V2P037",
+    "V2P038",
+    "V2P039",
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P044",
+    "V2P045",
+    "V2P046",
+    "V2P048",
+    "V2P049",
+    "V2P050",
+    "V2P051"
+  ],
+  "prior_canonical_authority_release": "R389",
+  "prior_distinct_family_count": 36,
+  "prior_executable_suite_count": 49,
+  "prior_quality_audit": "PRODUCT_QUALITY_AUDIT_R389.json",
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "registry_family_count": 455,
+  "resulting_distinct_family_count": 37,
+  "resulting_executable_suite_count": 50,
+  "rows": [
+    {
+      "candidate_origin": "R390 fresh full-universe diverse cluster / candidate universe rank 214",
+      "collapse_regions": [
+        "risk_aversion=0 -> parent DLEW semantics",
+        "dense support + shrinkage=0 -> SACPS covariance equals raw covariance removal control"
+      ],
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "evidence_boundary": "deterministic synthetic mechanism evidence only; no empirical forecasting, trading, deployment or novel-theory claim",
+      "family_id": "V2P051",
+      "mechanism_removing_comparator": "same DLEW shell with raw sample covariance substituted for SACPS covariance",
+      "nearest_existing_products": [
+        {
+          "difference": "also injects SACPS covariance into a risk objective, but learns a constrained continuous portfolio policy; SACDLW does not learn a policy and instead changes retrospective finite-action model selection/regret inside DLEW",
+          "product": "V2P049_SACAPL"
+        },
+        {
+          "difference": "changes DLEW selection over a channel-tipping ambiguity set; SACDLW changes within-regime finite-action risk geometry from covariance support",
+          "product": "V2P041_CDTDLEW"
+        },
+        {
+          "difference": "changes which candidate models are admissible through closure/fidelity certification; SACDLW keeps the candidate set and changes the action/regret geometry",
+          "product": "V2P030_PCFDLW"
+        }
+      ],
+      "new_failure_mode": "DLEW can select a prediction model and finite action sequence using a risk geometry contaminated by finite-sample covariance edges that contradict declared dependency support.",
+      "non_additive_interaction": "SACPS covariance enters DLEW before argmax action selection and therefore changes the induced action path, oracle comparison, training model ranking, and validation decision regret rather than appending a covariance report.",
+      "prior_art_status": "STRONG_CLOSE_PRIOR_ART_ON_DECISION_FOCUSED_LEARNING_AND_COVARIANCE_AWARE_PORTFOLIO_DECISIONS; INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+      "product_id": "V2P051",
+      "quality_accounting": "R390_DISTINCT_PRODUCT_CANDIDATE",
+      "sensitivity_boundary": "benefit is not universal across random shells; strong nuisance cells are favorable on average but contain losing seeds, so candidate must expose its working/failure region rather than claim dominance",
+      "sensitivity_cells": 6,
+      "short_name": "SACDLW",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "support_boundary": "support remains externally declared; held-out calibration contradiction abstains rather than silently learning/editing support",
+      "test_files": [
+        "test_sacdlw.py"
+      ],
+      "test_methods": 12,
+      "verdict": "DISTINCT_PRODUCT_CANDIDATE_PENDING_FULL_REGRESSION_AND_PROMOTION",
+      "working_region": "declared support is correct, a small separate risk-estimation sample contains strong unsupported covariance nuisance, and risk aversion makes finite-action DLEW decisions sensitive to that nuisance"
+    }
+  ],
+  "rules": [
+    "visibility expansion is not itself product promotion",
+    "executable suite does not imply distinct family",
+    "new failure + non-additive interaction + nearest-family comparison + mechanism-removal control required",
+    "internal distinct-family accounting does not imply novel theory or external empirical validation",
+    "mechanics telemetry calibrates executable contracts only",
+    "current test signature, not an older pilot signature, controls calibration authority"
+  ],
+  "status": "CANDIDATE_OVERLAY_NOT_CANONICAL"
+}

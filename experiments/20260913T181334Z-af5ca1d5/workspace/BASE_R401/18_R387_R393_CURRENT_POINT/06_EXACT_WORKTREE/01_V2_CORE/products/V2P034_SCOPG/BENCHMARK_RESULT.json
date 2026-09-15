@@ -1,0 +1,21 @@
+{
+  "evidence_boundary": "synthetic weighted linear backaction shell only",
+  "fragile_support": {
+    "condition_number": 2238776322.593426,
+    "ess_fraction": 0.05000000190000007,
+    "min_design_eigenvalue": 8.933451920560901e-10,
+    "policy_effect": null,
+    "status": "SUPPORT_INADEQUATE_FOR_POLICY_BACKACTION_ESTIMATE"
+  },
+  "mechanism_removing_comparator": {
+    "unguarded_fragile_policy_effect": 0.4999997551385317
+  },
+  "model_version": "V2P034_SCOPG_V1",
+  "supported": {
+    "condition_number": 39.04089984355694,
+    "ess_fraction": 0.9999999999999997,
+    "min_design_eigenvalue": 0.034063759910196466,
+    "policy_effect": 0.49999999999999856,
+    "status": "SUPPORT_CERTIFIED_POLICY_BACKACTION_ESTIMATE"
+  }
+}

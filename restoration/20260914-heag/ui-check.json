@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "file": "examples/evidence-acquisition/verified/index.html",
+  "checks": [
+    "three model rows",
+    "cost slider changes choices",
+    "public dataset selection",
+    "hypothetical-utility disclosure",
+    "small positive decision threshold preserved",
+    "input/output links",
+    "no JS errors"
+  ],
+  "scope": "jsdom interactions, not real-browser visual or user testing"
+}

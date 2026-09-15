@@ -1,0 +1,9 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P018_WTDRE_V1",
+  "result": {
+    "choice": "near_flip",
+    "distance": 0.12,
+    "status": "WASSERSTEIN_TIP_PRIORITIZED_EXPLORATION"
+  }
+}

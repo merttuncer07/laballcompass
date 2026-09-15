@@ -1,0 +1,46 @@
+{
+  "target_matrix": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "realized_matrix": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "frobenius_target_error": 0.0,
+  "laminate_depth": 2,
+  "phase_fractions": [
+    [
+      "A++",
+      0.25
+    ],
+    [
+      "A+-",
+      0.25
+    ],
+    [
+      "A-+",
+      0.25
+    ],
+    [
+      "A--",
+      0.25
+    ]
+  ],
+  "estimated_smallest_layer": 0.25,
+  "fabrication_resolution_satisfied": true,
+  "searched_state_count": 97,
+  "status": "COMPATIBLE_MICROSTRUCTURE_SYNTHESIZED"
+}

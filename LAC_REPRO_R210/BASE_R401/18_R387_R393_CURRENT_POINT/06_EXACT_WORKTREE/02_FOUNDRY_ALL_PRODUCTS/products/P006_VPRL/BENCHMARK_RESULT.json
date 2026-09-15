@@ -1,0 +1,22 @@
+{
+  "benchmark_type": "synthetic_asset_side_to_priority_relief_benchmark",
+  "funding_need": 100,
+  "unverified": {
+    "deployable_liquidity": 0.0,
+    "residual_new_money_need": 100.0,
+    "protected_positions": [],
+    "status": "NO_VERIFIED_LIQUIDITY_RELIEF"
+  },
+  "verified": {
+    "deployable_liquidity": 80.0,
+    "residual_new_money_need": 20.0,
+    "coverage_fraction": 0.8,
+    "protected_positions_before": [],
+    "protected_positions_after": [
+      0
+    ],
+    "priority_protection_improved": true,
+    "status": "VERIFIED_LIQUIDITY_REDUCES_NEW_MONEY_AND_IMPROVES_PRIORITY_PROTECTION"
+  },
+  "evidence_label": "synthetic accounting benchmark; no financing-cost or real-world credit calibration"
+}

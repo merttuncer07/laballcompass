@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "tests": 55,
+  "receipt": "runs/20260914T154500Z-rel-content/receipt.json",
+  "input_files": [
+    {
+      "name": "clone_sheet.xlsx",
+      "sha256": "c562b328818341d7daa28d5dbd2168946aeecbdb30a6e49d9b982da511879875"
+    },
+    {
+      "name": "FormulaEvalTestData_Copy.xlsx",
+      "sha256": "01b21647d53501e8ec10f4eb522945d41ea3c8d1fdd57f8b0142ec34884c33eb"
+    },
+    {
+      "name": "FormulaSheetRange.xlsx",
+      "sha256": "1943a81a9d439e3bb843b66fd2f9bcdcf37e31232c850ea31d47681b5d5efa12"
+    },
+    {
+      "name": "link-external-workbook-a.xlsx",
+      "sha256": "930049ddea88c58fbef66620fcba333790aed8da9a003ab209da6955fee1f5c2"
+    },
+    {
+      "name": "link-external-workbook-b.xlsx",
+      "sha256": "6e0e5c2aa3bf870cfeba03cb2350c312c639f2875b6501029d0bc134916b2361"
+    },
+    {
+      "name": "shared_formulas.xlsx",
+      "sha256": "31612d513b5ea5aaa69764779f87ac52588687770f3ccbf4b420ec21bc70561f"
+    },
+    {
+      "name": "XSSFSheet.copyRows.xlsx",
+      "sha256": "85b76d790c3eeb07693ea94293440a9efa2b91e41e2a6bea4b7bbd7ab9edba90"
+    }
+  ],
+  "public_observation": {
+    "regions": 1,
+    "matching_positions": 63,
+    "positions": 65
+  },
+  "ui": "ui-check.json",
+  "catalog_entries": 293,
+  "limits": [
+    "Not a customer audit workpaper or measured audit utility",
+    "No generalized evidence-independence or provenance inference",
+    "No whole-lab science/novelty proof",
+    "Real-browser visual check not completed"
+  ]
+}

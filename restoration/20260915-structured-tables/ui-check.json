@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "file": "examples/public-tables/StructuredReferences-report/lineage.html",
+  "checks": [
+    "real table root switch affects the expected total only",
+    "unrelated name-column outputs remain available",
+    "reset",
+    "no JS errors"
+  ],
+  "scope": "jsdom interaction, not real-browser visual verification"
+}

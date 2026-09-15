@@ -1,0 +1,213 @@
+{
+  "selected": {
+    "local_steps": 5,
+    "relocation_jump": 55,
+    "expected_detection_time": 6.3125,
+    "support_coverage_probability": 1.0,
+    "worst_supported_detection_time": 11.625,
+    "relocation_count_to_worst": 1,
+    "feasible": true
+  },
+  "local_only": {
+    "local_steps": 120,
+    "relocation_jump": 0,
+    "expected_detection_time": 33.0,
+    "support_coverage_probability": 1.0,
+    "worst_supported_detection_time": 65.0,
+    "relocation_count_to_worst": 0,
+    "feasible": true
+  },
+  "expected_time_improvement_fraction": 0.8087121212121212,
+  "evaluations": [
+    {
+      "local_steps": 1,
+      "relocation_jump": 0,
+      "expected_detection_time": 33.0,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 65.0,
+      "relocation_count_to_worst": 0,
+      "feasible": true
+    },
+    {
+      "local_steps": 1,
+      "relocation_jump": 16,
+      "expected_detection_time": 106.60000000000014,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 187.4500000000004,
+      "relocation_count_to_worst": 113,
+      "feasible": true
+    },
+    {
+      "local_steps": 1,
+      "relocation_jump": 35,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.2,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 1,
+      "relocation_jump": 55,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.2,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 1,
+      "relocation_jump": 59,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.2,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 2,
+      "relocation_jump": 0,
+      "expected_detection_time": 33.0,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 65.0,
+      "relocation_count_to_worst": 0,
+      "feasible": true
+    },
+    {
+      "local_steps": 2,
+      "relocation_jump": 16,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.4,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 2,
+      "relocation_jump": 35,
+      "expected_detection_time": 140.3375,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 311.375,
+      "relocation_count_to_worst": 99,
+      "feasible": true
+    },
+    {
+      "local_steps": 2,
+      "relocation_jump": 55,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.8,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 2,
+      "relocation_jump": 59,
+      "expected_detection_time": 29.70999999999998,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 224.49999999999977,
+      "relocation_count_to_worst": 60,
+      "feasible": true
+    },
+    {
+      "local_steps": 5,
+      "relocation_jump": 0,
+      "expected_detection_time": 33.0,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 65.0,
+      "relocation_count_to_worst": 0,
+      "feasible": true
+    },
+    {
+      "local_steps": 5,
+      "relocation_jump": 16,
+      "expected_detection_time": 39.69000000000002,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 116.00000000000004,
+      "relocation_count_to_worst": 20,
+      "feasible": true
+    },
+    {
+      "local_steps": 5,
+      "relocation_jump": 35,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.5,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 5,
+      "relocation_jump": 55,
+      "expected_detection_time": 6.3125,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 11.625,
+      "relocation_count_to_worst": 1,
+      "feasible": true
+    },
+    {
+      "local_steps": 5,
+      "relocation_jump": 59,
+      "expected_detection_time": Infinity,
+      "support_coverage_probability": 0.7,
+      "worst_supported_detection_time": Infinity,
+      "relocation_count_to_worst": 240,
+      "feasible": false
+    },
+    {
+      "local_steps": 10,
+      "relocation_jump": 0,
+      "expected_detection_time": 33.0,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 65.0,
+      "relocation_count_to_worst": 0,
+      "feasible": true
+    },
+    {
+      "local_steps": 10,
+      "relocation_jump": 16,
+      "expected_detection_time": 30.625,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 77.55,
+      "relocation_count_to_worst": 7,
+      "feasible": true
+    },
+    {
+      "local_steps": 10,
+      "relocation_jump": 35,
+      "expected_detection_time": 25.250000000000004,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 49.5,
+      "relocation_count_to_worst": 4,
+      "feasible": true
+    },
+    {
+      "local_steps": 10,
+      "relocation_jump": 55,
+      "expected_detection_time": 72.75000000000001,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 144.5,
+      "relocation_count_to_worst": 12,
+      "feasible": true
+    },
+    {
+      "local_steps": 10,
+      "relocation_jump": 59,
+      "expected_detection_time": 49.082499999999996,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 160.42499999999995,
+      "relocation_count_to_worst": 13,
+      "feasible": true
+    },
+    {
+      "local_steps": 120,
+      "relocation_jump": 0,
+      "expected_detection_time": 33.0,
+      "support_coverage_probability": 1.0,
+      "worst_supported_detection_time": 65.0,
+      "relocation_count_to_worst": 0,
+      "feasible": true
+    }
+  ],
+  "status": "INTERMITTENT_POLICY_SELECTED"
+}

@@ -1,0 +1,34 @@
+{
+  "mechanism_removing_comparator": "same residual stream, same CWC gains and frozen base-scale; MCST tipping signal and state reset removed",
+  "evidence_boundary": "synthetic Gaussian residual shell with externally observed stress parameter; demonstrates reset coupling only, not a general change-point or conformal-coverage theorem",
+  "result": {
+    "candidate": {
+      "coverage": 0.91,
+      "rolling_coverage_rmse": 0.04874105669489341,
+      "mean_width": 5.804821476889952,
+      "width_step_variability": 0.34967592864699354,
+      "mean_interval_score": 7.114841866381471,
+      "tipping_value": 1.05,
+      "tipping_status": "TIPPING_POINT_FOUND",
+      "resets": 1,
+      "post_shift_coverage_20": 0.85,
+      "post_shift_interval_score_20": 11.683350538923877
+    },
+    "mechanism_removed": {
+      "coverage": 0.87,
+      "rolling_coverage_rmse": 0.14398626392435857,
+      "mean_width": 5.309210893985329,
+      "width_step_variability": 0.050413073174429335,
+      "mean_interval_score": 8.209276023906664,
+      "tipping_value": 1.05,
+      "tipping_status": "TIPPING_POINT_FOUND",
+      "resets": 0,
+      "post_shift_coverage_20": 0.4,
+      "post_shift_interval_score_20": 22.936527028417444
+    },
+    "interval_score_gain": 1.0944341575251935,
+    "rolling_coverage_rmse_gain": 0.09524520722946515,
+    "post_shift_coverage_gain": 0.44999999999999996,
+    "status": "TIPPING_RESET_IMPROVES_SHIFT_CALIBRATION"
+  }
+}

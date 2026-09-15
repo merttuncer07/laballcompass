@@ -1,0 +1,16 @@
+{
+  "model_version": "V2P013_CADRE_V1",
+  "mechanism_removing_comparator": "DRE executed on compressed states without P091-style compression tipping certificate",
+  "result": {
+    "compressed_choice": "A",
+    "compressed_score_margin": 0.020000000000000018,
+    "compression_decision_bound": 0.1,
+    "compression_certified": false,
+    "final_choice": "B",
+    "used_full_resolution": true,
+    "status": "COMPRESSION_TIPPING_TRIGGERED_FULL_RESOLUTION_DRE"
+  },
+  "blind_choice": "A",
+  "guarded_choice": "B",
+  "evidence_boundary": "deterministic compressed-vs-full Gaussian-arm mechanism benchmark only"
+}

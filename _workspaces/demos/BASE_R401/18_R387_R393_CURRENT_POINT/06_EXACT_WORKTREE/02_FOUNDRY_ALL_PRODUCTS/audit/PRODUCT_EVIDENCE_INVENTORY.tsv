@@ -1,0 +1,146 @@
+product_id	short_name	title	tier	parents	execution_mode	source_files	test_files
+P001	DREW	Product result — P001 DREW v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	11	1
+P002	DCPS	Product result — P002 DCPS v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	8	1
+P003	SANP	P003 result — SANP v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	6	1
+P004	BAMI	P004 result — BAMI v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	7	1
+P005	CARF	P005 result — CARF v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	11	1
+P006	VPRL	P006 result — VPRL v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P007	VCPA	P007 result — VCPA v0.1	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	6	1
+P008	CCTD	P008_CCTD	SALVAGED_SOURCE_WITH_REBUILT_TESTS	see PARENT_PROVENANCE.md / historical result	selection	6	1
+P009	URAI	Uncertainty-Routed Acquisition Interface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	DFDPE + AICC	allocation	2	1
+P010	DPHO	Deployment Policy Holdout	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	CDBL + ACSA	audit	2	1
+P011	IDLG	Integrality Decision-Loss Gate	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	RIC + DLEW	selection	2	1
+P012	PQDR	P012_PQDR	SALVAGED_SOURCE_WITH_REBUILT_TESTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P013	CFDR	P013_CFDR	SALVAGED_SOURCE_WITH_REBUILT_TESTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P014	DARI	P014_DARI	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P015	CPDR	P015_CPDR	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	7	1
+P016	CATR	P016 CATR v0.1 — Calibration-Aware Trigger Router	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P017	RECS	P017 RECS v0.1 — Relational Evidence-Conditioned Safeguards	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P018	DPCG	P018 DPCG v0.1 — Decision Privacy Composition Governor	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P019	DATC	P019 DATC v0.1 — Damage-Aware Trigger Calibrator	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P020	REDT	Relational Evidence Discrepancy Tipping	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	REL + TDSX	tipping	2	1
+P021	MRIA	Model-Reduction Information Acquisition	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	TWMR + AICC	allocation	2	1
+P022	AFHA	Architecture Failure Holdout Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	MFPA + ACSA	audit	2	1
+P023	COST	Causal Overlap Sensitivity Tipping	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	OTE + TDSX	tipping	2	1
+P024	TFRD	Time-Frequency Reporting Decision	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	TFLD + DLEW	selection	2	1
+P025	IDRE	P025 IDRE v0.1 — Identification-Driven Decision Robustness Envelope	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	1	1
+P026	DBTE	P026 DBTE v0.1 — Deployable Bottleneck Tipping Explorer	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	1	1
+P027	IDAC	P027 IDAC v0.1 — Integral Deployability Audit Certificate	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	1	1
+P028	REIS	P028 REIS v0.1 — Relational Evidence Impact Safeguards	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	1	1
+P029	RATR	P029 RATR v0.1 — Resilience-Aware Target Reduction	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	1	1
+P030	FPTE	P030 FPTE v0.1 — Failure-Path Tipping Explorer	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	1	1
+P031	EVLT	P031 EVLT v0.1 — Evidence-Weighted Liquidity Triage	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P032	SGOT	P032 SGOT v0.1 — Support-Gated Orthogonal Target	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P033	CATF	P033 CATF v0.1 — Consequence-Aware Time-Frequency Allocation	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P034	UGIM	P034 UGIM v0.1 — Ultimate Gain Incidence Mapper	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P035	SVCO	P035 SVCO v0.1 — Stateful Volcano Cycle Optimizer	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P036	MAWT	P036 MAWT v0.1 — Mass-Aware Wasserstein Transport	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P037	MCST	P037 MCST v0.1 — Monotone-Certificate Sensitivity Tipping	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P038	LIDA	P038 LIDA v0.1 — Lock-In Damage Accumulator	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P039	CACF	P039 CACF v0.1 — Control-Aware Circular Flow	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P040	BAPC	P040 BAPC v0.1 — Blackwell-Audited Persuasion Channel	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P041	DDER	P041 DDER v0.1 — Double-Diffusive Exposure Resilience	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P042	HPMD	P042 HPMD v0.1 — Hidden-Population Model Decision Audit	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P043	DABR	P043 DABR v0.1 — Decision-Aware Balanced Reducer	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P044	MFTS	P044 MFTS v0.1 — Manufacturing-Feasibility Tipping Surface	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P045	BDTS	P045 BDTS v0.1 — Breakthrough Distance-to-Tipping Surface	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P046	DTRC	P046 DTRC v0.1 — Decision-Targeted Reporting Contract	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P047	RALA	P047 RALA v0.1 — Resilience-Aware Lumpability Audit	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P048	SARA	P048 SARA v0.1 — Structural-vs-Approximate Reduction Audit	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P049	OGRM	P049 OGRM v0.1 — Observability-Gated Resilience Monitor	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P050	CPWT	P050 CPWT v0.1 — Conservation-Gated Process-Window Tipping	MECHANISM_RECONSTRUCTED_FROM_RESULTS	see PARENT_PROVENANCE.md / historical result	selection	2	1
+P051	ICHA	Incidence Choice Holdout Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	LGID + ACSA	audit	2	1
+P052	VCTS	Volcano Coupling Tipping Surface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	VICO + TDSX	tipping	2	1
+P053	GWDA	Geometry-Weighted Decision Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	WBDP + DLEW	audit	2	1
+P054	MCSA	Monotonicity Certificate Sampling Acquisition	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	MCSC + AICC	allocation	2	1
+P055	SLHA	Synchronization Lock-in Holdout Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	SLERM + ACSA	audit	2	1
+P056	CFTS	Circular Flow Tipping Surface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	HFAD + TDSX	tipping	2	1
+P057	FIAC	P057 FIAC v0.1 — Firewalled Information Acquisition Controller	SPEC_EXECUTABLE_FROM_RESULTS	MIFF → AICC. MIFF removes suspect-source information-flow paths to the protected controller; AICC then ranks only the channels whose source modules remain reachable after the firewall.	allocation	2	1
+P058	VLRB	P058 VLRB v0.2 — Verified-Liquidity Redemption Buffer	SPEC_EXECUTABLE_FROM_RESULTS	LCM → explicit TRUE_SALE adapter → OFLS. LCM-financed claim face is removed from the liquidatable asset book, proceeds are added to cash, and any face/proceeds discount is written into NAV before OFLS redemption simulation.	selection	2	1
+P059	SBTE	P059 SBTE v0.1 — Safeguard Budget Tipping Explorer	SPEC_EXECUTABLE_FROM_RESULTS	CSID → TDSX. At each budget, CSID chooses its economically preferred safeguard portfolio. TDSX finds the nearest budget where the selected portfolio reaches a declared residual-loss target.	tipping	2	1
+P060	PFVT	P060 PFVT v0.1 — Protected-Financing Viability Tipping	SPEC_EXECUTABLE_FROM_RESULTS	PRIU → TDSX. Each point on the declared funded-asset-value / promised-repayment surface is audited across every priority insertion. A point passes only when the same insertion both meets lender recovery requirements and leaves every existing claim no worse off.	tipping	2	1
+P061	RSGF	Remote-Synchronization-Gated Firewall	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P062	WDTG	Wasserstein Decision-Tipping Geodesic	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P063	RBTE	Restart-Benefit Tipping Explorer	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P064	DSGD	Deployability-Sensitive Guard Designer	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P065	SWTE	Support-Weight Tipping Explorer	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P066	PDRE	Private Decision-Relevant Explorer	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P067	DARA	Deployability-Aware Resolution Allocator	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P068	RECT	Relational-Evidence Calibrated Trigger	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P069	PSHA	Persuasion Strategy Holdout Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	BPISD + ACSA	audit	2	1
+P070	UTIA	Unequal-Transport Information Acquisition	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	UTDIM + AICC	allocation	2	1
+P071	HPDT	Hidden Population Decision Tipping	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	MLHPE + TDSX	tipping	2	1
+P072	RMHA	Reduction Model Holdout Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	BRED + ACSA	audit	2	1
+P073	FCDL	Fabrication Certificate Decision Loss	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	FCMS + DLEW	selection	2	1
+P074	PBIA	Percolation Breakthrough Information Acquisition	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	PCBE + AICC	allocation	2	1
+P075	DLAG	Decision-Loss-Aware Lumpability Guard	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P076	MCFS	Market-Clearing Fragility Surface	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P077	DGMC	Deliverability-Gated Market Clearing	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P078	IARA	Influence-Aware Resolution Allocator	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P079	CBIA	Calibrated Boundary Information Acquisition	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	allocation	2	1
+P080	RAMR	Resilience-Aware Measurement Resolution	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P081	AHSA	Adaptive Hedge Selection Audit	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P082	CDTS	P082_CDTS — Channel Dominance Tipping Surface	SPEC_EXECUTABLE_FROM_RESULTS	CDA + TDSX	tipping	2	1
+P083	HEAG	P083_HEAG — Historical Evidence Acquisition Gate	SPEC_EXECUTABLE_FROM_RESULTS	EBC + AICC	allocation	2	1
+P084	CAVT	P084_CAVT — Control Authority Viability Tipping	SPEC_EXECUTABLE_FROM_RESULTS	CCVC + TDSX	tipping	2	1
+P085	HPCT	P085_HPCT — Hidden Population Capacity Tipping	SPEC_EXECUTABLE_FROM_RESULTS	MLHPE + TDSX	tipping	2	1
+P086	FPSD	P086_FPSD — Failure Path Safeguard Designer	SPEC_EXECUTABLE_FROM_RESULTS	MFPA + CSID	audit	2	1
+P087	EVTS	P087_EVTS — Exploration Value Tipping Surface	SPEC_EXECUTABLE_FROM_RESULTS	DRE + TDSX	tipping	2	1
+P088	LFTS	P088_LFTS — Lumpability Fragility Tipping Surface	SPEC_EXECUTABLE_FROM_RESULTS	SALC + TDSX	tipping	2	1
+P089	OCTS	P089_OCTS — Ownership Control Tipping Surface	SPEC_EXECUTABLE_FROM_RESULTS	OWNM + TDSX	tipping	2	1
+P090	SWDL	P090_SWDL — Support-Weighted Decision Loss	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	selection	2	1
+P091	DCBT	P091_DCBT — Decision Compression Budget Tipping	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P092	PDAT	P092_PDAT — Private Decision Accuracy Tipping	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P093	BMDT	P093_BMDT — Belief Metric Decision Tipping	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	tipping	2	1
+P094	OCGS	P094_OCGS — Ownership Control Guard Selection	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P095	GSSA	P095_GSSA — Geometry-Support Shift Audit	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P096	TRIA	P096_TRIA — Transient-Risk Information Acquisition	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	allocation	2	1
+P097	BDSD	P097_BDSD — Blackwell-Deduplicated Safeguard Design	SPEC_EXECUTABLE_FROM_RESULTS	UNEXTRACTED	audit	2	1
+P098	SAHA	Product result — P098_SAHA v0.1	SPEC_EXECUTABLE_FROM_RESULTS	SCE + ACSA	audit	2	1
+P099	CAPA	Product result — P099_CAPA v0.1	SPEC_EXECUTABLE_FROM_RESULTS	CAPL + ACSA	allocation	2	1
+P100	WICA	Product result — P100_WICA v0.1	SPEC_EXECUTABLE_FROM_RESULTS	OWS + BICC	selection	2	1
+P101	PRSW	Product result — P101_PRSW v0.1	SPEC_EXECUTABLE_FROM_RESULTS	PRIU + OWS	selection	2	1
+P102	LLFD	Product result — P102_LLFD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	SLERM + TFLD	selection	2	1
+P103	CFAI	Product result — P103_CFAI v0.1	SPEC_EXECUTABLE_FROM_RESULTS	HFAD + BICC + ACRA	selection	2	1
+P104	SGPR	Product result — P104_SGPR v0.1	SPEC_EXECUTABLE_FROM_RESULTS	OWS + DTPR	selection	2	1
+P105	PRAS	Product result — P105_PRAS v0.1	SPEC_EXECUTABLE_FROM_RESULTS	ACSA + DTPR	selection	2	1
+P106	RCHA	Reporting Contract Holdout Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	SRCD + ACSA	audit	2	1
+P107	LDLA	Lumpability Decision Loss Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	SALC + DLEW	audit	2	1
+P108	OSTS	Observability Sensitivity Tipping Surface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	CORMA + TDSX	tipping	2	1
+P109	CCIA	Conservation-Calibrated Information Acquisition	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	CSDC + AICC	allocation	2	1
+P110	MBTS	Mortgage Burnout Tipping Surface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	MBPF + TDSX	tipping	2	1
+P111	LVAI	Liquidity Verification Acquisition Interface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	LCM + AICC	allocation	2	1
+P112	RTTS	Restart Threshold Tipping Surface	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	RTO + TDSX	tipping	2	1
+P113	QDLA	Quasineutral Decision-Loss Audit	NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID	APTC + DLEW	audit	2	1
+P114	HPAC	Product result — P114_HPAC v0.1	SPEC_EXECUTABLE_FROM_RESULTS	MLHPE + AICC	tipping	2	1
+P115	PAAC	Product result — P115_PAAC v0.1	SPEC_EXECUTABLE_FROM_RESULTS	PRIU + AICC	tipping	2	1
+P116	FCAC	Product result — P116_FCAC v0.1	SPEC_EXECUTABLE_FROM_RESULTS	FCMS + AICC	selection	2	1
+P117	MFAC	Product result — P117_MFAC v0.1	SPEC_EXECUTABLE_FROM_RESULTS	MCPR + AICC	tipping	2	1
+P118	MRAC	Product result — P118_MRAC v0.1	SPEC_EXECUTABLE_FROM_RESULTS	MCRIS + AICC	selection	2	1
+P119	RAPT	Product result — P119_RAPT v0.1	SPEC_EXECUTABLE_FROM_RESULTS	CBAC + TDSX	tipping	2	1
+P120	PCAR	Product result — P120_PCAR v0.1	SPEC_EXECUTABLE_FROM_RESULTS	CWC + DTPR	selection	2	1
+P121	MSGD	Product result — P121_MSGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	MCPR + CSID	selection	2	1
+P122	CAGD	Product result — P122_CAGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	CCVC + CSID	audit	2	1
+P123	SCGD	Product result — P123_SCGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	SACPS + CSID	audit	2	1
+P124	HCGD	Product result — P124_HCGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	DHCC + CSID	selection	2	1
+P125	MIGD	Product result — P125_MIGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	MCRIS + CSID	audit	2	1
+P126	TRGD	Product result — P126_TRGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	DTRM + CSID	audit	2	1
+P127	HPSG	Product result — P127_HPSG v0.1	SPEC_EXECUTABLE_FROM_RESULTS	MLHPE + CSID	selection	2	1
+P128	PPGD	Product result — P128_PPGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	PCBE + CSID	selection	2	1
+P129	LIGD	Product result — P129_LIGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	SLERM + CSID	selection	2	1
+P130	CRGD	Product result — P130_CRGD v0.1	SPEC_EXECUTABLE_FROM_RESULTS	SCCRT + CSID	selection	2	1
+P131	OCMA	Product result — P131_OCMA v0.1	SPEC_EXECUTABLE_FROM_RESULTS	OWNM + ACRA	audit	2	1
+P132	CARA	Product result — P132_CARA v0.1	SPEC_EXECUTABLE_FROM_RESULTS	CWC + ACRA	selection	2	1
+P133	TRRA	Product result — P133_TRRA v0.1	SPEC_EXECUTABLE_FROM_RESULTS	DTRM + ACRA	selection	2	1
+P134	REIG	P134 REIG v0.1 — PRODUCT RESULT	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	2
+P135	CARS	P135 CARS — Certificate-Aware Resolution Sensing	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P136	QAIG	P136 QAIG — Quasineutrality Acquisition Information Gate	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P137	MPHA	P137 MPHA — Memory-Policy Holdout Audit	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P138	SPIA	P138 SPIA — Search-Policy Information Acquisition	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P139	PAOS	P139 PAOS — Protected Averaging-Operator Selection	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P140	BOSA	P140 BOSA — Burnout Overlap Support Audit	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P141	PCFT	P141 PCFT — Predictive Closure-Fidelity Tipping	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P142	BMSA	P142 BMSA — Burnout Model-Selection Audit	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P143	DLIC	P143 DLIC — Discrete Liquidity Integrality Certificate	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P144	DPAI	P144 DPAI — Dynamic Persistence Acquisition Interface	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1
+P145	RTHA	P145 RTHA — Restart-Threshold Holdout Audit	ORIGINAL_EXECUTABLE_MATERIAL	see PARENT_PROVENANCE.md / historical result	selection	5	1

@@ -1,0 +1,42 @@
+{
+  "candidate_names": [
+    "stable_baseline",
+    "real_improvement",
+    "adaptive_decoy"
+  ],
+  "selected_candidate": "adaptive_decoy",
+  "holdout_best_candidate": "real_improvement",
+  "selection_mean_losses": [
+    0.2976495523452695,
+    0.2713665172297984,
+    0.17562291578953715
+  ],
+  "holdout_mean_losses": [
+    0.29962051352296265,
+    0.27127530935385136,
+    0.4290597364029736
+  ],
+  "candidate_generalization_gaps": [
+    0.0019709611776931313,
+    -9.120787594701918e-05,
+    0.2534368206134365
+  ],
+  "selected_selection_loss": 0.17562291578953715,
+  "selected_holdout_loss": 0.4290597364029736,
+  "selected_generalization_gap": 0.2534368206134365,
+  "selected_holdout_regret": 0.15778442704912227,
+  "family_worst_absolute_gap": 0.2534368206134365,
+  "pointwise_standard_error": 0.003430553925469009,
+  "pointwise_95_radius": 0.006723885693919258,
+  "selected_holdout_loss_bootstrap_interval_95": [
+    0.422323622461628,
+    0.43556350185849746
+  ],
+  "selection_bootstrap_frequencies": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "selection_fragility": 0.0,
+  "status": "ADAPTIVE_SELECTION_REGRET_DETECTED"
+}

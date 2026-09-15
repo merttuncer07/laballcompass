@@ -1,0 +1,81 @@
+{
+  "authority_evidence_files": 7,
+  "authority_evidence_hash_mismatches": [],
+  "authority_release": "R399",
+  "core_surface_count": 17,
+  "core_test_count": 153,
+  "failed": 0,
+  "model_version": "R399_POSTPROMOTION_VERIFICATION_V1",
+  "rows": [
+    {
+      "surface": "test_core_v2.py",
+      "tests": 5
+    },
+    {
+      "surface": "test_core_v2_foundry_integration.py",
+      "tests": 16
+    },
+    {
+      "surface": "test_experiment_contract_bootstrap.py",
+      "tests": 5
+    },
+    {
+      "surface": "test_experiment_integration.py",
+      "tests": 8
+    },
+    {
+      "surface": "test_experiment_selector.py",
+      "tests": 10
+    },
+    {
+      "surface": "test_experiment_telemetry.py",
+      "tests": 8
+    },
+    {
+      "surface": "test_lab_search_engine.py",
+      "tests": 11
+    },
+    {
+      "surface": "test_r12_closure.py",
+      "tests": 17
+    },
+    {
+      "surface": "test_r387_product_overlay_closure.py",
+      "tests": 7
+    },
+    {
+      "surface": "test_r388_retro50_parent_integration_closure.py",
+      "tests": 7
+    },
+    {
+      "surface": "test_r389_product_overlay_closure.py",
+      "tests": 8
+    },
+    {
+      "surface": "test_r390_product_overlay_closure.py",
+      "tests": 9
+    },
+    {
+      "surface": "test_r391_product_overlay_closure.py",
+      "tests": 10
+    },
+    {
+      "surface": "test_r392_product_overlay_closure.py",
+      "tests": 10
+    },
+    {
+      "surface": "test_r399_rehydration_closure.py",
+      "tests": 11
+    },
+    {
+      "surface": "test_relevance_learning.py",
+      "tests": 8
+    },
+    {
+      "surface": "test_search_corpus_integration.py",
+      "tests": 3
+    }
+  ],
+  "status": "PASS",
+  "verified_at_utc": "2026-08-30T22:52:38.389632+00:00"
+}

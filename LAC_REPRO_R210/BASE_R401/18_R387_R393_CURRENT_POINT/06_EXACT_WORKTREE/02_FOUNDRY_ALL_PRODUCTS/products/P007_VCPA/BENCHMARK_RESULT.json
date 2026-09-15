@@ -1,0 +1,22 @@
+{
+  "benchmark_type": "synthetic_verified_capital_market_priority_benchmark",
+  "unverified": {
+    "residual_demand": 100.0,
+    "served": 60.0,
+    "unserved": 40.0,
+    "clearing_rate": 0.5,
+    "status": "CAPITAL_MARKET_SHORTAGE"
+  },
+  "verified": {
+    "deployable_liquidity": 80.0,
+    "residual_demand": 20.0,
+    "served": 20.0,
+    "unserved": 0.0,
+    "clearing_rate": 0.1,
+    "protected_positions": [
+      0
+    ],
+    "status": "CAPITAL_CLEARS_AND_PROTECTED_PRIORITY_POSITION_EXISTS"
+  },
+  "evidence_label": "synthetic accounting/capital-market benchmark; MCPR price explicitly interpreted as one-period simple required return"
+}

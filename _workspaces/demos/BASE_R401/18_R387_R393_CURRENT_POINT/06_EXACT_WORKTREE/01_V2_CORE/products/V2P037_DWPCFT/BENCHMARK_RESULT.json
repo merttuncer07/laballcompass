@@ -1,0 +1,16 @@
+{
+  "evidence_boundary": "separable inverse-sqrt calibration-uncertainty mechanism shell only",
+  "mechanism_removing_comparator": "uniform calibration allocation",
+  "model_version": "V2P037_DWPCFT_V1",
+  "result": {
+    "added_samples": {
+      "0.05": 12,
+      "0.1": 0,
+      "0.2": 0
+    },
+    "after_weighted_uncertainty": 310.0,
+    "before_weighted_uncertainty": 560.0,
+    "status": "DECISION_WEIGHTED_PCFT_CALIBRATION_ALLOCATED",
+    "uniform_after": 395.97979746446657
+  }
+}

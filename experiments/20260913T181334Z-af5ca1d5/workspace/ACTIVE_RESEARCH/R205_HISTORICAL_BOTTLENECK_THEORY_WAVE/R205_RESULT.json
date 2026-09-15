@@ -1,0 +1,53 @@
+{
+  "status": "SIX_THEORETICAL_BOTTLENECK_MUTATIONS_SURVIVE_SANITY_CHECKS",
+  "purpose": "Restore breadth: solve historical open operations before choosing products or niches.",
+  "results": [
+    {
+      "line": "Markov omitted events",
+      "result": "unknown retention becomes explicitly identifiable from equal-rate nested thinning views",
+      "scope": "invertible homogeneous chains; independent equal retention",
+      "sanity": "exact matrix recovery"
+    },
+    {
+      "line": "Glushkov-Schutzenberger composition",
+      "result": "degree-k polynomial aggregation has an exact direct-sum tensor lift of polynomial size for fixed k",
+      "scope": "synchronized finite automata over a field; bounded interaction degree",
+      "sanity": "lifted and direct outputs agree on multiple words"
+    },
+    {
+      "line": "Preisach hysteresis",
+      "result": "arbitrary dense scalar density has exact O(n) output evaluation from frontier and row-prefix sums",
+      "scope": "scalar Preisach staircase state; O(n^2) density storage retained",
+      "sanity": "dense relay sum equals prefix evaluation"
+    },
+    {
+      "line": "Volterra hereditary systems",
+      "result": "symmetric rank-r quadratic kernel is directly recovered with O(mr+r^2) active bilinear probes without forming dense H",
+      "scope": "resettable active experiments; exact quadratic low rank",
+      "sanity": "rank-three kernel recovered to numerical precision"
+    },
+    {
+      "line": "Pitrat metaknowledge",
+      "result": "automorphism-orbit canonicalization produces automatically generated sound failure schemas",
+      "scope": "exact CSP symmetries",
+      "sanity": "unsatisfiable core remains unsatisfiable under permutation"
+    },
+    {
+      "line": "Aizerman potential functions",
+      "result": "signed Caratheodory compression preserves m anchor predictions exactly with at most 2(m+1) original supports",
+      "scope": "finite query domain; Lipschitz cover bound outside anchors",
+      "sanity": "signed predictions preserved with the stated support bound"
+    }
+  ],
+  "sanity_tests": {
+    "count": 6,
+    "passed": 6,
+    "elapsed_seconds": 0.058,
+    "role": "formula falsification only; not product or novelty validation"
+  },
+  "parked_survivor": "Pugachev R204; no further narrow compute until the broad portfolio is refreshed",
+  "next_source_targets": [
+    "S. Yu. Maslov inverse deduction method",
+    "Wolfgang Doeblin sealed Kolmogorov manuscript singular/time-inhomogeneous sections"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "executed_at_freeze": true,
+  "runtime": {
+    "python": "3.12.13",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "runner": "10_RUN_SCIENCE_TESTS.py",
+  "round_range": "R179-R202",
+  "round_directories": 24,
+  "round_suites_run": 22,
+  "test_files": 23,
+  "unit_tests_passed": 84,
+  "failed_tests": 0,
+  "failed_suites": 0,
+  "elapsed_seconds": 52.949,
+  "portable_worktree_tested": true,
+  "portable_dependency_check": "R180 resolved P147_EBG and P148_AES from the embedded WORKTREE/foundry_completion/products tree",
+  "skipped_rounds": {
+    "R181_TURKEY_HIDDEN_GOLD_SCOUT": "source/scout round; no unit-test file",
+    "R190_TURING_MARKOV_COMMERCIAL_SCOUT": "portfolio/surface round; no unit-test file"
+  },
+  "source_snapshot_equivalence": {
+    "source_files": 128,
+    "snapshot_files": 128,
+    "missing": 0,
+    "extra": 0,
+    "hash_mismatch": 0,
+    "bytes": 5658890
+  },
+  "embedded_dependency_equivalence": {
+    "P147_EBG": {"source_files": 6, "snapshot_files": 6, "hash_mismatch": 0},
+    "P148_AES": {"source_files": 9, "snapshot_files": 9, "hash_mismatch": 0}
+  },
+  "note": "Unit tests validate structural and local numerical contracts. Stored full benchmarks remain the evidence for reported multi-seed performance; this receipt is not a novelty or real-world validation claim."
+}

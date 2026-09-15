@@ -1,0 +1,18 @@
+{
+  "belief_mean": [0.0],
+  "belief_covariance": [[1.0]],
+  "action_slopes": [[0.0], [1.0]],
+  "action_intercepts": [0.0, 0.0],
+  "channels": [
+    {"name": "original_observation", "measurement_vector": [1.0], "noise_variance": 1.0, "cost": 0.0},
+    {"name": "same_observation_copy", "measurement_vector": [1.0], "noise_variance": 1.0, "cost": 0.0},
+    {"name": "independent_observation", "measurement_vector": [1.0], "noise_variance": 1.0, "cost": 0.0}
+  ],
+  "channel_noise_covariance": [[1.0, 1.0, 0.0], [1.0, 1.0, 0.0], [0.0, 0.0, 1.0]],
+  "covariance_channel_names": ["original_observation", "same_observation_copy", "independent_observation"],
+  "observations": [
+    {"channel": "original_observation", "value": 1.0},
+    {"channel": "same_observation_copy", "value": 1.0},
+    {"channel": "independent_observation", "value": 1.0}
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "product": "P019_DATC_v0.1",
+  "design_observations": 2000,
+  "fresh_observations": 2000,
+  "damage_regime": "30-cycle +0.7 standardized-residual shift every 80 cycles",
+  "frozen_trigger": {
+    "candidate": "sequential_damage_evidence",
+    "threshold": 0.3739666022739594,
+    "design_objective": 0.35,
+    "false_negative_cost": 5.0,
+    "false_positive_cost": 1.0
+  },
+  "design_ranking": [
+    {
+      "candidate": "sequential_damage_evidence",
+      "threshold": 0.3739666022739594,
+      "objective": 0.35,
+      "false_negative_rate": 0.025,
+      "false_positive_rate": 0.225,
+      "verification_cost": 0.0,
+      "manipulation_cost": 0.0,
+      "correlation_with_loss": 0.6652044241824477,
+      "event_rate": 0.36
+    },
+    {
+      "candidate": "raw_directed_residual",
+      "threshold": -0.8446760038289851,
+      "objective": 0.582,
+      "false_negative_rate": 0.017,
+      "false_positive_rate": 0.497,
+      "verification_cost": 0.0,
+      "manipulation_cost": 0.0,
+      "correlation_with_loss": 0.33561975735671096,
+      "event_rate": 0.36
+    }
+  ],
+  "fresh": {
+    "selected_candidate": "sequential_damage_evidence",
+    "selected_threshold": 0.3739666022739594,
+    "selected_objective": 0.4525,
+    "selected_false_negative_rate": 0.0415,
+    "selected_false_positive_rate": 0.245,
+    "raw_residual_objective": 0.6345000000000001,
+    "raw_residual_false_negative_rate": 0.0255,
+    "raw_residual_false_positive_rate": 0.507,
+    "objective_reduction_vs_raw": 0.2868400315208826,
+    "observations": 2000
+  },
+  "claim_boundary": "The protected event is externally labelled; DATC only chooses between the declared raw and DSDA signals and freezes the design before fresh evaluation. This synthetic benchmark is not a physical fatigue-life validation."
+}

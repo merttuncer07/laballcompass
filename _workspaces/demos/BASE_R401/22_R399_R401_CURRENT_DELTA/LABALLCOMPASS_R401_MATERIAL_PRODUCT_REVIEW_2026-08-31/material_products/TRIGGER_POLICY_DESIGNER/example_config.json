@@ -1,0 +1,32 @@
+{
+  "name": "Machine intervention trigger",
+  "loss_column": "observed_loss",
+  "protected_loss_threshold": 50,
+  "false_negative_cost": 12,
+  "false_positive_cost": 2,
+  "manipulation_cost_weight": 1,
+  "split": {
+    "method": "chronological",
+    "calibration_fraction": 0.67
+  },
+  "candidates": [
+    {
+      "column": "vibration_rms",
+      "direction": "high",
+      "verification_cost_per_trigger": 0.5,
+      "manipulation_exposure": 0.1
+    },
+    {
+      "column": "temperature_c",
+      "direction": "high",
+      "verification_cost_per_trigger": 0.3,
+      "manipulation_exposure": 0.05
+    },
+    {
+      "column": "operator_health_score",
+      "direction": "low",
+      "verification_cost_per_trigger": 0.2,
+      "manipulation_exposure": 0.4
+    }
+  ]
+}

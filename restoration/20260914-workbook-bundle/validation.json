@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "scope": "26 unit/integration tests plus real Apache POI workbook execution and DOM interactions. No audit field efficacy or independence certification.",
+  "tests": 26,
+  "test_log": "restoration/20260914-workbook-bundle/tests.log",
+  "ui_check": "restoration/20260914-workbook-bundle/ui-check.json",
+  "observations": [
+    {
+      "report": "examples/linked-workbooks/index.html",
+      "input_files": [
+        {
+          "name": "link-external-workbook-a.xlsx",
+          "sha256": "930049ddea88c58fbef66620fcba333790aed8da9a003ab209da6955fee1f5c2"
+        },
+        {
+          "name": "link-external-workbook-b.xlsx",
+          "sha256": "6e0e5c2aa3bf870cfeba03cb2350c312c639f2875b6501029d0bc134916b2361"
+        }
+      ],
+      "workbooks": 2,
+      "formula_count": 1,
+      "resolved_formula_count": 1,
+      "unresolved_formula_count": 0,
+      "resolved_workbook_links": 1
+    },
+    {
+      "report": "examples/workbook-folder/index.html",
+      "input_files": [
+        {
+          "name": "FormulaEvalTestData_Copy.xlsx",
+          "sha256": "01b21647d53501e8ec10f4eb522945d41ea3c8d1fdd57f8b0142ec34884c33eb"
+        },
+        {
+          "name": "FormulaSheetRange.xlsx",
+          "sha256": "1943a81a9d439e3bb843b66fd2f9bcdcf37e31232c850ea31d47681b5d5efa12"
+        },
+        {
+          "name": "link-external-workbook-a.xlsx",
+          "sha256": "930049ddea88c58fbef66620fcba333790aed8da9a003ab209da6955fee1f5c2"
+        },
+        {
+          "name": "link-external-workbook-b.xlsx",
+          "sha256": "6e0e5c2aa3bf870cfeba03cb2350c312c639f2875b6501029d0bc134916b2361"
+        },
+        {
+          "name": "shared_formulas.xlsx",
+          "sha256": "31612d513b5ea5aaa69764779f87ac52588687770f3ccbf4b420ec21bc70561f"
+        }
+      ],
+      "workbooks": 5,
+      "formula_count": 1338,
+      "resolved_formula_count": 616,
+      "unresolved_formula_count": 722,
+      "resolved_workbook_links": 1
+    }
+  ],
+  "source_hashes": {
+    "workbench/__init__.py": "3fc7664b43e6b219e1fbb5ae5fbb594a7e1d16960659d9bfb0fa2d086aac86b3",
+    "workbench/benchmark.py": "fd592724b91fda439222ed81deb422aba707dc78313b0acc543f812d1a3164a8",
+    "workbench/cli.py": "aba25eea477c547b1aa106d11b0ca38aabcd6b40aaf9c8961620e916c377cc26",
+    "workbench/contracts.py": "96150930e7ca00677b0b692a9b9ca0c61d32662dc12de3e25176b326ef3320f4",
+    "workbench/methods.py": "a98f9acfbf67ca663107a56756c6f9af989add47ebda484200b8308cc8ec9970",
+    "workbench/problems.py": "4db7a5a73fa155814c28e5dd35517bd56a9d2556b70aae038c2c6870711d23ee",
+    "workbench/report.py": "a37801dbc3894fa54d0735e2f0c6b31bec15a2dc829e9cf3ad1fa423a3229202",
+    "workbench/workbooks.py": "0e44548ade67be55dd4faaf7e203cf7c6451b74a1eef0a39e89f00bd72b7decf"
+  }
+}

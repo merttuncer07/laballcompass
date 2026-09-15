@@ -1,0 +1,25 @@
+[
+  {
+    "file": "FormulaEvalTestData_Copy.xlsx",
+    "status": "ANALYZED",
+    "formula_count": 1295,
+    "resolved": 573,
+    "unresolved": 722,
+    "sources": 1239,
+    "report": "workbench_runs/20260913T232252Z-a36f9b82-analysis/index.html"
+  },
+  {
+    "file": "shared_formulas.xlsx",
+    "status": "ANALYZED",
+    "formula_count": 40,
+    "resolved": 40,
+    "unresolved": 0,
+    "sources": 40,
+    "report": "workbench_runs/20260913T232252Z-7a5d3f85-analysis/index.html"
+  },
+  {
+    "file": "FormulaSheetRange.xlsx",
+    "status": "REJECTED",
+    "reason": "No formula has a fully resolved static reference graph. test!D11: 3D worksheet reference: Sheet2:Sheet5!A11; test!D12: 3D worksheet reference: Sheet2:Sheet5!A12:C12"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "near_boundary": {
+    "imbalance": 0.04900000000000011,
+    "transport_status": "AMBIPOLAR_PACKET_TRANSPORT_VALID",
+    "chosen_channel": "precise",
+    "ranked_channels": [
+      {
+        "name": "precise",
+        "expected_decision_improvement": 0.01311766728132842,
+        "cost": 0.002,
+        "net_value": 0.01111766728132842
+      },
+      {
+        "name": "coarse",
+        "expected_decision_improvement": 0.0022698369857297915,
+        "cost": 0.01,
+        "net_value": -0.007730163014270208
+      }
+    ],
+    "status": "MEASURE_IF_VALIDITY_BOUNDARY_VALUE_POSITIVE"
+  },
+  "far_from_boundary": {
+    "imbalance": 0.0050000000000000894,
+    "transport_status": "AMBIPOLAR_PACKET_TRANSPORT_VALID",
+    "chosen_channel": null,
+    "ranked_channels": [
+      {
+        "name": "precise",
+        "expected_decision_improvement": 6.938893903907228e-18,
+        "cost": 0.002,
+        "net_value": -0.001999999999999993
+      },
+      {
+        "name": "coarse",
+        "expected_decision_improvement": 6.938893903907228e-18,
+        "cost": 0.01,
+        "net_value": -0.009999999999999993
+      }
+    ],
+    "status": "MEASURE_IF_VALIDITY_BOUNDARY_VALUE_POSITIVE"
+  }
+}

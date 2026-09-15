@@ -1,0 +1,29 @@
+{
+  "run_id": "20260913T181334Z-af5ca1d5",
+  "status": "EXECUTED",
+  "started_at": "2026-09-13T18:13:34.446553+00:00",
+  "folder": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R002_C326_HFAD",
+  "entry": "demo_flow_attribution.py",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "scope": "execution_only; no scientific promotion",
+  "workspace_boundary": "A file copy, not an operating-system security sandbox. Scripts with absolute paths or external side effects require separate review.",
+  "input_snapshot_sha256": "0ed0fddafb949d5192f1320483d5049e23d77c88054d2a574e0dc8f7d7a90940",
+  "exit_code": 0,
+  "seconds": 0.353,
+  "artifacts": [],
+  "deleted_files": [],
+  "finished_at": "2026-09-13T18:13:43.004411+00:00"
+}

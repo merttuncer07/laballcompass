@@ -1,0 +1,131 @@
+{
+  "authority_scope": "PRODUCT_OVERLAY_ONLY_REGISTRY455_UNCHANGED",
+  "candidate_added_suite_ids": [
+    "V2P050"
+  ],
+  "candidate_distinct_product_ids": [
+    "V2P050"
+  ],
+  "candidate_family_variant_ids": [],
+  "model_version": "R389_PRODUCT_QUALITY_AUDIT_V1",
+  "physical_candidate_suite_ids": [
+    "V2P001",
+    "V2P002",
+    "V2P003",
+    "V2P004",
+    "V2P005",
+    "V2P006",
+    "V2P007",
+    "V2P008",
+    "V2P009",
+    "V2P010",
+    "V2P011",
+    "V2P012",
+    "V2P013",
+    "V2P014",
+    "V2P015",
+    "V2P016",
+    "V2P017",
+    "V2P018",
+    "V2P019",
+    "V2P020",
+    "V2P021",
+    "V2P022",
+    "V2P023",
+    "V2P024",
+    "V2P025",
+    "V2P026",
+    "V2P027",
+    "V2P028",
+    "V2P029",
+    "V2P030",
+    "V2P031",
+    "V2P032",
+    "V2P033",
+    "V2P034",
+    "V2P035",
+    "V2P036",
+    "V2P037",
+    "V2P038",
+    "V2P039",
+    "V2P040",
+    "V2P041",
+    "V2P042",
+    "V2P043",
+    "V2P044",
+    "V2P045",
+    "V2P046",
+    "V2P048",
+    "V2P049",
+    "V2P050"
+  ],
+  "prior_canonical_authority_release": "R388",
+  "prior_distinct_family_count": 35,
+  "prior_executable_suite_count": 48,
+  "prior_quality_audit": "PRODUCT_QUALITY_AUDIT_R388.json",
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "registry_family_count": 455,
+  "resulting_distinct_family_count": 36,
+  "resulting_executable_suite_count": 49,
+  "rows": [
+    {
+      "abstention": "estimated supported dependence inside the ambiguity band returns ABSTAIN_DEPENDENCE_THRESHOLD_AMBIGUOUS and does not silently merge families",
+      "candidate_origin": "R388C0017 / previously hidden parent-parent visibility surface",
+      "collapse_regions": [
+        "no supported cross-family dependence edge: candidate exactly collapses to the declared CSID family partition/portfolio",
+        "supported cross-family dependence clearly below threshold: candidate collapses to declared CSID semantics",
+        "dependence already encoded by the same declared CSID evidence_family: candidate adds no new family merge and gain is zero"
+      ],
+      "conservatism_boundary": "connected-component family merging treats strong supported dependence as common-mode equivalence; this can be conservative for graded or antagonistic dependence and is not a copula/general dependence model",
+      "consumer_id": "PARENT:IM445_IM085_CSID",
+      "evidence_boundary": "deterministic synthetic mechanism evidence only; no empirical contract-loss, reliability, market, deployment, or external scientific novelty claim",
+      "family_id": "V2P050",
+      "mechanism_removing_comparator": "same CSID failures, safeguard costs, coverage, budget and declared evidence-family labels with covariance-based cross-family partition repair removed",
+      "nearest_existing_products": [
+        {
+          "difference": "EDSANP discounts correlated evidence used to justify a covariance support mask and either allows or refuses the structured-support portfolio path; it explicitly does not infer/edit the support graph. SCIG instead consumes a support-aware covariance estimate to alter CSID's downstream evidence-family equivalence partition and therefore its safeguard coverage composition/portfolio choice.",
+          "product": "V2P005_EDSANP"
+        },
+        {
+          "difference": "SCCATF inserts covariance cross-terms into an allocation objective. SCIG changes the independence partition that determines multiplicative safeguard coverage before portfolio evaluation.",
+          "product": "V2P039_SCCATF"
+        },
+        {
+          "difference": "SACAPL changes CAPL risk-objective geometry while the feasible set remains fixed. SCIG changes categorical/common-mode evidence structure used by CSID, not portfolio covariance geometry.",
+          "product": "V2P049_SACAPL"
+        },
+        {
+          "difference": "SCOPG uses support geometry as an identification/conditioning guard. SCIG uses support-aware covariance to merge nominally distinct evidence families inside a safeguard-dependence model.",
+          "product": "V2P034_SCOPG"
+        }
+      ],
+      "new_failure_mode": "CSID can correctly avoid double-counting safeguards that share an explicitly declared evidence_family yet still overstate independence when differently named evidence families are driven by one supported dependence channel.",
+      "non_additive_interaction": "SACPS changes CSID's equivalence partition over safeguard evidence families before coverage multiplication and portfolio search. This changes the combinatorial coverage operator itself; it is not a covariance penalty appended to the same CSID objective.",
+      "prior_art_status": "STRONG_PRIOR_ART_ON_COMMON_CAUSE_FAILURE_AND_DEPENDENCE_AWARE_REDUNDANCY;_INTERNAL_COMPOSITION_DISTINCT_NOT_NEW_THEORY",
+      "product_id": "V2P050",
+      "quality_accounting": "R389_DISTINCT_PRODUCT_CANDIDATE",
+      "sensitivity_cells": 18,
+      "short_name": "SCIG",
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "support_boundary": "strong raw correlation without a declared support edge is intentionally ignored; support correctness remains external and misdeclared support can still cause false merges or missed merges",
+      "test_files": [
+        "test_scig.py"
+      ],
+      "test_methods": 13,
+      "verdict": "DISTINCT_PRODUCT_CANDIDATE_PENDING_FULL_REGRESSION_AND_PROMOTION",
+      "working_region": "nominally distinct safeguard evidence families have a supported dependence edge whose estimated absolute correlation is clearly above the declared threshold+ambiguity band; the repaired partition changes the selected CSID portfolio under the same costs, coverage and budget."
+    }
+  ],
+  "rules": [
+    "visibility expansion is not itself product promotion",
+    "executable suite does not imply distinct family",
+    "new failure + non-additive interaction + nearest-family comparison + mechanism-removal control required",
+    "internal distinct-family accounting does not imply novel theory or external empirical validation",
+    "mechanics telemetry calibrates executable contracts only",
+    "current test signature, not an older pilot signature, controls calibration authority"
+  ],
+  "status": "CANDIDATE_OVERLAY_NOT_CANONICAL"
+}

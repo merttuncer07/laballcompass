@@ -1,0 +1,36 @@
+{
+  "release": "R389",
+  "result": "PROMOTED",
+  "authority_file": "01_V2_CORE/CURRENT_PRODUCT_AUTHORITY.json",
+  "authority_sha256": "dfb40da080c281b9022ec08476db7ceaa615b381cde25573804fbf6ac726ddf6",
+  "overlay_state_sha256_after_promotion": "98b5fc33d0cb96743ade8bf7018e0e9031130b508c2c34a8c70d4bfa26b58a99",
+  "checks": {
+    "promotion_regression_bundle": "PASS",
+    "foundry_test_files_passed": 214,
+    "foundry_tests_counted": 806,
+    "foundry_inheritance_byte_identical": true,
+    "direct_v2_test_files": 49,
+    "direct_v2_tests_counted": 411,
+    "direct_v2_failed": 0,
+    "core_surfaces_fresh": 13,
+    "core_tests_counted": 108,
+    "candidate_closure_tests": 8,
+    "physical_suite_count": 49,
+    "distinct_family_count": 36,
+    "telemetry_events": 411,
+    "telemetry_exact_matches": 411,
+    "telemetry_unmatched": 0,
+    "calibrated_suites": 49,
+    "interaction_map_completed_edges": 49,
+    "fixed_pilotable_queue_rows": 49,
+    "campaign_mechanics_passes": 49,
+    "rejected_current_interface_edges": 5,
+    "candidate_universe_rows": 16594,
+    "active_candidate_rows": 16589
+  },
+  "registry455_unchanged": true,
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "note": "Promotion certifies graph visibility, deterministic executable contracts, failure-region controls and internal product-family distinctness only; it is not novel-theory, scientific, deployment or real-world validation."
+}

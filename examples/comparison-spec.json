@@ -1,0 +1,10 @@
+{
+  "candidate": "candidate",
+  "baseline": "baseline",
+  "metric": "illustrative_loss",
+  "unit": "synthetic_units",
+  "direction": "minimize",
+  "cases": ["easy", "hard"],
+  "replicates": ["a", "b", "c", "d", "e"],
+  "replication_kind": "deterministic"
+}

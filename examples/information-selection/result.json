@@ -1,0 +1,149 @@
+{
+  "information_mode": "finite_joint_observations",
+  "initial": {
+    "mean": [
+      0.0
+    ],
+    "covariance": [
+      [
+        1.0
+      ]
+    ],
+    "action_index": 0,
+    "ranked_channels": [
+      {
+        "name": "original_observation",
+        "expected_decision_improvement": 0.28209479177387814,
+        "cost": 0.0,
+        "net_value": 0.28209479177387814
+      },
+      {
+        "name": "same_observation_copy",
+        "expected_decision_improvement": 0.28209479177387814,
+        "cost": 0.0,
+        "net_value": 0.28209479177387814
+      },
+      {
+        "name": "independent_observation",
+        "expected_decision_improvement": 0.28209479177387814,
+        "cost": 0.0,
+        "net_value": 0.28209479177387814
+      }
+    ],
+    "chosen_channel": "original_observation"
+  },
+  "steps": [
+    {
+      "observation": {
+        "channel": "original_observation",
+        "value": 1.0
+      },
+      "mean": [
+        0.4999999999999999
+      ],
+      "covariance": [
+        [
+          0.5
+        ]
+      ],
+      "action_index": 1,
+      "ranked_channels": [
+        {
+          "name": "independent_observation",
+          "expected_decision_improvement": 0.02176532092276597,
+          "cost": 0.0,
+          "net_value": 0.02176532092276597
+        },
+        {
+          "name": "original_observation",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        },
+        {
+          "name": "same_observation_copy",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        }
+      ],
+      "chosen_channel": "independent_observation"
+    },
+    {
+      "observation": {
+        "channel": "same_observation_copy",
+        "value": 1.0
+      },
+      "mean": [
+        0.4999999999999999
+      ],
+      "covariance": [
+        [
+          0.5
+        ]
+      ],
+      "action_index": 1,
+      "ranked_channels": [
+        {
+          "name": "independent_observation",
+          "expected_decision_improvement": 0.02176532092276597,
+          "cost": 0.0,
+          "net_value": 0.02176532092276597
+        },
+        {
+          "name": "original_observation",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        },
+        {
+          "name": "same_observation_copy",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        }
+      ],
+      "chosen_channel": "independent_observation"
+    },
+    {
+      "observation": {
+        "channel": "independent_observation",
+        "value": 1.0
+      },
+      "mean": [
+        0.6666666666666666
+      ],
+      "covariance": [
+        [
+          0.3333333333333333
+        ]
+      ],
+      "action_index": 1,
+      "ranked_channels": [
+        {
+          "name": "original_observation",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        },
+        {
+          "name": "same_observation_copy",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        },
+        {
+          "name": "independent_observation",
+          "expected_decision_improvement": 0.0,
+          "cost": 0.0,
+          "net_value": 0.0
+        }
+      ],
+      "chosen_channel": null
+    }
+  ],
+  "value_method": "Gaussian affine upper-envelope integration",
+  "scope": "One-step expected value under supplied Gaussian belief, affine utilities and costs on the same utility scale. Finite joint mode models one observation per channel, with supplied noise covariance initially independent of the state. Default mode treats each update as a fresh independent noise draw. No inferred covariance, audit probability, or globally optimal multi-step policy.",
+  "input_sha256": "0f3847d1641fd5b4f23f19422b0b7988e7ac25b529ab832bea0db770b5de00ca",
+  "engine_sha256": "90d320e4bda220f7387805da380a14eb875ab2955bca85df9f4d7fa72d44741d"
+}

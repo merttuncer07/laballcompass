@@ -1,0 +1,11 @@
+test_exact_posterior_selection_uses_clean_scenarios (test_sava.SAVATests.test_exact_posterior_selection_uses_clean_scenarios) ... ok
+test_invalid_scenario_mass_rejected (test_sava.SAVATests.test_invalid_scenario_mass_rejected) ... ok
+test_large_candidate_set_routes_to_scalable_mode (test_sava.SAVATests.test_large_candidate_set_routes_to_scalable_mode) ... ok
+test_output_keeps_every_assumption_visible (test_sava.SAVATests.test_output_keeps_every_assumption_visible) ... ok
+test_portfolio_value_is_nonadditive (test_sava.SAVATests.test_portfolio_value_is_nonadditive) ... ok
+test_rank_does_not_double_count_shared_pools (test_sava.SAVATests.test_rank_does_not_double_count_shared_pools) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

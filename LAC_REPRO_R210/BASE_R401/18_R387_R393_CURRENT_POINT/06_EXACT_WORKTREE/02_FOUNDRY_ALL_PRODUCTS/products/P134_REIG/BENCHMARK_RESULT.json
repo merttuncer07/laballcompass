@@ -1,0 +1,125 @@
+{
+  "observed_violations": [
+    "AC",
+    "BC"
+  ],
+  "integrity_gate_active": true,
+  "posterior_semantics": "REL marginal suspect probabilities are conditional on the enumerated one-or-more-culprit hypothesis space; they are used only as a declared borrowing-power gate, not as unconditional fraud probabilities.",
+  "integrity_exponent": 1.0,
+  "contributions": [
+    {
+      "name": "A",
+      "conditional_suspect_probability": 0.02648758568934553,
+      "integrity_multiplier": 0.9735124143106545,
+      "declared_maximum_power": 1.0,
+      "gated_maximum_power": 0.9735124143106545
+    },
+    {
+      "name": "B",
+      "conditional_suspect_probability": 0.02648758568934553,
+      "integrity_multiplier": 0.9735124143106545,
+      "declared_maximum_power": 1.0,
+      "gated_maximum_power": 0.9735124143106545
+    },
+    {
+      "name": "C",
+      "conditional_suspect_probability": 0.9724952018201912,
+      "integrity_multiplier": 0.027504798179808776,
+      "declared_maximum_power": 1.0,
+      "gated_maximum_power": 0.027504798179808776
+    }
+  ],
+  "ungated": {
+    "current_estimate": 1.0,
+    "current_standard_error": 0.5,
+    "posterior_estimate": 0.7123342651211577,
+    "posterior_standard_error": 0.2886751345948129,
+    "confidence_low": 0.14653100131532437,
+    "confidence_high": 1.2781375289269912,
+    "current_precision": 4.0,
+    "borrowed_precision": 8.0,
+    "borrowing_precision_ratio": 2.0,
+    "cap_scale": 0.0879630514130754,
+    "current_information_share": 0.3333333333333333,
+    "contributions": [
+      {
+        "name": "A",
+        "estimate": 0.1,
+        "standard_error": 0.15,
+        "conflict_z": 1.7240873133980725,
+        "commensurability_factor": 0.5165669074598118,
+        "pre_cap_power": 0.5165669074598118,
+        "final_power": 0.04543880143918078,
+        "borrowed_precision": 2.0195022861858125
+      },
+      {
+        "name": "B",
+        "estimate": 0.12,
+        "standard_error": 0.15,
+        "conflict_z": 1.6857742619892264,
+        "commensurability_factor": 0.5317834835404894,
+        "pre_cap_power": 0.5317834835404894,
+        "final_power": 0.046777297903296405,
+        "borrowed_precision": 2.078991017924285
+      },
+      {
+        "name": "C",
+        "estimate": 1.05,
+        "standard_error": 0.15,
+        "conflict_z": 0.09578262852211522,
+        "commensurability_factor": 0.9979633408269195,
+        "pre_cap_power": 0.9979633408269195,
+        "final_power": 0.0877839006575228,
+        "borrowed_precision": 3.901506695889902
+      }
+    ]
+  },
+  "gated": {
+    "current_estimate": 1.0,
+    "current_standard_error": 0.5,
+    "posterior_estimate": 0.4231738063633441,
+    "posterior_standard_error": 0.2886751345948129,
+    "confidence_low": -0.14262945744248923,
+    "confidence_high": 0.9889770701691775,
+    "current_precision": 4.0,
+    "borrowed_precision": 7.999999999999998,
+    "borrowing_precision_ratio": 1.9999999999999996,
+    "cap_scale": 0.17175066109203066,
+    "current_information_share": 0.33333333333333337,
+    "contributions": [
+      {
+        "name": "A",
+        "estimate": 0.1,
+        "standard_error": 0.15,
+        "conflict_z": 1.7240873133980725,
+        "commensurability_factor": 0.5165669074598118,
+        "pre_cap_power": 0.5028842972341898,
+        "final_power": 0.08637071050277334,
+        "borrowed_precision": 3.8386982445677043
+      },
+      {
+        "name": "B",
+        "estimate": 0.12,
+        "standard_error": 0.15,
+        "conflict_z": 1.6857742619892264,
+        "commensurability_factor": 0.5317834835404894,
+        "pre_cap_power": 0.517697822952032,
+        "final_power": 0.08891494333791655,
+        "borrowed_precision": 3.951775259462958
+      },
+      {
+        "name": "C",
+        "estimate": 1.05,
+        "standard_error": 0.15,
+        "conflict_z": 0.09578262852211522,
+        "commensurability_factor": 0.9979633408269195,
+        "pre_cap_power": 0.02744878028029214,
+        "final_power": 0.00471434615931007,
+        "borrowed_precision": 0.20952649596933645
+      }
+    ]
+  },
+  "decision_threshold": 0.6,
+  "ungated_decision": true,
+  "gated_decision": false
+}

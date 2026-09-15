@@ -1,0 +1,3847 @@
+{
+  "contract": {
+    "diagnosed_failure": "a persistence standard error can revoke a scalar action certificate but cannot be silently treated as ambient vector uncertainty; the downstream sensitivity direction and radius mapping must be explicit",
+    "mechanism_needs": [
+      "admissible shift robustness",
+      "identification uncertainty",
+      "declared sensitivity direction",
+      "fail closed without sensitivity provenance"
+    ],
+    "objective": "route identified scalar persistence uncertainty into a downstream robust decision only along a declared law-preserving sensitivity direction",
+    "problem_id": "R10_IDENTIFICATION_ADMISSIBLE_SHIFT_SMOKE",
+    "search_generation": 0
+  },
+  "counts": {
+    "capabilities_returned": 32,
+    "interaction_expansions_returned": 45,
+    "primitive_donors_returned": 12
+  },
+  "direct_capabilities": [
+    {
+      "document_id": "FOUNDRY:P025",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P025 IDRE v0.1 \u2014 Identification-Driven Decision Robustness Envelope"
+        }
+      },
+      "name": "P025 IDRE",
+      "rank": 1,
+      "score": 26.521689,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P025",
+        "feature_contributions": [
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:scalar"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:robustness"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:revoke"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:persistence"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:mapping"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:identified"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:identification"
+          },
+          {
+            "contribution": 1.4221194611561043,
+            "dependency_coefficient": 2.9627488774085506,
+            "feature": "tok:cannot"
+          },
+          {
+            "contribution": 1.368584184422987,
+            "dependency_coefficient": 2.851217050881223,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.31377901398979,
+            "dependency_coefficient": 2.7370396124787293,
+            "feature": "tok:can"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "LCB-K068",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "AdmissibleShiftRobustOptimizerV0",
+      "rank": 2,
+      "score": 20.834253,
+      "score_explanation": {
+        "document_id": "LCB-K068",
+        "feature_contributions": [
+          {
+            "contribution": 3.012670719252527,
+            "dependency_coefficient": 6.2763973317760975,
+            "feature": "tok:shift"
+          },
+          {
+            "contribution": 3.012670719252527,
+            "dependency_coefficient": 6.2763973317760975,
+            "feature": "tok:robust"
+          },
+          {
+            "contribution": 3.012670719252527,
+            "dependency_coefficient": 6.2763973317760975,
+            "feature": "tok:admissible"
+          },
+          {
+            "contribution": 1.721526125287158,
+            "dependency_coefficient": 3.586512761014913,
+            "feature": "tok:robustness"
+          },
+          {
+            "contribution": 1.721526125287158,
+            "dependency_coefficient": 3.586512761014913,
+            "feature": "tok:direction"
+          },
+          {
+            "contribution": 1.1175537263185706,
+            "dependency_coefficient": 2.328236929830356,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.0042235730841755,
+            "dependency_coefficient": 6.2763973317760975,
+            "feature": "root:robus"
+          },
+          {
+            "contribution": 1.0042235730841755,
+            "dependency_coefficient": 6.2763973317760975,
+            "feature": "root:admis"
+          },
+          {
+            "contribution": 1.0041118165926493,
+            "dependency_coefficient": 2.0918996179013525,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.7677859563190531,
+            "dependency_coefficient": 1.599554075664694,
+            "feature": "tok:decision"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P133",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "DTRM + ACRA",
+          "title": "Product result \u2014 P133_TRRA v0.1"
+        }
+      },
+      "name": "P133 TRRA",
+      "rank": 3,
+      "score": 12.601446,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P133",
+        "feature_contributions": [
+          {
+            "contribution": 2.205127968550744,
+            "dependency_coefficient": 4.594016601147383,
+            "feature": "tok:radius"
+          },
+          {
+            "contribution": 2.205127968550744,
+            "dependency_coefficient": 4.594016601147383,
+            "feature": "tok:direction"
+          },
+          {
+            "contribution": 1.4314908975616736,
+            "dependency_coefficient": 2.9822727032534866,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.2861814977983028,
+            "dependency_coefficient": 2.6795447870797977,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.9834682502173546,
+            "dependency_coefficient": 2.048892187952822,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.7350426561835813,
+            "dependency_coefficient": 4.594016601147383,
+            "feature": "root:radiu"
+          },
+          {
+            "contribution": 0.6545075388355351,
+            "dependency_coefficient": 4.090672117722095,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.6135025316684767,
+            "dependency_coefficient": 3.834390822927979,
+            "feature": "root:direc"
+          },
+          {
+            "contribution": 0.46044659814803757,
+            "dependency_coefficient": 2.877791238425235,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.42872716593276766,
+            "dependency_coefficient": 2.6795447870797977,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.27
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P114",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "MLHPE + AICC",
+          "title": "Product result \u2014 P114_HPAC v0.1"
+        }
+      },
+      "name": "P114 HPAC",
+      "rank": 4,
+      "score": 12.101322,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P114",
+        "feature_contributions": [
+          {
+            "contribution": 1.8690925138185583,
+            "dependency_coefficient": 3.893942737121997,
+            "feature": "tok:standard"
+          },
+          {
+            "contribution": 1.7987310655013198,
+            "dependency_coefficient": 3.747356386461083,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.592274493090169,
+            "dependency_coefficient": 3.317238527271186,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 1.2133485940003679,
+            "dependency_coefficient": 2.5278095708341,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.0901826303199547,
+            "dependency_coefficient": 2.2712138131665722,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.8335993059249043,
+            "dependency_coefficient": 1.736665220676884,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.591155635290503,
+            "dependency_coefficient": 3.694722720565643,
+            "feature": "root:downs"
+          },
+          {
+            "contribution": 0.5613973092272521,
+            "dependency_coefficient": 3.508733182670325,
+            "feature": "root:stand"
+          },
+          {
+            "contribution": 0.39027997553236554,
+            "dependency_coefficient": 2.4392498470772845,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.36339421010665157,
+            "dependency_coefficient": 2.2712138131665722,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R039_DECISION_BELIEF_DSBC",
+          "test_methods": 4
+        }
+      },
+      "name": "R039_DECISION_BELIEF_DSBC",
+      "rank": 5,
+      "score": 11.86434,
+      "score_explanation": {
+        "document_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+        "feature_contributions": [
+          {
+            "contribution": 2.0092320350634245,
+            "dependency_coefficient": 4.185900073048801,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.859074384674763,
+            "dependency_coefficient": 3.8730716347390897,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 1.629518335725891,
+            "dependency_coefficient": 3.3948298660956064,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 1.3553437262091448,
+            "dependency_coefficient": 2.8236327629357185,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.6959425688640128,
+            "dependency_coefficient": 4.34964105540008,
+            "feature": "root:vecto"
+          },
+          {
+            "contribution": 0.6603370914722645,
+            "dependency_coefficient": 4.127106821701653,
+            "feature": "root:downs"
+          },
+          {
+            "contribution": 0.6057651796589664,
+            "dependency_coefficient": 3.7860323728685397,
+            "feature": "root:expli"
+          },
+          {
+            "contribution": 0.543172778575297,
+            "dependency_coefficient": 3.3948298660956064,
+            "feature": "root:decis"
+          },
+          {
+            "contribution": 0.43595345881505987,
+            "dependency_coefficient": 2.724709117594124,
+            "feature": "root:actio"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P037",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P037 MCST v0.1 \u2014 Monotone-Certificate Sensitivity Tipping"
+        }
+      },
+      "name": "P037 MCST",
+      "rank": 6,
+      "score": 11.663109,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P037",
+        "feature_contributions": [
+          {
+            "contribution": 1.6491900643956103,
+            "dependency_coefficient": 3.4358126341575215,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 1.6491900643956103,
+            "dependency_coefficient": 3.4358126341575215,
+            "feature": "tok:scalar"
+          },
+          {
+            "contribution": 1.6491900643956103,
+            "dependency_coefficient": 3.4358126341575215,
+            "feature": "tok:robustness"
+          },
+          {
+            "contribution": 1.5043707510365958,
+            "dependency_coefficient": 3.1341057313262413,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.0976413167898909,
+            "dependency_coefficient": 2.2867527433122725,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.5497300214652034,
+            "dependency_coefficient": 3.4358126341575215,
+            "feature": "root:scala"
+          },
+          {
+            "contribution": 0.5497300214652034,
+            "dependency_coefficient": 3.4358126341575215,
+            "feature": "root:robus"
+          },
+          {
+            "contribution": 0.48949872547714207,
+            "dependency_coefficient": 3.059367034232138,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.4543251606626158,
+            "dependency_coefficient": 2.8395322541413486,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.36588043892996364,
+            "dependency_coefficient": 2.2867527433122725,
+            "feature": "root:prove"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P001",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "Product result \u2014 P001 DREW v0.1"
+        }
+      },
+      "name": "P001 DREW",
+      "rank": 7,
+      "score": 11.551322,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P001",
+        "feature_contributions": [
+          {
+            "contribution": 1.1150622434986328,
+            "dependency_coefficient": 2.323046340622152,
+            "feature": "tok:shift"
+          },
+          {
+            "contribution": 1.1150622434986328,
+            "dependency_coefficient": 2.323046340622152,
+            "feature": "tok:route"
+          },
+          {
+            "contribution": 1.0730860471164942,
+            "dependency_coefficient": 2.2355959314926963,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.0580139678541516,
+            "dependency_coefficient": 2.204195766362816,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.0301141463952388,
+            "dependency_coefficient": 2.146071138323414,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 0.9499182921146339,
+            "dependency_coefficient": 1.9789964419054873,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 0.7421451388048922,
+            "dependency_coefficient": 1.5461357058435254,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.49730824203266777,
+            "dependency_coefficient": 1.036058837568058,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.37168741449954434,
+            "dependency_coefficient": 2.323046340622152,
+            "feature": "root:silen"
+          },
+          {
+            "contribution": 0.37168741449954434,
+            "dependency_coefficient": 2.323046340622152,
+            "feature": "root:close"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P032",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P032 SGOT v0.1 \u2014 Support-Gated Orthogonal Target"
+        }
+      },
+      "name": "P032 SGOT",
+      "rank": 8,
+      "score": 11.506814,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P032",
+        "feature_contributions": [
+          {
+            "contribution": 1.2420986593362944,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "tok:standard"
+          },
+          {
+            "contribution": 1.2420986593362944,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "tok:identification"
+          },
+          {
+            "contribution": 1.2420986593362944,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "tok:cannot"
+          },
+          {
+            "contribution": 1.1785510079754806,
+            "dependency_coefficient": 2.455314599948918,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.1060078346120819,
+            "dependency_coefficient": 2.3041829887751706,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 1.0581402464247778,
+            "dependency_coefficient": 2.2044588467182873,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 0.8266959869883128,
+            "dependency_coefficient": 1.7222833062256517,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.41403288644543146,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "root:treat"
+          },
+          {
+            "contribution": 0.41403288644543146,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "root:ident"
+          },
+          {
+            "contribution": 0.41403288644543146,
+            "dependency_coefficient": 2.5877055402839466,
+            "feature": "root:canno"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:R029_S440_SCE",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R029_S440_SCE",
+          "test_methods": 4
+        }
+      },
+      "name": "R029_S440_SCE",
+      "rank": 9,
+      "score": 11.182218,
+      "score_explanation": {
+        "document_id": "PARENT:R029_S440_SCE",
+        "feature_contributions": [
+          {
+            "contribution": 1.9823765526271353,
+            "dependency_coefficient": 4.129951151306532,
+            "feature": "tok:standard"
+          },
+          {
+            "contribution": 1.9823765526271353,
+            "dependency_coefficient": 4.129951151306532,
+            "feature": "tok:robust"
+          },
+          {
+            "contribution": 1.6887808372842394,
+            "dependency_coefficient": 3.518293411008832,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 1.156257632219829,
+            "dependency_coefficient": 2.408870067124644,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.6607921842090451,
+            "dependency_coefficient": 4.129951151306532,
+            "feature": "root:treat"
+          },
+          {
+            "contribution": 0.6607921842090451,
+            "dependency_coefficient": 4.129951151306532,
+            "feature": "root:robus"
+          },
+          {
+            "contribution": 0.5954231020092268,
+            "dependency_coefficient": 3.7213943875576674,
+            "feature": "root:stand"
+          },
+          {
+            "contribution": 0.385419210739943,
+            "dependency_coefficient": 2.408870067124644,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P027",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P027 IDAC v0.1 \u2014 Integral Deployability Audit Certificate"
+        }
+      },
+      "name": "P027 IDAC",
+      "rank": 10,
+      "score": 11.047286,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P027",
+        "feature_contributions": [
+          {
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.464572367773126,
+            "dependency_coefficient": 3.051192432860679,
+            "feature": "tok:silently"
+          },
+          {
+            "contribution": 1.3896426240523982,
+            "dependency_coefficient": 2.8950888001091633,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.3529977570839675,
+            "dependency_coefficient": 2.8187453272582657,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.335964774722158,
+            "dependency_coefficient": 2.783259947337829,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 0.9747664486965734,
+            "dependency_coefficient": 2.030763434784528,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.4881907892577087,
+            "dependency_coefficient": 3.051192432860679,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.4881907892577087,
+            "dependency_coefficient": 3.051192432860679,
+            "feature": "root:silen"
+          },
+          {
+            "contribution": 0.40346597439295373,
+            "dependency_coefficient": 2.521662339955961,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.32492214956552445,
+            "dependency_coefficient": 2.030763434784528,
+            "feature": "root:prove"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P034",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P034 UGIM v0.1 \u2014 Ultimate Gain Incidence Mapper"
+        }
+      },
+      "name": "P034 UGIM",
+      "rank": 11,
+      "score": 10.645759,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P034",
+        "feature_contributions": [
+          {
+            "contribution": 1.5575647688895198,
+            "dependency_coefficient": 3.2449266018531664,
+            "feature": "tok:silently"
+          },
+          {
+            "contribution": 1.5575647688895198,
+            "dependency_coefficient": 3.2449266018531664,
+            "feature": "tok:mapping"
+          },
+          {
+            "contribution": 1.4778773928817506,
+            "dependency_coefficient": 3.0789112351703136,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.3869098274593303,
+            "dependency_coefficient": 2.889395473873605,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 1.0366588307915743,
+            "dependency_coefficient": 2.1597058974824463,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.5191882562965067,
+            "dependency_coefficient": 3.2449266018531664,
+            "feature": "root:silen"
+          },
+          {
+            "contribution": 0.5191882562965067,
+            "dependency_coefficient": 3.2449266018531664,
+            "feature": "root:mappi"
+          },
+          {
+            "contribution": 0.4519139673632082,
+            "dependency_coefficient": 2.824462296020051,
+            "feature": "root:expli"
+          },
+          {
+            "contribution": 0.43333989799211814,
+            "dependency_coefficient": 2.7083743624507384,
+            "feature": "root:direc"
+          },
+          {
+            "contribution": 0.3455529435971914,
+            "dependency_coefficient": 2.1597058974824463,
+            "feature": "root:prove"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:R028_S418_S439_TDSX",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R028_S418_S439_TDSX",
+          "test_methods": 4
+        }
+      },
+      "name": "R028_S418_S439_TDSX",
+      "rank": 12,
+      "score": 10.22139,
+      "score_explanation": {
+        "document_id": "PARENT:R028_S418_S439_TDSX",
+        "feature_contributions": [
+          {
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 1.8514587362322688,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "tok:preserving"
+          },
+          {
+            "contribution": 0.8257347916496136,
+            "dependency_coefficient": 1.7202808159366951,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.617152912077423,
+            "dependency_coefficient": 3.8572057004838936,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.5495344116030366,
+            "dependency_coefficient": 3.434590072518979,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.32934715791387786,
+            "dependency_coefficient": 2.0584197369617367,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.2752449305498712,
+            "dependency_coefficient": 1.7202808159366951,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P029",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P029 RATR v0.1 \u2014 Resilience-Aware Target Reduction"
+        }
+      },
+      "name": "P029 RATR",
+      "rank": 13,
+      "score": 10.137447,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P029",
+        "feature_contributions": [
+          {
+            "contribution": 1.4325002729298537,
+            "dependency_coefficient": 2.984375568603862,
+            "feature": "tok:cannot"
+          },
+          {
+            "contribution": 1.4325002729298537,
+            "dependency_coefficient": 2.984375568603862,
+            "feature": "tok:admissible"
+          },
+          {
+            "contribution": 1.3592113862265551,
+            "dependency_coefficient": 2.83169038797199,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.2203428289758445,
+            "dependency_coefficient": 2.542380893699676,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 0.9534204212277014,
+            "dependency_coefficient": 1.986292544224378,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.6388828933951217,
+            "dependency_coefficient": 1.3310060279065037,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.47750009097661794,
+            "dependency_coefficient": 2.984375568603862,
+            "feature": "root:canno"
+          },
+          {
+            "contribution": 0.47750009097661794,
+            "dependency_coefficient": 2.984375568603862,
+            "feature": "root:admis"
+          },
+          {
+            "contribution": 0.3178068070759005,
+            "dependency_coefficient": 1.986292544224378,
+            "feature": "root:prove"
+          },
+          {
+            "contribution": 0.25482063648925674,
+            "dependency_coefficient": 1.5926289780578546,
+            "feature": "root:prese"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P038",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P038 LIDA v0.1 \u2014 Lock-In Damage Accumulator"
+        }
+      },
+      "name": "P038 LIDA",
+      "rank": 14,
+      "score": 10.08526,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P038",
+        "feature_contributions": [
+          {
+            "contribution": 1.3820583515591598,
+            "dependency_coefficient": 2.8792882324149165,
+            "feature": "tok:treated"
+          },
+          {
+            "contribution": 1.3820583515591598,
+            "dependency_coefficient": 2.8792882324149165,
+            "feature": "tok:persistence"
+          },
+          {
+            "contribution": 1.3820583515591598,
+            "dependency_coefficient": 2.8792882324149165,
+            "feature": "tok:direction"
+          },
+          {
+            "contribution": 1.2306328110298965,
+            "dependency_coefficient": 2.5638183563122845,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 0.9198481009778633,
+            "dependency_coefficient": 1.9163502103705485,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.46068611718638663,
+            "dependency_coefficient": 2.8792882324149165,
+            "feature": "root:treat"
+          },
+          {
+            "contribution": 0.46068611718638663,
+            "dependency_coefficient": 2.8792882324149165,
+            "feature": "root:persi"
+          },
+          {
+            "contribution": 0.4151125928888518,
+            "dependency_coefficient": 2.5944537055553236,
+            "feature": "root:stand"
+          },
+          {
+            "contribution": 0.4009922959581639,
+            "dependency_coefficient": 2.5062018497385243,
+            "feature": "root:expli"
+          },
+          {
+            "contribution": 0.38451115295243443,
+            "dependency_coefficient": 2.403194705952715,
+            "feature": "root:direc"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P018",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P018 DPCG v0.1 \u2014 Decision Privacy Composition Governor"
+        }
+      },
+      "name": "P018 DPCG",
+      "rank": 15,
+      "score": 9.992036,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P018",
+        "feature_contributions": [
+          {
+            "contribution": 1.736761541915274,
+            "dependency_coefficient": 3.6182532123234874,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 1.736761541915274,
+            "dependency_coefficient": 3.6182532123234874,
+            "feature": "tok:cannot"
+          },
+          {
+            "contribution": 1.1559257280127697,
+            "dependency_coefficient": 2.4081786000266034,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 1.1274440186438914,
+            "dependency_coefficient": 2.3488417055081072,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.7745808220802601,
+            "dependency_coefficient": 1.613710046000542,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.578920513971758,
+            "dependency_coefficient": 3.6182532123234874,
+            "feature": "root:canno"
+          },
+          {
+            "contribution": 0.5154909549717668,
+            "dependency_coefficient": 3.221818468573542,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.38530857600425655,
+            "dependency_coefficient": 2.4081786000266034,
+            "feature": "root:prove"
+          },
+          {
+            "contribution": 0.3626483157323511,
+            "dependency_coefficient": 2.2665519733271946,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.25819360736008673,
+            "dependency_coefficient": 1.613710046000542,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P002",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "Product result \u2014 P002 DCPS v0.1"
+        }
+      },
+      "name": "P002 DCPS",
+      "rank": 16,
+      "score": 9.988547,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P002",
+        "feature_contributions": [
+          {
+            "contribution": 1.0963735289732672,
+            "dependency_coefficient": 2.284111518694307,
+            "feature": "tok:closed"
+          },
+          {
+            "contribution": 1.0402813963099515,
+            "dependency_coefficient": 2.1672529089790658,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 0.9762491116073436,
+            "dependency_coefficient": 2.0338523158486326,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 0.9339974303983838,
+            "dependency_coefficient": 1.945827979996633,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 0.7297066056948529,
+            "dependency_coefficient": 1.5202220951976102,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.7117268246723459,
+            "dependency_coefficient": 1.4827642180673875,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.4889732348878658,
+            "dependency_coefficient": 1.0186942393497205,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.3654578429910891,
+            "dependency_coefficient": 2.284111518694307,
+            "feature": "root:silen"
+          },
+          {
+            "contribution": 0.3654578429910891,
+            "dependency_coefficient": 2.284111518694307,
+            "feature": "root:close"
+          },
+          {
+            "contribution": 0.318103311712397,
+            "dependency_coefficient": 1.9881456982024812,
+            "feature": "root:expli"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P144",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": false,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P144 DPAI \u2014 Dynamic Persistence Acquisition Interface"
+        }
+      },
+      "name": "P144 DPAI",
+      "rank": 17,
+      "score": 9.967042,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P144",
+        "feature_contributions": [
+          {
+            "contribution": 2.9292537195834587,
+            "dependency_coefficient": 6.102611915798873,
+            "feature": "tok:persistence"
+          },
+          {
+            "contribution": 1.9496054332303987,
+            "dependency_coefficient": 4.061677985896664,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 1.3064221537831031,
+            "dependency_coefficient": 2.721712820381465,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.9764179065278197,
+            "dependency_coefficient": 6.102611915798873,
+            "feature": "root:persi"
+          },
+          {
+            "contribution": 0.6498684777434663,
+            "dependency_coefficient": 4.061677985896664,
+            "feature": "root:prove"
+          },
+          {
+            "contribution": 0.43547405126103444,
+            "dependency_coefficient": 2.721712820381465,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P138",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": false,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P138 SPIA \u2014 Search-Policy Information Acquisition"
+        }
+      },
+      "name": "P138 SPIA",
+      "rank": 18,
+      "score": 9.878429,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P138",
+        "feature_contributions": [
+          {
+            "contribution": 1.7416336962292094,
+            "dependency_coefficient": 3.628403533810853,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 1.6987202948220752,
+            "dependency_coefficient": 3.539000614212657,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.5262846706578517,
+            "dependency_coefficient": 3.179759730537191,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 1.1670611938944575,
+            "dependency_coefficient": 2.4313774872801197,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.5805445654097364,
+            "dependency_coefficient": 3.628403533810853,
+            "feature": "root:prove"
+          },
+          {
+            "contribution": 0.5464023433807113,
+            "dependency_coefficient": 3.4150146461294453,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.5087615568859506,
+            "dependency_coefficient": 3.179759730537191,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.3890203979648192,
+            "dependency_coefficient": 2.4313774872801197,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "PARENT:R018_M866_M880_MCSC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R018_M866_M880_MCSC",
+          "test_methods": 4
+        }
+      },
+      "name": "R018_M866_M880_MCSC",
+      "rank": 19,
+      "score": 9.51734,
+      "score_explanation": {
+        "document_id": "PARENT:R018_M866_M880_MCSC",
+        "feature_contributions": [
+          {
+            "contribution": 1.69184336469107,
+            "dependency_coefficient": 3.5246736764397295,
+            "feature": "tok:direction"
+          },
+          {
+            "contribution": 1.543278563292417,
+            "dependency_coefficient": 3.215163673525869,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.0982847304989185,
+            "dependency_coefficient": 2.288093188539414,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.9867987998304719,
+            "dependency_coefficient": 2.05583083298015,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.5081590694679484,
+            "dependency_coefficient": 3.1759941841746775,
+            "feature": "root:stand"
+          },
+          {
+            "contribution": 0.4706983913077153,
+            "dependency_coefficient": 2.9418649456732204,
+            "feature": "root:direc"
+          },
+          {
+            "contribution": 0.4660754542933425,
+            "dependency_coefficient": 2.9129715893333907,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.3532690768886807,
+            "dependency_coefficient": 2.2079317305542543,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.328932933276824,
+            "dependency_coefficient": 2.05583083298015,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P075",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "UNEXTRACTED",
+          "title": "Decision-Loss-Aware Lumpability Guard"
+        }
+      },
+      "name": "P075 DLAG",
+      "rank": 20,
+      "score": 9.410212,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P075",
+        "feature_contributions": [
+          {
+            "contribution": 2.002605913880352,
+            "dependency_coefficient": 4.1720956539174,
+            "feature": "tok:law"
+          },
+          {
+            "contribution": 1.9001495578801184,
+            "dependency_coefficient": 3.958644912250247,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.8267523117771045,
+            "dependency_coefficient": 3.805733982868968,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 0.8931451426346164,
+            "dependency_coefficient": 1.860719047155451,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.5516855050306336,
+            "dependency_coefficient": 3.44803440644146,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.4181585348461064,
+            "dependency_coefficient": 2.6134908427881647,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.29771504754487216,
+            "dependency_coefficient": 1.860719047155451,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P028",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P028 REIS v0.1 \u2014 Relational Evidence Impact Safeguards"
+        }
+      },
+      "name": "P028 REIS",
+      "rank": 21,
+      "score": 9.329631,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P028",
+        "feature_contributions": [
+          {
+            "contribution": 1.3260270715309026,
+            "dependency_coefficient": 2.762556399022714,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 1.3260270715309026,
+            "dependency_coefficient": 2.762556399022714,
+            "feature": "tok:scalar"
+          },
+          {
+            "contribution": 1.2761091650757714,
+            "dependency_coefficient": 2.658560760574524,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.2250071714393123,
+            "dependency_coefficient": 2.5520982738319007,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 0.8825557055654651,
+            "dependency_coefficient": 1.8386577199280525,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.4420090238436343,
+            "dependency_coefficient": 2.762556399022714,
+            "feature": "root:scala"
+          },
+          {
+            "contribution": 0.4193951717680207,
+            "dependency_coefficient": 2.6212198235501294,
+            "feature": "root:downs"
+          },
+          {
+            "contribution": 0.3935802036864925,
+            "dependency_coefficient": 2.459876273040578,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.3847353039153472,
+            "dependency_coefficient": 2.40459564947092,
+            "feature": "root:expli"
+          },
+          {
+            "contribution": 0.2941852351884884,
+            "dependency_coefficient": 1.8386577199280525,
+            "feature": "root:prove"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:IM359_IM014_AICC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM359_IM014_AICC",
+          "test_methods": 3
+        }
+      },
+      "name": "IM359_IM014_AICC",
+      "rank": 22,
+      "score": 9.319558,
+      "score_explanation": {
+        "document_id": "PARENT:IM359_IM014_AICC",
+        "feature_contributions": [
+          {
+            "contribution": 1.5738803410078963,
+            "dependency_coefficient": 3.278917377099784,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.5108540534677093,
+            "dependency_coefficient": 3.147612611391061,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.061673718496941,
+            "dependency_coefficient": 2.211820246868627,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.9539041399113461,
+            "dependency_coefficient": 1.9873002914819713,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.7293950635735388,
+            "dependency_coefficient": 1.5195730491115391,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.5172581108451834,
+            "dependency_coefficient": 3.232863192782396,
+            "feature": "root:downs"
+          },
+          {
+            "contribution": 0.34149295175943145,
+            "dependency_coefficient": 2.1343309484964466,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.3179680466371154,
+            "dependency_coefficient": 1.9873002914819713,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.24313168785784625,
+            "dependency_coefficient": 1.5195730491115391,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P143",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": false,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P143 DLIC \u2014 Discrete Liquidity Integrality Certificate"
+        }
+      },
+      "name": "P143 DLIC",
+      "rank": 23,
+      "score": 9.285985,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P143",
+        "feature_contributions": [
+          {
+            "contribution": 2.419252437393232,
+            "dependency_coefficient": 5.0401092445692335,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.7651708724047523,
+            "dependency_coefficient": 3.6774393175099007,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 1.54691152879977,
+            "dependency_coefficient": 3.2227323516661874,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.7306225885771473,
+            "dependency_coefficient": 4.566391178607171,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.5883902908015841,
+            "dependency_coefficient": 3.6774393175099007,
+            "feature": "root:prove"
+          },
+          {
+            "contribution": 0.51563717626659,
+            "dependency_coefficient": 3.2227323516661874,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "LCB-K084",
+      "family": "LCB_KERNEL",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "adoption_state": "ADOPT_CAPABILITY_NOT_PRODUCTION_CLAIM",
+          "origin": "r49_executable_library"
+        }
+      },
+      "name": "DecisionWeightedCalibrationV0",
+      "rank": 24,
+      "score": 9.098998,
+      "score_explanation": {
+        "document_id": "LCB-K084",
+        "feature_contributions": [
+          {
+            "contribution": 1.905387329056726,
+            "dependency_coefficient": 3.969556935534846,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 1.833659572893469,
+            "dependency_coefficient": 3.8201241101947274,
+            "feature": "tok:downstream"
+          },
+          {
+            "contribution": 1.487126346467442,
+            "dependency_coefficient": 3.0981798884738376,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.6026349411040156,
+            "dependency_coefficient": 3.7664683819000975,
+            "feature": "root:downs"
+          },
+          {
+            "contribution": 0.5655410429939562,
+            "dependency_coefficient": 3.5346315187122266,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.49570878215581404,
+            "dependency_coefficient": 3.0981798884738376,
+            "feature": "root:decis"
+          },
+          {
+            "contribution": 0.3389402579000941,
+            "dependency_coefficient": 2.118376611875588,
+            "feature": "root:prese"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.8699999999999999
+      }
+    },
+    {
+      "document_id": "PARENT:R046_METRIC_DECISION_MDDC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R046_METRIC_DECISION_MDDC",
+          "test_methods": 4
+        }
+      },
+      "name": "R046_METRIC_DECISION_MDDC",
+      "rank": 25,
+      "score": 9.064234,
+      "score_explanation": {
+        "document_id": "PARENT:R046_METRIC_DECISION_MDDC",
+        "feature_contributions": [
+          {
+            "contribution": 1.6887808372842394,
+            "dependency_coefficient": 3.518293411008832,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 1.5472152853512269,
+            "dependency_coefficient": 3.2233651778150563,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 1.2868885756732136,
+            "dependency_coefficient": 2.681017865985862,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.156257632219829,
+            "dependency_coefficient": 2.408870067124644,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.515738428450409,
+            "dependency_coefficient": 3.2233651778150563,
+            "feature": "root:decis"
+          },
+          {
+            "contribution": 0.41393449855225223,
+            "dependency_coefficient": 2.5870906159515763,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.385419210739943,
+            "dependency_coefficient": 2.408870067124644,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "PARENT:R050_M583_S745_CBAC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R050_M583_S745_CBAC",
+          "test_methods": 4
+        }
+      },
+      "name": "R050_M583_S745_CBAC",
+      "rank": 26,
+      "score": 9.058273,
+      "score_explanation": {
+        "document_id": "PARENT:R050_M583_S745_CBAC",
+        "feature_contributions": [
+          {
+            "contribution": 1.924068510047354,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "tok:without"
+          },
+          {
+            "contribution": 1.7551114647095407,
+            "dependency_coefficient": 3.656482218144877,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.1222483925709217,
+            "dependency_coefficient": 2.3380174845227537,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:witho"
+          },
+          {
+            "contribution": 0.6413561700157847,
+            "dependency_coefficient": 4.008476062598654,
+            "feature": "root:treat"
+          },
+          {
+            "contribution": 0.5300497218757502,
+            "dependency_coefficient": 3.312810761723439,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.3740827975236406,
+            "dependency_coefficient": 2.3380174845227537,
+            "feature": "root:uncer"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P126",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "DTRM + CSID",
+          "title": "Product result \u2014 P126_TRGD v0.1"
+        }
+      },
+      "name": "P126 TRGD",
+      "rank": 27,
+      "score": 8.805276,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P126",
+        "feature_contributions": [
+          {
+            "contribution": 2.0443290371261944,
+            "dependency_coefficient": 4.259018827346239,
+            "feature": "tok:radius"
+          },
+          {
+            "contribution": 1.3271059321743055,
+            "dependency_coefficient": 2.7648040253631367,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.1923925597350313,
+            "dependency_coefficient": 2.4841511661146485,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.9117532994388493,
+            "dependency_coefficient": 1.8994860404976028,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.6814430123753982,
+            "dependency_coefficient": 4.259018827346239,
+            "feature": "root:radiu"
+          },
+          {
+            "contribution": 0.42687062341268767,
+            "dependency_coefficient": 2.6679413963292977,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.39746418657834376,
+            "dependency_coefficient": 2.4841511661146485,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.30391776647961644,
+            "dependency_coefficient": 1.8994860404976028,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.5199999999999998
+      }
+    },
+    {
+      "document_id": "PARENT:IM421_IM094_DTPR",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/CURRENT_PRODUCTS/IM421_IM094_DTPR",
+          "test_methods": 9
+        }
+      },
+      "name": "IM421_IM094_DTPR",
+      "rank": 28,
+      "score": 8.764658,
+      "score_explanation": {
+        "document_id": "PARENT:IM421_IM094_DTPR",
+        "feature_contributions": [
+          {
+            "contribution": 1.3171272632082398,
+            "dependency_coefficient": 2.744015131683833,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 1.3171272632082398,
+            "dependency_coefficient": 2.744015131683833,
+            "feature": "tok:must"
+          },
+          {
+            "contribution": 1.3171272632082398,
+            "dependency_coefficient": 2.744015131683833,
+            "feature": "tok:mapping"
+          },
+          {
+            "contribution": 0.855032322433457,
+            "dependency_coefficient": 1.7813173384030354,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.5874275159243086,
+            "dependency_coefficient": 1.2238073248423098,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.43904242106941327,
+            "dependency_coefficient": 2.744015131683833,
+            "feature": "root:mappi"
+          },
+          {
+            "contribution": 0.3909386374261895,
+            "dependency_coefficient": 2.4433664839136844,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.2750256567063777,
+            "dependency_coefficient": 1.7189103544148605,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.19580917197476957,
+            "dependency_coefficient": 1.2238073248423098,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "PARENT:R040_M147_SALC",
+      "family": "FOUNDRY_PARENT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "relative_path": "01_INPUTS/RETRO_PRODUCTS/R040_M147_SALC",
+          "test_methods": 4
+        }
+      },
+      "name": "R040_M147_SALC",
+      "rank": 29,
+      "score": 8.654249,
+      "score_explanation": {
+        "document_id": "PARENT:R040_M147_SALC",
+        "feature_contributions": [
+          {
+            "contribution": 1.6730930888888742,
+            "dependency_coefficient": 3.4856106018518216,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.562510966292048,
+            "dependency_coefficient": 3.2552311797751,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 1.069804435433844,
+            "dependency_coefficient": 2.228759240487175,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.8180172844904968,
+            "dependency_coefficient": 1.7042026760218685,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.5052798892089461,
+            "dependency_coefficient": 3.1579993075559125,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.35660147847794804,
+            "dependency_coefficient": 2.228759240487175,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.32626900367508493,
+            "dependency_coefficient": 2.0391812729692806,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.27267242816349896,
+            "dependency_coefficient": 1.7042026760218685,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 2.07
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P135",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": false,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P135 CARS \u2014 Certificate-Aware Resolution Sensing"
+        }
+      },
+      "name": "P135 CARS",
+      "rank": 30,
+      "score": 8.565719,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P135",
+        "feature_contributions": [
+          {
+            "contribution": 2.632731538711966,
+            "dependency_coefficient": 5.484857372316596,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.9209326629854022,
+            "dependency_coefficient": 4.001943047886255,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.8566496868109029,
+            "dependency_coefficient": 5.354060542568143,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.795094014213357,
+            "dependency_coefficient": 4.969337588833481,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.6403108876618008,
+            "dependency_coefficient": 4.001943047886255,
+            "feature": "root:prove"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.72
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P035",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P035 SVCO v0.1 \u2014 Stateful Volcano Cycle Optimizer"
+        }
+      },
+      "name": "P035 SVCO",
+      "rank": 31,
+      "score": 8.485946,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P035",
+        "feature_contributions": [
+          {
+            "contribution": 1.1849729528688717,
+            "dependency_coefficient": 2.4686936518101494,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.1421530592473432,
+            "dependency_coefficient": 2.379485540098632,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 0.8537130760356448,
+            "dependency_coefficient": 1.7785689084075935,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.8326778078286986,
+            "dependency_coefficient": 1.7347454329764556,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.7481534055723059,
+            "dependency_coefficient": 1.5586529282756374,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 0.5720694333823603,
+            "dependency_coefficient": 1.191811319546584,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 0.42756381382100894,
+            "dependency_coefficient": 2.6722738363813057,
+            "feature": "root:ident"
+          },
+          {
+            "contribution": 0.3721618450754168,
+            "dependency_coefficient": 2.3260115317213548,
+            "feature": "root:expli"
+          },
+          {
+            "contribution": 0.28457102534521495,
+            "dependency_coefficient": 1.7785689084075935,
+            "feature": "root:prove"
+          },
+          {
+            "contribution": 0.26783520916630305,
+            "dependency_coefficient": 1.6739700572893939,
+            "feature": "root:actio"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    },
+    {
+      "document_id": "FOUNDRY:P030",
+      "family": "FOUNDRY_PRODUCT",
+      "metadata": {
+        "kind": "capability",
+        "rich_text_present": true,
+        "source": {
+          "parents": "see PARENT_PROVENANCE.md / historical result",
+          "title": "P030 FPTE v0.1 \u2014 Failure-Path Tipping Explorer"
+        }
+      },
+      "name": "P030 FPTE",
+      "rank": 32,
+      "score": 8.479528,
+      "score_explanation": {
+        "document_id": "FOUNDRY:P030",
+        "feature_contributions": [
+          {
+            "contribution": 1.299681293006508,
+            "dependency_coefficient": 2.7076693604302253,
+            "feature": "tok:silently"
+          },
+          {
+            "contribution": 1.299681293006508,
+            "dependency_coefficient": 2.7076693604302253,
+            "feature": "tok:route"
+          },
+          {
+            "contribution": 1.299681293006508,
+            "dependency_coefficient": 2.7076693604302253,
+            "feature": "tok:robustness"
+          },
+          {
+            "contribution": 1.2006684770623754,
+            "dependency_coefficient": 2.5013926605466157,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 0.865020907329842,
+            "dependency_coefficient": 1.8021268902705043,
+            "feature": "tok:provenance"
+          },
+          {
+            "contribution": 0.43322709766883605,
+            "dependency_coefficient": 2.7076693604302253,
+            "feature": "root:silen"
+          },
+          {
+            "contribution": 0.43322709766883605,
+            "dependency_coefficient": 2.7076693604302253,
+            "feature": "root:robus"
+          },
+          {
+            "contribution": 0.2883403024432807,
+            "dependency_coefficient": 1.8021268902705043,
+            "feature": "root:prove"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 1.3599999999999999
+      }
+    }
+  ],
+  "engine": "LABALLCOMPASS_SEARCH_TO_FOUNDRY_R10",
+  "experiment_bootstrap_opportunities": [
+    {
+      "case_count": 12,
+      "consumer_id": "FOUNDRY:P025",
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+      "product_id": "V2P006",
+      "status": "FIXED_NONADAPTIVE_PILOT_AVAILABLE_NUMERIC_ROUTING_STILL_UNKNOWN",
+      "supplier_id": "LCB-K068"
+    }
+  ],
+  "experiment_selection": {
+    "policy": "do not infer information gain, reliability, or compute cost from prose",
+    "required_fields": [
+      "decision_id",
+      "uncertainty_axes",
+      "test_channels[*].test_signature",
+      "test_channels[*].expected_resolution_by_axis",
+      "test_channels[*].compute_seconds",
+      "test_channels[*].reliability",
+      "test_channels[*].calibration_id",
+      "test_channels[*].measurement_backreaction",
+      "test_channels[*].backreaction_adjusted",
+      "test_channels[*].evidence_role",
+      "test_channels[*].selection_generation"
+    ],
+    "status": "NOT_READY_WITHOUT_DECLARED_EXPERIMENT_CONTRACT"
+  },
+  "interaction_expansions": [
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P025",
+        "curated": true,
+        "curated_rationale": "Route identification envelopes across declared shift regions",
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 12,
+        "experiment_bootstrap_problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+        "experiment_bootstrap_product_id": "V2P006",
+        "experiment_bootstrap_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 50,
+        "shared_domains": [],
+        "supplier_id": "LCB-K068",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P025",
+      "seed_name": "P025 IDRE",
+      "seed_rank": 1
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P025",
+        "curated": true,
+        "curated_rationale": "Route identification envelopes across declared shift regions",
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 12,
+        "experiment_bootstrap_problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75",
+        "experiment_bootstrap_product_id": "V2P006",
+        "experiment_bootstrap_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 50,
+        "shared_domains": [],
+        "supplier_id": "LCB-K068",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P025",
+      "neighbor_name": "P025 IDRE",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P065",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 33.0,
+        "shared_domains": [
+          "calibration",
+          "support"
+        ],
+        "supplier_id": "FOUNDRY:P065",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P065",
+      "neighbor_name": "P065 SWTE",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P079",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "evidence",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 37.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P079",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P079",
+      "neighbor_name": "P079 CBIA",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P091",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 33.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "FOUNDRY:P091",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P091",
+      "neighbor_name": "P091 DCBT",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration",
+          "support"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P140",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 34.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support"
+        ],
+        "supplier_id": "FOUNDRY:P140",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P140",
+      "neighbor_name": "P140 BOSA",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P141",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate",
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 32.0,
+        "shared_domains": [
+          "calibration",
+          "decision"
+        ],
+        "supplier_id": "FOUNDRY:P141",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P141",
+      "neighbor_name": "P141 PCFT",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "evidence",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 34.0,
+        "shared_domains": [
+          "allocation",
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:IM334_IM094_DRE",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "UPSTREAM_SUPPLIER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "support",
+          "uncertainty"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K068",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 31.0,
+        "shared_domains": [
+          "calibration",
+          "decision",
+          "support",
+          "uncertainty"
+        ],
+        "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "neighbor_name": "R037_SUPPORT_COVARIANCE_SACPS",
+      "seed_id": "LCB-K068",
+      "seed_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_rank": 2
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P133",
+      "seed_name": "P133 TRRA",
+      "seed_rank": 3
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P133",
+      "seed_name": "P133 TRRA",
+      "seed_rank": 3
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "FOUNDRY:P133",
+      "seed_name": "P133 TRRA",
+      "seed_rank": 3
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P114",
+      "seed_name": "P114 HPAC",
+      "seed_rank": 4
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P114",
+      "seed_name": "P114 HPAC",
+      "seed_rank": 4
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "FOUNDRY:P114",
+      "seed_name": "P114 HPAC",
+      "seed_rank": 4
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P140",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P140",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 26.0,
+        "shared_domains": [
+          "decision",
+          "reduction",
+          "resilience"
+        ],
+        "supplier_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P140",
+      "neighbor_name": "P140 BOSA",
+      "seed_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "seed_name": "R039_DECISION_BELIEF_DSBC",
+      "seed_rank": 5
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P141",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P141",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 26.0,
+        "shared_domains": [
+          "decision",
+          "reduction",
+          "resilience"
+        ],
+        "supplier_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P141",
+      "neighbor_name": "P141 PCFT",
+      "seed_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "seed_name": "R039_DECISION_BELIEF_DSBC",
+      "seed_rank": 5
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P142",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P142",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "representation"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 26.0,
+        "shared_domains": [
+          "decision",
+          "reduction",
+          "resilience"
+        ],
+        "supplier_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P142",
+      "neighbor_name": "P142 BMSA",
+      "seed_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "seed_name": "R039_DECISION_BELIEF_DSBC",
+      "seed_rank": 5
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K003",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 25.0,
+        "shared_domains": [
+          "calibration"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K003",
+      "neighbor_name": "SharedCapacityAllocatorV0",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K010",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 25.0,
+        "shared_domains": [
+          "calibration"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K010",
+      "neighbor_name": "CoverageFeedbackControllerV0",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K015",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 25.0,
+        "shared_domains": [
+          "calibration"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K015",
+      "neighbor_name": "VarianceAwareCapacityPlannerV0",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K035",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 25.0,
+        "shared_domains": [
+          "calibration"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K035",
+      "neighbor_name": "ConsequenceCoverageAllocatorV0",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:IM334_IM094_DRE",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 27.0,
+        "shared_domains": [
+          "boundary",
+          "calibration",
+          "transfer"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R014_S781_S792_ACSA",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 27.0,
+        "shared_domains": [
+          "audit",
+          "calibration",
+          "transfer"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "PARENT:R014_S781_S792_ACSA",
+      "neighbor_name": "R014_S781_S792_ACSA",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R018_M866_M880_MCSC",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 27.0,
+        "shared_domains": [
+          "audit",
+          "boundary",
+          "calibration",
+          "transfer"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "PARENT:R018_M866_M880_MCSC",
+      "neighbor_name": "R018_M866_M880_MCSC",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "calibration"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P037",
+        "experiment_bootstrap_status": "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 27.0,
+        "shared_domains": [
+          "audit",
+          "calibration",
+          "transfer"
+        ],
+        "supplier_id": "FOUNDRY:P037",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "neighbor_name": "R044_DECISION_LOSS_DLEW",
+      "seed_id": "FOUNDRY:P037",
+      "seed_name": "P037 MCST",
+      "seed_rank": 6
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P001",
+      "seed_name": "P001 DREW",
+      "seed_rank": 7
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P001",
+      "seed_name": "P001 DREW",
+      "seed_rank": 7
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "FOUNDRY:P001",
+      "seed_name": "P001 DREW",
+      "seed_rank": 7
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P032",
+      "seed_name": "P032 SGOT",
+      "seed_rank": 8
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P032",
+      "seed_name": "P032 SGOT",
+      "seed_rank": 8
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "FOUNDRY:P032",
+      "seed_name": "P032 SGOT",
+      "seed_rank": 8
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "PARENT:R029_S440_SCE",
+      "seed_name": "R029_S440_SCE",
+      "seed_rank": 9
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "PARENT:R029_S440_SCE",
+      "seed_name": "R029_S440_SCE",
+      "seed_rank": 9
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "PARENT:R029_S440_SCE",
+      "seed_name": "R029_S440_SCE",
+      "seed_rank": 9
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P027",
+      "seed_name": "P027 IDAC",
+      "seed_rank": 10
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P027",
+      "seed_name": "P027 IDAC",
+      "seed_rank": 10
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "FOUNDRY:P027",
+      "seed_name": "P027 IDAC",
+      "seed_rank": 10
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 1,
+      "known_composition_edge": false,
+      "neighbor_id": "LCB-K068",
+      "neighbor_name": "AdmissibleShiftRobustOptimizerV0",
+      "seed_id": "FOUNDRY:P034",
+      "seed_name": "P034 UGIM",
+      "seed_rank": 11
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 2,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM334_IM094_DRE",
+      "neighbor_name": "IM334_IM094_DRE",
+      "seed_id": "FOUNDRY:P034",
+      "seed_name": "P034 UGIM",
+      "seed_rank": 11
+    },
+    {
+      "direction": "HYPOTHETICAL_UPSTREAM",
+      "hypothesis_rank": 3,
+      "known_composition_edge": false,
+      "neighbor_id": "PARENT:IM406_IM037_ACRA",
+      "neighbor_name": "IM406_IM037_ACRA",
+      "seed_id": "FOUNDRY:P034",
+      "seed_name": "P034 UGIM",
+      "seed_rank": 11
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P035",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P035",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 27.0,
+        "shared_domains": [
+          "calibration",
+          "decision"
+        ],
+        "supplier_id": "PARENT:R028_S418_S439_TDSX",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P035",
+      "neighbor_name": "P035 SVCO",
+      "seed_id": "PARENT:R028_S418_S439_TDSX",
+      "seed_name": "R028_S418_S439_TDSX",
+      "seed_rank": 12
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P057",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 3,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P057",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 28.0,
+        "shared_domains": [
+          "calibration",
+          "decision"
+        ],
+        "supplier_id": "PARENT:R028_S418_S439_TDSX",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P057",
+      "neighbor_name": "P057 FIAC",
+      "seed_id": "PARENT:R028_S418_S439_TDSX",
+      "seed_name": "R028_S418_S439_TDSX",
+      "seed_rank": 12
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "FOUNDRY:P138",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": 6,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": "P138",
+        "experiment_bootstrap_status": "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 29.0,
+        "shared_domains": [
+          "calibration",
+          "decision"
+        ],
+        "supplier_id": "PARENT:R028_S418_S439_TDSX",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "FOUNDRY:P138",
+      "neighbor_name": "P138 SPIA",
+      "seed_id": "PARENT:R028_S418_S439_TDSX",
+      "seed_name": "R028_S418_S439_TDSX",
+      "seed_rank": 12
+    },
+    {
+      "direction": "DOWNSTREAM_CONSUMER",
+      "edge": {
+        "active_for_build": true,
+        "addressed_weaknesses": [
+          "decision"
+        ],
+        "adjudication_state": "UNADJUDICATED",
+        "consumer_id": "LCB-K012",
+        "curated": false,
+        "decision_id": null,
+        "experiment_bootstrap_case_count": null,
+        "experiment_bootstrap_problem_shell": null,
+        "experiment_bootstrap_product_id": null,
+        "experiment_bootstrap_status": "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED",
+        "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+        "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+        "interface_matches": [
+          "boundary",
+          "gate"
+        ],
+        "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+        "score": 27.0,
+        "shared_domains": [
+          "calibration",
+          "decision"
+        ],
+        "supplier_id": "PARENT:R028_S418_S439_TDSX",
+        "test_channels": null,
+        "uncertainty_axes": null
+      },
+      "known_composition_edge": true,
+      "neighbor_id": "LCB-K012",
+      "neighbor_name": "PolicyAwareTimingSensorV0",
+      "seed_id": "PARENT:R028_S418_S439_TDSX",
+      "seed_name": "R028_S418_S439_TDSX",
+      "seed_rank": 12
+    }
+  ],
+  "primitive_donors": [
+    {
+      "document_id": "PRIMITIVE:S-974",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Latent diagnostic model",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Weakly identified accuracy/prevalence parameters\u2019a prior information ekleyip posterior uncertainty\u2019yi explicit ta\u015f\u0131",
+        "primitive_id": "S-974"
+      },
+      "name": "Bayesian no-gold-standard model",
+      "rank": 1,
+      "score": 11.628846,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-974",
+        "feature_contributions": [
+          {
+            "contribution": 3.199418102468518,
+            "dependency_coefficient": 6.665454380142746,
+            "feature": "tok:standard"
+          },
+          {
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "tok:identified"
+          },
+          {
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 1.0664727008228394,
+            "dependency_coefficient": 6.665454380142746,
+            "feature": "root:stand"
+          },
+          {
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "root:ident"
+          },
+          {
+            "contribution": 0.6094129718987654,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "root:expli"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-133",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Model uncertainty",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Do\u011frulanamayan assumption\u2019\u0131n g\u00fcc\u00fcn\u00fc explicit parameter yap\u0131p sonucu onun boyunca izle",
+        "primitive_id": "S-133"
+      },
+      "name": "Sensitivity parameter",
+      "rank": 2,
+      "score": 10.916228,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-133",
+        "feature_contributions": [
+          {
+            "contribution": 3.803179760698775,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 1.2677265868995917,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "root:expli"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:M-031",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Algebraic closure/identity/inverses",
+        "domain": "Mathematics",
+        "kind": "primitive",
+        "primitive": "Apply allowed moves to objects while preserving move-composition rules",
+        "primitive_id": "M-031"
+      },
+      "name": "Group action",
+      "rank": 3,
+      "score": 7.858821,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-031",
+        "feature_contributions": [
+          {
+            "contribution": 3.4163593928545826,
+            "dependency_coefficient": 7.117415401780381,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 1.9522053673454758,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "tok:preserving"
+          },
+          {
+            "contribution": 1.1387864642848609,
+            "dependency_coefficient": 7.117415401780381,
+            "feature": "root:actio"
+          },
+          {
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "root:prese"
+          },
+          {
+            "contribution": 0.650735122448492,
+            "dependency_coefficient": 4.067094515303075,
+            "feature": "root:ident"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:P-016",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Correct variational physical law",
+        "domain": "Physics",
+        "kind": "primitive",
+        "primitive": "Actual path makes an accumulated quantity stationary",
+        "primitive_id": "P-016"
+      },
+      "name": "Least action",
+      "rank": 4,
+      "score": 7.294152,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-016",
+        "feature_contributions": [
+          {
+            "contribution": 3.803179760698775,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "tok:law"
+          },
+          {
+            "contribution": 1.2677265868995917,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "root:actio"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:M-949",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Offset target",
+        "domain": "Mathematics",
+        "kind": "primitive",
+        "primitive": "Arbitrary target point\u2019e en yak\u0131n lattice point\u2019i bul",
+        "primitive_id": "M-949"
+      },
+      "name": "Closest vector problem",
+      "rank": 5,
+      "score": 6.906163,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:M-949",
+        "feature_contributions": [
+          {
+            "contribution": 4.113697856117631,
+            "dependency_coefficient": 8.570203866911731,
+            "feature": "tok:vector"
+          },
+          {
+            "contribution": 1.371232618705877,
+            "dependency_coefficient": 8.570203866911731,
+            "feature": "root:vecto"
+          },
+          {
+            "contribution": 1.371232618705877,
+            "dependency_coefficient": 8.570203866911731,
+            "feature": "root:close"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:P-001",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Physical conservation symmetry/law",
+        "domain": "Physics",
+        "kind": "primitive",
+        "primitive": "Stuff can move between places/forms but total amount does not spontaneously change",
+        "primitive_id": "P-001"
+      },
+      "name": "Conservation law",
+      "rank": 6,
+      "score": 6.905896,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:P-001",
+        "feature_contributions": [
+          {
+            "contribution": 3.199418102468518,
+            "dependency_coefficient": 6.665454380142746,
+            "feature": "tok:law"
+          },
+          {
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "tok:can"
+          },
+          {
+            "contribution": 1.828238915696296,
+            "dependency_coefficient": 3.8088310743672835,
+            "feature": "tok:but"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:E-024",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Information + incentive constraints",
+        "domain": "Economics / Econometrics",
+        "kind": "primitive",
+        "primitive": "One party wants an action/output from another but cannot perfectly observe/control them",
+        "primitive_id": "E-024"
+      },
+      "name": "Principal\u2013agent",
+      "rank": 7,
+      "score": 6.547253,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-024",
+        "feature_contributions": [
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:cannot"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:but"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:action"
+          },
+          {
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "root:canno"
+          },
+          {
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "root:actio"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:E-414",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Threshold standard",
+        "domain": "Economics / Econometrics",
+        "kind": "primitive",
+        "primitive": "Quality ancak belirli minimumu a\u015f\u0131nca certificate al\u0131r; continuous hidden state discrete observable\u2019a d\u00f6n\u00fc\u015f\u00fcr",
+        "primitive_id": "E-414"
+      },
+      "name": "Certification threshold",
+      "rank": 8,
+      "score": 5.94375,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:E-414",
+        "feature_contributions": [
+          {
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "tok:standard"
+          },
+          {
+            "contribution": 2.020714126770303,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "tok:certificate"
+          },
+          {
+            "contribution": 1.1787499072826768,
+            "dependency_coefficient": 7.36718692051673,
+            "feature": "root:certi"
+          },
+          {
+            "contribution": 0.673571375590101,
+            "dependency_coefficient": 4.209821097438131,
+            "feature": "root:stand"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-876",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Nonidentified mechanism",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "CAR\u2019dan departure magnitude/direction\u2019\u0131n\u0131 explicit sensitivity quantity yap",
+        "primitive_id": "S-876"
+      },
+      "name": "Coarsening sensitivity parameter",
+      "rank": 9,
+      "score": 10.916228,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-876",
+        "feature_contributions": [
+          {
+            "contribution": 3.803179760698775,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "tok:sensitivity"
+          },
+          {
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "tok:explicit"
+          },
+          {
+            "contribution": 2.1732455775421573,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "tok:direction"
+          },
+          {
+            "contribution": 1.2677265868995917,
+            "dependency_coefficient": 7.923291168122448,
+            "feature": "root:sensi"
+          },
+          {
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "root:expli"
+          },
+          {
+            "contribution": 0.7244151925140524,
+            "dependency_coefficient": 4.5275949532128275,
+            "feature": "root:direc"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-448",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Flat likelihood/moments",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Standard error\u2019dan \u00f6nce objective/likelihood\u2019in target direction\u2019da ger\u00e7ekten curvature ta\u015f\u0131y\u0131p ta\u015f\u0131mad\u0131\u011f\u0131n\u0131 kontrol et",
+        "primitive_id": "S-448"
+      },
+      "name": "Weak identification diagnostic",
+      "rank": 10,
+      "score": 10.681868,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-448",
+        "feature_contributions": [
+          {
+            "contribution": 3.10096145574485,
+            "dependency_coefficient": 6.460336366135104,
+            "feature": "tok:identification"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:standard"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:error"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:direction"
+          },
+          {
+            "contribution": 1.0336538185816166,
+            "dependency_coefficient": 6.460336366135104,
+            "feature": "root:ident"
+          },
+          {
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "root:stand"
+          },
+          {
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "root:direc"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-421",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Model uncertainty set",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Prior/model biraz yanl\u0131\u015f olsa bile decision ne kadar de\u011fi\u015fiyor diye neighborhood i\u00e7indeki alternative models\u2019i ta\u015f\u0131",
+        "primitive_id": "S-421"
+      },
+      "name": "Robust Bayes",
+      "rank": 11,
+      "score": 8.90989,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-421",
+        "feature_contributions": [
+          {
+            "contribution": 3.10096145574485,
+            "dependency_coefficient": 6.460336366135104,
+            "feature": "tok:robust"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:uncertainty"
+          },
+          {
+            "contribution": 1.7719779747113429,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "tok:decision"
+          },
+          {
+            "contribution": 1.0336538185816166,
+            "dependency_coefficient": 6.460336366135104,
+            "feature": "root:robus"
+          },
+          {
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "root:uncer"
+          },
+          {
+            "contribution": 0.5906593249037809,
+            "dependency_coefficient": 3.691620780648631,
+            "feature": "root:decis"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    },
+    {
+      "document_id": "PRIMITIVE:S-358",
+      "family": "PRIMITIVE",
+      "metadata": {
+        "constraint_shell": "Correct exposure representation",
+        "domain": "Statistics",
+        "kind": "primitive",
+        "primitive": "Network treatment vector\u2019\u0131n\u0131n tamam\u0131n\u0131 de\u011fil ki\u015finin maruz kald\u0131\u011f\u0131 treatment pattern\u2019\u0131n\u0131 birka\u00e7 exposure state\u2019e s\u0131k\u0131\u015ft\u0131r",
+        "primitive_id": "S-358"
+      },
+      "name": "Exposure mapping",
+      "rank": 12,
+      "score": 8.426824,
+      "score_explanation": {
+        "document_id": "PRIMITIVE:S-358",
+        "feature_contributions": [
+          {
+            "contribution": 3.664860709648036,
+            "dependency_coefficient": 7.635126478433408,
+            "feature": "tok:mapping"
+          },
+          {
+            "contribution": 2.0942061197988773,
+            "dependency_coefficient": 4.3629294162476615,
+            "feature": "tok:vector"
+          },
+          {
+            "contribution": 1.2216202365493454,
+            "dependency_coefficient": 7.635126478433408,
+            "feature": "root:mappi"
+          },
+          {
+            "contribution": 0.6980687065996258,
+            "dependency_coefficient": 4.3629294162476615,
+            "feature": "root:vecto"
+          },
+          {
+            "contribution": 0.6980687065996258,
+            "dependency_coefficient": 4.3629294162476615,
+            "feature": "root:treat"
+          }
+        ],
+        "learned_relevance_prior": 0.0,
+        "static_prior": 0.05
+      }
+    }
+  ],
+  "problem_id": "R10_IDENTIFICATION_ADMISSIBLE_SHIFT_SMOKE",
+  "relevance_snapshot": null,
+  "relevance_snapshot_fingerprint": null,
+  "search_generation": 0,
+  "semantics": {
+    "capabilities": "direct problem relevance only; interaction graph not allowed to inflate first-stage relevance",
+    "experiment_selection": "next-test routing uses declared contracts; R5 calibration may fill only UNKNOWN fields from frozen prior-generation exact-shell/test-signature telemetry; R6-R10 may bootstrap a fixed non-adaptive pilot only when an executable composition suite exists; R7-R10 create such suites by independently validating a real adapter against consumer invariants plus contrastive composition cases; scientific weakness axes remain unquantified",
+    "interaction_expansions": "directly relevant capability is identity-seeded, then active known composition interactions are used to retrieve possible complements/repairs; edges rejected by explicit adjudication are suppressed without deleting either component",
+    "primitives": "direct donor retrieval with max two selected donors per source domain",
+    "promotion": "none; this packet is a search/frontier artifact, not product evidence",
+    "relevance_learning": "optional frozen prior from closed earlier search generations; same-generation and protected-validation outcomes are excluded by construction"
+  }
+}

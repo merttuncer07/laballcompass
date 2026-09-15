@@ -1,0 +1,12 @@
+{
+  "target_truth": 0.2594144917756519,
+  "repetitions": 400,
+  "sample_size": 500,
+  "target_shift": 2.0,
+  "raw_exact_weight_mse": 0.006438907086371557,
+  "stabilized_weight_mse": 0.00395624397128258,
+  "mse_reduction": 0.3855721292117609,
+  "median_selected_cap": 1.6509322597024145,
+  "median_effective_sample_fraction": 0.06623310569580329,
+  "fragile_support_rate": 0.82
+}

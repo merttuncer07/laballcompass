@@ -1,0 +1,92 @@
+{
+  "release": "R388",
+  "status": "PASS",
+  "run_count": 12,
+  "elapsed_seconds": 83.931,
+  "runs": [
+    {
+      "label": "core_v2",
+      "script": "test_core_v2.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "label": "foundry_integration",
+      "script": "test_core_v2_foundry_integration.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 1.364s\n\nOK\n"
+    },
+    {
+      "label": "search_engine",
+      "script": "test_lab_search_engine.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.048s\n\nOK\n"
+    },
+    {
+      "label": "search_corpus",
+      "script": "test_search_corpus_integration.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 1.969s\n\nOK\n"
+    },
+    {
+      "label": "relevance_learning",
+      "script": "test_relevance_learning.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "label": "experiment_selector",
+      "script": "test_experiment_selector.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "label": "experiment_telemetry",
+      "script": "test_experiment_telemetry.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "label": "experiment_integration",
+      "script": "test_experiment_integration.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 33.274s\n\nOK\n"
+    },
+    {
+      "label": "experiment_contract_bootstrap",
+      "script": "test_experiment_contract_bootstrap.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 14.414s\n\nOK\n"
+    },
+    {
+      "label": "r12_closure_updated",
+      "script": "test_r12_closure.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 6.387s\n\nOK\n"
+    },
+    {
+      "label": "r387_product_overlay_history",
+      "script": "test_r387_product_overlay_closure.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.396s\n\nOK\n"
+    },
+    {
+      "label": "r388_retro50_parent_integration_closure",
+      "script": "test_r388_retro50_parent_integration_closure.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.429s\n\nOK\n"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "finished_at": "2026-09-14T23:55:33.867697+00:00",
+  "tests": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_hashes": {
+    "workbench/workbooks.py": "f449623d1418520b16ecddbe60c4dfb1775e634e5f02126f8fadc6caa6ee4c23",
+    "workbench/table_references.py": "7277f0c67e4154ff4578342fadb7c6684c64241c254c377263e0dc36f056abb4",
+    "tests/test_table_references.py": "3a773979dc5215a0b91be4cc370e8f66a6420849ed452e65fb872d445a595150",
+    "restoration/build_explorer.py": "f4aa2cd80ee277bb7d71f6f181c447ad6865c3c03cf4658c00cccc064b474ca2"
+  },
+  "test_log": "restoration/20260915-structured-tables/verified-tests.log",
+  "test_xml": "restoration/20260915-structured-tables/verified-tests.xml",
+  "public_observations": [
+    {
+      "file": "examples/public-tables/StructuredReferences.xlsx",
+      "before": {
+        "status": "UNAVAILABLE",
+        "reason": "No formula has a fully resolved static reference graph. Formulas!A1: Table, spill or implicit-intersection reference: \\_Prime.1[calc='#*'#]; Formulas!A2: Table, spill or implicit-intersection reference: \\_Prime.1[Name]; Formulas!A3: Table, spill or implicit-intersection reference: \\_Prime.1[Name]; Table!A2: Table, spill or implicit-intersection reference: \\_Prime.1[[#This Row],[Number]]; Table!A3: Table, spill or implicit-intersection reference: \\_Prime.1[[#This Row],[Number]]"
+      },
+      "after": {
+        "status": "ANALYZED",
+        "formulas": 9,
+        "resolved": 9,
+        "root_cells": 12,
+        "unresolved": []
+      }
+    },
+    {
+      "file": "examples/public-tables/StructuredRefs-lots-with-lookups.xlsx",
+      "before": {
+        "status": "UNAVAILABLE",
+        "reason": "Pilot collection populated-cell limit: 20,000"
+      },
+      "after": {
+        "status": "UNAVAILABLE",
+        "reason": "Pilot collection populated-cell limit: 20,000"
+      }
+    },
+    {
+      "file": "examples/public-tables/evaluate_formula_with_structured_table_references.xlsx",
+      "before": {
+        "status": "UNAVAILABLE",
+        "reason": "No formula has a fully resolved static reference graph. Tabelle1!C3: Table, spill or implicit-intersection reference: Table1[[A]:[B]]"
+      },
+      "after": {
+        "status": "ANALYZED",
+        "formulas": 1,
+        "resolved": 1,
+        "root_cells": 4,
+        "unresolved": []
+      }
+    }
+  ],
+  "ui": {
+    "status": "PASS",
+    "file": "examples/public-tables/StructuredReferences-report/lineage.html",
+    "checks": [
+      "real table root switch affects the expected total only",
+      "unrelated name-column outputs remain available",
+      "reset",
+      "no JS errors"
+    ],
+    "scope": "jsdom interaction, not real-browser visual verification"
+  },
+  "scope": "Saved table metadata -> static potential formula lineage. No formula evaluation, inferred provenance, real-client efficacy or real-browser visual verification."
+}

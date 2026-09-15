@@ -1,0 +1,26 @@
+{
+  "authority_file": "01_V2_CORE/CURRENT_PRODUCT_AUTHORITY.json",
+  "authority_sha256": "917261f182ed7294617436ce4aa6b46f50d25a56f7b40dc17f7667c4bbc5e20a",
+  "checks": {
+    "calibrated_suites": 47,
+    "campaign_mechanics_passes": 47,
+    "distinct_family_count": 34,
+    "fixed_pilotable_queue_rows": 47,
+    "interaction_map_completed_edges": 47,
+    "packaged_regression": "PASS",
+    "packaged_regression_exit_code": 0,
+    "physical_suite_count": 47,
+    "rejected_current_interface_edges": 4,
+    "telemetry_events": 388,
+    "telemetry_exact_matches": 388,
+    "telemetry_unmatched": 0
+  },
+  "note": "Promotion certifies product/control-plane closure and deterministic executable contracts only; it is not scientific, deployment, or real-world validation.",
+  "overlay_state_sha256_after_promotion": "dacfaefa5886a6b06e8dd7f1eb89ab947dadd6545dc4417e6add089aeea8fd81",
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "release": "R387",
+  "result": "PROMOTED"
+}

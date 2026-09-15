@@ -1,0 +1,10 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P016_BVRP_V1",
+  "result": {
+    "action": "hold",
+    "boundary_crossed": true,
+    "fallback_used": true,
+    "status": "BOUNDARY_TRIGGERED_VIABILITY_FALLBACK"
+  }
+}

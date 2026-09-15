@@ -1,0 +1,12 @@
+{
+  "consumer_id": "FOUNDRY:P141",
+  "difference_from_nearest": "MFQA allocates measurement fidelity after a validity gate; DWPCFT allocates calibration replication directly across points on a compression-tipping surface",
+  "mechanism_removing_comparator": "uniform additional samples over the tolerance grid",
+  "nearest_existing_product": "V2P002_MFQA",
+  "new_failure_mode": "uniform calibration spends scarce samples far from the compression decision boundary or on low-consequence tolerances",
+  "non_additive_interaction": "decision consequence and PCFT boundary geometry define the marginal value curve used by the calibration allocator",
+  "product_id": "V2P037",
+  "short_name": "DWPCFT",
+  "supplier_id": "LCB-K084",
+  "verdict": "DISTINCT_PRODUCT"
+}

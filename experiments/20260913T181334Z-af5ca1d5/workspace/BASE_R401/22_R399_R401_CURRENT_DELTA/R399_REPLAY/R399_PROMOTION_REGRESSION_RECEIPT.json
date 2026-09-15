@@ -1,0 +1,407 @@
+{
+  "direct_product_regression": {
+    "failed": 0,
+    "rows": [
+      {
+        "directory": "V2P001_SAVA",
+        "product_id": "V2P001",
+        "tests": 6
+      },
+      {
+        "directory": "V2P002_MFQA",
+        "product_id": "V2P002",
+        "tests": 6
+      },
+      {
+        "directory": "V2P003_MFPD",
+        "product_id": "V2P003",
+        "tests": 12
+      },
+      {
+        "directory": "V2P004_OPIA",
+        "product_id": "V2P004",
+        "tests": 12
+      },
+      {
+        "directory": "V2P005_EDSANP",
+        "product_id": "V2P005",
+        "tests": 12
+      },
+      {
+        "directory": "V2P006_IDASRO",
+        "product_id": "V2P006",
+        "tests": 12
+      },
+      {
+        "directory": "V2P007_CPDBE",
+        "product_id": "V2P007",
+        "tests": 12
+      },
+      {
+        "directory": "V2P008_TGCARS",
+        "product_id": "V2P008",
+        "tests": 12
+      },
+      {
+        "directory": "V2P009_SGMB",
+        "product_id": "V2P009",
+        "tests": 12
+      },
+      {
+        "directory": "V2P010_SCSPIA",
+        "product_id": "V2P010",
+        "tests": 12
+      },
+      {
+        "directory": "V2P011_BIVCP",
+        "product_id": "V2P011",
+        "tests": 12
+      },
+      {
+        "directory": "V2P012_SARCP",
+        "product_id": "V2P012",
+        "tests": 12
+      },
+      {
+        "directory": "V2P013_CADRE",
+        "product_id": "V2P013",
+        "tests": 12
+      },
+      {
+        "directory": "V2P014_BATS",
+        "product_id": "V2P014",
+        "tests": 6
+      },
+      {
+        "directory": "V2P015_BGTW",
+        "product_id": "V2P015",
+        "tests": 6
+      },
+      {
+        "directory": "V2P016_BVRP",
+        "product_id": "V2P016",
+        "tests": 6
+      },
+      {
+        "directory": "V2P017_CCDRE",
+        "product_id": "V2P017",
+        "tests": 6
+      },
+      {
+        "directory": "V2P018_WTDRE",
+        "product_id": "V2P018",
+        "tests": 6
+      },
+      {
+        "directory": "V2P019_STHA",
+        "product_id": "V2P019",
+        "tests": 6
+      },
+      {
+        "directory": "V2P020_PADRE",
+        "product_id": "V2P020",
+        "tests": 6
+      },
+      {
+        "directory": "V2P021_BMDRE",
+        "product_id": "V2P021",
+        "tests": 6
+      },
+      {
+        "directory": "V2P022_CFDRE",
+        "product_id": "V2P022",
+        "tests": 6
+      },
+      {
+        "directory": "V2P023_CODRE",
+        "product_id": "V2P023",
+        "tests": 6
+      },
+      {
+        "directory": "V2P024_HPDRE",
+        "product_id": "V2P024",
+        "tests": 6
+      },
+      {
+        "directory": "V2P025_DRFIAC",
+        "product_id": "V2P025",
+        "tests": 6
+      },
+      {
+        "directory": "V2P026_DRSVCO",
+        "product_id": "V2P026",
+        "tests": 6
+      },
+      {
+        "directory": "V2P027_DRMPHA",
+        "product_id": "V2P027",
+        "tests": 6
+      },
+      {
+        "directory": "V2P028_SCFIAC",
+        "product_id": "V2P028",
+        "tests": 6
+      },
+      {
+        "directory": "V2P029_SUSCA",
+        "product_id": "V2P029",
+        "tests": 8
+      },
+      {
+        "directory": "V2P030_PCFDLW",
+        "product_id": "V2P030",
+        "tests": 9
+      },
+      {
+        "directory": "V2P031_QDRA",
+        "product_id": "V2P031",
+        "tests": 8
+      },
+      {
+        "directory": "V2P032_SPITWMR",
+        "product_id": "V2P032",
+        "tests": 8
+      },
+      {
+        "directory": "V2P033_VCMF",
+        "product_id": "V2P033",
+        "tests": 9
+      },
+      {
+        "directory": "V2P034_SCOPG",
+        "product_id": "V2P034",
+        "tests": 8
+      },
+      {
+        "directory": "V2P035_ISTAICC",
+        "product_id": "V2P035",
+        "tests": 8
+      },
+      {
+        "directory": "V2P036_PCFMCSC",
+        "product_id": "V2P036",
+        "tests": 8
+      },
+      {
+        "directory": "V2P037_DWPCFT",
+        "product_id": "V2P037",
+        "tests": 8
+      },
+      {
+        "directory": "V2P038_BOSARO",
+        "product_id": "V2P038",
+        "tests": 8
+      },
+      {
+        "directory": "V2P039_SCCATF",
+        "product_id": "V2P039",
+        "tests": 8
+      },
+      {
+        "directory": "V2P040_BMCAPL",
+        "product_id": "V2P040",
+        "tests": 8
+      },
+      {
+        "directory": "V2P041_CDTDLEW",
+        "product_id": "V2P041",
+        "tests": 8
+      },
+      {
+        "directory": "V2P042_ATSCWC",
+        "product_id": "V2P042",
+        "tests": 8
+      },
+      {
+        "directory": "V2P043_CBSCG",
+        "product_id": "V2P043",
+        "tests": 8
+      },
+      {
+        "directory": "V2P044_PIPEG",
+        "product_id": "V2P044",
+        "tests": 8
+      },
+      {
+        "directory": "V2P045_FPTWC",
+        "product_id": "V2P045",
+        "tests": 8
+      },
+      {
+        "directory": "V2P046_MTCWC",
+        "product_id": "V2P046",
+        "tests": 8
+      },
+      {
+        "directory": "V2P048_CBIACCVC",
+        "product_id": "V2P048",
+        "tests": 8
+      },
+      {
+        "directory": "V2P049_SACAPL",
+        "product_id": "V2P049",
+        "tests": 10
+      },
+      {
+        "directory": "V2P050_SCIG",
+        "product_id": "V2P050",
+        "tests": 13
+      },
+      {
+        "directory": "V2P051_SACDLW",
+        "product_id": "V2P051",
+        "tests": 12
+      },
+      {
+        "directory": "V2P052_REICAPL",
+        "product_id": "V2P052",
+        "tests": 12
+      },
+      {
+        "directory": "V2P053_SWCAPL",
+        "product_id": "V2P053",
+        "tests": 12
+      },
+      {
+        "directory": "V2P054_CADSBC",
+        "product_id": "V2P054",
+        "tests": 13
+      },
+      {
+        "directory": "V2P055_DLSAICC",
+        "product_id": "V2P055",
+        "tests": 13
+      },
+      {
+        "directory": "V2P056_SACRDSBC",
+        "product_id": "V2P056",
+        "tests": 14
+      },
+      {
+        "directory": "V2P057_REOC",
+        "product_id": "V2P057",
+        "tests": 15
+      },
+      {
+        "directory": "V2P058_SACATRC",
+        "product_id": "V2P058",
+        "tests": 14
+      }
+    ],
+    "suite_count": 57,
+    "test_count": 516
+  },
+  "finished_at_utc": "2026-08-30T20:10:02.004720+00:00",
+  "inheritance": {
+    "byte_identical": true,
+    "foundry_files": 1305,
+    "r392_product_files": 421
+  },
+  "interaction_map": {
+    "completed": 57,
+    "inferred": 16532,
+    "parent_of": 53,
+    "rejected": 5,
+    "total": 16647
+  },
+  "learning_eligible_campaign_events": 0,
+  "model_version": "R399_PROMOTION_REGRESSION_RECEIPT_V1",
+  "product_accounting": {
+    "distinct_families": 44,
+    "executable_suites": 57
+  },
+  "quarantined_product_ids": [
+    "V2P047"
+  ],
+  "registry455_unchanged": true,
+  "registry_family_count": 455,
+  "source_fidelity_boundary": {
+    "byte_complete_base": "R392",
+    "prior_logical_authority": "R397",
+    "rehydrated_sources": "fresh R399 canonical bytes; not a claim of recovered R394-R398 bytes"
+  },
+  "started_at_utc": "2026-08-30T20:08:47.691367+00:00",
+  "state_sensitive_core_regression": {
+    "failed": 0,
+    "rows": [
+      {
+        "surface": "test_core_v2.py",
+        "tests": 5
+      },
+      {
+        "surface": "test_core_v2_foundry_integration.py",
+        "tests": 16
+      },
+      {
+        "surface": "test_experiment_contract_bootstrap.py",
+        "tests": 5
+      },
+      {
+        "surface": "test_experiment_integration.py",
+        "tests": 8
+      },
+      {
+        "surface": "test_experiment_selector.py",
+        "tests": 10
+      },
+      {
+        "surface": "test_experiment_telemetry.py",
+        "tests": 8
+      },
+      {
+        "surface": "test_lab_search_engine.py",
+        "tests": 11
+      },
+      {
+        "surface": "test_r12_closure.py",
+        "tests": 17
+      },
+      {
+        "surface": "test_r387_product_overlay_closure.py",
+        "tests": 7
+      },
+      {
+        "surface": "test_r388_retro50_parent_integration_closure.py",
+        "tests": 7
+      },
+      {
+        "surface": "test_r389_product_overlay_closure.py",
+        "tests": 8
+      },
+      {
+        "surface": "test_r390_product_overlay_closure.py",
+        "tests": 9
+      },
+      {
+        "surface": "test_r391_product_overlay_closure.py",
+        "tests": 10
+      },
+      {
+        "surface": "test_r392_product_overlay_closure.py",
+        "tests": 10
+      },
+      {
+        "surface": "test_r399_rehydration_closure.py",
+        "tests": 12
+      },
+      {
+        "surface": "test_relevance_learning.py",
+        "tests": 8
+      },
+      {
+        "surface": "test_search_corpus_integration.py",
+        "tests": 3
+      }
+    ],
+    "surface_count": 17,
+    "test_count": 154
+  },
+  "status": "PASS",
+  "telemetry": {
+    "calibrated_suites": 57,
+    "completed_suites": 57,
+    "events": 516,
+    "exact_matches": 516,
+    "unmatched": 0
+  }
+}

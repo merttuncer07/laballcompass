@@ -1,0 +1,364 @@
+{
+  "claim_scope": "SYNTHETIC MECHANICS REPLAY ONLY; declared resolution/cost values are constructed test data, not Lab empirical estimates",
+  "engine": "LAB_EXPERIMENT_SELECTOR_R4",
+  "exhaustive_single_test_compute_seconds": 20.0,
+  "final_unresolved_mass": 0.3999999999999999,
+  "initial_unresolved_mass": 5.0,
+  "protected_validation_selected": false,
+  "rounds": [
+    {
+      "plan": {
+        "blind_axes": [],
+        "contract_fingerprint": "4b54049ba6c438fe16190944346dae3a006d7d734a2e39de19d2ad549d1e8c08",
+        "decision_id": "SYNTHETIC_DECISION",
+        "model_version": "LAB_EXPERIMENT_SELECTOR_R4_V1",
+        "ranked_routes": [
+          {
+            "compute_seconds": 1.0,
+            "covered_axes": [
+              "c"
+            ],
+            "expected_decision_progress": 1.0,
+            "expected_progress_per_compute": 1.0,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_C",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 2.0,
+            "covered_axes": [
+              "a",
+              "b"
+            ],
+            "expected_decision_progress": 1.8,
+            "expected_progress_per_compute": 0.9,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_AB",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 3.0,
+            "covered_axes": [
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 1.8,
+            "expected_progress_per_compute": 0.6,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_DE",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 20.0,
+            "covered_axes": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 5.0,
+            "expected_progress_per_compute": 0.25,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_FULL",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 0.1,
+            "covered_axes": [],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "PROTECTED_VALIDATION_NEVER_DRIVES_ADAPTIVE_SELECTION",
+            "reliability": 1.0,
+            "status": "INELIGIBLE",
+            "test_id": "T_PROTECTED",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": null,
+            "covered_axes": [
+              "a"
+            ],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "NUMERIC_ROUTING_REQUIRES_DECLARED_CALIBRATION",
+            "reliability": null,
+            "status": "UNQUANTIFIED",
+            "test_id": "T_UNKNOWN",
+            "unknown_fields": [
+              "compute_seconds",
+              "reliability"
+            ]
+          }
+        ],
+        "schema_version": 1,
+        "search_generation": 4,
+        "selected_test_id": "T_C",
+        "selection_round": 0,
+        "stop": false,
+        "stop_reason": "",
+        "unquantified_test_ids": [
+          "T_UNKNOWN"
+        ],
+        "unresolved_mass": 5.0
+      },
+      "round": 0,
+      "unresolved_mass": 5.0
+    },
+    {
+      "plan": {
+        "blind_axes": [],
+        "contract_fingerprint": "788a0215c07aab9b4dcf65efbf0e01676e19ce84012a20008cdc1524739d1915",
+        "decision_id": "SYNTHETIC_DECISION",
+        "model_version": "LAB_EXPERIMENT_SELECTOR_R4_V1",
+        "ranked_routes": [
+          {
+            "compute_seconds": 2.0,
+            "covered_axes": [
+              "a",
+              "b"
+            ],
+            "expected_decision_progress": 1.8,
+            "expected_progress_per_compute": 0.9,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_AB",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 3.0,
+            "covered_axes": [
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 1.8,
+            "expected_progress_per_compute": 0.6,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_DE",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 20.0,
+            "covered_axes": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 4.0,
+            "expected_progress_per_compute": 0.2,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_FULL",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 0.1,
+            "covered_axes": [],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "PROTECTED_VALIDATION_NEVER_DRIVES_ADAPTIVE_SELECTION",
+            "reliability": 1.0,
+            "status": "INELIGIBLE",
+            "test_id": "T_PROTECTED",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": null,
+            "covered_axes": [
+              "a"
+            ],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "NUMERIC_ROUTING_REQUIRES_DECLARED_CALIBRATION",
+            "reliability": null,
+            "status": "UNQUANTIFIED",
+            "test_id": "T_UNKNOWN",
+            "unknown_fields": [
+              "compute_seconds",
+              "reliability"
+            ]
+          }
+        ],
+        "schema_version": 1,
+        "search_generation": 4,
+        "selected_test_id": "T_AB",
+        "selection_round": 1,
+        "stop": false,
+        "stop_reason": "",
+        "unquantified_test_ids": [
+          "T_UNKNOWN"
+        ],
+        "unresolved_mass": 4.0
+      },
+      "round": 1,
+      "unresolved_mass": 4.0
+    },
+    {
+      "plan": {
+        "blind_axes": [],
+        "contract_fingerprint": "9b19b52ee558adf240f13246f441f463c1d99aa6f2212a097e2b772a0db7735b",
+        "decision_id": "SYNTHETIC_DECISION",
+        "model_version": "LAB_EXPERIMENT_SELECTOR_R4_V1",
+        "ranked_routes": [
+          {
+            "compute_seconds": 3.0,
+            "covered_axes": [
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 1.8,
+            "expected_progress_per_compute": 0.6,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_DE",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 20.0,
+            "covered_axes": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 2.2,
+            "expected_progress_per_compute": 0.11000000000000001,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_FULL",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 0.1,
+            "covered_axes": [],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "PROTECTED_VALIDATION_NEVER_DRIVES_ADAPTIVE_SELECTION",
+            "reliability": 1.0,
+            "status": "INELIGIBLE",
+            "test_id": "T_PROTECTED",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": null,
+            "covered_axes": [
+              "a"
+            ],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "NUMERIC_ROUTING_REQUIRES_DECLARED_CALIBRATION",
+            "reliability": null,
+            "status": "UNQUANTIFIED",
+            "test_id": "T_UNKNOWN",
+            "unknown_fields": [
+              "compute_seconds",
+              "reliability"
+            ]
+          }
+        ],
+        "schema_version": 1,
+        "search_generation": 4,
+        "selected_test_id": "T_DE",
+        "selection_round": 2,
+        "stop": false,
+        "stop_reason": "",
+        "unquantified_test_ids": [
+          "T_UNKNOWN"
+        ],
+        "unresolved_mass": 2.2
+      },
+      "round": 2,
+      "unresolved_mass": 2.2
+    },
+    {
+      "plan": {
+        "blind_axes": [],
+        "contract_fingerprint": "00b384c5a623487abbb94dc21d08ebc64c578611b749fb9862906b7bb44a9fbe",
+        "decision_id": "SYNTHETIC_DECISION",
+        "model_version": "LAB_EXPERIMENT_SELECTOR_R4_V1",
+        "ranked_routes": [
+          {
+            "compute_seconds": 20.0,
+            "covered_axes": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ],
+            "expected_decision_progress": 0.3999999999999999,
+            "expected_progress_per_compute": 0.019999999999999997,
+            "reason": "DECLARED_EXPECTED_DECISION_PROGRESS_PER_COMPUTE",
+            "reliability": 1.0,
+            "status": "READY",
+            "test_id": "T_FULL",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": 0.1,
+            "covered_axes": [],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "PROTECTED_VALIDATION_NEVER_DRIVES_ADAPTIVE_SELECTION",
+            "reliability": 1.0,
+            "status": "INELIGIBLE",
+            "test_id": "T_PROTECTED",
+            "unknown_fields": []
+          },
+          {
+            "compute_seconds": null,
+            "covered_axes": [
+              "a"
+            ],
+            "expected_decision_progress": null,
+            "expected_progress_per_compute": null,
+            "reason": "NUMERIC_ROUTING_REQUIRES_DECLARED_CALIBRATION",
+            "reliability": null,
+            "status": "UNQUANTIFIED",
+            "test_id": "T_UNKNOWN",
+            "unknown_fields": [
+              "compute_seconds",
+              "reliability"
+            ]
+          }
+        ],
+        "schema_version": 1,
+        "search_generation": 4,
+        "selected_test_id": null,
+        "selection_round": 3,
+        "stop": true,
+        "stop_reason": "DECISION_UNCERTAINTY_BELOW_DECLARED_STOP_THRESHOLD",
+        "unquantified_test_ids": [
+          "T_UNKNOWN"
+        ],
+        "unresolved_mass": 0.3999999999999999
+      },
+      "round": 3,
+      "unresolved_mass": 0.3999999999999999
+    }
+  ],
+  "selected_compute_seconds": 6.0,
+  "selected_tests": [
+    "T_C",
+    "T_AB",
+    "T_DE"
+  ],
+  "unquantified_test_selected": false
+}

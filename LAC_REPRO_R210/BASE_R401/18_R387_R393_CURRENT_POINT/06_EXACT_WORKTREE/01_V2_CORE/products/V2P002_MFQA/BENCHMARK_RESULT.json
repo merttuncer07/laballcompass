@@ -1,0 +1,54 @@
+{
+  "benchmark": "MFQA deterministic regime routing",
+  "cases": [
+    {
+      "case": "near_boundary_high_correlation",
+      "cheap_net_value": 0.03998238389957717,
+      "current_imbalance": 0.052,
+      "distance_to_tolerance": 0.001999999999999995,
+      "fine_net_value": 0.0663226467285592,
+      "mode": "multifidelity",
+      "n_cheap": 210,
+      "n_fine": 29,
+      "pilot_correlation": 0.92,
+      "spent_budget": 0.1,
+      "status": "DECISION_GATED_MULTIFIDELITY_PROGRAM_ALLOCATED",
+      "variance_proxy": 0.00932702791461412
+    },
+    {
+      "case": "near_boundary_low_correlation",
+      "cheap_net_value": 0.03998238389957717,
+      "current_imbalance": 0.052,
+      "distance_to_tolerance": 0.001999999999999995,
+      "fine_net_value": 0.0663226467285592,
+      "mode": "fine_only",
+      "n_cheap": 0,
+      "n_fine": 50,
+      "pilot_correlation": 0.05,
+      "spent_budget": 0.1,
+      "status": "FINE_ONLY_ROUTER_USED_CHEAP_CHANNEL_NOT_QUALIFIED",
+      "variance_proxy": 0.02
+    },
+    {
+      "case": "far_from_boundary",
+      "cheap_net_value": -0.00019999989237564614,
+      "current_imbalance": 0.35,
+      "distance_to_tolerance": 0.3,
+      "fine_net_value": -0.0019799560099034146,
+      "mode": "no_measurement",
+      "n_cheap": 0,
+      "n_fine": 0,
+      "pilot_correlation": 0.92,
+      "spent_budget": 0,
+      "status": "VALIDITY_DECISION_VALUE_DOES_NOT_JUSTIFY_MEASUREMENT",
+      "variance_proxy": null
+    }
+  ],
+  "comparison": {
+    "far_case_budget_avoided": 0.1,
+    "high_correlation_variance_proxy": 0.00932702791461412,
+    "low_correlation_variance_proxy": 0.02,
+    "relative_variance_proxy_reduction_vs_fine_only": 0.5336486042692941
+  },
+  "interpretation": "Decision proximity opens the measurement gate; cross-fidelity correlation decides whether cheap observations can supplement fine observations. A far-boundary case buys no measurement rather than spending the available budget automatically."
+}

@@ -1,0 +1,60 @@
+{
+  "release": "R391",
+  "part": "b",
+  "run_count": 7,
+  "tests_counted": 63,
+  "failed": [],
+  "status": "PASS",
+  "elapsed_seconds": 11.234,
+  "runs": [
+    {
+      "script": "test_experiment_contract_bootstrap.py",
+      "exit_code": 0,
+      "tests": 5,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 4.184s\n\nOK\n"
+    },
+    {
+      "script": "test_r12_closure.py",
+      "exit_code": 0,
+      "tests": 17,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 2.296s\n\nOK\n"
+    },
+    {
+      "script": "test_r387_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.052s\n\nOK\n"
+    },
+    {
+      "script": "test_r388_retro50_parent_integration_closure.py",
+      "exit_code": 0,
+      "tests": 7,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.053s\n\nOK\n"
+    },
+    {
+      "script": "test_r389_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 8,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.050s\n\nOK\n"
+    },
+    {
+      "script": "test_r390_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 9,
+      "stdout": "",
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.052s\n\nOK\n"
+    },
+    {
+      "script": "test_r391_product_overlay_closure.py",
+      "exit_code": 0,
+      "tests": 10,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.053s\n\nOK\n"
+    }
+  ]
+}

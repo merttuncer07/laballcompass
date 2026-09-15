@@ -1,0 +1,59 @@
+{
+  "bootstrap_queue_status_counts": {
+    "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 123,
+    "FIXED_PILOT_SCHEDULE_AVAILABLE": 3,
+    "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157,
+    "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 717
+  },
+  "engine_focused_tests": {
+    "failed": 0,
+    "passed": 62
+  },
+  "foundry_immutability": {
+    "changed": [],
+    "only_r6": [],
+    "only_r7": [],
+    "r6_files": 1353,
+    "r7_files": 1353,
+    "same_files": 1353
+  },
+  "interpretation": "Software and declared mechanism contracts pass in the packaged copy; this is development/mechanics evidence, not universal field or deployment validation.",
+  "inventory": {
+    "base_registry_records": 310,
+    "completed_v2_products": 3,
+    "total_addressable_artifacts": 313
+  },
+  "p144_original_suite": {
+    "failed": 0,
+    "passed": 6,
+    "runner": "pytest package context"
+  },
+  "r7_adapter_bootstrap": {
+    "compute_upper_seconds": 0.6681207950000498,
+    "finite_suite_resolution_lower_bound": 0.08333333333333337,
+    "future_selected_test_id": "BOOTSTRAP_UNIT_CASE::V2P003",
+    "pilot_cases": 12,
+    "pilot_complete": 12,
+    "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f",
+    "product_id": "V2P003",
+    "reliability_lower_bound": 0.8159920848767768,
+    "source_hash": "115c51118477ed8fdf4c5a1fbf77cd048582de1bc2065e94f69920ddbaef8738",
+    "test_signature": "96292310081b6067cb4f8a8e0b32500dc2d3862e79a4ab4a50d52661749b0636"
+  },
+  "release": "R7",
+  "status": "PASS",
+  "v2_product_tests": {
+    "V2P001_SAVA": {
+      "failed": 0,
+      "passed": 6
+    },
+    "V2P002_MFQA": {
+      "failed": 0,
+      "passed": 6
+    },
+    "V2P003_MFPD": {
+      "failed": 0,
+      "passed": 12
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "tests": 49,
+  "receipt": "runs/20260914T190000Z-correlated-ebc/receipt.json",
+  "public_reference": "examples/correlated-evidence/report/receipt.json",
+  "cli_agrees_with_direct_api": true,
+  "ui": "restoration/20260914-correlated-ebc/ui-check.json",
+  "remaining": "Covariance must be supplied or justified from known sources. REL still assumes conditional independence among distinct record-pair checks. No inferred covariance from workbook similarity."
+}

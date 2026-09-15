@@ -1,0 +1,57 @@
+{
+  "GDR_VOID_ONLY_CONDITIONING_BOUNDARY": {
+    "K": 12,
+    "finite_difference_order": 6,
+    "offset": 6,
+    "delta_l1": 64.0,
+    "spectra_nonnegative": true,
+    "spectra_l1_distance": 128.0,
+    "max_void_log_curve_distance": 0.00048828125,
+    "analytic_max_single_delta": 0.000244140625,
+    "closed_form_max_error": 9.778825969461447e-15,
+    "inverse_l1_amplification_lower_bound": 262144.0,
+    "annihilated_raw_moments_degrees_0_to_r_minus_1": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "conclusion": "full finite cluster spectrum recovery from noisy real-retention void probes is exponentially ill-conditioned"
+  },
+  "GDR_AMPLIFICATION_CURVE": {
+    "4": 64.0,
+    "6": 512.0,
+    "8": 4096.0,
+    "10": 32768.0,
+    "12": 262144.0,
+    "14": 2097152.0,
+    "16": 16777216.0,
+    "18": 134217728.0,
+    "20": 1073741824.0
+  },
+  "ZHURAVLEV_BOUNDED_DEGREE_CORRECTOR": {
+    "control_rows": 300,
+    "base_algorithms": 18,
+    "affine_feature_count": 19,
+    "quadratic_feature_count": 172,
+    "affine_rank": 19,
+    "quadratic_rank": 172,
+    "affine_can_represent_target": false,
+    "quadratic_exact": true,
+    "feature_growth_for_m40": {
+      "1": 41,
+      "2": 821,
+      "3": 10701,
+      "4": 102091,
+      "5": 760099
+    },
+    "dependent_raw_generators": 17,
+    "dependent_generator_rank": 8,
+    "raw_degree2_feature_count": 154,
+    "rank_quotient_degree2_upper_bound": 37,
+    "worst_case": "fixed degree is polynomial in m; degree growing with m returns exponential 2^m algebra",
+    "generalization_boundary": "control-sample exactness can become arbitrary interpolation once feature rank reaches sample size"
+  }
+}

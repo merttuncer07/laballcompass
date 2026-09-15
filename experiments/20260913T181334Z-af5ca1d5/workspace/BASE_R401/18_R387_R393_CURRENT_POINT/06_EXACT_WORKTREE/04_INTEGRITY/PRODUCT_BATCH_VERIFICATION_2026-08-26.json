@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "baseline": "R12 reflexive/search closure",
+  "product_generation_continuation": true,
+  "base_registry_records": 310,
+  "completed_v2_products": 10,
+  "total_addressable_artifacts": 320,
+  "focused_core_tests": {
+    "passed": 86,
+    "total": 86
+  },
+  "v2_product_tests": {
+    "passed": 108,
+    "total": 108,
+    "per_product_cases": [
+      6,
+      6,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "telemetry": {
+    "calibrated_completed_suites": 10,
+    "canonical_ledger": "search_data/EXPERIMENT_TELEMETRY.jsonl",
+    "completed_suites": 10,
+    "events": 108,
+    "exact_current_suite_matches": 108,
+    "unmatched_events": 0
+  },
+  "interaction_map": {
+    "edges": 1057,
+    "fingerprint": "79bbe43ef354d9bd50d1ffc1f37217a7cdbbf3a43e5cbb4dd98ce818cb714298",
+    "node_counts": {
+      "CAPABILITY": 310,
+      "PRIMITIVE": 4000
+    },
+    "nodes": 4310,
+    "path": "generated_search/INTERACTION_MAP_R12.json",
+    "relation_counts": {
+      "COMPLETED_COMPOSITION": 10,
+      "INFERRED_CANDIDATE": 990,
+      "PARENT_OF": 53,
+      "REJECTED_CURRENT_INTERFACE": 4
+    }
+  },
+  "campaign_memory": {
+    "events": 14,
+    "evidence_levels": {
+      "INTERFACE_ADJUDICATION": 4,
+      "MECHANICS": 10
+    },
+    "failure_codes": {
+      "EXPLICIT_INTERFACE_REJECTION": 4
+    },
+    "fingerprint": "d901c857064611b3116cbba28e01055c36c9c91cf4dce25f83aa9ff4510be867",
+    "learning_eligible_events": 0,
+    "model_version": "LAB_CAMPAIGN_MEMORY_R12_V1",
+    "outcomes": {
+      "EXECUTABLE_CONTRACT_PASS": 10,
+      "REJECTED_CURRENT_INTERFACE": 4
+    },
+    "policy": "Mechanics/bootstrap events remain mechanics; only explicitly eligible non-protected empirical outcomes may train future relevance."
+  },
+  "new_products": {
+    "V2P008_TGCARS": {
+      "composition": "LCB-K071 -> FOUNDRY:P135",
+      "focused_tests": "12/12 PASS",
+      "blind_oracle_loss": 0.8488,
+      "guarded_oracle_loss": 0.136,
+      "oracle_loss_reduction_fraction": 0.8397737983034872,
+      "evidence_boundary": "deterministic synthetic shifted-shell mechanism benchmark only"
+    },
+    "V2P009_SGMB": {
+      "composition": "FOUNDRY:P140 -> LCB-K048",
+      "focused_tests": "12/12 PASS",
+      "effective_sample_fraction": 0.6613844185947971,
+      "comparator_unsupported_cheap_acquisitions": 115,
+      "guarded_unsupported_cheap_acquisitions": 0,
+      "evidence_boundary": "deterministic preserved burnout/support shell routing benchmark only"
+    },
+    "V2P010_SCSPIA": {
+      "composition": "PARENT:R037_SUPPORT_COVARIANCE_SACPS -> FOUNDRY:P138",
+      "focused_tests": "12/12 PASS",
+      "oracle_channel": "c6",
+      "raw_channel": "c1",
+      "structured_channel": "c6",
+      "raw_oracle_channel_value_error": 0.0515576458823217,
+      "structured_oracle_channel_value_error": 0.0015905291579860759,
+      "evidence_boundary": "fixed seed-1 small-sample synthetic covariance/channel benchmark only"
+    }
+  },
+  "nonclaims": [
+    "No empirical campaign outcome is yet learning-eligible.",
+    "Bootstrap telemetry calibrates executable mechanics channels; it is not scientific validation.",
+    "The full Foundry regression was not rerun because the Foundry source tree was not modified; Core and all 10 V2 suites were rerun after integration."
+  ]
+}

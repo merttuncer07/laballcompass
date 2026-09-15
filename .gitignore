@@ -1,0 +1,9 @@
+# Reinstallable dependencies and caches; all source/data/history stays versioned.
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+.DS_Store
+# Local recovery audit and preserved incomplete old Python environment.
+.local-recovery/

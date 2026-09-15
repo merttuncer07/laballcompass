@@ -1,0 +1,521 @@
+--- before/workbench/content.py
++++ after/workbench/content.py
+@@ -10,6 +10,7 @@
+ from itertools import combinations
+ import hashlib
+ import math
++from .record_matches import find_record_matches
+ 
+ 
+ def typed_value(cell):
+@@ -105,6 +106,7 @@
+             area = (r2-r1+1)*(c2-c1+1)
+             if len(group)/area < .8: continue
+             blocks.append({
++                'kind':'translated_block',
+                 'left': {'workbook':left['workbook'], 'sheet':left['sheet'], 'range':coord((r1,c1))+':'+coord((r2,c2))},
+                 'right': {'workbook':right['workbook'], 'sheet':right['sheet'], 'range':coord((r1+dr,c1+dc))+':'+coord((r2+dr,c2+dc))},
+                 'matching_cells':len(group), 'compared_positions':area, 'match_fraction':len(group)/area,
+@@ -136,17 +138,32 @@
+         block['match_fraction'] = block['matching_cells']/len(cells)
+         selected.append(block)
+         detail_cells += len(cells)
+-    return {'schema_version':1, 'method':'typed_rare_anchor_translation_v1',
++    record_blocks,record_scope=find_record_matches(sheets)
++    # Avoid repeating exactly the same observed correspondence in both views.
++    seen={frozenset((b['left']['workbook'],b['left']['sheet'],b['right']['workbook'],b['right']['sheet'],c['left'],c['right']) for c in b['cells']) for b in selected}
++    added=0
++    for block in record_blocks:
++        signature=frozenset((block['left']['workbook'],block['left']['sheet'],block['right']['workbook'],block['right']['sheet'],c['left'],c['right']) for c in block['cells'])
++        if not any(signature<=old for old in seen):
++            selected.append(block);seen.add(signature);added+=1
++    selected.sort(key=lambda b:-b['matching_cells'])
++    output=[];detail_total=0
++    for block in selected:
++        if len(output)<200 and detail_total+block['compared_positions']<=100000:
++            output.append(block);detail_total+=block['compared_positions']
++    found_count=len(blocks)+added+record_scope['regions_omitted_due_detail_limit']
++    return {'schema_version':2, 'method':'typed_anchor_translation_and_record_alignment_v2',
+             'input_files':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths],
+             'sheet_count':len(sheets), 'populated_cells':populated,
+-            'blocks':selected, 'total_blocks_found':len(blocks), 'blocks_omitted':len(blocks)-len(selected),
++            'blocks':output, 'total_blocks_found':found_count, 'blocks_omitted':found_count-len(output),
++            'record_alignment':record_scope,
+             'excluded_cells':dict(excluded), 'common_anchor_values_skipped':common,
+             'candidate_alignments':len(candidates), 'verified_cell_lookups':comparisons,
+             'scope':[
+                 'Only supplied workbooks; comparison is between distinct sheets, including sheets within one workbook.',
+-                'At least 6 matching cells, 3 distinct nontrivial rare values, and 80% matching positions within the displayed rectangle.',
++                'Translated blocks require at least 6 matching cells, 3 distinct nontrivial rare values, and 80% matching positions within the displayed rectangle. Reordered records use the separate row alignment criteria below.',
+                 'Exact typed equality only: numeric text differs from a number; formatting is ignored. Formula cells, caches and errors cannot establish a match.',
+-                'Only row/column translations are searched. Reordering, transposition, rounding and removed columns can be missed. Differences beyond the matching anchors are not located.',
++                'Translations and unambiguous reordered row/column correspondences are searched. Unmatched rows/columns, transposition, rounding and sparse overlaps can be missed. A displayed bounding range is not a claim that all its cells were matched.',
+                 'No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.',
+                 'Thresholds are review heuristics, not calibrated confidence or an audit conclusion.',
+                 'Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count.',
+--- /dev/null
++++ after/workbench/record_matches.py
+@@ -0,0 +1,122 @@
++"""Locate reordered records using observed column values and row agreement.
++
++Column bags propose an alignment; record-level agreement verifies it. Equal
++marginal distributions alone do not create a match. Ambiguous column/row ties
++are omitted instead of inventing a specific correspondence.
++"""
++from collections import defaultdict, Counter
++from itertools import combinations
++
++
++def _useful(token):
++    return token[0]!='bool' and token not in (('number',0),('number',1),('number',-1))
++
++
++def find_record_matches(sheets):
++    from openpyxl.utils.cell import get_column_letter
++    columns=[];index=defaultdict(list)
++    for sid,sheet in enumerate(sheets):
++        values=defaultdict(dict)
++        for (row,col),token in sheet['values'].items():values[col][row]=token
++        for col,cells in sorted(values.items()):
++            tokens={t for t in cells.values() if _useful(t)}
++            if len(tokens)<3:continue
++            cid=len(columns);columns.append((sid,col,cells,tokens))
++            for token in tokens:index[token].append(cid)
++    overlaps=Counter();comparisons=0
++    for token,cids in index.items():
++        if len(cids)>64:continue
++        for a,b in combinations(cids,2):
++            if columns[a][0]==columns[b][0]:continue
++            overlaps[a,b]+=1;comparisons+=1
++            if comparisons>1000000:
++                raise ValueError('Record alignment exceeds 1,000,000 column candidate comparisons; supply a smaller collection')
++    proposals=defaultdict(dict)
++    for (a,b),count in overlaps.items():
++        if count<3:continue
++        ta,tb=columns[a][3],columns[b][3]
++        if count/min(len(ta),len(tb))<.6:continue
++        # Jaccard prefers a specific match over an arbitrary large superset.
++        score=count/len(ta|tb)
++        proposals[columns[a][0],columns[b][0]][a,b]=score
++    result=[];row_comparisons=0;details=0;ambiguous=0;omitted=0
++    coordinate=lambda r,c:get_column_letter(c)+str(r)
++    for (sa,sb),scores in sorted(proposals.items()):
++        best_a=defaultdict(list);best_b=defaultdict(list)
++        for (a,b),score in scores.items():best_a[a].append((score,b));best_b[b].append((score,a))
++        def unique_best(items):
++            top=max(s for s,_ in items)
++            wins=[other for score,other in items if abs(score-top)<1e-12]
++            return wins[0] if len(wins)==1 else None
++        mapping=[]
++        for a,choices in best_a.items():
++            b=unique_best(choices)
++            if b is not None and unique_best(best_b[b])==a:mapping.append((a,b))
++        mapping.sort(key=lambda pair:columns[pair[0]][1])
++        if len(mapping)<2:continue
++        row_votes=defaultdict(set)
++        for a,b in mapping:
++            left,right=columns[a][2],columns[b][2]
++            inverted_a=defaultdict(list);inverted_b=defaultdict(list)
++            for row,token in left.items():
++                if _useful(token):inverted_a[token].append(row)
++            for row,token in right.items():
++                if _useful(token):inverted_b[token].append(row)
++            for token in inverted_a.keys()&inverted_b.keys():
++                ra,rb=inverted_a[token],inverted_b[token]
++                if len(ra)*len(rb)>4096:continue
++                for x in ra:
++                    for y in rb:
++                        row_votes[x,y].add((a,token));row_comparisons+=1
++                        if row_comparisons>1000000:
++                            raise ValueError('Record alignment exceeds 1,000,000 row candidate comparisons; supply a smaller collection')
++        candidates={}
++        for (ra,rb),votes in row_votes.items():
++            if len({t for a,t in votes})<2:continue
++            equal=sum(columns[a][2].get(ra) is not None and columns[a][2].get(ra)==columns[b][2].get(rb) for a,b in mapping)
++            if equal/len(mapping)<.8:continue
++            candidates[ra,rb]=equal
++        left_best=defaultdict(list);right_best=defaultdict(list)
++        for (ra,rb),score in candidates.items():left_best[ra].append((score,rb));right_best[rb].append((score,ra))
++        row_mapping=[]
++        for ra,choices in sorted(left_best.items()):
++            rb=unique_best(choices)
++            if rb is not None and unique_best(right_best[rb])==ra:row_mapping.append((ra,rb))
++            else:ambiguous+=1
++        if len(row_mapping)<3:continue
++        if details+len(row_mapping)*len(mapping)>100000:
++            omitted+=1
++            continue
++        left,right=sheets[sa],sheets[sb];cells=[]
++        for ra,rb in row_mapping:
++            for a,b in mapping:
++                ca,cb=columns[a][1],columns[b][1];pa,pb=(ra,ca),(rb,cb)
++                va,vb=left['values'].get(pa),right['values'].get(pb)
++                cells.append({'left':coordinate(*pa),'right':coordinate(*pb),
++                              'left_value':left['raw'].get(pa),'right_value':right['raw'].get(pb),
++                              'left_type':va[0] if va else 'uncompared','right_type':vb[0] if vb else 'uncompared',
++                              'equal':va is not None and va==vb})
++        matching=sum(c['equal'] for c in cells)
++        unmatched_rows=[];unmatched_columns=[]
++        for side,sheet in enumerate((left,right)):
++            used_rows={pair[side] for pair in row_mapping}
++            used_cols={columns[pair[side]][1] for pair in mapping}
++            unmatched_rows.append(sorted({r for r,c in sheet['values']}-used_rows))
++            unmatched_columns.append([get_column_letter(c) for c in sorted({c for r,c in sheet['values']}-used_cols)])
++        def location(sheet,side):
++            rr=[pair[side] for pair in row_mapping];cc=[columns[pair[side]][1] for pair in mapping]
++            return {'workbook':sheet['workbook'],'sheet':sheet['sheet'],
++                    'range':coordinate(min(rr),min(cc))+':'+coordinate(max(rr),max(cc))}
++        result.append({'kind':'row_alignment','left':location(left,0),'right':location(right,1),
++                       'matching_rows':len(row_mapping),'row_mapping':[{'left':a,'right':b} for a,b in row_mapping],
++                       'unmapped_left_rows':unmatched_rows[0],'unmapped_right_rows':unmatched_rows[1],
++                       'unmapped_left_columns':unmatched_columns[0],'unmapped_right_columns':unmatched_columns[1],
++                       'column_mapping':[{'left':get_column_letter(columns[a][1]),'right':get_column_letter(columns[b][1])} for a,b in mapping],
++                       'matching_cells':matching,'compared_positions':len(cells),'match_fraction':matching/len(cells),
++                       'different_or_uncompared_cells':len(cells)-matching,'cells':cells,
++                       'interpretation':'Observed row/value correspondences, not inferred copying or common origin. Only mapped rows and columns are shown; the bounding ranges may contain omitted cells.'})
++        details+=len(cells)
++    return result,{'column_candidate_comparisons':comparisons,'row_candidate_comparisons':row_comparisons,
++                   'ambiguous_rows_omitted':ambiguous,
++                   'regions_omitted_due_detail_limit':omitted,
++                   'scope':'Mutual unique best column value-set alignment, then at least 3 mutually unambiguous rows with 80% mapped-column agreement and 2 distinct nontrivial anchor values. Unmapped columns and ambiguous rows are omitted.'}
+--- before/workbench/content_report.py
++++ after/workbench/content_report.py
+@@ -8,19 +8,22 @@
+ <style>*{box-sizing:border-box}body{margin:0;background:#f2f5f6;color:#17333e;font:15px system-ui}header{background:#14333c;color:white;padding:30px max(24px,calc((100% - 1180px)/2))}h1{font-size:30px;margin:0 0 10px}h2{font-size:20px}p{line-height:1.55}main{max-width:1230px;padding:24px;margin:auto}.notice{background:#fff7e9;border-left:4px solid #ad7930;padding:14px}.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px}.panel{background:white;border:1px solid #d5e0e4;border-radius:8px;padding:20px;margin-bottom:20px}button,input{font:inherit}button{cursor:pointer;background:white;color:inherit;border:1px solid #b6c9cf;border-radius:5px;padding:10px}input[type=search]{width:100%;padding:10px;border:1px solid #bacbd1}.block{display:block;width:100%;margin-top:9px;text-align:left;overflow-wrap:anywhere}.block[aria-pressed=true]{background:#e0f2ed;border-color:#297767}.muted{color:#58707a;font-size:13px}.stats{font-size:18px;font-weight:650}.scroll{overflow:auto;max-height:560px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid #e2eaed;padding:10px;text-align:left;overflow-wrap:anywhere}tr.diff{background:#fff0df}a{color:#107664}pre{white-space:pre-wrap;overflow-wrap:anywhere}summary{cursor:pointer}#selection{overflow-wrap:anywhere}label{display:block;margin:14px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}h1{font-size:25px}.scroll{max-height:350px}}</style>
+ <header><h1>Aynı veri nerede tekrar görünüyor?</h1><div id="files"></div></header><main>
+ <p class="notice">Eşleşen içerik, kopyalamanın yönünü veya ortak kaynağı tek başına kanıtlamaz. Aşağıdaki hücreler inceleme için yan yana getirildi; bağımsız kanıt sayısı hesaplanmadı.</p>
++<p id="example-context" class="notice" hidden></p>
+ <section class="panel"><div id="stats" class="stats"></div><p id="coverage"></p><div id="lineage"></div></section>
+ <div class="grid"><section class="panel"><h2>Eşleşen bölgeler</h2><input id="search" type="search" placeholder="Dosya veya sayfa ara" aria-label="Eşleşme ara"><div id="blocks" class="scroll"></div></section>
+-<section class="panel"><h2 id="selection">Bir bölge seç</h2><p id="block-stats"></p><p id="impact"></p><label><input id="differences" type="checkbox"> Yalnız farklı veya karşılaştırılamayan hücreler</label><div class="scroll"><table><thead><tr><th>Sol hücre / değer</th><th>Sağ hücre / değer</th><th>Gözlem</th></tr></thead><tbody id="cells"></tbody></table></div><p id="cell-limit" class="muted"></p></section></div>
++<section class="panel"><h2 id="selection">Bir bölge seç</h2><p id="block-stats"></p><p id="alignment" class="muted"></p><p id="unmapped" class="muted"></p><p id="impact"></p><p id="difference-impact"></p><label><input id="differences" type="checkbox"> Yalnız farklı veya karşılaştırılamayan hücreler</label><div class="scroll"><table><thead><tr><th>Sol hücre / değer</th><th>Sağ hücre / değer</th><th>Gözlem</th></tr></thead><tbody id="cells"></tbody></table></div><p id="cell-limit" class="muted"></p></section></div>
+ <section class="panel"><details><summary>Aranan eşleşmeler ve kapsam</summary><ul id="scope"></ul><p class="muted">Yeni içerik karşılaştırıcısı eşleşmeleri bulur. Formül izi varsa labın R207 motoru ayrı olarak kaynak kaybı etkisini hesaplar. İçerik benzerliği, R207 grafiğine kanıtlanmış bağlantı olarak eklenmez.</p><p><a href="content.json">Hücreler ve dosya özetleri · JSON</a></p></details></section>
+ </main><script>const data=PAYLOAD;
+ const $=s=>document.querySelector(s),esc=s=>String(s??'∅').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const loc=b=>`${b.workbook} · ${b.sheet}!${b.range}`;
+ let selected=data.blocks.length?0:-1;
++$('#differences').checked=selected>=0 && data.blocks[selected].different_or_uncompared_cells>0;
++if(data.example_context){$('#example-context').hidden=false;$('#example-context').textContent=data.example_context;}
+ $('#files').textContent=data.input_files.map(f=>f.name).join(' · ');
+ $('#stats').textContent=`${data.input_files.length} dosya · ${data.sheet_count} sayfa · ${data.total_blocks_found} eşleşen bölge çifti`;
+ $('#coverage').textContent=`${data.populated_cells} dolu hücre okundu. ${data.excluded_cells.formula||0} formül içerik eşleştirmesine alınmadı. ${data.blocks_omitted} bölge çıktı sınırı nedeniyle gösterilmiyor. Bölge çiftleri örtüşebilir; sayıları bağımsız kaynak sayısı değildir.`;
+ $('#lineage').innerHTML=data.lineage_available?'<a href="lineage.html">Formül bağlantılarını ve kaynak kaybı etkisini aç →</a>':'<p class="muted">Bu girdide çözülebilen formül izi yok. Değer eşleştirmesi yine yapıldı.</p>';
+ function list(){const q=$('#search').value.toLowerCase();$('#blocks').innerHTML=data.blocks.map((b,i)=>({b,i})).filter(({b})=>(loc(b.left)+' '+loc(b.right)).toLowerCase().includes(q)).map(({b,i})=>`<button class="block" data-index="${i}" aria-pressed="${i===selected}"><b>${b.matching_cells} eşleşme · ${b.different_or_uncompared_cells} fark / kapsam dışı</b><br>${esc(loc(b.left))}<br>↔ ${esc(loc(b.right))}</button>`).join('')||'<p>Arama kapsamında eşleşme yok. Bu, kaynakların bağımsız olduğunu göstermez.</p>';}
+-function detail(){if(selected<0){$('#selection').textContent='Arama kapsamında bölge bulunmadı';return}const b=data.blocks[selected];$('#selection').textContent=loc(b.left)+' ↔ '+loc(b.right);$('#block-stats').textContent=`${b.matching_cells} / ${b.compared_positions} konumda değer ve tür aynı. Eşleşen uç hücreler arasındaki alan gösteriliyor.`;$('#impact').textContent=b.formula_targets?.length?`Bu bölgelerdeki eşleşen hücrelere formülle bağlı ${b.formula_targets.length} sonuç var: `+b.formula_targets.slice(0,12).join(', '):'Bu bölge için çözülen formüllerde bağlı sonuç bulunmadı.';const cells=b.cells.filter(c=>!$('#differences').checked||!c.equal);$('#cells').innerHTML=cells.slice(0,500).map(c=>`<tr class="${c.equal?'':'diff'}"><td><b>${esc(c.left)}</b><br>${esc(c.left_value)}<br><small>${esc(c.left_type)}</small></td><td><b>${esc(c.right)}</b><br>${esc(c.right_value)}<br><small>${esc(c.right_type)}</small></td><td>${c.equal?'Aynı değer ve tür':'Farklı / karşılaştırılmadı'}</td></tr>`).join('');$('#cell-limit').textContent=cells.length>500?'İlk 500 konum gösteriliyor; tam bölge JSON dosyasında.':cells.length?'':'Bu seçimde gösterilecek fark yok.';}
+-$('#blocks').addEventListener('click',e=>{const button=e.target.closest('[data-index]');if(!button)return;selected=Number(button.dataset.index);list();detail()});$('#search').addEventListener('input',list);$('#differences').addEventListener('change',detail);$('#scope').innerHTML=data.scope.map(s=>'<li>'+esc(s)+'</li>').join('');list();detail();</script></html>'''
++function detail(){if(selected<0){$('#selection').textContent='Arama kapsamında bölge bulunmadı';return}const b=data.blocks[selected];$('#selection').textContent=loc(b.left)+' ↔ '+loc(b.right);$('#block-stats').textContent=`${b.matching_cells} / ${b.compared_positions} konumda değer ve tür aynı. ${b.kind==='row_alignment'?'Yalnız eşlenen satır ve sütunlar gösteriliyor; aralıktaki diğer hücreler dahil değildir.':'Eşleşen uç hücreler arasındaki alan gösteriliyor.'}`;$('#alignment').textContent=b.kind==='row_alignment'?`${b.matching_rows} satır eşlendi (başlıklar dahil olabilir). Sütunlar: `+b.column_mapping.map(c=>c.left+' ↔ '+c.right).join(', '):'Sabit satır/sütun kaymasıyla eşleşen bölge.';$('#unmapped').textContent=b.kind==='row_alignment'?`Eşlenmeyen satır: sol ${(b.unmapped_left_rows||[]).length}${b.unmapped_left_rows?.length?' ('+b.unmapped_left_rows.slice(0,12).join(', ')+(b.unmapped_left_rows.length>12?'…':'')+')':''}, sağ ${(b.unmapped_right_rows||[]).length}${b.unmapped_right_rows?.length?' ('+b.unmapped_right_rows.slice(0,12).join(', ')+(b.unmapped_right_rows.length>12?'…':'')+')':''}. Eşlenmeyen sütunlar: sol ${(b.unmapped_left_columns||[]).join(', ')||'yok'}; sağ ${(b.unmapped_right_columns||[]).join(', ')||'yok'}. Bu alanlar eşit kabul edilmedi.`:'';$('#difference-impact').textContent=b.difference_formula_targets?.length?'Farklı veya karşılaştırılamayan hücrelere bağlı sonuçlar: '+b.difference_formula_targets.slice(0,12).join(', '):'';$('#impact').textContent=b.formula_targets?.length?`Bu bölgelerdeki eşleşen hücrelere formülle bağlı ${b.formula_targets.length} sonuç var: `+b.formula_targets.slice(0,12).join(', '):'Bu bölge için çözülen formüllerde bağlı sonuç bulunmadı.';const cells=b.cells.filter(c=>!$('#differences').checked||!c.equal);$('#cells').innerHTML=cells.slice(0,500).map(c=>`<tr class="${c.equal?'':'diff'}"><td><b>${esc(c.left)}</b><br>${esc(c.left_value)}<br><small>${esc(c.left_type)}</small></td><td><b>${esc(c.right)}</b><br>${esc(c.right_value)}<br><small>${esc(c.right_type)}</small></td><td>${c.equal?'Aynı değer ve tür':'Farklı / karşılaştırılmadı'}</td></tr>`).join('');$('#cell-limit').textContent=cells.length>500?'İlk 500 konum gösteriliyor; tam bölge JSON dosyasında.':cells.length?'':'Bu seçimde gösterilecek fark yok.';}
++$('#blocks').addEventListener('click',e=>{const button=e.target.closest('[data-index]');if(!button)return;selected=Number(button.dataset.index);list();detail()});$('#search').addEventListener('input',list);$('#differences').addEventListener('change',detail);$('#scope').innerHTML=[...data.scope,...(data.record_alignment?[data.record_alignment.scope,`${data.record_alignment.ambiguous_rows_omitted} belirsiz satır eşleştirmesi gösterilmedi.`]:[])].map(s=>'<li>'+esc(s)+'</li>').join('');list();detail();</script></html>'''
+     path.write_text(page.replace('PAYLOAD', payload))
+--- before/workbench/cli.py
++++ after/workbench/cli.py
+@@ -48,14 +48,17 @@
+         analysis = json.loads((folder / 'analysis.json').read_text())
+         for block in content['blocks']:
+             targets = set()
++            difference_targets = set()
+             for side in ('left', 'right'):
+                 loc = block[side]
+                 prefix = loc['workbook']+'::' if len(paths)>1 else ''
+                 for cell in block['cells']:
+-                    if cell['equal']:
+-                        node = prefix+loc['sheet']+'!'+cell[side]
+-                        targets.update(analysis['source_impacts'].get(node, []))
++                    node = prefix+loc['sheet']+'!'+cell[side]
++                    impact = analysis['source_impacts'].get(node, [])
++                    if cell['equal']: targets.update(impact)
++                    else: difference_targets.update(impact)
+             block['formula_targets'] = sorted(targets)
++            block['difference_formula_targets'] = sorted(difference_targets)
+     (folder / 'content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
+     write_content_report(content, folder / 'index.html')
+     return folder / 'index.html'
+--- /dev/null
++++ after/tests/test_record_matches.py
+@@ -0,0 +1,87 @@
++import unittest
++import tempfile
++from pathlib import Path
++from openpyxl import Workbook
++from workbench.content import compare_content
++
++
++class RecordMatchTests(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmp.cleanup)
++
++    def compare(self, paths, books):
++        paths = [Path(self.tmp.name) / p.name for p in paths]
++        for path, book in zip(paths, books):
++            book.save(path)
++        return compare_content(paths, books)
++
++    def pair(self):
++        a,b=Workbook(),Workbook()
++        cols=[4,2,5,1,3]
++        rows=[7,3,9,1,8,6,10,5,2,4]
++        for r in range(1,11):
++            for c in range(1,6):
++                value=1000*c+17*r
++                a.active.cell(r,c,value)
++                b.active.cell(rows[r-1],cols[c-1],value)
++        return [Path('one.xlsx'),Path('two.xlsx')],[a,b],rows,cols
++
++    def test_reordered_rows_and_columns_locate_changed_value(self):
++        paths,books,rows,cols=self.pair()
++        books[1].active.cell(rows[3],cols[2],999999)
++        result=self.compare(paths,books)
++        match=next(b for b in result['blocks'] if b.get('kind')=='row_alignment')
++        self.assertEqual(match['matching_rows'],10)
++        self.assertEqual(match['matching_cells'],49)
++        self.assertEqual(match['different_or_uncompared_cells'],1)
++        self.assertEqual({(r['left'],r['right']) for r in match['row_mapping']},{(i+1,r) for i,r in enumerate(rows)})
++        different=next(c for c in match['cells'] if not c['equal'])
++        self.assertEqual((different['left'],different['right']),('C4','E1'))
++
++    def test_ambiguous_identical_columns_are_not_arbitrarily_mapped(self):
++        paths,books,rows,cols=self.pair()
++        for book in books:
++            for r in range(1,11):
++                for c in range(1,6):book.active.cell(r,c,17*r)
++        result=self.compare(paths,books)
++        self.assertFalse(any(b.get('kind')=='row_alignment' for b in result['blocks']))
++
++    def test_equal_column_bags_without_consistent_records_are_insufficient(self):
++        a,b=Workbook(),Workbook()
++        for r in range(12):
++            for c in range(5):
++                a.active.cell(r+1,c+1,1000*c+17*r)
++                b.active.cell(r+1,c+1,1000*c+17*((r+c)%12))
++        result=self.compare([Path('a.xlsx'),Path('b.xlsx')],[a,b])
++        self.assertFalse(any(x.get('kind')=='row_alignment' for x in result['blocks']))
++
++    def test_duplicate_rows_are_omitted_from_unique_correspondences(self):
++        paths,books,rows,cols=self.pair()
++        for c in range(1,6):
++            books[0].active.cell(11,c,books[0].active.cell(1,c).value)
++            books[1].active.cell(11,cols[c-1],books[0].active.cell(1,c).value)
++        result=self.compare(paths,books)
++        block=next(x for x in result['blocks'] if x.get('kind')=='row_alignment')
++        self.assertFalse(any(x['left'] in (1,11) for x in block['row_mapping']))
++        self.assertEqual(block['unmapped_left_rows'],[1,11])
++        self.assertGreaterEqual(result['record_alignment']['ambiguous_rows_omitted'],2)
++
++    def test_reordered_difference_keeps_both_formula_impacts_and_separate_roots(self):
++        import json
++        from workbench.cli import save_workbook_analysis
++        paths,books,rows,cols=self.pair()
++        books[1].active.cell(rows[3],cols[2],999999)
++        books[0].active['G1']='=SUM(C1:C10)'
++        books[1].active['G1']='=SUM(E1:E10)'
++        paths=[Path(self.tmp.name)/p.name for p in paths]
++        for path,book in zip(paths,books):book.save(path)
++        report=save_workbook_analysis(paths,Path(self.tmp.name)/'report')
++        content=json.loads(report.with_name('content.json').read_text())
++        match=next(b for b in content['blocks'] if b.get('kind')=='row_alignment')
++        self.assertEqual(match['difference_formula_targets'],['one.xlsx::Sheet!G1','two.xlsx::Sheet!G1'])
++        problem=json.loads(report.with_name('problem.json').read_text())
++        self.assertEqual(len(set(problem['bases'].values())),20)
++
++
++if __name__=='__main__':unittest.main()
+--- /dev/null
++++ after/examples/public-spending/reproduce.py
+@@ -0,0 +1,187 @@
++"""Compare record matching on a public CSV and explicitly artificial derivatives.
++
++The matcher receives only generated Excel files, never planted correspondences.
++The original public CSV is preserved byte-for-byte. This evaluates matching,
++not provenance classification, audit conclusions, or Excel recalculation.
++"""
++import argparse
++from collections import Counter, defaultdict
++import csv
++from decimal import Decimal
++import hashlib
++import html
++import json
++from pathlib import Path
++import random
++import sys
++from time import perf_counter
++
++from openpyxl import Workbook
++from openpyxl.utils import get_column_letter
++
++HERE = Path(__file__).resolve().parent
++LAB = HERE.parents[1]
++sys.path.insert(0, str(LAB))
++from workbench.content import compare_content, typed_value
++from workbench.cli import save_workbook_analysis
++from workbench.content_report import write_content_report
++
++
++def header_baselines(left, right, count):
++    """Independent small-table baselines, with the same 80% row threshold.
++
++    Exact whole-record comparison includes all columns. Fuzzy row comparison
++    uses header correspondence and columns with >=3 distinct nontrivial values,
++    like the value-based matcher. Both abstain on tied row assignments.
++    """
++    lhs = {c.value: c.column for c in left[1]}
++    rhs = {c.value: c.column for c in right[1]}
++    mapping = [(col, rhs[name]) for name, col in lhs.items() if name in rhs]
++    if len(mapping) != left.max_column or len(mapping) != right.max_column:
++        return {'exact': [], 'fuzzy': [], 'scope': 'Not applicable: complete header correspondence unavailable'}
++    def key(sheet, row, side):
++        return tuple(typed_value(sheet.cell(row, pair[side])) for pair in mapping)
++    a, b = defaultdict(list), defaultdict(list)
++    for row in range(2, count+2):
++        a[key(left, row, 0)].append(row)
++        b[key(right, row, 1)].append(row)
++    exact = [(rows[0], b[token][0]) for token, rows in a.items()
++             if len(rows) == 1 and len(b.get(token, [])) == 1]
++    nontrivial = lambda t: t is not None and t[0] != 'bool' and t not in (('number', 0), ('number', 1), ('number', -1))
++    eligible = []
++    for lc, rc in mapping:
++        values = [{typed_value(sheet.cell(r, col)) for r in range(1, count+2)}
++                  for sheet, col in ((left, lc), (right, rc))]
++        if all(sum(nontrivial(t) for t in tokens) >= 3 for tokens in values):
++            eligible.append((lc, rc))
++    scores = {}
++    for ar in range(2, count+2):
++        for br in range(2, count+2):
++            equal = [typed_value(left.cell(ar, ac)) for ac, bc in eligible
++                     if typed_value(left.cell(ar, ac)) is not None
++                     and typed_value(left.cell(ar, ac)) == typed_value(right.cell(br, bc))]
++            if eligible and len(equal)/len(eligible) >= .8 and len({t for t in equal if nontrivial(t)}) >= 2:
++                scores[ar, br] = len(equal)
++    best_a, best_b = {}, {}
++    for row in range(2, count+2):
++        for side, best in ((0, best_a), (1, best_b)):
++            options = [(score, pair[1-side]) for pair, score in scores.items() if pair[side] == row]
++            if options:
++                high = max(score for score, _ in options)
++                winners = [other for score, other in options if score == high]
++                if len(winners) == 1:
++                    best[row] = winners[0]
++    fuzzy = [(ar, br) for ar, br in best_a.items() if best_b.get(br) == ar]
++    return {'exact': exact, 'fuzzy': fuzzy, 'scope': 'Headers supply column correspondence; exact or mutually unique 80% row agreement'}
++
++
++def generate(folder, headers, rows, case, changed_row):
++    count, width = len(rows), len(headers)
++    rng = random.Random(20260914)
++    row_order = list(range(count)); rng.shuffle(row_order)
++    col_order = list(range(width)); rng.shuffle(col_order)
++    source, derivative = Workbook(), Workbook()
++    a, b = source.active, derivative.active
++    a.title, b.title = 'Published data', 'Transformed data'
++    a.append(headers)
++    for row in rows: a.append(row)
++    renamed = case == 'renamed_headers_changed_amount'
++    b.append([f'Field {i+1}' if renamed else headers[c] for i, c in enumerate(col_order)])
++    marginal = case == 'columns_shuffled_independently'
++    column_orders = []
++    for c in range(width):
++        order = list(range(count)); random.Random(20260914+c).shuffle(order)
++        column_orders.append(order)
++    truth = []
++    for dest, origin in enumerate(row_order):
++        values = []
++        for col in col_order:
++            src_row = column_orders[col][dest] if marginal else origin
++            value = rows[src_row][col]
++            if not marginal and origin == changed_row and col == 7:
++                value = float(Decimal(str(value)) + Decimal('123.45'))
++            values.append(value)
++        b.append(values)
++        if not marginal: truth.append((origin+2, dest+2))
++    # A visible example total is our addition, not a formula in the publisher's CSV.
++    # It is separated from the input table and its value is not evaluated here.
++    for book, title, col in ((source, a.title, 8), (derivative, b.title, col_order.index(7)+1)):
++        total = book.create_sheet('Review total')
++        total['A1'] = 'Added demonstration SUM; not in published CSV'
++        letter = get_column_letter(col)
++        total['A2'] = f"=SUM('{title}'!{letter}2:{letter}{count+1})"
++    folder.mkdir(parents=True)
++    paths = [folder/'published.xlsx', folder/'derived.xlsx']
++    for path, book in zip(paths, (source, derivative)): book.save(path)
++    return paths, [source, derivative], truth, col_order
++
++
++def metrics(pairs, truth):
++    observed, expected = set(map(tuple, pairs)), set(map(tuple, truth))
++    return {'returned': len(observed), 'correct_planted_pairs': len(observed & expected),
++            'outside_planted_pairs': len(observed-expected), 'missed': len(expected-observed)}
++
++
++def run(output):
++    output = Path(output)
++    if output.exists() and any(output.iterdir()): raise ValueError('Output folder must be new or empty')
++    output.mkdir(parents=True, exist_ok=True)
++    source = json.loads((HERE/'SOURCES.json').read_text())
++    csv_path = HERE/'HMT_spending_over_25000_Sep_25.csv'
++    assert hashlib.sha256(csv_path.read_bytes()).hexdigest() == source['sha256']
++    with csv_path.open(encoding='utf-8-sig', newline='') as handle: raw = list(csv.reader(handle))
++    headers = [h.strip() for h in raw[0]]
++    rows = [row[:7] + [float(Decimal(row[7].strip().removeprefix('£').replace(',', '')))] + row[8:] for row in raw[1:]]
++    vouchers = Counter(row[6] for row in rows)
++    # Predetermined identifiable example, plus a separate repeated-voucher case
++    # to expose the ambiguity rather than silently choosing a favorable record.
++    single = next(i for i, row in enumerate(rows) if vouchers[row[6]] == 1)
++    cases = [('reordered', None), ('changed_unique_voucher', single),
++             ('changed_repeated_voucher', 0), ('renamed_headers_changed_amount', single),
++             ('columns_shuffled_independently', None)]
++    observations = []
++    for case, changed in cases:
++        paths, books, truth, col_order = generate(output/case/'inputs', headers, rows, case, changed)
++        baseline_start = perf_counter()
++        baseline = header_baselines(books[0].active, books[1].active, len(rows))
++        baseline_ms = (perf_counter()-baseline_start)*1000
++        start = perf_counter(); result = compare_content(paths, books); elapsed = (perf_counter()-start)*1000
++        blocks = [b for b in result['blocks'] if b.get('kind') == 'row_alignment'
++                  and b['left']['sheet'] == 'Published data' and b['right']['sheet'] == 'Transformed data']
++        pairs = [(r['left'], r['right']) for b in blocks for r in b['row_mapping'] if r['left'] > 1 and r['right'] > 1]
++        changed_pair = next((pair for pair in truth if pair[0] == changed+2), None) if changed is not None else None
++        item = {'case': case, 'records': len(rows), 'changed_source_row': changed+2 if changed is not None else None,
++                'row_alignment': metrics(pairs, truth), 'header_exact': metrics(baseline['exact'], truth),
++                'header_fuzzy': metrics(baseline['fuzzy'], truth), 'baseline_scope': baseline['scope'],
++                'changed_pair_returned': changed_pair in pairs if changed_pair else None,
++                'ambiguous_rows_omitted': result['record_alignment']['ambiguous_rows_omitted'],
++                'total_displayed_regions': len(result['blocks']),
++                'informational_single_run_ms': {'complete_content_search': elapsed, 'both_header_baselines': baseline_ms}}
++        observations.append(item)
++        (output/case/'content.json').write_text(json.dumps(result, indent=2)+'\n')
++        (output/case/'evaluation-only-truth.json').write_text(json.dumps({'row_pairs': truth, 'destination_column_order_zero_based': col_order}, indent=2)+'\n')
++        print(json.dumps(item), flush=True)
++    for case in ('changed_unique_voucher', 'changed_repeated_voucher', 'renamed_headers_changed_amount'):
++        report = save_workbook_analysis(list((output/case/'inputs').glob('*.xlsx')), output/case/'report')
++        content_path = report.with_name('content.json')
++        content = json.loads(content_path.read_text())
++        content['example_context'] = 'Örnek veri: HM Treasury Eylül 2025 harcama CSV’sinden üretilen iki Excel dosyası. Sıra/başlık değişiklikleri, +123,45 tutar değişikliği ve SUM formülleri bu deney için eklendi. Bunlar yayımlanmış verideki hata veya denetim bulgusu değildir.'
++        content_path.write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
++        write_content_report(content, report)
++    receipt = {'scope': 'Public spending values, artificially transformed Excel files. Five engineering cases; no field accuracy or provenance truth claim.',
++               'source': source, 'records': len(rows), 'preprocessing': 'UTF-8 BOM removed by CSV decoder; headers stripped; Amount parsed as numeric after removing leading £ and thousands commas; all other fields preserved as text. Demonstration SUM added to each workbook.',
++               'transformation': 'Fixed seed 20260914. Row/column permutations. Changed value +123.45. Changed unique voucher is first unique voucher; repeated-voucher case changes first record. Renamed headers are Field N. Last case independently shuffles every column: identical marginal bags do not imply matching records.',
++               'evaluation': 'Planted maps are separate files and are never passed to the matcher. Counts exclude header rows. Outside planted pairs in the marginal-shuffle case are coincidental row candidates, not claimed false provenance. Timing is informational, not a performance comparison.',
++               'source_hashes': {str(p.relative_to(LAB)): hashlib.sha256(p.read_bytes()).hexdigest() for p in (LAB/'workbench/content.py', LAB/'workbench/record_matches.py', LAB/'workbench/cli.py', LAB/'workbench/content_report.py', Path(__file__))},
++               'cases': observations}
++    (output/'receipt.json').write_text(json.dumps(receipt, indent=2)+'\n')
++    def cell(m): return f"{m['correct_planted_pairs']} doğru · {m['outside_planted_pairs']} diğer · {m['missed']} bulunamadı"
++    table = ''.join('<tr><th>'+html.escape(r['case'])+'</th>'+''.join('<td>'+('Uygulanamadı: başlıklar eşlenemedi' if k!='row_alignment' and r['baseline_scope'].startswith('Not applicable') else cell(r[k]))+'</td>' for k in ('row_alignment', 'header_exact', 'header_fuzzy'))+'</tr>' for r in observations)
++    (output/'index.html').write_text('''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lab · Gerçek veri üzerinde kayıt eşleştirme</title><style>body{font:17px/1.6 system-ui;margin:40px auto;max-width:1100px;padding:0 20px;color:#182c36}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:14px;border:1px solid #ccd8dd;text-align:left}a{color:#08696c}code{background:#eef3f5}aside{background:#fff3d2;padding:20px}</style><h1>84 harcama kaydı: sıra değişince ne bulunuyor?</h1><p>Veri: <a href="'''+html.escape(source['publication'], quote=True)+'''">HM Treasury, Eylül 2025</a>. Kaynak CSV korundu. Aşağıdaki Excel dosyaları, sıralama değişiklikleri, tutar farkı ve SUM formülleri bu deney için üretildi; yayımlanmış dosyalardaki hata veya bir denetim bulgusu değildir.</p><p><a href="changed_unique_voucher/report/index.html">Değişen tutarı ve bağlı formülleri incele →</a></p><table><thead><tr><th>Deney</th><th>Değerlerden sütun + satır eşleme</th><th>Başlıklarla tam kayıt eşitliği</th><th>Başlıklarla %80 satır eşleme</th></tr></thead><tbody>'''+table+'''</tbody></table><p>“Doğru” yalnız deneyde kaydedilen satır haritasına göre doğrudur. Son deneyde her sütun ayrı karıştırıldı: tüm sütun değer kümeleri aynı kaldı, fakat kayıt haritası kurulmadı. Buradaki “diğer” adaylar tesadüfi benzerlikleri gösterir.</p><aside>Bu eşleştirici bağımsız kanıt sayısını, kopyanın yönünü veya özgün kaynağı belirlemez. Aynı faturaya ait benzer satırlarda belirsiz eşlemeyi atlayabilir. Başlıklar korunduğunda basit satır karşılaştırması güçlü bir alternatiftir; bu beş örnek bilimsel yenilik ya da saha doğruluğu ölçümü değildir.</aside><p><a href="receipt.json">Ölçüm ve kaynak kaydı</a> · <a href="../SOURCES.json">Kaynak ve lisans</a></p></html>''')
++    return output/'index.html'
++
++
++if __name__ == '__main__':
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--output', required=True)
++    print(run(parser.parse_args().output))
+--- before/restoration/build_explorer.py
++++ after/restoration/build_explorer.py
+@@ -3,6 +3,6 @@
+ BASE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(BASE))
+ from maintenance.catalog import build
+ build();data=json.loads((BASE/'catalog.json').read_text())['components']
+-page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
++page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LabAllCompass • Restored</title><style>*{box-sizing:border-box}body{font:15px system-ui;margin:0;background:#f3f5f7;color:#142338}header{padding:25px 5%;background:#15253b;color:white}main{max-width:1180px;margin:auto;padding:30px 24px}h1{font-size:36px;margin:0}p{line-height:1.6}input,select{font:inherit;padding:12px;border:1px solid #bcc8d4;border-radius:6px}input{width:58%}.card,details{background:white;border:1px solid #dce3eb;border-radius:8px;padding:18px;margin:12px 0}summary{font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:10px}small{color:#537264}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f7;padding:12px}a{color:#126b60}code{font-size:13px}.label{color:#6a7483;font-size:12px}.warning{color:#8f5719}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px}@media(max-width:600px){input{width:100%}summary{display:block}}</style><header><h1>LabAllCompass</h1><p>Restored working lab · motorlar, birleşimler, araştırmalar</p></header><main><div class="card"><b>Çalışan uygulamalar ve son onarımlar</b><p>Excel dosyalarında ortak veri bölgelerini ve formül bağlantılarını otomatik incele. REL kanıt ağırlıkları ve P103 akış hesabı onarıldı.</p><nav><a href="examples/public-spending/verified/index.html">Sırası değişen kayıtlar · ölçüm</a><a href="examples/correlated-evidence/report/index.html">Ortak veri · yayımlanmış örnek</a><a href="examples/borrowing/index.html">Tekrarlar sonucu nasıl çarpıtıyor?</a><a href="examples/content-review-verified/index.html">Tekrarlanan veri · gerçek dosya</a><a href="examples/dependency-demo/index.html">Excel bağımlılık örneği</a><a href="examples/linked-workbooks/index.html">Dosyalar arası kaynak izi</a><a href="WORKBENCH.md">Excel kullanımı</a><a href="PRODUCT_REPAIRS.md">Motor onarımları ve P103</a></nav></div><div class="card"><b>Bu sürümde motor kodları onarıldı.</b><p>1514 mevcut test, 31 yeni karşı örnek testi ve 69 demo çalıştırıldı. Bunlar bilimsel yenilik veya bütün tarihî ürün iddialarının doğrulaması değildir. Genel çalıştırıcı kullanan 90 Foundry ürünü açıkça işaretlenir.</p><nav><a href="README.md">Başlatma ve kullanım</a><a href="REPAIRS.md">Somut onarımlar</a><a href="VALIDATION.json">Çalıştırma sonuçları</a></nav></div><input id="query" placeholder="Motor, problem veya API ara: covariance, REL, flow…"><select id="layer"><option value="">Bütün katmanlar</option></select><p id="count"></p><section id="items"></section></main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));for(const l of [...new Set(data.map(x=>x.layer))]){let o=document.createElement('option');o.value=o.textContent=l;$('#layer').append(o)}function render(){const q=$('#query').value.toLowerCase();const rows=data.filter(x=>(!$('#layer').value||x.layer==$('#layer').value)&&JSON.stringify(x).toLowerCase().includes(q));$('#count').textContent=rows.length+' bileşen';$('#items').innerHTML=rows.map(r=>`<details><summary><span>${esc(r.id)}</span><small>${esc(r.layer)} · ${esc(r.latest_reproduction.status)}</small></summary><p>${esc(r.description)}</p><p class="warning">${esc(r.source_fidelity)}</p><p class="label">Paketin tarihî statüsü: ${esc(r.declared_status)}</p><pre>.venv/bin/python lab.py show ${esc(r.id)}\n.venv/bin/python lab.py check ${esc(r.id)}${r.demo_entries?.length?'\n.venv/bin/python lab.py demo '+esc(r.id)+(r.demo_entries.length>1?' --entry '+esc(r.demo_entries[0]):''):''}</pre>${r.interfaces?.length?'<b>API</b><pre>'+r.interfaces.map(esc).join('\n')+'</pre>':''}<p>${r.python_sources?.map(p=>`<a href="LAC_REPRO_R210/${encodeURI(p.path)}">${esc(p.path.split('/').pop())}</a>`).join(' · ')||'Kurtarılmış referans kod; özgün kodla eşdeğerliği kanıtlanmış değil.'}</p>${r.latest_reproduction.receipt?`<a href="${encodeURI(r.latest_reproduction.receipt)}">Test kaydını aç</a>`:''}</details>`).join('')}$('#query').oninput=$('#layer').onchange=render;render();</script></html>'''
+ (BASE/'index.html').write_text(page.replace('PAYLOAD',json.dumps(data,ensure_ascii=False).replace('</','<\\/')))
+ print(len(data),'explorer entries')

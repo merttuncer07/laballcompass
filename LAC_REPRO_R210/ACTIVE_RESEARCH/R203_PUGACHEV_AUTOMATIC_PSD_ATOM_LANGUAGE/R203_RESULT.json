@@ -1,0 +1,1608 @@
+{
+  "summary": {
+    "case_count": 36,
+    "dimensions": [
+      2,
+      4,
+      8
+    ],
+    "automatic_language": "whitened-innovation Voronoi prototypes with soft convex PSD atom mixing",
+    "coverage_gate": true,
+    "sharpness_gate": true,
+    "psd_gate": true,
+    "particle_approximation_gate": true,
+    "scaling_gate": true,
+    "dimension_summary": {
+      "2": {
+        "case_count": 12,
+        "home_compiled_rmse_per_coordinate": 0.20431135668595046,
+        "home_ukf_rmse_per_coordinate": 0.22923447976478714,
+        "home_particle_rmse_per_coordinate": 0.19974750178683406,
+        "home_compiled_coverage90": 0.8974867724867726,
+        "home_compiled_axis_radius90": 0.4343827614409093,
+        "home_particle_axis_radius90": 0.4166994630312269,
+        "mixture_compiled_beats_ukf": 6,
+        "mixture_case_count": 6,
+        "home_within_20pct_particle": 6,
+        "home_case_count": 6,
+        "median_speedup_vs_particle384": 7.013404356423663,
+        "maximum_model_storage_bytes": 1152,
+        "maximum_atom_count": 8,
+        "minimum_atom_storage_reduction": 12.5,
+        "minimum_deployed_covariance_eigenvalue": 0.0044802226157049764
+      },
+      "4": {
+        "case_count": 12,
+        "home_compiled_rmse_per_coordinate": 0.20515247065880024,
+        "home_ukf_rmse_per_coordinate": 0.2299325900152188,
+        "home_particle_rmse_per_coordinate": 0.20403028374891832,
+        "home_compiled_coverage90": 0.9056878306878308,
+        "home_compiled_axis_radius90": 0.5884939109875108,
+        "home_particle_axis_radius90": 0.5405085908089424,
+        "mixture_compiled_beats_ukf": 6,
+        "mixture_case_count": 6,
+        "home_within_20pct_particle": 6,
+        "home_case_count": 6,
+        "median_speedup_vs_particle384": 6.980407801784599,
+        "maximum_model_storage_bytes": 4656,
+        "maximum_atom_count": 12,
+        "minimum_atom_storage_reduction": 833.3333333333334,
+        "minimum_deployed_covariance_eigenvalue": 0.0025648550641989083
+      },
+      "8": {
+        "case_count": 12,
+        "home_compiled_rmse_per_coordinate": 0.20499358327248884,
+        "home_ukf_rmse_per_coordinate": 0.23050185880339966,
+        "home_particle_rmse_per_coordinate": 0.23489008091555538,
+        "home_compiled_coverage90": 0.8949735449735451,
+        "home_compiled_axis_radius90": 0.778724282169642,
+        "home_particle_axis_radius90": 0.6889267017633802,
+        "mixture_compiled_beats_ukf": 6,
+        "mixture_case_count": 6,
+        "home_within_20pct_particle": 6,
+        "home_case_count": 6,
+        "median_speedup_vs_particle384": 5.548476419804178,
+        "maximum_model_storage_bytes": 24240,
+        "maximum_atom_count": 20,
+        "minimum_atom_storage_reduction": 5000000.0,
+        "minimum_deployed_covariance_eigenvalue": 0.0019970390365074094
+      }
+    },
+    "status": "AUTOMATIC_PSD_ATOM_LANGUAGE_SURVIVES_FIRST_PASS"
+  },
+  "compile_records": [
+    {
+      "dimension": 2,
+      "regime": "gaussian",
+      "training_count": 60000,
+      "feature_count": 22,
+      "atom_count": 8,
+      "atom_storage_bytes": 256,
+      "model_storage_bytes": 1152,
+      "cartesian_10bin_atom_count": 100,
+      "cartesian_10bin_covariance_bytes": 3200,
+      "atom_storage_reduction": 12.5,
+      "minimum_atom_eigenvalue": 0.959278355227572,
+      "tail_radius90": 1.9481686496733897,
+      "compile_seconds": 0.3572264000104042
+    },
+    {
+      "dimension": 2,
+      "regime": "mixture",
+      "training_count": 60000,
+      "feature_count": 22,
+      "atom_count": 8,
+      "atom_storage_bytes": 256,
+      "model_storage_bytes": 1152,
+      "cartesian_10bin_atom_count": 100,
+      "cartesian_10bin_covariance_bytes": 3200,
+      "atom_storage_reduction": 12.5,
+      "minimum_atom_eigenvalue": 0.5083029051397444,
+      "tail_radius90": 1.8886650317462368,
+      "compile_seconds": 0.33470089999900665
+    },
+    {
+      "dimension": 4,
+      "regime": "gaussian",
+      "training_count": 42000,
+      "feature_count": 55,
+      "atom_count": 12,
+      "atom_storage_bytes": 1536,
+      "model_storage_bytes": 4656,
+      "cartesian_10bin_atom_count": 10000,
+      "cartesian_10bin_covariance_bytes": 1280000,
+      "atom_storage_reduction": 833.3333333333334,
+      "minimum_atom_eigenvalue": 0.929283129934466,
+      "tail_radius90": 2.618762620349535,
+      "compile_seconds": 0.6748936000076355
+    },
+    {
+      "dimension": 4,
+      "regime": "mixture",
+      "training_count": 42000,
+      "feature_count": 55,
+      "atom_count": 12,
+      "atom_storage_bytes": 1536,
+      "model_storage_bytes": 4656,
+      "cartesian_10bin_atom_count": 10000,
+      "cartesian_10bin_covariance_bytes": 1280000,
+      "atom_storage_reduction": 833.3333333333334,
+      "minimum_atom_eigenvalue": 0.5246865903759215,
+      "tail_radius90": 2.802224422486753,
+      "compile_seconds": 0.6676983999932418
+    },
+    {
+      "dimension": 8,
+      "regime": "gaussian",
+      "training_count": 30000,
+      "feature_count": 157,
+      "atom_count": 20,
+      "atom_storage_bytes": 10240,
+      "model_storage_bytes": 24240,
+      "cartesian_10bin_atom_count": 100000000,
+      "cartesian_10bin_covariance_bytes": 51200000000,
+      "atom_storage_reduction": 5000000.0,
+      "minimum_atom_eigenvalue": 0.9124035540589833,
+      "tail_radius90": 3.4033805528029606,
+      "compile_seconds": 1.6189168999990216
+    },
+    {
+      "dimension": 8,
+      "regime": "mixture",
+      "training_count": 30000,
+      "feature_count": 157,
+      "atom_count": 20,
+      "atom_storage_bytes": 10240,
+      "model_storage_bytes": 24240,
+      "cartesian_10bin_atom_count": 100000000,
+      "cartesian_10bin_covariance_bytes": 51200000000,
+      "atom_storage_reduction": 5000000.0,
+      "minimum_atom_eigenvalue": 0.5098143312166357,
+      "tail_radius90": 3.8387560361554773,
+      "compile_seconds": 1.6123043999978108
+    }
+  ],
+  "cases": [
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.281379274389996,
+        "rmse_per_coordinate": 0.1989651930065164,
+        "coverage90": 0.9071428571428571,
+        "mean_error_radius": 1.1204674209158023,
+        "mean_axis_radius90": 0.4383737846698273,
+        "minimum_covariance_eigenvalue": 0.014318419937440981
+      },
+      "ekf": {
+        "rmse_vector": 0.2746029086537678,
+        "rmse_per_coordinate": 0.19417357884262929,
+        "coverage90": 0.926984126984127,
+        "mean_error_radius": 1.2059645703899828,
+        "mean_axis_radius90": 0.43392475307747463,
+        "minimum_covariance_eigenvalue": 0.0105241490807495
+      },
+      "ukf": {
+        "rmse_vector": 0.27361486636641935,
+        "rmse_per_coordinate": 0.1934749274411461,
+        "coverage90": 0.9071428571428571,
+        "mean_error_radius": 1.230624333439091,
+        "mean_axis_radius90": 0.4229444300516786,
+        "minimum_covariance_eigenvalue": 0.012113093906824047
+      },
+      "particle384": {
+        "rmse_vector": 0.2755711283487928,
+        "rmse_per_coordinate": 0.19485821355465982,
+        "coverage90": 0.8960317460317461,
+        "mean_error_radius": 1.2602403600479852,
+        "mean_axis_radius90": 0.4208652627809928,
+        "minimum_covariance_eigenvalue": 0.001281533417951375
+      },
+      "compiled_seconds": 0.016831400003866293,
+      "particle_seconds": 0.10123470000689849
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2669765226281907,
+        "rmse_per_coordinate": 0.1887809095679974,
+        "coverage90": 0.8912698412698413,
+        "mean_error_radius": 1.139528607898761,
+        "mean_axis_radius90": 0.40687019274319847,
+        "minimum_covariance_eigenvalue": 0.005200524235733102
+      },
+      "ekf": {
+        "rmse_vector": 0.26330366904177493,
+        "rmse_per_coordinate": 0.18618380989073752,
+        "coverage90": 0.8976190476190476,
+        "mean_error_radius": 1.244998461619765,
+        "mean_axis_radius90": 0.40025536827873576,
+        "minimum_covariance_eigenvalue": 0.004419076269472927
+      },
+      "ukf": {
+        "rmse_vector": 0.2605150935634163,
+        "rmse_per_coordinate": 0.18421198926013957,
+        "coverage90": 0.8936507936507937,
+        "mean_error_radius": 1.249756675734811,
+        "mean_axis_radius90": 0.3915577893158935,
+        "minimum_covariance_eigenvalue": 0.006143192079469466
+      },
+      "particle384": {
+        "rmse_vector": 0.26333427689372574,
+        "rmse_per_coordinate": 0.18620545291040944,
+        "coverage90": 0.8801587301587301,
+        "mean_error_radius": 1.3159424831887232,
+        "mean_axis_radius90": 0.3879394881471681,
+        "minimum_covariance_eigenvalue": 0.00010304006375255941
+      },
+      "compiled_seconds": 0.015771699996548705,
+      "particle_seconds": 0.10180420000688173
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.28787136762291266,
+        "rmse_per_coordinate": 0.20355579615560707,
+        "coverage90": 0.9071428571428571,
+        "mean_error_radius": 1.0566380715197514,
+        "mean_axis_radius90": 0.429825702382036,
+        "minimum_covariance_eigenvalue": 0.025373927520687165
+      },
+      "ekf": {
+        "rmse_vector": 0.37955437699946637,
+        "rmse_per_coordinate": 0.268385473805358,
+        "coverage90": 0.9087301587301587,
+        "mean_error_radius": 1.1726629736749872,
+        "mean_axis_radius90": 0.5769568045564327,
+        "minimum_covariance_eigenvalue": 0.028012021415491372
+      },
+      "ukf": {
+        "rmse_vector": 0.37814761925812923,
+        "rmse_per_coordinate": 0.26739074586697187,
+        "coverage90": 0.9055555555555556,
+        "mean_error_radius": 1.2014442519969522,
+        "mean_axis_radius90": 0.5612238583911348,
+        "minimum_covariance_eigenvalue": 0.02908375255338705
+      },
+      "particle384": {
+        "rmse_vector": 0.27963020328836835,
+        "rmse_per_coordinate": 0.19772841296977806,
+        "coverage90": 0.9047619047619048,
+        "mean_error_radius": 1.227279867958999,
+        "mean_axis_radius90": 0.41134186041849463,
+        "minimum_covariance_eigenvalue": 0.01048709024014267
+      },
+      "compiled_seconds": 0.017094700000598095,
+      "particle_seconds": 0.12944010000501294
+    },
+    {
+      "dimension": 2,
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2811130124217041,
+        "rmse_per_coordinate": 0.1987769173631651,
+        "coverage90": 0.8984126984126984,
+        "mean_error_radius": 1.0640856134229393,
+        "mean_axis_radius90": 0.4048340806312072,
+        "minimum_covariance_eigenvalue": 0.006557459188777593
+      },
+      "ekf": {
+        "rmse_vector": 0.3418343271158533,
+        "rmse_per_coordinate": 0.2417133707459604,
+        "coverage90": 0.9198412698412698,
+        "mean_error_radius": 1.1063992809961887,
+        "mean_axis_radius90": 0.5344032064406947,
+        "minimum_covariance_eigenvalue": 0.008063893415821663
+      },
+      "ukf": {
+        "rmse_vector": 0.33958617103152616,
+        "rmse_per_coordinate": 0.24012368433356687,
+        "coverage90": 0.9182539682539682,
+        "mean_error_radius": 1.1375906532575315,
+        "mean_axis_radius90": 0.5197606215809415,
+        "minimum_covariance_eigenvalue": 0.010160570092277514
+      },
+      "particle384": {
+        "rmse_vector": 0.28169650158220244,
+        "rmse_per_coordinate": 0.19918950650530234,
+        "coverage90": 0.8912698412698413,
+        "mean_error_radius": 1.2404918777635379,
+        "mean_axis_radius90": 0.3890461725589459,
+        "minimum_covariance_eigenvalue": 0.0055590263423675144
+      },
+      "compiled_seconds": 0.015872000003582798,
+      "particle_seconds": 0.1257054000016069
+    },
+    {
+      "dimension": 2,
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.29414904356206323,
+        "rmse_per_coordinate": 0.2079947833822721,
+        "coverage90": 0.8865079365079365,
+        "mean_error_radius": 1.1582489134682108,
+        "mean_axis_radius90": 0.43917576600403685,
+        "minimum_covariance_eigenvalue": 0.019948439636134768
+      },
+      "ekf": {
+        "rmse_vector": 0.28855606920796084,
+        "rmse_per_coordinate": 0.20403995328948385,
+        "coverage90": 0.8960317460317461,
+        "mean_error_radius": 1.2515043527010032,
+        "mean_axis_radius90": 0.4349800340600938,
+        "minimum_covariance_eigenvalue": 0.01642225734990559
+      },
+      "ukf": {
+        "rmse_vector": 0.28742932446286845,
+        "rmse_per_coordinate": 0.20324322443956272,
+        "coverage90": 0.8888888888888888,
+        "mean_error_radius": 1.2784087465012557,
+        "mean_axis_radius90": 0.4238921331491062,
+        "minimum_covariance_eigenvalue": 0.01786853143298462
+      },
+      "particle384": {
+        "rmse_vector": 0.2888775209384048,
+        "rmse_per_coordinate": 0.20426725398790493,
+        "coverage90": 0.8809523809523809,
+        "mean_error_radius": 1.3107056162101323,
+        "mean_axis_radius90": 0.421423231938043,
+        "minimum_covariance_eigenvalue": 0.0026888532559007855
+      },
+      "compiled_seconds": 0.015521099994657561,
+      "particle_seconds": 0.09150529999169521
+    },
+    {
+      "dimension": 2,
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.26613354720895127,
+        "rmse_per_coordinate": 0.18818483593267962,
+        "coverage90": 0.9007936507936508,
+        "mean_error_radius": 1.1181847813006875,
+        "mean_axis_radius90": 0.4124713610515481,
+        "minimum_covariance_eigenvalue": 0.004652009625792775
+      },
+      "ekf": {
+        "rmse_vector": 0.2594306852455414,
+        "rmse_per_coordinate": 0.18344519678499513,
+        "coverage90": 0.9095238095238095,
+        "mean_error_radius": 1.2172735149246816,
+        "mean_axis_radius90": 0.40462759668642506,
+        "minimum_covariance_eigenvalue": 0.004349615136822378
+      },
+      "ukf": {
+        "rmse_vector": 0.256157838389753,
+        "rmse_per_coordinate": 0.1811309445794821,
+        "coverage90": 0.9111111111111111,
+        "mean_error_radius": 1.2177349640273767,
+        "mean_axis_radius90": 0.39562841477992927,
+        "minimum_covariance_eigenvalue": 0.005753520973067098
+      },
+      "particle384": {
+        "rmse_vector": 0.2584672635998872,
+        "rmse_per_coordinate": 0.18276395480621113,
+        "coverage90": 0.8976190476190476,
+        "mean_error_radius": 1.2838888322484243,
+        "mean_axis_radius90": 0.3938815354442617,
+        "minimum_covariance_eigenvalue": 0.0003839265480086251
+      },
+      "compiled_seconds": 0.01537689998804126,
+      "particle_seconds": 0.09071680001216009
+    },
+    {
+      "dimension": 2,
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2915832863837261,
+        "rmse_per_coordinate": 0.2061805190825918,
+        "coverage90": 0.8952380952380953,
+        "mean_error_radius": 1.065976055388616,
+        "mean_axis_radius90": 0.4295964654570455,
+        "minimum_covariance_eigenvalue": 0.021515275463548214
+      },
+      "ekf": {
+        "rmse_vector": 0.3654224638825283,
+        "rmse_per_coordinate": 0.258392702209232,
+        "coverage90": 0.9142857142857143,
+        "mean_error_radius": 1.1498918702360281,
+        "mean_axis_radius90": 0.5738443921113385,
+        "minimum_covariance_eigenvalue": 0.030727294216299928
+      },
+      "ukf": {
+        "rmse_vector": 0.36525643075917413,
+        "rmse_per_coordinate": 0.25827529906180663,
+        "coverage90": 0.9111111111111111,
+        "mean_error_radius": 1.1819286670408542,
+        "mean_axis_radius90": 0.5585017514779942,
+        "minimum_covariance_eigenvalue": 0.0323036221203558
+      },
+      "particle384": {
+        "rmse_vector": 0.28452852015243174,
+        "rmse_per_coordinate": 0.20119204604075772,
+        "coverage90": 0.9023809523809524,
+        "mean_error_radius": 1.2466213486478448,
+        "mean_axis_radius90": 0.41227184645047144,
+        "minimum_covariance_eigenvalue": 0.012023538458295091
+      },
+      "compiled_seconds": 0.015430600004037842,
+      "particle_seconds": 0.12195609998889267
+    },
+    {
+      "dimension": 2,
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2777297977711682,
+        "rmse_per_coordinate": 0.1963846233415615,
+        "coverage90": 0.8912698412698413,
+        "mean_error_radius": 1.052343118657503,
+        "mean_axis_radius90": 0.4039532993742122,
+        "minimum_covariance_eigenvalue": 0.006189470033738253
+      },
+      "ekf": {
+        "rmse_vector": 0.35865503226156764,
+        "rmse_per_coordinate": 0.2536074054188345,
+        "coverage90": 0.8873015873015873,
+        "mean_error_radius": 1.1832815090543454,
+        "mean_axis_radius90": 0.530514570886163,
+        "minimum_covariance_eigenvalue": 0.007864562915280367
+      },
+      "ukf": {
+        "rmse_vector": 0.35646372195160553,
+        "rmse_per_coordinate": 0.25205791503897623,
+        "coverage90": 0.8944444444444445,
+        "mean_error_radius": 1.2088363608756614,
+        "mean_axis_radius90": 0.5169789149351027,
+        "minimum_covariance_eigenvalue": 0.009284792861183026
+      },
+      "particle384": {
+        "rmse_vector": 0.2667408898091487,
+        "rmse_per_coordinate": 0.18861429200378269,
+        "coverage90": 0.8976190476190476,
+        "mean_error_radius": 1.2010341526159503,
+        "mean_axis_radius90": 0.3864178370158578,
+        "minimum_covariance_eigenvalue": 0.005090339470133451
+      },
+      "compiled_seconds": 0.015504499999224208,
+      "particle_seconds": 0.12096800000290386
+    },
+    {
+      "dimension": 2,
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.2856841867938107,
+        "rmse_per_coordinate": 0.20200922575966784,
+        "coverage90": 0.8936507936507937,
+        "mean_error_radius": 1.128591384248959,
+        "mean_axis_radius90": 0.4393850801316318,
+        "minimum_covariance_eigenvalue": 0.01503240409434999
+      },
+      "ekf": {
+        "rmse_vector": 0.2776103977408854,
+        "rmse_per_coordinate": 0.19630019477047467,
+        "coverage90": 0.9134920634920635,
+        "mean_error_radius": 1.2017467690441155,
+        "mean_axis_radius90": 0.43557042806129675,
+        "minimum_covariance_eigenvalue": 0.012587834275793923
+      },
+      "ukf": {
+        "rmse_vector": 0.27692588791333483,
+        "rmse_per_coordinate": 0.19581617322962486,
+        "coverage90": 0.8976190476190476,
+        "mean_error_radius": 1.229732322559023,
+        "mean_axis_radius90": 0.42442589260711333,
+        "minimum_covariance_eigenvalue": 0.014022370764828537
+      },
+      "particle384": {
+        "rmse_vector": 0.27949227606214344,
+        "rmse_per_coordinate": 0.19763088369280418,
+        "coverage90": 0.8785714285714286,
+        "mean_error_radius": 1.2666072229815777,
+        "mean_axis_radius90": 0.4226583478022014,
+        "minimum_covariance_eigenvalue": 0.0007865813740490487
+      },
+      "compiled_seconds": 0.0161381999932928,
+      "particle_seconds": 0.09299219999229535
+    },
+    {
+      "dimension": 2,
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2676933151295983,
+        "rmse_per_coordinate": 0.1892877584064464,
+        "coverage90": 0.8809523809523809,
+        "mean_error_radius": 1.1428496468729208,
+        "mean_axis_radius90": 0.4051325632148658,
+        "minimum_covariance_eigenvalue": 0.005711535693324771
+      },
+      "ekf": {
+        "rmse_vector": 0.2605851871202638,
+        "rmse_per_coordinate": 0.1842615528895039,
+        "coverage90": 0.8896825396825396,
+        "mean_error_radius": 1.2353335040933024,
+        "mean_axis_radius90": 0.3964657345661835,
+        "minimum_covariance_eigenvalue": 0.004272157896515337
+      },
+      "ukf": {
+        "rmse_vector": 0.2590109593242686,
+        "rmse_per_coordinate": 0.18314840573982336,
+        "coverage90": 0.9,
+        "mean_error_radius": 1.2399205519657548,
+        "mean_axis_radius90": 0.38915263237069264,
+        "minimum_covariance_eigenvalue": 0.005927537487749216
+      },
+      "particle384": {
+        "rmse_vector": 0.26053349520081437,
+        "rmse_per_coordinate": 0.1842250011827287,
+        "coverage90": 0.8833333333333333,
+        "mean_error_radius": 1.2953685605960514,
+        "mean_axis_radius90": 0.38495086978391707,
+        "minimum_covariance_eigenvalue": 9.889666671013619e-05
+      },
+      "compiled_seconds": 0.015729200007626787,
+      "particle_seconds": 0.08989089999522548
+    },
+    {
+      "dimension": 2,
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.29297219068019975,
+        "rmse_per_coordinate": 0.2071626227290475,
+        "coverage90": 0.8952380952380953,
+        "mean_error_radius": 1.0597953142926209,
+        "mean_axis_radius90": 0.42993977000087874,
+        "minimum_covariance_eigenvalue": 0.028193502888326283
+      },
+      "ekf": {
+        "rmse_vector": 0.3635141002242881,
+        "rmse_per_coordinate": 0.2570432853255204,
+        "coverage90": 0.9206349206349206,
+        "mean_error_radius": 1.1478385598924603,
+        "mean_axis_radius90": 0.5760908617513288,
+        "minimum_covariance_eigenvalue": 0.024563688543558226
+      },
+      "ukf": {
+        "rmse_vector": 0.36374493272149055,
+        "rmse_per_coordinate": 0.25720650854961047,
+        "coverage90": 0.9182539682539682,
+        "mean_error_radius": 1.1829967248571047,
+        "mean_axis_radius90": 0.5605487318529929,
+        "minimum_covariance_eigenvalue": 0.02661575000672187
+      },
+      "particle384": {
+        "rmse_vector": 0.2868141076723675,
+        "rmse_per_coordinate": 0.20280820047509965,
+        "coverage90": 0.8873015873015873,
+        "mean_error_radius": 1.2461026713901053,
+        "mean_axis_radius90": 0.41163622879715833,
+        "minimum_covariance_eigenvalue": 0.011651022149966977
+      },
+      "compiled_seconds": 0.015637600008631125,
+      "particle_seconds": 0.12351409999246243
+    },
+    {
+      "dimension": 2,
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.2805529291011753,
+        "rmse_per_coordinate": 0.1983808786491897,
+        "coverage90": 0.8944444444444445,
+        "mean_error_radius": 1.0628710570540132,
+        "mean_axis_radius90": 0.4060496031854527,
+        "minimum_covariance_eigenvalue": 0.0044802226157049764
+      },
+      "ekf": {
+        "rmse_vector": 0.3562634307455193,
+        "rmse_per_coordinate": 0.2519162877689406,
+        "coverage90": 0.9015873015873016,
+        "mean_error_radius": 1.165548047104895,
+        "mean_axis_radius90": 0.5372857524831709,
+        "minimum_covariance_eigenvalue": 0.006346283460899541
+      },
+      "ukf": {
+        "rmse_vector": 0.3530956941045359,
+        "rmse_per_coordinate": 0.24967635970908816,
+        "coverage90": 0.9095238095238095,
+        "mean_error_radius": 1.1926948331236038,
+        "mean_axis_radius90": 0.522313556019705,
+        "minimum_covariance_eigenvalue": 0.007705412899953036
+      },
+      "particle384": {
+        "rmse_vector": 0.2701141510331189,
+        "rmse_per_coordinate": 0.19099954788996568,
+        "coverage90": 0.903968253968254,
+        "mean_error_radius": 1.2262050697546831,
+        "mean_axis_radius90": 0.3861780058229037,
+        "minimum_covariance_eigenvalue": 0.003920361838024588
+      },
+      "compiled_seconds": 0.015343799997936003,
+      "particle_seconds": 0.12218649999704212
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.4100735130825882,
+        "rmse_per_coordinate": 0.2050367565412941,
+        "coverage90": 0.9095238095238095,
+        "mean_error_radius": 1.7701406446391021,
+        "mean_axis_radius90": 0.5720015906014914,
+        "minimum_covariance_eigenvalue": 0.015716044402626125
+      },
+      "ekf": {
+        "rmse_vector": 0.39765957488569936,
+        "rmse_per_coordinate": 0.19882978744284968,
+        "coverage90": 0.915079365079365,
+        "mean_error_radius": 1.8398961733263937,
+        "mean_axis_radius90": 0.5654535610149898,
+        "minimum_covariance_eigenvalue": 0.013098014193567056
+      },
+      "ukf": {
+        "rmse_vector": 0.39686328537815985,
+        "rmse_per_coordinate": 0.19843164268907992,
+        "coverage90": 0.8896825396825396,
+        "mean_error_radius": 1.9129094316341657,
+        "mean_axis_radius90": 0.5423461055510208,
+        "minimum_covariance_eigenvalue": 0.01575821510691546
+      },
+      "particle384": {
+        "rmse_vector": 0.4096106249400875,
+        "rmse_per_coordinate": 0.20480531247004374,
+        "coverage90": 0.803968253968254,
+        "mean_error_radius": 2.2336381464209243,
+        "mean_axis_radius90": 0.5411499671992096,
+        "minimum_covariance_eigenvalue": 0.0001572661640378506
+      },
+      "compiled_seconds": 0.027229300001636147,
+      "particle_seconds": 0.17042310000397265
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.3981454964727557,
+        "rmse_per_coordinate": 0.19907274823637786,
+        "coverage90": 0.8896825396825396,
+        "mean_error_radius": 1.8136796284868726,
+        "mean_axis_radius90": 0.5414187857169059,
+        "minimum_covariance_eigenvalue": 0.0033926596353435613
+      },
+      "ekf": {
+        "rmse_vector": 0.38894067030013385,
+        "rmse_per_coordinate": 0.19447033515006693,
+        "coverage90": 0.888095238095238,
+        "mean_error_radius": 1.9215291893297994,
+        "mean_axis_radius90": 0.5314538524238526,
+        "minimum_covariance_eigenvalue": 0.0025332518903344553
+      },
+      "ukf": {
+        "rmse_vector": 0.3834218882876534,
+        "rmse_per_coordinate": 0.1917109441438267,
+        "coverage90": 0.8761904761904762,
+        "mean_error_radius": 1.9490875407109858,
+        "mean_axis_radius90": 0.5101425449414162,
+        "minimum_covariance_eigenvalue": 0.005214923954227813
+      },
+      "particle384": {
+        "rmse_vector": 0.4018774391343171,
+        "rmse_per_coordinate": 0.20093871956715856,
+        "coverage90": 0.765079365079365,
+        "mean_error_radius": 2.9469394437404457,
+        "mean_axis_radius90": 0.5049224326344636,
+        "minimum_covariance_eigenvalue": 3.579075827829699e-07
+      },
+      "compiled_seconds": 0.02903869999863673,
+      "particle_seconds": 0.1659611000068253
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.4181035159233364,
+        "rmse_per_coordinate": 0.2090517579616682,
+        "coverage90": 0.8928571428571429,
+        "mean_error_radius": 1.7375291603561966,
+        "mean_axis_radius90": 0.6030707464055262,
+        "minimum_covariance_eigenvalue": 0.022821997399786076
+      },
+      "ekf": {
+        "rmse_vector": 0.5303150421985767,
+        "rmse_per_coordinate": 0.26515752109928836,
+        "coverage90": 0.8833333333333333,
+        "mean_error_radius": 1.7800892135857296,
+        "mean_axis_radius90": 0.7508991628073087,
+        "minimum_covariance_eigenvalue": 0.02975337821603475
+      },
+      "ukf": {
+        "rmse_vector": 0.5303004345606291,
+        "rmse_per_coordinate": 0.26515021728031457,
+        "coverage90": 0.8650793650793651,
+        "mean_error_radius": 1.8664203785873497,
+        "mean_axis_radius90": 0.7176826514383099,
+        "minimum_covariance_eigenvalue": 0.032717614314079234
+      },
+      "particle384": {
+        "rmse_vector": 0.412435430940064,
+        "rmse_per_coordinate": 0.206217715470032,
+        "coverage90": 0.8333333333333334,
+        "mean_error_radius": 2.0321218140260644,
+        "mean_axis_radius90": 0.535070514580019,
+        "minimum_covariance_eigenvalue": 0.0029092293248815554
+      },
+      "compiled_seconds": 0.02623630000744015,
+      "particle_seconds": 0.22312789999705274
+    },
+    {
+      "dimension": 4,
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.4152881939875325,
+        "rmse_per_coordinate": 0.20764409699376624,
+        "coverage90": 0.8825396825396825,
+        "mean_error_radius": 1.7663997558351856,
+        "mean_axis_radius90": 0.5778938466249767,
+        "minimum_covariance_eigenvalue": 0.009136134403558925
+      },
+      "ekf": {
+        "rmse_vector": 0.5014389133834568,
+        "rmse_per_coordinate": 0.2507194566917284,
+        "coverage90": 0.8920634920634921,
+        "mean_error_radius": 1.7378495896228183,
+        "mean_axis_radius90": 0.7146701101577708,
+        "minimum_covariance_eigenvalue": 0.012307682010920579
+      },
+      "ukf": {
+        "rmse_vector": 0.5009998501593219,
+        "rmse_per_coordinate": 0.25049992507966096,
+        "coverage90": 0.8809523809523809,
+        "mean_error_radius": 1.8333523467547128,
+        "mean_axis_radius90": 0.678537317069401,
+        "minimum_covariance_eigenvalue": 0.016402208627836316
+      },
+      "particle384": {
+        "rmse_vector": 0.41257223723823,
+        "rmse_per_coordinate": 0.206286118619115,
+        "coverage90": 0.8031746031746032,
+        "mean_error_radius": 2.1150993123687583,
+        "mean_axis_radius90": 0.5158617917600238,
+        "minimum_covariance_eigenvalue": 0.0032278937887082965
+      },
+      "compiled_seconds": 0.027306800009682775,
+      "particle_seconds": 0.21391679999942426
+    },
+    {
+      "dimension": 4,
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.4004970989684588,
+        "rmse_per_coordinate": 0.20024854948422943,
+        "coverage90": 0.9174603174603174,
+        "mean_error_radius": 1.72008307699446,
+        "mean_axis_radius90": 0.5743073697911216,
+        "minimum_covariance_eigenvalue": 0.012059860030527027
+      },
+      "ekf": {
+        "rmse_vector": 0.39064259458988454,
+        "rmse_per_coordinate": 0.19532129729494227,
+        "coverage90": 0.9261904761904762,
+        "mean_error_radius": 1.7974283454778024,
+        "mean_axis_radius90": 0.5683454717109433,
+        "minimum_covariance_eigenvalue": 0.010095960451327532
+      },
+      "ukf": {
+        "rmse_vector": 0.38887118314196634,
+        "rmse_per_coordinate": 0.19443559157098317,
+        "coverage90": 0.9055555555555556,
+        "mean_error_radius": 1.8659136980788649,
+        "mean_axis_radius90": 0.5443221102179306,
+        "minimum_covariance_eigenvalue": 0.012522889274043079
+      },
+      "particle384": {
+        "rmse_vector": 0.39850004422563234,
+        "rmse_per_coordinate": 0.19925002211281617,
+        "coverage90": 0.8206349206349206,
+        "mean_error_radius": 2.2851551427956935,
+        "mean_axis_radius90": 0.5434335365767321,
+        "minimum_covariance_eigenvalue": 5.795478088462914e-06
+      },
+      "compiled_seconds": 0.02624859999923501,
+      "particle_seconds": 0.15591970000241417
+    },
+    {
+      "dimension": 4,
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.38381881697297454,
+        "rmse_per_coordinate": 0.19190940848648727,
+        "coverage90": 0.8825396825396825,
+        "mean_error_radius": 1.7946618111725208,
+        "mean_axis_radius90": 0.5284163021446205,
+        "minimum_covariance_eigenvalue": 0.0027019202350882427
+      },
+      "ekf": {
+        "rmse_vector": 0.3727273118016435,
+        "rmse_per_coordinate": 0.18636365590082174,
+        "coverage90": 0.8952380952380953,
+        "mean_error_radius": 1.8814402593864146,
+        "mean_axis_radius90": 0.5181785369345854,
+        "minimum_covariance_eigenvalue": 0.0022963080995719093
+      },
+      "ukf": {
+        "rmse_vector": 0.37070721959730685,
+        "rmse_per_coordinate": 0.18535360979865342,
+        "coverage90": 0.8888888888888888,
+        "mean_error_radius": 1.9062847920166788,
+        "mean_axis_radius90": 0.5001148496534077,
+        "minimum_covariance_eigenvalue": 0.004799618139942051
+      },
+      "particle384": {
+        "rmse_vector": 0.3917428425075463,
+        "rmse_per_coordinate": 0.19587142125377316,
+        "coverage90": 0.7341269841269841,
+        "mean_error_radius": 4.10430084282241,
+        "mean_axis_radius90": 0.4923322025222218,
+        "minimum_covariance_eigenvalue": 1.2332645374948848e-07
+      },
+      "compiled_seconds": 0.025758200004929677,
+      "particle_seconds": 0.14533499999379274
+    },
+    {
+      "dimension": 4,
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.41475190509823506,
+        "rmse_per_coordinate": 0.20737595254911753,
+        "coverage90": 0.8960317460317461,
+        "mean_error_radius": 1.7336801151065433,
+        "mean_axis_radius90": 0.603408477862271,
+        "minimum_covariance_eigenvalue": 0.01901492338637176
+      },
+      "ekf": {
+        "rmse_vector": 0.5266446561601874,
+        "rmse_per_coordinate": 0.26332232808009376,
+        "coverage90": 0.8904761904761904,
+        "mean_error_radius": 1.7649039967622648,
+        "mean_axis_radius90": 0.7519446544474455,
+        "minimum_covariance_eigenvalue": 0.026215928465096565
+      },
+      "ukf": {
+        "rmse_vector": 0.5270177142523933,
+        "rmse_per_coordinate": 0.26350885712619665,
+        "coverage90": 0.8761904761904762,
+        "mean_error_radius": 1.8524628737683493,
+        "mean_axis_radius90": 0.7184738382043967,
+        "minimum_covariance_eigenvalue": 0.02954981958767864
+      },
+      "particle384": {
+        "rmse_vector": 0.4134663972268614,
+        "rmse_per_coordinate": 0.2067331986134307,
+        "coverage90": 0.846031746031746,
+        "mean_error_radius": 2.0066079032303734,
+        "mean_axis_radius90": 0.5392746771468505,
+        "minimum_covariance_eigenvalue": 0.005647628586359271
+      },
+      "compiled_seconds": 0.025894300008076243,
+      "particle_seconds": 0.22317369999655057
+    },
+    {
+      "dimension": 4,
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.4048375446664152,
+        "rmse_per_coordinate": 0.20241877233320762,
+        "coverage90": 0.8944444444444445,
+        "mean_error_radius": 1.709958077065958,
+        "mean_axis_radius90": 0.5815633342630325,
+        "minimum_covariance_eigenvalue": 0.007647918584204038
+      },
+      "ekf": {
+        "rmse_vector": 0.5087669817135055,
+        "rmse_per_coordinate": 0.25438349085675277,
+        "coverage90": 0.876984126984127,
+        "mean_error_radius": 1.7595890699879715,
+        "mean_axis_radius90": 0.7178584208429957,
+        "minimum_covariance_eigenvalue": 0.008140954236891368
+      },
+      "ukf": {
+        "rmse_vector": 0.5051685188418821,
+        "rmse_per_coordinate": 0.25258425942094104,
+        "coverage90": 0.873015873015873,
+        "mean_error_radius": 1.838912306117717,
+        "mean_axis_radius90": 0.6807985424510792,
+        "minimum_covariance_eigenvalue": 0.012735003055319978
+      },
+      "particle384": {
+        "rmse_vector": 0.39561285990690753,
+        "rmse_per_coordinate": 0.19780642995345377,
+        "coverage90": 0.834920634920635,
+        "mean_error_radius": 2.0110888854279407,
+        "mean_axis_radius90": 0.5170557362956197,
+        "minimum_covariance_eigenvalue": 0.0031018708763355437
+      },
+      "compiled_seconds": 0.0266704999958165,
+      "particle_seconds": 0.21142280001367908
+    },
+    {
+      "dimension": 4,
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.4081461340036908,
+        "rmse_per_coordinate": 0.2040730670018454,
+        "coverage90": 0.9142857142857143,
+        "mean_error_radius": 1.752689588857308,
+        "mean_axis_radius90": 0.5753521005910198,
+        "minimum_covariance_eigenvalue": 0.016728264642476377
+      },
+      "ekf": {
+        "rmse_vector": 0.39841154729982564,
+        "rmse_per_coordinate": 0.19920577364991282,
+        "coverage90": 0.9182539682539682,
+        "mean_error_radius": 1.837873083671399,
+        "mean_axis_radius90": 0.5691802707255232,
+        "minimum_covariance_eigenvalue": 0.014841633780964557
+      },
+      "ukf": {
+        "rmse_vector": 0.39741282676660367,
+        "rmse_per_coordinate": 0.19870641338330183,
+        "coverage90": 0.8968253968253969,
+        "mean_error_radius": 1.9115252785210368,
+        "mean_axis_radius90": 0.5453162318310332,
+        "minimum_covariance_eigenvalue": 0.017426582888398733
+      },
+      "particle384": {
+        "rmse_vector": 0.40606368089098777,
+        "rmse_per_coordinate": 0.20303184044549386,
+        "coverage90": 0.8182539682539682,
+        "mean_error_radius": 2.144819536763624,
+        "mean_axis_radius90": 0.5447584151446095,
+        "minimum_covariance_eigenvalue": 0.0002349052160110023
+      },
+      "compiled_seconds": 0.027999600002658553,
+      "particle_seconds": 0.14818440000817645
+    },
+    {
+      "dimension": 4,
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.38668405568482433,
+        "rmse_per_coordinate": 0.19334202784241217,
+        "coverage90": 0.8936507936507937,
+        "mean_error_radius": 1.7812395396688698,
+        "mean_axis_radius90": 0.5415950007575664,
+        "minimum_covariance_eigenvalue": 0.0025648550641989083
+      },
+      "ekf": {
+        "rmse_vector": 0.375302365687299,
+        "rmse_per_coordinate": 0.1876511828436495,
+        "coverage90": 0.9134920634920635,
+        "mean_error_radius": 1.8607963440715878,
+        "mean_axis_radius90": 0.5317072445385268,
+        "minimum_covariance_eigenvalue": 0.0022030093665870985
+      },
+      "ukf": {
+        "rmse_vector": 0.37271992244773344,
+        "rmse_per_coordinate": 0.18635996122386675,
+        "coverage90": 0.8873015873015873,
+        "mean_error_radius": 1.90271725337165,
+        "mean_axis_radius90": 0.5105538394296107,
+        "minimum_covariance_eigenvalue": 0.004547064217113258
+      },
+      "particle384": {
+        "rmse_vector": 0.39063604176779276,
+        "rmse_per_coordinate": 0.19531802088389638,
+        "coverage90": 0.7666666666666667,
+        "mean_error_radius": 3.0323378323124603,
+        "mean_axis_radius90": 0.5072822553493467,
+        "minimum_covariance_eigenvalue": 1.3362790529774128e-07
+      },
+      "compiled_seconds": 0.02772230000118725,
+      "particle_seconds": 0.14576210000086576
+    },
+    {
+      "dimension": 4,
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.41025748082929314,
+        "rmse_per_coordinate": 0.20512874041464657,
+        "coverage90": 0.903968253968254,
+        "mean_error_radius": 1.7044023154079802,
+        "mean_axis_radius90": 0.6028231806736353,
+        "minimum_covariance_eigenvalue": 0.022091842575963777
+      },
+      "ekf": {
+        "rmse_vector": 0.5181326303420932,
+        "rmse_per_coordinate": 0.25906631517104667,
+        "coverage90": 0.9023809523809524,
+        "mean_error_radius": 1.7381773182753644,
+        "mean_axis_radius90": 0.7507363147780803,
+        "minimum_covariance_eigenvalue": 0.026893668187536367
+      },
+      "ukf": {
+        "rmse_vector": 0.5187256360828735,
+        "rmse_per_coordinate": 0.25936281804143674,
+        "coverage90": 0.8873015873015873,
+        "mean_error_radius": 1.8246077101113751,
+        "mean_axis_radius90": 0.7174425651762032,
+        "minimum_covariance_eigenvalue": 0.03039831448505694
+      },
+      "particle384": {
+        "rmse_vector": 0.4082872267633871,
+        "rmse_per_coordinate": 0.20414361338169354,
+        "coverage90": 0.8341269841269842,
+        "mean_error_radius": 2.0146025878078597,
+        "mean_axis_radius90": 0.5393644342062335,
+        "minimum_covariance_eigenvalue": 0.0038275376006428803
+      },
+      "compiled_seconds": 0.027655600002617575,
+      "particle_seconds": 0.21300350000092294
+    },
+    {
+      "dimension": 4,
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.4186219351274632,
+        "rmse_per_coordinate": 0.2093109675637316,
+        "coverage90": 0.8833333333333333,
+        "mean_error_radius": 1.7472958843099593,
+        "mean_axis_radius90": 0.5844422832649803,
+        "minimum_covariance_eigenvalue": 0.005791211673441544
+      },
+      "ekf": {
+        "rmse_vector": 0.5125899649467927,
+        "rmse_per_coordinate": 0.2562949824733963,
+        "coverage90": 0.8746031746031746,
+        "mean_error_radius": 1.7645355811867152,
+        "mean_axis_radius90": 0.7214511765288195,
+        "minimum_covariance_eigenvalue": 0.007172571563844649
+      },
+      "ukf": {
+        "rmse_vector": 0.5107725566668824,
+        "rmse_per_coordinate": 0.25538627833344113,
+        "coverage90": 0.8642857142857143,
+        "mean_error_radius": 1.8536535123765148,
+        "mean_axis_radius90": 0.6836194219065362,
+        "minimum_covariance_eigenvalue": 0.010720810207894216
+      },
+      "particle384": {
+        "rmse_vector": 0.4136045452917489,
+        "rmse_per_coordinate": 0.20680227264587445,
+        "coverage90": 0.834920634920635,
+        "mean_error_radius": 2.0369252172601375,
+        "mean_axis_radius90": 0.5281040298401424,
+        "minimum_covariance_eigenvalue": 0.0017602897198406887
+      },
+      "compiled_seconds": 0.025916700004017912,
+      "particle_seconds": 0.20886480000626761
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.5765350727211815,
+        "rmse_per_coordinate": 0.2038359297565134,
+        "coverage90": 0.8952380952380953,
+        "mean_error_radius": 2.549237632030971,
+        "mean_axis_radius90": 0.7475320469130801,
+        "minimum_covariance_eigenvalue": 0.013923544674322379
+      },
+      "ekf": {
+        "rmse_vector": 0.5607361150894171,
+        "rmse_per_coordinate": 0.19825015471796362,
+        "coverage90": 0.919047619047619,
+        "mean_error_radius": 2.6634053183288953,
+        "mean_axis_radius90": 0.7468883251142887,
+        "minimum_covariance_eigenvalue": 0.011570165453942481
+      },
+      "ukf": {
+        "rmse_vector": 0.5598663705958254,
+        "rmse_per_coordinate": 0.1979426536033044,
+        "coverage90": 0.8603174603174604,
+        "mean_error_radius": 2.858206233169032,
+        "mean_axis_radius90": 0.693046465105594,
+        "minimum_covariance_eigenvalue": 0.01600706551284834
+      },
+      "particle384": {
+        "rmse_vector": 0.6406173640816897,
+        "rmse_per_coordinate": 0.2264924411440071,
+        "coverage90": 0.33095238095238094,
+        "mean_error_radius": 9.822607464857375,
+        "mean_axis_radius90": 0.6722306381900138,
+        "minimum_covariance_eigenvalue": 2.7468173916274946e-08
+      },
+      "compiled_seconds": 0.0634554999996908,
+      "particle_seconds": 0.30827799999678973
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.5581626926345589,
+        "rmse_per_coordinate": 0.1973403124836196,
+        "coverage90": 0.8658730158730159,
+        "mean_error_radius": 2.629962388242518,
+        "mean_axis_radius90": 0.7028653843730841,
+        "minimum_covariance_eigenvalue": 0.00215846422484108
+      },
+      "ekf": {
+        "rmse_vector": 0.5382698476034694,
+        "rmse_per_coordinate": 0.19030712967433136,
+        "coverage90": 0.8801587301587301,
+        "mean_error_radius": 2.7491758584087624,
+        "mean_axis_radius90": 0.6974517749544097,
+        "minimum_covariance_eigenvalue": 0.0018653679247150467
+      },
+      "ukf": {
+        "rmse_vector": 0.5351858493528322,
+        "rmse_per_coordinate": 0.18921677163623485,
+        "coverage90": 0.8468253968253968,
+        "mean_error_radius": 2.8850201027633555,
+        "mean_axis_radius90": 0.6489846254660464,
+        "minimum_covariance_eigenvalue": 0.00613146850031402
+      },
+      "particle384": {
+        "rmse_vector": 0.6459402220748319,
+        "rmse_per_coordinate": 0.22837435563512903,
+        "coverage90": 0.2,
+        "mean_error_radius": 53.67987452640456,
+        "mean_axis_radius90": 0.6064987518357676,
+        "minimum_covariance_eigenvalue": 9.999999998610125e-09
+      },
+      "compiled_seconds": 0.06445299999904819,
+      "particle_seconds": 0.30994759999157395
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.5811347293078781,
+        "rmse_per_coordinate": 0.20546215393830466,
+        "coverage90": 0.8992063492063492,
+        "mean_error_radius": 2.594685366941045,
+        "mean_axis_radius90": 0.8118183966086808,
+        "minimum_covariance_eigenvalue": 0.019756252827841575
+      },
+      "ekf": {
+        "rmse_vector": 0.749125890932912,
+        "rmse_per_coordinate": 0.26485599872053806,
+        "coverage90": 0.873015873015873,
+        "mean_error_radius": 2.6176987790659396,
+        "mean_axis_radius90": 0.9900089318749563,
+        "minimum_covariance_eigenvalue": 0.020191420375838487
+      },
+      "ukf": {
+        "rmse_vector": 0.7492460357158454,
+        "rmse_per_coordinate": 0.26489847631590624,
+        "coverage90": 0.8238095238095238,
+        "mean_error_radius": 2.837941866711766,
+        "mean_axis_radius90": 0.9137866111918935,
+        "minimum_covariance_eigenvalue": 0.026913304410388864
+      },
+      "particle384": {
+        "rmse_vector": 0.6853775086162457,
+        "rmse_per_coordinate": 0.24231754200764438,
+        "coverage90": 0.30158730158730157,
+        "mean_error_radius": 5.254215403761537,
+        "mean_axis_radius90": 0.6983309778726556,
+        "minimum_covariance_eigenvalue": 9.566298554322942e-05
+      },
+      "compiled_seconds": 0.06360499998845626,
+      "particle_seconds": 0.4302460000035353
+    },
+    {
+      "dimension": 8,
+      "seed": 0,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.5825731811282213,
+        "rmse_per_coordinate": 0.20597072345659204,
+        "coverage90": 0.8642857142857143,
+        "mean_error_radius": 2.7336920965778915,
+        "mean_axis_radius90": 0.7743097408207088,
+        "minimum_covariance_eigenvalue": 0.006426093161412782
+      },
+      "ekf": {
+        "rmse_vector": 0.7222780432655295,
+        "rmse_per_coordinate": 0.25536385114760324,
+        "coverage90": 0.8468253968253968,
+        "mean_error_radius": 2.675573883231016,
+        "mean_axis_radius90": 0.9361398450328989,
+        "minimum_covariance_eigenvalue": 0.008369412471268045
+      },
+      "ukf": {
+        "rmse_vector": 0.7211014853284817,
+        "rmse_per_coordinate": 0.25494787509973055,
+        "coverage90": 0.8055555555555556,
+        "mean_error_radius": 2.9045865020293524,
+        "mean_axis_radius90": 0.8552252162356292,
+        "minimum_covariance_eigenvalue": 0.01540072346390135
+      },
+      "particle384": {
+        "rmse_vector": 0.7711939238245145,
+        "rmse_per_coordinate": 0.27265822657308797,
+        "coverage90": 0.19682539682539682,
+        "mean_error_radius": 6.601537262106649,
+        "mean_axis_radius90": 0.703929245859507,
+        "minimum_covariance_eigenvalue": 5.802195185192306e-05
+      },
+      "compiled_seconds": 0.0649837000091793,
+      "particle_seconds": 0.4228367000032449
+    },
+    {
+      "dimension": 8,
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.5770484721240058,
+        "rmse_per_coordinate": 0.20401744385611045,
+        "coverage90": 0.8952380952380953,
+        "mean_error_radius": 2.555939534136259,
+        "mean_axis_radius90": 0.7447696820633166,
+        "minimum_covariance_eigenvalue": 0.009099362959919342
+      },
+      "ekf": {
+        "rmse_vector": 0.5597691419305935,
+        "rmse_per_coordinate": 0.19790827807904882,
+        "coverage90": 0.9119047619047619,
+        "mean_error_radius": 2.663771437484867,
+        "mean_axis_radius90": 0.7438080771799807,
+        "minimum_covariance_eigenvalue": 0.0064058483858433725
+      },
+      "ukf": {
+        "rmse_vector": 0.5584515841452231,
+        "rmse_per_coordinate": 0.19744245105672856,
+        "coverage90": 0.8626984126984127,
+        "mean_error_radius": 2.8529227828834296,
+        "mean_axis_radius90": 0.6911473753267946,
+        "minimum_covariance_eigenvalue": 0.011429459539665865
+      },
+      "particle384": {
+        "rmse_vector": 0.6364258504166805,
+        "rmse_per_coordinate": 0.22501051727602508,
+        "coverage90": 0.3134920634920635,
+        "mean_error_radius": 10.200241283323678,
+        "mean_axis_radius90": 0.6748094310434855,
+        "minimum_covariance_eigenvalue": 7.351417052848528e-08
+      },
+      "compiled_seconds": 0.06271319999359548,
+      "particle_seconds": 0.3005830000038259
+    },
+    {
+      "dimension": 8,
+      "seed": 1,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.5420458072713732,
+        "rmse_per_coordinate": 0.1916421330176622,
+        "coverage90": 0.8849206349206349,
+        "mean_error_radius": 2.5810777869030197,
+        "mean_axis_radius90": 0.6995070722976163,
+        "minimum_covariance_eigenvalue": 0.0036399140874116016
+      },
+      "ekf": {
+        "rmse_vector": 0.527897790479167,
+        "rmse_per_coordinate": 0.1866400537106071,
+        "coverage90": 0.8873015873015873,
+        "mean_error_radius": 2.7349607315059523,
+        "mean_axis_radius90": 0.6930232143969095,
+        "minimum_covariance_eigenvalue": 0.0029071843472796635
+      },
+      "ukf": {
+        "rmse_vector": 0.5264715315338769,
+        "rmse_per_coordinate": 0.18613579502463584,
+        "coverage90": 0.8571428571428571,
+        "mean_error_radius": 2.845354420010076,
+        "mean_axis_radius90": 0.6483239040250197,
+        "minimum_covariance_eigenvalue": 0.00838164912864575
+      },
+      "particle384": {
+        "rmse_vector": 0.6611008685268895,
+        "rmse_per_coordinate": 0.23373445359183986,
+        "coverage90": 0.18412698412698414,
+        "mean_error_radius": 78.05236568677296,
+        "mean_axis_radius90": 0.6010172794598013,
+        "minimum_covariance_eigenvalue": 9.999999986462505e-09
+      },
+      "compiled_seconds": 0.06437909998930991,
+      "particle_seconds": 0.29692930000601336
+    },
+    {
+      "dimension": 8,
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.5871539155301241,
+        "rmse_per_coordinate": 0.20759025763579206,
+        "coverage90": 0.8904761904761904,
+        "mean_error_radius": 2.635301858769583,
+        "mean_axis_radius90": 0.810004769432899,
+        "minimum_covariance_eigenvalue": 0.018682635866969943
+      },
+      "ekf": {
+        "rmse_vector": 0.7395861569794804,
+        "rmse_per_coordinate": 0.2614831934359445,
+        "coverage90": 0.8857142857142857,
+        "mean_error_radius": 2.5923537560027032,
+        "mean_axis_radius90": 0.9871352384290798,
+        "minimum_covariance_eigenvalue": 0.02574407278500158
+      },
+      "ukf": {
+        "rmse_vector": 0.7402739658432254,
+        "rmse_per_coordinate": 0.26172637059180165,
+        "coverage90": 0.8531746031746031,
+        "mean_error_radius": 2.8115274583641043,
+        "mean_axis_radius90": 0.912190144869504,
+        "minimum_covariance_eigenvalue": 0.031211789487255438
+      },
+      "particle384": {
+        "rmse_vector": 0.6988301616513087,
+        "rmse_per_coordinate": 0.2470737731006658,
+        "coverage90": 0.28809523809523807,
+        "mean_error_radius": 5.365235897511439,
+        "mean_axis_radius90": 0.707330051668805,
+        "minimum_covariance_eigenvalue": 0.00010796945466345643
+      },
+      "compiled_seconds": 0.06859130000520963,
+      "particle_seconds": 0.42792580000241287
+    },
+    {
+      "dimension": 8,
+      "seed": 1,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.599167692232577,
+        "rmse_per_coordinate": 0.21183776912277474,
+        "coverage90": 0.8428571428571429,
+        "mean_error_radius": 2.750296849034999,
+        "mean_axis_radius90": 0.7753451998696543,
+        "minimum_covariance_eigenvalue": 0.005541690665935027
+      },
+      "ekf": {
+        "rmse_vector": 0.7235081334857514,
+        "rmse_per_coordinate": 0.25579875371569827,
+        "coverage90": 0.8341269841269842,
+        "mean_error_radius": 2.6694701817249062,
+        "mean_axis_radius90": 0.9385328738259664,
+        "minimum_covariance_eigenvalue": 0.00742407907277589
+      },
+      "ukf": {
+        "rmse_vector": 0.7204324585701377,
+        "rmse_per_coordinate": 0.25471133842092036,
+        "coverage90": 0.8111111111111111,
+        "mean_error_radius": 2.890206321962721,
+        "mean_axis_radius90": 0.8566219388156479,
+        "minimum_covariance_eigenvalue": 0.013327703624129238
+      },
+      "particle384": {
+        "rmse_vector": 0.7853050988192931,
+        "rmse_per_coordinate": 0.277647280337747,
+        "coverage90": 0.176984126984127,
+        "mean_error_radius": 6.617307764814538,
+        "mean_axis_radius90": 0.7053848196876844,
+        "minimum_covariance_eigenvalue": 4.6635466145765566e-05
+      },
+      "compiled_seconds": 0.06553430001076777,
+      "particle_seconds": 0.4249662999936845
+    },
+    {
+      "dimension": 8,
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.5723164751667646,
+        "rmse_per_coordinate": 0.2023444302876008,
+        "coverage90": 0.9031746031746032,
+        "mean_error_radius": 2.5292798961075738,
+        "mean_axis_radius90": 0.7471338249071127,
+        "minimum_covariance_eigenvalue": 0.013082044576896807
+      },
+      "ekf": {
+        "rmse_vector": 0.5576491587853767,
+        "rmse_per_coordinate": 0.19715875085005682,
+        "coverage90": 0.9246031746031746,
+        "mean_error_radius": 2.648396000921545,
+        "mean_axis_radius90": 0.7465459950016845,
+        "minimum_covariance_eigenvalue": 0.010888358960268366
+      },
+      "ukf": {
+        "rmse_vector": 0.5570345067837005,
+        "rmse_per_coordinate": 0.19694143855082927,
+        "coverage90": 0.8650793650793651,
+        "mean_error_radius": 2.8443636667700183,
+        "mean_axis_radius90": 0.6927091180011001,
+        "minimum_covariance_eigenvalue": 0.01584104518458828
+      },
+      "particle384": {
+        "rmse_vector": 0.6398191350980031,
+        "rmse_per_coordinate": 0.22621022458035492,
+        "coverage90": 0.33015873015873015,
+        "mean_error_radius": 8.69210807412623,
+        "mean_axis_radius90": 0.6748085122474496,
+        "minimum_covariance_eigenvalue": 3.5968189721655546e-07
+      },
+      "compiled_seconds": 0.06402439999510534,
+      "particle_seconds": 0.28988580001168884
+    },
+    {
+      "dimension": 8,
+      "seed": 2,
+      "regime": "gaussian",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.5427434444082445,
+        "rmse_per_coordinate": 0.1918887849928069,
+        "coverage90": 0.873015873015873,
+        "mean_error_radius": 2.594408200215932,
+        "mean_axis_radius90": 0.6976358929896074,
+        "minimum_covariance_eigenvalue": 0.0019970390365074094
+      },
+      "ekf": {
+        "rmse_vector": 0.5302090320007374,
+        "rmse_per_coordinate": 0.1874572009870383,
+        "coverage90": 0.888095238095238,
+        "mean_error_radius": 2.7607818181988093,
+        "mean_axis_radius90": 0.6915126158066113,
+        "minimum_covariance_eigenvalue": 0.0017207029716947975
+      },
+      "ukf": {
+        "rmse_vector": 0.5280895223216555,
+        "rmse_per_coordinate": 0.18670784115360367,
+        "coverage90": 0.8579365079365079,
+        "mean_error_radius": 2.8694817902291567,
+        "mean_axis_radius90": 0.6463329238667531,
+        "minimum_covariance_eigenvalue": 0.005913453052851495
+      },
+      "particle384": {
+        "rmse_vector": 0.6501215830744543,
+        "rmse_per_coordinate": 0.22985268999384,
+        "coverage90": 0.20634920634920634,
+        "mean_error_radius": 44.71709848047415,
+        "mean_axis_radius90": 0.6026533946998881,
+        "minimum_covariance_eigenvalue": 9.999999998606747e-09
+      },
+      "compiled_seconds": 0.062474999998812564,
+      "particle_seconds": 0.287681399990106
+    },
+    {
+      "dimension": 8,
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": false,
+      "compiled": {
+        "rmse_vector": 0.5846678031109912,
+        "rmse_per_coordinate": 0.20671128416061155,
+        "coverage90": 0.8865079365079365,
+        "mean_error_radius": 2.6120635302823088,
+        "mean_axis_radius90": 0.8110869730927631,
+        "minimum_covariance_eigenvalue": 0.02033125833364349
+      },
+      "ekf": {
+        "rmse_vector": 0.7467521718490384,
+        "rmse_per_coordinate": 0.26401676229011856,
+        "coverage90": 0.8571428571428571,
+        "mean_error_radius": 2.6193062307492854,
+        "mean_axis_radius90": 0.989112184794426,
+        "minimum_covariance_eigenvalue": 0.026838449208772416
+      },
+      "ukf": {
+        "rmse_vector": 0.7468737953798922,
+        "rmse_per_coordinate": 0.26405976270182785,
+        "coverage90": 0.8198412698412698,
+        "mean_error_radius": 2.836919988741931,
+        "mean_axis_radius90": 0.9131652906516726,
+        "minimum_covariance_eigenvalue": 0.03052546798254971
+      },
+      "particle384": {
+        "rmse_vector": 0.6851468373083771,
+        "rmse_per_coordinate": 0.24223598738463487,
+        "coverage90": 0.3119047619047619,
+        "mean_error_radius": 5.231368586255817,
+        "mean_axis_radius90": 0.7060505995578722,
+        "minimum_covariance_eigenvalue": 4.0625070036390293e-05
+      },
+      "compiled_seconds": 0.06243149998772424,
+      "particle_seconds": 0.41621690000465605
+    },
+    {
+      "dimension": 8,
+      "seed": 2,
+      "regime": "mixture",
+      "shifted": true,
+      "compiled": {
+        "rmse_vector": 0.573231983220718,
+        "rmse_per_coordinate": 0.2026681112641915,
+        "coverage90": 0.8761904761904762,
+        "mean_error_radius": 2.6589501778750715,
+        "mean_axis_radius90": 0.780172019053183,
+        "minimum_covariance_eigenvalue": 0.005199049110518165
+      },
+      "ekf": {
+        "rmse_vector": 0.7052338221667905,
+        "rmse_per_coordinate": 0.24933780898812266,
+        "coverage90": 0.8571428571428571,
+        "mean_error_radius": 2.592062828004611,
+        "mean_axis_radius90": 0.9453560512042786,
+        "minimum_covariance_eigenvalue": 0.006425727771172059
+      },
+      "ukf": {
+        "rmse_vector": 0.7031111433391878,
+        "rmse_per_coordinate": 0.24858732869148317,
+        "coverage90": 0.8238095238095238,
+        "mean_error_radius": 2.8193147174523663,
+        "mean_axis_radius90": 0.8611185969820326,
+        "minimum_covariance_eigenvalue": 0.013209055053783099
+      },
+      "particle384": {
+        "rmse_vector": 0.724778978253099,
+        "rmse_per_coordinate": 0.2562480651921118,
+        "coverage90": 0.20317460317460317,
+        "mean_error_radius": 6.407890183308624,
+        "mean_axis_radius90": 0.7049115578319326,
+        "minimum_covariance_eigenvalue": 5.1868815298858885e-06
+      },
+      "compiled_seconds": 0.06364079999912065,
+      "particle_seconds": 0.4199683999904664
+    }
+  ],
+  "elapsed_seconds": 16.425401400003466
+}

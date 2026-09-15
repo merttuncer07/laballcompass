@@ -1,0 +1,59 @@
+{
+  "product_id": "V2P053",
+  "release": "R392_SHADOW",
+  "sweep": [
+    {
+      "target_regime1_share": 0.2,
+      "seeds": 3,
+      "mean_gain_vs_removed_mechanism": -0.010384908258694609,
+      "min_gain": -0.010611717039995954,
+      "max_gain": -0.010255044604831289,
+      "positive_seeds": 0,
+      "mean_candidate_weight_target_asset": 0.9,
+      "mean_control_weight_source_asset": 0.9
+    },
+    {
+      "target_regime1_share": 0.35,
+      "seeds": 3,
+      "mean_gain_vs_removed_mechanism": -0.0031849082586946076,
+      "min_gain": -0.003411717039995949,
+      "max_gain": -0.0030550446048312856,
+      "positive_seeds": 0,
+      "mean_candidate_weight_target_asset": 0.9,
+      "mean_control_weight_source_asset": 0.9
+    },
+    {
+      "target_regime1_share": 0.5,
+      "seeds": 3,
+      "mean_gain_vs_removed_mechanism": 0.0040150917413053905,
+      "min_gain": 0.0037882829600040524,
+      "max_gain": 0.004144955395168709,
+      "positive_seeds": 3,
+      "mean_candidate_weight_target_asset": 0.9,
+      "mean_control_weight_source_asset": 0.9
+    },
+    {
+      "target_regime1_share": 0.65,
+      "seeds": 3,
+      "mean_gain_vs_removed_mechanism": 0.011215091741305394,
+      "min_gain": 0.010988282960004056,
+      "max_gain": 0.011344955395168716,
+      "positive_seeds": 3,
+      "mean_candidate_weight_target_asset": 0.9,
+      "mean_control_weight_source_asset": 0.9
+    },
+    {
+      "target_regime1_share": 0.8,
+      "seeds": 3,
+      "mean_gain_vs_removed_mechanism": 0.018415091741305394,
+      "min_gain": 0.018188282960004055,
+      "max_gain": 0.018544955395168716,
+      "positive_seeds": 3,
+      "mean_candidate_weight_target_asset": 0.9,
+      "mean_control_weight_source_asset": 0.9
+    }
+  ],
+  "working_region": "declared target distribution is sufficiently shifted toward regime1 and supplied source-to-target weights are correct",
+  "failure_region": "using the same target-shift weights when the actual target remains source-like can worsen target validation objective",
+  "nonclaim": "synthetic sensitivity only; not empirical transportability or financial performance evidence"
+}

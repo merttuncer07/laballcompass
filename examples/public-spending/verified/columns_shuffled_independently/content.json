@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "method": "typed_anchor_translation_and_record_alignment_v2",
+  "input_files": [
+    {
+      "name": "published.xlsx",
+      "sha256": "e4543b1cb1e656da3d92db32884a6d53dd2fc00bbf1c742669b80768d9f2f599"
+    },
+    {
+      "name": "derived.xlsx",
+      "sha256": "729401a53dcc86797d1d58a78ee90fe70611b2d4472d1f94a1df6084cc5dfb30"
+    }
+  ],
+  "sheet_count": 4,
+  "populated_cells": 1534,
+  "blocks": [],
+  "total_blocks_found": 0,
+  "blocks_omitted": 0,
+  "record_alignment": {
+    "column_candidate_comparisons": 270,
+    "row_candidate_comparisons": 6476,
+    "ambiguous_rows_omitted": 0,
+    "regions_omitted_due_detail_limit": 0,
+    "scope": "Mutual unique best column value-set alignment, then at least 3 mutually unambiguous rows with 80% mapped-column agreement and 2 distinct nontrivial anchor values. Unmapped columns and ambiguous rows are omitted."
+  },
+  "excluded_cells": {
+    "formula": 2
+  },
+  "common_anchor_values_skipped": 2,
+  "candidate_alignments": 385,
+  "verified_cell_lookups": 294525,
+  "scope": [
+    "Only supplied workbooks; comparison is between distinct sheets, including sheets within one workbook.",
+    "Translated blocks require at least 6 matching cells, 3 distinct nontrivial rare values, and 80% matching positions within the displayed rectangle. Reordered records use the separate row alignment criteria below.",
+    "Exact typed equality only: numeric text differs from a number; formatting is ignored. Formula cells, caches and errors cannot establish a match.",
+    "Translations and unambiguous reordered row/column correspondences are searched. Unmatched rows/columns, transposition, rounding and sparse overlaps can be missed. A displayed bounding range is not a claim that all its cells were matched.",
+    "No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.",
+    "Thresholds are review heuristics, not calibrated confidence or an audit conclusion.",
+    "Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count."
+  ]
+}

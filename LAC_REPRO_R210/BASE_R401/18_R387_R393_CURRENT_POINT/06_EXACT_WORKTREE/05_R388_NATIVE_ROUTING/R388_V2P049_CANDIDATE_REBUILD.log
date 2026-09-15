@@ -1,0 +1,33 @@
+{
+  "records": 310,
+  "families": {
+    "LCB_KERNEL": 96,
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145
+  },
+  "evidence_tiers": {
+    "BENCHMARKED_WITH_NARROW_OR_LOSING_SHELL": 1,
+    "PROTOTYPE_ONLY_OR_PENDING": 1,
+    "MECHANISM_BENCHMARKED": 86,
+    "EXECUTABLE_PROTOTYPE_PROVENANCE_LINK_INCOMPLETE": 3,
+    "SAVED_RESULT_REANALYZED_SOURCE_CODE_ABSENT": 5,
+    "ORIGINAL_EXECUTABLE_PARENT": 69,
+    "ORIGINAL_EXECUTABLE_MATERIAL": 19,
+    "SALVAGED_SOURCE_WITH_REBUILT_TESTS": 3,
+    "NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID": 28,
+    "MECHANISM_RECONSTRUCTED_FROM_RESULTS": 32,
+    "SPEC_EXECUTABLE_FROM_RESULTS": 63
+  },
+  "candidate_edges": 16594,
+  "candidate_universe_rows": 16594,
+  "active_candidate_rows": 16589,
+  "queue_rows": 1000,
+  "queue_pinned_rows": 48,
+  "queue_completed_suite_rows": 48,
+  "curated_edges": 12,
+  "rejected_current_interface_edges": 5,
+  "standardized_telemetry_events": 388,
+  "calibrated_completed_suites": 47
+}
+top {'supplier_id': 'LCB-K048', 'consumer_id': 'FOUNDRY:P136', 'score': 71.0, 'interface_matches': [], 'addressed_weaknesses': ['decision'], 'shared_domains': ['decision', 'uncertainty'], 'curated': True, 'recommended_next': 'ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK', 'curated_rationale': 'Allocate quasineutral measurements across fidelity and cost', 'adjudication_state': 'UNADJUDICATED', 'active_for_build': True, 'decision_id': None, 'uncertainty_axes': None, 'test_channels': None, 'experiment_routing_status': 'BOOTSTRAP_CHANNEL_CALIBRATED_SCIENTIFIC_CONTRACT_STILL_REQUIRED', 'experiment_telemetry_status': 'STANDARDIZED_TELEMETRY_AVAILABLE', 'experiment_bootstrap_status': 'FIXED_PILOT_SCHEDULE_AVAILABLE', 'experiment_bootstrap_product_id': 'V2P002', 'experiment_bootstrap_case_count': 6, 'experiment_bootstrap_problem_shell': 'BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd', 'experiment_telemetry_event_count': 6, 'experiment_telemetry_complete_count': 6, 'experiment_telemetry_usable_count': 6, 'experiment_calibration_status': 'CALIBRATED_EXACT_SHELL', 'experiment_calibration_id': '4da454f720884a75b5b257372d53ce59f3bab7e3dc24414853a415202a29f56c', 'experiment_calibration_target_generation': 388, 'candidate_universe_rank': 1, 'active_candidate_rank': 1, 'operational_queue_rank': 1}
+rejected_edges 5

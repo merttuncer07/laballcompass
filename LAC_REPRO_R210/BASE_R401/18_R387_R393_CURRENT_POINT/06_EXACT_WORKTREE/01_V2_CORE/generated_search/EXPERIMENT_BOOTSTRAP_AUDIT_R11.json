@@ -1,0 +1,72 @@
+{
+  "model_version": "LAB_EXPERIMENT_BOOTSTRAP_R6_V1",
+  "queue_rows": 1000,
+  "pilotable_existing_suite_rows": 7,
+  "not_pilotable_existing_suite_rows": 993,
+  "status_counts": {
+    "FIXED_PILOT_SCHEDULE_AVAILABLE": 7,
+    "ADAPTER_REQUIRED_CONSUMER_INVARIANT_SUITE_AVAILABLE": 115,
+    "SUPPLIER_INVARIANT_SUITE_AVAILABLE_NO_COMPOSITION_HARNESS": 721,
+    "NO_EXECUTABLE_TEST_SURFACE_DISCOVERED": 157
+  },
+  "foundry_component_test_surfaces": 145,
+  "pilotable_rows": [
+    {
+      "queue_index": 0,
+      "supplier_id": "LCB-K048",
+      "consumer_id": "FOUNDRY:P136",
+      "product_id": "V2P002",
+      "case_count": 6,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P002::a2a57ba326351afd"
+    },
+    {
+      "queue_index": 1,
+      "supplier_id": "LCB-K048",
+      "consumer_id": "FOUNDRY:P144",
+      "product_id": "V2P003",
+      "case_count": 12,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P003::115c51118477ed8f"
+    },
+    {
+      "queue_index": 2,
+      "supplier_id": "LCB-K081",
+      "consumer_id": "FOUNDRY:P138",
+      "product_id": "V2P004",
+      "case_count": 12,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P004::c97c5268857dd59c"
+    },
+    {
+      "queue_index": 3,
+      "supplier_id": "LCB-K003",
+      "consumer_id": "FOUNDRY:P031",
+      "product_id": "V2P001",
+      "case_count": 6,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P001::c8cd1a917b12202d"
+    },
+    {
+      "queue_index": 4,
+      "supplier_id": "LCB-K019",
+      "consumer_id": "FOUNDRY:P003",
+      "product_id": "V2P005",
+      "case_count": 12,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P005::c94a4b2eceea243e"
+    },
+    {
+      "queue_index": 5,
+      "supplier_id": "LCB-K068",
+      "consumer_id": "FOUNDRY:P025",
+      "product_id": "V2P006",
+      "case_count": 12,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P006::340a498ca5804b75"
+    },
+    {
+      "queue_index": 6,
+      "supplier_id": "LCB-K009",
+      "consumer_id": "FOUNDRY:P026",
+      "product_id": "V2P007",
+      "case_count": 12,
+      "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P007::cdef4fe748d9c023"
+    }
+  ],
+  "policy": "Completed composition suites can run fixed pilots now. Component-only suites are preserved as adapter/harness targets and are not counted as composition evidence."
+}

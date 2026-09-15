@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "FOUNDRY:P033",
+  "difference_from_nearest": "SUSCA changes scalar marginal values/support floors inside shared capacity; SCCATF introduces pairwise covariance cross-terms between allocation choices, so the objective is no longer separable across regions.",
+  "directory": "V2P039_SCCATF",
+  "diversified_selected_rank": null,
+  "external_prior_art": [
+    "Covariance-aware optimal design/allocation is established; 2026 covariance-aware compromise allocation explicitly puts covariance interactions into a constrained allocation objective."
+  ],
+  "external_prior_art_status": "KNOWN_CLOSE_OPERATOR_NOT_NOVEL_THEORY",
+  "family_id": "V2P039",
+  "mechanism_removing_comparator": "same CATF allocation with covariance coupling removed from the objective",
+  "nearest_existing_product": "V2P029_SUSCA",
+  "new_failure_mode": "CATF allocates with additive local losses while off-diagonal support covariance makes one region choice change the risk cost of another region choice.",
+  "non_additive_interaction": "SACPS covariance enters CATF as an off-diagonal quadratic cross-term over allocation exposures; strong coupling changes the joint allocation while zero/low coupling collapses to CATF.",
+  "product_id": "V2P039",
+  "quality_accounting": "R386_DISTINCT_PRODUCT",
+  "raw_native_rank": null,
+  "short_name": "SCCATF",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "test_files": [
+    "test_sccatf.py"
+  ],
+  "verdict": "DISTINCT_PRODUCT"
+}

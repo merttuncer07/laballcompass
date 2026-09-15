@@ -1,0 +1,34 @@
+{
+  "code_sha256": "968e6b5bb8afc096a6edf0840d2b57a9eb233a52a1366911c88e497d4fb8ea9d",
+  "declared_gain_positive_count": 449,
+  "declared_gain_stats_changed_shells": {
+    "maximum": 2.4328225315537253,
+    "median": 0.13905716666925017,
+    "minimum": 1.693363587684793e-05,
+    "p10": 0.014287780595823075,
+    "p90": 0.6636691103088938
+  },
+  "evidence_boundary": "Synthetic deterministic sensitivity; not empirical validation or novel theory.",
+  "model_version": "R400_JARB_NATIVE_SENSITIVITY_V1",
+  "native_decision_changed_count": 449,
+  "native_decision_changed_fraction": 0.2245,
+  "native_parent_sha256": {
+    "V2P054_CADSBC/cadsbc.py": "4f02bca9885a85380a7a2d4e0769399c79dc6b698415fb9f5ea789ad0bfc3728",
+    "V2P057_REOC/reoc.py": "a7e880472d669e90640b053561ca7e688117154e15734d5e95c339d5f548b699"
+  },
+  "permuted_truth_gain_stats": {
+    "maximum": 5.828684051650518,
+    "median": 0.0,
+    "minimum": -1.2184319658253555,
+    "p10": 0.0,
+    "p90": 0.22400573016667472
+  },
+  "permuted_truth_harm_count": 36,
+  "permuted_truth_harm_fraction": 0.018,
+  "promotion_status": "PENDING_QUALITY_ADJUDICATION",
+  "seed": 401,
+  "shell_count": 2000,
+  "split_changed_count": 449,
+  "status": "PASS_MECHANICS_EXPERIMENT_ONLY",
+  "test_sha256": "3f149dd7f512a8d113a5d82768280f55679c82a782d962d727ad900131f7e2bd"
+}

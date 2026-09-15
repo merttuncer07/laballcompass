@@ -1,0 +1,7 @@
+{
+  "product_id": "V2P051",
+  "short_name": "SACDLW",
+  "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+  "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+  "status": "R390_SHADOW_CANDIDATE"
+}

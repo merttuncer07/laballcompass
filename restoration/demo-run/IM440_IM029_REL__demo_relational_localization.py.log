@@ -1,0 +1,160 @@
+{
+  "actual_altered_records": [
+    "seller_invoice",
+    "bank_payment"
+  ],
+  "sparse_graph": {
+    "relation_count": 2,
+    "top_candidate": {
+      "records": [
+        "buyer_order"
+      ],
+      "log_likelihood": -5.585508983997041,
+      "posterior": 0.47490278542001213,
+      "predicted_violations": [
+        "order_matches_invoice"
+      ]
+    },
+    "top_five": [
+      {
+        "records": [
+          "buyer_order"
+        ],
+        "log_likelihood": -5.585508983997041,
+        "posterior": 0.47490278542001213,
+        "predicted_violations": [
+          "order_matches_invoice"
+        ]
+      },
+      {
+        "records": [
+          "seller_invoice"
+        ],
+        "log_likelihood": -6.163143277435141,
+        "posterior": 0.26652707345000703,
+        "predicted_violations": [
+          "order_matches_invoice",
+          "invoice_matches_payment"
+        ]
+      },
+      {
+        "records": [
+          "seller_invoice",
+          "bank_payment"
+        ],
+        "log_likelihood": -6.329960746567876,
+        "posterior": 0.22557627684008819,
+        "predicted_violations": [
+          "order_matches_invoice"
+        ]
+      },
+      {
+        "records": [
+          "warehouse_receipt"
+        ],
+        "log_likelihood": -9.446238695037636,
+        "posterior": 0.009997953377263424,
+        "predicted_violations": []
+      },
+      {
+        "records": [
+          "carrier_manifest"
+        ],
+        "log_likelihood": -9.446238695037636,
+        "posterior": 0.009997953377263424,
+        "predicted_violations": []
+      }
+    ]
+  },
+  "counterparty_generated_redundant_graph": {
+    "relation_count": 7,
+    "top_candidate": {
+      "records": [
+        "seller_invoice",
+        "bank_payment"
+      ],
+      "log_likelihood": -6.524246044365565,
+      "posterior": 0.9756944194228898,
+      "predicted_violations": [
+        "order_matches_invoice",
+        "invoice_matches_receipt",
+        "invoice_matches_manifest",
+        "payment_matches_receipt"
+      ]
+    },
+    "top_five": [
+      {
+        "records": [
+          "seller_invoice",
+          "bank_payment"
+        ],
+        "log_likelihood": -6.524246044365565,
+        "posterior": 0.9756944194228898,
+        "predicted_violations": [
+          "order_matches_invoice",
+          "invoice_matches_receipt",
+          "invoice_matches_manifest",
+          "payment_matches_receipt"
+        ]
+      },
+      {
+        "records": [
+          "seller_invoice"
+        ],
+        "log_likelihood": -10.218158286273425,
+        "posterior": 0.024269907310345725,
+        "predicted_violations": [
+          "order_matches_invoice",
+          "invoice_matches_payment",
+          "invoice_matches_receipt",
+          "invoice_matches_manifest"
+        ]
+      },
+      {
+        "records": [
+          "buyer_order",
+          "warehouse_receipt"
+        ],
+        "log_likelihood": -17.911173409206388,
+        "posterior": 1.10671067903557e-05,
+        "predicted_violations": [
+          "order_matches_invoice",
+          "receipt_matches_manifest",
+          "invoice_matches_receipt",
+          "payment_matches_receipt"
+        ]
+      },
+      {
+        "records": [
+          "warehouse_receipt",
+          "carrier_manifest"
+        ],
+        "log_likelihood": -17.91117340920639,
+        "posterior": 1.1067106790355663e-05,
+        "predicted_violations": [
+          "order_matches_receipt",
+          "invoice_matches_receipt",
+          "invoice_matches_manifest",
+          "payment_matches_receipt"
+        ]
+      },
+      {
+        "records": [
+          "bank_payment"
+        ],
+        "log_likelihood": -18.184740166387606,
+        "posterior": 8.418322660941273e-06,
+        "predicted_violations": [
+          "invoice_matches_payment",
+          "payment_matches_receipt"
+        ]
+      }
+    ],
+    "observed_violations": [
+      "order_matches_invoice",
+      "invoice_matches_receipt",
+      "invoice_matches_manifest",
+      "payment_matches_receipt"
+    ]
+  }
+}

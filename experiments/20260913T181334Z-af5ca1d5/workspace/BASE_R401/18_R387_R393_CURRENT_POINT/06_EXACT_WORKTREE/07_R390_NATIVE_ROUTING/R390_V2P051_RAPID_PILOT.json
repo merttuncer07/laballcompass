@@ -1,0 +1,33 @@
+{
+  "cases": [
+    "T.test_working_region_changes_selected_model",
+    "T.test_working_region_improves_common_reference_regret",
+    "T.test_working_region_changes_actions",
+    "T.test_off_support_noise_is_removed",
+    "T.test_dense_support_zero_shrinkage_collapses_to_raw_control",
+    "T.test_zero_risk_aversion_collapses_to_parent_dlew_selection",
+    "T.test_wrong_support_abstains_when_calibration_contradicts_it",
+    "T.test_support_contradiction_check_requires_calibration",
+    "T.test_bad_support_rejected",
+    "T.test_prediction_key_mismatch_rejected",
+    "T.test_negative_risk_rejected",
+    "T.test_deterministic"
+  ],
+  "events_added": 12,
+  "evidence_boundary": "mechanics/executable-contract calibration only; not empirical validation",
+  "new_event_count": 423,
+  "old_event_count": 411,
+  "pair": [
+    "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+    "PARENT:R044_DECISION_LOSS_DLEW"
+  ],
+  "problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P051::733cde7cb4946c7f",
+  "product_id": "V2P051",
+  "release": "R390",
+  "statuses": {
+    "CENSORED": 0,
+    "COMPLETE": 12,
+    "FAILED": 0
+  },
+  "test_signature": "93d1b076b2c123ed326bf3039e727df9ad00eb9509777b01ba9bd0a0da8ac615"
+}

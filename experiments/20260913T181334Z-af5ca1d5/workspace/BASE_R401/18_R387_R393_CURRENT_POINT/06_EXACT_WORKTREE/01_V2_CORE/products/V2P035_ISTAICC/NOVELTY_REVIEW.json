@@ -1,0 +1,12 @@
+{
+  "consumer_id": "PARENT:IM359_IM014_AICC",
+  "difference_from_nearest": "BIVCP values one-step decision improvement before capacity; ISTAICC adds endogenous future participation equilibria and hysteresis-like continuation value",
+  "mechanism_removing_comparator": "immediate channel value minus cost with no equilibrium continuation term",
+  "nearest_existing_product": "V2P011_BIVCP",
+  "new_failure_mode": "a myopic information controller rejects a channel whose small immediate loss unlocks a high-participation information regime with positive continuation value",
+  "non_additive_interaction": "K074 equilibrium/tipping structure changes AICC channel utility rather than merely gating the chosen channel",
+  "product_id": "V2P035",
+  "short_name": "ISTAICC",
+  "supplier_id": "LCB-K074",
+  "verdict": "DISTINCT_PRODUCT"
+}

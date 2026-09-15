@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "receipt": "runs/20260914T131915Z-product-repairs/receipt.json",
+  "counts": {
+    "tests": 36,
+    "passed": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  },
+  "tests_by_component": {
+    "V2P050_SCIG": 18,
+    "P103_CFAI": 8,
+    "IM406_IM037_ACRA": 3,
+    "R007_C349_BICC": 7
+  }
+}

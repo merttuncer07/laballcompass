@@ -1,0 +1,20 @@
+{
+  "mechanism_removing_comparator": "same BPISD persuasion solution and same information-production kernel, but policy selection ignores disclosure-induced change in future producer equilibrium",
+  "evidence_boundary": "synthetic two-state persuasion and three-producer equilibrium; declared mapping from channel TV to copy friction is a shell assumption, not an empirical law",
+  "result": {
+    "channel_total_variation": 0.7142857142857142,
+    "persuasion_copy_friction": 0.3428571428571429,
+    "persuasion_active_producers": 0,
+    "noinfo_active_producers": 3,
+    "persuasion_accessible_information": 0.0,
+    "noinfo_accessible_information": 1.44,
+    "current_sender_payoff_persuasion": 0.5,
+    "current_sender_payoff_noinfo": 0.0,
+    "candidate_choice": "NO_INFORMATION",
+    "mechanism_removed_choice": "PERSUASION",
+    "candidate_total_value": 0.72,
+    "mechanism_removed_total_value": 0.5,
+    "gain_vs_removed_production_externality": 0.21999999999999997,
+    "status": "PRODUCER_INCENTIVE_CHANGES_DISCLOSURE_POLICY"
+  }
+}

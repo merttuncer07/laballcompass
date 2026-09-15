@@ -1,0 +1,662 @@
+{
+  "schema_version": 1,
+  "method": "typed_rare_anchor_translation_v1",
+  "input_files": [
+    {
+      "name": "clone_sheet.xlsx",
+      "sha256": "c562b328818341d7daa28d5dbd2168946aeecbdb30a6e49d9b982da511879875"
+    },
+    {
+      "name": "FormulaEvalTestData_Copy.xlsx",
+      "sha256": "01b21647d53501e8ec10f4eb522945d41ea3c8d1fdd57f8b0142ec34884c33eb"
+    },
+    {
+      "name": "FormulaSheetRange.xlsx",
+      "sha256": "1943a81a9d439e3bb843b66fd2f9bcdcf37e31232c850ea31d47681b5d5efa12"
+    },
+    {
+      "name": "link-external-workbook-a.xlsx",
+      "sha256": "930049ddea88c58fbef66620fcba333790aed8da9a003ab209da6955fee1f5c2"
+    },
+    {
+      "name": "link-external-workbook-b.xlsx",
+      "sha256": "6e0e5c2aa3bf870cfeba03cb2350c312c639f2875b6501029d0bc134916b2361"
+    },
+    {
+      "name": "shared_formulas.xlsx",
+      "sha256": "31612d513b5ea5aaa69764779f87ac52588687770f3ccbf4b420ec21bc70561f"
+    },
+    {
+      "name": "XSSFSheet.copyRows.xlsx",
+      "sha256": "85b76d790c3eeb07693ea94293440a9efa2b91e41e2a6bea4b7bbd7ab9edba90"
+    }
+  ],
+  "sheet_count": 16,
+  "populated_cells": 4609,
+  "blocks": [
+    {
+      "left": {
+        "workbook": "FormulaEvalTestData_Copy.xlsx",
+        "sheet": "EverythingTests",
+        "range": "T7:X19"
+      },
+      "right": {
+        "workbook": "FormulaEvalTestData_Copy.xlsx",
+        "sheet": "FinanceLibTests",
+        "range": "B2:F14"
+      },
+      "matching_cells": 63,
+      "compared_positions": 65,
+      "match_fraction": 0.9692307692307692,
+      "different_or_uncompared_cells": 2,
+      "interpretation": "Observed content overlap; direction, copying and common origin are not established",
+      "cells": [
+        {
+          "left": "T7",
+          "right": "B2",
+          "left_value": "r",
+          "right_value": "r",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "U7",
+          "right": "C2",
+          "left_value": "n",
+          "right_value": "n",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "V7",
+          "right": "D2",
+          "left_value": "y",
+          "right_value": "y",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "W7",
+          "right": "E2",
+          "left_value": "p",
+          "right_value": "p",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "X7",
+          "right": "F2",
+          "left_value": "t",
+          "right_value": "t",
+          "left_type": "text",
+          "right_type": "text",
+          "equal": true
+        },
+        {
+          "left": "T8",
+          "right": "B3",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U8",
+          "right": "C3",
+          "left_value": "10",
+          "right_value": "10",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V8",
+          "right": "D3",
+          "left_value": "100",
+          "right_value": "100",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W8",
+          "right": "E3",
+          "left_value": "10000",
+          "right_value": "10000",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X8",
+          "right": "F3",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T9",
+          "right": "B4",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U9",
+          "right": "C4",
+          "left_value": "10",
+          "right_value": "10",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V9",
+          "right": "D4",
+          "left_value": "100",
+          "right_value": "100",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W9",
+          "right": "E4",
+          "left_value": "10000",
+          "right_value": "10000",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X9",
+          "right": "F4",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T10",
+          "right": "B5",
+          "left_value": "2",
+          "right_value": "2",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U10",
+          "right": "C5",
+          "left_value": "12",
+          "right_value": "12",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V10",
+          "right": "D5",
+          "left_value": "120",
+          "right_value": "120",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W10",
+          "right": "E5",
+          "left_value": "12000",
+          "right_value": "12000",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X10",
+          "right": "F5",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T11",
+          "right": "B6",
+          "left_value": "2",
+          "right_value": "2",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U11",
+          "right": "C6",
+          "left_value": "12",
+          "right_value": "12",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V11",
+          "right": "D6",
+          "left_value": "120",
+          "right_value": "120",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W11",
+          "right": "E6",
+          "left_value": "12000",
+          "right_value": "12000",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X11",
+          "right": "F6",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T12",
+          "right": "B7",
+          "left_value": "0.6666666666666666",
+          "right_value": "=2/3",
+          "left_type": "number",
+          "right_type": "uncompared",
+          "equal": false
+        },
+        {
+          "left": "U12",
+          "right": "C7",
+          "left_value": "23",
+          "right_value": "23",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V12",
+          "right": "D7",
+          "left_value": "133.33",
+          "right_value": "133.33",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W12",
+          "right": "E7",
+          "left_value": "34307",
+          "right_value": "34307",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X12",
+          "right": "F7",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T13",
+          "right": "B8",
+          "left_value": "0.6666666666666666",
+          "right_value": "=2/3",
+          "left_type": "number",
+          "right_type": "uncompared",
+          "equal": false
+        },
+        {
+          "left": "U13",
+          "right": "C8",
+          "left_value": "23",
+          "right_value": "23",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V13",
+          "right": "D8",
+          "left_value": "133.33",
+          "right_value": "133.33",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W13",
+          "right": "E8",
+          "left_value": "34307",
+          "right_value": "34307",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X13",
+          "right": "F8",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T14",
+          "right": "B9",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U14",
+          "right": "C9",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V14",
+          "right": "D9",
+          "left_value": "100",
+          "right_value": "100",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W14",
+          "right": "E9",
+          "left_value": "2300",
+          "right_value": "2300",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X14",
+          "right": "F9",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T15",
+          "right": "B10",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U15",
+          "right": "C10",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V15",
+          "right": "D10",
+          "left_value": "100",
+          "right_value": "100",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W15",
+          "right": "E10",
+          "left_value": "2300",
+          "right_value": "2300",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X15",
+          "right": "F10",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T16",
+          "right": "B11",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U16",
+          "right": "C11",
+          "left_value": "12",
+          "right_value": "12",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V16",
+          "right": "D11",
+          "left_value": "120",
+          "right_value": "120",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W16",
+          "right": "E11",
+          "left_value": "12000",
+          "right_value": "12000",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X16",
+          "right": "F11",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T17",
+          "right": "B12",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U17",
+          "right": "C12",
+          "left_value": "12",
+          "right_value": "12",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V17",
+          "right": "D12",
+          "left_value": "120",
+          "right_value": "120",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W17",
+          "right": "E12",
+          "left_value": "12000",
+          "right_value": "12000",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X17",
+          "right": "F12",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T18",
+          "right": "B13",
+          "left_value": "2.3333",
+          "right_value": "2.3333",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U18",
+          "right": "C13",
+          "left_value": "4",
+          "right_value": "4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V18",
+          "right": "D13",
+          "left_value": "334.5",
+          "right_value": "334.5",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W18",
+          "right": "E13",
+          "left_value": "14323.45",
+          "right_value": "14323.45",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X18",
+          "right": "F13",
+          "left_value": "0",
+          "right_value": "0",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "T19",
+          "right": "B14",
+          "left_value": "2.3333",
+          "right_value": "2.3333",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "U19",
+          "right": "C14",
+          "left_value": "4",
+          "right_value": "4",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "V19",
+          "right": "D14",
+          "left_value": "334.5",
+          "right_value": "334.5",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "W19",
+          "right": "E14",
+          "left_value": "14323.45",
+          "right_value": "14323.45",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        },
+        {
+          "left": "X19",
+          "right": "F14",
+          "left_value": "1",
+          "right_value": "1",
+          "left_type": "number",
+          "right_type": "number",
+          "equal": true
+        }
+      ],
+      "formula_targets": []
+    }
+  ],
+  "total_blocks_found": 1,
+  "blocks_omitted": 0,
+  "excluded_cells": {
+    "formula": 1433,
+    "error_or_empty_text": 284
+  },
+  "common_anchor_values_skipped": 3,
+  "candidate_alignments": 10,
+  "verified_cell_lookups": 23820,
+  "scope": [
+    "Only supplied workbooks; comparison is between distinct sheets, including sheets within one workbook.",
+    "At least 6 matching cells, 3 distinct nontrivial rare values, and 80% matching positions within the displayed rectangle.",
+    "Exact typed equality only: numeric text differs from a number; formatting is ignored. Formula cells, caches and errors cannot establish a match.",
+    "Only row/column translations are searched. Reordering, transposition, rounding and removed columns can be missed. Differences beyond the matching anchors are not located.",
+    "No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.",
+    "Thresholds are review heuristics, not calibrated confidence or an audit conclusion.",
+    "Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count."
+  ],
+  "lineage_available": true
+}

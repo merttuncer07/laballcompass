@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "LCB-K064",
+  "difference_from_nearest": "ISTAICC lets information acquisition itself move a participation/search equilibrium and adds continuation value; CBSCG uses an endogenous routing equilibrium to create the action surface whose latent state determines whether information is worth buying.",
+  "directory": "V2P043_CBSCG",
+  "diversified_selected_rank": 15,
+  "external_prior_art": [
+    "Value of information in Bayesian routing/congestion games with endogenous route response is established; the R386 composition is an internal product architecture, not a new information-economics theorem."
+  ],
+  "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+  "family_id": "V2P043",
+  "mechanism_removing_comparator": "same Wardrop strategic-response project choice using midpoint demand with the CBIA information-acquisition step removed",
+  "nearest_existing_product": "V2P035_ISTAICC",
+  "new_failure_mode": "Midpoint-demand infrastructure choice can be wrong when latent demand changes the strategic routing equilibrium and therefore flips the optimal capacity intervention.",
+  "non_additive_interaction": "Strategic-response equilibrium creates an action boundary in latent demand; CBIA acquires information only when the calibrated demand shell spans different equilibrium-optimal interventions and prices it by avoided decision regret.",
+  "product_id": "V2P043",
+  "quality_accounting": "R386_DISTINCT_PRODUCT",
+  "raw_native_rank": 342,
+  "short_name": "CBSCG",
+  "supplier_id": "FOUNDRY:P079",
+  "test_files": [
+    "test_cbscg.py"
+  ],
+  "verdict": "DISTINCT_PRODUCT"
+}

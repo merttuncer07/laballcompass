@@ -1,0 +1,41 @@
+{
+  "audit": {
+    "candidate_names": [
+      "homogeneous",
+      "burnout_aware"
+    ],
+    "selected_candidate": "homogeneous",
+    "holdout_best_candidate": "burnout_aware",
+    "selection_mean_losses": [
+      3170.4782240839686,
+      6291.247129992801
+    ],
+    "holdout_mean_losses": [
+      8621.764148353359,
+      35.73811573898386
+    ],
+    "candidate_generalization_gaps": [
+      5451.28592426939,
+      -6255.509014253817
+    ],
+    "selected_selection_loss": 3170.4782240839686,
+    "selected_holdout_loss": 8621.764148353359,
+    "selected_generalization_gap": 5451.28592426939,
+    "selected_holdout_regret": 8586.026032614374,
+    "family_worst_absolute_gap": 6255.509014253817,
+    "pointwise_standard_error": 525.247162610614,
+    "pointwise_95_radius": 1029.4844387168034,
+    "selected_holdout_loss_bootstrap_interval_95": [
+      7603.353410771152,
+      9612.11101176852
+    ],
+    "selection_bootstrap_frequencies": [
+      1.0,
+      0.0
+    ],
+    "selection_fragility": 0.0,
+    "status": "ADAPTIVE_SELECTION_REGRET_DETECTED"
+  },
+  "truth_cumulative_prepayments": 5417.096171026721,
+  "status": "BURNOUT_MODEL_SELECTION_HOLDOUT_AUDITED"
+}

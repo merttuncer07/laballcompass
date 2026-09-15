@@ -1,0 +1,2909 @@
+{
+  "archive": "C:\\Users\\mertt\\Downloads\\LABALLCOMPASS_FINAL_RETIREMENT_HANDOFF_R398_2026-08-30.zip",
+  "archive_sha256": "ed3644144583921ac916c803511c08ba8caff72d030f5b1406580b2ff8f85abd",
+  "binary_bytes_read": 4123439,
+  "binary_files_read": 142,
+  "category_counts": {
+    "CODE": 2011,
+    "DATA_STATE": 1321,
+    "DOCUMENTATION_HANDOFF": 122,
+    "OTHER": 2021,
+    "PARENT_PRODUCT": 1097,
+    "RESULT_EVIDENCE": 1317,
+    "TEST": 847,
+    "V2_PRODUCT": 1584
+  },
+  "decode_counts": {
+    "utf-8-sig": 10178
+  },
+  "duplicate_content_groups": 1976,
+  "extension_counts": {
+    ".csv": 10,
+    ".diff": 4,
+    ".json": 1760,
+    ".jsonl": 102,
+    ".log": 163,
+    ".md": 2820,
+    ".patch": 24,
+    ".pid": 1,
+    ".png": 3,
+    ".progress": 1,
+    ".py": 4175,
+    ".pyc": 136,
+    ".sha256": 2,
+    ".status": 86,
+    ".stderr": 5,
+    ".summary": 1,
+    ".tsv": 507,
+    ".txt": 517,
+    ".zip": 3
+  },
+  "file_entries_read_in_full": 10320,
+  "file_index": "R401_ARCHIVE_FILE_INDEX.jsonl",
+  "files_in_duplicate_groups": 7235,
+  "interpretation_boundary": "Every archive file was read and CRC-checked. The index records structural signals, not invented semantics.",
+  "json_parse_failures_for_compositions": [],
+  "model_version": "R401_ARCHIVE_FULL_SCAN_V1",
+  "parent_product_directories": 69,
+  "parent_products": {
+    "IM124_IM256_TSRC": {
+      "bytes": 40575,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "IM139_IM250_CCVC": {
+      "bytes": 77035,
+      "has_product_result": true,
+      "paths": 17,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM141_IM023_CDBL": {
+      "bytes": 37638,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM178_IM326_TWMR": {
+      "bytes": 48534,
+      "has_product_result": true,
+      "paths": 20,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM256_IM307_OTE": {
+      "bytes": 31161,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM274_IM290_OWS": {
+      "bytes": 34476,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "IM299_IM127_DTRM": {
+      "bytes": 47691,
+      "has_product_result": true,
+      "paths": 21,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 21
+    },
+    "IM306_IM222_HMRM": {
+      "bytes": 32181,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM334_IM094_DRE": {
+      "bytes": 28746,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM340_IM280_CWC": {
+      "bytes": 45657,
+      "has_product_result": true,
+      "paths": 17,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM359_IM014_AICC": {
+      "bytes": 32823,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM374_IM272_DSDA": {
+      "bytes": 29121,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "IM401_IM030_MFPA": {
+      "bytes": 32250,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM406_IM037_ACRA": {
+      "bytes": 33345,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM421_IM094_DTPR": {
+      "bytes": 145740,
+      "has_product_result": true,
+      "paths": 33,
+      "python_files": 15,
+      "test_files": 3,
+      "test_methods": 27
+    },
+    "IM440_IM029_REL": {
+      "bytes": 50592,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM445_IM085_CSID": {
+      "bytes": 50958,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "IM452_IM015_LCM": {
+      "bytes": 40026,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "IM455_IM094_DTTC": {
+      "bytes": 42225,
+      "has_product_result": true,
+      "paths": 18,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 9
+    },
+    "R001_C313_BPISD": {
+      "bytes": 35803,
+      "has_product_result": true,
+      "paths": 17,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R002_C326_HFAD": {
+      "bytes": 29598,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R003_C333_RIC": {
+      "bytes": 30582,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R004_C344_OFLS": {
+      "bytes": 24567,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R005_P572_SLERM": {
+      "bytes": 29532,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R006_P579_P580_UTDIM": {
+      "bytes": 25077,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R007_C349_BICC": {
+      "bytes": 36183,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R008_E612_E613_LGID": {
+      "bytes": 29370,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R009_P620_CSDC": {
+      "bytes": 23334,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R010_C359_PPSA": {
+      "bytes": 30009,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R011_C360_MCPR": {
+      "bytes": 26394,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R012_P660_APTC": {
+      "bytes": 24381,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R013_C376_OWNM": {
+      "bytes": 31452,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R014_S781_S792_ACSA": {
+      "bytes": 28605,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R015_P767_PCBE": {
+      "bytes": 26700,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R016_M821_M839_FCMS": {
+      "bytes": 31245,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R017_C389_PRIU": {
+      "bytes": 32412,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R018_M866_M880_MCSC": {
+      "bytes": 19218,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R019_P858_P859_VICO": {
+      "bytes": 32049,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R020_P848_P851_SCCRT": {
+      "bytes": 33141,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R021_M896_TFLD": {
+      "bytes": 21495,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R022_E404_E405_CDA": {
+      "bytes": 29043,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R023_M421_M428_CORMA": {
+      "bytes": 27678,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R024_M423_M426_BRED": {
+      "bytes": 29358,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R025_M435_M436_WBDP": {
+      "bytes": 27096,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R026_S423_S424_EBC": {
+      "bytes": 29268,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R027_S426_S427_MIFF": {
+      "bytes": 36324,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R028_S418_S439_TDSX": {
+      "bytes": 31779,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R029_S440_SCE": {
+      "bytes": 33141,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R030_P428_P429_ISPO": {
+      "bytes": 28821,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R031_P430_RTO": {
+      "bytes": 22365,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R032_M437_UMCA": {
+      "bytes": 33444,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R033_M420_OASRD": {
+      "bytes": 24702,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R034_P435_RSPI": {
+      "bytes": 24843,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R035_M007_ENPC": {
+      "bytes": 29313,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R036_DERIVATIVE_FREE_DFDPE": {
+      "bytes": 52662,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R037_SUPPORT_COVARIANCE_SACPS": {
+      "bytes": 29355,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R038_DECISION_HEDGE_DHCC": {
+      "bytes": 29418,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R039_DECISION_BELIEF_DSBC": {
+      "bytes": 35877,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R040_M147_SALC": {
+      "bytes": 25611,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R041_CONSTRAINED_POLICY_CAPL": {
+      "bytes": 46944,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R042_PREDICTIVE_STATE_PSCT": {
+      "bytes": 40365,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R043_S159_S930_SRCD": {
+      "bytes": 32172,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R044_DECISION_LOSS_DLEW": {
+      "bytes": 38400,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R045_TARGET_MEMORY_ATRC": {
+      "bytes": 25314,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R046_METRIC_DECISION_MDDC": {
+      "bytes": 17865,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R047_MORTGAGE_COMPETING_MCRIS": {
+      "bytes": 31299,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R048_MORTGAGE_BURNOUT_MBPF": {
+      "bytes": 25545,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R049_S096_S803_MLHPE": {
+      "bytes": 36942,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    },
+    "R050_M583_S745_CBAC": {
+      "bytes": 24780,
+      "has_product_result": true,
+      "paths": 15,
+      "python_files": 9,
+      "test_files": 3,
+      "test_methods": 12
+    }
+  },
+  "round_mentions": {
+    "R001": 380,
+    "R002": 244,
+    "R003": 244,
+    "R004": 195,
+    "R005": 206,
+    "R006": 112,
+    "R007": 171,
+    "R008": 243,
+    "R009": 116,
+    "R010": 88,
+    "R011": 88,
+    "R012": 96,
+    "R013": 82,
+    "R014": 145,
+    "R015": 120,
+    "R016": 100,
+    "R017": 126,
+    "R018": 244,
+    "R019": 104,
+    "R020": 96,
+    "R021": 88,
+    "R022": 307,
+    "R023": 286,
+    "R024": 329,
+    "R025": 92,
+    "R026": 241,
+    "R027": 90,
+    "R028": 245,
+    "R029": 194,
+    "R030": 128,
+    "R031": 92,
+    "R032": 78,
+    "R033": 92,
+    "R034": 124,
+    "R035": 100,
+    "R036": 100,
+    "R037": 219,
+    "R038": 212,
+    "R039": 158,
+    "R040": 112,
+    "R041": 121,
+    "R042": 281,
+    "R043": 150,
+    "R044": 317,
+    "R045": 144,
+    "R046": 120,
+    "R047": 180,
+    "R048": 138,
+    "R049": 132,
+    "R050": 118,
+    "R102": 2,
+    "R103": 1,
+    "R104": 7,
+    "R105": 3,
+    "R106": 4,
+    "R109": 3,
+    "R110": 5,
+    "R111": 9,
+    "R112": 12,
+    "R113": 4,
+    "R114": 10,
+    "R115": 4,
+    "R116": 5,
+    "R117": 10,
+    "R118": 10,
+    "R119": 2,
+    "R120": 2,
+    "R121": 3,
+    "R122": 13,
+    "R123": 6,
+    "R124": 6,
+    "R125": 4,
+    "R126": 1,
+    "R127": 1,
+    "R128": 1,
+    "R129": 4,
+    "R130": 2,
+    "R131": 2,
+    "R132": 91,
+    "R133": 41,
+    "R134": 11,
+    "R135": 12,
+    "R136": 7,
+    "R137": 10,
+    "R138": 15,
+    "R139": 24,
+    "R140": 6,
+    "R141": 16,
+    "R142": 14,
+    "R143": 9,
+    "R144": 4,
+    "R145": 6,
+    "R146": 6,
+    "R147": 8,
+    "R148": 6,
+    "R149": 11,
+    "R150": 6,
+    "R151": 8,
+    "R152": 6,
+    "R153": 5,
+    "R154": 5,
+    "R155": 11,
+    "R156": 16,
+    "R157": 17,
+    "R158": 7,
+    "R159": 7,
+    "R160": 82,
+    "R161": 64,
+    "R162": 13,
+    "R163": 12,
+    "R164": 14,
+    "R165": 12,
+    "R166": 12,
+    "R167": 16,
+    "R168": 12,
+    "R169": 14,
+    "R170": 16,
+    "R171": 16,
+    "R172": 13,
+    "R173": 12,
+    "R174": 10,
+    "R175": 20,
+    "R176": 19,
+    "R177": 9,
+    "R178": 24,
+    "R179": 81,
+    "R180": 137,
+    "R181": 120,
+    "R182": 116,
+    "R183": 33,
+    "R184": 23,
+    "R185": 11,
+    "R186": 15,
+    "R187": 19,
+    "R188": 11,
+    "R189": 14,
+    "R190": 13,
+    "R191": 20,
+    "R192": 54,
+    "R193": 47,
+    "R194": 15,
+    "R195": 14,
+    "R196": 14,
+    "R197": 11,
+    "R198": 18,
+    "R199": 14,
+    "R200": 21,
+    "R201": 19,
+    "R202": 57,
+    "R203": 22,
+    "R204": 11,
+    "R205": 9,
+    "R206": 8,
+    "R207": 11,
+    "R208": 10,
+    "R209": 12,
+    "R210": 8,
+    "R211": 8,
+    "R212": 26,
+    "R213": 19,
+    "R214": 8,
+    "R215": 8,
+    "R216": 8,
+    "R217": 7,
+    "R218": 7,
+    "R219": 7,
+    "R220": 8,
+    "R221": 11,
+    "R222": 28,
+    "R223": 20,
+    "R224": 9,
+    "R225": 9,
+    "R226": 8,
+    "R227": 7,
+    "R228": 8,
+    "R229": 7,
+    "R230": 8,
+    "R231": 8,
+    "R232": 24,
+    "R233": 27,
+    "R234": 6,
+    "R235": 6,
+    "R236": 7,
+    "R237": 6,
+    "R238": 7,
+    "R239": 6,
+    "R240": 6,
+    "R241": 7,
+    "R242": 31,
+    "R243": 17,
+    "R244": 5,
+    "R245": 6,
+    "R246": 6,
+    "R247": 7,
+    "R248": 5,
+    "R249": 6,
+    "R250": 5,
+    "R251": 7,
+    "R252": 23,
+    "R253": 18,
+    "R254": 6,
+    "R255": 7,
+    "R256": 6,
+    "R257": 7,
+    "R258": 7,
+    "R259": 6,
+    "R260": 7,
+    "R261": 5,
+    "R262": 25,
+    "R263": 18,
+    "R264": 6,
+    "R265": 7,
+    "R266": 6,
+    "R267": 6,
+    "R268": 7,
+    "R269": 6,
+    "R270": 7,
+    "R271": 6,
+    "R272": 26,
+    "R273": 15,
+    "R274": 5,
+    "R275": 5,
+    "R276": 6,
+    "R277": 6,
+    "R278": 5,
+    "R279": 5,
+    "R280": 6,
+    "R281": 6,
+    "R282": 22,
+    "R283": 14,
+    "R284": 6,
+    "R285": 6,
+    "R286": 6,
+    "R287": 5,
+    "R288": 5,
+    "R289": 5,
+    "R290": 5,
+    "R291": 6,
+    "R292": 19,
+    "R293": 14,
+    "R294": 6,
+    "R295": 6,
+    "R296": 6,
+    "R297": 5,
+    "R298": 6,
+    "R299": 5,
+    "R300": 5,
+    "R301": 6,
+    "R302": 19,
+    "R303": 15,
+    "R304": 6,
+    "R305": 6,
+    "R306": 5,
+    "R307": 6,
+    "R308": 5,
+    "R309": 6,
+    "R310": 6,
+    "R311": 6,
+    "R312": 19,
+    "R313": 15,
+    "R314": 5,
+    "R315": 5,
+    "R316": 5,
+    "R317": 4,
+    "R318": 4,
+    "R319": 5,
+    "R320": 5,
+    "R321": 5,
+    "R322": 19,
+    "R323": 14,
+    "R324": 4,
+    "R325": 4,
+    "R326": 4,
+    "R327": 4,
+    "R328": 4,
+    "R329": 4,
+    "R330": 4,
+    "R331": 5,
+    "R332": 21,
+    "R333": 15,
+    "R334": 4,
+    "R335": 4,
+    "R336": 4,
+    "R337": 4,
+    "R338": 4,
+    "R339": 4,
+    "R340": 4,
+    "R341": 5,
+    "R342": 21,
+    "R343": 14,
+    "R344": 4,
+    "R345": 4,
+    "R346": 4,
+    "R347": 4,
+    "R348": 4,
+    "R349": 4,
+    "R350": 4,
+    "R351": 5,
+    "R352": 25,
+    "R353": 37,
+    "R354": 10,
+    "R355": 9,
+    "R356": 13,
+    "R357": 13,
+    "R358": 11,
+    "R359": 10,
+    "R360": 13,
+    "R361": 13,
+    "R362": 10,
+    "R363": 9,
+    "R364": 13,
+    "R365": 16,
+    "R366": 10,
+    "R367": 10,
+    "R368": 13,
+    "R369": 13,
+    "R370": 11,
+    "R371": 13,
+    "R372": 51,
+    "R373": 7,
+    "R382": 12,
+    "R383": 12,
+    "R384": 20,
+    "R385": 55,
+    "R386": 315,
+    "R387": 93,
+    "R388": 216,
+    "R389": 105,
+    "R390": 110,
+    "R391": 124,
+    "R392": 136,
+    "R393": 67,
+    "R394": 30,
+    "R395": 10,
+    "R396": 10,
+    "R397": 16673,
+    "R398": 49,
+    "R871": 2
+  },
+  "text_bytes_read": 885304037,
+  "text_files_read": 10178,
+  "top_mechanism_mentions": {
+    "FOUNDRY:P009": 2335,
+    "FOUNDRY:P010": 1933,
+    "FOUNDRY:P011": 2188,
+    "FOUNDRY:P016": 2714,
+    "FOUNDRY:P017": 1552,
+    "FOUNDRY:P018": 1096,
+    "FOUNDRY:P020": 3295,
+    "FOUNDRY:P021": 3309,
+    "FOUNDRY:P022": 1385,
+    "FOUNDRY:P023": 3921,
+    "FOUNDRY:P025": 1411,
+    "FOUNDRY:P026": 4012,
+    "FOUNDRY:P027": 1532,
+    "FOUNDRY:P028": 1567,
+    "FOUNDRY:P029": 2679,
+    "FOUNDRY:P030": 3824,
+    "FOUNDRY:P033": 4637,
+    "FOUNDRY:P035": 3648,
+    "FOUNDRY:P037": 4341,
+    "FOUNDRY:P040": 1410,
+    "FOUNDRY:P042": 2194,
+    "FOUNDRY:P043": 1075,
+    "FOUNDRY:P044": 3611,
+    "FOUNDRY:P045": 3652,
+    "FOUNDRY:P047": 1898,
+    "FOUNDRY:P048": 2633,
+    "FOUNDRY:P050": 3976,
+    "FOUNDRY:P051": 1363,
+    "FOUNDRY:P052": 3257,
+    "FOUNDRY:P053": 2167,
+    "FOUNDRY:P054": 2915,
+    "FOUNDRY:P055": 1360,
+    "FOUNDRY:P056": 3241,
+    "FOUNDRY:P057": 4657,
+    "FOUNDRY:P059": 4546,
+    "FOUNDRY:P060": 4567,
+    "FOUNDRY:P062": 4496,
+    "FOUNDRY:P063": 3649,
+    "FOUNDRY:P064": 1378,
+    "FOUNDRY:P065": 4019,
+    "FOUNDRY:P067": 1947,
+    "FOUNDRY:P068": 2738,
+    "FOUNDRY:P069": 1380,
+    "FOUNDRY:P070": 2676,
+    "FOUNDRY:P071": 3975,
+    "FOUNDRY:P072": 2574,
+    "FOUNDRY:P073": 2185,
+    "FOUNDRY:P074": 2660,
+    "FOUNDRY:P075": 2217,
+    "FOUNDRY:P076": 1075,
+    "FOUNDRY:P078": 2505,
+    "FOUNDRY:P079": 6363,
+    "FOUNDRY:P080": 2264,
+    "FOUNDRY:P081": 1457,
+    "FOUNDRY:P082": 3926,
+    "FOUNDRY:P083": 2247,
+    "FOUNDRY:P084": 3828,
+    "FOUNDRY:P085": 4086,
+    "FOUNDRY:P086": 1494,
+    "FOUNDRY:P087": 3747,
+    "FOUNDRY:P088": 3728,
+    "FOUNDRY:P089": 3737,
+    "FOUNDRY:P090": 1634,
+    "FOUNDRY:P091": 6194,
+    "FOUNDRY:P092": 4583,
+    "FOUNDRY:P093": 4765,
+    "FOUNDRY:P094": 1420,
+    "FOUNDRY:P095": 1684,
+    "FOUNDRY:P096": 2803,
+    "FOUNDRY:P097": 1446,
+    "FOUNDRY:P098": 1450,
+    "FOUNDRY:P099": 2157,
+    "FOUNDRY:P106": 1372,
+    "FOUNDRY:P107": 2154,
+    "FOUNDRY:P108": 3195,
+    "FOUNDRY:P109": 5680,
+    "FOUNDRY:P110": 4642,
+    "FOUNDRY:P111": 2620,
+    "FOUNDRY:P112": 3195,
+    "FOUNDRY:P113": 2148,
+    "FOUNDRY:P114": 1077,
+    "FOUNDRY:P115": 1092,
+    "FOUNDRY:P117": 1102,
+    "FOUNDRY:P122": 1418,
+    "FOUNDRY:P123": 1465,
+    "FOUNDRY:P125": 1394,
+    "FOUNDRY:P126": 1446,
+    "FOUNDRY:P131": 1378,
+    "FOUNDRY:P135": 1659,
+    "FOUNDRY:P136": 3276,
+    "FOUNDRY:P137": 3015,
+    "FOUNDRY:P138": 5501,
+    "FOUNDRY:P140": 5667,
+    "FOUNDRY:P141": 5390,
+    "FOUNDRY:P142": 4870,
+    "FOUNDRY:P143": 2014,
+    "FOUNDRY:P144": 2770,
+    "FOUNDRY:P145": 1439,
+    "IM-006": 1155,
+    "IM-007": 1225,
+    "IM-010": 2109,
+    "IM-011": 1069,
+    "IM-013": 1183,
+    "IM-014": 2121,
+    "IM-015": 2005,
+    "IM-016": 2278,
+    "IM-023": 2797,
+    "IM-026": 2513,
+    "IM-027": 1099,
+    "IM-029": 1812,
+    "IM-031": 1547,
+    "IM-034": 1214,
+    "IM-039": 1905,
+    "IM-040": 1826,
+    "IM-042": 2055,
+    "IM-043": 1509,
+    "IM-045": 1075,
+    "IM-050": 2071,
+    "IM-058": 2110,
+    "IM-061": 1462,
+    "IM-065": 1418,
+    "IM-066": 1251,
+    "IM-069": 1183,
+    "IM-070": 1906,
+    "IM-072": 1882,
+    "IM-076": 1068,
+    "IM-088": 1552,
+    "IM-093": 1220,
+    "IM-094": 4182,
+    "IM-100": 1104,
+    "IM-124": 1356,
+    "IM-127": 2113,
+    "IM-136": 1259,
+    "IM-139": 1429,
+    "IM-181": 2490,
+    "IM-189": 1362,
+    "IM-190": 2237,
+    "IM-196": 2298,
+    "IM-206": 2107,
+    "IM-214": 1460,
+    "IM-225": 2702,
+    "IM-227": 1113,
+    "IM-233": 1122,
+    "IM-240": 1136,
+    "IM-247": 1250,
+    "IM-249": 2297,
+    "IM-250": 1551,
+    "IM-256": 2492,
+    "IM-268": 1100,
+    "IM-269": 1214,
+    "IM-271": 1177,
+    "IM-272": 1472,
+    "IM-274": 1074,
+    "IM-275": 1183,
+    "IM-280": 1348,
+    "IM-282": 1691,
+    "IM-283": 1155,
+    "IM-292": 1395,
+    "IM-299": 1677,
+    "IM-307": 1678,
+    "IM-311": 4012,
+    "IM-313": 1186,
+    "IM-314": 3963,
+    "IM-320": 1555,
+    "IM-325": 2319,
+    "IM-326": 2036,
+    "IM-334": 1155,
+    "IM-335": 6814,
+    "IM-337": 1132,
+    "IM-343": 1237,
+    "IM-344": 1547,
+    "IM-347": 2484,
+    "IM-351": 1076,
+    "IM-359": 1551,
+    "IM-374": 1303,
+    "IM-383": 1294,
+    "IM-387": 1446,
+    "IM-390": 1431,
+    "IM-400": 2364,
+    "IM-401": 1142,
+    "IM-410": 1096,
+    "IM-420": 2273,
+    "IM-422": 1403,
+    "IM-449": 1079,
+    "IM-451": 2305,
+    "IM-452": 2100,
+    "IM-453": 2477,
+    "IM-455": 1108,
+    "LCB-K001": 3203,
+    "LCB-K002": 3184,
+    "LCB-K003": 4742,
+    "LCB-K007": 2527,
+    "LCB-K008": 2410,
+    "LCB-K010": 4570,
+    "LCB-K011": 3339,
+    "LCB-K012": 5388,
+    "LCB-K015": 5140,
+    "LCB-K016": 1364,
+    "LCB-K017": 2763,
+    "LCB-K019": 2108,
+    "LCB-K020": 2787,
+    "LCB-K021": 1780,
+    "LCB-K024": 3189,
+    "LCB-K025": 1360,
+    "LCB-K026": 2560,
+    "LCB-K030": 2072,
+    "LCB-K031": 1328,
+    "LCB-K035": 4340,
+    "LCB-K037": 3187,
+    "LCB-K039": 3175,
+    "LCB-K041": 3706,
+    "LCB-K043": 2671,
+    "LCB-K044": 1686,
+    "LCB-K046": 2554,
+    "LCB-K047": 1470,
+    "LCB-K048": 5401,
+    "LCB-K049": 4196,
+    "LCB-K050": 1453,
+    "LCB-K051": 1689,
+    "LCB-K052": 2522,
+    "LCB-K055": 4192,
+    "LCB-K056": 4203,
+    "LCB-K058": 3285,
+    "LCB-K059": 3202,
+    "LCB-K060": 1674,
+    "LCB-K061": 1691,
+    "LCB-K063": 1791,
+    "LCB-K064": 2232,
+    "LCB-K065": 3608,
+    "LCB-K066": 3221,
+    "LCB-K068": 4699,
+    "LCB-K069": 1398,
+    "LCB-K070": 2539,
+    "LCB-K072": 1721,
+    "LCB-K073": 3982,
+    "LCB-K074": 4136,
+    "LCB-K075": 1678,
+    "LCB-K076": 1506,
+    "LCB-K077": 1684,
+    "LCB-K078": 1475,
+    "LCB-K080": 4002,
+    "LCB-K081": 4267,
+    "LCB-K083": 1463,
+    "LCB-K084": 5347,
+    "LCB-K085": 1274,
+    "LCB-K086": 4392,
+    "LCB-K087": 3710,
+    "LCB-K088": 2542,
+    "LCB-K090": 4258,
+    "LCB-K091": 4298
+  },
+  "top_prefix_counts": {
+    "LABALLCOMPASS_FINAL_RETIREMENT_HANDOFF_R398_2026-08-30": 10320
+  },
+  "uncompressed_bytes_read": 889427476,
+  "unique_content_hashes": 5061,
+  "v2_product_directories": 53,
+  "v2_products": {
+    "V2P001_SAVA": {
+      "bytes": 59388,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P031",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K003"
+        },
+        {
+          "consumer_id": "FOUNDRY:P031",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K003"
+        },
+        {
+          "consumer_id": "FOUNDRY:P031",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K003"
+        },
+        {
+          "consumer_id": "FOUNDRY:P031",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K003"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 30,
+      "python_files": 12,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P002_MFQA": {
+      "bytes": 61880,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P136",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        },
+        {
+          "consumer_id": "FOUNDRY:P136",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        },
+        {
+          "consumer_id": "FOUNDRY:P136",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        },
+        {
+          "consumer_id": "FOUNDRY:P136",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 12,
+      "test_files": 6,
+      "test_methods": 24
+    },
+    "V2P003_MFPD": {
+      "bytes": 66956,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P144",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        },
+        {
+          "consumer_id": "FOUNDRY:P144",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        },
+        {
+          "consumer_id": "FOUNDRY:P144",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        },
+        {
+          "consumer_id": "FOUNDRY:P144",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K048"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 24,
+      "python_files": 12,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P004_OPIA": {
+      "bytes": 103776,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K081"
+        },
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K081"
+        },
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K081"
+        },
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K081"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 24,
+      "python_files": 12,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P005_EDSANP": {
+      "bytes": 101740,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P003",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K019"
+        },
+        {
+          "consumer_id": "FOUNDRY:P003",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K019"
+        },
+        {
+          "consumer_id": "FOUNDRY:P003",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K019"
+        },
+        {
+          "consumer_id": "FOUNDRY:P003",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K019"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P006_IDASRO": {
+      "bytes": 69480,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P025",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K068"
+        },
+        {
+          "consumer_id": "FOUNDRY:P025",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K068"
+        },
+        {
+          "consumer_id": "FOUNDRY:P025",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K068"
+        },
+        {
+          "consumer_id": "FOUNDRY:P025",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K068"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P007_CPDBE": {
+      "bytes": 63600,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P026",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K009"
+        },
+        {
+          "consumer_id": "FOUNDRY:P026",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K009"
+        },
+        {
+          "consumer_id": "FOUNDRY:P026",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K009"
+        },
+        {
+          "consumer_id": "FOUNDRY:P026",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K009"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P008_TGCARS": {
+      "bytes": 95672,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P135",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K071"
+        },
+        {
+          "consumer_id": "FOUNDRY:P135",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K071"
+        },
+        {
+          "consumer_id": "FOUNDRY:P135",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K071"
+        },
+        {
+          "consumer_id": "FOUNDRY:P135",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "LCB-K071"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P009_SGMB": {
+      "bytes": 56216,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K048",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K048",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K048",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K048",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P010_SCSPIA": {
+      "bytes": 81880,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P138",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P011_BIVCP": {
+      "bytes": 28576,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P012_SARCP": {
+      "bytes": 22852,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K015",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P140"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P013_CADRE": {
+      "bytes": 30504,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P091"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P091"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P091"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P091"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 48
+    },
+    "V2P014_BATS": {
+      "bytes": 13740,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K012",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K012",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K012",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K012",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P015_BGTW": {
+      "bytes": 12320,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K086",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K086",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K086",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K086",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P016_BVRP": {
+      "bytes": 13004,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K091",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K091",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K091",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K091",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P079"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P017_CCDRE": {
+      "bytes": 12644,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P109"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P109"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P109"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P109"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P018_WTDRE": {
+      "bytes": 12328,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P062"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P062"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P062"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P062"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P019_STHA": {
+      "bytes": 12180,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:R014_S781_S792_ACSA",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P065"
+        },
+        {
+          "consumer_id": "PARENT:R014_S781_S792_ACSA",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P065"
+        },
+        {
+          "consumer_id": "PARENT:R014_S781_S792_ACSA",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P065"
+        },
+        {
+          "consumer_id": "PARENT:R014_S781_S792_ACSA",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P065"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P020_PADRE": {
+      "bytes": 13100,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P092"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P092"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P092"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P092"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P021_BMDRE": {
+      "bytes": 12064,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P093"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P093"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P093"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P093"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P022_CFDRE": {
+      "bytes": 11160,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P141"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P023_CODRE": {
+      "bytes": 12744,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P023"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P023"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P023"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P023"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P024_HPDRE": {
+      "bytes": 12436,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P071"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P071"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P071"
+        },
+        {
+          "consumer_id": "PARENT:IM334_IM094_DRE",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "FOUNDRY:P071"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P025_DRFIAC": {
+      "bytes": 12108,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P026_DRSVCO": {
+      "bytes": 13612,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P035",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P035",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P035",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P035",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P027_DRMPHA": {
+      "bytes": 14352,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P137",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P137",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P137",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        },
+        {
+          "consumer_id": "FOUNDRY:P137",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:IM334_IM094_DRE"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P028_SCFIAC": {
+      "bytes": 13792,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P057",
+          "schema": "LAB_V2_COMPOSITION_V1",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 32,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 24
+    },
+    "V2P029_SUSCA": {
+      "bytes": 30300,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K003",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K003",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K003",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K003",
+          "supplier_id": "FOUNDRY:P140"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P030_PCFDLW": {
+      "bytes": 36592,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "supplier_id": "FOUNDRY:P141"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 36
+    },
+    "V2P031_QDRA": {
+      "bytes": 31124,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM406_IM037_ACRA",
+          "supplier_id": "FOUNDRY:P136"
+        },
+        {
+          "consumer_id": "PARENT:IM406_IM037_ACRA",
+          "supplier_id": "FOUNDRY:P136"
+        },
+        {
+          "consumer_id": "PARENT:IM406_IM037_ACRA",
+          "supplier_id": "FOUNDRY:P136"
+        },
+        {
+          "consumer_id": "PARENT:IM406_IM037_ACRA",
+          "supplier_id": "FOUNDRY:P136"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P032_SPITWMR": {
+      "bytes": 24604,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM178_IM326_TWMR",
+          "supplier_id": "FOUNDRY:P138"
+        },
+        {
+          "consumer_id": "PARENT:IM178_IM326_TWMR",
+          "supplier_id": "FOUNDRY:P138"
+        },
+        {
+          "consumer_id": "PARENT:IM178_IM326_TWMR",
+          "supplier_id": "FOUNDRY:P138"
+        },
+        {
+          "consumer_id": "PARENT:IM178_IM326_TWMR",
+          "supplier_id": "FOUNDRY:P138"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P033_VCMF": {
+      "bytes": 26532,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K048",
+          "supplier_id": "PARENT:IM139_IM250_CCVC"
+        },
+        {
+          "consumer_id": "LCB-K048",
+          "supplier_id": "PARENT:IM139_IM250_CCVC"
+        },
+        {
+          "consumer_id": "LCB-K048",
+          "supplier_id": "PARENT:IM139_IM250_CCVC"
+        },
+        {
+          "consumer_id": "LCB-K048",
+          "supplier_id": "PARENT:IM139_IM250_CCVC"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 36
+    },
+    "V2P034_SCOPG": {
+      "bytes": 24284,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K081",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "LCB-K081",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "LCB-K081",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "LCB-K081",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P035_ISTAICC": {
+      "bytes": 31836,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM359_IM014_AICC",
+          "supplier_id": "LCB-K074"
+        },
+        {
+          "consumer_id": "PARENT:IM359_IM014_AICC",
+          "supplier_id": "LCB-K074"
+        },
+        {
+          "consumer_id": "PARENT:IM359_IM014_AICC",
+          "supplier_id": "LCB-K074"
+        },
+        {
+          "consumer_id": "PARENT:IM359_IM014_AICC",
+          "supplier_id": "LCB-K074"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P036_PCFMCSC": {
+      "bytes": 22616,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:R018_M866_M880_MCSC",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:R018_M866_M880_MCSC",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:R018_M866_M880_MCSC",
+          "supplier_id": "FOUNDRY:P141"
+        },
+        {
+          "consumer_id": "PARENT:R018_M866_M880_MCSC",
+          "supplier_id": "FOUNDRY:P141"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P037_DWPCFT": {
+      "bytes": 24088,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P141",
+          "supplier_id": "LCB-K084"
+        },
+        {
+          "consumer_id": "FOUNDRY:P141",
+          "supplier_id": "LCB-K084"
+        },
+        {
+          "consumer_id": "FOUNDRY:P141",
+          "supplier_id": "LCB-K084"
+        },
+        {
+          "consumer_id": "FOUNDRY:P141",
+          "supplier_id": "LCB-K084"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P038_BOSARO": {
+      "bytes": 23232,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K068",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K068",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K068",
+          "supplier_id": "FOUNDRY:P140"
+        },
+        {
+          "consumer_id": "LCB-K068",
+          "supplier_id": "FOUNDRY:P140"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 36,
+      "python_files": 16,
+      "test_files": 4,
+      "test_methods": 32
+    },
+    "V2P039_SCCATF": {
+      "bytes": 48995,
+      "composition_records": [
+        {
+          "consumer_id": "FOUNDRY:P033",
+          "r386_external_prior_art_status": "KNOWN_CLOSE_OPERATOR_NOT_NOVEL_THEORY",
+          "r386_family_id": "V2P039",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P033",
+          "r386_external_prior_art_status": "KNOWN_CLOSE_OPERATOR_NOT_NOVEL_THEORY",
+          "r386_family_id": "V2P039",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        },
+        {
+          "consumer_id": "FOUNDRY:P033",
+          "r386_external_prior_art_status": "KNOWN_CLOSE_OPERATOR_NOT_NOVEL_THEORY",
+          "r386_family_id": "V2P039",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P040_BMCAPL": {
+      "bytes": 41052,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P040",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P093"
+        },
+        {
+          "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P040",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P093"
+        },
+        {
+          "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P040",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P093"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P041_CDTDLEW": {
+      "bytes": 46859,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P041",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P082"
+        },
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P041",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P082"
+        },
+        {
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P041",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P082"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P042_ATSCWC": {
+      "bytes": 45986,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 13,
+          "operator": "active measurement policy -> calibrated interval control",
+          "r386_external_prior_art_status": "VERY_CLOSE_CURRENT_PRIOR_ART",
+          "r386_family_id": "V2P042",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 310,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "LCB-K041"
+        },
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 13,
+          "operator": "active measurement policy -> calibrated interval control",
+          "r386_external_prior_art_status": "VERY_CLOSE_CURRENT_PRIOR_ART",
+          "r386_family_id": "V2P042",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 310,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "LCB-K041"
+        },
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 13,
+          "operator": "active measurement policy -> calibrated interval control",
+          "r386_external_prior_art_status": "VERY_CLOSE_CURRENT_PRIOR_ART",
+          "r386_family_id": "V2P042",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 310,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "LCB-K041"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P043_CBSCG": {
+      "bytes": 45186,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K064",
+          "diversified_selected_rank": 15,
+          "operator": "decision-boundary information acquisition under endogenous strategic response",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P043",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 342,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K064",
+          "diversified_selected_rank": 15,
+          "operator": "decision-boundary information acquisition under endogenous strategic response",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P043",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 342,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "LCB-K064",
+          "diversified_selected_rank": 15,
+          "operator": "decision-boundary information acquisition under endogenous strategic response",
+          "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P043",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 342,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P079"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P044_PIPEG": {
+      "bytes": 44957,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K065",
+          "diversified_selected_rank": 22,
+          "operator": "persuasion/disclosure policy -> endogenous future information-production equilibrium",
+          "r386_external_prior_art_status": "EXACT_OR_VERY_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P035",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 491,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:R001_C313_BPISD"
+        },
+        {
+          "consumer_id": "LCB-K065",
+          "diversified_selected_rank": 22,
+          "operator": "persuasion/disclosure policy -> endogenous future information-production equilibrium",
+          "r386_external_prior_art_status": "EXACT_OR_VERY_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P035",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 491,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:R001_C313_BPISD"
+        },
+        {
+          "consumer_id": "LCB-K065",
+          "diversified_selected_rank": 22,
+          "operator": "persuasion/disclosure policy -> endogenous future information-production equilibrium",
+          "r386_external_prior_art_status": "EXACT_OR_VERY_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P035",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 491,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:R001_C313_BPISD"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P045_FPTWC": {
+      "bytes": 45938,
+      "composition_records": [
+        {
+          "consumer_id": "LCB-K086",
+          "diversified_selected_rank": 23,
+          "operator": "failure-path tipping proximity -> sequential testing-wealth time profile",
+          "r386_external_prior_art_status": "KNOWN_COMPONENT_COMPOSITION",
+          "r386_family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 189,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P030"
+        },
+        {
+          "consumer_id": "LCB-K086",
+          "diversified_selected_rank": 23,
+          "operator": "failure-path tipping proximity -> sequential testing-wealth time profile",
+          "r386_external_prior_art_status": "KNOWN_COMPONENT_COMPOSITION",
+          "r386_family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 189,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P030"
+        },
+        {
+          "consumer_id": "LCB-K086",
+          "diversified_selected_rank": 23,
+          "operator": "failure-path tipping proximity -> sequential testing-wealth time profile",
+          "r386_external_prior_art_status": "KNOWN_COMPONENT_COMPOSITION",
+          "r386_family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 189,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P030"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P046_MTCWC": {
+      "bytes": 47818,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 35,
+          "operator": "calibration-violation tipping surface -> controller state reset",
+          "r386_external_prior_art_status": "VERY_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P046",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 78,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P037"
+        },
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 35,
+          "operator": "calibration-violation tipping surface -> controller state reset",
+          "r386_external_prior_art_status": "VERY_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P046",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 78,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P037"
+        },
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 35,
+          "operator": "calibration-violation tipping surface -> controller state reset",
+          "r386_external_prior_art_status": "VERY_CLOSE_PRIOR_ART",
+          "r386_family_id": "V2P046",
+          "r386_quality_verdict": "DISTINCT_PRODUCT",
+          "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+          "raw_native_rank": 78,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "FOUNDRY:P037"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P047_TWRCFC": {
+      "bytes": 17487,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM340_IM280_CWC",
+          "diversified_selected_rank": 10,
+          "historical_note": "rank-10 result was previously reported in prose but not persisted; R386 reconstructs it from native parents and reruns tests",
+          "metadata_correction": "R386: consumer corrected from erroneous LCB-K008 to CWC parent to match implementation/test source.",
+          "operator": "target-reduction structural-error reserve -> coverage-feedback state decomposition",
+          "r386_external_prior_art_status": "KNOWN_UNCERTAINTY_DECOMPOSITION_COMPONENTS",
+          "r386_family_id": null,
+          "r386_quality_verdict": "SHADOW_EXPLORATORY_OUT_OF_NATIVE_QUEUE",
+          "raw_native_rank": null,
+          "status": "SHADOW_RETRO_SWEEP",
+          "supplier_id": "PARENT:IM178_IM326_TWMR"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 9,
+      "python_files": 3,
+      "test_files": 2,
+      "test_methods": 8
+    },
+    "V2P048_CBIACCVC": {
+      "bytes": 41667,
+      "composition_records": [
+        {
+          "consumer_id": "PARENT:IM139_IM250_CCVC",
+          "diversified_selected_rank": null,
+          "operator": "calibrated action-boundary information acquisition -> conservation-constrained viability filter",
+          "quality_disposition": "FAMILY_VARIANT_OF_V2P043_ACTION_BOUNDARY_INFORMATION_ACQUISITION",
+          "r386_external_prior_art_status": "KNOWN_VALUE_OF_INFORMATION_SAFETY_PATTERN",
+          "r386_family_id": "V2P043",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "raw_native_rank": 550,
+          "status": "SHADOW_RETRO_SWEEP_FAMILY_VARIANT",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "PARENT:IM139_IM250_CCVC",
+          "diversified_selected_rank": null,
+          "operator": "calibrated action-boundary information acquisition -> conservation-constrained viability filter",
+          "quality_disposition": "FAMILY_VARIANT_OF_V2P043_ACTION_BOUNDARY_INFORMATION_ACQUISITION",
+          "r386_external_prior_art_status": "KNOWN_VALUE_OF_INFORMATION_SAFETY_PATTERN",
+          "r386_family_id": "V2P043",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "raw_native_rank": 550,
+          "status": "SHADOW_RETRO_SWEEP_FAMILY_VARIANT",
+          "supplier_id": "FOUNDRY:P079"
+        },
+        {
+          "consumer_id": "PARENT:IM139_IM250_CCVC",
+          "diversified_selected_rank": null,
+          "operator": "calibrated action-boundary information acquisition -> conservation-constrained viability filter",
+          "quality_disposition": "FAMILY_VARIANT_OF_V2P043_ACTION_BOUNDARY_INFORMATION_ACQUISITION",
+          "r386_external_prior_art_status": "KNOWN_VALUE_OF_INFORMATION_SAFETY_PATTERN",
+          "r386_family_id": "V2P043",
+          "r386_quality_verdict": "EXECUTABLE_FAMILY_VARIANT",
+          "raw_native_rank": 550,
+          "status": "SHADOW_RETRO_SWEEP_FAMILY_VARIANT",
+          "supplier_id": "FOUNDRY:P079"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": false,
+      "paths": 25,
+      "python_files": 9,
+      "test_files": 5,
+      "test_methods": 24
+    },
+    "V2P049_SACAPL": {
+      "bytes": 36681,
+      "composition_records": [
+        {
+          "authority": "R388_CANONICAL_PRODUCT_AUTHORITY",
+          "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+          "operator": "support-aware covariance geometry -> constrained portfolio policy risk objective",
+          "product_id": "V2P049",
+          "short_name": "SACAPL",
+          "source_frontier": "R388_RETRO50_SAME_PARENT_EXPANSION",
+          "status": "R388_PROMOTED_CANONICAL_PRODUCT",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 10,
+      "python_files": 4,
+      "test_files": 1,
+      "test_methods": 10
+    },
+    "V2P050_SCIG": {
+      "bytes": 60267,
+      "composition_records": [
+        {
+          "authority": "R389_CANONICAL_PRODUCT_AUTHORITY",
+          "consumer_id": "PARENT:IM445_IM085_CSID",
+          "operator": "support-aware covariance -> safeguard evidence-independence partition -> CSID portfolio coverage",
+          "product_id": "V2P050",
+          "quality_review": "NOVELTY_REVIEW_R389.json",
+          "short_name": "SCIG",
+          "source_cluster": "R388C0017",
+          "source_release": "R388_SHADOW_CANDIDATE_HARDENED_IN_R389",
+          "status": "R389_PROMOTED_CANONICAL_PRODUCT",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 11,
+      "python_files": 4,
+      "test_files": 1,
+      "test_methods": 13
+    },
+    "V2P051_SACDLW": {
+      "bytes": 122528,
+      "composition_records": [
+        {
+          "authority": "R390_CANONICAL_PRODUCT_AUTHORITY",
+          "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+          "product_id": "V2P051",
+          "short_name": "SACDLW",
+          "status": "R390_PROMOTED_CANONICAL_PRODUCT",
+          "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 10,
+      "python_files": 4,
+      "test_files": 1,
+      "test_methods": 12
+    },
+    "V2P052_REICAPL": {
+      "bytes": 61161,
+      "composition_records": [
+        {
+          "authority": "R391_CANONICAL_PRODUCT_AUTHORITY",
+          "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+          "product_id": "V2P052",
+          "short_name": "REICAPL",
+          "status": "R391_PROMOTED_CANONICAL_PRODUCT",
+          "supplier_id": "FOUNDRY:P028"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 10,
+      "python_files": 4,
+      "test_files": 1,
+      "test_methods": 12
+    },
+    "V2P053_SWCAPL": {
+      "bytes": 23576,
+      "composition_records": [
+        {
+          "authority": "R392_CANONICAL_PRODUCT_AUTHORITY",
+          "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+          "operator": "externally-justified target importance weights and OWS support gate reweight CAPL's realized-action training objective before constrained policy optimization",
+          "product_id": "V2P053",
+          "short_name": "SWCAPL",
+          "status": "R392_PROMOTED_CANONICAL_PRODUCT",
+          "supplier_id": "FOUNDRY:P090"
+        }
+      ],
+      "has_composition": true,
+      "has_product_result": true,
+      "has_readme": true,
+      "paths": 9,
+      "python_files": 3,
+      "test_files": 1,
+      "test_methods": 12
+    }
+  },
+  "zip_crc_all_entries": "PASS"
+}

@@ -1,0 +1,24 @@
+{
+  "mechanism_removing_comparator": "same CWC and same query budget with ActiveThresholdSensing selection replaced by a frozen evenly-spaced query schedule",
+  "evidence_boundary": "synthetic repeated threshold-localization tasks with declared binary response accuracy; demonstrates closed-loop mechanism only, not deployment calibration",
+  "result": {
+    "active": {
+      "coverage": 0.904,
+      "rolling_coverage_rmse": 0.039046279891847044,
+      "mean_width": 13.095172217669235,
+      "width_step_variability": 5.776654881170446,
+      "mean_interval_score": 20.821047825767675
+    },
+    "mechanism_removed_fixed_queries": {
+      "coverage": 0.904,
+      "rolling_coverage_rmse": 0.054075581498606314,
+      "mean_width": 19.66341280445774,
+      "width_step_variability": 8.4437584258548,
+      "mean_interval_score": 23.91624563683327
+    },
+    "interval_score_gain": 3.0951978110655958,
+    "mean_width_reduction": 6.568240586788503,
+    "rolling_coverage_rmse_gain": 0.01502930160675927,
+    "status": "ACTIVE_SENSING_IMPROVES_CALIBRATED_INTERVAL_STREAM"
+  }
+}

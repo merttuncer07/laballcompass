@@ -1,0 +1,10 @@
+{
+  "candidate_identity": "R400_JARB_HIGHER_ORDER_EXPERIMENT",
+  "verdict": "MECHANICS_PASS_BUT_NOT_PRODUCT_ADMISSIBLE",
+  "direct_tests": {"passed": 13, "failed": 0},
+  "sensitivity_shells": 1000,
+  "decision_changed_fraction": 0.533,
+  "reason": "The first prototype replaced the V2P057 REOC planner with a new subset optimizer. Its objective distinction is mechanically real, but it does not preserve the parent operator strongly enough for product promotion.",
+  "disposition": "Retain as negative/diagnostic memory; continue with a native-parent budget-split experiment.",
+  "promoted": false
+}

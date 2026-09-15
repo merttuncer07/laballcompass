@@ -1,0 +1,23 @@
+[
+  {
+    "name": "StructuredReferences.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/StructuredReferences.xlsx",
+    "sha256": "a746e336176f8157c50a0a3b017c4633b7b1d546bd1b8af0f8165a48d1bacc56",
+    "bytes": 10459,
+    "scope": "Unmodified Apache POI engineering workbook, not a client audit workpaper"
+  },
+  {
+    "name": "StructuredRefs-lots-with-lookups.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/StructuredRefs-lots-with-lookups.xlsx",
+    "sha256": "09af82b9abae2ffcff04777b69cbb23dfd15df788426153bcfa1e9359c3552be",
+    "bytes": 325446,
+    "scope": "Unmodified Apache POI engineering workbook, not a client audit workpaper"
+  },
+  {
+    "name": "evaluate_formula_with_structured_table_references.xlsx",
+    "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/evaluate_formula_with_structured_table_references.xlsx",
+    "sha256": "f460fced2f6bac1f5b4b7d400fd7f2e3ff379af478c01d26388744cefd37a93a",
+    "bytes": 9198,
+    "scope": "Unmodified Apache POI engineering workbook, not a client audit workpaper"
+  }
+]

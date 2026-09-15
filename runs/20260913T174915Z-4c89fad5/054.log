@@ -1,0 +1,14 @@
+test_negative_rejected (test_vcmf.T.test_negative_rejected) ... ok
+test_relaxed_margin_can_use_more_cheap (test_vcmf.T.test_relaxed_margin_can_use_more_cheap) ... ok
+test_requires_fine_anchor (test_vcmf.T.test_requires_fine_anchor) ... ok
+test_status (test_vcmf.T.test_status) ... ok
+test_tiny_budget_rejected (test_vcmf.T.test_tiny_budget_rejected) ... ok
+test_unconstrained_differs (test_vcmf.T.test_unconstrained_differs) ... ok
+test_unconstrained_violates_margin (test_vcmf.T.test_unconstrained_violates_margin) ... ok
+test_viability_bias_respected (test_vcmf.T.test_viability_bias_respected) ... ok
+test_zero_bias_matches_unconstrained_feasibility (test_vcmf.T.test_zero_bias_matches_unconstrained_feasibility) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK

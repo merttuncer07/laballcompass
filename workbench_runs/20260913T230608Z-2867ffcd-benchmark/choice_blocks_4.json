@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "choice_blocks_4",
+  "mode": "declared_support",
+  "bases": {
+    "a0": "a0",
+    "b0": "b0",
+    "a1": "a1",
+    "b1": "b1",
+    "a2": "a2",
+    "b2": "b2",
+    "a3": "a3",
+    "b3": "b3"
+  },
+  "rules": [
+    {
+      "head": "c0",
+      "body": [
+        "a0"
+      ]
+    },
+    {
+      "head": "c0",
+      "body": [
+        "b0"
+      ]
+    },
+    {
+      "head": "c1",
+      "body": [
+        "a1"
+      ]
+    },
+    {
+      "head": "c1",
+      "body": [
+        "b1"
+      ]
+    },
+    {
+      "head": "c2",
+      "body": [
+        "a2"
+      ]
+    },
+    {
+      "head": "c2",
+      "body": [
+        "b2"
+      ]
+    },
+    {
+      "head": "c3",
+      "body": [
+        "a3"
+      ]
+    },
+    {
+      "head": "c3",
+      "body": [
+        "b3"
+      ]
+    },
+    {
+      "head": "target",
+      "body": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ]
+    }
+  ],
+  "targets": [
+    "target"
+  ],
+  "metadata": {
+    "family": "factored_choices",
+    "synthetic": true,
+    "analytical_minimal_support_count": 16
+  }
+}

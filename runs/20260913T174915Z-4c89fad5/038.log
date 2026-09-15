@@ -1,0 +1,11 @@
+test_all_good (test_ccdre.T.test_all_good) ... ok
+test_block_list (test_ccdre.T.test_block_list) ... ok
+test_blocks_high_value (test_ccdre.T.test_blocks_high_value) ... ok
+test_comparator_diff (test_ccdre.T.test_comparator_diff) ... ok
+test_negative_limit (test_ccdre.T.test_negative_limit) ... ok
+test_none (test_ccdre.T.test_none) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

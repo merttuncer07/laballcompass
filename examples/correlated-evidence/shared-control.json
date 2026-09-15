@@ -1,0 +1,10 @@
+{
+  "source": "https://wviechtb.github.io/metadat/reference/dat.linde2015.html",
+  "study": "Lecrubier 1997 (id 1), displayed first row of dat.linde2015",
+  "arms": [
+    {"name": "TCA", "n": 75, "responders": 49},
+    {"name": "SNRI", "n": 78, "responders": 60},
+    {"name": "Placebo", "n": 76, "responders": 48}
+  ],
+  "scope": "Source-propagation arithmetic check only. Distinct treatment contrasts are NOT pooled as estimates of one common effect. No clinical inference or recommendation."
+}

@@ -1,0 +1,83 @@
+{
+  "pair_in_operational_queue": true,
+  "pair_row": {
+    "active_candidate_rank": 11908,
+    "active_for_build": true,
+    "addressed_weaknesses": [],
+    "adjudication_state": "UNADJUDICATED",
+    "candidate_universe_rank": 11908,
+    "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+    "curated": false,
+    "decision_id": null,
+    "experiment_bootstrap_case_count": 12,
+    "experiment_bootstrap_problem_shell": "BOOTSTRAP_EXECUTABLE_CONTRACT::V2P052::887d30823a6e5d3d",
+    "experiment_bootstrap_product_id": "V2P052",
+    "experiment_bootstrap_status": "FIXED_PILOT_SCHEDULE_AVAILABLE",
+    "experiment_calibration_id": null,
+    "experiment_calibration_status": "NO_EXACT_CALIBRATION",
+    "experiment_calibration_target_generation": null,
+    "experiment_routing_status": "NOT_READY_MISSING_DECLARED_CONTRACT",
+    "experiment_telemetry_complete_count": 0,
+    "experiment_telemetry_event_count": 0,
+    "experiment_telemetry_status": "NO_STANDARDIZED_RUNS_RECORDED",
+    "experiment_telemetry_usable_count": 0,
+    "interface_matches": [
+      "gate"
+    ],
+    "operational_queue_rank": 1000,
+    "recommended_next": "ADAPTER_AND_CONTRASTIVE_BOUNDARY_BENCHMARK",
+    "score": 16.0,
+    "shared_domains": [
+      "calibration"
+    ],
+    "supplier_id": "FOUNDRY:P028",
+    "test_channels": null,
+    "uncertainty_axes": null
+  },
+  "product_quality": {
+    "base_authority": {
+      "audit": "PRODUCT_QUALITY_AUDIT_V1.json",
+      "distinct_families": 28,
+      "distinct_families_pre_quality_batch": 18,
+      "executable_suites": 38,
+      "new_distinct_products_batch4": 10
+    },
+    "candidate_overlay": {
+      "audit": "PRODUCT_QUALITY_AUDIT_R391.json",
+      "candidate_added_suite_ids": [
+        "V2P052"
+      ],
+      "candidate_distinct_product_ids": [
+        "V2P052"
+      ],
+      "distinct_families": 38,
+      "executable_suites": 51,
+      "promoted_product_ids": [],
+      "quarantined_product_ids": [
+        "V2P047"
+      ],
+      "state": "R391_PRODUCT_OVERLAY_STATE.json",
+      "status": "CANDIDATE_OVERLAY_PENDING_R391_PROMOTION"
+    },
+    "canonical_product_authority": {
+      "authority_file": "CURRENT_PRODUCT_AUTHORITY.json",
+      "authority_release": "R390",
+      "distinct_families": 37,
+      "executable_suites": 50,
+      "registry455_unchanged": true,
+      "registry_family_count": 455,
+      "status": "PROMOTED_CANONICAL_PRODUCT_AUTHORITY"
+    },
+    "observed_executable_suites": 51,
+    "observed_matches_candidate_overlay": true,
+    "policy": "PRODUCT_QUALITY_POLICY.md"
+  },
+  "telemetry": {
+    "calibrated_completed_suites": 50,
+    "canonical_ledger": "search_data/EXPERIMENT_TELEMETRY.jsonl",
+    "completed_suites": 51,
+    "events": 423,
+    "exact_current_suite_matches": 423,
+    "unmatched_events": 0
+  }
+}

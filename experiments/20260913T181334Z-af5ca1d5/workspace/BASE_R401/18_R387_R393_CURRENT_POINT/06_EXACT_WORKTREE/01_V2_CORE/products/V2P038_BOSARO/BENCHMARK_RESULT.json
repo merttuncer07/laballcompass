@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "two-action simplex synthetic robust-optimization shell only",
+  "mechanism_removing_comparator": "same directional robust optimizer with support fraction fixed to 1",
+  "model_version": "V2P038_BOSARO_V1",
+  "result": {
+    "base_radius_weights": [
+      0.5,
+      0.5
+    ],
+    "fragile_direction_exposure": 0.0,
+    "objective": 0.099,
+    "status": "SUPPORT_INFLATED_ADMISSIBLE_SHIFT_ROBUST_DECISION",
+    "support_radius": 0.04,
+    "weights": [
+      0.0,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "LCB-K065",
+  "difference_from_nearest": "Different economic shell and action direction, but the deep operator is the same current information action -> endogenous future information equilibrium -> continuation-value correction already represented by V2P035.",
+  "directory": "V2P044_PIPEG",
+  "diversified_selected_rank": 22,
+  "external_prior_art": [
+    "Bayesian persuasion with costly/endogenous information acquisition is established; 2026 supply-chain work explicitly studies disclosure crowding out external learning."
+  ],
+  "external_prior_art_status": "EXACT_OR_VERY_CLOSE_PRIOR_ART",
+  "family_id": "V2P035",
+  "mechanism_removing_comparator": "same persuasion and information-production kernels with the disclosure-to-future-production coupling removed",
+  "nearest_existing_product": "V2P035_ISTAICC",
+  "new_failure_mode": "Aggressive disclosure can improve current persuasion payoff while destroying future information-producer entry.",
+  "non_additive_interaction": "Disclosure changes the future information-production equilibrium and therefore current policy value.",
+  "product_id": "V2P044",
+  "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+  "raw_native_rank": 491,
+  "short_name": "PIPEG",
+  "supplier_id": "PARENT:R001_C313_BPISD",
+  "test_files": [
+    "test_pipeg.py"
+  ],
+  "verdict": "EXECUTABLE_FAMILY_VARIANT"
+}

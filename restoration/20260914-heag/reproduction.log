@@ -1,0 +1,31 @@
+{
+  "report": "examples/evidence-acquisition/report/index.html",
+  "checks": [
+    {
+      "case": "declared_copies",
+      "model": "dependency_preserved",
+      "closed_form_information_value": 0.16286750396764002
+    },
+    {
+      "case": "declared_copies",
+      "model": "independence_assumed",
+      "closed_form_information_value": 0.11516471649044517
+    },
+    {
+      "case": "public_clustered_estimates",
+      "model": "dependency_preserved",
+      "independent_gls_mean": 0.1847223765341092,
+      "independent_gls_variance": 0.007152466779138008,
+      "closed_form_information_value": 0.014995441429762592,
+      "actual_information_value": 0.014995441429762574
+    },
+    {
+      "case": "public_clustered_estimates",
+      "model": "independence_assumed",
+      "independent_gls_mean": 0.12759696754928038,
+      "independent_gls_variance": 0.002098026056924824,
+      "closed_form_information_value": 3.305791447499939e-07,
+      "actual_information_value": 3.3057914474999363e-07
+    }
+  ]
+}

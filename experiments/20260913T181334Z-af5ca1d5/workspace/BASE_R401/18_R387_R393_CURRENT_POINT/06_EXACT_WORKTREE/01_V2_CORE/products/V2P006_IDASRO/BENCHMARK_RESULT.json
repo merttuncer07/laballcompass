@@ -1,0 +1,54 @@
+{
+  "claim_scope": "deterministic declared-affine development shell only; no real-system sensitivity or uncertainty-set calibration claim",
+  "declared_affine_shift_decision": {
+    "mean_space_radius": 0.1764,
+    "nominal_decision": [
+      0.12,
+      0.5
+    ],
+    "nominal_worst_case_objective": 0.11103200000000002,
+    "normalized_shift_direction": [
+      1.0,
+      0.0
+    ],
+    "persistence_radius": 0.0588,
+    "robust_decision": [
+      0.0,
+      0.5
+    ],
+    "robust_worst_case_objective": 0.125,
+    "sensitivity_provenance": "DECLARED_SYNTHETIC_AFFINE_MAP_V1",
+    "sensitivity_shell_certified": true,
+    "status": "DIRECTIONAL_ROBUST_ACTION_CERTIFIED_FOR_DECLARED_AFFINE_SHIFT_SHELL",
+    "worst_case_objective_gain": 0.01396799999999998
+  },
+  "model_version": "V2P006_IDASRO_DEV_V1",
+  "near_boundary_identification_envelope": {
+    "conservative_certified": false,
+    "conservative_flip_index": 1.054562683954644,
+    "nominal_certified": true,
+    "nominal_flip_index": 0.877913830205879,
+    "persistence": -0.2,
+    "persistence_se": 0.03,
+    "status": "IDENTIFICATION_UNCERTAINTY_REVOKES_ACTION_CERTIFICATE"
+  },
+  "zero_sensitivity_control": {
+    "mean_space_radius": 0.0,
+    "nominal_decision": [
+      0.12,
+      0.5
+    ],
+    "nominal_worst_case_objective": 0.1322,
+    "normalized_shift_direction": null,
+    "persistence_radius": 0.0588,
+    "robust_decision": [
+      0.12,
+      0.5
+    ],
+    "robust_worst_case_objective": 0.1322,
+    "sensitivity_provenance": "DECLARED_SYNTHETIC_ZERO_MAP_CONTROL",
+    "sensitivity_shell_certified": true,
+    "status": "CERTIFIED_ZERO_DECISION_SENSITIVITY_NOMINAL_ACTION_EXACT",
+    "worst_case_objective_gain": 0.0
+  }
+}

@@ -1,0 +1,9 @@
+test_extreme_weight_is_flagged_fragile (test_ows.OverlapAwareWeightStabilizerTests.test_extreme_weight_is_flagged_fragile) ... ok
+test_outcome_shell_is_enforced (test_ows.OverlapAwareWeightStabilizerTests.test_outcome_shell_is_enforced) ... ok
+test_stabilization_increases_effective_sample_size (test_ows.OverlapAwareWeightStabilizerTests.test_stabilization_increases_effective_sample_size) ... ok
+test_uniform_weights_have_full_effective_sample (test_ows.OverlapAwareWeightStabilizerTests.test_uniform_weights_have_full_effective_sample) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK

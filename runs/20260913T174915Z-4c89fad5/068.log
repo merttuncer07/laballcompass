@@ -1,0 +1,13 @@
+test_boundary (test_cbiaccvc.T.test_boundary) ... ok
+test_controls_differ (test_cbiaccvc.T.test_controls_differ) ... ok
+test_expensive_measure_skipped (test_cbiaccvc.T.test_expensive_measure_skipped) ... ok
+test_gain_after_cost (test_cbiaccvc.T.test_gain_after_cost) ... ok
+test_measure (test_cbiaccvc.T.test_measure) ... ok
+test_removal_violates (test_cbiaccvc.T.test_removal_violates) ... ok
+test_reproducible (test_cbiaccvc.T.test_reproducible) ... ok
+test_resolved_safe (test_cbiaccvc.T.test_resolved_safe) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.009s
+
+OK

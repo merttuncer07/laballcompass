@@ -1,0 +1,2592 @@
+{
+  "authority_release": "R399",
+  "counts": {
+    "canonical_suites": 57,
+    "direct_distinct_product_ids": 41,
+    "domain_counts": {
+      "allocation": 16,
+      "calibration": 8,
+      "compression": 9,
+      "decision": 34,
+      "finance": 3,
+      "measurement": 19,
+      "memory": 3,
+      "robustness": 21,
+      "safety": 11,
+      "systems": 23
+    },
+    "physical_product_directories": 57,
+    "quarantined": 0,
+    "total_test_methods": 516
+  },
+  "interpretation_boundary": "The matrix reports executable/API/evidence signals from current files. Material usefulness still requires human product-level adjudication and is not inferred from the signal count alone.",
+  "model_version": "R401_PRODUCT_MATERIALITY_MATRIX_V1",
+  "rows": [
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P031",
+      "domains": [],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "itertools",
+        "json",
+        "pathlib",
+        "sava",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 3,
+      "product_id": "V2P001",
+      "public_classes": [
+        "AuditCandidate",
+        "SAVAResult",
+        "SharedAuditRank"
+      ],
+      "public_functions": [
+        "allocate_verification_liquidity",
+        "to_dict"
+      ],
+      "readme_summary": "Run `python test_sava.py`. The module has no external dependencies.",
+      "result_summary": "LCB `SharedCapacityAllocatorV0` + Foundry `P031 EVLT`.",
+      "short_name": "SAVA",
+      "source_lines": 138,
+      "supplier_id": "LCB-K003",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P136",
+      "domains": [
+        "allocation",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "math",
+        "mfqa",
+        "numpy",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P002",
+      "public_classes": [
+        "FidelityChannel",
+        "MFQAResult"
+      ],
+      "public_functions": [
+        "allocate_quasineutral_measurements",
+        "main",
+        "run_case",
+        "to_dict"
+      ],
+      "readme_summary": "Run `python test_mfqa.py`. Requires NumPy, already used by the QAIG parent.",
+      "result_summary": "LCB `MultiFidelityBudgetControllerV0` + Foundry `P136 QAIG`.",
+      "short_name": "MFQA",
+      "source_lines": 172,
+      "supplier_id": "LCB-K048",
+      "test_methods": 6,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P144",
+      "domains": [
+        "allocation",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "P144_DPAI",
+        "dataclasses",
+        "json",
+        "mfpd",
+        "numpy",
+        "pathlib",
+        "sys",
+        "test_mfpd",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P003",
+      "public_classes": [
+        "FidelityIdentificationChannel",
+        "MFPDResult"
+      ],
+      "public_functions": [
+        "identify_persistence_then_route_budget",
+        "main",
+        "to_dict"
+      ],
+      "readme_summary": "",
+      "result_summary": "LCB `MultiFidelityBudgetControllerV0` + Foundry `P144 DPAI`.",
+      "short_name": "MFPD",
+      "source_lines": 342,
+      "supplier_id": "LCB-K048",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P138",
+      "domains": [
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "P138_SPIA",
+        "dataclasses",
+        "json",
+        "numpy",
+        "opia",
+        "pathlib",
+        "sys",
+        "test_opia",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P004",
+      "public_classes": [
+        "BackactionEstimate",
+        "GuardedChannelValue",
+        "OPIAResult",
+        "ObservationPolicyHistory"
+      ],
+      "public_functions": [
+        "acquire_for_search_policy_with_backaction_guard",
+        "main",
+        "to_dict"
+      ],
+      "readme_summary": "",
+      "result_summary": "LCB `ObservationPolicyConfoundingGuardV0` + Foundry `P138 SPIA`.",
+      "short_name": "OPIA",
+      "source_lines": 404,
+      "supplier_id": "LCB-K081",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P003",
+      "domains": [],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "edsanp",
+        "json",
+        "numpy",
+        "parents",
+        "pathlib",
+        "sanp",
+        "sys",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 3,
+      "product_id": "V2P005",
+      "public_classes": [
+        "EDSANPResult",
+        "SupportEvidence",
+        "SupportEvidenceCheck"
+      ],
+      "public_functions": [
+        "compare_gated_with_raw_on_fresh_returns",
+        "construct_effective_diversity_gated_portfolio",
+        "ev",
+        "sparse_covariance",
+        "to_dict"
+      ],
+      "readme_summary": "Composition: `LCB-K019 EffectiveDiversityGuardV0 -> FOUNDRY:P003 SANP`.",
+      "result_summary": "Composition: LCB `EffectiveDiversityGuardV0` + Foundry `P003 SANP`.",
+      "short_name": "EDSANP",
+      "source_lines": 427,
+      "supplier_id": "LCB-K019",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P025",
+      "domains": [
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "idasro",
+        "idre",
+        "json",
+        "numpy",
+        "pathlib",
+        "sys",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P006",
+      "public_classes": [
+        "DirectionalRobustDecision",
+        "IDASROResult"
+      ],
+      "public_functions": [
+        "identification_admissible_shift_robust_decision",
+        "to_dict"
+      ],
+      "readme_summary": "Identification-Driven Admissible-Shift Robust Optimizer.",
+      "result_summary": "Composition: LCB `AdmissibleShiftRobustOptimizerV0` + Foundry `P025 IDRE`.",
+      "short_name": "IDASRO",
+      "source_lines": 293,
+      "supplier_id": "LCB-K068",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P026",
+      "domains": [
+        "safety"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "cpdbe",
+        "dataclasses",
+        "dbte",
+        "json",
+        "pathlib",
+        "random",
+        "sys",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P007",
+      "public_classes": [
+        "EdgePressure",
+        "PressureGuidedTippingResult"
+      ],
+      "public_functions": [
+        "pressure_guided_deployable_tipping",
+        "to_dict"
+      ],
+      "readme_summary": "Exact K009-style active-cap pruning for P026 DBTE's fixed series-path, one-edge capacity-increase shell. See `PRODUCT_RESULT.md` for the certificate and non-claims.",
+      "result_summary": "**Composition:** LCB `ConstraintPressureMonitorV0` + Foundry `P026 DBTE`",
+      "short_name": "CPDBE",
+      "source_lines": 264,
+      "supplier_id": "LCB-K009",
+      "test_methods": 12,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P135",
+      "domains": [
+        "allocation",
+        "memory"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "P135_CARS",
+        "dataclasses",
+        "json",
+        "math",
+        "numpy",
+        "pathlib",
+        "sys",
+        "tgcars",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P008",
+      "public_classes": [
+        "TGCARSResult",
+        "TransportAudit"
+      ],
+      "public_functions": [
+        "actual_loss",
+        "audit_guarantee_transport",
+        "to_dict",
+        "transport_gated_certificate_aware_resolution"
+      ],
+      "readme_summary": "Transport-gated reuse of P135 CARS deletion certificates. The K071 residual/conditional-law transport audit decides whether P135 may continue assigning zero sensing consequence to certified-deleted features. If transport is not certified, zeroing is disabled and the allocation falls back to non-zero declared feature consequence weights while explicit re-certification remains required.",
+      "result_summary": "**Composition:** LCB `GuaranteeTransportGateV0` + Foundry `P135 CARS`",
+      "short_name": "TGCARS",
+      "source_lines": 422,
+      "supplier_id": "LCB-K071",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K048",
+      "domains": [
+        "allocation",
+        "measurement",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "P140_BOSA",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "sgmb",
+        "sys",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P009",
+      "public_classes": [
+        "SGMBResult"
+      ],
+      "public_functions": [
+        "support_gated_multifidelity_monitoring",
+        "to_dict"
+      ],
+      "readme_summary": "BOSA support-gated K048 multi-fidelity monitoring. Cheap proxy measurements are permitted only when the original cohort still has declared overlap support for the survivor population; high pilot correlation alone cannot override support failure.",
+      "result_summary": "**Composition:** Foundry `P140 BOSA` + LCB `MultiFidelityBudgetControllerV0`",
+      "short_name": "SGMB",
+      "source_lines": 260,
+      "supplier_id": "FOUNDRY:P140",
+      "test_methods": 12,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P138",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "P138_SPIA",
+        "dataclasses",
+        "json",
+        "numpy",
+        "pathlib",
+        "sacps",
+        "scspia",
+        "sys",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P010",
+      "public_classes": [
+        "SCSPIAResult"
+      ],
+      "public_functions": [
+        "simplex_tangent_basis",
+        "support_calibrated_search_policy_acquisition",
+        "to_dict",
+        "vals"
+      ],
+      "readme_summary": "Support-calibrated covariance for P138 Search-Policy Information Acquisition. SACPS is applied in an orthonormal simplex-tangent coordinate system, then the supported/shrunk covariance is lifted back to a probability covariance before SPIA prices measurement channels.",
+      "result_summary": "**Composition:** Foundry parent `R037 SACPS` + Foundry `P138 SPIA`",
+      "short_name": "SCSPIA",
+      "source_lines": 276,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K015",
+      "domains": [
+        "measurement",
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "bivcp",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P011",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "boundary_information_capacity_plan",
+        "to_dict"
+      ],
+      "readme_summary": "BIVCP composes calibrated boundary-information acquisition with variance-aware capacity planning. It buys a measurement only when expected downstream capacity-decision loss falls by more than measurement cost.",
+      "result_summary": "BIVCP makes information acquisition endogenous to the capacity commitment. Its comparator commits under the same uncertainty without the acquisition gate.",
+      "short_name": "BIVCP",
+      "source_lines": 97,
+      "supplier_id": "FOUNDRY:P079",
+      "test_methods": 12,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K015",
+      "domains": [
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "math",
+        "pathlib",
+        "sarcp",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P012",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "realized_shortfall",
+        "support_adjusted_reserve",
+        "to_dict"
+      ],
+      "readme_summary": "SARCP composes burnout-overlap support auditing with variance-aware capacity planning. When effective support drops below a declared floor, uncertainty is inflated before reserve capacity is chosen.",
+      "result_summary": "SARCP prevents a variance planner from treating a support-eroded survivor population as if its nominal uncertainty estimate were unchanged.",
+      "short_name": "SARCP",
+      "source_lines": 64,
+      "supplier_id": "FOUNDRY:P140",
+      "test_methods": 12,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "allocation",
+        "decision",
+        "robustness",
+        "compression"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "cadre",
+        "dataclasses",
+        "dre",
+        "json",
+        "pathlib",
+        "sys",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P013",
+      "public_classes": [
+        "CADREResult"
+      ],
+      "public_functions": [
+        "a",
+        "compression_aware_dre",
+        "to_dict"
+      ],
+      "readme_summary": "P091 decision-compression tipping supplies a decision-error budget to DRE. A compressed DRE choice is accepted only when its top-two score margin exceeds the declared compression bound; otherwise the product routes to full-resolution DRE or abstains.",
+      "result_summary": "Composition: FOUNDRY:P091 -> PARENT:IM334_IM094_DRE.",
+      "short_name": "CADRE",
+      "source_lines": 78,
+      "supplier_id": "FOUNDRY:P091",
+      "test_methods": 12,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K012",
+      "domains": [
+        "allocation",
+        "measurement",
+        "decision",
+        "calibration"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "bats",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P014",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "boundary_aware_timing",
+        "to_dict"
+      ],
+      "readme_summary": "CBIA boundary evidence gates policy-aware timing acquisition. Timing probes are scheduled only when the calibrated interval spans multiple downstream actions; action-invariant regions conserve sensing budget.",
+      "result_summary": "Composition: `FOUNDRY:P079 -> LCB-K012`.",
+      "short_name": "BATS",
+      "source_lines": 36,
+      "supplier_id": "FOUNDRY:P079",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K086",
+      "domains": [
+        "decision",
+        "robustness",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "bgtw",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P015",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "boundary_gated_wealth",
+        "to_dict"
+      ],
+      "readme_summary": "CBIA action-boundary evidence controls when testing wealth can be spent. Wealth is preserved when calibrated uncertainty cannot change the action and is released only at decision-relevant boundaries.",
+      "result_summary": "Composition: `FOUNDRY:P079 -> LCB-K086`.",
+      "short_name": "BGTW",
+      "source_lines": 33,
+      "supplier_id": "FOUNDRY:P079",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K091",
+      "domains": [
+        "decision",
+        "robustness",
+        "safety",
+        "calibration"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "bvrp",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P016",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "boundary_viability_plan",
+        "to_dict"
+      ],
+      "readme_summary": "CBIA determines whether uncertainty spans opposing reach/avoid actions. The reach-avoid planner uses the nominal action only when the calibrated interval is action-invariant; otherwise it routes to the declared safe fallback.",
+      "result_summary": "Composition: `FOUNDRY:P079 -> LCB-K091`.",
+      "short_name": "BVRP",
+      "source_lines": 31,
+      "supplier_id": "FOUNDRY:P079",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "allocation",
+        "measurement",
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "ccdre",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P017",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "conservation_calibrated_explore",
+        "to_dict"
+      ],
+      "readme_summary": "CCIA conservation checks are inserted before decision-relevant exploration. High apparent information value is ignored when the measurement violates the declared conservation residual budget.",
+      "result_summary": "Composition: `FOUNDRY:P109 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "CCDRE",
+      "source_lines": 34,
+      "supplier_id": "FOUNDRY:P109",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest",
+        "wtdre"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P018",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "to_dict",
+        "wasserstein_tipped_explore"
+      ],
+      "readme_summary": "WDTG distance-to-decision-flip becomes an exploration urgency signal. DRE prioritizes the admissible candidate with the nearest declared Wasserstein decision tipping point rather than the largest raw variance.",
+      "result_summary": "Composition: `FOUNDRY:P062 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "WTDRE",
+      "source_lines": 33,
+      "supplier_id": "FOUNDRY:P062",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R014_S781_S792_ACSA",
+      "domains": [
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "pathlib",
+        "stha",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P019",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "support_tipped_holdout",
+        "to_dict"
+      ],
+      "readme_summary": "SWTE support tipping gates ACSA-style protected holdout selection. If effective support falls below the declared floor, the audit abstains instead of treating the protected mean as stable.",
+      "result_summary": "Composition: `FOUNDRY:P065 -> PARENT:R014_S781_S792_ACSA`.",
+      "short_name": "STHA",
+      "source_lines": 32,
+      "supplier_id": "FOUNDRY:P065",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "dataclasses",
+        "json",
+        "math",
+        "padre",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P020",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "privacy_accuracy_explore",
+        "to_dict"
+      ],
+      "readme_summary": "PDAT converts privacy noise into a decision-correctness gate before DRE uses a private measurement. Exploration proceeds only when the declared epsilon/margin shell clears the required action accuracy.",
+      "result_summary": "Composition: `FOUNDRY:P092 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "PADRE",
+      "source_lines": 33,
+      "supplier_id": "FOUNDRY:P092",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "bmdre",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P021",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "belief_metric_explore",
+        "to_dict"
+      ],
+      "readme_summary": "BMDT supplies a path-local distance-to-action-flip. DRE accepts a reduced belief only when its approximation error is strictly smaller than the declared tipping distance; otherwise it requests full belief resolution.",
+      "result_summary": "Composition: `FOUNDRY:P093 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "BMDRE",
+      "source_lines": 31,
+      "supplier_id": "FOUNDRY:P093",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "compression",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "cfdre",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P022",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "closure_fidelity_explore",
+        "to_dict"
+      ],
+      "readme_summary": "PCFT predictive-closure fidelity is used as a representation gate for DRE. Reduced-state exploration is accepted only above the declared closure floor; otherwise the explorer routes to full predictive state.",
+      "result_summary": "Composition: `FOUNDRY:P141 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "CFDRE",
+      "source_lines": 31,
+      "supplier_id": "FOUNDRY:P141",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "codre",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P023",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "causal_overlap_explore",
+        "to_dict"
+      ],
+      "readme_summary": "COST overlap sensitivity becomes a support gate for DRE. Candidate exploration that depends on unsupported causal overlap is blocked before its apparent decision leverage can dominate the exploration score.",
+      "result_summary": "Composition: `FOUNDRY:P023 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "CODRE",
+      "source_lines": 34,
+      "supplier_id": "FOUNDRY:P023",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM334_IM094_DRE",
+      "domains": [
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "dataclasses",
+        "hpdre",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P024",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "hidden_population_explore",
+        "to_dict"
+      ],
+      "readme_summary": "HPDT hidden-population tipping bounds are compared with the current action margin. DRE requests hidden-population exploration whenever the unseen-mass effect can overturn the nominal decision.",
+      "result_summary": "Composition: `FOUNDRY:P071 -> PARENT:IM334_IM094_DRE`.",
+      "short_name": "HPDRE",
+      "source_lines": 32,
+      "supplier_id": "FOUNDRY:P071",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P057",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "dataclasses",
+        "drfiac",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P025",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "decision_relevant_firewall",
+        "to_dict"
+      ],
+      "readme_summary": "DRE prioritization is applied only after FIAC removes suspect-source channels. The product selects the clean channel with the highest decision-relevant value rather than allowing a contaminated high-information channel to win.",
+      "result_summary": "Composition: `PARENT:IM334_IM094_DRE -> FOUNDRY:P057`.",
+      "short_name": "DRFIAC",
+      "source_lines": 32,
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P035",
+      "domains": [
+        "robustness",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "dataclasses",
+        "drsvco",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P026",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "decision_relevant_cycle_explore",
+        "to_dict"
+      ],
+      "readme_summary": "DRE allocates the next stateful-cycle evaluation to the operating point whose uncertainty can most plausibly change the feasible SVCO winner, instead of evaluating the statically highest-throughput point by default.",
+      "result_summary": "Composition: `PARENT:IM334_IM094_DRE -> FOUNDRY:P035`.",
+      "short_name": "DRSVCO",
+      "source_lines": 36,
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P137",
+      "domains": [
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "dataclasses",
+        "drmpha",
+        "json",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P027",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "decision_relevant_holdout_audit",
+        "to_dict"
+      ],
+      "readme_summary": "DRE orders which policy variants deserve protected audit using development-side uncertainty and leverage only. The protected holdout remains sealed during prioritization; selection is then evaluated only after the audit order is frozen.",
+      "result_summary": "Composition: `PARENT:IM334_IM094_DRE -> FOUNDRY:P137`.",
+      "short_name": "DRMPHA",
+      "source_lines": 34,
+      "supplier_id": "PARENT:IM334_IM094_DRE",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P057",
+      "domains": [
+        "measurement",
+        "safety"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "pathlib",
+        "scfiac",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P028",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "support_constrained_firewall",
+        "to_dict"
+      ],
+      "readme_summary": "SACPS support validity is applied before FIAC information ranking. Channels that are clean but unsupported are removed alongside suspect channels, preventing a high nominal information score from escaping either safety boundary.",
+      "result_summary": "Composition: `PARENT:R037_SUPPORT_COVARIANCE_SACPS -> FOUNDRY:P057`.",
+      "short_name": "SCFIAC",
+      "source_lines": 34,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 6,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K003",
+      "domains": [
+        "allocation"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "pathlib",
+        "susca",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P029",
+      "public_classes": [
+        "Item",
+        "Result"
+      ],
+      "public_functions": [
+        "realized",
+        "support_adjusted_shared_capacity",
+        "to_dict"
+      ],
+      "readme_summary": "BOSA-style effective support is not treated as a report attached after allocation. It changes the value ordering that enters a shared-capacity polymatroid allocation and can hard-exclude survivor cohorts below a declared support floor. The composition therefore prevents a nominally valuable but selection-fragile item from consuming capacity shared with better-supported items.",
+      "result_summary": "BOSA-style effective support is not treated as a report attached after allocation. It changes the value ordering that enters a shared-capacity polymatroid allocation and can hard-exclude survivor cohorts below a declared support floor. The composition therefore prevents a nominally valuable but selection-fragile item from consuming capacity shared with better-supported items.",
+      "short_name": "SUSCA",
+      "source_lines": 74,
+      "supplier_id": "FOUNDRY:P140",
+      "test_methods": 8,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "domains": [
+        "decision",
+        "compression",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "dlew",
+        "json",
+        "numpy",
+        "pathlib",
+        "pcfdlw",
+        "sys",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P030",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "closure_fidelity_decision_selection",
+        "to_dict"
+      ],
+      "readme_summary": "DLEW can correctly optimize downstream action regret and still choose a recursively invalid compressed representation. PCFDLW therefore requires P141-style closure and predictive-fidelity certification before a candidate is allowed into the decision-loss comparison. If no candidate survives, it abstains rather than laundering an invalid state representation through a good current-period decision score.",
+      "result_summary": "DLEW can correctly optimize downstream action regret and still choose a recursively invalid compressed representation. PCFDLW therefore requires P141-style closure and predictive-fidelity certification before a candidate is allowed into the decision-loss comparison. If no candidate survives, it abstains rather than laundering an invalid state representation through a good current-period decision score.",
+      "short_name": "PCFDLW",
+      "source_lines": 72,
+      "supplier_id": "FOUNDRY:P141",
+      "test_methods": 9,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM406_IM037_ACRA",
+      "domains": [
+        "allocation",
+        "measurement",
+        "decision",
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "acra",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "qdra",
+        "statistics",
+        "sys",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P031",
+      "public_classes": [
+        "Result",
+        "ValidityRegion"
+      ],
+      "public_functions": [
+        "quasineutral_decision_resolution",
+        "to_dict"
+      ],
+      "readme_summary": "QAIG's validity-boundary idea is lifted from a single acquire/skip decision into a shared resolution budget. ACRA receives consequence weights discounted by the probability that measurement uncertainty can actually change the declared validity decision. A far-from-boundary region therefore cannot monopolize fine resolution merely because its raw consequence number is large.",
+      "result_summary": "QAIG's validity-boundary idea is lifted from a single acquire/skip decision into a shared resolution budget. ACRA receives consequence weights discounted by the probability that measurement uncertainty can actually change the declared validity decision. A far-from-boundary region therefore cannot monopolize fine resolution merely because its raw consequence number is large.",
+      "short_name": "QDRA",
+      "source_lines": 68,
+      "supplier_id": "FOUNDRY:P136",
+      "test_methods": 8,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM178_IM326_TWMR",
+      "domains": [
+        "decision",
+        "robustness",
+        "compression",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "pathlib",
+        "spitwmr",
+        "sys",
+        "twmr",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P032",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "search_policy_targeted_reduction",
+        "to_dict"
+      ],
+      "readme_summary": "SPIA says which latent directions can change the search policy. SPITWMR converts that policy sensitivity into TWMR's protected output, then removes state dimensions while minimizing error in the policy-relevant impulse response. This can retain a low-energy but decision-critical state that ordinary state-energy reduction deletes.",
+      "result_summary": "SPIA says which latent directions can change the search policy. SPITWMR converts that policy sensitivity into TWMR's protected output, then removes state dimensions while minimizing error in the policy-relevant impulse response. This can retain a low-energy but decision-critical state that ordinary state-energy reduction deletes.",
+      "short_name": "SPITWMR",
+      "source_lines": 56,
+      "supplier_id": "FOUNDRY:P138",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K048",
+      "domains": [
+        "allocation",
+        "measurement",
+        "safety",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "pathlib",
+        "unittest",
+        "vcmf"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P033",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "to_dict",
+        "viability_constrained_multifidelity"
+      ],
+      "readme_summary": "A cheap channel can be highly correlated and still be unsafe when its bounded bias can push the inferred state across a viable-set boundary. VCMF enumerates fine/cheap measurement counts under budget, minimizes declared estimator MSE, and adds a CCVC-style hard constraint: worst-case cheap-channel bias must fit inside the current viability margin.",
+      "result_summary": "A cheap channel can be highly correlated and still be unsafe when its bounded bias can push the inferred state across a viable-set boundary. VCMF enumerates fine/cheap measurement counts under budget, minimizes declared estimator MSE, and adds a CCVC-style hard constraint: worst-case cheap-channel bias must fit inside the current viability margin.",
+      "short_name": "VCMF",
+      "source_lines": 65,
+      "supplier_id": "PARENT:IM139_IM250_CCVC",
+      "test_methods": 9,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K081",
+      "domains": [
+        "measurement",
+        "decision",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "numpy",
+        "pathlib",
+        "scopg",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P034",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "support_constrained_policy_backaction",
+        "to_dict"
+      ],
+      "readme_summary": "K081 removes passive-state confounding before estimating measurement-policy backaction, but the regression can still be numerically identified by a handful of effectively weighted observations. SCOPG adds SACPS-style support geometry: effective sample size and the weighted design covariance must both be adequate before the policy coefficient is emitted.",
+      "result_summary": "K081 removes passive-state confounding before estimating measurement-policy backaction, but the regression can still be numerically identified by a handful of effectively weighted observations. SCOPG adds SACPS-style support geometry: effective sample size and the weighted design covariance must both be adequate before the policy coefficient is emitted.",
+      "short_name": "SCOPG",
+      "source_lines": 52,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM359_IM014_AICC",
+      "domains": [
+        "measurement",
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "istaicc",
+        "json",
+        "math",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P035",
+      "public_classes": [
+        "Channel",
+        "Result"
+      ],
+      "public_functions": [
+        "F",
+        "tipping_aware_information_acquisition",
+        "to_dict"
+      ],
+      "readme_summary": "Ordinary information acquisition is myopic: channel value is immediate decision improvement minus cost. When acquisition friction and participation reinforce one another, a small measurement can move the system between low- and high-search equilibria. ISTAICC therefore adds the continuation value of the reachable participation equilibrium to the AICC-style channel score.",
+      "result_summary": "Ordinary information acquisition is myopic: channel value is immediate decision improvement minus cost. When acquisition friction and participation reinforce one another, a small measurement can move the system between low- and high-search equilibria. ISTAICC therefore adds the continuation value of the reachable participation equilibrium to the AICC-style channel score.",
+      "short_name": "ISTAICC",
+      "source_lines": 78,
+      "supplier_id": "LCB-K074",
+      "test_methods": 8,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R018_M866_M880_MCSC",
+      "domains": [
+        "robustness",
+        "safety",
+        "compression",
+        "calibration",
+        "systems",
+        "finance"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "json",
+        "pathlib",
+        "pcfmcsc",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P036",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "closure_fidelity_monotonicity",
+        "to_dict"
+      ],
+      "readme_summary": "PCFT maps where predictive-state merging fails, but a single nearest tipping point can hide recovery or reversal farther along the tolerance path. PCFMCSC treats the PCFT joint margin as an ordered payoff table and checks the structural direction explicitly. It returns the first monotonicity violation and all safe tolerance intervals rather than assuming one threshold separates good from bad compression.",
+      "result_summary": "PCFT maps where predictive-state merging fails, but a single nearest tipping point can hide recovery or reversal farther along the tolerance path. PCFMCSC treats the PCFT joint margin as an ordered payoff table and checks the structural direction explicitly. It returns the first monotonicity violation and all safe tolerance intervals rather than assuming one threshold separates good from bad compression.",
+      "short_name": "PCFMCSC",
+      "source_lines": 46,
+      "supplier_id": "FOUNDRY:P141",
+      "test_methods": 8,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P141",
+      "domains": [
+        "allocation",
+        "robustness",
+        "compression",
+        "calibration"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "dwpcft",
+        "json",
+        "math",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P037",
+      "public_classes": [
+        "Point",
+        "Result"
+      ],
+      "public_functions": [
+        "decision_weighted_pcft_calibration",
+        "to_dict"
+      ],
+      "readme_summary": "PCFT can identify a merge-tolerance boundary while still spending calibration samples uniformly across harmless and consequential parts of that boundary. DWPCFT allocates a finite calibration budget by downstream consequence and inverse distance to the closure/fidelity boundary, using the diminishing marginal reduction of an explicit inverse-square-root uncertainty proxy.",
+      "result_summary": "PCFT can identify a merge-tolerance boundary while still spending calibration samples uniformly across harmless and consequential parts of that boundary. DWPCFT allocates a finite calibration budget by downstream consequence and inverse distance to the closure/fidelity boundary, using the diminishing marginal reduction of an explicit inverse-square-root uncertainty proxy.",
+      "short_name": "DWPCFT",
+      "source_lines": 53,
+      "supplier_id": "LCB-K084",
+      "test_methods": 8,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K068",
+      "domains": [
+        "robustness"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "bosaro",
+        "dataclasses",
+        "json",
+        "numpy",
+        "pathlib",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P038",
+      "public_classes": [
+        "Result"
+      ],
+      "public_functions": [
+        "support_aware_robust_optimizer",
+        "to_dict"
+      ],
+      "readme_summary": "A declared shift radius is too optimistic when the cohort supporting the estimate has eroded. BOSARO converts BOSA effective support into the radius of K068's admissible directional uncertainty set: radius grows as inverse square root of effective support. The robust optimizer then reduces exposure to the fragile shift direction rather than merely reporting that support is weak.",
+      "result_summary": "A declared shift radius is too optimistic when the cohort supporting the estimate has eroded. BOSARO converts BOSA effective support into the radius of K068's admissible directional uncertainty set: radius grows as inverse square root of effective support. The robust optimizer then reduces exposure to the fragile shift direction rather than merely reporting that support is weak.",
+      "short_name": "BOSARO",
+      "source_lines": 57,
+      "supplier_id": "FOUNDRY:P140",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "FOUNDRY:P033",
+      "domains": [
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "itertools",
+        "json",
+        "numpy",
+        "sccatf",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P039",
+      "public_classes": [],
+      "public_functions": [
+        "local_loss",
+        "support_covariance_coupled_allocation"
+      ],
+      "readme_summary": "",
+      "result_summary": "Status: SHADOW ONLY. Generated by retroactively routing R77 unresolved failures through the R12 search/Foundry interaction map and quality gate. Not canonical until promotion authority is explicitly satisfied.",
+      "short_name": "SCCATF",
+      "source_lines": 72,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "domains": [
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "bmcapl",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sys",
+        "test_bmcapl",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P040",
+      "public_classes": [],
+      "public_functions": [
+        "belief_margin_constrained_policy",
+        "tipping_distance"
+      ],
+      "readme_summary": "",
+      "result_summary": "Status: SHADOW ONLY. Generated by retroactively routing R77 unresolved failures through the R12 search/Foundry interaction map and quality gate. Not canonical until promotion authority is explicitly satisfied.",
+      "short_name": "BMCAPL",
+      "source_lines": 59,
+      "supplier_id": "FOUNDRY:P093",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "domains": [
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "cdtdlew",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sys",
+        "test_cdtdlew",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P041",
+      "public_classes": [],
+      "public_functions": [
+        "channel_tipping_robust_selection",
+        "dominance_tipping"
+      ],
+      "readme_summary": "",
+      "result_summary": "Status: SHADOW ONLY. Generated by retroactively routing R77 unresolved failures through the R12 search/Foundry interaction map and quality gate. Not canonical until promotion authority is explicitly satisfied.",
+      "short_name": "CDTDLEW",
+      "source_lines": 64,
+      "supplier_id": "FOUNDRY:P082",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "domains": [
+        "allocation",
+        "measurement",
+        "decision",
+        "safety",
+        "calibration",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": true
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "atscwc",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sys",
+        "test_atscwc",
+        "unittest"
+      ],
+      "operator": "active measurement policy -> calibrated interval control",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P042",
+      "public_classes": [],
+      "public_functions": [
+        "compare_active_vs_fixed"
+      ],
+      "readme_summary": "",
+      "result_summary": "ActiveThresholdSensingV0 changes the measurement locations that generate the posterior center/scale stream consumed by CWC. The mechanism-removing comparator keeps the identical likelihood, query budget, response draws, and CWC but freezes the query schedule. In the declared synthetic shell the active composition preserves target coverage while producing narrower calibrated intervals and lower interval score.",
+      "short_name": "ATSCWC",
+      "source_lines": 87,
+      "supplier_id": "LCB-K041",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K064",
+      "domains": [
+        "measurement",
+        "decision",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "cbscg",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sys",
+        "test_cbscg",
+        "unittest"
+      ],
+      "operator": "decision-boundary information acquisition under endogenous strategic response",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P043",
+      "public_classes": [],
+      "public_functions": [
+        "boundary_information_capacity_choice",
+        "costs"
+      ],
+      "readme_summary": "",
+      "result_summary": "StrategicCapacityResponseGuardV0 creates a demand-dependent action surface because users reroute after a capacity intervention. CBIA is then used only when the calibrated demand shell spans different optimal infrastructure actions, and it prices the measurement by avoided decision regret. The removal control keeps the same Wardrop model and chooses from midpoint demand without acquisition.",
+      "short_name": "CBSCG",
+      "source_lines": 81,
+      "supplier_id": "FOUNDRY:P079",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K065",
+      "domains": [
+        "measurement",
+        "decision",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "pipeg",
+        "sys",
+        "test_pipeg",
+        "unittest"
+      ],
+      "operator": "persuasion/disclosure policy -> endogenous future information-production equilibrium",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P044",
+      "public_classes": [],
+      "public_functions": [
+        "producer_incentive_aware_persuasion"
+      ],
+      "readme_summary": "",
+      "result_summary": "BPISD creates an implementable persuasion channel. The composition treats the channel's disclosure intensity as an input to the downstream information-production equilibrium; if aggressive disclosure destroys future producer entry, the policy objective can reverse even when unrestricted persuasion maximizes current sender payoff. The removal control keeps both parent mechanisms but removes the coupling.",
+      "short_name": "PIPEG",
+      "source_lines": 77,
+      "supplier_id": "PARENT:R001_C313_BPISD",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K086",
+      "domains": [
+        "allocation",
+        "robustness",
+        "memory",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "fptwc",
+        "importlib",
+        "json",
+        "pathlib",
+        "sys",
+        "test_fptwc",
+        "unittest"
+      ],
+      "operator": "failure-path tipping proximity -> sequential testing-wealth time profile",
+      "parse_errors": [],
+      "practical_signal_count": 6,
+      "product_id": "V2P045",
+      "public_classes": [],
+      "public_functions": [
+        "run",
+        "tipping_aware_testing_wealth"
+      ],
+      "readme_summary": "",
+      "result_summary": "FPTE supplies how close the current architecture is to a failure-retention tipping point. That state changes the temporal profile of a fixed sequential-testing budget: near a tipping point the same wealth is front-loaded to tests that can resolve the impending failure path. The removal comparator preserves the p-values, alpha and TestingWealthController but removes FPTE coupling.",
+      "short_name": "FPTWC",
+      "source_lines": 59,
+      "supplier_id": "FOUNDRY:P030",
+      "test_methods": 8,
+      "third_party_dependencies": []
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM340_IM280_CWC",
+      "domains": [
+        "robustness",
+        "calibration",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "importlib",
+        "json",
+        "mtcwc",
+        "numpy",
+        "pathlib",
+        "scipy",
+        "sys",
+        "test_mtcwc",
+        "unittest"
+      ],
+      "operator": "calibration-violation tipping surface -> controller state reset",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P046",
+      "public_classes": [],
+      "public_functions": [
+        "compare",
+        "tipping_reset_calibration",
+        "violation"
+      ],
+      "readme_summary": "",
+      "result_summary": "MCST maps a declared stress/mechanism parameter to the point where the nominal calibration width begins violating its miss-rate target. Crossing that surface resets CWC state rather than forcing CWC to learn the new width only through accumulated misses. The removal comparator keeps the same residuals and CWC but removes the tipping signal/reset.",
+      "short_name": "MTCWC",
+      "source_lines": 70,
+      "supplier_id": "FOUNDRY:P037",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy",
+        "scipy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM139_IM250_CCVC",
+      "domains": [
+        "measurement",
+        "decision",
+        "safety",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "FAMILY_VARIANT_OR_QUARANTINED",
+      "imports": [
+        "cbiaccvc",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sys",
+        "test_cbiaccvc",
+        "unittest"
+      ],
+      "operator": "calibrated action-boundary information acquisition -> conservation-constrained viability filter",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P048",
+      "public_classes": [],
+      "public_functions": [
+        "filtered",
+        "next_state",
+        "safety_boundary_information_choice",
+        "violation"
+      ],
+      "readme_summary": "",
+      "result_summary": "CBIA buys a state measurement only when the calibrated state shell maps to different CCVC-filtered controls. The removal comparator uses the same CCVC but filters only at the prior-midpoint state.",
+      "short_name": "CBIACCVC",
+      "source_lines": 68,
+      "supplier_id": "FOUNDRY:P079",
+      "test_methods": 8,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "domains": [
+        "allocation",
+        "decision",
+        "finance"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "functools",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sacapl",
+        "sys",
+        "test_sacapl",
+        "typing",
+        "unittest"
+      ],
+      "operator": "support-aware covariance geometry -> constrained portfolio policy risk objective",
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P049",
+      "public_classes": [
+        "CovariancePolicyMetrics"
+      ],
+      "public_functions": [
+        "support_covariance_aware_policy",
+        "to_dict"
+      ],
+      "readme_summary": "R037 SACPS is composed directly with R041 CAPL. CAPL's constrained linear-softmax action map and turnover/cap feasibility rules are retained, while SACPS covariance replaces the unstructured sample covariance inside the policy risk objective.",
+      "result_summary": "**Composition:** `R037 SACPS -> R041 CAPL`",
+      "short_name": "SACAPL",
+      "source_lines": 515,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 10,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM445_IM085_CSID",
+      "domains": [
+        "allocation",
+        "measurement",
+        "safety",
+        "compression",
+        "calibration",
+        "finance"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "functools",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "scig",
+        "sys",
+        "test_scig",
+        "typing",
+        "unittest"
+      ],
+      "operator": "support-aware covariance -> safeguard evidence-independence partition -> CSID portfolio coverage",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P050",
+      "public_classes": [],
+      "public_functions": [
+        "find",
+        "load",
+        "support_covariance_independence_guard",
+        "union"
+      ],
+      "readme_summary": "SCIG composes R037 SACPS with CSID's safeguard portfolio engine. CSID already prevents same-label evidence families from being multiplied as if independent. SCIG targets the remaining failure: differently named evidence channels can still be common-mode. A support-aware covariance estimate can merge those channels into the same dependence component before CSID evaluates coverage and chooses a portfolio.",
+      "result_summary": "**Composition:** `R037 SACPS -> IM445_IM085 CSID`.",
+      "short_name": "SCIG",
+      "source_lines": 313,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 13,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "domains": [
+        "decision",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "functools",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "sacdlw",
+        "sys",
+        "test_sacdlw",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P051",
+      "public_classes": [
+        "RiskDecisionMetrics"
+      ],
+      "public_functions": [
+        "support_covariance_decision_loss_workbench",
+        "to_dict"
+      ],
+      "readme_summary": "R037 SACPS composes with R044 DLEW by placing support-aware covariance directly inside DLEW's finite-action utility before action argmax and model-selection regret are computed. The removal control holds the DLEW shell fixed and restores raw sample covariance.",
+      "result_summary": "Status: **DISTINCT PRODUCT CANDIDATE; NOT CANONICAL**.",
+      "short_name": "SACDLW",
+      "source_lines": 356,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "domains": [
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "importlib",
+        "itertools",
+        "json",
+        "numpy",
+        "pathlib",
+        "reicapl",
+        "statistics",
+        "sys",
+        "test_reicapl",
+        "typing",
+        "unittest"
+      ],
+      "operator": null,
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P052",
+      "public_classes": [
+        "HeterogeneousCapAudit",
+        "REICAPLResult"
+      ],
+      "public_functions": [
+        "learn_relational_evidence_constrained_policy",
+        "to_dict"
+      ],
+      "readme_summary": "Candidate composition: `FOUNDRY:P028 REIS -> PARENT:R041 CAPL`.",
+      "result_summary": "`FOUNDRY:P028 REIS -> PARENT:R041 CAPL`",
+      "short_name": "REICAPL",
+      "source_lines": 468,
+      "supplier_id": "FOUNDRY:P028",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+      "domains": [
+        "decision"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": false,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "importlib",
+        "json",
+        "numpy",
+        "pathlib",
+        "swcapl",
+        "sys",
+        "test_swcapl",
+        "typing",
+        "unittest"
+      ],
+      "operator": "externally-justified target importance weights and OWS support gate reweight CAPL's realized-action training objective before constrained policy optimization",
+      "parse_errors": [],
+      "practical_signal_count": 4,
+      "product_id": "V2P053",
+      "public_classes": [
+        "SWCAPLResult",
+        "WeightedPolicyMetrics"
+      ],
+      "public_functions": [
+        "evaluate",
+        "learn_support_weighted_policy",
+        "to_dict"
+      ],
+      "readme_summary": "Composition: `P090 SWDL -> R041 CAPL`.",
+      "result_summary": "`FOUNDRY:P090 SWDL -> PARENT:R041 CAPL`",
+      "short_name": "SWCAPL",
+      "source_lines": 363,
+      "supplier_id": "FOUNDRY:P090",
+      "test_methods": 12,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "domains": [
+        "allocation",
+        "decision",
+        "compression",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": true,
+        "mentions_comparator": true,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": true
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "cadsbc",
+        "dataclasses",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "operator": "consequence-weighted fixed-budget resolution allocation changes DSBC granularity before compression",
+      "parse_errors": [],
+      "practical_signal_count": 6,
+      "product_id": "V2P054",
+      "public_classes": [
+        "Allocation"
+      ],
+      "public_functions": [
+        "candidate",
+        "consequence_adaptive_modes",
+        "evaluate",
+        "removal_control",
+        "to_dict"
+      ],
+      "readme_summary": "Consequence allocates a fixed representation budget before DSBC-style compression. The removal control spends the same budget in a consequence-blind deterministic order. Minimum and maximum budgets collapse exactly; wrong consequence ranking remains an explicit failure region.",
+      "result_summary": "Rehydrated against the R392 exact base. Direct suite preserves equal-budget removal control, consequence-dependent working region, exact collapse boundaries and fail-closed input validation. Logical R394 receipts remain historical; this file records the fresh R399 replay surface.",
+      "short_name": "CADSBC",
+      "source_lines": 117,
+      "supplier_id": "PARENT:IM406_IM037_ACRA",
+      "test_methods": 13,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:IM359_IM014_AICC",
+      "domains": [
+        "measurement",
+        "decision",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": true,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "dlsaicc",
+        "numpy",
+        "typing",
+        "unittest"
+      ],
+      "operator": "DLEW decision-regret model selection determines AICC belief variance before channel valuation",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P055",
+      "public_classes": [
+        "ChannelDecision",
+        "Model"
+      ],
+      "public_functions": [
+        "aicc_value",
+        "candidate",
+        "removal_control",
+        "to_dict"
+      ],
+      "readme_summary": "DLEW selects a predictive model by downstream decision regret; that model's declared Gaussian error geometry enters AICC channel valuation. The removal control selects by prediction RMSE. Free measurement, prohibitive cost and agreeing rankings expose collapse regions.",
+      "result_summary": "Fresh R399 replay surface preserves divergent DLEW/RMSE selection, changed channel value and explicit free/perfect-or-prohibitive measurement collapse behavior. It does not claim byte identity with the lost R395 tree.",
+      "short_name": "DLSAICC",
+      "source_lines": 96,
+      "supplier_id": "PARENT:R044_DECISION_LOSS_DLEW",
+      "test_methods": 13,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R039_DECISION_BELIEF_DSBC",
+      "domains": [
+        "decision",
+        "robustness",
+        "safety",
+        "compression",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": true,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "numpy",
+        "sacrdsbc",
+        "typing",
+        "unittest"
+      ],
+      "operator": "coordinate-aligned SACPS covariance stress changes DSBC merge admissibility",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P056",
+      "public_classes": [
+        "MergeDecision"
+      ],
+      "public_functions": [
+        "nominal_control",
+        "robust_merge",
+        "support_covariance",
+        "to_dict"
+      ],
+      "readme_summary": "Coordinate-aligned estimation errors are converted to a support-aware covariance. Directional uncertainty stress then enters DSBC merge admissibility. Zero covariance collapses to nominal DSBC; uncertifiable singleton states fail closed.",
+      "result_summary": "Fresh replay covers topology change, exact zero-stress collapse, support/alignment validation and fail-closed uncertainty. It preserves the R396 contract without claiming the lost source bytes.",
+      "short_name": "SACRDSBC",
+      "source_lines": 126,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 14,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "LCB-K090",
+      "domains": [
+        "measurement",
+        "safety",
+        "calibration",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": true,
+        "mentions_comparator": false,
+        "mentions_failure_region": true,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "numpy",
+        "reoc",
+        "typing",
+        "unittest"
+      ],
+      "operator": "explicitly aligned RECS posterior-consequence risk reweights state geometry before observability selection",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P057",
+      "public_classes": [
+        "SensorSelection"
+      ],
+      "public_functions": [
+        "actual_task_score",
+        "removal_control",
+        "select",
+        "to_dict"
+      ],
+      "readme_summary": "Explicit record-to-hidden-state alignment turns RECS posterior×consequence values into column weights before the existing rank/conditioning coverage planner selects sensors. Uniform risk collapses to the control; miscalibrated declared risk can hurt actual task coverage.",
+      "result_summary": "Fresh replay demonstrates selection change, declared-risk working region, uniform-risk collapse, explicit alignment checks and a separate miscalibration failure region. Logical R397 authority remains receipt-supported history; these are new replay bytes.",
+      "short_name": "REOC",
+      "source_lines": 113,
+      "supplier_id": "FOUNDRY:P017",
+      "test_methods": 15,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "canonical_status": "CANONICAL",
+      "consumer_id": "PARENT:R045_TARGET_MEMORY_ATRC",
+      "domains": [
+        "safety",
+        "memory",
+        "systems"
+      ],
+      "evidence_markers": {
+        "mentions_collapse": false,
+        "mentions_comparator": true,
+        "mentions_failure_region": false,
+        "mentions_real_data": false,
+        "mentions_synthetic": false
+      },
+      "family_status": "DISTINCT_FAMILY",
+      "imports": [
+        "dataclasses",
+        "numpy",
+        "sacatrc",
+        "typing",
+        "unittest"
+      ],
+      "operator": "SACPS support-aware redundancy selects only within ATRC's native target-loss-safe deletion set",
+      "parse_errors": [],
+      "practical_signal_count": 5,
+      "product_id": "V2P058",
+      "public_classes": [
+        "EvictionDecision"
+      ],
+      "public_functions": [
+        "choose_eviction",
+        "downstream_gain",
+        "to_dict"
+      ],
+      "readme_summary": "ATRC first defines the only deletions that are admissible under target-loss tolerance. SACPS-style supported covariance then ranks redundancy strictly inside that safe set. The removal control is plain ATRC minimum deletion loss.",
+      "result_summary": "Status: **R399 rehydrated candidate; not promoted**.",
+      "short_name": "SACATRC",
+      "source_lines": 212,
+      "supplier_id": "PARENT:R037_SUPPORT_COVARIANCE_SACPS",
+      "test_methods": 14,
+      "third_party_dependencies": [
+        "numpy"
+      ]
+    }
+  ]
+}

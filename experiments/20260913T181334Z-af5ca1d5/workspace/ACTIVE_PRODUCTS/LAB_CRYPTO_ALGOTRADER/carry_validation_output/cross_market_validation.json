@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "symbol": "BTCUSDT",
+      "net_return": 0.021466074337403107,
+      "maximum_drawdown": 0.002477758465166735,
+      "annualized_sharpe": 6.509436695270714,
+      "dtec_removed_return": -0.03905048323488203,
+      "always_on_return": 0.022233757198322435,
+      "dtec_contribution": 0.060516557572285135,
+      "position_changes": 3
+    },
+    {
+      "symbol": "ETHUSDT",
+      "net_return": 0.012855776447714407,
+      "maximum_drawdown": 0.002981769250901656,
+      "annualized_sharpe": 3.3917768864058546,
+      "dtec_removed_return": -0.04282931425292558,
+      "always_on_return": 0.017034642987589166,
+      "dtec_contribution": 0.05568509070063998,
+      "position_changes": 7
+    },
+    {
+      "symbol": "SOLUSDT",
+      "net_return": 0.0010410705160077693,
+      "maximum_drawdown": 0.004557105030790098,
+      "annualized_sharpe": 0.2224229370512759,
+      "dtec_removed_return": -0.13507558014806165,
+      "always_on_return": -0.0045703539445409724,
+      "dtec_contribution": 0.13611665066406942,
+      "position_changes": 11
+    },
+    {
+      "symbol": "BNBUSDT",
+      "net_return": 0.009923075145426008,
+      "maximum_drawdown": 0.002072351128175276,
+      "annualized_sharpe": 1.9956567077491265,
+      "dtec_removed_return": -0.15709791030801412,
+      "always_on_return": 0.009555177128225623,
+      "dtec_contribution": 0.16702098545344013,
+      "position_changes": 5
+    },
+    {
+      "symbol": "XRPUSDT",
+      "net_return": 0.00749465725317755,
+      "maximum_drawdown": 0.005565468034400389,
+      "annualized_sharpe": 1.6828236445623175,
+      "dtec_removed_return": -0.11205406690914,
+      "always_on_return": 0.007759920396195996,
+      "dtec_contribution": 0.11954872416231754,
+      "position_changes": 7
+    }
+  ],
+  "aggregate": {
+    "market_count": 5,
+    "positive_market_count": 5,
+    "dtec_positive_contribution_count": 5,
+    "beats_always_on_count": 2,
+    "mean_net_return": 0.010556130739945768,
+    "median_net_return": 0.009923075145426008,
+    "worst_net_return": 0.0010410705160077693,
+    "worst_maximum_drawdown": 0.005565468034400389
+  }
+}

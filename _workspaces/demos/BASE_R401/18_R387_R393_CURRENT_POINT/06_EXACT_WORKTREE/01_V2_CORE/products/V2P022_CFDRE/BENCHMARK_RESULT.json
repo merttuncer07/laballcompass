@@ -1,0 +1,9 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P022_CFDRE_V1",
+  "result": {
+    "fidelity": 0.74,
+    "representation": "full",
+    "status": "CLOSURE_FIDELITY_TIP_FORCES_FULL_DRE"
+  }
+}

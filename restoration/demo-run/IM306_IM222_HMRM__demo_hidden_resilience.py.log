@@ -1,0 +1,19 @@
+{
+  "cases": 1800,
+  "dangerous_cases_hidden_by_scalar_cancellation": 588,
+  "scalar_only": {
+    "true_positive_rate": 0.0,
+    "false_positive_rate": 0.19583333333333333,
+    "balanced_accuracy": 0.40208333333333335
+  },
+  "recovery_time_only": {
+    "true_positive_rate": 0.935,
+    "false_positive_rate": 0.45666666666666667,
+    "balanced_accuracy": 0.7391666666666667
+  },
+  "joint_exposure_recovery": {
+    "true_positive_rate": 1.0,
+    "false_positive_rate": 0.0,
+    "balanced_accuracy": 1.0
+  }
+}

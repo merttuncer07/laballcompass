@@ -1,0 +1,11 @@
+{
+  "product_id": "V2P052",
+  "internal_collision_review": {
+    "V2P040": "BMDT changes one global turnover bound; REICAPL changes heterogeneous per-asset caps from consequence-aware evidence allocation.",
+    "V2P049": "SACAPL changes covariance risk geometry inside CAPL objective; REICAPL changes per-asset feasible caps from REIS safeguard selection.",
+    "P028": "REIS allocates safeguard budget but does not learn a portfolio policy or alter CAPL feasible action geometry.",
+    "R041": "CAPL uses a uniform maximum asset weight; REICAPL supplies heterogeneous caps selected upstream by REIS."
+  },
+  "external_prior_art_boundary": "Adaptive/risk-based portfolio constraints and risk budgeting are close prior art. Claim is only an internally distinct executable composition, not new theory.",
+  "verdict_before_quality_gate": "POTENTIALLY_DISTINCT_INTERNAL_COMPOSITION; REQUIRE_REMOVAL_COLLAPSE_SENSITIVITY_AND_TELEMETRY"
+}

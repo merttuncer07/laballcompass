@@ -1,0 +1,170 @@
+{
+  "identity_preserved": {
+    "current_estimate": 0.0,
+    "current_standard_error": 1.0,
+    "posterior_estimate": 0.47225076494548685,
+    "posterior_standard_error": 0.7264635125417609,
+    "confidence_low": -0.9516177196363644,
+    "confidence_high": 1.896119249527338,
+    "current_precision": 1.0,
+    "borrowed_precision": 0.8948393168143698,
+    "borrowing_precision_ratio": 0.8948393168143698,
+    "cap_scale": 1.0,
+    "current_information_share": 0.5277492350545132,
+    "contributions": [
+      {
+        "name": "original",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.0,
+        "final_power": 0.0,
+        "borrowed_precision": 0.0,
+        "observation_id": "one_underlying_estimate",
+        "counted_as": "copied_schedule"
+      },
+      {
+        "name": "summary",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.0,
+        "final_power": 0.0,
+        "borrowed_precision": 0.0,
+        "observation_id": "one_underlying_estimate",
+        "counted_as": "copied_schedule"
+      },
+      {
+        "name": "presentation",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.0,
+        "final_power": 0.0,
+        "borrowed_precision": 0.0,
+        "observation_id": "one_underlying_estimate",
+        "counted_as": "copied_schedule"
+      },
+      {
+        "name": "export",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.0,
+        "final_power": 0.0,
+        "borrowed_precision": 0.0,
+        "observation_id": "one_underlying_estimate",
+        "counted_as": "copied_schedule"
+      },
+      {
+        "name": "copied_schedule",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.8948393168143698,
+        "final_power": 0.8948393168143698,
+        "borrowed_precision": 0.8948393168143698,
+        "observation_id": "one_underlying_estimate",
+        "counted_as": "copied_schedule"
+      }
+    ],
+    "distinct_historical_observations": 1,
+    "duplicate_history_count": 4,
+    "current_overlap_count": 0,
+    "dependency_model": "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared",
+    "interval_semantics": "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+  },
+  "independence_assumed": {
+    "current_estimate": 0.0,
+    "current_standard_error": 1.0,
+    "posterior_estimate": 0.6666666666666666,
+    "posterior_standard_error": 0.5773502691896258,
+    "confidence_low": -0.46493986094500006,
+    "confidence_high": 1.7982731942783334,
+    "current_precision": 1.0,
+    "borrowed_precision": 2.0,
+    "borrowing_precision_ratio": 2.0,
+    "cap_scale": 0.4470076274967455,
+    "current_information_share": 0.3333333333333333,
+    "contributions": [
+      {
+        "name": "original",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.8948393168143698,
+        "final_power": 0.4,
+        "borrowed_precision": 0.4,
+        "observation_id": null,
+        "counted_as": "original"
+      },
+      {
+        "name": "summary",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.8948393168143698,
+        "final_power": 0.4,
+        "borrowed_precision": 0.4,
+        "observation_id": null,
+        "counted_as": "summary"
+      },
+      {
+        "name": "presentation",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.8948393168143698,
+        "final_power": 0.4,
+        "borrowed_precision": 0.4,
+        "observation_id": null,
+        "counted_as": "presentation"
+      },
+      {
+        "name": "export",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.8948393168143698,
+        "final_power": 0.4,
+        "borrowed_precision": 0.4,
+        "observation_id": null,
+        "counted_as": "export"
+      },
+      {
+        "name": "copied_schedule",
+        "estimate": 1,
+        "standard_error": 1,
+        "conflict_z": 0.7071067811865475,
+        "commensurability_factor": 0.8948393168143698,
+        "pre_cap_power": 0.8948393168143698,
+        "final_power": 0.4,
+        "borrowed_precision": 0.4,
+        "observation_id": null,
+        "counted_as": "copied_schedule"
+      }
+    ],
+    "distinct_historical_observations": 5,
+    "duplicate_history_count": 0,
+    "current_overlap_count": 0,
+    "dependency_model": "Distinct observation IDs (or unlabelled records) and current estimate are assumed independent; identity is caller-declared",
+    "interval_semantics": "Adaptive-weight plug-in normal interval; nominal confidence coverage and full Bayesian posterior calibration are not established"
+  },
+  "estimate_shift_from_counting_aliases": 0.19441590172117978,
+  "se_change_from_counting_aliases": -0.14911324335213505,
+  "interpretation": "The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.",
+  "mechanism": {
+    "engine": "R026 EBC",
+    "source_sha256": "ec0b9ea3974ce8a9afb76b540d89393390c417c47f47d7722b28a16df129fd6d",
+    "input_sha256": "fd71de4c290498a9505d50953d3009ee63d64e8d1cc94b5ae82c193a4f03811b"
+  }
+}

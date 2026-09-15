@@ -1,0 +1,71 @@
+{
+  "interpretation": "benefit is conditional: benign/small shift can make the tighter REIS-selected cap harmful; sufficiently adverse aligned shift creates a working region. No universal superiority claim.",
+  "rows": [
+    {
+      "adverse_shift": -0.002,
+      "gains_vs_removed": [
+        -0.0007978848736395388,
+        -0.0007879228342366172,
+        -7.772702747260978e-05
+      ],
+      "mean_gain_vs_posterior_only": 0.0007796226233324757,
+      "mean_gain_vs_removed": -0.0005545115784495886,
+      "positive_gain_cases": 0,
+      "positive_vs_posterior_cases": 3,
+      "seeds": 3
+    },
+    {
+      "adverse_shift": -0.005,
+      "gains_vs_removed": [
+        -0.00017227094693349296,
+        -4.088779259596269e-05,
+        0.0004658215489643531
+      ],
+      "mean_gain_vs_posterior_only": 0.0015324315443113695,
+      "mean_gain_vs_removed": 8.422093647829914e-05,
+      "positive_gain_cases": 1,
+      "positive_vs_posterior_cases": 3,
+      "seeds": 3
+    },
+    {
+      "adverse_shift": -0.01,
+      "gains_vs_removed": [
+        0.0008722390606192526,
+        0.0012056536087925954,
+        0.0013736584872175378
+      ],
+      "mean_gain_vs_posterior_only": 0.0027886157394851176,
+      "mean_gain_vs_removed": 0.0011505170522097953,
+      "positive_gain_cases": 3,
+      "positive_vs_posterior_cases": 3,
+      "seeds": 3
+    },
+    {
+      "adverse_shift": -0.015,
+      "gains_vs_removed": [
+        0.0019190242303086724,
+        0.0024540487584988183,
+        0.0022838987307102006
+      ],
+      "mean_gain_vs_posterior_only": 0.004046678259920023,
+      "mean_gain_vs_removed": 0.0022189905731725638,
+      "positive_gain_cases": 3,
+      "positive_vs_posterior_cases": 3,
+      "seeds": 3
+    },
+    {
+      "adverse_shift": -0.02,
+      "gains_vs_removed": [
+        0.0029680845621347643,
+        0.0037042976565227074,
+        0.003196542279442338
+      ],
+      "mean_gain_vs_posterior_only": 0.005306619105616085,
+      "mean_gain_vs_removed": 0.003289641499366603,
+      "positive_gain_cases": 3,
+      "positive_vs_posterior_cases": 3,
+      "seeds": 3
+    }
+  ],
+  "working_region_rule": "in this declared synthetic shell, -0.010 or more adverse B shift should show majority-positive removal-control gain; -0.015 and -0.020 are expected 3/3 positive in the frozen sweep."
+}

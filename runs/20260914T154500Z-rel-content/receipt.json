@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "run_id": "20260914T154500Z-rel-content",
+  "status": "PASS",
+  "finished_at": "2026-09-14T14:09:49.552220+00:00",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "counts": {
+    "tests": 55,
+    "passed": 55,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "targets": [
+    {
+      "id": "IM440_IM029_REL",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL",
+      "layer": "parent",
+      "pattern": "test_rel.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 8,
+        "passed": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P017_RECS",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS",
+      "layer": "foundry",
+      "pattern": "test_recs.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 5,
+        "passed": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P134_REIG",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG",
+      "layer": "foundry",
+      "pattern": "test_reig.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 7,
+        "passed": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "test_evidence": [
+    "restoration/20260914-rel-content/rel-tests.xml",
+    "restoration/20260914-rel-content/verified-tests.xml"
+  ],
+  "source_hashes": [
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/rel.py",
+      "before_sha256": "1396d10d679b03fe3bca9644a04bfe33e5b99cb2c4dfc6247b13ac230c3c8664",
+      "after_sha256": "180ade35e0e411f1b1adaaa292b0b65a9b6b5b0e160da5daab8318eaff0e2f60"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM440_IM029_REL/test_rel.py",
+      "before_sha256": "4552de3ac502f6af2d5a1b7e066175b94954daad5879d4b6b1fa1c8e1fb1fc13",
+      "after_sha256": "a55a9e2c73e3a1e3eb44e4a85eaa49c9653d3f91b63052324d1848ca164e9a77"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/parents/rel.py",
+      "before_sha256": "1396d10d679b03fe3bca9644a04bfe33e5b99cb2c4dfc6247b13ac230c3c8664",
+      "after_sha256": "180ade35e0e411f1b1adaaa292b0b65a9b6b5b0e160da5daab8318eaff0e2f60"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/recs.py",
+      "before_sha256": "14250084d0f444687aa03c308f66b29b2c3097b9028dd9b66ab9e0726d21f630",
+      "after_sha256": "61357b82dd7e8263136d77ac595dd5f90a13c8b971aa2466a9a61debee5d2688"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P017_RECS/test_recs.py",
+      "before_sha256": "1b93b714426fdfa849754fa492beda62795296d41961fa11576c0641515d3d81",
+      "after_sha256": "dd211bfb97be20cb7a69f3b033acdc0b57190eb370939816ad6956f62d662479"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/rel.py",
+      "before_sha256": "1396d10d679b03fe3bca9644a04bfe33e5b99cb2c4dfc6247b13ac230c3c8664",
+      "after_sha256": "180ade35e0e411f1b1adaaa292b0b65a9b6b5b0e160da5daab8318eaff0e2f60"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py",
+      "before_sha256": "489289b1a5ddf55c64f357463710cc211d14084e1e0a33fdf1d8f14a2b67ba03",
+      "after_sha256": "a773b429f049ccd5819e59849941cd0c87ba393cb0049d78f5252cfe83f57f8d"
+    },
+    {
+      "path": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py",
+      "before_sha256": "8cd2035a9511d73261e56393a61681fa88fd33515a872af46c98154ae2fe6020",
+      "after_sha256": "c907be63476da50ed25d3b53828e002f7065c03ed618b7d952c3d6eee9f3ffd4"
+    },
+    {
+      "path": "maintenance/catalog.py",
+      "before_sha256": "4b7dde838fc1dead9067ee59fc12260d9df9dd3c890898983f914d1a5a0806f6",
+      "after_sha256": "7a66436bc61630f77b2af70a771785f6fc6d9b79436555d19a06e5b43e487d5d"
+    },
+    {
+      "path": "restoration/build_explorer.py",
+      "before_sha256": "9a7de4f84196beca1ff6bd6c4a11fe007aabff0f47208d9f3a2d1ceb418e8da5",
+      "after_sha256": "b6dda6d3380de9bcbd6fd005e8741e477bbfa225ea5c48d65d3c9dbdd778d9fc"
+    },
+    {
+      "path": "tests/test_content.py",
+      "before_sha256": null,
+      "after_sha256": "81eacb69688f8bf59f97083ed961ce69b90abd44f026723b656d87a253c9d1a1"
+    },
+    {
+      "path": "workbench/cli.py",
+      "before_sha256": "aba25eea477c547b1aa106d11b0ca38aabcd6b40aaf9c8961620e916c377cc26",
+      "after_sha256": "77f7329d6d7e267a09d1c2bad4d0f3994a32b67645472e1f60f37f0eecd4b2da"
+    },
+    {
+      "path": "workbench/content.py",
+      "before_sha256": null,
+      "after_sha256": "61a3b9ab38cb767a7376f4288bd7bd7fba75f3261d4b7d77e86de63f96fe3454"
+    },
+    {
+      "path": "workbench/content_report.py",
+      "before_sha256": null,
+      "after_sha256": "8d54c798fbc71069d2a3b390db5a8ab6c638151bc72990d313c90f159e2fc47a"
+    },
+    {
+      "path": "workbench/workbooks.py",
+      "before_sha256": "0e44548ade67be55dd4faaf7e203cf7c6451b74a1eef0a39e89f00bd72b7decf",
+      "after_sha256": "6bf6123cb764a597381d98e1d1bcf2b80bed96253c53eb030c2c0db3525f06a2"
+    }
+  ],
+  "results_scope": "8 REL tests plus 47 workbook/consumer tests. Target counts describe each component; remaining cases are workbench. Not whole-lab or field validation.",
+  "catalog_build_log": "restoration/20260914-rel-content/catalog-build.log"
+}

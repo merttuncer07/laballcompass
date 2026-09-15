@@ -1,0 +1,9 @@
+test_baseline_shape_mismatch_is_rejected (test_pcbe.Tests.test_baseline_shape_mismatch_is_rejected) ... ok
+test_gap_prevents_spanning_claim (test_pcbe.Tests.test_gap_prevents_spanning_claim) ... ok
+test_spanning_channel_creates_breakthrough (test_pcbe.Tests.test_spanning_channel_creates_breakthrough) ... ok
+test_spanning_path_without_large_jump_is_separate (test_pcbe.Tests.test_spanning_path_without_large_jump_is_separate) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

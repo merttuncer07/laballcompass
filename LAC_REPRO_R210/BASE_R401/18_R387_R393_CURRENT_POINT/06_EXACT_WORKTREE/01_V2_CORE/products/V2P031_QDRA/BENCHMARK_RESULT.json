@@ -1,0 +1,57 @@
+{
+  "composed_allocation": {
+    "far_high_raw_consequence": "coarse",
+    "near_boundary": "fine"
+  },
+  "control_allocation": {
+    "far_high_raw_consequence": "fine",
+    "near_boundary": "coarse"
+  },
+  "evidence_boundary": "Gaussian validity-boundary weighting plus ACRA allocation on synthetic shell",
+  "mechanism_removing_comparator": {
+    "allocations": [
+      {
+        "cost": 1,
+        "decision_loss": 2.5,
+        "option": "coarse",
+        "region": "near_boundary"
+      },
+      {
+        "cost": 3,
+        "decision_loss": 0.10000000000000002,
+        "option": "fine",
+        "region": "far_high_raw_consequence"
+      }
+    ],
+    "budget": 4,
+    "total_cost": 4,
+    "total_decision_loss": 2.6
+  },
+  "model_version": "V2P031_QDRA_V1",
+  "result": {
+    "allocation": {
+      "allocations": [
+        {
+          "cost": 3,
+          "decision_loss": 0.02400305970808138,
+          "option": "fine",
+          "region": "near_boundary"
+        },
+        {
+          "cost": 1,
+          "decision_loss": 0.0,
+          "option": "coarse",
+          "region": "far_high_raw_consequence"
+        }
+      ],
+      "budget": 4,
+      "total_cost": 4,
+      "total_decision_loss": 0.02400305970808138
+    },
+    "decision_weights": {
+      "far_high_raw_consequence": 0.0,
+      "near_boundary": 4.800611941616275
+    },
+    "status": "DECISION_BOUNDARY_WEIGHTED_RESOLUTION_ALLOCATED"
+  }
+}

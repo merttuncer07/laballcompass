@@ -1,0 +1,71 @@
+{
+  "campaign_memory": {
+    "events": 51,
+    "learning_eligible": 0,
+    "mechanics_pass": 47,
+    "rejected_current_interface": 4
+  },
+  "interaction_map_relation_counts": {
+    "COMPLETED_COMPOSITION": 47,
+    "INFERRED_CANDIDATE": 953,
+    "PARENT_OF": 53,
+    "REJECTED_CURRENT_INTERFACE": 4
+  },
+  "model_version": "R387_PREPROMOTION_CLOSURE_SUMMARY_V1",
+  "physical_executable_suite_count": 47,
+  "product_quality_state": {
+    "base_authority": {
+      "audit": "PRODUCT_QUALITY_AUDIT_V1.json",
+      "distinct_families": 28,
+      "distinct_families_pre_quality_batch": 18,
+      "executable_suites": 38,
+      "new_distinct_products_batch4": 10
+    },
+    "candidate_overlay": {
+      "audit": "PRODUCT_QUALITY_AUDIT_R386.json",
+      "distinct_families": 34,
+      "executable_suites": 47,
+      "promoted_product_ids": [
+        "V2P039",
+        "V2P040",
+        "V2P041",
+        "V2P042",
+        "V2P043",
+        "V2P044",
+        "V2P045",
+        "V2P046",
+        "V2P048"
+      ],
+      "quarantined_product_ids": [
+        "V2P047"
+      ],
+      "state": "R386_PRODUCT_OVERLAY_STATE.json",
+      "status": "PROMOTION_CANDIDATE_PENDING_FINAL_REGRESSION"
+    },
+    "canonical_product_authority": {
+      "authority_file": null,
+      "authority_release": "R12",
+      "distinct_families": 28,
+      "executable_suites": 38,
+      "registry455_unchanged": true,
+      "registry_family_count": 455,
+      "status": "BASE_AUTHORITY"
+    },
+    "observed_executable_suites": 47,
+    "observed_matches_candidate_overlay": true,
+    "policy": "PRODUCT_QUALITY_POLICY.md"
+  },
+  "queue": {
+    "exact_calibration": 47,
+    "fixed_pilotable": 47,
+    "rows": 1000,
+    "standardized_telemetry": 47
+  },
+  "telemetry": {
+    "calibrated_current_suite_count": 47,
+    "current_completed_suite_count": 47,
+    "event_count": 388,
+    "exact_current_suite_matches": 388,
+    "unmatched_event_count": 0
+  }
+}

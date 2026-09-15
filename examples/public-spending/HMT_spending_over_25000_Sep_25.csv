@@ -1,0 +1,85 @@
+﻿Department Family,Entity,Payment Date,Account Code Description,Cost Centre Description,Supplier,Voucher Number, Amount ,Publication Description
+HM Treasury,DMO,02-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Business Delivery,Phoenix Software Ltd,348404,651.32,IT costs
+HM Treasury,DMO,02-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Business Delivery,Phoenix Software Ltd,348404,"1,721.70",IT costs
+HM Treasury,DMO,02-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Business Delivery,Phoenix Software Ltd,348404,"3,256.62",IT costs
+HM Treasury,DMO,02-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Business Delivery,Phoenix Software Ltd,348404,"6,887.70",IT costs
+HM Treasury,DMO,02-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Business Delivery,Phoenix Software Ltd,348404,"8,608.50",IT costs
+HM Treasury,DMO,02-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Business Delivery,Phoenix Software Ltd,348404,"34,438.50",IT costs
+HM Treasury,DMO,03-Sep-25,Telephony   ,Business Delivery,North PB Ltd,348434,"42,181.97",IT costs
+HM Treasury,DMO,10-Sep-25,DMO - Banking Costs - AME,Settlements,Bank of England (Crest Charges),348566,33008.53,Banking costs
+HM Treasury,DMO,10-Sep-25,DMO - Banking Costs - AME,Settlements,Bank of England (FAO FRP HO- 5 & Secondments),348568,69251.4,Banking costs
+HM Treasury,DMO,10-Sep-25,DMO - Banking Costs - AME,Settlements,Bank of England (FAO FRP HO- 5 & Secondments),348568,92500,Banking costs
+HM Treasury,DMO,12-Sep-25,DMO Market Data Services - 587067,Business Delivery,Refinitiv Limited,348629,11649.54,Market Data Systems and Services
+HM Treasury,DMO,12-Sep-25,DMO Market Data Services - 587067,Business Delivery,Refinitiv Limited,348629,58247.71,Market Data Systems and Services
+HM Treasury,DMO,15-Sep-25,IT Software services and maintenance  Rec,Policy & Research,The Mathworks Ltd,348648,30598.75,IT costs
+HM Treasury,DMO,19-Sep-25,Facilities Service Charges Non-recoverable,Facilities,ESR Europe Property Management Ltd,348735,15203.61,Accommodation Costs
+HM Treasury,DMO,19-Sep-25,Facilities Service Charges Non-recoverable,Facilities,ESR Europe Property Management Ltd,348735,76018.06,Accommodation Costs
+HM Treasury,DMO,19-Sep-25,Rent,Facilities,ESR Europe Property Management Ltd,348725,47843.1,Accommodation Costs
+HM Treasury,DMO,19-Sep-25,Rent,Facilities,ESR Europe Property Management Ltd,348725,239215.5,Accommodation Costs
+HM Treasury,DMO,23-Sep-25,DMO Market Data Services - 587067,Business Delivery,Bloomberg Finance L.P.,348771,134880.04,Market Data Systems and Services
+HM Treasury,GIAA,02-Sep-25,Contracted Audit Staff for Operations (Rec),Ministry of Defence,Deloitte LLP,347566,1700.14,Professional Services 
+HM Treasury,GIAA,02-Sep-25,Contracted Audit Staff for Operations (Rec),Ministry of Defence,Deloitte LLP,347566,3033.96,Professional Services 
+HM Treasury,GIAA,02-Sep-25,Contracted Audit Staff for Operations (Rec),Ministry of Defence,Deloitte LLP,347566,3150.65,Professional Services 
+HM Treasury,GIAA,02-Sep-25,Contracted Audit Staff for Operations (Rec),Ministry of Defence,Deloitte LLP,347566,4142.52,Professional Services 
+HM Treasury,GIAA,02-Sep-25,Contracted Audit Staff for Operations (Rec),Ministry of Defence,Deloitte LLP,347566,40407.86,Professional Services 
+HM Treasury,GIAA,02-Sep-25,Internal Training,HR,4C Associates Ltd,348370,90000,Training and Development costs
+HM Treasury,GIAA,04-Sep-25,Hotel Accommodation - UK,GIAA,Corporate Travel Management North,348451,7904.21,Travel costs
+HM Treasury,GIAA,04-Sep-25,UK air travel – all classes,GIAA,Corporate Travel Management North,348451,491.18,Travel costs
+HM Treasury,GIAA,04-Sep-25,UK rail travel – all classes,GIAA,Corporate Travel Management North,348451,22878,Travel costs
+HM Treasury,GIAA,15-Sep-25,Facilities Service Charges Recoverable,Central Services,Government Property Agency,347292,-48880.17,Accommodation Costs
+HM Treasury,GIAA,15-Sep-25,Rent,Central Services,Government Property Agency,347289,-7646.43,Accommodation Costs
+HM Treasury,GIAA,15-Sep-25,Rent,Central Services,Government Property Agency,347289,938.25,Accommodation Costs
+HM Treasury,GIAA,15-Sep-25,Facilities Service Charges Recoverable,Central Services,Government Property Agency,347293,30680.51,Accommodation Costs
+HM Treasury,HMT,02-Sep-25,IT Software services and maintenance  Rec,New Tower Services,Centerprise International Ltd,348387,"£94,135.14",IT costs
+HM Treasury,HMT,03-Sep-25,Consultancy ,Finance Performance & Improvement Rechargeable Costs,KPMG LLP,347567,"£33,985.63",Professional Services
+HM Treasury,HMT,03-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Finance Analytics & Control & Technology,Softcat PLC,348422,"£13,283.24",Service Fees
+HM Treasury,HMT,03-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Finance Analytics & Control & Technology,Softcat PLC,348422,"£66,416.22",Service Fees
+HM Treasury,HMT,04-Sep-25,Internal Training,HR Central Services,University College London,348476,"£29,800.00",Training and Development costs
+HM Treasury,HMT,04-Sep-25,Professional Services ,European Policy,PricewaterhouseCoopers,344245,5200,Professional Services
+HM Treasury,HMT,04-Sep-25,Professional Services ,European Policy,PricewaterhouseCoopers,344245,26000,Professional Services
+HM Treasury,HMT,04-Sep-25,"Accounting, Invoicing and Related Services Non Rec","Workforce, Pay and Pensions",Government Actuary's Dept,347302,"£12,564.74",Actuary Services
+HM Treasury,HMT,04-Sep-25,"Accounting, Invoicing and Related Services Non Rec","Workforce, Pay and Pensions",Government Actuary's Dept,347302,"£62,823.71",Actuary Services
+HM Treasury,HMT,04-Sep-25,Hotel Accommodation - UK,HMT core,Corporate Travel Management North,348450,17836.88,Travel costs
+HM Treasury,HMT,04-Sep-25,Overseas air travel - all classes,HMT core,Corporate Travel Management North,348450,60533.95,Travel costs
+HM Treasury,HMT,04-Sep-25,Overseas Rail Travel - all classes,HMT core,Corporate Travel Management North,348450,2964.2,Travel costs
+HM Treasury,HMT,04-Sep-25,UK air travel – all classes,HMT core,Corporate Travel Management North,348450,3777.93,Travel costs
+HM Treasury,HMT,04-Sep-25,UK rail travel – all classes,HMT core,Corporate Travel Management North,348450,46282.75,Travel costs
+HM Treasury,HMT,04-Sep-25,Mortgage Guarantee Scheme Admin Costs (AME),Help to Buy Operations,National Savings and Investments,348389,"594,703.67",Help to Buy costs
+HM Treasury,HMT,08-Sep-25,IT Software services and maintenance  Rec,Finance Analytics & Control & Technology,Softcat PLC,347474,"£36,359.02",IT costs
+HM Treasury,HMT,10-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Knowledge & Information Management,SVGC Limited,348599,"£8,634.40",IT costs
+HM Treasury,HMT,10-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Knowledge & Information Management,SVGC Limited,348599,"£43,172.00",IT costs
+HM Treasury,HMT,12-Sep-25,Archives & Storage,Knowledge & Information Management,Iron Mountain,347564,"£40,300.40",Archives & Storage
+HM Treasury,HMT,12-Sep-25,IT Software services and maintenance  Rec,New Tower Services,Little Fish (UK) Ltd,345129,"£59,121.56",IT costs
+HM Treasury,HMT,12-Sep-25,IT Software services and maintenance  Rec,New Tower Services,Little Fish (UK) Ltd,348624,"£59,121.56",IT costs
+HM Treasury,HMT,12-Sep-25,Membership of Professional Bodies,TBS Team,Gartner UK Limited,348544,"£12,900.00",Professional Services 
+HM Treasury,HMT,12-Sep-25,Membership of Professional Bodies,TBS Team,Gartner UK Limited,348544,"£64,500.00",Professional Services 
+HM Treasury,HMT,12-Sep-25,Grants to Private Sector – Non Profit Inst.,Banking & Credit,"CENTRE FOR FINANCE, INNOVATION AND TECHNOLOGY",348613,706279,Grant payments
+HM Treasury,HMT,15-Sep-25,IT Software services and maintenance  Rec,New Tower Services,Amadeus Software Ltd,348617,"£27,500.00",IT costs
+HM Treasury,HMT,17-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Finance Analytics & Control & Technology,Softcat PLC,348677,"£5,013.31",IT costs
+HM Treasury,HMT,17-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Finance Analytics & Control & Technology,Softcat PLC,348677,"£25,066.54",IT costs
+HM Treasury,HMT,19-Sep-25,HTB ISA bonus prepayment,Help to Buy ISA,National Savings and Investments,348737,7000000,Help to Buy costs
+HM Treasury,HMT,22-Sep-25,Recruitment Expenses,HR Central Services,Cabinet Office,348658,"£28,438.00",Recruitment related costs
+HM Treasury,HMT,22-Sep-25,Recruitment Expenses,HR Central Services,Cabinet Office,348659,"£33,850.00",Recruitment related costs
+HM Treasury,HMT,22-Sep-25,Recruitment Expenses,HR Central Services,Cabinet Office,348655,"£79,911.00",Recruitment related costs
+HM Treasury,HMT,24-Sep-25,IT Software services and maintenance  Rec,New Tower Services,Ceox Services Limited,348780,"£21,600.00",IT costs
+HM Treasury,HMT,24-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,New Tower Services,Phoenix Software Ltd,348742,"£11,868.08",IT costs
+HM Treasury,HMT,24-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,New Tower Services,Phoenix Software Ltd,348742,"£59,340.38",IT costs
+HM Treasury,HMT,24-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Software Licensing & Support,Phoenix Software Ltd,348741,"£14,827.27",IT costs
+HM Treasury,HMT,24-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Software Licensing & Support,Phoenix Software Ltd,348741,"£74,136.36",IT costs
+HM Treasury,HMT,24-Sep-25,Legal Services,Other Cases,Government Legal Department ,348746,120279.25,Legal related costs
+HM Treasury,HMT,24-Sep-25,Legal Services,Other Cases,Cabinet Office,348758,353511,Legal related costs
+HM Treasury,HMT,25-Sep-25,IT Software services and maintenance  Rec,Finance Analytics & Control & Technology,Little Fish (UK) Ltd,347574,"£50,720.00",IT costs
+HM Treasury,HMT,25-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Finance Analytics & Control & Technology,Little Fish (UK) Ltd,348394,"£13,333.32",IT costs
+HM Treasury,HMT,25-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,Finance Analytics & Control & Technology,Little Fish (UK) Ltd,348394,"£66,666.58",IT costs
+HM Treasury,HMT,25-Sep-25,Corp. Subscriptions  and Other Information Services,BIT Director and GMS,OECD,348822,"£106,958.91",Corporate subscription
+HM Treasury,HMT,25-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,TBS Oracle Team,Phoenix Software Ltd,348751,"£71,007.60",Licensing Fees
+HM Treasury,HMT,25-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,TBS Oracle Team,Phoenix Software Ltd,348751,"£355,038.00",Licensing Fees
+HM Treasury,UKGI,02-Sep-25,Contracted Audit Staff for Operations (Rec),UKGI,Christopher Saul Associates Limited,348371,25000,Professional Services 
+HM Treasury,UKGI,08-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,UKGI,HM Treasury,348537,115.4,IT costs
+HM Treasury,UKGI,08-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,UKGI,HM Treasury,348537,577,IT costs
+HM Treasury,UKGI,08-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,UKGI,HM Treasury,348537,6229.2,IT costs
+HM Treasury,UKGI,08-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,UKGI,HM Treasury,348537,31146,IT costs
+HM Treasury,UKGI,08-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,UKGI,HM Treasury,348536,31466.4,IT costs
+HM Treasury,UKGI,08-Sep-25,IT Software Services & Maintenance Non VAT Recoverable,UKGI,HM Treasury,348536,157332,IT costs
+HM Treasury,UKGI,29-Sep-25,Corp. Subscriptions  and Other Information Services,UKGI,Financial Times Ltd,348857,47725,Corporate subscription
+HM Treasury,UKGI,30-Sep-25,Recruitment Expenses,UKGI,Russell Reynolds Associates Ltd,348861,27750,n/a

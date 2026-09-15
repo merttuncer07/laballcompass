@@ -1,0 +1,43 @@
+{
+  "modules": [
+    "trusted_core",
+    "suspect_calibration",
+    "monitor",
+    "decision"
+  ],
+  "suspect_sources": [
+    "suspect_calibration"
+  ],
+  "protected_targets": [
+    "decision",
+    "trusted_core"
+  ],
+  "exposed_paths": [
+    [
+      "suspect_calibration",
+      "trusted_core"
+    ]
+  ],
+  "cut_edges": [
+    {
+      "source": "suspect_calibration",
+      "target": "trusted_core",
+      "gain": 0.9,
+      "cut_cost": 1.0,
+      "label": "feedback update"
+    }
+  ],
+  "total_cut_cost": 1.0,
+  "full_loop_spectral_radius": 0.8485281374238571,
+  "firewalled_loop_spectral_radius": 0.0,
+  "full_protected_contamination": [
+    2.250000000000001,
+    3.2142857142857153
+  ],
+  "firewalled_protected_contamination": [
+    0.0,
+    0.0
+  ],
+  "contamination_reduction_fraction": 1.0,
+  "status": "MINIMUM_COST_FIREWALL_ISOLATES_PROTECTED_MODULES"
+}

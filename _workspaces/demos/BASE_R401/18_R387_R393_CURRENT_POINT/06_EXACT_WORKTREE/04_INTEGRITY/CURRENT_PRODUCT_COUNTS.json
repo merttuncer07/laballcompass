@@ -1,0 +1,56 @@
+{
+  "base_registry_records": 310,
+  "candidate_directed_edges": 16594,
+  "canonical_product_authority": {
+    "authority_file": "01_V2_CORE/CURRENT_PRODUCT_AUTHORITY.json",
+    "distinct_families": 39,
+    "executable_suites": 52,
+    "quarantined_product_ids": [
+      "V2P047"
+    ],
+    "registry_family_count": 455,
+    "release": "R392"
+  },
+  "completed_v2_composite_ids": [
+    "V2P001_SAVA",
+    "V2P002_MFQA",
+    "V2P003_MFPD",
+    "V2P004_OPIA",
+    "V2P005_EDSANP",
+    "V2P006_IDASRO",
+    "V2P007_CPDBE",
+    "V2P008_TGCARS",
+    "V2P009_SGMB",
+    "V2P010_SCSPIA",
+    "V2P011_BIVCP",
+    "V2P012_SARCP",
+    "V2P013_CADRE",
+    "V2P014_BATS",
+    "V2P015_BGTW",
+    "V2P016_BVRP",
+    "V2P017_CCDRE",
+    "V2P018_WTDRE",
+    "V2P019_STHA",
+    "V2P020_PADRE",
+    "V2P021_BMDRE",
+    "V2P022_CFDRE",
+    "V2P023_CODRE",
+    "V2P024_HPDRE",
+    "V2P025_DRFIAC",
+    "V2P026_DRSVCO",
+    "V2P027_DRMPHA",
+    "V2P028_SCFIAC"
+  ],
+  "completed_v2_composites_not_yet_folded_into_base_registry": 28,
+  "completed_v2_executable_suites_not_folded_into_base_registry": 52,
+  "families": {
+    "FOUNDRY_PARENT": 69,
+    "FOUNDRY_PRODUCT": 145,
+    "LCB_KERNEL": 96
+  },
+  "quality_distinct_v2_families_not_folded_into_base_registry": 39,
+  "ranked_working_queue_rows": 1000,
+  "registry455_unchanged": true,
+  "rejected_current_interface_edges_preserved_separately": 5,
+  "total_addressable_artifacts_in_handoff": 338
+}

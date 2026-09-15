@@ -1,0 +1,280 @@
+{
+  "product": "P015_CPDR_v0.1",
+  "scenario": {
+    "conservation": "x1+x2=0",
+    "uncertainty_radius": 0.5,
+    "nominal_gap": 0.4,
+    "sample_interval": 1.0
+  },
+  "normal_direction": {
+    "status": "RAW_ACTION_FLIP_PHYSICALLY_INFEASIBLE",
+    "raw_risk": {
+      "decision_pair": "preferred_vs_runner_up",
+      "nominal_gap": 0.4,
+      "uncertainty_radius": 0.5,
+      "directional_peak_gain": 0.9999999999999999,
+      "peak_time": 0.0,
+      "transient_action_flip_index": 1.2499999999999998,
+      "worst_gap_erosion": 0.49999999999999994,
+      "certified_lower_gap": -0.09999999999999992,
+      "status": "ACTION_FLIP_DIRECTION_EXISTS",
+      "worst_initial_perturbation": [
+        -0.3535533905932738,
+        -0.3535533905932738
+      ],
+      "propagation_mode": "common_flow"
+    },
+    "feasible_risk": {
+      "decision_pair": "preferred_vs_runner_up",
+      "nominal_gap": 0.4,
+      "uncertainty_radius": 0.5,
+      "directional_peak_gain": 1.0267807389735287e-16,
+      "peak_time": 1.9000000000000001,
+      "transient_action_flip_index": 1.2834759237169108e-16,
+      "worst_gap_erosion": 5.1339036948676435e-17,
+      "certified_lower_gap": 0.39999999999999997,
+      "status": "CERTIFIED_WITHIN_LINEAR_SHELL",
+      "worst_initial_perturbation": [
+        0.35355339059327373,
+        -0.3535533905932738
+      ],
+      "propagation_mode": "common_flow"
+    },
+    "persistence": {
+      "observed_scalar_distance": 5.0437883052473064e-17,
+      "scalar_only_alert": false,
+      "recovery_only_alert": true,
+      "joint_alert": true,
+      "modes": [
+        {
+          "eigenvalue_magnitude": 0.9801986733067553,
+          "modal_time_constant": 49.99999999999988,
+          "current_exposure": 0.24999999999999994,
+          "recovery_steps": 81,
+          "joint_alert": true
+        },
+        {
+          "eigenvalue_magnitude": 0.9801986733067553,
+          "modal_time_constant": 49.99999999999988,
+          "current_exposure": 0.25,
+          "recovery_steps": 81,
+          "joint_alert": true
+        }
+      ]
+    },
+    "raw_latent_dimension": 2,
+    "feasible_latent_dimension": 1,
+    "removed_latent_dimensions": 1,
+    "sample_interval": 1.0,
+    "sampled_transition": [
+      [
+        0.9801986733067553,
+        0.0
+      ],
+      [
+        0.0,
+        0.9801986733067553
+      ]
+    ],
+    "action_flip_feasible": false,
+    "persistent_decision_mode": true,
+    "conservation_residual": 5.551115123125783e-17,
+    "worst_feasible_perturbation": [
+      0.35355339059327373,
+      -0.3535533905932738
+    ],
+    "worst_feasible_state": [
+      0.35355339059327373,
+      -0.3535533905932738
+    ],
+    "worst_feasible_state_in_safe_set": true,
+    "filtered_control": null
+  },
+  "slow_tangent": {
+    "status": "PERSISTENT_FEASIBLE_ACTION_FLIP_RISK",
+    "raw_risk": {
+      "decision_pair": "preferred_vs_runner_up",
+      "nominal_gap": 0.4,
+      "uncertainty_radius": 0.5,
+      "directional_peak_gain": 0.9999999999999999,
+      "peak_time": 0.0,
+      "transient_action_flip_index": 1.2499999999999998,
+      "worst_gap_erosion": 0.49999999999999994,
+      "certified_lower_gap": -0.09999999999999992,
+      "status": "ACTION_FLIP_DIRECTION_EXISTS",
+      "worst_initial_perturbation": [
+        -0.3535533905932738,
+        0.3535533905932738
+      ],
+      "propagation_mode": "common_flow"
+    },
+    "feasible_risk": {
+      "decision_pair": "preferred_vs_runner_up",
+      "nominal_gap": 0.4,
+      "uncertainty_radius": 0.5,
+      "directional_peak_gain": 0.9999999999999999,
+      "peak_time": 0.0,
+      "transient_action_flip_index": 1.2499999999999998,
+      "worst_gap_erosion": 0.49999999999999994,
+      "certified_lower_gap": -0.09999999999999992,
+      "status": "ACTION_FLIP_DIRECTION_EXISTS",
+      "worst_initial_perturbation": [
+        -0.35355339059327373,
+        0.3535533905932738
+      ],
+      "propagation_mode": "common_flow"
+    },
+    "persistence": {
+      "observed_scalar_distance": 0.49999999999999994,
+      "scalar_only_alert": false,
+      "recovery_only_alert": true,
+      "joint_alert": true,
+      "modes": [
+        {
+          "eigenvalue_magnitude": 0.9801986733067553,
+          "modal_time_constant": 49.99999999999988,
+          "current_exposure": 0.24999999999999994,
+          "recovery_steps": 81,
+          "joint_alert": true
+        },
+        {
+          "eigenvalue_magnitude": 0.9801986733067553,
+          "modal_time_constant": 49.99999999999988,
+          "current_exposure": 0.25,
+          "recovery_steps": 81,
+          "joint_alert": true
+        }
+      ]
+    },
+    "raw_latent_dimension": 2,
+    "feasible_latent_dimension": 1,
+    "removed_latent_dimensions": 1,
+    "sample_interval": 1.0,
+    "sampled_transition": [
+      [
+        0.9801986733067553,
+        0.0
+      ],
+      [
+        0.0,
+        0.9801986733067553
+      ]
+    ],
+    "action_flip_feasible": true,
+    "persistent_decision_mode": true,
+    "conservation_residual": 5.551115123125783e-17,
+    "worst_feasible_perturbation": [
+      -0.35355339059327373,
+      0.3535533905932738
+    ],
+    "worst_feasible_state": [
+      -0.35355339059327373,
+      0.3535533905932738
+    ],
+    "worst_feasible_state_in_safe_set": true,
+    "filtered_control": [
+      1.0
+    ]
+  },
+  "fast_tangent": {
+    "status": "TRANSIENT_FEASIBLE_ACTION_FLIP_RISK",
+    "raw_risk": {
+      "decision_pair": "preferred_vs_runner_up",
+      "nominal_gap": 0.4,
+      "uncertainty_radius": 0.5,
+      "directional_peak_gain": 0.9999999999999999,
+      "peak_time": 0.0,
+      "transient_action_flip_index": 1.2499999999999998,
+      "worst_gap_erosion": 0.49999999999999994,
+      "certified_lower_gap": -0.09999999999999992,
+      "status": "ACTION_FLIP_DIRECTION_EXISTS",
+      "worst_initial_perturbation": [
+        -0.3535533905932738,
+        0.3535533905932738
+      ],
+      "propagation_mode": "common_flow"
+    },
+    "feasible_risk": {
+      "decision_pair": "preferred_vs_runner_up",
+      "nominal_gap": 0.4,
+      "uncertainty_radius": 0.5,
+      "directional_peak_gain": 0.9999999999999999,
+      "peak_time": 0.0,
+      "transient_action_flip_index": 1.2499999999999998,
+      "worst_gap_erosion": 0.49999999999999994,
+      "certified_lower_gap": -0.09999999999999992,
+      "status": "ACTION_FLIP_DIRECTION_EXISTS",
+      "worst_initial_perturbation": [
+        -0.35355339059327373,
+        0.3535533905932738
+      ],
+      "propagation_mode": "common_flow"
+    },
+    "persistence": {
+      "observed_scalar_distance": 0.49999999999999994,
+      "scalar_only_alert": false,
+      "recovery_only_alert": false,
+      "joint_alert": false,
+      "modes": [
+        {
+          "eigenvalue_magnitude": 0.1353352832366127,
+          "modal_time_constant": 0.5,
+          "current_exposure": 0.24999999999999994,
+          "recovery_steps": 1,
+          "joint_alert": false
+        },
+        {
+          "eigenvalue_magnitude": 0.1353352832366127,
+          "modal_time_constant": 0.5,
+          "current_exposure": 0.25,
+          "recovery_steps": 1,
+          "joint_alert": false
+        }
+      ]
+    },
+    "raw_latent_dimension": 2,
+    "feasible_latent_dimension": 1,
+    "removed_latent_dimensions": 1,
+    "sample_interval": 1.0,
+    "sampled_transition": [
+      [
+        0.1353352832366127,
+        0.0
+      ],
+      [
+        0.0,
+        0.1353352832366127
+      ]
+    ],
+    "action_flip_feasible": true,
+    "persistent_decision_mode": false,
+    "conservation_residual": 5.551115123125783e-17,
+    "worst_feasible_perturbation": [
+      -0.35355339059327373,
+      0.3535533905932738
+    ],
+    "worst_feasible_state": [
+      -0.35355339059327373,
+      0.3535533905932738
+    ],
+    "worst_feasible_state_in_safe_set": true,
+    "filtered_control": null
+  },
+  "comparison": {
+    "normal_raw_flip_index": 1.2499999999999998,
+    "normal_feasible_flip_index": 1.2834759237169108e-16,
+    "normal_status": "RAW_ACTION_FLIP_PHYSICALLY_INFEASIBLE",
+    "slow_feasible_flip_index": 1.2499999999999998,
+    "fast_feasible_flip_index": 1.2499999999999998,
+    "same_slow_fast_flip_index": true,
+    "slow_recovery_max": 81,
+    "fast_recovery_max": 1,
+    "slow_status": "PERSISTENT_FEASIBLE_ACTION_FLIP_RISK",
+    "fast_status": "TRANSIENT_FEASIBLE_ACTION_FLIP_RISK",
+    "conservation_residual": 5.551115123125783e-17,
+    "filtered_control": [
+      1.0
+    ]
+  },
+  "claim_boundary": "CPDR is exact only for the declared linear conservation law and ellipsoidal latent uncertainty map. Persistence qualifies the conservation-feasible DTRM worst perturbation; it does not create action-flip risk by itself."
+}

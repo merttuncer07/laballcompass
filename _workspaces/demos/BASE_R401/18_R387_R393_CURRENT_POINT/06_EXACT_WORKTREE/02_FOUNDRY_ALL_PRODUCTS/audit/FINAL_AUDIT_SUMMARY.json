@@ -1,0 +1,18 @@
+{
+  "products": 145,
+  "tier_counts": {
+    "ORIGINAL_EXECUTABLE_MATERIAL": 19,
+    "SALVAGED_SOURCE_WITH_REBUILT_TESTS": 3,
+    "NEW_REPLACEMENT_FOR_UNRECOVERABLE_HISTORICAL_ID": 28,
+    "MECHANISM_RECONSTRUCTED_FROM_RESULTS": 32,
+    "SPEC_EXECUTABLE_FROM_RESULTS": 63
+  },
+  "complement_edges": 3689,
+  "fresh_regression": {
+    "parent_test_files": 69,
+    "product_test_files": 145,
+    "test_files_passed": 214,
+    "test_files_failed": 0,
+    "tests_counted": 806
+  }
+}

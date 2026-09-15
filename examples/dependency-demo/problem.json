@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "shared_source_and_alternative_route",
+  "mode": "declared_support",
+  "bases": {
+    "ledger": "client_ledger",
+    "extract": "client_ledger",
+    "slide": "client_ledger",
+    "confirmation": "external_confirmation",
+    "receipt": "receipt_record"
+  },
+  "rules": [
+    {
+      "head": "reconciliation",
+      "body": [
+        "ledger",
+        "extract"
+      ]
+    },
+    {
+      "head": "summary_check",
+      "body": [
+        "slide"
+      ]
+    },
+    {
+      "head": "claim",
+      "body": [
+        "reconciliation",
+        "summary_check"
+      ]
+    },
+    {
+      "head": "claim",
+      "body": [
+        "confirmation",
+        "receipt"
+      ]
+    }
+  ],
+  "targets": [
+    "claim",
+    "reconciliation",
+    "summary_check"
+  ],
+  "metadata": {
+    "origin": "Synthetic, explicitly declared support rules; not extracted audit assertions.",
+    "title": "Üç görünüm, bir kaynak; ikinci bir destek yolu",
+    "labels": {
+      "client_ledger": "Müşteri defteri (3 türev görünüm)",
+      "external_confirmation": "Harici teyit kaydı",
+      "receipt_record": "Tahsilat kaydı",
+      "claim": "Örnek iddia",
+      "reconciliation": "Mutabakat",
+      "summary_check": "Özet kontrolü"
+    },
+    "assumptions": [
+      "Either declared route suffices only in this synthetic example.",
+      "Distinct source IDs do not prove statistical independence."
+    ]
+  }
+}

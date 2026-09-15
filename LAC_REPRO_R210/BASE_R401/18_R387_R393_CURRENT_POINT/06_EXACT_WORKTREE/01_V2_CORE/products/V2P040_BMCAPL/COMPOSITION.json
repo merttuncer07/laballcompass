@@ -1,0 +1,8 @@
+{
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "r386_external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+  "r386_family_id": "V2P040",
+  "r386_quality_verdict": "DISTINCT_PRODUCT",
+  "status": "SHADOW_RETRO_SWEEP",
+  "supplier_id": "FOUNDRY:P093"
+}

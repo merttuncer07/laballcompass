@@ -1,0 +1,179 @@
+{
+  "rows": [
+    {
+      "symbol": "BTCUSDT",
+      "window": 1,
+      "start_utc": "2025-06-17T00:00:00+00:00",
+      "end_utc": "2025-11-03T16:00:00+00:00",
+      "net_return": 0.009152601867949084,
+      "maximum_drawdown": 0.0009691890633526379,
+      "dtec_removed_return": -0.0031166910859103947,
+      "always_on_return": 0.00937429793737854,
+      "dtec_contribution": 0.012269292953859479
+    },
+    {
+      "symbol": "BTCUSDT",
+      "window": 2,
+      "start_utc": "2025-11-14T00:00:00+00:00",
+      "end_utc": "2026-04-02T16:00:00+00:00",
+      "net_return": 0.0033395147872088415,
+      "maximum_drawdown": 0.0015292112158218352,
+      "dtec_removed_return": -0.0326196207427385,
+      "always_on_return": 0.002905939605269303,
+      "dtec_contribution": 0.03595913552994734
+    },
+    {
+      "symbol": "BTCUSDT",
+      "window": 3,
+      "start_utc": "2026-04-13T00:00:00+00:00",
+      "end_utc": "2026-08-30T16:00:00+00:00",
+      "net_return": 0.006110549851006342,
+      "maximum_drawdown": 0.0009500000000000064,
+      "dtec_removed_return": -0.000981451943217082,
+      "always_on_return": 0.005073134058461104,
+      "dtec_contribution": 0.007092001794223424
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 1,
+      "start_utc": "2025-06-17T00:00:00+00:00",
+      "end_utc": "2025-11-03T16:00:00+00:00",
+      "net_return": 0.006087332042209237,
+      "maximum_drawdown": 0.0014271262128681128,
+      "dtec_removed_return": -0.005465608453891879,
+      "always_on_return": 0.008107568695933987,
+      "dtec_contribution": 0.011552940496101116
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 2,
+      "start_utc": "2025-11-14T00:00:00+00:00",
+      "end_utc": "2026-04-02T16:00:00+00:00",
+      "net_return": 0.002822790074098691,
+      "maximum_drawdown": 0.0012307454909636917,
+      "dtec_removed_return": -0.021433186745525523,
+      "always_on_return": 0.0009290921724349754,
+      "dtec_contribution": 0.024255976819624214
+    },
+    {
+      "symbol": "ETHUSDT",
+      "window": 3,
+      "start_utc": "2026-04-13T00:00:00+00:00",
+      "end_utc": "2026-08-30T16:00:00+00:00",
+      "net_return": 0.0011215253940592973,
+      "maximum_drawdown": 0.0023034020479169026,
+      "dtec_removed_return": -0.01369359649066848,
+      "always_on_return": 0.003210856729273459,
+      "dtec_contribution": 0.014815121884727778
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 1,
+      "start_utc": "2025-06-17T00:00:00+00:00",
+      "end_utc": "2025-11-03T16:00:00+00:00",
+      "net_return": 0.0008494819344084803,
+      "maximum_drawdown": 0.0026701562933729717,
+      "dtec_removed_return": -0.031235843289084797,
+      "always_on_return": -0.00024915740631814565,
+      "dtec_contribution": 0.03208532522349328
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 2,
+      "start_utc": "2025-11-14T00:00:00+00:00",
+      "end_utc": "2026-04-02T16:00:00+00:00",
+      "net_return": 0.0002934392999454083,
+      "maximum_drawdown": 0.0012858724228335117,
+      "dtec_removed_return": -0.039512879665701495,
+      "always_on_return": -0.007422250212059001,
+      "dtec_contribution": 0.0398063189656469
+    },
+    {
+      "symbol": "SOLUSDT",
+      "window": 3,
+      "start_utc": "2026-04-13T00:00:00+00:00",
+      "end_utc": "2026-08-30T16:00:00+00:00",
+      "net_return": -0.0006575764100695825,
+      "maximum_drawdown": 0.002739234558054471,
+      "dtec_removed_return": -0.05193223568234273,
+      "always_on_return": -0.00039512519831708115,
+      "dtec_contribution": 0.05127465927227315
+    },
+    {
+      "symbol": "BNBUSDT",
+      "window": 1,
+      "start_utc": "2025-06-17T00:00:00+00:00",
+      "end_utc": "2025-11-03T16:00:00+00:00",
+      "net_return": 0.0030234129836597123,
+      "maximum_drawdown": 0.0009958920720244402,
+      "dtec_removed_return": -0.06231108509283789,
+      "always_on_return": -0.0004622353752258279,
+      "dtec_contribution": 0.0653344980764976
+    },
+    {
+      "symbol": "BNBUSDT",
+      "window": 2,
+      "start_utc": "2025-11-14T00:00:00+00:00",
+      "end_utc": "2026-04-02T16:00:00+00:00",
+      "net_return": -0.002306808143760164,
+      "maximum_drawdown": 0.002838513865009218,
+      "dtec_removed_return": -0.06713874982383516,
+      "always_on_return": 5.1997826031824346e-05,
+      "dtec_contribution": 0.064831941680075
+    },
+    {
+      "symbol": "BNBUSDT",
+      "window": 3,
+      "start_utc": "2026-04-13T00:00:00+00:00",
+      "end_utc": "2026-08-30T16:00:00+00:00",
+      "net_return": 0.005710522196032963,
+      "maximum_drawdown": 0.0009997382662926269,
+      "dtec_removed_return": -0.038111159956287666,
+      "always_on_return": 0.005746027707395962,
+      "dtec_contribution": 0.04382168215232063
+    },
+    {
+      "symbol": "XRPUSDT",
+      "window": 1,
+      "start_utc": "2025-06-17T00:00:00+00:00",
+      "end_utc": "2025-11-03T16:00:00+00:00",
+      "net_return": 0.010817919406396648,
+      "maximum_drawdown": 0.0010461565475885504,
+      "dtec_removed_return": -0.003065871262661113,
+      "always_on_return": 0.010817919406396648,
+      "dtec_contribution": 0.01388379066905776
+    },
+    {
+      "symbol": "XRPUSDT",
+      "window": 2,
+      "start_utc": "2025-11-14T00:00:00+00:00",
+      "end_utc": "2026-04-02T16:00:00+00:00",
+      "net_return": -0.0013912463451453139,
+      "maximum_drawdown": 0.0013912463451453139,
+      "dtec_removed_return": -0.0550146759196275,
+      "always_on_return": -0.006103774838065457,
+      "dtec_contribution": 0.053623429574482184
+    },
+    {
+      "symbol": "XRPUSDT",
+      "window": 3,
+      "start_utc": "2026-04-13T00:00:00+00:00",
+      "end_utc": "2026-08-30T16:00:00+00:00",
+      "net_return": -0.0020822979877208603,
+      "maximum_drawdown": 0.003046962197182035,
+      "dtec_removed_return": -0.042802400347171865,
+      "always_on_return": -0.0004930097059996363,
+      "dtec_contribution": 0.040720102359451005
+    }
+  ],
+  "aggregate": {
+    "window_count": 15,
+    "positive_window_count": 11,
+    "dtec_positive_contribution_count": 15,
+    "beats_always_on_count": 7,
+    "mean_net_return": 0.0028594107300185857,
+    "median_net_return": 0.002822790074098691,
+    "worst_net_return": -0.002306808143760164,
+    "worst_maximum_drawdown": 0.003046962197182035
+  }
+}

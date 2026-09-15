@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "LCB-K086",
+  "difference_from_nearest": "Executable deeper timing example, but it remains the same boundary/tipping signal -> testing-wealth release/timing family already represented by V2P015.",
+  "directory": "V2P045_FPTWC",
+  "diversified_selected_rank": 23,
+  "external_prior_art": [
+    "Adaptive online testing/alpha-wealth allocation is established; no new FDR theorem is claimed."
+  ],
+  "external_prior_art_status": "KNOWN_COMPONENT_COMPOSITION",
+  "family_id": "BOUNDARY_GATE_ROUTING_VARIANTS",
+  "mechanism_removing_comparator": "same p-value stream, alpha budget, and TestingWealthController with FPTE coupling removed",
+  "nearest_existing_product": "V2P015_BGTW",
+  "new_failure_mode": "A fixed testing-wealth time profile can miss early signals when a declared failure path is close to tipping.",
+  "non_additive_interaction": "Failure-tipping proximity changes the temporal alpha-wealth profile.",
+  "product_id": "V2P045",
+  "quality_accounting": "EXECUTABLE_FAMILY_VARIANT",
+  "raw_native_rank": 189,
+  "short_name": "FPTWC",
+  "supplier_id": "FOUNDRY:P030",
+  "test_files": [
+    "test_fptwc.py"
+  ],
+  "verdict": "EXECUTABLE_FAMILY_VARIANT"
+}

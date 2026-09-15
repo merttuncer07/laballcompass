@@ -1,0 +1,11 @@
+{
+  "archive_tree_sha256": "3a58940997f22a8c200a4eeacae85bebce0e9e09ed4bbfd4d7194849d910de3d",
+  "byte_identical": true,
+  "current_tree_sha256": "3a58940997f22a8c200a4eeacae85bebce0e9e09ed4bbfd4d7194849d910de3d",
+  "extras": [],
+  "files_compared": 1305,
+  "inherited_foundry_receipt": "05_R388_NATIVE_ROUTING/R388_PROMOTION_REGRESSION_BUNDLE.json",
+  "mismatches": [],
+  "release": "R389",
+  "source_release": "R388"
+}

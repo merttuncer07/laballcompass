@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "focused_regression_tests": 24,
+  "incremental_top_k_mismatches": 0,
+  "combined_exact_score_reduction_fraction": 0.9722376478642881,
+  "crypto_capability_anchors_in_top20": 5,
+  "cross_process_snapshot_restore": {
+    "capability": true,
+    "primitive": true,
+    "suppliers": {}
+  },
+  "second_process_exact_rescores": 21,
+  "donor_runtime_or_source_dependencies_found": [],
+  "inventory_status": "INVENTORY_COMPLETE",
+  "claim_scope": "search correctness, operational state persistence, and case-specific relevance smoke only; no general relevance or production-latency claim"
+}

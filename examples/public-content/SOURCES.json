@@ -1,0 +1,16 @@
+{
+  "publisher": "Apache POI",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "file": "clone_sheet.xlsx",
+      "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/clone_sheet.xlsx",
+      "sha256": "c562b328818341d7daa28d5dbd2168946aeecbdb30a6e49d9b982da511879875"
+    },
+    {
+      "file": "XSSFSheet.copyRows.xlsx",
+      "url": "https://raw.githubusercontent.com/apache/poi/trunk/test-data/spreadsheet/XSSFSheet.copyRows.xlsx",
+      "sha256": "85b76d790c3eeb07693ea94293440a9efa2b91e41e2a6bea4b7bbd7ab9edba90"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "symbol": "BTCUSDT",
+  "interval": "1h",
+  "bars": 3500,
+  "train_bars": 1500,
+  "refit_bars": 192,
+  "purge_bars": 2,
+  "max_lag": 12,
+  "lmde_alpha": 0.30,
+  "direct_window": 18,
+  "dtec_horizon": 8,
+  "dtec_alpha": 0.20,
+  "annual_volatility_target": 0.20,
+  "maximum_drawdown": 0.07,
+  "cooldown_bars": 96,
+  "fee_bps": 10,
+  "slippage_bps": 2
+}

@@ -1,0 +1,47 @@
+{
+  "interpretation": "mechanism value rises in this deterministic shell as off-support nuisance covariance strengthens; this is a synthetic sensitivity surface, not empirical transfer evidence",
+  "rows": [
+    {
+      "declared_spurious_correlation": 0.0,
+      "raw_off_support_max_abs_covariance": 0.0005981670707850082,
+      "validation_ce_gain_vs_raw": 0.0002365511843297665,
+      "validation_variance_change_fraction_vs_raw": -0.28819906702835496,
+      "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+    },
+    {
+      "declared_spurious_correlation": 0.25,
+      "raw_off_support_max_abs_covariance": 0.001068560319828146,
+      "validation_ce_gain_vs_raw": 0.00031478311887806225,
+      "validation_variance_change_fraction_vs_raw": -0.4041803931728297,
+      "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+    },
+    {
+      "declared_spurious_correlation": 0.5,
+      "raw_off_support_max_abs_covariance": 0.0014968029669634292,
+      "validation_ce_gain_vs_raw": 0.0006332083926383564,
+      "validation_variance_change_fraction_vs_raw": -0.5311073422711124,
+      "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+    },
+    {
+      "declared_spurious_correlation": 0.7,
+      "raw_off_support_max_abs_covariance": 0.0017974618555710285,
+      "validation_ce_gain_vs_raw": 0.000935822545915082,
+      "validation_variance_change_fraction_vs_raw": -0.6019926044634214,
+      "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+    },
+    {
+      "declared_spurious_correlation": 0.85,
+      "raw_off_support_max_abs_covariance": 0.0019790217067331387,
+      "validation_ce_gain_vs_raw": 0.0016578801754710075,
+      "validation_variance_change_fraction_vs_raw": -0.6928780482323726,
+      "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+    },
+    {
+      "declared_spurious_correlation": 0.95,
+      "raw_off_support_max_abs_covariance": 0.002046450275104956,
+      "validation_ce_gain_vs_raw": 0.0018447604440845087,
+      "validation_variance_change_fraction_vs_raw": -0.7151230242167423,
+      "status": "SUPPORT_COVARIANCE_CHANGED_CAPL_RISK_OBJECTIVE"
+    }
+  ]
+}

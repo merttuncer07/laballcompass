@@ -1,0 +1,25 @@
+{
+  "benchmark_present": true,
+  "consumer_id": "PARENT:R041_CONSTRAINED_POLICY_CAPL",
+  "difference_from_nearest": "BOSARO changes uncertainty-set geometry from support erosion; BMCAPL changes the policy action/update feasible set from decision-tipping distance.",
+  "directory": "V2P040_BMCAPL",
+  "diversified_selected_rank": null,
+  "external_prior_art": [
+    "Uncertainty-aware/adaptive trust-region policy optimization already adapts permitted policy movement to estimation uncertainty."
+  ],
+  "external_prior_art_status": "STRONG_CLOSE_PRIOR_ART",
+  "family_id": "V2P040",
+  "mechanism_removing_comparator": "same CAPL shell with fixed base turnover independent of BMDT tipping distance",
+  "nearest_existing_product": "V2P038_BOSARO",
+  "new_failure_mode": "A policy learner may satisfy static action constraints yet make an update whose allowed turnover is too large relative to the nearest belief change that flips the downstream decision.",
+  "non_additive_interaction": "BMDT decision-tipping distance continuously contracts CAPL maximum-turnover feasibility before policy optimization; it changes the feasible action set, not only a report or binary gate.",
+  "product_id": "V2P040",
+  "quality_accounting": "R386_DISTINCT_PRODUCT",
+  "raw_native_rank": null,
+  "short_name": "BMCAPL",
+  "supplier_id": "FOUNDRY:P093",
+  "test_files": [
+    "test_bmcapl.py"
+  ],
+  "verdict": "DISTINCT_PRODUCT"
+}

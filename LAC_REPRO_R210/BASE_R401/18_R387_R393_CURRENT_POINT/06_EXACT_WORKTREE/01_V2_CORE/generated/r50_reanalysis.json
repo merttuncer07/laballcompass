@@ -1,0 +1,66 @@
+{
+  "RX-149": {
+    "mechanism": "overlap-aware marginal allocation",
+    "n_main": 900,
+    "median_gain": 0.08695247232892797,
+    "median_gain_95_bootstrap": [
+      0.0831475615203045,
+      0.08966471411302535
+    ],
+    "win_rate": 0.9988888888888889,
+    "control_median_gain": 0.0,
+    "core_v2_state": "CONFIRMED_COMPONENT_STANDALONE_SHELL_OPEN",
+    "reason": "A predeclared 12% promotion threshold is a prioritization choice, not evidence that the mechanism is absent."
+  },
+  "RX-067": {
+    "mechanism": "future-equivalence representative-state dynamic programming",
+    "n_main": 280,
+    "median_state_reduction": 0.987640380859375,
+    "reduction_95_bootstrap": [
+      0.980224609375,
+      0.99505615234375
+    ],
+    "maximum_optimality_gap": 0.0,
+    "control_median_reduction": 0.0,
+    "core_v2_state": "CONFIRMED_KERNEL_EXTENSION_AND_STANDALONE_CANDIDATE",
+    "reason": "No deletion on ontology overlap; retain the callable capability and link it to interface-width optimization."
+  },
+  "RX-039": {
+    "mechanism": "constraint-preserving conditional fiber sampling",
+    "n_main": 120,
+    "fiber_size": 87,
+    "median_tv": 0.05709655172413793,
+    "tv_90_interval": [
+      0.041867471264367816,
+      0.08801574712643677
+    ],
+    "naive_valid_rate": 0.0,
+    "core_v2_state": "STANDALONE_KERNEL_CANDIDATE",
+    "reason": "Distinct operational interface; next evidence target is mixing diagnostics on larger and multimodal fibers."
+  },
+  "RX-137": {
+    "mechanism": "renegotiation-aware commitment valuation",
+    "n_main": 2200,
+    "median_renegotiation_rate": 0.47625,
+    "median_nominal_abs_error": 0.3958866759244789,
+    "median_aware_abs_error": 0.0,
+    "control_nominal_abs_error": 0.0,
+    "core_v2_state": "STANDALONE_KERNEL_CANDIDATE",
+    "reason": "Strong mechanism contrast and clean control; real contract and bargaining-rule calibration remain separate gates."
+  },
+  "RX-138": {
+    "mechanism": "projection/ironing into implementable monotone decision class",
+    "n_main": 1500,
+    "median_raw_violations": 3.0,
+    "median_ironed_violations": 0.0,
+    "median_changed_fraction": 0.17,
+    "median_ironed_regret": 0.0,
+    "median_simple_repair_regret": 0.034598579530935335,
+    "control_changed_fraction": 0.0,
+    "replication_n_main": 900,
+    "replication_median_raw_violations": 3.0,
+    "replication_median_regret": 0.0,
+    "core_v2_state": "STANDALONE_KERNEL_CANDIDATE",
+    "reason": "Beats a simple repair and matches the exact constrained optimum in two saved replications."
+  }
+}

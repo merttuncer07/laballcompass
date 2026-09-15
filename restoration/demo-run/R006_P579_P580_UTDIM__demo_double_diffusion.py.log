@@ -1,0 +1,820 @@
+{
+  "static_stability_index": 1.0,
+  "diffusivity_ratio": 100.0,
+  "fastest_wavenumber": 1.8451757395407384,
+  "maximum_growth_rate": 0.6428119528411916,
+  "equal_transport_growth_at_fastest_mode": -1.0299137367113875,
+  "e_folding_time": 1.5556649119233983,
+  "unstable_wavenumber_band": [
+    0.03162277660168379,
+    5.514541812155732
+  ],
+  "fastest_mode_eigenvector_magnitudes": [
+    0.5401919704604292,
+    0.2669271948956176,
+    0.79808677953919
+  ],
+  "modes": [
+    {
+      "wavenumber": 0.03162277660168379,
+      "actual_growth_rate": 0.0009799978829949402,
+      "equal_transport_growth_rate": -0.0003024999999999999
+    },
+    {
+      "wavenumber": 0.03288373442266467,
+      "actual_growth_rate": 0.00105971051303567,
+      "equal_transport_growth_rate": -0.00032710534684805327
+    },
+    {
+      "wavenumber": 0.034194972920966196,
+      "actual_growth_rate": 0.0011459068651032218,
+      "equal_transport_growth_rate": -0.0003537120923523474
+    },
+    {
+      "wavenumber": 0.03555849703796691,
+      "actual_growth_rate": 0.0012391142979863608,
+      "equal_transport_growth_rate": -0.00038248303025872817
+    },
+    {
+      "wavenumber": 0.03697639166205763,
+      "actual_growth_rate": 0.0013399030586687827,
+      "equal_transport_growth_rate": -0.0004135941959546301
+    },
+    {
+      "wavenumber": 0.03845082481652772,
+      "actual_growth_rate": 0.0014488897689604904,
+      "equal_transport_growth_rate": -0.00044723594354406925
+    },
+    {
+      "wavenumber": 0.039984050974567996,
+      "actual_growth_rate": 0.0015667411952309817,
+      "equal_transport_growth_rate": -0.0004836141105318976
+    },
+    {
+      "wavenumber": 0.0415784145064596,
+      "actual_growth_rate": 0.0016941783241394219,
+      "equal_transport_growth_rate": -0.0005229512772434682
+    },
+    {
+      "wavenumber": 0.04323635326421917,
+      "actual_growth_rate": 0.001831980769084171,
+      "equal_transport_growth_rate": -0.0005654881286854775
+    },
+    {
+      "wavenumber": 0.044960402309182114,
+      "actual_growth_rate": 0.0019809915340608508,
+      "equal_transport_growth_rate": -0.0006114849271805616
+    },
+    {
+      "wavenumber": 0.0467531977882227,
+      "actual_growth_rate": 0.0021421221637329597,
+      "equal_transport_growth_rate": -0.0006612231047859631
+    },
+    {
+      "wavenumber": 0.04861748096453892,
+      "actual_growth_rate": 0.0023163583107914235,
+      "equal_transport_growth_rate": -0.0007150069852395342
+    },
+    {
+      "wavenumber": 0.05055610240916435,
+      "actual_growth_rate": 0.002504765754117691,
+      "equal_transport_growth_rate": -0.0007731656459687886
+    },
+    {
+      "wavenumber": 0.052572026359616934,
+      "actual_growth_rate": 0.002708496903878231,
+      "equal_transport_growth_rate": -0.0008360549315557681
+    },
+    {
+      "wavenumber": 0.05466833525234842,
+      "actual_growth_rate": 0.002928797832473975,
+      "equal_transport_growth_rate": -0.0009040596309771059
+    },
+    {
+      "wavenumber": 0.05684823443592558,
+      "actual_growth_rate": 0.0031670158732539067,
+      "equal_transport_growth_rate": -0.0009775958319407912
+    },
+    {
+      "wavenumber": 0.05911505707214902,
+      "actual_growth_rate": 0.0034246078320825735,
+      "equal_transport_growth_rate": -0.0010571134667246391
+    },
+    {
+      "wavenumber": 0.06147226923260454,
+      "actual_growth_rate": 0.003703148860230722,
+      "equal_transport_growth_rate": -0.00114309906509326
+    },
+    {
+      "wavenumber": 0.06392347519843888,
+      "actual_growth_rate": 0.004004342040636033,
+      "equal_transport_growth_rate": -0.0012360787311372426
+    },
+    {
+      "wavenumber": 0.0664724229714645,
+      "actual_growth_rate": 0.0043300287433542155,
+      "equal_transport_growth_rate": -0.0013366213622484269
+    },
+    {
+      "wavenumber": 0.06912301000501907,
+      "actual_growth_rate": 0.00468219980997889,
+      "equal_transport_growth_rate": -0.0014453421299265746
+    },
+    {
+      "wavenumber": 0.07187928916334343,
+      "actual_growth_rate": 0.005063007630936181,
+      "equal_transport_growth_rate": -0.0015629062437148306
+    },
+    {
+      "wavenumber": 0.07474547491858911,
+      "actual_growth_rate": 0.005474779183829027,
+      "equal_transport_growth_rate": -0.0016900330212936436
+    },
+    {
+      "wavenumber": 0.0777259497949321,
+      "actual_growth_rate": 0.005920030105378867,
+      "equal_transport_growth_rate": -0.0018275002896361017
+    },
+    {
+      "wavenumber": 0.0808252710696448,
+      "actual_growth_rate": 0.006401479873931671,
+      "equal_transport_growth_rate": -0.001976149144153171
+    },
+    {
+      "wavenumber": 0.08404817774137396,
+      "actual_growth_rate": 0.006922068183886061,
+      "equal_transport_growth_rate": -0.0021368890949477904
+    },
+    {
+      "wavenumber": 0.08739959777627797,
+      "actual_growth_rate": 0.007484972597657815,
+      "equal_transport_growth_rate": -0.0023107036316651892
+    },
+    {
+      "wavenumber": 0.09088465564310395,
+      "actual_growth_rate": 0.008093627564780497,
+      "equal_transport_growth_rate": -0.0024986562409880907
+    },
+    {
+      "wavenumber": 0.09450868014872635,
+      "actual_growth_rate": 0.008751744901272477,
+      "equal_transport_growth_rate": -0.0027018969135949138
+    },
+    {
+      "wavenumber": 0.0982772125861269,
+      "actual_growth_rate": 0.009463335825237923,
+      "equal_transport_growth_rate": -0.0029216691803938804
+    },
+    {
+      "wavenumber": 0.10219601520727555,
+      "actual_growth_rate": 0.010232734646504527,
+      "equal_transport_growth_rate": -0.0031593177210843225
+    },
+    {
+      "wavenumber": 0.10627108003386741,
+      "actual_growth_rate": 0.011064624208534664,
+      "equal_transport_growth_rate": -0.0034162965915983086
+    },
+    {
+      "wavenumber": 0.11050863801938769,
+      "actual_growth_rate": 0.01196406317936975,
+      "equal_transport_growth_rate": -0.0036941781207622667
+    },
+    {
+      "wavenumber": 0.11491516857651375,
+      "actual_growth_rate": 0.012936515284329325,
+      "equal_transport_growth_rate": -0.003994662530612992
+    },
+    {
+      "wavenumber": 0.11949740948442233,
+      "actual_growth_rate": 0.013987880565762896,
+      "equal_transport_growth_rate": -0.00431958833923003
+    },
+    {
+      "wavenumber": 0.1242623671911505,
+      "actual_growth_rate": 0.015124528743303526,
+      "equal_transport_growth_rate": -0.004670943609734364
+    },
+    {
+      "wavenumber": 0.129217327526763,
+      "actual_growth_rate": 0.01635333473049022,
+      "equal_transport_growth_rate": -0.005050878114280519
+    },
+    {
+      "wavenumber": 0.13436986684370716,
+      "actual_growth_rate": 0.01768171633867921,
+      "equal_transport_growth_rate": -0.005461716487467667
+    },
+    {
+      "wavenumber": 0.13972786360138936,
+      "actual_growth_rate": 0.019117674164819305,
+      "equal_transport_growth_rate": -0.0059059724496490626
+    },
+    {
+      "wavenumber": 0.1452995104126861,
+      "actual_growth_rate": 0.02066983361341337,
+      "equal_transport_growth_rate": -0.006386364187165297
+    },
+    {
+      "wavenumber": 0.15109332657080968,
+      "actual_growth_rate": 0.022347488941741645,
+      "equal_transport_growth_rate": -0.006905830983605585
+    },
+    {
+      "wavenumber": 0.1571181710756826,
+      "actual_growth_rate": 0.024160649137421657,
+      "equal_transport_growth_rate": -0.0074675512038556565
+    },
+    {
+      "wavenumber": 0.16338325617973837,
+      "actual_growth_rate": 0.02612008533408382,
+      "equal_transport_growth_rate": -0.008074961740967938
+    },
+    {
+      "wavenumber": 0.16989816147386083,
+      "actual_growth_rate": 0.028237379338921193,
+      "equal_transport_growth_rate": -0.008731779044839919
+    },
+    {
+      "wavenumber": 0.17667284853500043,
+      "actual_growth_rate": 0.030524972678730933,
+      "equal_transport_growth_rate": -0.009442021861365037
+    },
+    {
+      "wavenumber": 0.18371767615786375,
+      "actual_growth_rate": 0.032996215361391606,
+      "equal_transport_growth_rate": -0.01021003582118582
+    },
+    {
+      "wavenumber": 0.1910434161939665,
+      "actual_growth_rate": 0.035665413289118826,
+      "equal_transport_growth_rate": -0.011040520028495981
+    },
+    {
+      "wavenumber": 0.19866127002226883,
+      "actual_growth_rate": 0.03854787293909476,
+      "equal_transport_growth_rate": -0.011938555812575396
+    },
+    {
+      "wavenumber": 0.2065828856765765,
+      "actual_growth_rate": 0.041659941536484925,
+      "equal_transport_growth_rate": -0.012909637817974592
+    },
+    {
+      "wavenumber": 0.21482037565589748,
+      "actual_growth_rate": 0.04501904047495175,
+      "equal_transport_growth_rate": -0.01395970762357462
+    },
+    {
+      "wavenumber": 0.223386335444986,
+      "actual_growth_rate": 0.04864368918234409,
+      "equal_transport_growth_rate": -0.015095190096220788
+    },
+    {
+      "wavenumber": 0.2322938627733931,
+      "actual_growth_rate": 0.05255351597908638,
+      "equal_transport_growth_rate": -0.016323032701360648
+    },
+    {
+      "wavenumber": 0.24155657764247168,
+      "actual_growth_rate": 0.05676925173421674,
+      "equal_transport_growth_rate": -0.01765074801120889
+    },
+    {
+      "wavenumber": 0.251188643150958,
+      "actual_growth_rate": 0.06131270129839179,
+      "equal_transport_growth_rate": -0.019086459670525843
+    },
+    {
+      "wavenumber": 0.2612047871509731,
+      "actual_growth_rate": 0.0662066868076628,
+      "equal_transport_growth_rate": -0.020638952101252012
+    },
+    {
+      "wavenumber": 0.27162032476755693,
+      "actual_growth_rate": 0.0714749560494908,
+      "equal_transport_growth_rate": -0.022317724250117004
+    },
+    {
+      "wavenumber": 0.2824511818161684,
+      "actual_growth_rate": 0.07714204823350508,
+      "equal_transport_growth_rate": -0.024133047708078434
+    },
+    {
+      "wavenumber": 0.2937139191539588,
+      "actual_growth_rate": 0.08323310881914621,
+      "equal_transport_growth_rate": -0.026096029557195415
+    },
+    {
+      "wavenumber": 0.3054257580020505,
+      "actual_growth_rate": 0.08977364466812895,
+      "equal_transport_growth_rate": -0.028218680329465954
+    },
+    {
+      "wavenumber": 0.3176046062775428,
+      "actual_growth_rate": 0.0967892109060703,
+      "equal_transport_growth_rate": -0.03051398749343566
+    },
+    {
+      "wavenumber": 0.33026908597550503,
+      "actual_growth_rate": 0.10430502173439042,
+      "equal_transport_growth_rate": -0.03299599491820639
+    },
+    {
+      "wavenumber": 0.3434385616428264,
+      "actual_growth_rate": 0.11234547930328574,
+      "equal_transport_growth_rate": -0.035679888801046264
+    },
+    {
+      "wavenumber": 0.3571331699874613,
+      "actual_growth_rate": 0.12093361791575213,
+      "equal_transport_growth_rate": -0.038582090584351095
+    },
+    {
+      "wavenumber": 0.3713738506683411,
+      "actual_growth_rate": 0.13009046551137854,
+      "equal_transport_growth_rate": -0.04172035743046995
+    },
+    {
+      "wavenumber": 0.3861823783130355,
+      "actual_growth_rate": 0.13983433068610773,
+      "equal_transport_growth_rate": -0.04511389086915249
+    },
+    {
+      "wavenumber": 0.4015813958121152,
+      "actual_growth_rate": 0.15018003133402785,
+      "equal_transport_growth_rate": -0.048783454282378035
+    },
+    {
+      "wavenumber": 0.41759444894112907,
+      "actual_growth_rate": 0.1611380899276546,
+      "equal_transport_growth_rate": -0.05275149994539967
+    },
+    {
+      "wavenumber": 0.4342460223631314,
+      "actual_growth_rate": 0.1727139296689596,
+      "equal_transport_growth_rate": -0.057042306401305864
+    },
+    {
+      "wavenumber": 0.45156157706680866,
+      "actual_growth_rate": 0.1849071140215122,
+      "equal_transport_growth_rate": -0.06168212700962665
+    },
+    {
+      "wavenumber": 0.469567589297453,
+      "actual_growth_rate": 0.19771067793550734,
+      "equal_transport_growth_rate": -0.06669935057788298
+    },
+    {
+      "wavenumber": 0.4882915910403052,
+      "actual_growth_rate": 0.21111060077597016,
+      "equal_transport_growth_rate": -0.07212467505890345
+    },
+    {
+      "wavenumber": 0.5077622121181736,
+      "actual_growth_rate": 0.22508546720414382,
+      "equal_transport_growth_rate": -0.07799129537668024
+    },
+    {
+      "wavenumber": 0.5280092239676917,
+      "actual_growth_rate": 0.23960635237796338,
+      "equal_transport_growth_rate": -0.0843351065299766
+    },
+    {
+      "wavenumber": 0.5490635851611566,
+      "actual_growth_rate": 0.2546369522172505,
+      "equal_transport_growth_rate": -0.09119492321638177
+    },
+    {
+      "wavenumber": 0.5709574887435476,
+      "actual_growth_rate": 0.27013395971800874,
+      "equal_transport_growth_rate": -0.0986127173205823
+    },
+    {
+      "wavenumber": 0.5937244114571097,
+      "actual_growth_rate": 0.2860476670362271,
+      "equal_transport_growth_rate": -0.10663387471992761
+    },
+    {
+      "wavenumber": 0.6173991649287652,
+      "actual_growth_rate": 0.3023227534788524,
+      "equal_transport_growth_rate": -0.11530747297855783
+    },
+    {
+      "wavenumber": 0.6420179488986251,
+      "actual_growth_rate": 0.3188992046553792,
+      "equal_transport_growth_rate": -0.12468658162916922
+    },
+    {
+      "wavenumber": 0.6676184065709821,
+      "actual_growth_rate": 0.335713299999368,
+      "equal_transport_growth_rate": -0.13482858687969407
+    },
+    {
+      "wavenumber": 0.694239682172431,
+      "actual_growth_rate": 0.3526986054580779,
+      "equal_transport_growth_rate": -0.1457955427316206
+    },
+    {
+      "wavenumber": 0.7219224808051097,
+      "actual_growth_rate": 0.3697869147242987,
+      "equal_transport_growth_rate": -0.1576545506582706
+    },
+    {
+      "wavenumber": 0.7507091306865957,
+      "actual_growth_rate": 0.3869090941558926,
+      "equal_transport_growth_rate": -0.17047817016610778
+    },
+    {
+      "wavenumber": 0.7806436478716111,
+      "actual_growth_rate": 0.40399580110006206,
+      "equal_transport_growth_rate": -0.18434486275109446
+    },
+    {
+      "wavenumber": 0.8117718035545101,
+      "actual_growth_rate": 0.4209780603044698,
+      "equal_transport_growth_rate": -0.19933947196645796
+    },
+    {
+      "wavenumber": 0.8441411940554472,
+      "actual_growth_rate": 0.4377876965061217,
+      "equal_transport_growth_rate": -0.2155537425391602
+    },
+    {
+      "wavenumber": 0.8778013135972484,
+      "actual_growth_rate": 0.4543576318974343,
+      "equal_transport_growth_rate": -0.23308688171129907
+    },
+    {
+      "wavenumber": 0.9128036299842537,
+      "actual_growth_rate": 0.47062206446711286,
+      "equal_transport_growth_rate": -0.2520461662410101
+    },
+    {
+      "wavenumber": 0.9492016632988581,
+      "actual_growth_rate": 0.48651654729436034,
+      "equal_transport_growth_rate": -0.2725475987768189
+    },
+    {
+      "wavenumber": 0.9870510677360702,
+      "actual_growth_rate": 0.5019779902284406,
+      "equal_transport_growth_rate": -0.2947166176214721
+    },
+    {
+      "wavenumber": 1.0264097167012294,
+      "actual_growth_rate": 0.5169446046907352,
+      "equal_transport_growth_rate": -0.31868886422795617
+    },
+    {
+      "wavenumber": 1.0673377913009865,
+      "actual_growth_rate": 0.5313558102960346,
+      "equal_transport_growth_rate": -0.3446110131236285
+    },
+    {
+      "wavenumber": 1.109897872362868,
+      "actual_growth_rate": 0.5451521192250334,
+      "equal_transport_growth_rate": -0.37264166934037535
+    },
+    {
+      "wavenumber": 1.1541550361241129,
+      "actual_growth_rate": 0.5582750112795415,
+      "equal_transport_growth_rate": -0.4029523388417223
+    },
+    {
+      "wavenumber": 1.2001769537361062,
+      "actual_growth_rate": 0.5706668096625415,
+      "equal_transport_growth_rate": -0.43572847788448205
+    },
+    {
+      "wavenumber": 1.248033994736546,
+      "actual_growth_rate": 0.5822705649668865,
+      "equal_transport_growth_rate": -0.4711706277354633
+    },
+    {
+      "wavenumber": 1.2977993346475665,
+      "actual_growth_rate": 0.5930299527486199,
+      "equal_transport_growth_rate": -0.5094956416860288
+    },
+    {
+      "wavenumber": 1.3495490668643284,
+      "actual_growth_rate": 0.6028891884506882,
+      "equal_transport_growth_rate": -0.5509380118719998
+    },
+    {
+      "wavenumber": 1.4033623190051727,
+      "actual_growth_rate": 0.6117929623293425,
+      "equal_transport_growth_rate": -0.5957513040170817
+    },
+    {
+      "wavenumber": 1.4593213739012316,
+      "actual_growth_rate": 0.6196863963888019,
+      "equal_transport_growth_rate": -0.6442097088783059
+    },
+    {
+      "wavenumber": 1.5175117954104964,
+      "actual_growth_rate": 0.6265150251034243,
+      "equal_transport_growth_rate": -0.6966097198860212
+    },
+    {
+      "wavenumber": 1.5780225592487267,
+      "actual_growth_rate": 0.6322248018455209,
+      "equal_transport_growth_rate": -0.7532719472431149
+    },
+    {
+      "wavenumber": 1.6409461890372306,
+      "actual_growth_rate": 0.6367621333803412,
+      "equal_transport_growth_rate": -0.8145430795830324
+    },
+    {
+      "wavenumber": 1.7063788977755607,
+      "actual_growth_rate": 0.6400739454717733,
+      "equal_transport_growth_rate": -0.8807980051890554
+    },
+    {
+      "wavenumber": 1.7744207349554189,
+      "actual_growth_rate": 0.6421077834898947,
+      "equal_transport_growth_rate": -0.9524421057535175
+    },
+    {
+      "wavenumber": 1.8451757395407384,
+      "actual_growth_rate": 0.6428119528411916,
+      "equal_transport_growth_rate": -1.0299137367113875
+    },
+    {
+      "wavenumber": 1.9187520990478335,
+      "actual_growth_rate": 0.6421357049557529,
+      "equal_transport_growth_rate": -1.1136869093241413
+    },
+    {
+      "wavenumber": 1.9952623149688797,
+      "actual_growth_rate": 0.6400294753449367,
+      "equal_transport_growth_rate": -1.2042741909243289
+    },
+    {
+      "wavenumber": 2.074823374791641,
+      "actual_growth_rate": 0.6364451807451063,
+      "equal_transport_growth_rate": -1.3022298410659863
+    },
+    {
+      "wavenumber": 2.157556930878495,
+      "actual_growth_rate": 0.6313365824156115,
+      "equal_transport_growth_rate": -1.4081532027695036
+    },
+    {
+      "wavenumber": 2.243589486478241,
+      "actual_growth_rate": 0.6246597220571439,
+      "equal_transport_growth_rate": -1.325159181402836
+    },
+    {
+      "wavenumber": 2.333052589155144,
+      "actual_growth_rate": 0.6163734353215702,
+      "equal_transport_growth_rate": -1.182952031704843
+    },
+    {
+      "wavenumber": 2.4260830319309434,
+      "actual_growth_rate": 0.606439945229473,
+      "equal_transport_growth_rate": -1.131939310788809
+    },
+    {
+      "wavenumber": 2.522823062447411,
+      "actual_growth_rate": 0.5948255337149619,
+      "equal_transport_growth_rate": -1.1122184873465102
+    },
+    {
+      "wavenumber": 2.623420600469248,
+      "actual_growth_rate": 0.5815012837073954,
+      "equal_transport_growth_rate": -1.1111726133521507
+    },
+    {
+      "wavenumber": 2.7280294640599267,
+      "actual_growth_rate": 0.5664438764191285,
+      "equal_transport_growth_rate": -1.1237948336325263
+    },
+    {
+      "wavenumber": 2.8368096047762683,
+      "actual_growth_rate": 0.5496364187392556,
+      "equal_transport_growth_rate": -1.147644768298837
+    },
+    {
+      "wavenumber": 2.949927352241424,
+      "actual_growth_rate": 0.5310692639464195,
+      "equal_transport_growth_rate": -1.1814316639217788
+    },
+    {
+      "wavenumber": 3.0675556684701806,
+      "actual_growth_rate": 0.5107407757797962,
+      "equal_transport_growth_rate": -1.2244747693143907
+    },
+    {
+      "wavenumber": 3.1898744123355023,
+      "actual_growth_rate": 0.4886579721165741,
+      "equal_transport_growth_rate": -1.276458558493481
+    },
+    {
+      "wavenumber": 3.3170706145806608,
+      "actual_growth_rate": 0.46483697150924574,
+      "equal_transport_growth_rate": -1.3373083342746943
+    },
+    {
+      "wavenumber": 3.4493387637974697,
+      "actual_growth_rate": 0.4393031556346233,
+      "equal_transport_growth_rate": -1.4071219423211536
+    },
+    {
+      "wavenumber": 3.5868811038079085,
+      "actual_growth_rate": 0.41209095580728355,
+      "equal_transport_growth_rate": -1.4861303299897113
+    },
+    {
+      "wavenumber": 3.7299079429038198,
+      "actual_growth_rate": 0.3832431748793908,
+      "equal_transport_growth_rate": -1.5746741199050014
+    },
+    {
+      "wavenumber": 3.878637975417563,
+      "actual_growth_rate": 0.3528097696371868,
+      "equal_transport_growth_rate": -1.6731896612125423
+    },
+    {
+      "wavenumber": 4.033298616115249,
+      "actual_growth_rate": 0.32084604486597973,
+      "equal_transport_growth_rate": -1.7822010122332284
+    },
+    {
+      "wavenumber": 4.194126347923945,
+      "actual_growth_rate": 0.28741024856219854,
+      "equal_transport_growth_rate": -1.902315831870089
+    },
+    {
+      "wavenumber": 4.361367083524464,
+      "actual_growth_rate": 0.25256060593255697,
+      "equal_transport_growth_rate": -2.034223979231607
+    },
+    {
+      "wavenumber": 4.535276541362708,
+      "actual_growth_rate": 0.21635188279613618,
+      "equal_transport_growth_rate": -2.178698086672018
+    },
+    {
+      "wavenumber": 4.716120636654389,
+      "actual_growth_rate": 0.17883161948611032,
+      "equal_transport_growth_rate": -2.3365956466941906
+    },
+    {
+      "wavenumber": 4.904175887981118,
+      "actual_growth_rate": 0.14003621592898918,
+      "equal_transport_growth_rate": -2.508862322082418
+    },
+    {
+      "wavenumber": 5.0997298400994895,
+      "actual_growth_rate": 0.09998706957295318,
+      "equal_transport_growth_rate": -2.696536295962691
+    },
+    {
+      "wavenumber": 5.303081503609659,
+      "actual_growth_rate": 0.05868696525861127,
+      "equal_transport_growth_rate": -2.9007535489806973
+    },
+    {
+      "wavenumber": 5.514541812155732,
+      "actual_growth_rate": 0.01611688920384445,
+      "equal_transport_growth_rate": -3.1227539986343764
+    },
+    {
+      "wavenumber": 5.734434097856969,
+      "actual_growth_rate": -0.027766608097864697,
+      "equal_transport_growth_rate": -3.3638884693973665
+    },
+    {
+      "wavenumber": 5.963094585696837,
+      "actual_growth_rate": -0.07303343537269973,
+      "equal_transport_growth_rate": -3.625626486736248
+    },
+    {
+      "wavenumber": 6.200872907625803,
+      "actual_growth_rate": -0.11978136894869378,
+      "equal_transport_growth_rate": -3.9095649066546336
+    },
+    {
+      "wavenumber": 6.448132637164001,
+      "actual_growth_rate": -0.16813690148525004,
+      "equal_transport_growth_rate": -4.217437407039107
+    },
+    {
+      "wavenumber": 6.705251845321107,
+      "actual_growth_rate": -0.2182556302743948,
+      "equal_transport_growth_rate": -4.551124879178655
+    },
+    {
+      "wavenumber": 6.97262367868358,
+      "actual_growth_rate": -0.27032231131473666,
+      "equal_transport_growth_rate": -4.912666768282612
+    },
+    {
+      "wavenumber": 7.2506569605530835,
+      "actual_growth_rate": -0.32455071541877567,
+      "equal_transport_growth_rate": -5.304273421251175
+    },
+    {
+      "wavenumber": 7.539776816055337,
+      "actual_growth_rate": -0.3811834183199782,
+      "equal_transport_growth_rate": -5.728339508795255
+    },
+    {
+      "wavenumber": 7.8404253221751015,
+      "actual_growth_rate": -0.4404916421859558,
+      "equal_transport_growth_rate": -6.187458597574416
+    },
+    {
+      "wavenumber": 8.153062183711377,
+      "actual_growth_rate": -0.5027752455734291,
+      "equal_transport_growth_rate": -6.684438956560676
+    },
+    {
+      "wavenumber": 8.47816543618626,
+      "actual_growth_rate": -0.5683629366329833,
+      "equal_transport_growth_rate": -7.22232069052383
+    },
+    {
+      "wavenumber": 8.816232176782327,
+      "actual_growth_rate": -0.6376127632616193,
+      "equal_transport_growth_rate": -7.804394302519434
+    },
+    {
+      "wavenumber": 9.16777932442606,
+      "actual_growth_rate": -0.710912915779349,
+      "equal_transport_growth_rate": -8.43422079666508
+    },
+    {
+      "wavenumber": 9.533344410179673,
+      "actual_growth_rate": -0.7886828634595132,
+      "equal_transport_growth_rate": -9.115653442424211
+    },
+    {
+      "wavenumber": 9.913486399149736,
+      "actual_growth_rate": -0.8713748360143712,
+      "equal_transport_growth_rate": -9.852861332174072
+    },
+    {
+      "wavenumber": 10.308786545169482,
+      "actual_growth_rate": -0.9594756545908235,
+      "equal_transport_growth_rate": -10.65035487511097
+    },
+    {
+      "wavenumber": 10.719849279561432,
+      "actual_growth_rate": -1.0535089133820188,
+      "equal_transport_growth_rate": -11.513013382628635
+    },
+    {
+      "wavenumber": 11.147303135339532,
+      "actual_growth_rate": -1.1540375119448052,
+      "equal_transport_growth_rate": -12.446114913286422
+    },
+    {
+      "wavenumber": 11.591801708263777,
+      "actual_growth_rate": -1.2616665390997712,
+      "equal_transport_growth_rate": -13.455368559451841
+    },
+    {
+      "wavenumber": 12.054024656216944,
+      "actual_growth_rate": -1.3770465113365897,
+      "equal_transport_growth_rate": -14.546949372753929
+    },
+    {
+      "wavenumber": 12.534678738431337,
+      "actual_growth_rate": -1.500876971522563,
+      "equal_transport_growth_rate": -15.727536141716087
+    },
+    {
+      "wavenumber": 13.034498896154808,
+      "actual_growth_rate": -1.6339104570956833,
+      "equal_transport_growth_rate": -17.004352252458503
+    },
+    {
+      "wavenumber": 13.554249376408254,
+      "actual_growth_rate": -1.776956850592014,
+      "equal_transport_growth_rate": -18.385209882276143
+    },
+    {
+      "wavenumber": 14.094724900552997,
+      "actual_growth_rate": -1.9308881291670574,
+      "equal_transport_growth_rate": -19.878557796334448
+    },
+    {
+      "wavenumber": 14.656751879454651,
+      "actual_growth_rate": -2.096643533637967,
+      "equal_transport_growth_rate": -21.49353303980243
+    },
+    {
+      "wavenumber": 15.241189677101756,
+      "actual_growth_rate": -2.2752351814600784,
+      "equal_transport_growth_rate": -23.240016841605197
+    },
+    {
+      "wavenumber": 15.848931924611133,
+      "actual_growth_rate": -2.4677541519492947,
+      "equal_transport_growth_rate": -25.128695071765762
+    }
+  ],
+  "status": "UNEQUAL_TRANSPORT_DESTABILIZATION_DETECTED"
+}

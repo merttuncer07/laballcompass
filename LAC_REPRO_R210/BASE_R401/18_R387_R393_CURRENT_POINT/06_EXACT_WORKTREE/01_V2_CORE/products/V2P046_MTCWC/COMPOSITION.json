@@ -1,0 +1,12 @@
+{
+  "consumer_id": "PARENT:IM340_IM280_CWC",
+  "diversified_selected_rank": 35,
+  "operator": "calibration-violation tipping surface -> controller state reset",
+  "r386_external_prior_art_status": "VERY_CLOSE_PRIOR_ART",
+  "r386_family_id": "V2P046",
+  "r386_quality_verdict": "DISTINCT_PRODUCT",
+  "rank_semantics_correction": "R386: historical field was diversity-selected rank, not raw native edge rank.",
+  "raw_native_rank": 78,
+  "status": "SHADOW_RETRO_SWEEP",
+  "supplier_id": "FOUNDRY:P037"
+}

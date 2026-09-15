@@ -1,0 +1,14 @@
+{
+  "evidence_boundary": "deterministic synthetic mechanism benchmark only",
+  "model_version": "V2P028_SCFIAC_V1",
+  "result": {
+    "blocked_support": [
+      "clean_unsupported"
+    ],
+    "blocked_suspect": [
+      "suspect_supported"
+    ],
+    "choice": "safe_supported",
+    "status": "SUPPORT_AND_FIREWALL_GATED_ACQUISITION"
+  }
+}

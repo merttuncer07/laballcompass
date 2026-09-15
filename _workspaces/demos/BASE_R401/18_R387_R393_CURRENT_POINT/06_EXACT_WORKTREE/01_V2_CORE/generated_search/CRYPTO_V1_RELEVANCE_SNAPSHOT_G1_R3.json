@@ -1,0 +1,33 @@
+{
+  "document_offsets": {
+    "LCB-K011": 0.5333333333333333
+  },
+  "fingerprint": "b2d7b39db26df528e24bb398fba0dd8455fa0511d7a016e2349e42f42c799da8",
+  "included_event_ids": [
+    "k011_development_pass_g0"
+  ],
+  "model_version": "LAB_RELEVANCE_R1_2026-08-26",
+  "problem_shell": "crypto_algo_v1",
+  "quarantined_events": [
+    {
+      "event_id": "protected_validation_k071",
+      "reason": "PROTECTED_VALIDATION_NEVER_TRAINS"
+    },
+    {
+      "event_id": "same_generation_k069",
+      "reason": "SAME_OR_FUTURE_GENERATION_QUARANTINE"
+    },
+    {
+      "event_id": "unrelated_shell_p137",
+      "reason": "OUT_OF_SCOPE_SHELL"
+    }
+  ],
+  "shell_tags": [
+    "algorithmic_trading",
+    "crypto",
+    "memory_selection"
+  ],
+  "snapshot_version": 1,
+  "supplier_offsets_by_consumer": {},
+  "target_generation": 1
+}

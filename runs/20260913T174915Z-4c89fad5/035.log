@@ -1,0 +1,11 @@
+test_budget_gate (test_bats.T.test_budget_gate) ... ok
+test_cheapest (test_bats.T.test_cheapest) ... ok
+test_comparator_would_spend (test_bats.T.test_comparator_would_spend) ... ok
+test_crossed_buys (test_bats.T.test_crossed_buys) ... ok
+test_invariant_skips (test_bats.T.test_invariant_skips) ... ok
+test_negative_budget (test_bats.T.test_negative_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

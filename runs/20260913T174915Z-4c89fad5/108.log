@@ -1,0 +1,8 @@
+test_coarse_signal_can_beat_high_correlation_signal (test_dttc.DecisionTargetedTriggerDesignerTests.test_coarse_signal_can_beat_high_correlation_signal) ... ok
+test_config_interface (test_dttc.DecisionTargetedTriggerDesignerTests.test_config_interface) ... ok
+test_manipulation_cost_changes_channel_choice (test_dttc.DecisionTargetedTriggerDesignerTests.test_manipulation_cost_changes_channel_choice) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.006s
+
+OK

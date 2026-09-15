@@ -1,0 +1,12 @@
+{
+  "old_31_node_value": {
+    "name": "measure",
+    "expected_decision_improvement": 0.3883595356446188,
+    "cost": 0.393,
+    "net_value": -0.004640464355381235
+  },
+  "old_choice": null,
+  "closed_form_value": 0.3989422804014327,
+  "old_engine_sha256": "a0ba224f13a295518e35dba00c58e284cc2ca16ba61fe309425a2681ffc5ca85",
+  "finite_joint_cli": "examples/information-selection/result.json"
+}

@@ -1,0 +1,992 @@
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/correlated.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/correlated.py
+@@ -0,0 +1,157 @@
++"""Normal evidence with an explicit joint covariance; no covariance inference.
++
++The conditional history likelihood is tempered after conditioning on the
++current estimate. This leaves current information counted once even when its
++sampling error is correlated with history. Full powers and an inactive cap
++reduce to ordinary generalized least squares (GLS).
++"""
++from dataclasses import asdict, dataclass
++import math
++import numpy as np
++
++
++def _covariance(value, size, positive_definite=False):
++    matrix = np.asarray(value, dtype=float)
++    if matrix.shape != (size,size) or not np.all(np.isfinite(matrix)):
++        raise ValueError('Covariance must be a finite square matrix aligned with the named observations')
++    diagonal = np.diag(matrix)
++    if np.any(diagonal <= 0):
++        raise ValueError('Covariance diagonal must be positive')
++    scale = np.sqrt(diagonal)
++    corr = matrix / scale[:,None] / scale[None,:]
++    if not np.allclose(corr,corr.T,rtol=1e-10,atol=1e-12):
++        raise ValueError('Covariance must be symmetric')
++    eig = np.linalg.eigvalsh((corr+corr.T)/2)
++    if eig[0] < -1e-10:
++        raise ValueError('Covariance is not positive semidefinite; it was not repaired automatically')
++    if positive_definite and eig[0] <= 1e-10:
++        raise ValueError('Singular or ill-conditioned covariance after declared aliases are removed; supply an independent observation basis')
++    return (matrix+matrix.T)/2
++
++
++def source_covariance(loadings, covariance):
++    """Propagate caller-supplied linear source loadings: A Sigma A.T.
++
++    This is exact for linear errors, or a delta-method approximation if the
++    caller supplies local derivatives. Source identities and error covariance
++    are given, not inferred from a matching workbook value.
++    """
++    a = np.asarray(loadings,dtype=float)
++    if a.ndim != 2 or min(a.shape)<1 or max(a.shape)>2000 or not np.all(np.isfinite(a)):
++        raise ValueError('Loadings must be a finite nonempty matrix with at most 2000 rows/columns')
++    sigma = _covariance(covariance,a.shape[1])
++    return a@sigma@a.T
++
++
++@dataclass(frozen=True)
++class CorrelatedBorrowingResult:
++    current_estimate: float
++    current_standard_error: float
++    posterior_estimate: float
++    posterior_standard_error: float
++    confidence_low: float
++    confidence_high: float
++    current_precision: float
++    borrowed_precision: float
++    borrowing_precision_ratio: float
++    cap_scale: float
++    current_information_share: float
++    retained_names: tuple[str,...]
++    linear_weights: tuple[float,...]
++    conditional_powers: tuple[float,...]
++    alias_mapping: tuple[tuple[str,str],...]
++    conflict_z: tuple[float,...]
++    interval_semantics: str = 'Conditional normal model interval with powers held fixed; adaptive weighting and estimated covariance are not calibrated confidence or a full Bayesian posterior'
++    dependency_model: str = 'Caller-supplied joint sampling covariance; all estimates must concern the same scalar quantity. Distinct names do not establish independence. Weights can be negative.'
++
++    def to_dict(self):
++        return asdict(self)
++
++
++def borrow_correlated_evidence(current_estimate, current_standard_error, historical, *,
++                              covariance, covariance_names, current_name='current',
++                              compatibility_scale=1.5, borrowing_cap_ratio=2.0,
++                              confidence_z=1.96, current_observation_id=None,
++                              adaptive=True):
++    # Import here so the existing EBC module can expose this method too.
++    if __package__:
++        from .ebc import coalesce_history
++    else:
++        from ebc import coalesce_history
++    records=tuple(historical)
++    numbers=[current_estimate,current_standard_error,compatibility_scale,borrowing_cap_ratio,confidence_z]
++    if not all(math.isfinite(v) for v in numbers) or min(current_standard_error,compatibility_scale,confidence_z)<=0 or borrowing_cap_ratio<0:
++        raise ValueError('Finite inputs, positive SE/scale/z, and a nonnegative borrowing cap are required')
++    if type(adaptive) is not bool:
++        raise ValueError('adaptive must be a boolean')
++    if not isinstance(current_name,str) or not current_name or current_name in {r.name for r in records}:
++        raise ValueError('Current name must be nonempty and distinct from historical names')
++    if current_observation_id is not None and (not isinstance(current_observation_id,str) or not current_observation_id.strip()):
++        raise ValueError('current_observation_id must be a nonempty string or None')
++    unique,aliases=coalesce_history(records)
++    names=[current_name]+[r.name for r in records]
++    if len(names)>501:
++        raise ValueError('Joint covariance limit: current plus 500 historical records')
++    if covariance_names is None or list(covariance_names)!=names:
++        raise ValueError('covariance_names must exactly match current name followed by historical input names in order')
++    joint=_covariance(covariance,len(names))
++    se=np.array([current_standard_error]+[r.standard_error for r in records])
++    if not np.allclose(np.diag(joint)/(se*se),1,rtol=1e-8,atol=1e-10):
++        raise ValueError('Covariance diagonal does not match declared standard errors')
++    positions={name:i for i,name in enumerate(names)}
++    for record in records:
++        if current_observation_id is not None and record.observation_id==current_observation_id:
++            if (record.estimate,record.standard_error)!=(current_estimate,current_standard_error):
++                raise ValueError('Current observation identity conflicts with historical estimate/SE')
++            aliases[record.name]=current_name
++        i=positions[record.name];j=positions[aliases[record.name]]
++        if i!=j and not np.allclose((joint[i]-joint[j])/(se[i]*se),0,rtol=0,atol=1e-9):
++            raise ValueError('Declared aliases require identical covariance rows')
++    retained=[r for r in unique if aliases[r.name]!=current_name and r.maximum_power>0]
++    idx=[0]+[positions[r.name] for r in retained]
++    reduced=joint[np.ix_(idx,idx)]
++    _covariance(reduced,len(idx),positive_definite=True)
++    variance=current_standard_error**2
++    powers=[];conflicts=[]
++    for i,record in enumerate(retained,1):
++        difference_variance=variance+reduced[i,i]-2*reduced[i,0]
++        z=abs(record.estimate-current_estimate)/math.sqrt(difference_variance)
++        conflicts.append(z)
++        factor=math.exp(-.5*(z/compatibility_scale)**2) if adaptive else 1.
++        powers.append(record.maximum_power*factor)
++    powers=np.asarray(powers)
++    # Zero-powered rows contain no conditional likelihood, even if correlated.
++    active=np.flatnonzero(powers>0)
++    retained=[retained[i] for i in active]
++    conflicts=[conflicts[i] for i in active]
++    powers=powers[active]
++    indices=np.r_[0,active+1]
++    reduced=reduced[np.ix_(indices,indices)]
++    current_precision=1/variance
++    if retained:
++        gamma=reduced[1:,0]/variance
++        conditional=reduced[1:,1:]-np.outer(reduced[1:,0],reduced[0,1:])/variance
++        _covariance(conditional,len(retained),positive_definite=True)
++        a=1-gamma
++        # P = sqrt(D) inv(S) sqrt(D), without explicitly inverting S.
++        root_power=np.sqrt(powers)
++        precision_a=root_power*np.linalg.solve(conditional,root_power*a)
++        information=float(a@precision_a)
++        if information<0 or not math.isfinite(information):
++            raise ValueError('Conditional information is numerically invalid')
++        cap_scale=min(1.,borrowing_cap_ratio*current_precision/information) if information else 1.
++        history_weights=cap_scale*precision_a
++        current_weight=current_precision-float(history_weights@gamma)
++        borrowed=cap_scale*information
++    else:
++        history_weights=np.array([]);current_weight=current_precision;borrowed=0.;cap_scale=1.
++    total=current_precision+borrowed
++    weights=np.r_[current_weight,history_weights]/total
++    values=np.array([current_estimate]+[r.estimate for r in retained])
++    estimate=float(weights@values);posterior_se=math.sqrt(1/total)
++    return CorrelatedBorrowingResult(
++        current_estimate,current_standard_error,estimate,posterior_se,
++        estimate-confidence_z*posterior_se,estimate+confidence_z*posterior_se,
++        current_precision,borrowed,borrowed/current_precision,cap_scale,current_precision/total,
++        tuple([current_name]+[r.name for r in retained]),tuple(float(w) for w in weights),
++        tuple(float(p) for p in powers),tuple(sorted(aliases.items())),tuple(conflicts))
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py
+@@ -188,6 +188,26 @@
+             'interpretation':'The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.'}
+ 
+ 
++if __package__:
++    from .correlated import CorrelatedBorrowingResult, borrow_correlated_evidence, source_covariance
++else:
++    from correlated import CorrelatedBorrowingResult, borrow_correlated_evidence, source_covariance
++
++
++def review_covariance(config):
++    """Same inputs/policies; remove only cross-observation covariance for baseline."""
++    arguments=dict(config)
++    history=[HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    joint=borrow_correlated_evidence(historical=history,**arguments)
++    matrix=np.asarray(arguments['covariance'],dtype=float)
++    independent_args={**arguments,'covariance':np.diag(np.diag(matrix)), 'current_observation_id':None}
++    independent=borrow_correlated_evidence(historical=[replace(h,observation_id=None) for h in history],**independent_args)
++    return {'joint_covariance':joint.to_dict(),'diagonal_assumption':independent.to_dict(),
++            'estimate_shift_if_covariance_ignored':independent.posterior_estimate-joint.posterior_estimate,
++            'se_change_if_covariance_ignored':independent.posterior_standard_error-joint.posterior_standard_error,
++            'interpretation':'Common scalar estimand and caller-supplied joint covariance. Differences isolate the diagonal-covariance assumption; they are not an audit opinion or calibrated fraud probability.'}
++
++
+ def main(argv=None):
+     import argparse, hashlib, json
+     from pathlib import Path
+@@ -197,13 +217,15 @@
+     try:
+         raw=Path(args.input_json).read_bytes();config=json.loads(raw)
+         if args.review:
+-            result=review_identity(config)
++            result=review_covariance(config) if 'covariance' in config else review_identity(config)
+         else:
+             config=dict(config)
+             history=[HistoricalEstimate(**r) for r in config.pop('historical')]
+-            result=borrow_evidence(historical=history,**config).to_dict()
++            function=borrow_correlated_evidence if 'covariance' in config else borrow_evidence
++            result=function(historical=history,**config).to_dict()
+         result['mechanism']={'engine':'R026 EBC','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                              'input_sha256':hashlib.sha256(raw).hexdigest()}
++        result['mechanism']['correlated_source_sha256']=hashlib.sha256(Path(__file__).with_name('correlated.py').read_bytes()).hexdigest()
+         text=json.dumps(result,indent=2,allow_nan=False)+'\n'
+         if args.output:
+             with Path(args.output).open('x') as f:f.write(text)
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/test_correlated.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/test_correlated.py
+@@ -0,0 +1,103 @@
++import unittest
++import numpy as np
++from ebc import HistoricalEstimate, borrow_evidence, borrow_correlated_evidence, source_covariance, review_covariance
++
++
++class CorrelatedEvidenceTests(unittest.TestCase):
++    def test_diagonal_joint_model_matches_existing_ebc(self):
++        history=[HistoricalEstimate('a',1,.6,.8),HistoricalEstimate('b',-.4,1.3)]
++        kwargs=dict(compatibility_scale=1.2,borrowing_cap_ratio=.8)
++        old=borrow_evidence(.1,.9,history,**kwargs)
++        new=borrow_correlated_evidence(.1,.9,history,covariance=np.diag([.9**2,.6**2,1.3**2]),covariance_names=['current','a','b'],**kwargs)
++        self.assertAlmostEqual(old.posterior_estimate,new.posterior_estimate)
++        self.assertAlmostEqual(old.posterior_standard_error,new.posterior_standard_error)
++        self.assertAlmostEqual(old.borrowed_precision,new.borrowed_precision)
++
++    def test_unit_powers_match_separate_whitened_least_squares_reference(self):
++        rng=np.random.default_rng(921)
++        for _ in range(10):
++            a=rng.normal(size=(5,5));cov=a@a.T+np.eye(5);values=rng.normal(size=5)
++            history=[HistoricalEstimate(str(i),values[i],np.sqrt(cov[i,i])) for i in range(1,5)]
++            result=borrow_correlated_evidence(values[0],np.sqrt(cov[0,0]),history,covariance=cov,covariance_names=['current','1','2','3','4'],adaptive=False,borrowing_cap_ratio=1e6)
++            root=np.linalg.cholesky(cov);design=np.linalg.solve(root,np.ones((5,1)));target=np.linalg.solve(root,values)
++            estimate=np.linalg.lstsq(design,target,rcond=None)[0][0]
++            self.assertAlmostEqual(result.posterior_estimate,estimate)
++            self.assertAlmostEqual(result.posterior_standard_error,1/np.linalg.norm(design))
++            self.assertAlmostEqual(sum(result.linear_weights),1)
++
++    def test_shared_noise_does_not_look_like_three_independent_measurements(self):
++        cov=.8*np.ones((3,3))+.2*np.eye(3)
++        result=borrow_correlated_evidence(1,1,[HistoricalEstimate('a',1,1),HistoricalEstimate('b',1,1)],covariance=cov,covariance_names=['current','a','b'])
++        self.assertAlmostEqual(result.posterior_standard_error,np.sqrt((1+2*.8)/3))
++        self.assertGreater(result.posterior_standard_error,1/np.sqrt(3))
++
++    def test_exact_alias_invariance_with_partial_cross_source_covariance(self):
++        base=np.array([[1,.3,.2],[.3,1,.4],[.2,.4,1]])
++        history=[HistoricalEstimate('a',.4,1,observation_id='A'),HistoricalEstimate('b',.8,1,observation_id='B')]
++        original=borrow_correlated_evidence(0,1,history,covariance=base,covariance_names=['current','a','b'])
++        expanded=base[np.ix_([0,1,2,1],[0,1,2,1])]
++        copied=borrow_correlated_evidence(0,1,history+[HistoricalEstimate('a_copy',.4,1,observation_id='A')],covariance=expanded,covariance_names=['current','a','b','a_copy'])
++        self.assertEqual(original.posterior_estimate,copied.posterior_estimate)
++        self.assertEqual(original.posterior_standard_error,copied.posterior_standard_error)
++
++    def test_current_alias_is_removed_before_conditional_solve(self):
++        result=borrow_correlated_evidence(1,1,[HistoricalEstimate('copy',1,1,observation_id='C')],covariance=np.ones((2,2)),covariance_names=['current','copy'],current_observation_id='C')
++        self.assertEqual(result.posterior_estimate,1)
++        self.assertEqual(result.posterior_standard_error,1)
++        self.assertEqual(result.retained_names,('current',))
++
++    def test_invalid_covariance_and_identity_are_explained(self):
++        h=[HistoricalEstimate('a',0,1)]
++        for cov in ([[1,2],[2,1]],[[1,.2],[.1,1]],[[1,0],[0,2]],[[1,1],[1,1]]):
++            with self.assertRaises(ValueError):borrow_correlated_evidence(0,1,h,covariance=cov,covariance_names=['current','a'])
++        with self.assertRaisesRegex(ValueError,'order'):
++            borrow_correlated_evidence(0,1,h,covariance=np.eye(2),covariance_names=['a','current'])
++        with self.assertRaisesRegex(ValueError,'identical covariance rows'):
++            borrow_correlated_evidence(0,1,[HistoricalEstimate('copy',0,1,observation_id='C')],covariance=np.eye(2),covariance_names=['current','copy'],current_observation_id='C')
++
++    def test_negative_linear_weights_are_retained_not_clipped(self):
++        result=borrow_correlated_evidence(1,1,[HistoricalEstimate('a',2,2)],covariance=[[1,1.8],[1.8,4]],covariance_names=['current','a'],adaptive=False,borrowing_cap_ratio=1e6)
++        self.assertLess(result.linear_weights[1],0)
++        self.assertAlmostEqual(sum(result.linear_weights),1)
++
++    def test_zero_cap_or_zero_power_returns_current_only(self):
++        for power,cap in [(0,2),(1,0)]:
++            result=borrow_correlated_evidence(1,1,[HistoricalEstimate('a',2,1,power)],covariance=[[1,.5],[.5,1]],covariance_names=['current','a'],borrowing_cap_ratio=cap)
++            self.assertEqual(result.posterior_estimate,1)
++            self.assertEqual(result.posterior_standard_error,1)
++
++    def test_adaptive_conditional_likelihood_matches_scalar_closed_form(self):
++        # Current variance 1, history variance 4, covariance .6.
++        # Given current x, history has mean .6*x + .4*mu and variance 3.64.
++        p=.7*np.exp(-.5*(1/np.sqrt(3.8)/1.5)**2)
++        info=.4**2*p/3.64
++        numerator=.4*p/3.64
++        result=borrow_correlated_evidence(0,1,[HistoricalEstimate('a',1,2,.7)],covariance=[[1,.6],[.6,4]],covariance_names=['current','a'],borrowing_cap_ratio=10)
++        self.assertAlmostEqual(result.posterior_estimate,numerator/(1+info))
++        self.assertAlmostEqual(result.posterior_standard_error,np.sqrt(1/(1+info)))
++        capped=borrow_correlated_evidence(0,1,[HistoricalEstimate('a',1,2,.7)],covariance=[[1,.6],[.6,4]],covariance_names=['current','a'],borrowing_cap_ratio=.01)
++        self.assertLessEqual(capped.borrowing_precision_ratio,.01+1e-14)
++
++    def test_joint_gls_does_not_depend_on_which_observation_is_current(self):
++        cov=np.array([[1,.2,.4],[.2,2,.3],[.4,.3,3.]])
++        values=np.array([.1,.7,1.4]);results=[]
++        for order in ([0,1,2],[1,2,0],[2,0,1]):
++            c=cov[np.ix_(order,order)];y=values[order]
++            result=borrow_correlated_evidence(y[0],np.sqrt(c[0,0]),[HistoricalEstimate('a',y[1],np.sqrt(c[1,1])),HistoricalEstimate('b',y[2],np.sqrt(c[2,2]))],covariance=c,covariance_names=['current','a','b'],adaptive=False,borrowing_cap_ratio=100)
++            results.append(result.posterior_estimate)
++        self.assertTrue(np.allclose(results,results[0]))
++
++    def test_linear_source_propagation_preserves_shared_noise_cancellation(self):
++        source=np.diag([.2,.3,.4]);a=np.array([[1,0,-1],[0,1,-1]])
++        cov=source_covariance(a,source)
++        self.assertTrue(np.allclose(cov,[[.6,.4],[.4,.7]]))
++        contrast=np.array([1,-1])
++        self.assertAlmostEqual(contrast@cov@contrast,.2+.3)
++
++    def test_covariance_review_uses_same_policy_and_marginal_variances(self):
++        result=review_covariance({'current_estimate':1,'current_standard_error':1,'historical':[{'name':'a','estimate':1,'standard_error':1}],'covariance':[[1,.8],[.8,1]],'covariance_names':['current','a']})
++        self.assertLess(result['se_change_if_covariance_ignored'],0)
++        self.assertEqual(result['estimate_shift_if_covariance_ignored'],0)
++
++
++if __name__=='__main__':unittest.main()
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
+@@ -13,9 +13,9 @@
+ import numpy as np
+ 
+ if __package__:
+-    from .parents.ebc import BorrowingResult, HistoricalEstimate, borrow_evidence
++    from .parents.ebc import BorrowingResult, CorrelatedBorrowingResult, HistoricalEstimate, borrow_evidence, borrow_correlated_evidence
+ else:
+-    from parents.ebc import BorrowingResult, HistoricalEstimate, borrow_evidence
++    from parents.ebc import BorrowingResult, CorrelatedBorrowingResult, HistoricalEstimate, borrow_evidence, borrow_correlated_evidence
+ if __package__:
+     from .parents.mbpf import BurnoutForecast, forecast_burnout_prepayment
+ else:
+@@ -32,7 +32,7 @@
+ 
+ @dataclass(frozen=True)
+ class BorrowedDefaultEffect:
+-    borrowing: BorrowingResult
++    borrowing: BorrowingResult | CorrelatedBorrowingResult
+     posterior_log_multiplier: float
+     posterior_default_multiplier: float
+     status: str
+@@ -74,12 +74,19 @@
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
+     current_observation_id: str | None = None,
++    covariance=None,
++    covariance_names=None,
+ ) -> BorrowedDefaultEffect:
+     """Use EBC on a normal-scale log default-rate multiplier, then exponentiate."""
+-    borrowing = borrow_evidence(
++    if covariance is None and covariance_names is not None:
++        raise ValueError('covariance_names requires covariance')
++    covariance_args = {} if covariance is None else dict(covariance=covariance,covariance_names=covariance_names)
++    combine = borrow_evidence if covariance is None else borrow_correlated_evidence
++    borrowing = combine(
+         current_log_multiplier, current_standard_error, historical,
+         compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio,
+         current_observation_id=current_observation_id,
++        **covariance_args,
+     )
+     multiplier = float(math.exp(borrowing.posterior_estimate))
+     return BorrowedDefaultEffect(
+@@ -268,11 +275,14 @@
+     borrowing_cap_ratio: float = 2.0,
+     sensitivity_grids: Mapping[str, Sequence[float]] | None = None,
+     current_observation_id: str | None = None,
++    covariance=None,
++    covariance_names=None,
+ ) -> BAMIWorkbenchResult:
+     effect = borrow_default_multiplier(
+         current_log_default_multiplier, current_standard_error, historical_effects,
+         compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio,
+         current_observation_id=current_observation_id,
++        covariance=covariance, covariance_names=covariance_names,
+     )
+     intervention = replace(
+         intervention_template,
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/correlated.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/correlated.py
+@@ -0,0 +1,157 @@
++"""Normal evidence with an explicit joint covariance; no covariance inference.
++
++The conditional history likelihood is tempered after conditioning on the
++current estimate. This leaves current information counted once even when its
++sampling error is correlated with history. Full powers and an inactive cap
++reduce to ordinary generalized least squares (GLS).
++"""
++from dataclasses import asdict, dataclass
++import math
++import numpy as np
++
++
++def _covariance(value, size, positive_definite=False):
++    matrix = np.asarray(value, dtype=float)
++    if matrix.shape != (size,size) or not np.all(np.isfinite(matrix)):
++        raise ValueError('Covariance must be a finite square matrix aligned with the named observations')
++    diagonal = np.diag(matrix)
++    if np.any(diagonal <= 0):
++        raise ValueError('Covariance diagonal must be positive')
++    scale = np.sqrt(diagonal)
++    corr = matrix / scale[:,None] / scale[None,:]
++    if not np.allclose(corr,corr.T,rtol=1e-10,atol=1e-12):
++        raise ValueError('Covariance must be symmetric')
++    eig = np.linalg.eigvalsh((corr+corr.T)/2)
++    if eig[0] < -1e-10:
++        raise ValueError('Covariance is not positive semidefinite; it was not repaired automatically')
++    if positive_definite and eig[0] <= 1e-10:
++        raise ValueError('Singular or ill-conditioned covariance after declared aliases are removed; supply an independent observation basis')
++    return (matrix+matrix.T)/2
++
++
++def source_covariance(loadings, covariance):
++    """Propagate caller-supplied linear source loadings: A Sigma A.T.
++
++    This is exact for linear errors, or a delta-method approximation if the
++    caller supplies local derivatives. Source identities and error covariance
++    are given, not inferred from a matching workbook value.
++    """
++    a = np.asarray(loadings,dtype=float)
++    if a.ndim != 2 or min(a.shape)<1 or max(a.shape)>2000 or not np.all(np.isfinite(a)):
++        raise ValueError('Loadings must be a finite nonempty matrix with at most 2000 rows/columns')
++    sigma = _covariance(covariance,a.shape[1])
++    return a@sigma@a.T
++
++
++@dataclass(frozen=True)
++class CorrelatedBorrowingResult:
++    current_estimate: float
++    current_standard_error: float
++    posterior_estimate: float
++    posterior_standard_error: float
++    confidence_low: float
++    confidence_high: float
++    current_precision: float
++    borrowed_precision: float
++    borrowing_precision_ratio: float
++    cap_scale: float
++    current_information_share: float
++    retained_names: tuple[str,...]
++    linear_weights: tuple[float,...]
++    conditional_powers: tuple[float,...]
++    alias_mapping: tuple[tuple[str,str],...]
++    conflict_z: tuple[float,...]
++    interval_semantics: str = 'Conditional normal model interval with powers held fixed; adaptive weighting and estimated covariance are not calibrated confidence or a full Bayesian posterior'
++    dependency_model: str = 'Caller-supplied joint sampling covariance; all estimates must concern the same scalar quantity. Distinct names do not establish independence. Weights can be negative.'
++
++    def to_dict(self):
++        return asdict(self)
++
++
++def borrow_correlated_evidence(current_estimate, current_standard_error, historical, *,
++                              covariance, covariance_names, current_name='current',
++                              compatibility_scale=1.5, borrowing_cap_ratio=2.0,
++                              confidence_z=1.96, current_observation_id=None,
++                              adaptive=True):
++    # Import here so the existing EBC module can expose this method too.
++    if __package__:
++        from .ebc import coalesce_history
++    else:
++        from ebc import coalesce_history
++    records=tuple(historical)
++    numbers=[current_estimate,current_standard_error,compatibility_scale,borrowing_cap_ratio,confidence_z]
++    if not all(math.isfinite(v) for v in numbers) or min(current_standard_error,compatibility_scale,confidence_z)<=0 or borrowing_cap_ratio<0:
++        raise ValueError('Finite inputs, positive SE/scale/z, and a nonnegative borrowing cap are required')
++    if type(adaptive) is not bool:
++        raise ValueError('adaptive must be a boolean')
++    if not isinstance(current_name,str) or not current_name or current_name in {r.name for r in records}:
++        raise ValueError('Current name must be nonempty and distinct from historical names')
++    if current_observation_id is not None and (not isinstance(current_observation_id,str) or not current_observation_id.strip()):
++        raise ValueError('current_observation_id must be a nonempty string or None')
++    unique,aliases=coalesce_history(records)
++    names=[current_name]+[r.name for r in records]
++    if len(names)>501:
++        raise ValueError('Joint covariance limit: current plus 500 historical records')
++    if covariance_names is None or list(covariance_names)!=names:
++        raise ValueError('covariance_names must exactly match current name followed by historical input names in order')
++    joint=_covariance(covariance,len(names))
++    se=np.array([current_standard_error]+[r.standard_error for r in records])
++    if not np.allclose(np.diag(joint)/(se*se),1,rtol=1e-8,atol=1e-10):
++        raise ValueError('Covariance diagonal does not match declared standard errors')
++    positions={name:i for i,name in enumerate(names)}
++    for record in records:
++        if current_observation_id is not None and record.observation_id==current_observation_id:
++            if (record.estimate,record.standard_error)!=(current_estimate,current_standard_error):
++                raise ValueError('Current observation identity conflicts with historical estimate/SE')
++            aliases[record.name]=current_name
++        i=positions[record.name];j=positions[aliases[record.name]]
++        if i!=j and not np.allclose((joint[i]-joint[j])/(se[i]*se),0,rtol=0,atol=1e-9):
++            raise ValueError('Declared aliases require identical covariance rows')
++    retained=[r for r in unique if aliases[r.name]!=current_name and r.maximum_power>0]
++    idx=[0]+[positions[r.name] for r in retained]
++    reduced=joint[np.ix_(idx,idx)]
++    _covariance(reduced,len(idx),positive_definite=True)
++    variance=current_standard_error**2
++    powers=[];conflicts=[]
++    for i,record in enumerate(retained,1):
++        difference_variance=variance+reduced[i,i]-2*reduced[i,0]
++        z=abs(record.estimate-current_estimate)/math.sqrt(difference_variance)
++        conflicts.append(z)
++        factor=math.exp(-.5*(z/compatibility_scale)**2) if adaptive else 1.
++        powers.append(record.maximum_power*factor)
++    powers=np.asarray(powers)
++    # Zero-powered rows contain no conditional likelihood, even if correlated.
++    active=np.flatnonzero(powers>0)
++    retained=[retained[i] for i in active]
++    conflicts=[conflicts[i] for i in active]
++    powers=powers[active]
++    indices=np.r_[0,active+1]
++    reduced=reduced[np.ix_(indices,indices)]
++    current_precision=1/variance
++    if retained:
++        gamma=reduced[1:,0]/variance
++        conditional=reduced[1:,1:]-np.outer(reduced[1:,0],reduced[0,1:])/variance
++        _covariance(conditional,len(retained),positive_definite=True)
++        a=1-gamma
++        # P = sqrt(D) inv(S) sqrt(D), without explicitly inverting S.
++        root_power=np.sqrt(powers)
++        precision_a=root_power*np.linalg.solve(conditional,root_power*a)
++        information=float(a@precision_a)
++        if information<0 or not math.isfinite(information):
++            raise ValueError('Conditional information is numerically invalid')
++        cap_scale=min(1.,borrowing_cap_ratio*current_precision/information) if information else 1.
++        history_weights=cap_scale*precision_a
++        current_weight=current_precision-float(history_weights@gamma)
++        borrowed=cap_scale*information
++    else:
++        history_weights=np.array([]);current_weight=current_precision;borrowed=0.;cap_scale=1.
++    total=current_precision+borrowed
++    weights=np.r_[current_weight,history_weights]/total
++    values=np.array([current_estimate]+[r.estimate for r in retained])
++    estimate=float(weights@values);posterior_se=math.sqrt(1/total)
++    return CorrelatedBorrowingResult(
++        current_estimate,current_standard_error,estimate,posterior_se,
++        estimate-confidence_z*posterior_se,estimate+confidence_z*posterior_se,
++        current_precision,borrowed,borrowed/current_precision,cap_scale,current_precision/total,
++        tuple([current_name]+[r.name for r in retained]),tuple(float(w) for w in weights),
++        tuple(float(p) for p in powers),tuple(sorted(aliases.items())),tuple(conflicts))
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/parents/ebc.py
+@@ -188,6 +188,26 @@
+             'interpretation':'The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.'}
+ 
+ 
++if __package__:
++    from .correlated import CorrelatedBorrowingResult, borrow_correlated_evidence, source_covariance
++else:
++    from correlated import CorrelatedBorrowingResult, borrow_correlated_evidence, source_covariance
++
++
++def review_covariance(config):
++    """Same inputs/policies; remove only cross-observation covariance for baseline."""
++    arguments=dict(config)
++    history=[HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    joint=borrow_correlated_evidence(historical=history,**arguments)
++    matrix=np.asarray(arguments['covariance'],dtype=float)
++    independent_args={**arguments,'covariance':np.diag(np.diag(matrix)), 'current_observation_id':None}
++    independent=borrow_correlated_evidence(historical=[replace(h,observation_id=None) for h in history],**independent_args)
++    return {'joint_covariance':joint.to_dict(),'diagonal_assumption':independent.to_dict(),
++            'estimate_shift_if_covariance_ignored':independent.posterior_estimate-joint.posterior_estimate,
++            'se_change_if_covariance_ignored':independent.posterior_standard_error-joint.posterior_standard_error,
++            'interpretation':'Common scalar estimand and caller-supplied joint covariance. Differences isolate the diagonal-covariance assumption; they are not an audit opinion or calibrated fraud probability.'}
++
++
+ def main(argv=None):
+     import argparse, hashlib, json
+     from pathlib import Path
+@@ -197,13 +217,15 @@
+     try:
+         raw=Path(args.input_json).read_bytes();config=json.loads(raw)
+         if args.review:
+-            result=review_identity(config)
++            result=review_covariance(config) if 'covariance' in config else review_identity(config)
+         else:
+             config=dict(config)
+             history=[HistoricalEstimate(**r) for r in config.pop('historical')]
+-            result=borrow_evidence(historical=history,**config).to_dict()
++            function=borrow_correlated_evidence if 'covariance' in config else borrow_evidence
++            result=function(historical=history,**config).to_dict()
+         result['mechanism']={'engine':'R026 EBC','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                              'input_sha256':hashlib.sha256(raw).hexdigest()}
++        result['mechanism']['correlated_source_sha256']=hashlib.sha256(Path(__file__).with_name('correlated.py').read_bytes()).hexdigest()
+         text=json.dumps(result,indent=2,allow_nan=False)+'\n'
+         if args.output:
+             with Path(args.output).open('x') as f:f.write(text)
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
+@@ -16,6 +16,12 @@
+ 
+ 
+ class BAMITests(unittest.TestCase):
++    def test_joint_covariance_survives_default_multiplier_adapter(self):
++        histories=[HistoricalEstimate('a',0,1),HistoricalEstimate('b',0,1)]
++        result=borrow_default_multiplier(0,1,histories,covariance=.8*np.ones((3,3))+.2*np.eye(3),covariance_names=['current','a','b'])
++        self.assertAlmostEqual(result.borrowing.posterior_standard_error,np.sqrt(2.6/3))
++        self.assertEqual(result.posterior_default_multiplier,1)
++
+     def test_copying_one_effect_does_not_change_default_multiplier(self):
+         one=borrow_default_multiplier(0,1,[HistoricalEstimate('a',-.5,1,observation_id='effect')])
+         copies=borrow_default_multiplier(0,1,[HistoricalEstimate(str(i),-.5,1,observation_id='effect') for i in range(10)])
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/correlated.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/correlated.py
+@@ -0,0 +1,157 @@
++"""Normal evidence with an explicit joint covariance; no covariance inference.
++
++The conditional history likelihood is tempered after conditioning on the
++current estimate. This leaves current information counted once even when its
++sampling error is correlated with history. Full powers and an inactive cap
++reduce to ordinary generalized least squares (GLS).
++"""
++from dataclasses import asdict, dataclass
++import math
++import numpy as np
++
++
++def _covariance(value, size, positive_definite=False):
++    matrix = np.asarray(value, dtype=float)
++    if matrix.shape != (size,size) or not np.all(np.isfinite(matrix)):
++        raise ValueError('Covariance must be a finite square matrix aligned with the named observations')
++    diagonal = np.diag(matrix)
++    if np.any(diagonal <= 0):
++        raise ValueError('Covariance diagonal must be positive')
++    scale = np.sqrt(diagonal)
++    corr = matrix / scale[:,None] / scale[None,:]
++    if not np.allclose(corr,corr.T,rtol=1e-10,atol=1e-12):
++        raise ValueError('Covariance must be symmetric')
++    eig = np.linalg.eigvalsh((corr+corr.T)/2)
++    if eig[0] < -1e-10:
++        raise ValueError('Covariance is not positive semidefinite; it was not repaired automatically')
++    if positive_definite and eig[0] <= 1e-10:
++        raise ValueError('Singular or ill-conditioned covariance after declared aliases are removed; supply an independent observation basis')
++    return (matrix+matrix.T)/2
++
++
++def source_covariance(loadings, covariance):
++    """Propagate caller-supplied linear source loadings: A Sigma A.T.
++
++    This is exact for linear errors, or a delta-method approximation if the
++    caller supplies local derivatives. Source identities and error covariance
++    are given, not inferred from a matching workbook value.
++    """
++    a = np.asarray(loadings,dtype=float)
++    if a.ndim != 2 or min(a.shape)<1 or max(a.shape)>2000 or not np.all(np.isfinite(a)):
++        raise ValueError('Loadings must be a finite nonempty matrix with at most 2000 rows/columns')
++    sigma = _covariance(covariance,a.shape[1])
++    return a@sigma@a.T
++
++
++@dataclass(frozen=True)
++class CorrelatedBorrowingResult:
++    current_estimate: float
++    current_standard_error: float
++    posterior_estimate: float
++    posterior_standard_error: float
++    confidence_low: float
++    confidence_high: float
++    current_precision: float
++    borrowed_precision: float
++    borrowing_precision_ratio: float
++    cap_scale: float
++    current_information_share: float
++    retained_names: tuple[str,...]
++    linear_weights: tuple[float,...]
++    conditional_powers: tuple[float,...]
++    alias_mapping: tuple[tuple[str,str],...]
++    conflict_z: tuple[float,...]
++    interval_semantics: str = 'Conditional normal model interval with powers held fixed; adaptive weighting and estimated covariance are not calibrated confidence or a full Bayesian posterior'
++    dependency_model: str = 'Caller-supplied joint sampling covariance; all estimates must concern the same scalar quantity. Distinct names do not establish independence. Weights can be negative.'
++
++    def to_dict(self):
++        return asdict(self)
++
++
++def borrow_correlated_evidence(current_estimate, current_standard_error, historical, *,
++                              covariance, covariance_names, current_name='current',
++                              compatibility_scale=1.5, borrowing_cap_ratio=2.0,
++                              confidence_z=1.96, current_observation_id=None,
++                              adaptive=True):
++    # Import here so the existing EBC module can expose this method too.
++    if __package__:
++        from .ebc import coalesce_history
++    else:
++        from ebc import coalesce_history
++    records=tuple(historical)
++    numbers=[current_estimate,current_standard_error,compatibility_scale,borrowing_cap_ratio,confidence_z]
++    if not all(math.isfinite(v) for v in numbers) or min(current_standard_error,compatibility_scale,confidence_z)<=0 or borrowing_cap_ratio<0:
++        raise ValueError('Finite inputs, positive SE/scale/z, and a nonnegative borrowing cap are required')
++    if type(adaptive) is not bool:
++        raise ValueError('adaptive must be a boolean')
++    if not isinstance(current_name,str) or not current_name or current_name in {r.name for r in records}:
++        raise ValueError('Current name must be nonempty and distinct from historical names')
++    if current_observation_id is not None and (not isinstance(current_observation_id,str) or not current_observation_id.strip()):
++        raise ValueError('current_observation_id must be a nonempty string or None')
++    unique,aliases=coalesce_history(records)
++    names=[current_name]+[r.name for r in records]
++    if len(names)>501:
++        raise ValueError('Joint covariance limit: current plus 500 historical records')
++    if covariance_names is None or list(covariance_names)!=names:
++        raise ValueError('covariance_names must exactly match current name followed by historical input names in order')
++    joint=_covariance(covariance,len(names))
++    se=np.array([current_standard_error]+[r.standard_error for r in records])
++    if not np.allclose(np.diag(joint)/(se*se),1,rtol=1e-8,atol=1e-10):
++        raise ValueError('Covariance diagonal does not match declared standard errors')
++    positions={name:i for i,name in enumerate(names)}
++    for record in records:
++        if current_observation_id is not None and record.observation_id==current_observation_id:
++            if (record.estimate,record.standard_error)!=(current_estimate,current_standard_error):
++                raise ValueError('Current observation identity conflicts with historical estimate/SE')
++            aliases[record.name]=current_name
++        i=positions[record.name];j=positions[aliases[record.name]]
++        if i!=j and not np.allclose((joint[i]-joint[j])/(se[i]*se),0,rtol=0,atol=1e-9):
++            raise ValueError('Declared aliases require identical covariance rows')
++    retained=[r for r in unique if aliases[r.name]!=current_name and r.maximum_power>0]
++    idx=[0]+[positions[r.name] for r in retained]
++    reduced=joint[np.ix_(idx,idx)]
++    _covariance(reduced,len(idx),positive_definite=True)
++    variance=current_standard_error**2
++    powers=[];conflicts=[]
++    for i,record in enumerate(retained,1):
++        difference_variance=variance+reduced[i,i]-2*reduced[i,0]
++        z=abs(record.estimate-current_estimate)/math.sqrt(difference_variance)
++        conflicts.append(z)
++        factor=math.exp(-.5*(z/compatibility_scale)**2) if adaptive else 1.
++        powers.append(record.maximum_power*factor)
++    powers=np.asarray(powers)
++    # Zero-powered rows contain no conditional likelihood, even if correlated.
++    active=np.flatnonzero(powers>0)
++    retained=[retained[i] for i in active]
++    conflicts=[conflicts[i] for i in active]
++    powers=powers[active]
++    indices=np.r_[0,active+1]
++    reduced=reduced[np.ix_(indices,indices)]
++    current_precision=1/variance
++    if retained:
++        gamma=reduced[1:,0]/variance
++        conditional=reduced[1:,1:]-np.outer(reduced[1:,0],reduced[0,1:])/variance
++        _covariance(conditional,len(retained),positive_definite=True)
++        a=1-gamma
++        # P = sqrt(D) inv(S) sqrt(D), without explicitly inverting S.
++        root_power=np.sqrt(powers)
++        precision_a=root_power*np.linalg.solve(conditional,root_power*a)
++        information=float(a@precision_a)
++        if information<0 or not math.isfinite(information):
++            raise ValueError('Conditional information is numerically invalid')
++        cap_scale=min(1.,borrowing_cap_ratio*current_precision/information) if information else 1.
++        history_weights=cap_scale*precision_a
++        current_weight=current_precision-float(history_weights@gamma)
++        borrowed=cap_scale*information
++    else:
++        history_weights=np.array([]);current_weight=current_precision;borrowed=0.;cap_scale=1.
++    total=current_precision+borrowed
++    weights=np.r_[current_weight,history_weights]/total
++    values=np.array([current_estimate]+[r.estimate for r in retained])
++    estimate=float(weights@values);posterior_se=math.sqrt(1/total)
++    return CorrelatedBorrowingResult(
++        current_estimate,current_standard_error,estimate,posterior_se,
++        estimate-confidence_z*posterior_se,estimate+confidence_z*posterior_se,
++        current_precision,borrowed,borrowed/current_precision,cap_scale,current_precision/total,
++        tuple([current_name]+[r.name for r in retained]),tuple(float(w) for w in weights),
++        tuple(float(p) for p in powers),tuple(sorted(aliases.items())),tuple(conflicts))
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/ebc.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/parents/ebc.py
+@@ -188,6 +188,26 @@
+             'interpretation':'The difference isolates declared repeated observations. Neither run establishes source authenticity, general independence, audit opinion or calibrated confidence.'}
+ 
+ 
++if __package__:
++    from .correlated import CorrelatedBorrowingResult, borrow_correlated_evidence, source_covariance
++else:
++    from correlated import CorrelatedBorrowingResult, borrow_correlated_evidence, source_covariance
++
++
++def review_covariance(config):
++    """Same inputs/policies; remove only cross-observation covariance for baseline."""
++    arguments=dict(config)
++    history=[HistoricalEstimate(**r) for r in arguments.pop('historical')]
++    joint=borrow_correlated_evidence(historical=history,**arguments)
++    matrix=np.asarray(arguments['covariance'],dtype=float)
++    independent_args={**arguments,'covariance':np.diag(np.diag(matrix)), 'current_observation_id':None}
++    independent=borrow_correlated_evidence(historical=[replace(h,observation_id=None) for h in history],**independent_args)
++    return {'joint_covariance':joint.to_dict(),'diagonal_assumption':independent.to_dict(),
++            'estimate_shift_if_covariance_ignored':independent.posterior_estimate-joint.posterior_estimate,
++            'se_change_if_covariance_ignored':independent.posterior_standard_error-joint.posterior_standard_error,
++            'interpretation':'Common scalar estimand and caller-supplied joint covariance. Differences isolate the diagonal-covariance assumption; they are not an audit opinion or calibrated fraud probability.'}
++
++
+ def main(argv=None):
+     import argparse, hashlib, json
+     from pathlib import Path
+@@ -197,13 +217,15 @@
+     try:
+         raw=Path(args.input_json).read_bytes();config=json.loads(raw)
+         if args.review:
+-            result=review_identity(config)
++            result=review_covariance(config) if 'covariance' in config else review_identity(config)
+         else:
+             config=dict(config)
+             history=[HistoricalEstimate(**r) for r in config.pop('historical')]
+-            result=borrow_evidence(historical=history,**config).to_dict()
++            function=borrow_correlated_evidence if 'covariance' in config else borrow_evidence
++            result=function(historical=history,**config).to_dict()
+         result['mechanism']={'engine':'R026 EBC','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                              'input_sha256':hashlib.sha256(raw).hexdigest()}
++        result['mechanism']['correlated_source_sha256']=hashlib.sha256(Path(__file__).with_name('correlated.py').read_bytes()).hexdigest()
+         text=json.dumps(result,indent=2,allow_nan=False)+'\n'
+         if args.output:
+             with Path(args.output).open('x') as f:f.write(text)
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/reig.py
+@@ -17,9 +17,9 @@
+ else:
+     from parents.rel import EvidenceRecord, ConsistencyRelation, RelationalEvidenceLocalizer
+ if __package__:
+-    from .parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence, coalesce_history
++    from .parents.ebc import HistoricalEstimate, BorrowingResult, CorrelatedBorrowingResult, borrow_evidence, borrow_correlated_evidence, coalesce_history
+ else:
+-    from parents.ebc import HistoricalEstimate, BorrowingResult, borrow_evidence, coalesce_history
++    from parents.ebc import HistoricalEstimate, BorrowingResult, CorrelatedBorrowingResult, borrow_evidence, borrow_correlated_evidence, coalesce_history
+ 
+ 
+ @dataclass(frozen=True)
+@@ -38,8 +38,8 @@
+     posterior_semantics: str
+     integrity_exponent: float
+     contributions: tuple[IntegrityContribution, ...]
+-    ungated: BorrowingResult
+-    gated: BorrowingResult
++    ungated: BorrowingResult | CorrelatedBorrowingResult
++    gated: BorrowingResult | CorrelatedBorrowingResult
+     observation_aliases: tuple[tuple[str, str], ...] = ()
+ 
+     def to_dict(self) -> dict:
+@@ -76,6 +76,8 @@
+     compatibility_scale: float = 1.5,
+     borrowing_cap_ratio: float = 2.0,
+     current_observation_id: str | None = None,
++    covariance=None,
++    covariance_names=None,
+ ) -> IntegrityBorrowingResult:
+     """Run REL integrity localization, then EBC with source-specific gated powers.
+ 
+@@ -137,8 +139,13 @@
+ 
+     kwargs = dict(compatibility_scale=compatibility_scale, borrowing_cap_ratio=borrowing_cap_ratio,
+                   current_observation_id=current_observation_id)
+-    ungated = borrow_evidence(current_estimate, current_standard_error, history, **kwargs)
+-    gated = borrow_evidence(current_estimate, current_standard_error, gated_history, **kwargs)
++    if covariance is None and covariance_names is not None:
++        raise ValueError('covariance_names requires covariance')
++    if covariance is not None:
++        kwargs.update(covariance=covariance,covariance_names=covariance_names)
++    combine=borrow_evidence if covariance is None else borrow_correlated_evidence
++    ungated = combine(current_estimate, current_standard_error, history, **kwargs)
++    gated = combine(current_estimate, current_standard_error, gated_history, **kwargs)
+     return IntegrityBorrowingResult(
+         observed_violations=violations,
+         integrity_gate_active=active,
+--- before/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
++++ after/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P134_REIG/test_reig.py
+@@ -121,3 +121,31 @@
+     records.append(replace(records[-1],name='C_copy',value=999))
+     with pytest.raises(ValueError,match='identical REL'):
+         gate_and_borrow(current_estimate=1,current_standard_error=.5,evidence_records=records,relations=relations,historical=history)
++
++
++def test_joint_covariance_reaches_both_sides_of_integrity_gate():
++    import numpy as np
++    records,relations,history=fixture(False)
++    scale=np.array([.5,.15,.15,.15])
++    cov=(.4*np.ones((4,4))+.6*np.eye(4))*np.outer(scale,scale)
++    result=gate_and_borrow(current_estimate=.1,current_standard_error=.5,evidence_records=records,relations=relations,historical=history,covariance=cov,covariance_names=['current','A','B','C'])
++    assert result.gated==result.ungated
++    assert result.gated.retained_names==('current','A','B','C')
++    assert sum(result.gated.linear_weights)==pytest.approx(1)
++
++
++def test_active_gate_preserves_covariance_and_observation_aliases_together():
++    from dataclasses import replace
++    import numpy as np
++    records,relations,history=fixture(True)
++    history=[replace(h,observation_id=h.name) for h in history]
++    scale=np.array([.5,.15,.15,.15]);cov=(.3*np.ones((4,4))+.7*np.eye(4))*np.outer(scale,scale)
++    kwargs=dict(current_estimate=1,current_standard_error=.5)
++    one=gate_and_borrow(evidence_records=records,relations=relations,historical=history,covariance=cov,covariance_names=['current','A','B','C'],**kwargs)
++    records.append(replace(records[-1],name='C_copy'));history.append(replace(history[-1],name='C_copy'))
++    expanded=cov[np.ix_([0,1,2,3,3],[0,1,2,3,3])]
++    relations.append(ConsistencyRelation('copied','A','C_copy',.2))
++    copied=gate_and_borrow(evidence_records=records,relations=relations,historical=history,covariance=expanded,covariance_names=['current','A','B','C','C_copy'],**kwargs)
++    assert copied.integrity_gate_active
++    assert copied.gated.posterior_estimate==one.gated.posterior_estimate
++    assert copied.gated.posterior_standard_error==one.gated.posterior_standard_error
+--- before/examples/correlated-evidence/reproduce.py
++++ after/examples/correlated-evidence/reproduce.py
+@@ -0,0 +1,94 @@
++"""Reproduce two external arithmetic references using the repaired EBC code.
++
++Run from any directory. Output must be new/empty; source observations remain
++unchanged. The multilevel covariance parameters are published rounded fitted
++values, held fixed here. This script does not refit a multilevel model.
++"""
++import argparse
++import csv
++import hashlib
++import json
++from pathlib import Path
++import sys
++import numpy as np
++
++HERE=Path(__file__).resolve().parent
++LAB=HERE.parents[1]
++ENGINE=LAB/'LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC'
++sys.path.insert(0,str(ENGINE))
++from ebc import HistoricalEstimate, review_covariance, source_covariance
++
++
++def run(output):
++    folder=Path(output)
++    if folder.exists() and any(folder.iterdir()):
++        raise ValueError('Output folder must be new or empty')
++    data=list(csv.DictReader((HERE/'dat.konstantopoulos2011.csv').open()))
++    values=np.array([float(r['yi']) for r in data]);variances=np.array([float(r['vi']) for r in data])
++    districts=np.array([r['district'] for r in data])
++    # The published fitted covariance uses a shared district component plus
++    # independent school/sampling variance. Parameters are held fixed here.
++    cov=.0651*(districts[:,None]==districts[None,:])+np.diag(.0327+variances)
++    se=np.sqrt(np.diag(cov))
++    names=['study_'+r['study'] for r in data]
++    config={'current_estimate':values[0],'current_standard_error':se[0], 'current_name':names[0],
++            'historical':[{'name':names[i],'estimate':values[i],'standard_error':se[i]} for i in range(1,len(data))],
++            'covariance':cov.tolist(),'covariance_names':names,'adaptive':False,'borrowing_cap_ratio':1e6}
++    pooled=review_covariance(config)
++    joint=pooled['joint_covariance'];diagonal=pooled['diagonal_assumption']
++    # Independent inverse-matrix GLS reference (not the conditional EBC path).
++    inverse=np.linalg.inv(cov);one=np.ones(len(data));normalizer=float(one@inverse@one)
++    baseline={'estimate':float(one@inverse@values/normalizer),'standard_error':float(np.sqrt(1/normalizer))}
++    assert abs(joint['posterior_estimate']-baseline['estimate'])<1e-10
++    assert abs(joint['posterior_standard_error']-baseline['standard_error'])<1e-10
++    assert abs(joint['posterior_estimate']-.1847132)<1e-4
++    assert abs(joint['posterior_standard_error']-.0846)<1e-4
++    assert abs(diagonal['posterior_estimate']-.127597)<1e-4
++    public=json.loads((HERE/'shared-control.json').read_text())
++    counts=np.array([a['responders'] for a in public['arms']],dtype=float)
++    totals=np.array([a['n'] for a in public['arms']],dtype=float)
++    logs=np.log(counts/(totals-counts))
++    source_variances=1/counts+1/(totals-counts)
++    loadings=np.array([[1,0,-1],[0,1,-1]],dtype=float)
++    propagated=source_covariance(loadings,np.diag(source_variances))
++    difference=np.array([1,-1])
++    dependent_variance=float(difference@propagated@difference)
++    diagonal_variance=float(np.diag(propagated).sum())
++    direct_variance=float(source_variances[0]+source_variances[1])
++    assert abs(dependent_variance-direct_variance)<1e-12
++    control={'source':public['source'],'scope':public['scope'],'contrasts':(loadings@logs).tolist(),
++             'contrast_covariance':propagated.tolist(),
++             'difference_variance_joint':dependent_variance,'difference_variance_diagonal':diagonal_variance,
++             'direct_treatment_difference_variance':direct_variance}
++    receipt={'status':'PASS','external_dataset_rows':len(data),'external_groups':len(set(districts)),
++             'published_estimate':.1847132,'published_se_rounded':.0846,'published_diagonal_estimate':.127597,
++             'joint_estimate':joint['posterior_estimate'],'joint_se':joint['posterior_standard_error'],
++             'diagonal_estimate':diagonal['posterior_estimate'],'diagonal_se':diagonal['posterior_standard_error'],
++             'inverse_matrix_gls_baseline':baseline,
++             'scope':'Fixed published rounded covariance parameters; no REML refit, adaptive-coverage, audit efficacy or superiority claim',
++             'references':['https://www.metafor-project.org/doku.php/tips:weights_in_rma.mv_models','https://wviechtb.github.io/metadat/reference/dat.konstantopoulos2011.html',public['source']],
++             'source_hashes':{str(p.relative_to(LAB)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),HERE/'dat.konstantopoulos2011.csv',HERE/'shared-control.json',ENGINE/'ebc.py',ENGINE/'correlated.py']}}
++    folder.mkdir(parents=True,exist_ok=True)
++    for name,contents in [('input.json',config),('result.json',pooled),('shared-control-result.json',control),('receipt.json',receipt)]:
++        (folder/name).write_text(json.dumps(contents,indent=2,allow_nan=False)+'\n')
++    write_report(folder,pooled,control,data)
++    print(json.dumps(receipt,indent=2))
++
++
++def write_report(folder,pooled,control,rows):
++    payload=json.dumps({'pooled':pooled,'control':control,'rows':rows}).replace('</','<\\/')
++    page=r'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lab · Ortak verinin ağırlığı</title>
++<style>*{box-sizing:border-box}body{margin:0;background:#f3f6f7;color:#163641;font:16px system-ui}header{background:#173944;color:white;padding:30px max(24px,calc((100% - 1080px)/2))}main{max-width:1130px;margin:auto;padding:24px}h1{margin:0;font-size:31px}h2{font-size:21px}p{line-height:1.6}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{background:white;border:1px solid #d5e1e5;padding:22px;border-radius:8px;margin-bottom:20px}.big{font-size:36px;font-weight:700}.notice{background:#fff4df;border-left:4px solid #ad7c26;padding:15px}.muted{font-size:14px;color:#60757c}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;border-bottom:1px solid #dce7eb;padding:11px}select{font:inherit;padding:8px;margin:12px}a{color:#126c60}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:700px){.grid{grid-template-columns:1fr}h1{font-size:25px}}</style>
++<header><h1>Ortak veri, sonucu ve belirsizliği değiştiriyor</h1><p>Lab EBC · yayımlanmış gözlemlerle kovaryans hesabı</p></header><main>
++<p class="notice">56 okul çalışması, 11 bölge. Kaynakta yayımlanmış kovaryans parametreleri sabit tutularak hesap yeniden üretildi. Bu bir audit müşterisi verisi veya audit görüşü değildir; motorun sayısal doğrulamasıdır.</p>
++<div class="grid"><section class="card"><h2>Kovaryans hesaba katılınca</h2><div id="joint-mean" class="big"></div><p id="joint-se"></p></section><section class="card"><h2>Yalnız ayrı varyanslar kullanılırsa</h2><div id="diagonal-mean" class="big"></div><p id="diagonal-se"></p></section></div>
++<section class="card"><h2>Ağırlık hangi bölgelerde birikiyor?</h2><p>Aynı bölgedeki gözlemler modelde ortak bir değişkenlik bileşeni taşıyor. Aşağıdaki tablo, gözlem sayısıyla bilgi ağırlığının aynı şey olmadığını gösteriyor.</p><label>Gösterilen hesap <select id="model"><option value="joint_covariance">Ortak kovaryans</option><option value="diagonal_assumption">Yalnız ayrı varyanslar</option></select></label><table><thead><tr><th>Bölge</th><th>Gözlem</th><th>Toplam doğrusal ağırlık</th></tr></thead><tbody id="districts"></tbody></table></section>
++<section class="card"><h2>Bağımlılık her zaman belirsizliği artırmaz</h2><p>İkinci yayımlanmış örnekte iki karşılaştırma aynı kontrol grubunu kullanıyor. Karşılaştırmaların farkını aldığımızda ortak kontrol terimi cebirsel olarak iptal oluyor. Kovaryansı sıfırlamak burada belirsizliği büyütüyor.</p><p id="control-result"></p><p class="muted">Lecrubier 1997: üç kolun yayımlanmış sayılarından log-odds varyansları için delta yöntemi. Farklı tedavi etkileri tek bir ortak etki gibi birleştirilmedi; klinik sonuç çıkarılmadı.</p></section>
++<details class="card"><summary>Kaynaklar, varsayımlar ve yeniden üretim</summary><p>Bu çalıştırmada uyarlanan ağırlıklar kapalı, izin verilen güçler 1 ve ek bilgi sınırı etkisiz. Böylece EBC, standart GLS hesabına indirgenir. Ayrı matris tersleme referansıyla aynı sonuç elde edildi; GLS'ye üstünlük iddia edilmez.</p><p>Yayımlanan bölge varyansı 0,0651 ve okul varyansı 0,0327 kullanıldı. REML modeli yeniden fit edilmedi. Aralıklar kovaryans parametrelerinin tahmin belirsizliğini içermez. Kovaryanslı modelde doğrusal ağırlıklar negatif olabilir; sıfıra kırpılmaz.</p><ul><li><a href="https://www.metafor-project.org/doku.php/tips:weights_in_rma.mv_models">Metafor: çalıştırılmış örnek ve yayımlanmış sonuç</a></li><li><a href="https://wviechtb.github.io/metadat/reference/dat.konstantopoulos2011.html">56 gözlemin kaynak tablosu</a></li><li><a href="https://wviechtb.github.io/metadat/reference/dat.linde2015.html">Ortak kontrol sayılarının kaynak tablosu</a></li></ul><p><a href="receipt.json">Çalıştırma ve kaynak hash'leri</a> · <a href="input.json">Motor girdisi</a> · <a href="result.json">İki hesabın ayrıntıları</a> · <a href="shared-control-result.json">Kontrol grubu hesabı</a></p></details>
++</main><script>const data=PAYLOAD;const $=s=>document.querySelector(s);for(const [prefix,key] of [['joint','joint_covariance'],['diagonal','diagonal_assumption']]){const r=data.pooled[key];$('#'+prefix+'-mean').textContent=r.posterior_estimate.toFixed(5);$('#'+prefix+'-se').textContent='Model standart hatası: '+r.posterior_standard_error.toFixed(5)}function update(){const result=data.pooled[$('#model').value],groups={};data.rows.forEach((r,i)=>{const g=groups[r.district]||(groups[r.district]={n:0,weight:0});g.n++;g.weight+=result.linear_weights[i]});$('#districts').replaceChildren();Object.entries(groups).sort((a,b)=>b[1].weight-a[1].weight).forEach(([name,g])=>{const row=document.createElement('tr');[name,g.n,(100*g.weight).toFixed(2)+'%'].forEach(x=>{const cell=document.createElement('td');cell.textContent=x;row.append(cell)});$('#districts').append(row)})}$('#model').addEventListener('change',update);update();$('#control-result').textContent='Farkın varyansı — ortak kontrol korununca: '+data.control.difference_variance_joint.toFixed(5)+'; kovaryans yok sayılınca: '+data.control.difference_variance_diagonal.toFixed(5)+'. Doğrudan iki tedavi kolundan hesap: '+data.control.direct_treatment_difference_variance.toFixed(5)+'.';</script></html>'''
++    (folder/'index.html').write_text(page.replace('PAYLOAD',payload))
++
++
++if __name__=='__main__':
++    parser=argparse.ArgumentParser();parser.add_argument('--output',required=True)
++    run(parser.parse_args().output)
+--- before/lab.py
++++ after/lab.py
+@@ -15,6 +15,7 @@
+  import runpy
+  source=runner.ROOT/runner.CORE/'02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R026_S423_S424_EBC/ebc.py'
+  sys.argv=[str(source),*sys.argv[2:]]
++ sys.path.insert(0,str(source.parent))
+  runpy.run_path(str(source),run_name='__main__')
+ elif len(sys.argv)>1 and sys.argv[1] in ('components','show','check','demo'):
+  from maintenance.components import main
