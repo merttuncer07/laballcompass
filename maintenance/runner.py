@@ -1,6 +1,6 @@
 """Durable local runner for the original LabAllCompass test surfaces."""
 from __future__ import annotations
-import argparse,fnmatch,hashlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time,uuid
+import argparse,ast,fnmatch,hashlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time,uuid
 from dataclasses import dataclass,asdict
 from datetime import datetime,timezone
 from pathlib import Path
@@ -24,6 +24,22 @@ class Target:
  pattern:str='test_*.py'
  layer:str='active'
 
+def parent_test_runner(directory):
+ """Use pytest when a parent ships module-level tests alongside TestCase tests.
+
+ unittest discovery imports such modules but silently omits their test functions.
+ Keep the original runner for parents with only unittest suites.
+ """
+ for file in sorted(Path(directory).glob('test_*.py')):
+  try:tree=ast.parse(file.read_text())
+  except (OSError,UnicodeError,SyntaxError):
+   # Let the isolated test target report collection errors; discovery must
+   # still return the other components so their runs can continue.
+   return 'pytest'
+  if any(isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name.startswith('test_') for node in tree.body):
+   return 'pytest'
+ return 'unittest'
+
 def discover(profile='full',root=ROOT):
  targets=[]
  if profile in ('active','full','all'):
@@ -41,7 +57,7 @@ def discover(profile='full',root=ROOT):
  if profile in ('parents','all'):
   for tier in ('CURRENT_PRODUCTS','RETRO_PRODUCTS'):
    for p in sorted((root/CORE/'02_FOUNDRY_ALL_PRODUCTS/parent_products'/tier).iterdir()):
-    if p.is_dir() and any(p.glob('test_*.py')):targets.append(Target(p.name,p.relative_to(root).as_posix(),'unittest',layer='parent'))
+    if p.is_dir() and any(p.glob('test_*.py')):targets.append(Target(p.name,p.relative_to(root).as_posix(),parent_test_runner(p),layer='parent'))
  if profile in ('foundry','all'):
   foundry=root/CORE/'02_FOUNDRY_ALL_PRODUCTS'
   for p in sorted((foundry/'products').rglob('test_*.py')):
@@ -49,8 +65,10 @@ def discover(profile='full',root=ROOT):
  if profile in ('recovered','all'):
   for p in sorted(root.glob('BASE_R401/19*/RECOVERED_REFERENCE_CODE/test_*.py')):
    targets.append(Target('RECOVERED_'+p.stem,p.parent.relative_to(root).as_posix(),'pytest',p.name,'recovered'))
- if profile in ('repairs','all'):
+ if profile=='repairs':
   targets.append(Target('RESTORATION_REGRESSIONS','..','pytest','tests/restoration','restoration'))
+ if profile in ('lab','all'):
+  targets.append(Target('LAB_APPLICATION','..','pytest','tests','lab'))
  return targets
 
 def environment():
@@ -102,7 +120,7 @@ def counts(path,kind):
  result['passed']=result['tests']-sum(result[k] for k in ('failures','errors','skipped'))
  return result
 
-def run(targets,root=ROOT,runs=BASE/'runs',timeout=180,verify=False,profile='custom'):
+def run(targets,root=ROOT,runs=BASE/'runs',timeout=180,verify=False,profile='custom',quiet=False):
  if not targets:raise ValueError('No targets selected; refusing to produce a passing run.')
  if timeout<=0:raise ValueError('Timeout must be positive')
  root=Path(root).resolve();runs=Path(runs).resolve();runs.mkdir(parents=True,exist_ok=True)
@@ -111,8 +129,10 @@ def run(targets,root=ROOT,runs=BASE/'runs',timeout=180,verify=False,profile='cus
  receipt={'schema_version':1,'run_id':run_id,'status':'RUNNING','started_at':now(),'profile':profile,'source_root':str(root),'environment':environment(),'timeout_seconds':timeout,'targets':[dict(asdict(t),status='PENDING') for t in targets],'results_scope':'software_reproduction_only','input_manifest_sha256':sha(root/'04_FILE_MANIFEST_SHA256.tsv') if (root/'04_FILE_MANIFEST_SHA256.tsv').exists() else None}
  # Hash every Python file: imports may cross directories, so target-local hashes are insufficient.
  hashes={str(p.relative_to(root)):sha(p) for p in sorted(root.rglob('*.py')) if '__pycache__' not in p.parts}
- for directory_name in ('maintenance','tests'):
+ for directory_name in ('maintenance','tests','workbench'):
   hashes.update({str(Path('..')/p.relative_to(BASE)):sha(p) for p in sorted((BASE/directory_name).rglob('*.py')) if '__pycache__' not in p.parts})
+ hashes['../lab.py']=sha(BASE/'lab.py')
+ receipt['source_snapshot_scope']='Python source only; input data, installed packages and external services are not certified by these hashes. Never use this alone to skip tests.'
  atomic(directory/'source-hashes.json',hashes);receipt['source_snapshot_sha256']=sha(directory/'source-hashes.json')
  receipt['runner_sha256']=sha(__file__);receipt['worker_sha256']=sha(BASE/'maintenance/unittest_worker.py')
  receipt['integrity']={'status':'NOT_REQUESTED','scope':'Working source is hashed above; the historical package manifest is not a gate for development.'}
@@ -140,7 +160,7 @@ def run(targets,root=ROOT,runs=BASE/'runs',timeout=180,verify=False,profile='cus
      if c['passed']==0:row['reason']='No tests passed; zero/skipped-only execution is not success.'
     except (OSError,ValueError,ElementTree.ParseError,KeyError) as e:row.update(status='ERROR',reason='Missing or invalid test report: '+str(e))
    row['finished_at']=now();save()
-   print(f"{t.id}: {row['status']}",flush=True)
+   if not quiet or row['status']!='PASS':print(f"{t.id}: {row['status']} (log: {directory/row['log']})",flush=True)
    if row['status']=='INTERRUPTED':break
  except KeyboardInterrupt:
   receipt['reason']='Runner interrupted between targets'
@@ -148,16 +168,17 @@ def run(targets,root=ROOT,runs=BASE/'runs',timeout=180,verify=False,profile='cus
   statuses=[r['status'] for r in receipt['targets']]
   receipt['status']='PASS' if all(s=='PASS' for s in statuses) else 'INCOMPLETE' if any(s in ('PENDING','RUNNING','INTERRUPTED') for s in statuses) else 'FAIL'
   receipt['finished_at']=now();receipt['counts']={k:sum(r.get('counts',{}).get(k,0) for r in receipt['targets']) for k in ('tests','passed','failures','errors','skipped','expected_failures','unexpected_successes')};save()
+ if quiet:print(f"{receipt['status']}: {receipt['counts']['passed']}/{receipt['counts']['tests']} tests passed across {len(targets)} targets",flush=True)
  return path
 
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('action',choices=['doctor','list','run']);parser.add_argument('--profile',choices=['active','embedded','full','parents','foundry','recovered','all','repairs'],default='active');parser.add_argument('--target',default='*');parser.add_argument('--timeout',type=float,default=180);parser.add_argument('--verify-package',action='store_true',help='Require the sealed package manifest to match before running tests; omit while editing source.');args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('action',choices=['doctor','list','run']);parser.add_argument('--profile',choices=['active','embedded','full','parents','foundry','recovered','all','repairs','lab'],default='active');parser.add_argument('--target',default='*');parser.add_argument('--timeout',type=float,default=180);parser.add_argument('--quiet',action='store_true',help='Print one summary plus failures; preserve all logs and receipts.');parser.add_argument('--verify-package',action='store_true',help='Require the sealed package manifest to match before running tests; omit while editing source.');args=parser.parse_args()
  if args.action=='doctor':d=doctor();print(json.dumps(d,indent=2));return int(d['status']!='PASS')
  targets=[t for t in discover(args.profile) if fnmatch.fnmatchcase(t.id,args.target)]
  if args.action=='list':print(json.dumps([asdict(t) for t in targets],indent=2));return 0
  check=doctor()
  if check['status']!='PASS':print(json.dumps(check,indent=2));return 2
- try:path=run(targets,timeout=args.timeout,profile=args.profile,verify=args.verify_package)
+ try:path=run(targets,timeout=args.timeout,profile=args.profile,verify=args.verify_package,quiet=args.quiet)
  except ValueError as e:parser.error(str(e))
  print(path);return int(json.loads(path.read_text())['status']!='PASS')
 if __name__=='__main__':sys.exit(main())

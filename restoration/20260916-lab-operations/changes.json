@@ -1,0 +1,42 @@
+[
+  {
+    "path": "maintenance/catalog.py",
+    "before_sha256": "7a66436bc61630f77b2af70a771785f6fc6d9b79436555d19a06e5b43e487d5d",
+    "after_sha256": "8e6e0cd365bc9aab90a8129b9fa6bb65883d8a370cf105ce12aa138dbc4c6c03"
+  },
+  {
+    "path": "maintenance/components.py",
+    "before_sha256": "eb47fcebf5b1fdefc016363020631aa336f4a94ffe91badc61422b234549f628",
+    "after_sha256": "d91218d2925e95916ad46958b4431b2528c41e58db6f62f33747c129636bd208"
+  },
+  {
+    "path": "tests/test_components.py",
+    "before_sha256": "df13e10eacc206c04d7ab0b6687b3cd4a3e4cbe92e71cf97b9899e1ae3e9ce35",
+    "after_sha256": "461078b024863b2ca9179c7e5cbea4422a19b7fd06746730500bc2b2de5ed2bf"
+  },
+  {
+    "path": "AGENTS.md",
+    "before_sha256": null,
+    "after_sha256": "cce7560682bf2eb9bb667c7a65298a009f618ecd00706790ef6e130243c231d4"
+  },
+  {
+    "path": "maintenance/compare.py",
+    "before_sha256": "5962b3f803fb07213d5988a8be03aeba8ddb8df74ae7f2623ccbb8ea289dfd45",
+    "after_sha256": "a825a6782002a7296704eb01ad8cc5f4e2cefe351ff7d3c39872ff60925af302"
+  },
+  {
+    "path": "tests/test_compare.py",
+    "before_sha256": "0eb25c86dd180706423f2ffc4d64ea6d498dd907e02209fa211440d0a24cbfb2",
+    "after_sha256": "dfa9e875e2482ec3867c0454453dcd45412ddfbfa4aac697f0f4f9a8cb5c7784"
+  },
+  {
+    "path": "LAB_STRATEGY.md",
+    "before_sha256": "c479fb5f0d8ab6d1a4d952b3afc5c3f85c96ea8781dedc5dae6f4daaf3be50f6",
+    "after_sha256": "f1f9a6eb6460ee17196748cfcc36ed699d18d1932843608a2363ce642d9e298d"
+  },
+  {
+    "path": "README.md",
+    "before_sha256": "ec134f33f4844e0056df857a371221818abf37468f9edaab55f6e9ff2600cbeb",
+    "after_sha256": "a6cc60d017c62fa96558635890f305f08329d85d62c9b532b17769f49e8cf8bf"
+  }
+]

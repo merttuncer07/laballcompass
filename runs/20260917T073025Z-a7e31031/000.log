@@ -1,0 +1,17 @@
+test_bad_temp (test_istaicc.T.test_bad_temp) ... ok
+test_baseline_and_channel_use_same_initial_basin (test_istaicc.T.test_baseline_and_channel_use_same_initial_basin) ... ok
+test_equilibria_reported (test_istaicc.T.test_equilibria_reported) ... ok
+test_high_cost_skips (test_istaicc.T.test_high_cost_skips) ... ok
+test_immediate_prefers_myopic (test_istaicc.T.test_immediate_prefers_myopic) ... ok
+test_negative_incremental_participation_reduces_score (test_istaicc.T.test_negative_incremental_participation_reduces_score) ... ok
+test_negative_value_rejected (test_istaicc.T.test_negative_value_rejected) ... ok
+test_paid_no_effect_channel_only_scores_cost (test_istaicc.T.test_paid_no_effect_channel_only_scores_cost) ... ok
+test_score_depends_on_baseline_friction (test_istaicc.T.test_score_depends_on_baseline_friction) ... ok
+test_status (test_istaicc.T.test_status) ... ok
+test_tipping_can_choose_trigger (test_istaicc.T.test_tipping_can_choose_trigger) ... ok
+test_zero_future_reverts_to_immediate (test_istaicc.T.test_zero_future_reverts_to_immediate) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.008s
+
+OK

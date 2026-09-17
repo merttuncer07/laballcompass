@@ -28,9 +28,9 @@ def save_analysis(problem, directory=None):
     return folder / 'index.html'
 
 
-def save_workbook_analysis(paths, directory=None):
-    with open_workbooks(paths) as (paths, books):
-        content = compare_content(paths, books)
+def save_workbook_analysis(paths, directory=None, same_layout=False):
+    with open_workbooks(paths, preserve_order=same_layout) as (paths, books):
+        content = compare_content(paths, books, same_layout=same_layout)
         try:
             problem = _analyze_loaded(paths, books)
         except LineageUnavailable as error:
@@ -45,20 +45,40 @@ def save_workbook_analysis(paths, directory=None):
         # Keep observed similarities separate from the actual formula graph.
         report = save_analysis(problem, folder)
         report.rename(folder / 'lineage.html')
-        analysis = json.loads((folder / 'analysis.json').read_text())
+        dependents = {}
+        for head, body in problem.rules:
+            for node in body:
+                dependents.setdefault(node, set()).add(head)
+        formula_targets = set(problem.targets)
+        def impacts(nodes):
+            seen = set(nodes)
+            pending = list(nodes)
+            while pending:
+                for node in dependents.get(pending.pop(), ()):
+                    if node not in seen:
+                        seen.add(node)
+                        pending.append(node)
+            return sorted(seen & formula_targets)
         for block in content['blocks']:
-            targets = set()
-            difference_targets = set()
+            matched = set()
+            different = set()
+            uncompared = set()
             for side in ('left', 'right'):
                 loc = block[side]
                 prefix = loc['workbook']+'::' if len(paths)>1 else ''
                 for cell in block['cells']:
                     node = prefix+loc['sheet']+'!'+cell[side]
-                    impact = analysis['source_impacts'].get(node, [])
-                    if cell['equal']: targets.update(impact)
-                    else: difference_targets.update(impact)
-            block['formula_targets'] = sorted(targets)
-            block['difference_formula_targets'] = sorted(difference_targets)
+                    if cell['equal']:
+                        matched.add(node)
+                    elif same_layout:
+                        if cell['comparison'] == 'uncompared': uncompared.add(node)
+                        elif cell['comparison'] != 'same_formula': different.add(node)
+                    else:
+                        different.add(node)
+            block['formula_targets'] = impacts(matched)
+            block['difference_formula_targets'] = impacts(different)
+            if same_layout:
+                block['uncompared_formula_targets'] = impacts(uncompared)
     (folder / 'content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
     write_content_report(content, folder / 'index.html')
     return folder / 'index.html'
@@ -69,7 +89,7 @@ def main(argv=None):
     sub = parser.add_subparsers(dest='command', required=True)
     bench = sub.add_parser('benchmark'); bench.add_argument('--repeats', type=int, default=3)
     demo = sub.add_parser('demo'); demo.add_argument('--output')
-    analyze = sub.add_parser('analyze'); analyze.add_argument('workbooks', nargs='+', help='Workbook files or folders of .xlsx/.xlsm files'); analyze.add_argument('--output')
+    analyze = sub.add_parser('analyze'); analyze.add_argument('workbooks', nargs='+', help='Workbook files or folders of .xlsx/.xlsm files'); analyze.add_argument('--output'); analyze.add_argument('--same-layout', action='store_true', help='Compare exactly two workbooks cell-by-cell at identical sheet names and coordinates')
     inspect = sub.add_parser('inspect'); inspect.add_argument('problem_json'); inspect.add_argument('--output')
     args = parser.parse_args(argv)
     try:
@@ -80,13 +100,15 @@ def main(argv=None):
             return int(report['status'] != 'PASS')
         if args.command == 'demo': problem = evidence_demo()
         elif args.command == 'analyze':
+            if args.same_layout and (len(args.workbooks) != 2 or any(Path(p).is_dir() for p in args.workbooks)):
+                raise ValueError('--same-layout requires two explicit files in before/after order')
             paths = []
             for item in args.workbooks:
                 path = Path(item)
                 if path.is_dir():
                     paths.extend(p for p in path.iterdir() if p.is_file() and p.suffix.lower() in ('.xlsx','.xlsm') and not p.name.startswith('~$'))
                 else: paths.append(path)
-            print(save_workbook_analysis(paths, args.output))
+            print(save_workbook_analysis(paths, args.output, same_layout=args.same_layout))
             return 0
         else: problem = DependencyProblem.from_dict(json.loads(Path(args.problem_json).read_text()))
         print(save_analysis(problem, args.output))

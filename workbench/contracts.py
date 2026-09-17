@@ -1,5 +1,8 @@
 """One bounded task contract; source identity is distinct from document identity."""
+from collections.abc import Mapping
+from copy import deepcopy
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from graphlib import TopologicalSorter, CycleError
 import hashlib
 import json
@@ -8,13 +11,19 @@ import json
 @dataclass(frozen=True)
 class DependencyProblem:
     id: str
-    bases: dict[str, str]
+    bases: Mapping[str, str]
     rules: tuple[tuple[str, tuple[str, ...]], ...]
     targets: tuple[str, ...]
     mode: str = 'declared_support'
     metadata: dict = field(default_factory=dict)
 
     def __post_init__(self):
+        # Own semantic inputs before validation; compiled adapters must see stable data.
+        object.__setattr__(self, 'bases', MappingProxyType(dict(self.bases)))
+        object.__setattr__(self, 'rules', tuple((head, tuple(body)) for head, body in self.rules))
+        object.__setattr__(self, 'targets', tuple(self.targets))
+        # Annotations remain editable, but caller-owned input/export data is detached.
+        object.__setattr__(self, 'metadata', deepcopy(self.metadata))
         if not self.id or self.mode not in ('declared_support', 'static_formula_lineage'):
             raise ValueError('A problem ID and supported semantics are required')
         identifiers = list(self.bases) + list(self.bases.values()) + list(self.targets)
@@ -49,8 +58,8 @@ class DependencyProblem:
 
     def to_dict(self):
         return {'schema_version': 1, 'id': self.id, 'mode': self.mode,
-                'bases': self.bases, 'rules': [{'head': h, 'body': list(b)} for h, b in self.rules],
-                'targets': list(self.targets), 'metadata': self.metadata}
+                'bases': dict(self.bases), 'rules': [{'head': h, 'body': list(b)} for h, b in self.rules],
+                'targets': list(self.targets), 'metadata': deepcopy(self.metadata)}
 
     @classmethod
     def from_dict(cls, data):

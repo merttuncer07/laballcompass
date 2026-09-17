@@ -55,8 +55,62 @@ python real_data_pilot_digits.py
 
 See `PARENT_PROVENANCE.md` for exact source snapshots.
 
+## Grouped decision audit (2026-09-15)
+
+`audit_decision_model_selection` and the `decision_inputs` workbench branch accept
+`training_groups` and `validation_groups`. These identify source groups in the
+selection and protected samples; both must be supplied, each with at least two
+groups, using disjoint IDs in a common namespace. ACSA resamples whole groups,
+preserves the pooled row objective and reports cluster CR1 uncertainty. The same
+selected candidate and realized-payoff tiebreak are audited.
+
+This option requires `transaction_cost=0`. Group-specific state initialization
+and sequential replay have not been implemented, so a nonzero cost is rejected.
+The separate DLEW `total_turnover` diagnostic still follows the supplied row order
+across group boundaries; it is not a within-subject turnover measure. Group IDs
+do not prove independence or produce calibrated audit opinions. Omitting groups
+preserves row-resampling behavior. Run the complete suite with `python -m pytest -q`.
+
 ## 2026-09-15 minimum-cut repair
 
 MIFF now optimizes declared integer/binary-float cut costs with exact integer residuals. Small costs no longer disappear under a fixed epsilon, and large costs cannot make a super-terminal edge look cheaper than the real cut. Parallel/reverse flows and multiple terminals remain supported; unrepresentable floating-point totals raise an explicit error. DREW's embedded MIFF copy is identical to the canonical parent.
 
 Fresh scope: 24 MIFF tests and 11 DREW tests pass. Includes an exhaustive vertex-partition oracle on small graphs and NetworkX's independently specified directed-graph cut of 23. This is a known graph algorithm repair. Gains, suspect labels and costs remain declared model inputs; no calibrated probability, real pipeline enforcement or audit-field benefit is established. Full observations, preserved originals and proof are in `restoration/20260915-miff` at the repository root.
+
+## 2026-09-15 selected model equals audited model
+
+DLEW resolves equal mean regret by higher realized payoff, then candidate order.
+The ACSA adapter previously dropped the payoff tiebreak and could audit another
+candidate. DREW now passes per-case payoffs from the same sequential action paths
+as its losses; ACSA repeats the same rule in selection and paired row resamples.
+A selection identity mismatch now raises an error instead of returning an audit
+of a different candidate. An unstable ACSA result remains unstable in DREW.
+
+The public `decision_regret_matrix` two-value return is unchanged. The secondary
+payoff matrix is an internal adapter detail. NaN and infinite materiality
+thresholds are rejected in the canonical and all six embedded ACSA copies.
+
+The current DREW suite has 15 passing tests. The canonical ACSA suite has 17.
+Normal lab runs now collect both unittest classes and pytest functions; previous
+`lab.py check R014` and `lab.py check R027` runs omitted the new function tests.
+The repaired ACSA, MIFF and six consumer suites have 85 passing tests; the
+runner/component tests add 17. These counts describe software behavior only.
+
+The unchanged real digits pilot was re-run with scikit-learn 1.9.1. DREW selected
+and audited `knn_k3`; protected evaluation preferred `knn_k1`. Final errors were
+again 8/360 and 6/360. Ordinary protected-sample argmin also chose `knn_k1`.
+Therefore this run demonstrates working model/audit integration, not unique
+DREW accuracy gain. It is one fixed-seed classification dataset, not banking or
+audit field validation. Writer-group independence is not established.
+
+At the lab root, install the optional real-pilot dependencies:
+
+```sh
+.venv/bin/python -m pip install -r requirements-pilots.lock
+.venv/bin/python restoration/20260915-selection-identity/run_real_data_validation.py
+```
+
+The replay stores the actual models' search/holdout error matrices, exact dataset
+and environment fingerprints, comparison results and invalid-threshold checks.
+Original historical result files remain unchanged. See
+`restoration/20260915-selection-identity/real-data-validation.json`.

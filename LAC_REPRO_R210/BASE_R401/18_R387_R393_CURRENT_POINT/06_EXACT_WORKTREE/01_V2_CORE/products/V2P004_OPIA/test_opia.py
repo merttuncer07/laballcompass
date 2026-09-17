@@ -119,6 +119,11 @@ class K081ContrastiveCompositionTests(unittest.TestCase):
         r=run(near(),0.0)
         self.assertAlmostEqual(r.ranked_channels[0]["adjusted_net_value"],r.ranked_channels[0]["base_net_value"],places=12)
 
+    def test_zero_variance_zero_backaction_preserves_base_net_value(self):
+        channel=[InformationChannel("hotspot_contrast",MEASUREMENT_CONTRAST,0.0,.02)]
+        r=run(near(),0.0,covariance=np.zeros((8,8)),channels=channel)
+        self.assertAlmostEqual(r.ranked_channels[0]["adjusted_net_value"],r.ranked_channels[0]["base_net_value"],places=12)
+
 
 if __name__ == "__main__":
     unittest.main()

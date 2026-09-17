@@ -1,0 +1,68 @@
+{
+  "pilot": {
+    "dataset": "scikit-learn load_digits / Optical Recognition of Handwritten Digits",
+    "seed": 20260825,
+    "split_rows": {
+      "model_fit": 808,
+      "search_selection": 269,
+      "protected_validation": 360,
+      "fresh_final": 360
+    },
+    "candidate_models": 27,
+    "search_rmse_selected": "knn_k3",
+    "search_decision_selected": "knn_k3",
+    "protected_best_candidate": "knn_k1",
+    "protected_audit_status": "ADAPTIVE_SELECTION_REGRET_DETECTED",
+    "protected_selection_regret": 0.011111111111111113,
+    "selection_bootstrap_fragility": 0.554,
+    "fresh_final_error_rates": {
+      "search_rmse_selected": 0.022222222222222223,
+      "search_decision_selected": 0.022222222222222223,
+      "protected_best": 0.016666666666666666
+    },
+    "fresh_final_error_counts": {
+      "search_rmse_selected": 8,
+      "search_decision_selected": 8,
+      "protected_best": 6
+    },
+    "fresh_final_relative_regret_reduction": 0.25,
+    "fit_seconds": 0.569069249999302,
+    "audit_seconds": 0.5296446669999568,
+    "interpretation": "single fixed-seed real-data pilot; not a general-performance claim"
+  },
+  "identity_check": {
+    "selected": "knn_k3",
+    "audited": "knn_k3",
+    "selection_rule": "minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order",
+    "plain_holdout_argmin": "knn_k1",
+    "drew_status": "DECISION_SELECTION_FAILS_PROTECTED_AUDIT",
+    "threshold_checks_on_actual_model_losses": [
+      {
+        "threshold": "NaN",
+        "before_status": "SELECTION_UNSTABLE_ACROSS_RESAMPLES",
+        "actual_selected_holdout_regret": 0.011111111111111113,
+        "after": "material_regret must be finite and nonnegative"
+      },
+      {
+        "threshold": "+Infinity",
+        "before_status": "SELECTION_UNSTABLE_ACROSS_RESAMPLES",
+        "actual_selected_holdout_regret": 0.011111111111111113,
+        "after": "material_regret must be finite and nonnegative"
+      }
+    ]
+  },
+  "environment": {
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "source": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html",
+  "dataset_shape": [
+    1797,
+    64
+  ],
+  "dataset_sha256": "f6d9e39f37dc45d327f6db33428ee58970ccceabb2535a5c179de35886b70443",
+  "scope": "One unchanged fixed-seed, real-data classification pilot. Row splits do not establish writer-group independence. Protected argmin is the ordinary validation baseline; no unique DREW accuracy gain or banking-field benefit is demonstrated."
+}

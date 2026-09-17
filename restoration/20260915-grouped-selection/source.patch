@@ -1,0 +1,1420 @@
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md
+@@ -30,12 +30,45 @@
+ The reported instability status is a diagnostic at the existing 0.5 frequency
+ threshold, not a calibrated false-discovery test.
+ 
+-Run all 17 current tests with `python -m pytest -q` in this folder, or
++Run all current tests with `python -m pytest -q` in this folder, or
+ `./.venv/bin/python lab.py check R014` at the lab root. The older unittest-only
+ command does not collect module-level regression functions. The lab runner now
+ selects pytest for this mixed suite.
+ 
+-Bootstrap intervals and frequencies resample the supplied rows. They do not
+-replay a sequential policy or account for unknown clusters, shared data sources,
+-or writer dependence. Those uses need an appropriate sampling model. Observed
+-repair records: `restoration/20260915-selection-identity/` at the lab root.
++Without group IDs, bootstrap intervals and frequencies resample the supplied
++rows independently. Observed selection-rule repair records are preserved at
++`restoration/20260915-selection-identity/` at the lab root.
++
++## Whole-source groups (2026-09-15)
++
++Supply both `selection_groups` and `holdout_groups` to use whole-group pairs
++bootstrap. Each ID must be a nonblank string or integer (not a boolean or float),
++one per row. IDs use a shared namespace across partitions, with at least two
++groups in each partition and no overlap. Integer `1` differs from string `"1"`;
++NumPy integer IDs compare equal to Python integers. Unknown or missing IDs must
++be resolved by the caller, not replaced by invented independent groups.
++
++Every draw samples G groups with replacement and retains every row of each drawn
++group, including duplicates. Candidate losses and tiebreak scores stay paired.
++The pooled row mean is preserved; unequal group sizes are not given equal weight.
++The selected holdout candidate stays fixed during resampling.
++
++For N holdout rows in G groups, centered group loss totals T_g give the
++intercept-only CR1 standard error `sqrt(G/(G-1) * sum(T_g**2)) / N`.
++`pointwise_95_radius` remains `1.96*SE`, an approximate normal radius; the bootstrap
++interval is the percentile interval. Output reports the sampling/SE methods,
++unit counts, largest holdout unit share and the pooled-case estimand.
++
++This implements established methods: [cluster pairs bootstrap, Cameron & Miller,
++section II.F](https://cameron.econ.ucdavis.edu/research/Cameron_Miller_JHR_2015_February.pdf)
++and the intercept-only specialization of [Statsmodels' cluster sandwich
++implementation](https://www.statsmodels.org/stable/_modules/statsmodels/stats/sandwich_covariance.html#cov_cluster).
++It does not prove independence, recover unknown provenance, replay sequential
++policies, retrain models or account for adaptive candidate generation. Few groups,
++one dominant group and cross-group dependence limit inference. Neither interval
++has guaranteed coverage; existing status labels are descriptive diagnostics, not
++significance tests or evidence-quality scores.
++
++The real repeated-subject evaluation, original-source hashes and repeatable command
++are at `examples/grouped-selection/README.md` in the lab. This is mechanism
++validation, not a clinical or banking case.
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/test_grouped_selection.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/test_grouped_selection.py
+@@ -0,0 +1,79 @@
++"""Algebraic regression checks; arrays here are not presented as field evidence."""
++from dataclasses import asdict
++import numpy as np
++import pytest
++from acsa import audit_adaptive_selection
++
++
++def test_singleton_groups_recover_row_bootstrap_and_se():
++    args = dict(selection_losses=[[0, 1], [1, 0], [2, 1]],
++                holdout_losses=[[1, 0], [4, 1], [2, 3], [8, 4]],
++                selection_tiebreak_scores=[[3, 0], [0, 1], [2, 1]],
++                bootstrap_samples=200, random_seed=42)
++    row = asdict(audit_adaptive_selection(**args))
++    grouped = asdict(audit_adaptive_selection(**args, selection_groups=['a', 'b', 'c'],
++                                             holdout_groups=['d', 'e', 'f', 'g']))
++    for key in ('resampling_method', 'standard_error_method'):
++        row.pop(key); grouped.pop(key)
++    for key in ('pointwise_standard_error', 'pointwise_95_radius'):
++        assert row.pop(key) == pytest.approx(grouped.pop(key), rel=1e-14)
++    assert row == grouped
++
++
++def test_unequal_group_sizes_preserve_pooled_mean_and_cr1():
++    # Two clusters: [0] and [3,3,3], pooled mean 2.25, group mean 1.5.
++    r = audit_adaptive_selection([[0], [1]], [[0], [3], [3], [3]],
++        selection_groups=['s1', 's2'], holdout_groups=['h1', 'h2', 'h2', 'h2'],
++        bootstrap_samples=400, random_seed=7)
++    assert r.selected_holdout_loss == 2.25
++    # Cluster residual totals -2.25, +2.25 => CR1 SE = 1.125.
++    assert r.pointwise_standard_error == 1.125
++    assert r.selected_holdout_loss_bootstrap_interval_95 == (0., 3.)
++    assert r.holdout_unit_count == 2 and r.holdout_largest_unit_fraction == .75
++
++
++def test_exact_cluster_selector_includes_loss_score_pairing():
++    # Four equiprobable cluster draws AA, AB, BA, BB. AB/BA have unequal
++    # row counts: candidate 1 wins their exact pooled-loss tie by score.
++    r = audit_adaptive_selection([[0, 2], [1, 0], [1, 0]], [[0, 0], [1, 1]],
++        selection_tiebreak_scores=[[3, 0], [0, 2], [0, 2]],
++        selection_groups=['a', 'b', 'b'], holdout_groups=['c', 'd'],
++        bootstrap_samples=4000, random_seed=12)
++    assert r.selected_candidate == 'candidate_1'
++    assert r.selection_bootstrap_frequencies[1] == pytest.approx(.75, abs=.025)
++
++
++def test_duplicate_rows_within_sources_do_not_multiply_information():
++    selection = np.array([[0, 1], [1, 0]])
++    holdout = np.array([[0, 1], [6, 2]])
++    original = audit_adaptive_selection(selection, holdout, selection_groups=['a', 'b'],
++        holdout_groups=['c', 'd'], bootstrap_samples=200, random_seed=3)
++    repeated = audit_adaptive_selection(np.repeat(selection, 20, axis=0),
++        np.repeat(holdout, 20, axis=0), selection_groups=np.repeat(['a', 'b'], 20),
++        holdout_groups=np.repeat(['c', 'd'], 20), bootstrap_samples=200, random_seed=3)
++    assert repeated.pointwise_standard_error == original.pointwise_standard_error
++    assert repeated.selected_holdout_loss_bootstrap_interval_95 == original.selected_holdout_loss_bootstrap_interval_95
++    assert repeated.selection_bootstrap_frequencies == original.selection_bootstrap_frequencies
++
++
++@pytest.mark.parametrize('selection_ids,holdout_ids', [
++    (['a', 'b'], None), (None, ['c', 'd']), (['a', 'b'], ['a', 'c']),
++    (['a', 'a'], ['c', 'd']), (['a'], ['c', 'd']),
++    ([None, 'a'], ['c', 'd']), ([float('nan'), 'a'], ['c', 'd']),
++    ([1., 2.], ['c', 'd']), ([True, 2], ['c', 'd']),
++    ([['a'], ['b']], ['c', 'd']), (['', 'b'], ['c', 'd']),
++    ('ab', ['c', 'd']), (1, ['c', 'd']),
++])
++def test_invalid_or_leaking_groups_rejected(selection_ids, holdout_ids):
++    with pytest.raises(ValueError):
++        audit_adaptive_selection([[0], [1]], [[0], [1]], bootstrap_samples=100,
++            selection_groups=selection_ids, holdout_groups=holdout_ids)
++
++
++def test_mixed_id_types_are_lossless_and_share_cross_partition_namespace():
++    r = audit_adaptive_selection([[0], [1]], [[0], [1]], bootstrap_samples=100,
++        selection_groups=[1, '1'], holdout_groups=[2, '2'])
++    assert r.selection_unit_count == 2
++    with pytest.raises(ValueError, match='disjoint'):
++        audit_adaptive_selection([[0], [1]], [[0], [1]], bootstrap_samples=100,
++            selection_groups=[np.int64(1), '1'], holdout_groups=[1, '2'])
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py
+@@ -28,9 +28,47 @@
+     selection_fragility: float
+     status: str
+     selection_rule: str = "minimum_mean_loss_then_column_order"
++    loss_estimand: str = "pooled_case_mean"
++    resampling_method: str = "iid_rows"
++    standard_error_method: str = "iid_sample_mean"
++    selection_unit_count: int = 0
++    holdout_unit_count: int = 0
++    holdout_largest_unit_fraction: float = 0.0
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
++
++
++def _group_rows(ids, row_count, label):
++    """Retain first-seen order and compare IDs without lossy string conversion."""
++    if isinstance(ids, (str, bytes)):
++        raise ValueError(f"{label} must contain one group ID per row")
++    try:
++        values = list(ids)
++    except TypeError as exc:
++        raise ValueError(f"{label} must contain one group ID per row") from exc
++    if len(values) != row_count:
++        raise ValueError(f"{label} must contain one group ID per row")
++    groups = {}
++    for row, value in enumerate(values):
++        if isinstance(value, (int, np.integer)) and not isinstance(value, (bool, np.bool_)):
++            key = ("integer", int(value))
++        elif isinstance(value, str) and value.strip():
++            key = ("string", value)
++        else:
++            raise ValueError(f"{label} IDs must be nonempty strings or integers; missing IDs are not allowed")
++        groups.setdefault(key, []).append(row)
++    if len(groups) < 2:
++        raise ValueError(f"{label} needs at least two distinct groups")
++    return groups.keys(), tuple(np.asarray(rows, dtype=int) for rows in groups.values())
++
++
++def _resampled_rows(rng, row_count, groups):
++    if groups is None:
++        return rng.integers(0, row_count, row_count)
++    draws = rng.integers(0, len(groups), len(groups))
++    # Whole groups retain multiplicity and all their rows, including unequal sizes.
++    return np.concatenate([groups[g] for g in draws])
+ 
+ 
+ def audit_adaptive_selection(
+@@ -42,6 +80,8 @@
+     random_seed: int = 0,
+     material_regret: float = 0.0,
+     selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
++    selection_groups: Sequence[str | int] | None = None,
++    holdout_groups: Sequence[str | int] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+@@ -51,9 +91,13 @@
+ 
+     Optional case-by-candidate tiebreak scores are maximized only when mean
+     selection losses are exactly equal. They must use selection data only.
+-    The same row indices resample loss and score together. This is a bootstrap
+-    of supplied case rows, not a replay of a sequential policy or a cluster
+-    bootstrap; dependent rows require a different sampling model.
++    The same row indices resample loss and score together. By default rows are
++    resampled independently. Supply both group arrays to resample whole source
++    groups and use a cluster sandwich SE. IDs must share a namespace and must
++    not overlap across partitions. This does not establish group independence.
++    The estimand remains the pooled case mean, not the mean of group means.
++    Models and supplied losses are fixed: no retraining or sequential replay
++    is performed. The 1.96*SE radius is only a pointwise normal approximation.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -69,6 +113,15 @@
+     if not np.isfinite(material_regret) or material_regret < 0:
+         raise ValueError("material_regret must be finite and nonnegative")
+ 
++    if (selection_groups is None) != (holdout_groups is None):
++        raise ValueError("selection_groups and holdout_groups must be supplied together")
++    selection_blocks = holdout_blocks = None
++    if selection_groups is not None:
++        selection_keys, selection_blocks = _group_rows(selection_groups, selection.shape[0], "selection_groups")
++        holdout_keys, holdout_blocks = _group_rows(holdout_groups, holdout.shape[0], "holdout_groups")
++        if set(selection_keys).intersection(holdout_keys):
++            raise ValueError("selection and holdout group IDs must be disjoint in a common namespace")
++
+     tiebreak = None
+     if selection_tiebreak_scores is not None:
+         tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
+@@ -93,15 +146,24 @@
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+ 
+     selected_holdout = holdout[:, selected]
+-    standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    if holdout_blocks is None:
++        standard_error = float(np.std(selected_holdout, ddof=1) / np.sqrt(holdout.shape[0]))
++    else:
++        # Intercept-only CR1 sandwich for the pooled row mean. Center first to
++        # avoid subtracting two large totals when losses have a large offset.
++        residual = selected_holdout - holdout_means[selected]
++        totals = np.asarray([residual[rows].sum() for rows in holdout_blocks])
++        group_count = len(holdout_blocks)
++        standard_error = float(np.sqrt(group_count / (group_count - 1) * np.sum(totals ** 2))
++                               / holdout.shape[0])
+     pointwise_radius = 1.96 * standard_error
+ 
+     rng = np.random.default_rng(random_seed)
+     holdout_bootstrap = np.empty(bootstrap_samples)
+     selection_counts = np.zeros(p, dtype=int)
+     for b in range(bootstrap_samples):
+-        holdout_indices = rng.integers(0, holdout.shape[0], holdout.shape[0])
+-        selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
++        holdout_indices = _resampled_rows(rng, holdout.shape[0], holdout_blocks)
++        selection_indices = _resampled_rows(rng, selection.shape[0], selection_blocks)
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+         boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
+@@ -137,4 +199,10 @@
+         status=status,
+         selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+                         if tiebreak is not None else "minimum_mean_loss_then_column_order"),
++        resampling_method="whole_groups" if holdout_blocks is not None else "iid_rows",
++        standard_error_method="cluster_CR1_pooled_mean" if holdout_blocks is not None else "iid_sample_mean",
++        selection_unit_count=len(selection_blocks) if selection_blocks is not None else selection.shape[0],
++        holdout_unit_count=len(holdout_blocks) if holdout_blocks is not None else holdout.shape[0],
++        holdout_largest_unit_fraction=(max(map(len, holdout_blocks)) / holdout.shape[0]
++                                       if holdout_blocks is not None else 1 / holdout.shape[0]),
+     )
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
+@@ -148,8 +148,17 @@
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    training_groups: Sequence[str | int] | None = None,
++    validation_groups: Sequence[str | int] | None = None,
+ ) -> DecisionSelectionAudit:
+-    """Select by DLEW decision loss, then audit that adaptive selection on protected data with ACSA."""
++    """Select by DLEW decision loss, then audit that selection on protected data.
++
++    Optional group IDs describe the selection (training) and protected
++    (validation) rows. Group resampling requires zero transaction cost because
++    this adapter does not reset or replay sequential paths within each group.
++    """
++    if (training_groups is not None or validation_groups is not None) and transaction_cost != 0:
++        raise ValueError("grouped decision audits require transaction_cost=0; sequential group replay is unsupported")
+     decision = evaluate_decision_models(
+         training_predictions,
+         training_outcomes,
+@@ -183,6 +192,8 @@
+         random_seed=random_seed,
+         material_regret=material_regret,
+         selection_tiebreak_scores=train_payoffs,
++        selection_groups=training_groups,
++        holdout_groups=validation_groups,
+     )
+     matches = decision.selected_by_training_decision_loss == adaptive.selected_candidate
+     if not matches:
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md
+@@ -55,6 +55,22 @@
+ 
+ See `PARENT_PROVENANCE.md` for exact source snapshots.
+ 
++## Grouped decision audit (2026-09-15)
++
++`audit_decision_model_selection` and the `decision_inputs` workbench branch accept
++`training_groups` and `validation_groups`. These identify source groups in the
++selection and protected samples; both must be supplied, each with at least two
++groups, using disjoint IDs in a common namespace. ACSA resamples whole groups,
++preserves the pooled row objective and reports cluster CR1 uncertainty. The same
++selected candidate and realized-payoff tiebreak are audited.
++
++This option requires `transaction_cost=0`. Group-specific state initialization
++and sequential replay have not been implemented, so a nonzero cost is rejected.
++The separate DLEW `total_turnover` diagnostic still follows the supplied row order
++across group boundaries; it is not a within-subject turnover measure. Group IDs
++do not prove independence or produce calibrated audit opinions. Omitting groups
++preserves row-resampling behavior. Run the complete suite with `python -m pytest -q`.
++
+ ## 2026-09-15 minimum-cut repair
+ 
+ MIFF now optimizes declared integer/binary-float cut costs with exact integer residuals. Small costs no longer disappear under a fixed epsilon, and large costs cannot make a super-terminal edge look cheaper than the real cut. Parallel/reverse flows and multiple terminals remain supported; unrepresentable floating-point totals raise an explicit error. DREW's embedded MIFF copy is identical to the canonical parent.
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_grouped_decisions.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_grouped_decisions.py
+@@ -0,0 +1,36 @@
++import numpy as np
++import pytest
++if __package__:
++    from .drew import audit_decision_model_selection, run_reliability_workbench
++else:
++    from drew import audit_decision_model_selection, run_reliability_workbench
++
++
++def inputs():
++    return dict(training_predictions={'a': [[1, 0], [0, 1], [1, 0], [0, 1]]},
++        training_outcomes=[[1, 0], [0, 1], [1, 0], [0, 1]],
++        validation_predictions={'a': [[1, 0], [1, 0], [1, 0], [1, 0]]},
++        validation_outcomes=[[0, 1], [0, 1], [1, 0], [1, 0]],
++        action_payoff_exposures=np.eye(2), initial_action_exposure=[0, 0],
++        training_groups=['s1', 's1', 's2', 's2'], validation_groups=['v1', 'v1', 'v2', 'v2'],
++        bootstrap_samples=100)
++
++
++def test_workbench_carries_group_semantics_to_actual_selected_candidate():
++    result = run_reliability_workbench(decision_inputs=inputs()).decision_audit
++    assert result.decision_selector_matches_loss_matrix
++    assert result.adaptive_selection.resampling_method == 'whole_groups'
++    assert result.adaptive_selection.holdout_unit_count == 2
++    assert result.adaptive_selection.pointwise_standard_error == .5
++
++
++@pytest.mark.parametrize('cost', [.1, float('nan'), float('inf')])
++def test_grouped_sequential_paths_cannot_silently_use_fixed_row_bootstrap(cost):
++    with pytest.raises(ValueError, match='transaction_cost=0'):
++        audit_decision_model_selection(**inputs(), transaction_cost=cost)
++
++
++def test_shared_subject_rejected_through_workbench():
++    args = inputs(); args['validation_groups'] = ['s1', 's1', 'v2', 'v2']
++    with pytest.raises(ValueError, match='disjoint'):
++        run_reliability_workbench(decision_inputs=args)
+--- a/README.md
++++ b/README.md
+@@ -3,6 +3,13 @@
+ 15 Eylül 2026. Bu sürümde mevcut motorların hesaplamaları, ürünlerin birbirini çağırması ve çalıştırma yolları onarıldı. Eski proje ve indirilen arşivler korunuyor. Çalışma kodu `LAC_REPRO_R210/` altında; bu klasör özgün arşivin değiştirilmiş bir kopyasıdır.
+ 
+ ## Yeni motor ve ürün onarımları
++
++ACSA ve DREW artık açık kaynak gruplarıyla değerlendirme yapabiliyor. Aynı kişiye
++ait tekrarlar birlikte örnekleniyor; iki değerlendirme bölümüne taşan kaynak
++kimlikleri reddediliyor. Gerçek UCI verisinde 1.529 kayıt / 11 kaynak için standart
++hata satır hesabının 11,37 katı çıktı; seçilen model ve ortalama kayıp değişmedi.
++[Gerçek veri, tekrar çalıştırma ve sınırlar](examples/grouped-selection/README.md).
++Bu bilinen istatistiksel yöntemlerin onarımıdır; bankacılık veya klinik saha kanıtı değildir.
+ 
+ DREW artık seçtiği modeli denetliyor: eşit kayıpta kullanılan getiri ölçütü
+ ACSA'ya da taşındı; geçersiz önemlilik eşikleri reddediliyor. Lab çalıştırıcısı,
+--- a/PRODUCT_REPAIRS.md
++++ b/PRODUCT_REPAIRS.md
+@@ -152,3 +152,23 @@
+ Bootstrap hâlâ verilen satırları yeniden örnekler; ardışık karar politikasını
+ yeniden çalıştırmaz ve aynı kaynaktan gelen satırlar için otomatik bağımlılık
+ düzeltmesi yapmaz. Bu sınır düzeltilmiş kimlik eşlemesiyle karıştırılmamalı.
++
++## ACSA / DREW: aynı kaynağın tekrarları bağımsız satırlar sayılmıyor
++
++ACSA ve DREW artık açık kaynak gruplarıyla değerlendirme yapabiliyor. Aynı kişiye
++ait tekrarlar birlikte örnekleniyor; iki değerlendirme bölümüne taşan kaynak
++kimlikleri reddediliyor. Gerçek UCI verisinde 1.529 kayıt / 11 kaynak için standart
++hata satır hesabının 11,37 katı çıktı; seçilen model ve ortalama kayıp değişmedi.
++[Gerçek veri, tekrar çalıştırma ve sınırlar](examples/grouped-selection/README.md).
++Bu bilinen istatistiksel yöntemlerin onarımıdır; bankacılık veya klinik saha kanıtı değildir.
++
++İsteğe bağlı grup kimlikleriyle bütün gruplar yeniden örneklenir; farklı grup
++büyüklüklerinde satır ağırlıklı ortalama korunur. ACSA noktasal SE hesabında
++intercept-only CR1 kullanır. Kanonik motor ve altı gömülü kopya aynı değişikliği
++alır. DREW `training_groups` / `validation_groups` girdilerini gerçek karar kaybı
++ve getiri eşitlik ölçütüyle birlikte ACSA'ya geçirir. Gruplu DREW için işlem
++maliyeti sıfır olmalıdır; grup içinde sıralı politika tekrar oynatımı henüz yoktur.
++
++1.96 × SE yarıçapı normal yaklaşımıdır; yüzde 95 bootstrap aralığının kapsamı
++kanıtlanmış değildir. Grup kimliği kaynak bağımsızlığını veya belge doğruluğunu
++kanıtlamaz. Onarım kaydı: `restoration/20260915-grouped-selection/README.md`.
+--- a/examples/grouped-selection/PROTOCOL.md
++++ b/examples/grouped-selection/PROTOCOL.md
+@@ -0,0 +1,20 @@
++# Protocol recorded before execution
++
++Use the unmodified UCI Parkinsons Telemonitoring archive identified by the hashes
++in `run.py`. One random subject permutation with seed 20260915: 20 fit subjects,
++11 selection subjects, 11 protected subjects. No subject crosses partitions.
++Fit the six explicitly defined models once on the 16 voice features; exclude ID,
++age, sex, time and both target columns from features. The outcome is the published,
++linearly interpolated motor UPDRS score. Use absolute prediction error.
++
++Compare ordinary ACSA row resampling to whole-subject resampling with 2,000 draws
++each, the same fitted candidates, loss matrices, seed and pooled-recording
++estimand. Report both methods whatever the outcome. No seed search or holdout
++tuning. This checks the effect of known source grouping, not prediction quality,
++interval coverage, medical usefulness or banking performance. Eleven protected
++subjects limit inference. A stronger or weaker interval is an observed result,
++not a selection criterion for reporting.
++
++Original records are attributed to Tsanas and Little (2009), UCI, DOI
++10.24432/C5ZS3N, CC BY 4.0. `*-losses.csv` will contain derived model errors with
++original CSV line numbers and subject IDs, never fabricated source observations.
+--- a/examples/grouped-selection/README.md
++++ b/examples/grouped-selection/README.md
+@@ -0,0 +1,52 @@
++# Real repeated-source evaluation of ACSA
++
++The same 1,529 protected records give very different uncertainty when their 11
++actual source subjects are retained. The selected constant training-mean model
++and every candidate's mean absolute error remain identical.
++
++| Calculation | IID rows | Whole subjects |
++| --- | ---: | ---: |
++| Resampling units in protected sample | 1,529 rows | 11 subjects |
++| Standard error | 0.11805 | 1.34253 |
++| Bootstrap percentile interval | 8.4983–8.9797 | 6.2244–11.3787 |
++| Bootstrap draws | 2,000 | 2,000 |
++
++The cluster SE is **11.3725 times** the row SE on this fixed split. This is an
++observed effect of a different sampling assumption, not proof that the interval
++is calibrated. Neither method improves point prediction, and the constant model
++winning over five fitted alternatives is retained as observed. No favorable seed
++or model search was performed.
++
++The original [UCI Parkinsons Telemonitoring dataset](https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring)
++contains 5,875 recordings from 42 people with explicit subject IDs. The published
++motor UPDRS target is linearly interpolated. This experiment uses the 16 original
++voice features and is a software mechanism check, not a medical recommendation,
++banking audit example or proof of a new algorithm.
++
++`PROTOCOL.md` was written before execution. `result.json` records the exact
++subject split, models, environment, source hashes and both outcomes. Derived
++`selection-losses.csv` and `holdout-losses.csv` retain original CSV line numbers
++and subject IDs; the ZIP contains the unchanged public observations.
++
++From the lab root, with `requirements-pilots.lock` installed:
++
++```sh
++OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 .venv/bin/python examples/grouped-selection/run.py \
++  --acsa-dir LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA
++```
++
++The script writes results beside itself. It accepts only the original archive
++hash, does not download automatically and has no simulated-data fallback.
++ACSA's API accepts other measured case-by-candidate loss matrices and declared
++source IDs; it does not infer those IDs or losses from ordinary documents.
++
++Provenance: Tsanas, A. & Little, M. (2009), *Parkinsons Telemonitoring*, UCI,
++DOI [10.24432/C5ZS3N](https://doi.org/10.24432/C5ZS3N), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
++Download: [original ZIP](https://archive.ics.uci.edu/static/public/189/parkinsons+telemonitoring.zip).
++The raw data are unchanged; loss CSVs are derived from the documented fitted models.
++
++Only 11 protected subjects means limited precision. Independence between subjects
++is an assumption, not established by the IDs. The calculation conditions on the
++six fitted models, does not include retraining uncertainty and is not a familywise
++test. Known-source grouping is useful here; it does not solve unknown overlap or
++make six derivatives of one report into six independent evidence items.
+--- a/examples/grouped-selection/run.py
++++ b/examples/grouped-selection/run.py
+@@ -0,0 +1,151 @@
++"""Real repeated-source evaluation; not a medical or banking efficacy study.
++
++Usage: python run.py --acsa-dir /absolute/path/to/ACSA
++Only a hash-verified, unchanged public ZIP is accepted. No simulated data fallback.
++"""
++from pathlib import Path
++import argparse
++import csv
++import hashlib
++import importlib.metadata
++import io
++import json
++import sys
++import time
++import zipfile
++
++import numpy as np
++from sklearn.dummy import DummyRegressor
++from sklearn.ensemble import HistGradientBoostingRegressor
++from sklearn.linear_model import Ridge
++from sklearn.neighbors import KNeighborsRegressor
++from sklearn.pipeline import make_pipeline
++from sklearn.preprocessing import StandardScaler
++
++HERE = Path(__file__).resolve().parent
++ZIP_SHA = '2f82bb0ef96fa7d8d7edf4d97b89173e07c2cca7723440a64bc38918a83345df'
++CSV_SHA = 'f2c7d5025dec4e92e7feae367a5f7ccf58789a10ac6b54bdf15976c599f9dd39'
++SEED = 20260915
++B = 2000
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--acsa-dir', type=Path, required=True)
++    args = parser.parse_args()
++    sys.path.insert(0, str(args.acsa_dir.resolve()))
++    from acsa import audit_adaptive_selection
++    archive = (HERE / 'data/parkinsons-telemonitoring.zip').read_bytes()
++    if hashlib.sha256(archive).hexdigest() != ZIP_SHA:
++        raise ValueError('Original UCI archive hash mismatch')
++    with zipfile.ZipFile(io.BytesIO(archive)) as z:
++        raw = z.read('parkinsons_updrs.data')
++    if hashlib.sha256(raw).hexdigest() != CSV_SHA:
++        raise ValueError('Original UCI data hash mismatch')
++    records = list(csv.reader(io.StringIO(raw.decode('ascii'))))
++    columns = records[0]
++    data = np.asarray(records[1:], dtype=float)
++    assert data.shape == (5875, 22) and np.isfinite(data).all()
++    subjects = data[:, 0].astype(int)
++    ids = np.random.default_rng(SEED).permutation(np.unique(subjects))
++    split_ids = dict(fit=ids[:20], selection=ids[20:31], holdout=ids[31:])
++    masks = {key: np.isin(subjects, value) for key, value in split_ids.items()}
++    assert not (set(split_ids['fit']) & set(split_ids['selection']) or
++                set(split_ids['fit']) & set(split_ids['holdout']) or
++                set(split_ids['selection']) & set(split_ids['holdout']))
++    x = data[:, 6:]  # 16 original voice measurements only.
++    y = data[:, columns.index('motor_UPDRS')]
++    models = {
++        'constant_fit_mean': DummyRegressor(strategy='mean'),
++        'ridge_1': make_pipeline(StandardScaler(), Ridge(alpha=1.)),
++        'ridge_100': make_pipeline(StandardScaler(), Ridge(alpha=100.)),
++        'knn_5': make_pipeline(StandardScaler(), KNeighborsRegressor(n_neighbors=5)),
++        'knn_25': make_pipeline(StandardScaler(), KNeighborsRegressor(n_neighbors=25)),
++        'hist_gradient_boosting': HistGradientBoostingRegressor(
++            max_iter=100, learning_rate=.1, max_leaf_nodes=15,
++            early_stopping=False, random_state=SEED),
++    }
++    predictions = {'selection': [], 'holdout': []}
++    for name, model in models.items():
++        model.fit(x[masks['fit']], y[masks['fit']])
++        for partition in predictions:
++            predictions[partition].append(model.predict(x[masks[partition]]))
++    losses = {key: np.abs(np.column_stack(value) - y[masks[key], None])
++              for key, value in predictions.items()}
++    common = dict(candidate_names=tuple(models), bootstrap_samples=B, random_seed=SEED)
++    start = time.perf_counter()
++    row = audit_adaptive_selection(losses['selection'], losses['holdout'], **common)
++    row_seconds = time.perf_counter() - start
++    start = time.perf_counter()
++    grouped = audit_adaptive_selection(losses['selection'], losses['holdout'], **common,
++        selection_groups=subjects[masks['selection']].tolist(),
++        holdout_groups=subjects[masks['holdout']].tolist())
++    grouped_seconds = time.perf_counter() - start
++    assert row.selected_candidate == grouped.selected_candidate
++    assert row.selection_mean_losses == grouped.selection_mean_losses
++    assert row.holdout_mean_losses == grouped.holdout_mean_losses
++
++    # Independent intercept-only sandwich calculation via the design matrix.
++    selected = list(models).index(grouped.selected_candidate)
++    v = losses['holdout'][:, selected]
++    holdout_ids = subjects[masks['holdout']]
++    design = (np.unique(holdout_ids)[:, None] == holdout_ids[None, :]).astype(float)
++    cluster_scores = design @ (v - v.mean())
++    g = design.shape[0]
++    baseline_se = float(np.sqrt((cluster_scores @ cluster_scores) * g / (g - 1)) / len(v))
++    np.testing.assert_allclose(grouped.pointwise_standard_error, baseline_se, rtol=1e-12)
++
++    for partition, errors in losses.items():
++        # These are fitted-model losses derived from the unchanged public records.
++        out = np.column_stack((np.flatnonzero(masks[partition]) + 2,
++                               subjects[masks[partition]], errors))
++        np.savetxt(HERE / f'{partition}-losses.csv', out, delimiter=',',
++            header='original_csv_line,subject_id,' + ','.join(models), comments='',
++            fmt=['%d', '%d'] + ['%.17g'] * len(models))
++
++    result = {
++        'source': {
++            'title': 'Tsanas & Little (2009), Parkinsons Telemonitoring, UCI',
++            'page': 'https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring',
++            'download': 'https://archive.ics.uci.edu/static/public/189/parkinsons+telemonitoring.zip',
++            'doi': '10.24432/C5ZS3N', 'license': 'CC BY 4.0',
++            'zip_sha256': ZIP_SHA, 'data_sha256': CSV_SHA,
++            'rows': len(data), 'subjects': len(ids), 'features': columns[6:],
++            'target': 'motor_UPDRS (linearly interpolated by the dataset authors)',
++        },
++        'protocol': {
++            'seed': SEED, 'bootstrap_samples_per_method': B,
++            'loss': 'absolute prediction error', 'estimand': 'pooled recording mean',
++            'split_ids': {key: value.tolist() for key, value in split_ids.items()},
++            'split_rows': {key: int(mask.sum()) for key, mask in masks.items()},
++            'models': {key: repr(model) for key, model in models.items()},
++            'adaptation': 'One predeclared seed and family; no tuning on holdout; train-only scaling.',
++        },
++        'row_baseline': row.to_dict(), 'grouped': grouped.to_dict(),
++        'comparison': {
++            'same_selected_candidate': True, 'same_point_estimates': True,
++            'cluster_to_row_standard_error_ratio': grouped.pointwise_standard_error / row.pointwise_standard_error,
++            'independent_sandwich_baseline_se': baseline_se,
++            'row_seconds': row_seconds, 'grouped_seconds': grouped_seconds,
++        },
++        'environment': {name: importlib.metadata.version(name) for name in
++                        ('numpy', 'scipy', 'scikit-learn', 'joblib', 'threadpoolctl')},
++        'acsa_sha256': hashlib.sha256((args.acsa_dir / 'acsa.py').read_bytes()).hexdigest(),
++        'limitations': [
++            'This is a repeated-source software evaluation, not clinical validation or a banking case.',
++            'Only 11 protected subjects; neither normal nor percentile intervals have proven coverage here.',
++            'Grouping assumes subjects are independent; IDs alone cannot prove this.',
++            'Fixed fitted models and observed losses; no retraining uncertainty or candidate-generation audit.',
++            'No accuracy advantage over ordinary model selection is claimed; point estimates are identical.',
++            'Cluster CR1 and pairs bootstrap are established methods, not a new lab invention.',
++        ],
++    }
++    (HERE / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
++    print(json.dumps({key: result[key] for key in ('protocol', 'comparison')}, indent=2))
++    print('Selected:', grouped.selected_candidate)
++    print('Row interval:', row.selected_holdout_loss_bootstrap_interval_95)
++    print('Grouped interval:', grouped.selected_holdout_loss_bootstrap_interval_95)
++
++
++if __name__ == '__main__':
++    main()

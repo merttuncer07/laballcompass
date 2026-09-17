@@ -36,7 +36,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -77,7 +78,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -116,7 +118,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -154,7 +157,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -191,7 +195,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -229,7 +234,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -277,7 +283,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -314,7 +321,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -354,7 +362,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -397,7 +406,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -442,7 +452,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T191000Z-aicc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -476,7 +487,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -514,7 +526,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -553,7 +566,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T131915Z-product-repairs/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -617,7 +631,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -657,7 +672,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T154500Z-rel-content/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -697,7 +713,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -735,7 +752,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -749,7 +767,7 @@
       "python_sources": [
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM455_IM094_DTTC/dttc.py",
-          "sha256": "89ff035ca4384dfedfcb523855bed304f4a727e815b66f0aa2e70fc377c6cabe"
+          "sha256": "8bef8a05659a4963e7f32ad830235dcdd2812048388e893f481fcdba28ceacaf"
         }
       ],
       "public_api": [
@@ -776,7 +794,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -811,7 +830,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -847,7 +867,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -885,7 +906,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -919,7 +941,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -954,7 +977,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -989,7 +1013,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1025,7 +1050,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T131915Z-product-repairs/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1059,7 +1085,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1094,7 +1121,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1129,7 +1157,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1165,7 +1194,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1199,7 +1229,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1233,7 +1264,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1247,7 +1279,7 @@
       "python_sources": [
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py",
-          "sha256": "f4a81bf75ab16dff8b3a6eac42ae18d4d6ac84f36715dc476f4f3f275ab7f5ce"
+          "sha256": "4208258c46aeafaecd21e9df999e26afdb9f493ab4a4a46683f70d36e845b62c"
         }
       ],
       "public_api": [
@@ -1256,18 +1288,21 @@
       ],
       "interfaces": [
         "SelectionAudit.to_dict(self)",
-        "audit_adaptive_selection(selection_losses: Sequence[Sequence[float]], holdout_losses: Sequence[Sequence[float]], *, candidate_names: Sequence[str] | None=None, bootstrap_samples: int=1000, random_seed: int=0, material_regret: float=0.0)"
+        "audit_adaptive_selection(selection_losses: Sequence[Sequence[float]], holdout_losses: Sequence[Sequence[float]], *, candidate_names: Sequence[str] | None=None, bootstrap_samples: int=1000, random_seed: int=0, material_regret: float=0.0, selection_tiebreak_scores: Sequence[Sequence[float]] | None=None, selection_groups: Sequence[str | int] | None=None, holdout_groups: Sequence[str | int] | None=None)"
       ],
       "demo_entries": [
         "demo_selection.py"
       ],
       "direct_test_files": [
-        "test_acsa.py"
+        "test_acsa.py",
+        "test_grouped_selection.py",
+        "test_selection_rule.py"
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1301,7 +1336,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1336,7 +1372,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1374,7 +1411,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1409,7 +1447,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1444,7 +1483,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1482,7 +1522,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1517,7 +1558,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1555,7 +1597,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1589,7 +1632,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1624,7 +1668,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1663,7 +1708,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1718,7 +1764,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T190000Z-correlated-ebc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1753,8 +1800,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260915T073011Z-miff/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T164716Z-0d342c3a/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1793,7 +1841,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1828,7 +1877,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1865,7 +1915,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1900,7 +1951,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1935,7 +1987,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -1972,7 +2025,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2007,7 +2061,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2040,7 +2095,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2079,7 +2135,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2113,7 +2170,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2148,7 +2206,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2183,7 +2242,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2217,7 +2277,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2253,7 +2314,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2289,7 +2351,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2323,7 +2386,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2358,7 +2422,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2393,7 +2458,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2429,7 +2495,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2466,7 +2533,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2500,7 +2568,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2538,7 +2607,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2572,7 +2642,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2590,7 +2661,7 @@
         },
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py",
-          "sha256": "90c334cbb8363210538a865a32d202c926ad0450ae011f963a3cd732e724d8bf"
+          "sha256": "717aa02b1621d7b1cc2c29ae68049dd6206ad93f7ea2a95322e2700a181e3f40"
         },
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/real_data_pilot_digits.py",
@@ -2617,7 +2688,7 @@
         "run(seed=20260825)",
         "ReliabilityWorkbenchResult.to_dict(self)",
         "decision_regret_matrix(predictions: Mapping[str, Sequence[Sequence[float]]], outcomes: Sequence[Sequence[float]], action_payoff_exposures: Sequence[Sequence[float]], *, initial_action_exposure: Sequence[float], transaction_cost: float=0.0)",
-        "audit_decision_model_selection(training_predictions: Mapping[str, Sequence[Sequence[float]]], training_outcomes: Sequence[Sequence[float]], validation_predictions: Mapping[str, Sequence[Sequence[float]]], validation_outcomes: Sequence[Sequence[float]], action_payoff_exposures: Sequence[Sequence[float]], *, initial_action_exposure: Sequence[float], transaction_cost: float=0.0, bootstrap_samples: int=1000, random_seed: int=0, material_regret: float=0.0)",
+        "audit_decision_model_selection(training_predictions: Mapping[str, Sequence[Sequence[float]]], training_outcomes: Sequence[Sequence[float]], validation_predictions: Mapping[str, Sequence[Sequence[float]]], validation_outcomes: Sequence[Sequence[float]], action_payoff_exposures: Sequence[Sequence[float]], *, initial_action_exposure: Sequence[float], transaction_cost: float=0.0, bootstrap_samples: int=1000, random_seed: int=0, material_regret: float=0.0, training_groups: Sequence[str | int] | None=None, validation_groups: Sequence[str | int] | None=None)",
         "explore_decision_selection_surface(scenario_builder: Callable[[Mapping[str, float]], Mapping[str, Any]], parameter_grids: Mapping[str, Sequence[float]], baseline_parameters: Mapping[str, float], *, maximum_points: int=200000)",
         "run_reliability_workbench(*, decision_inputs: Mapping[str, Any] | None=None, specification_inputs: Mapping[str, Any] | None=None, sensitivity_inputs: Mapping[str, Any] | None=None, divergence_inputs: Mapping[str, Any] | None=None, firewall_inputs: Mapping[str, Any] | None=None)",
         "one_hot(y: np.ndarray, classes: int=10)",
@@ -2627,12 +2698,15 @@
       "demo_entries": [],
       "direct_test_files": [
         "test_drew.py",
-        "test_firewall_precision.py"
+        "test_firewall_precision.py",
+        "test_grouped_decisions.py",
+        "test_selection_identity.py"
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260915T073011Z-miff/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T174437Z-9df9e1f6/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2691,7 +2765,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2741,21 +2816,22 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
     {
       "id": "P004_BAMI",
       "layer": "foundry",
-      "description": "Burnout-Aware Mortgage Intervention (BAMI) v0.1.\n\nDirected composition:\nMBPF -> time-varying performing prepayment hazard -> MCRIS-style competing risks\nEBC -> conflict-controlled log default multiplier\nTDSX -> net-value robustness/tipping surface",
+      "description": "Burnout-Aware Mortgage Intervention (BAMI) v0.1.\n\nDirected composition:\nMBPF propensity classes -> class-level MCRIS-style competing risks\nEBC -> conflict-controlled log default multiplier\nTDSX -> net-value robustness/tipping surface",
       "declared_status": "Not asserted by maintenance layer",
       "source_fidelity": "Packaged source; change records: restoration/source-changes.json and restoration/20260914-product-repairs/changes.json and restoration/20260914-rel-content/changes.json",
       "source_directory": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI",
       "python_sources": [
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py",
-          "sha256": "6219e0e05399df762f3847c7b069d1db35ad1fa5795a3efca6ccf6c8209aba49"
+          "sha256": "828c754e6d7b6ef49a34f9dc82a774af37844c0d63ed7911c9254ee5e716a8e4"
         }
       ],
       "public_api": [
@@ -2782,8 +2858,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260914T190000Z-correlated-ebc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260917T073025Z-ef883cfc/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2829,7 +2906,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2861,7 +2939,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2893,7 +2972,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2933,8 +3013,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2964,7 +3045,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -2994,7 +3076,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3024,7 +3107,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3057,7 +3141,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3091,7 +3176,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3128,7 +3214,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3171,7 +3258,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3207,7 +3295,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3240,7 +3329,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T154500Z-rel-content/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3274,7 +3364,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3308,7 +3399,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3338,7 +3430,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3368,7 +3461,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3398,7 +3492,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3428,7 +3523,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3458,7 +3554,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3490,7 +3587,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3524,7 +3622,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3555,7 +3654,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3586,7 +3686,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3618,7 +3719,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3652,7 +3754,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3678,7 +3781,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3704,7 +3808,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3730,7 +3835,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3756,7 +3862,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3782,7 +3889,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3808,7 +3916,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3834,7 +3943,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3860,7 +3970,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3886,7 +3997,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T181328Z-6a7ceb1d/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3912,7 +4024,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3938,7 +4051,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3964,7 +4078,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -3990,7 +4105,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4016,7 +4132,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4042,7 +4159,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4068,7 +4186,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4094,7 +4213,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4120,7 +4240,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4146,7 +4267,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4172,7 +4294,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4202,7 +4325,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4232,7 +4356,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4262,7 +4387,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4292,7 +4418,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4322,7 +4449,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4352,7 +4480,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4382,7 +4511,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4412,7 +4542,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4442,7 +4573,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4472,7 +4604,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4502,7 +4635,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4532,7 +4666,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4562,7 +4697,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4592,7 +4728,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4622,7 +4759,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4652,7 +4790,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4682,7 +4821,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4712,7 +4852,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4742,7 +4883,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4772,7 +4914,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4802,7 +4945,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4832,7 +4976,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4862,7 +5007,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4892,7 +5038,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4922,7 +5069,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4952,7 +5100,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -4982,7 +5131,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5012,7 +5162,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5042,7 +5193,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5072,7 +5224,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5102,7 +5255,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5132,7 +5286,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5166,7 +5321,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T192829Z-heag/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5196,7 +5352,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5226,7 +5383,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5256,7 +5414,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5286,7 +5445,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5316,7 +5476,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5346,7 +5507,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5376,7 +5538,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5406,7 +5569,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5436,7 +5600,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5466,7 +5631,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5496,7 +5662,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5526,7 +5693,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5556,7 +5724,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5586,7 +5755,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5616,7 +5786,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5646,7 +5817,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5676,7 +5848,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5706,7 +5879,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5736,7 +5910,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5772,7 +5947,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T131915Z-product-repairs/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5802,7 +5978,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5832,7 +6009,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5862,7 +6040,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5892,7 +6071,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5922,7 +6102,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5952,7 +6133,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -5982,7 +6164,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6012,7 +6195,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6042,7 +6226,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6072,7 +6257,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6102,7 +6288,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6132,7 +6319,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6162,7 +6350,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6192,7 +6381,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6222,7 +6412,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6252,7 +6443,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6282,7 +6474,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6312,7 +6505,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6342,7 +6536,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6372,7 +6567,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6402,7 +6598,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6432,7 +6629,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6462,7 +6660,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6492,7 +6691,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6522,7 +6722,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6552,7 +6753,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6582,7 +6784,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6612,7 +6815,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6642,7 +6846,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6672,7 +6877,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6706,7 +6912,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T190000Z-correlated-ebc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6738,7 +6945,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6770,7 +6978,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T191000Z-aicc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6801,8 +7010,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6834,7 +7044,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T191000Z-aicc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6865,8 +7076,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6899,7 +7111,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6931,7 +7144,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6962,8 +7176,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -6995,7 +7210,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7027,7 +7243,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T191000Z-aicc/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7058,8 +7275,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7098,7 +7316,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7139,7 +7358,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7178,7 +7398,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7196,7 +7417,7 @@
         },
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P004_OPIA/opia.py",
-          "sha256": "d18971c9a037ef4cfbf6868fc16c2cc14fc8d2907c8e9157681d11f53e14ab2d"
+          "sha256": "f964ceb2d3718713e576c719e37401f54e65a45b3aa7791700d875f67c3318fa"
         }
       ],
       "public_api": [
@@ -7219,7 +7440,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7264,7 +7486,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7302,7 +7525,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7339,7 +7563,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7381,7 +7606,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7417,7 +7643,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7457,7 +7684,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7493,7 +7721,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7531,7 +7760,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7569,7 +7799,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7605,7 +7836,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7641,7 +7873,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7677,7 +7910,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7713,7 +7947,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7749,7 +7984,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7785,7 +8021,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7821,7 +8058,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7857,7 +8095,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7893,7 +8132,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7929,7 +8169,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -7965,7 +8206,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8001,7 +8243,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8037,7 +8280,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8073,7 +8317,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8109,7 +8354,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8148,7 +8394,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8184,7 +8431,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8221,7 +8469,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8257,7 +8506,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8293,7 +8543,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8329,7 +8580,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8347,7 +8599,7 @@
         },
         {
           "path": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/istaicc.py",
-          "sha256": "8c6394a025469a1d855d2a9d3a81ddf34c7434460ee731167b7529aaf5b29e29"
+          "sha256": "51d3494f5e00eaeb0ff6d2fccc96df99f260a67ca19d2433d68a28063e693aca"
         }
       ],
       "public_api": [
@@ -8365,8 +8617,9 @@
       ],
       "latest_reproduction": {
         "status": "PASS",
-        "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "receipt": "runs/20260917T073025Z-a7e31031/receipt.json",
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8402,7 +8655,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8439,7 +8693,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8475,7 +8730,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8509,7 +8765,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8545,7 +8802,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8581,7 +8839,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8615,7 +8874,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8649,7 +8909,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8683,7 +8944,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8717,7 +8979,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8753,7 +9016,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8787,7 +9051,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8827,7 +9092,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8867,7 +9133,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260914T131915Z-product-repairs/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8907,7 +9174,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8948,7 +9216,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -8986,7 +9255,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9062,7 +9332,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9133,7 +9404,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9222,7 +9494,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9284,7 +9557,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9352,7 +9626,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9388,7 +9663,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9458,7 +9734,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9519,7 +9796,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9563,7 +9841,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9641,7 +9920,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9726,7 +10006,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9770,7 +10051,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9820,7 +10102,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9897,7 +10180,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -9958,7 +10242,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T181323Z-a809ef54/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10004,7 +10289,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10054,7 +10340,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10094,7 +10381,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10248,7 +10536,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10326,7 +10615,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10372,7 +10662,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10412,7 +10703,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS"
     },
@@ -10427,7 +10719,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS",
       "limitations": "Wrong consequence ranking produced about -0.31 gain; no universal superiority claim."
@@ -10443,7 +10736,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS",
       "limitations": "With free or near-perfect measurement the outcome advantage collapses to zero."
@@ -10459,7 +10753,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS",
       "limitations": "If uncertainty is so large that even a singleton belief is not robustly certifiable, fail closed rather than emit an unsafe compressed state. Zero stress collapses to DSBC. Missing coordinate alignment fails closed."
@@ -10475,7 +10770,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS",
       "limitations": "Separate 36-cell miscalibration sweep against actual task gain: 12 positive, 15 negative, 9 zero. Miscalibrated declared risk can hurt; missing/unknown record↔state alignment fails closed."
@@ -10491,7 +10787,8 @@
       "latest_reproduction": {
         "status": "PASS",
         "receipt": "runs/20260913T174915Z-4c89fad5/receipt.json",
-        "scope": "All selected targets for this component in this run; see receipt for exact tests."
+        "current_source_verified": false,
+        "scope": "Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests."
       },
       "scientific_validity": "NOT_ESTABLISHED_BY_TEST_PASS",
       "limitations": "Diagonal support 25/25 exact collapse. Wrong cross-regime support at tolerance 0.02 was 5/5 negative; frozen wrong-support RMSE worsened about 1.22155→1.40987."

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import unittest
 
 import numpy as np
@@ -50,6 +51,14 @@ class DecisionTargetedTriggerDesignerTests(unittest.TestCase):
         }
         result = design_from_config(config, {"loss": [0, 2, 3], "index": [0, 1, 1]})
         self.assertEqual(result["selected"]["candidate"], "index")
+
+    def test_constant_vector_has_explicit_undefined_correlation_and_strict_json(self) -> None:
+        designer = DecisionTargetedTriggerDesigner(1.0, 1.0)
+        result = designer.fit_candidate(
+            TriggerCandidate("constant-loss"), [1, 2, 3], [False, True, False], [1, 1, 1]
+        ).as_dict()
+        self.assertIsNone(result["correlation_with_loss"])
+        json.dumps(result, allow_nan=False)
 
 
 if __name__ == "__main__":

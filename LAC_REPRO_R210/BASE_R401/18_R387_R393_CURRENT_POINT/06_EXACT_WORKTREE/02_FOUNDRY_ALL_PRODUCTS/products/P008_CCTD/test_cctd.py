@@ -42,6 +42,7 @@ class CCTDTests(unittest.TestCase):
         deployment = designed["deployment"]
         self.assertIn(deployment.signal_view, {"center", "lower", "upper"})
         self.assertEqual(deployment.predict(centers, scales).shape, events.shape)
+        self.assertTrue(all(row["correlation_with_loss"] is None for row in designed["design"]["ranking"]))
 
     def test_protected_gate_can_retain_incumbent(self):
         model = ConfidenceCalibratedTriggerDesigner(target_coverage=0.8)

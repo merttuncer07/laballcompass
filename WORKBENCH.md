@@ -1,12 +1,27 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## 17 Eylül: aynı yerleşimde sürüm karşılaştırması
+
+`.venv/bin/python lab.py workbench analyze BEFORE.xlsx AFTER.xlsx --same-layout --output /tmp/version-report`
+
+İlk dosya önceki, ikinci dosya sonraki sürümdür; bu sıra korunur. Yalnız aynı
+sayfa adları ve hücre adresleri eşlenir. Aynı değerler, aynı formül metinleri,
+değişen/eklenen/kaldırılan hücreler ve karşılaştırılamayan hücreler ayrı gösterilir.
+Formül sonuçları hesaplanmaz; aynı formül farklı girdilerle farklı sonuç verebilir.
+Değişen girdilerin ve formül metinlerinin çözülen grafikteki potansiyel nihai
+etkileri gösterilir. Yeniden adlandırılan/tek tarafta bulunan sayfalar listelenir,
+otomatik eşlenmez. Çıktı klasörü yeni veya boş olmalıdır.
+
+Koleksiyon sınırı 100.000 dolu hücredir; diğer grafik ve arama sınırları devam eder.
+[Seçici entegrasyon ve doğrulama](restoration/20260917-salvage-fixes/README.md).
+
 15 Eylül 2026. Mevcut labın R207 motoru gerçek kaynak dosyasından çağrılıyor. Uygulama, bir kaynağın farklı türevlerini aynı köke bağlayarak kaynak kaybının hangi sonuçlara yayıldığını gösteriyor. Excel dosyasında formül bağlantılarını kendisi okuyor; kullanıcıdan bağlantıları çizmesini istemiyor.
 
 ## Excel tablo başvuruları da okunuyor
 
 `Sales[Amount]`, `[@Amount]`, başlık/toplam seçicileri ve sütun aralıkları artık dosyadaki kayıtlı tablo tanımından gerçek hücrelere çözülür. Kullanıcıdan tablo haritası istenmez. [Yayımlanmış dosyada kaynak etkisini incele](examples/public-tables/StructuredReferences-report/lineage.html): `Table!C3` kapatıldığında toplam etkilenir, ad sütunundaki iki çıktı etkilenmez.
 
-Değiştirilmemiş iki Apache POI dosyasında daha önce çözülemeyen **10/10 formül** çözülüyor. Üçüncü büyük dosya hâlâ 20.000 dolu hücre sınırında reddediliyor. Kaynak koordinatları yayımlanmış ayrıştırıcı testlerinin beklenenleriyle karşılaştırıldı; **69 ilgili test** ve raporun jsdom etkileşimi geçti. [Dosyalar ve önce/sonra](examples/public-tables/README.md), [doğrulama kaydı](restoration/20260915-structured-tables/validation.json). Bunlar mühendislik dosyaları; denetim saha doğrulaması değildir.
+Değiştirilmemiş iki Apache POI dosyasında daha önce çözülemeyen **10/10 formül** çözülüyor. Üçüncü büyük dosya ilk doğrulamada 20.000 dolu hücre sınırında reddedildi. 17 Eylül entegrasyonunda dolu hücre sınırını geçti; bu kez 5.000.000 hücre karşılaştırma sınırında durdu ([güncel kayıt](restoration/20260917-salvage-fixes/real-file-check.json)). Kaynak koordinatları yayımlanmış ayrıştırıcı testlerinin beklenenleriyle karşılaştırıldı; önceki **69 ilgili test** ve raporun jsdom etkileşimi geçti. [Dosyalar ve önce/sonra](examples/public-tables/README.md), [önceki doğrulama kaydı](restoration/20260915-structured-tables/validation.json). Bunlar mühendislik dosyaları; denetim saha doğrulaması değildir.
 
 ## Yeni: sırası ve başlıkları değişmiş kayıtları eşleştir
 
@@ -107,7 +122,11 @@ Dört raporda JavaScript çalışması, kaynak kapatma, ortak kayıp, sıfırlam
 - `IF` içindeki kullanılmayan dal dahil bütün statik referanslar potansiyel bağımlılık sayılır. Kaynak kaybı, sayısal sonucun kesin değişeceği veya audit görüşünün bozulacağı anlamına gelmez.
 - Verilmeyen dosyalara bağlantılar, dinamik referanslar (`INDIRECT`, `OFFSET`), desteklenmeyen işlevler, desteklenmeyen tablo seçicileri, spill referansları ve döngüler eksik olarak gösterilir. Bunlara bağlı formüller de kapsam dışında tutulur.
 - Bütün tekli kaynak kayıpları, en fazla 512 ikili kaynak kaybı ve bütün kaynakların kaybı hesaplanır. İkili kesinti listesi büyük dosyalarda tam değildir; daha büyük asgari kesintiler aranmaz.
-- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, sayfa başına 100.000 hücrelik sınırlayıcı alan, 20.000 düğüm, 4.000 kök kaynak. Bir referans 10.000 hücreden fazla genişletilmez. 500.000 geçişli kaynak üyeliği sınırı vardır.
+- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, sayfa başına 100.000 hücrelik sınırlayıcı alan, 20.000 düğüm, 4.000 kök kaynak. Bir referans 10.000 hücreden fazla genişletilmez. Geçişli kaynak kümeleri bitset olarak taşınır; önceki 500.000 üyelik durdurma sınırı kaldırıldı.
 - Ekran en fazla 150 kaynak satırını gösterir; arama bütün kaynaklarda çalışır. En fazla 200 sonuç gösterilir; JSON dosyaları tam listeyi içerir.
 
 Sonraki ürün çalışmasının ölçütü, sadece motor çalıştırabilmek değil, gerçek bir görevde güçlü mevcut yöntemlere göre gösterilebilir faydadır. Laboratuvarın bütün motorları veya ürün iddiaları bu uygulamayla doğrulanmış değildir.
+
+## 16 Eylül: gerçek finansal model ve formül aralığı onarımı
+
+[SONI kamu finansal modeli](examples/soni-price-control/README.md) üzerinde 6.694 formül, 2.904 kök hücre ve 1.043 nihai çıktı çözüldü. Eski ve yeni kaynak kümesi hesabı aynı sonucu verdi. SUMIF/AVERAGEIF üçüncü aralığı ilk aralığın boyutlarına göre çözer; değişiklikler raporda gösterilir. Bu SONI dosyasında bu iki işlev bulunmadığı için onların saha doğrulaması olarak sayılmaz. Excel girdi hashleri artık doğrudan okunan baytlardan gelir. [82 test, değişiklikler ve sınırlar](restoration/20260916-lineage-semantics/README.md).

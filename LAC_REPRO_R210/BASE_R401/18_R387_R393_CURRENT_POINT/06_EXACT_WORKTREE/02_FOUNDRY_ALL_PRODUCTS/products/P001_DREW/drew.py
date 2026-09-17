@@ -106,10 +106,23 @@ def decision_regret_matrix(
     This is the principal DLEW -> ACSA adapter.  Each candidate follows its own sequential
     previous-action path, matching DLEW's transaction-cost semantics.  Lower loss is better.
     """
+    names, losses, _ = _decision_matrices(
+        predictions, outcomes, action_payoff_exposures,
+        initial_action_exposure=initial_action_exposure, transaction_cost=transaction_cost,
+    )
+    return names, losses
+
+
+def _decision_matrices(
+    predictions, outcomes, action_payoff_exposures, *, initial_action_exposure,
+    transaction_cost=0.0,
+):
+    """Keep regret and realized payoff on the identical candidate action paths."""
     names, y, actions, initial, arrays = _validate_decision_arrays(
         predictions, outcomes, action_payoff_exposures, initial_action_exposure, transaction_cost
     )
     losses = np.empty((y.shape[0], len(names)), dtype=float)
+    payoffs = np.empty_like(losses)
     for column, name in enumerate(names):
         previous = initial.copy()
         for row, (prediction, outcome) in enumerate(zip(arrays[name], y)):
@@ -118,8 +131,9 @@ def decision_regret_matrix(
             actual_net = actions @ outcome - transaction_cost * np.sum(np.abs(actions - previous), axis=1)
             oracle = int(np.argmax(actual_net))
             losses[row, column] = float(actual_net[oracle] - actual_net[selected])
+            payoffs[row, column] = float(actual_net[selected])
             previous = actions[selected]
-    return names, losses
+    return names, losses, payoffs
 
 
 def audit_decision_model_selection(
@@ -134,8 +148,17 @@ def audit_decision_model_selection(
     bootstrap_samples: int = 1000,
     random_seed: int = 0,
     material_regret: float = 0.0,
+    training_groups: Sequence[str | int] | None = None,
+    validation_groups: Sequence[str | int] | None = None,
 ) -> DecisionSelectionAudit:
-    """Select by DLEW decision loss, then audit that adaptive selection on protected data with ACSA."""
+    """Select by DLEW decision loss, then audit that selection on protected data.
+
+    Optional group IDs describe the selection (training) and protected
+    (validation) rows. Group resampling requires zero transaction cost because
+    this adapter does not reset or replay sequential paths within each group.
+    """
+    if (training_groups is not None or validation_groups is not None) and transaction_cost != 0:
+        raise ValueError("grouped decision audits require transaction_cost=0; sequential group replay is unsupported")
     decision = evaluate_decision_models(
         training_predictions,
         training_outcomes,
@@ -145,7 +168,7 @@ def audit_decision_model_selection(
         initial_action_exposure=initial_action_exposure,
         transaction_cost=transaction_cost,
     )
-    train_names, train_losses = decision_regret_matrix(
+    train_names, train_losses, train_payoffs = _decision_matrices(
         training_predictions,
         training_outcomes,
         action_payoff_exposures,
@@ -168,13 +191,17 @@ def audit_decision_model_selection(
         bootstrap_samples=bootstrap_samples,
         random_seed=random_seed,
         material_regret=material_regret,
+        selection_tiebreak_scores=train_payoffs,
+        selection_groups=training_groups,
+        holdout_groups=validation_groups,
     )
-    matrix_selected = train_names[int(np.argmin(train_losses.mean(axis=0)))]
-    matches = decision.selected_by_training_decision_loss == matrix_selected
+    matches = decision.selected_by_training_decision_loss == adaptive.selected_candidate
+    if not matches:
+        raise RuntimeError("Decision selector and audited candidate disagree")
     if adaptive.status == "ADAPTIVE_SELECTION_REGRET_DETECTED":
         status = "DECISION_SELECTION_FAILS_PROTECTED_AUDIT"
-    elif not matches:
-        status = "DLEW_TIEBREAK_DIFFERS_FROM_MEAN_REGRET_MATRIX"
+    elif adaptive.status == "SELECTION_UNSTABLE_ACROSS_RESAMPLES":
+        status = "DECISION_SELECTION_UNSTABLE_ACROSS_RESAMPLES"
     else:
         status = "DECISION_SELECTION_SURVIVES_PROTECTED_AUDIT"
     return DecisionSelectionAudit(

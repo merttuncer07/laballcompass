@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "run_id": "20260915T164716Z-0d342c3a",
+  "status": "PASS",
+  "started_at": "2026-09-15T16:47:16.858554+00:00",
+  "profile": "selection-identity-and-parent-test-discovery",
+  "source_root": "/Users/mertalituncer/Developer/lab/LAC_REPRO_R210",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "timeout_seconds": 180,
+  "targets": [
+    {
+      "id": "R014_S781_S792_ACSA",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA",
+      "runner": "pytest",
+      "pattern": "test_*.py",
+      "layer": "parent",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:17.211495+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/000.xml"
+      ],
+      "log": "000.log",
+      "result_file": "000.xml",
+      "exit_code": 0,
+      "seconds": 0.291,
+      "counts": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 17
+      },
+      "finished_at": "2026-09-15T16:47:17.504442+00:00"
+    },
+    {
+      "id": "R027_S426_S427_MIFF",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R027_S426_S427_MIFF",
+      "runner": "pytest",
+      "pattern": "test_*.py",
+      "layer": "parent",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:17.505039+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/001.xml"
+      ],
+      "log": "001.log",
+      "result_file": "001.xml",
+      "exit_code": 0,
+      "seconds": 0.184,
+      "counts": {
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 24
+      },
+      "finished_at": "2026-09-15T16:47:17.689692+00:00"
+    },
+    {
+      "id": "FOUNDRY_P001_DREW__test_drew",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P001_DREW/test_drew.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:17.690655+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/002.xml",
+        "products/P001_DREW/test_drew.py"
+      ],
+      "log": "002.log",
+      "result_file": "002.xml",
+      "exit_code": 0,
+      "seconds": 1.487,
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 8
+      },
+      "finished_at": "2026-09-15T16:47:19.179216+00:00"
+    },
+    {
+      "id": "FOUNDRY_P001_DREW__test_firewall_precision",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P001_DREW/test_firewall_precision.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:19.179924+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/003.xml",
+        "products/P001_DREW/test_firewall_precision.py"
+      ],
+      "log": "003.log",
+      "result_file": "003.xml",
+      "exit_code": 0,
+      "seconds": 0.182,
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 3
+      },
+      "finished_at": "2026-09-15T16:47:19.362931+00:00"
+    },
+    {
+      "id": "FOUNDRY_P001_DREW__test_selection_identity",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P001_DREW/test_selection_identity.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:19.363621+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/004.xml",
+        "products/P001_DREW/test_selection_identity.py"
+      ],
+      "log": "004.log",
+      "result_file": "004.xml",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 4
+      },
+      "finished_at": "2026-09-15T16:47:19.655111+00:00"
+    },
+    {
+      "id": "FOUNDRY_P008_CCTD__test_cctd",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P008_CCTD/test_cctd.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:19.655869+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/005.xml",
+        "products/P008_CCTD/test_cctd.py"
+      ],
+      "log": "005.log",
+      "result_file": "005.xml",
+      "exit_code": 0,
+      "seconds": 0.241,
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 5
+      },
+      "finished_at": "2026-09-15T16:47:19.898533+00:00"
+    },
+    {
+      "id": "FOUNDRY_P137_MPHA__test_mpha",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P137_MPHA/test_mpha.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:19.899289+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/006.xml",
+        "products/P137_MPHA/test_mpha.py"
+      ],
+      "log": "006.log",
+      "result_file": "006.xml",
+      "exit_code": 0,
+      "seconds": 1.948,
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 6
+      },
+      "finished_at": "2026-09-15T16:47:21.848874+00:00"
+    },
+    {
+      "id": "FOUNDRY_P139_PAOS__test_paos",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P139_PAOS/test_paos.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:21.849579+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/007.xml",
+        "products/P139_PAOS/test_paos.py"
+      ],
+      "log": "007.log",
+      "result_file": "007.xml",
+      "exit_code": 0,
+      "seconds": 0.238,
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 6
+      },
+      "finished_at": "2026-09-15T16:47:22.088529+00:00"
+    },
+    {
+      "id": "FOUNDRY_P142_BMSA__test_bmsa",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P142_BMSA/test_bmsa.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:22.089270+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/008.xml",
+        "products/P142_BMSA/test_bmsa.py"
+      ],
+      "log": "008.log",
+      "result_file": "008.xml",
+      "exit_code": 0,
+      "seconds": 0.239,
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 6
+      },
+      "finished_at": "2026-09-15T16:47:22.330133+00:00"
+    },
+    {
+      "id": "FOUNDRY_P145_RTHA__test_rtha",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P145_RTHA/test_rtha.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T16:47:22.330895+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/009.xml",
+        "products/P145_RTHA/test_rtha.py"
+      ],
+      "log": "009.log",
+      "result_file": "009.xml",
+      "exit_code": 0,
+      "seconds": 0.236,
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 6
+      },
+      "finished_at": "2026-09-15T16:47:22.567958+00:00"
+    }
+  ],
+  "results_scope": "software_reproduction_only",
+  "input_manifest_sha256": "b428901401d2fb4629a6e684ce4d3ad4024b99b0638fc198794bee594151e508",
+  "source_snapshot_sha256": "728a8a7453e8ba6ef94101108fbaf3b7e568676cd183e9b3b0a703d567ee0448",
+  "runner_sha256": "daba29dfa2554e0e2117b4178a9eed560636482df02d4fb628bc648d280e12be",
+  "worker_sha256": "4ef857ee58afd19ee9101a442f548cf09c4070fa912d146ce91399a64ea01cb8",
+  "integrity": {
+    "status": "NOT_REQUESTED",
+    "scope": "Working source is hashed above; the historical package manifest is not a gate for development."
+  },
+  "updated_at": "2026-09-15T16:47:22.568672+00:00",
+  "finished_at": "2026-09-15T16:47:22.568659+00:00",
+  "counts": {
+    "tests": 85,
+    "passed": 85,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

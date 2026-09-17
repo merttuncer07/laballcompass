@@ -1,0 +1,153 @@
+======================================================================
+ERROR: test_equal_geometry_and_two_argument_forms_remain_unchanged (test_function_references.ConditionalRangeTests.test_equal_geometry_and_two_argument_forms_remain_unchanged) (formula='=SUMIF(A1:A3,">0",C1:C3)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 66, in test_equal_geometry_and_two_argument_forms_remain_unchanged
+    self.assertEqual(p.metadata['function_range_adjustments'], [])
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'function_range_adjustments'
+
+======================================================================
+ERROR: test_equal_geometry_and_two_argument_forms_remain_unchanged (test_function_references.ConditionalRangeTests.test_equal_geometry_and_two_argument_forms_remain_unchanged) (formula='=SUMIF(A1:A3,">0")')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 66, in test_equal_geometry_and_two_argument_forms_remain_unchanged
+    self.assertEqual(p.metadata['function_range_adjustments'], [])
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'function_range_adjustments'
+
+======================================================================
+ERROR: test_equal_geometry_and_two_argument_forms_remain_unchanged (test_function_references.ConditionalRangeTests.test_equal_geometry_and_two_argument_forms_remain_unchanged) (formula='=AVERAGEIF(A1:A3,">0")')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 66, in test_equal_geometry_and_two_argument_forms_remain_unchanged
+    self.assertEqual(p.metadata['function_range_adjustments'], [])
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'function_range_adjustments'
+
+======================================================================
+ERROR: test_oversized_value_range_shrinks_without_spurious_error_dependency (test_function_references.ConditionalRangeTests.test_oversized_value_range_shrinks_without_spurious_error_dependency)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 45, in test_oversized_value_range_shrinks_without_spurious_error_dependency
+    self.assertEqual(self.refs(p), {'Data!A1', 'Data!A2', 'Data!C1', 'Data!C2'})
+                     ^^^^^^^^^^^^
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 31, in refs
+    return set(dict(problem.rules)['Data!G1'])
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'Data!G1'
+
+======================================================================
+ERROR: test_static_defined_names_preserve_geometry (test_function_references.ConditionalRangeTests.test_static_defined_names_preserve_geometry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 72, in test_static_defined_names_preserve_geometry
+    self.assertIn('Data!C3', self.refs(self.parse('=SUMIF(Criteria,">0",Start)')))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 31, in refs
+    return set(dict(problem.rules)['Data!G1'])
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'Data!G1'
+
+======================================================================
+FAIL: test_multi_area_name_not_mistaken_for_adjacent_single_rectangle (test_function_references.ConditionalRangeTests.test_multi_area_name_not_mistaken_for_adjacent_single_rectangle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 77, in test_multi_area_name_not_mistaken_for_adjacent_single_rectangle
+    self.assertNotIn('Data!G1', dict(p.rules))
+AssertionError: 'Data!G1' unexpectedly found in {'Data!G1': ('Data!A1', 'Data!A2', 'Data!A3', 'Data!A4', 'Data!C1'), 'Data!H1': ()}
+
+======================================================================
+FAIL: test_nested_calls_criteria_expression_and_whitespace (test_function_references.ConditionalRangeTests.test_nested_calls_criteria_expression_and_whitespace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 55, in test_nested_calls_criteria_expression_and_whitespace
+    self.assertEqual(self.refs(p), {'Data!B1'} | {f'Data!{c}{r}' for c in ['A', 'C'] for r in range(1, 4)})
+AssertionError: Items in the second set but not the first:
+'Data!C2'
+'Data!C3'
+
+======================================================================
+FAIL: test_newly_exposed_error_blocks_downstream_formula (test_function_references.ConditionalRangeTests.test_newly_exposed_error_blocks_downstream_formula)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 96, in test_newly_exposed_error_blocks_downstream_formula
+    self.assertEqual({i['cell'] for i in p.metadata['unresolved']}, {'Data!G1', 'Data!G2'})
+AssertionError: Items in the second set but not the first:
+'Data!G2'
+'Data!G1'
+
+======================================================================
+FAIL: test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved (test_function_references.ConditionalRangeTests.test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved) (formula='=SUMIF(A1:B2,">0",XFD1)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 90, in test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved
+    self.assertNotIn('Data!G1', dict(p.rules))
+AssertionError: 'Data!G1' unexpectedly found in {'Data!G1': ('Data!A1', 'Data!A2', 'Data!B1', 'Data!B2', 'Data!XFD1'), 'Data!H1': ()}
+
+======================================================================
+FAIL: test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved (test_function_references.ConditionalRangeTests.test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved) (formula='=SUMIF(A1:A2,">0",IF(B1,C1,C2))')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 90, in test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved
+    self.assertNotIn('Data!G1', dict(p.rules))
+AssertionError: 'Data!G1' unexpectedly found in {'Data!G1': ('Data!A1', 'Data!A2', 'Data!B1', 'Data!C1', 'Data!C2'), 'Data!H1': ()}
+
+======================================================================
+FAIL: test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved (test_function_references.ConditionalRangeTests.test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved) (formula='=SUMIF(A1:A2,1,C1,C2)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 90, in test_out_of_bounds_or_calculated_ranges_are_explicitly_unresolved
+    self.assertNotIn('Data!G1', dict(p.rules))
+AssertionError: 'Data!G1' unexpectedly found in {'Data!G1': ('Data!A1', 'Data!A2', 'Data!C1', 'Data!C2'), 'Data!H1': ()}
+
+======================================================================
+FAIL: test_single_cell_value_argument_expands_and_changes_source_impact (test_function_references.ConditionalRangeTests.test_single_cell_value_argument_expands_and_changes_source_impact) (function='SUMIF')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 37, in test_single_cell_value_argument_expands_and_changes_source_impact
+    self.assertEqual(self.refs(p), {f'Data!{c}{r}' for c in ['A', 'C'] for r in range(1, 4)})
+AssertionError: Items in the second set but not the first:
+'Data!C2'
+'Data!C3'
+
+======================================================================
+FAIL: test_single_cell_value_argument_expands_and_changes_source_impact (test_function_references.ConditionalRangeTests.test_single_cell_value_argument_expands_and_changes_source_impact) (function='AVERAGEIF')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 37, in test_single_cell_value_argument_expands_and_changes_source_impact
+    self.assertEqual(self.refs(p), {f'Data!{c}{r}' for c in ['A', 'C'] for r in range(1, 4)})
+AssertionError: Items in the second set but not the first:
+'Data!C2'
+'Data!C3'
+
+======================================================================
+FAIL: test_supplied_workbook_value_range_is_resized_in_its_own_workbook (test_function_references.ConditionalRangeTests.test_supplied_workbook_value_range_is_resized_in_its_own_workbook)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 105, in test_supplied_workbook_value_range_is_resized_in_its_own_workbook
+    self.assertIn('source.xlsx::Data!C3', refs)
+AssertionError: 'source.xlsx::Data!C3' not found in {'source.xlsx::Data!A3', 'source.xlsx::Data!A2', 'source.xlsx::Data!C1', 'source.xlsx::Data!A1'}
+
+======================================================================
+FAIL: test_table_column_criteria_resizes_single_start_cell (test_function_references.ConditionalRangeTests.test_table_column_criteria_resizes_single_start_cell)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 84, in test_table_column_criteria_resizes_single_start_cell
+    self.assertEqual(self.refs(p), {f'Data!{c}{r}' for c in ['A', 'C'] for r in range(2, 5)})
+AssertionError: Items in the second set but not the first:
+'Data!C4'
+'Data!C3'
+
+======================================================================
+FAIL: test_two_dimensional_shape_extends_both_axes (test_function_references.ConditionalRangeTests.test_two_dimensional_shape_extends_both_axes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/lab-lineage-fix-20260916/tests/test_function_references.py", line 50, in test_two_dimensional_shape_extends_both_axes
+    self.assertTrue({'Data!D4', 'Data!E4', 'Data!D5', 'Data!E5'} <= self.refs(p))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.091s
+
+FAILED (failures=11, errors=5)

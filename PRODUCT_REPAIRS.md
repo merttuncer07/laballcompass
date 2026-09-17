@@ -122,3 +122,82 @@ Açık Excel bağlantıları artık verilen dosyalar arasında izlenebilir. Form
 MIFF, tanımlanmış şüpheli kaynaktan korunan sonuçlara giden bütün yolları en düşük toplam bağlantı kesme maliyetiyle ayırır. Önceki sürüm iki bağlantılı örnekte 1e-13 yerine 5e-13 maliyetli kesintiyi seçiyor, tek bağlantı 1e16 olduğunda hiç kesinti seçemiyordu. Tamsayı artık kapasite hesabı her iki hatayı ve büyük tamsayıların erken yuvarlanmasını giderdi. DREW içindeki gerçek MIFF kopyası da güncellendi.
 
 24 motor + 11 ürün testi geçti. Küçük ağlarda bütün olası düğüm bölmeleriyle sonuç karşılaştırıldı; NetworkX'in yayımladığı yönlü ağda beklenen kesinti maliyeti 23 yeniden elde edildi. [Önce/sonra hesapları](restoration/20260915-miff/observed-comparison.json), [test kaydı](restoration/20260915-miff/validation.json), [incelenen gerçek algoritma](research/miff-mincut/OBSERVATIONS.md). Bu, bilinen minimum-kesinti hesabının onarımıdır; gerçek sistemde bağlantıları otomatik kesmez veya denetim görüşü üretmez.
+
+## DREW / ACSA: seçilen adayın kendisini denetle
+
+Eşit karar kaybında DLEW, gerçekleşen getirisi daha yüksek adayı seçiyordu;
+ACSA aynı eşitliği sütun sırasıyla bozuyordu. Sonuçta seçilen `b` adayı yerine
+`a` denetlenebiliyordu. DREW artık kayıp ve getiri matrislerini aynı eylem
+yollarından üretiyor. ACSA aynı seçim kuralını, birlikte yeniden örneklenen
+kayıp/getiri satırlarında da uyguluyor. Kimlik uyuşmazlığı hata üretir; kararsız
+seçim sonucu “denetimden geçti” durumuna çevrilmez.
+
+NaN veya sonsuz önemlilik eşiği artık reddediliyor. Gerçek el yazısı veri
+pilotundaki model kayıplarında bu değerler, 0,01111 ek kayıp mevcutken
+“regret detected” durumunu gizliyordu. Geçersiz eşik girdisini reddetmek,
+istatistiksel anlamlılık veya bankacılık faydası kanıtı değildir.
+
+Çalıştırıcıdaki ayrı bir hata da düzeltildi: ACSA ve MIFF'in fonksiyon testleri
+normal unittest keşfinde atlanıyordu. Karma test paketleri artık pytest ile
+çalışıyor. **85 motor/ürün testi ve 17 çalıştırıcı/bileşen testi geçti.**
+[Gerçek çalışma kaydı](runs/20260915T164716Z-0d342c3a/receipt.json).
+
+Mevcut 27 adaylı, tek sabit seed kullanan gerçek digits pilotu yeniden çalıştı:
+seçilen ve denetlenen aday `knn_k3`; korunan doğrulamada en iyi aday `knn_k1`.
+Son bölümde hata sayıları 8/360 ve 6/360. Sıradan doğrulama kaybı minimizasyonu
+da `knn_k1` seçiyor; DREW'e özgü doğruluk üstünlüğü gösterilmedi. Yazar grubu
+bağımsızlığı doğrulanmadı, bankacılık verisi kullanılmadı.
+[Gerçek veri çıktısı](restoration/20260915-selection-identity/real-data-validation.json).
+
+Bootstrap hâlâ verilen satırları yeniden örnekler; ardışık karar politikasını
+yeniden çalıştırmaz ve aynı kaynaktan gelen satırlar için otomatik bağımlılık
+düzeltmesi yapmaz. Bu sınır düzeltilmiş kimlik eşlemesiyle karıştırılmamalı.
+
+## ACSA / DREW: aynı kaynağın tekrarları bağımsız satırlar sayılmıyor
+
+ACSA ve DREW artık açık kaynak gruplarıyla değerlendirme yapabiliyor. Aynı kişiye
+ait tekrarlar birlikte örnekleniyor; iki değerlendirme bölümüne taşan kaynak
+kimlikleri reddediliyor. Gerçek UCI verisinde 1.529 kayıt / 11 kaynak için standart
+hata satır hesabının 11,37 katı çıktı; seçilen model ve ortalama kayıp değişmedi.
+[Gerçek veri, tekrar çalıştırma ve sınırlar](examples/grouped-selection/README.md).
+Bu bilinen istatistiksel yöntemlerin onarımıdır; bankacılık veya klinik saha kanıtı değildir.
+
+İsteğe bağlı grup kimlikleriyle bütün gruplar yeniden örneklenir; farklı grup
+büyüklüklerinde satır ağırlıklı ortalama korunur. ACSA noktasal SE hesabında
+intercept-only CR1 kullanır. Kanonik motor ve altı gömülü kopya aynı değişikliği
+alır. DREW `training_groups` / `validation_groups` girdilerini gerçek karar kaybı
+ve getiri eşitlik ölçütüyle birlikte ACSA'ya geçirir. Gruplu DREW için işlem
+maliyeti sıfır olmalıdır; grup içinde sıralı politika tekrar oynatımı henüz yoktur.
+
+1.96 × SE yarıçapı normal yaklaşımıdır; yüzde 95 bootstrap aralığının kapsamı
+kanıtlanmış değildir. Grup kimliği kaynak bağımsızlığını veya belge doğruluğunu
+kanıtlamaz. Onarım kaydı: `restoration/20260915-grouped-selection/README.md`.
+
+## 17 Eylül depo incelemesi düzeltmeleri
+
+Tam depo testi, V2P004 OPIA'nın sıfır backaction durumunda P138 taban değeriyle
+aynı sonucu üretmediğini gösterdi. P138 analitik Gaussian affine-envelope hesabına
+geçmişken OPIA eski 31 noktalı quadrature hesabını kullanıyordu. OPIA artık aynı
+analitik çekirdeği çağırıyor; sıfır backaction kimliği yeniden sağlandı.
+
+Gruplu ACSA çıkarımı her bölümde en az beş açık grup olmadan artık çalışmıyor.
+Bu yalnız iki grup için 1,96 × CR1 SE değerini “%95” olarak sunmayı engelleyen
+fail-closed bir alt sınırdır; beş grubun nominal kapsamı garanti ettiği iddia
+edilmez. Kanonik ACSA ve altı gömülü kopya yine byte-identical durumdadır.
+
+DTTC sabit kayıp veya sinyalde tanımsız korelasyonu `NaN` yerine JSON `null`
+olarak döndürüyor. Paket doğrulayıcı da yalnız manifest satırlarını değil gerçek
+paket ağacını tarıyor; manifest dışı dosyaları ve manifest dışında bırakılmış
+yasak/emekli yolları reddediyor.
+
+Odaklı 65 test, üst seviye 152 test + 12 subtest ve 310 hedefli tam depo koşusunda
+1.682 test geçti. Paket doğrulaması 2.922 dosyada geçti; katalog 293 bileşenle
+yenilendi. Bunlar yazılım regresyon kanıtıdır, bilimsel veya saha başarısı değildir.
+# 17 September selective integration
+
+BAMI now evolves borrower propensity classes separately in baseline and
+intervention scenarios, including delinquency and cure. ISTAICC now credits
+participation relative to the reachable no-action baseline. Their former bugs,
+accepted changes, preserved newer repairs and fresh verification are recorded in
+[the salvage record](restoration/20260917-salvage-fixes/README.md).
+These are model/software corrections, not evidence of calibrated real-world benefit.

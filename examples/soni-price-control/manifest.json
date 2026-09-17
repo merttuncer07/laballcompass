@@ -1,0 +1,41 @@
+[
+  {
+    "file": "soni-financial-model.xlsx",
+    "landing": "https://www.uregni.gov.uk/publications/final-determination-soni-price-control-2020-2025",
+    "label": "UR TSO financial model FD Excel (360 KB)",
+    "url": "https://www.uregni.gov.uk/files/uregni/media-files/UR%20TSO%20financial%20model%20FD.xlsx",
+    "download_url": "https://www.uregni.gov.uk/files/uregni/media-files/UR%20TSO%20financial%20model%20FD.xlsx",
+    "bytes": 369106,
+    "sha256": "19051c4c283e3b7f2b622dfc36edc657fdf356e8b7265fe20d8c547c850b2e89",
+    "retrieved_at": "2026-09-16",
+    "observed_formula_count": 6694,
+    "observed_sumif_averageif_count": 0,
+    "role": "Unchanged source of the analyzed public financial model"
+  },
+  {
+    "file": "special-school-budgets-2025.xlsx",
+    "landing": "https://www.westmorlandandfurness.gov.uk/schools-and-education/information-schools/school-finance-and-budgeting",
+    "label": "Maintained special school budgets 2025 to 2026 (XLSX , 118KB)",
+    "url": "https://www.westmorlandandfurness.gov.uk/sites/default/files/2025-08/Maintained%20Special%20School%20Budgets%202025%20to%202026.xlsx",
+    "download_url": "https://www.westmorlandandfurness.gov.uk/sites/default/files/2025-08/Maintained%20Special%20School%20Budgets%202025%20to%202026.xlsx",
+    "bytes": 121108,
+    "sha256": "eba2c329d7f22efa3bd89637d39c314dfcf94a7e228a6a2a9febcde763e149d4",
+    "retrieved_at": "2026-09-16",
+    "observed_formula_count": 0,
+    "observed_sumif_averageif_count": 0,
+    "role": "Inspected candidate with no formulas; not used as formula-lineage validation"
+  },
+  {
+    "file": "soni-deliverables.xlsx",
+    "landing": "https://www.uregni.gov.uk/publications/final-determination-soni-price-control-2020-2025",
+    "label": "SONI FD deliverables Excel (172 KB)",
+    "url": "https://www.uregni.gov.uk/files/uregni/media-files/SONI%20FD%20deliverables.xlsx",
+    "download_url": "https://www.uregni.gov.uk/files/uregni/media-files/SONI%20FD%20deliverables.xlsx",
+    "bytes": 175754,
+    "sha256": "c127ef402840d73c8e6b585b439bc4372518b683a3a2f41da7234575f391d947",
+    "retrieved_at": "2026-09-16",
+    "observed_formula_count": 0,
+    "observed_sumif_averageif_count": 0,
+    "role": "Inspected candidate with no formulas; not used as formula-lineage validation"
+  }
+]

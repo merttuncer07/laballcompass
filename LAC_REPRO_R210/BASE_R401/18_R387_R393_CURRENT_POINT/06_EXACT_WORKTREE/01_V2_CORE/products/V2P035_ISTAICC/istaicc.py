@@ -37,14 +37,14 @@ def _reachable(net_information,network_strength,temperature,start):
 
 def tipping_aware_information_acquisition(channels,*,base_friction,network_strength,temperature,future_opportunity_value,current_participation=0.):
     if future_opportunity_value<0 or base_friction<0: raise ValueError('nonnegative values required')
+    if temperature<=0: raise ValueError('temperature must be positive')
+    baseline=_reachable(-base_friction,network_strength,temperature,current_participation)
     scores={}; eq={}
     immediate={c.name:c.immediate_value-c.cost for c in channels}
     immediate_choice=max(immediate,key=immediate.get) if immediate and max(immediate.values())>0 else None
     for c in channels:
       roots=_fixed_points(c.immediate_value-c.friction_after,network_strength,temperature); eq[c.name]=roots
-      # Continue from the current participation state; this preserves the basin
-      # distinction that creates hysteresis instead of assuming the high root is reachable.
       p=_reachable(c.immediate_value-c.friction_after,network_strength,temperature,current_participation)
-      scores[c.name]=c.immediate_value-c.cost+future_opportunity_value*max(0.,p-current_participation)
+      scores[c.name]=c.immediate_value-c.cost+future_opportunity_value*(p-baseline)
     choice=max(scores,key=scores.get) if scores and max(scores.values())>0 else None
     return Result(choice,scores,eq,immediate_choice,'TIPPING_AWARE_ACQUISITION' if choice else 'NO_POSITIVE_TIPPING_ADJUSTED_CHANNEL')

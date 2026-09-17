@@ -1,14 +1,32 @@
 # LabAllCompass — onarılmış çalışma laboratuvarı
 
-14 Eylül 2026. Bu sürümde mevcut motorların hesaplamaları, ürünlerin birbirini çağırması ve çalıştırma yolları onarıldı. Eski proje ve indirilen arşivler korunuyor. Çalışma kodu `LAC_REPRO_R210/` altında; bu klasör özgün arşivin değiştirilmiş bir kopyasıdır.
+15 Eylül 2026. Bu sürümde mevcut motorların hesaplamaları, ürünlerin birbirini çağırması ve çalıştırma yolları onarıldı. Eski proje ve indirilen arşivler korunuyor. Çalışma kodu `LAC_REPRO_R210/` altında; bu klasör özgün arşivin değiştirilmiş bir kopyasıdır.
 
 ## Yeni motor ve ürün onarımları
+
+16 Eylül: bileşen arama/görüntüleme artık dosya yazmadan çalışır. Deney karşılaştırmaları, sonucu hesapladıkları baytların parmak izini kaydeder; dosyanın sonradan değişmesi kaynağı değiştirmez. [Çalışma düzeni ve sonraki onarımlar](LAB_STRATEGY.md#16-eylül-çalışma-ortamı-verimlilik-ve-sıradaki-onarımlar).
+
+ACSA ve DREW artık açık kaynak gruplarıyla değerlendirme yapabiliyor. Aynı kişiye
+ait tekrarlar birlikte örnekleniyor; iki değerlendirme bölümüne taşan kaynak
+kimlikleri reddediliyor. Gerçek UCI verisinde 1.529 kayıt / 11 kaynak için standart
+hata satır hesabının 11,37 katı çıktı; seçilen model ve ortalama kayıp değişmedi.
+[Gerçek veri, tekrar çalıştırma ve sınırlar](examples/grouped-selection/README.md).
+Bu bilinen istatistiksel yöntemlerin onarımıdır; bankacılık veya klinik saha kanıtı değildir.
+
+DREW artık seçtiği modeli denetliyor: eşit kayıpta kullanılan getiri ölçütü
+ACSA'ya da taşındı; geçersiz önemlilik eşikleri reddediliyor. Lab çalıştırıcısı,
+ACSA ve MIFF'te önceden atladığı fonksiyon testlerini artık topluyor.
+85 motor/ürün + 17 çalıştırıcı/bileşen testi geçti. Gerçek digits pilotu yeniden
+çalıştı; basit doğrulama yöntemine üstünlük iddia edilmedi.
+[Onarım ve gerçek veri kaydı](restoration/20260915-selection-identity/README.md).
 
 P083 HEAG artık kanonik EBC + AICC motorlarını gerçekten çağırıyor: kanıtın tekrar sayılması, ek ölçüm kararına kadar izleniyor. [Çalışan maliyet duyarlılığı görünümü](examples/evidence-acquisition/verified/index.html). Gelecek ölçüm bağımsızlığı açık model girdisi; tarihî kaynak kurtarılmış sayılmaz.
 
 SCIG, verinin çeliştiği bağımsızlık varsayımlarıyla seçim yapmıyor. BICC, geçersiz sınırlardan güven sertifikası üretmiyor. P103 artık gerçek HFAD → BICC → ACRA hesaplarını çağırıyor. Dört değişen bileşendeki **36 test geçti**; önceki geniş test çalışmasının yerine geçmez. [Sonuçlar ve kullanım](PRODUCT_REPAIRS.md).
 
 ## Yeni: otomatik Excel kaynak izi
+
+16 Eylül: düzenleyicinin gerçek SONI finansal modelindeki 6.694 formül artık açılıyor; aynı kaynak kümeleri daha kompakt tutuluyor. SUMIF/AVERAGEIF aralıkları ve dosya parmak izinin analiz girdisiyle bağı onarıldı. [Gerçek dosya, açılabilir rapor ve eşitlik kontrolü](examples/soni-price-control/README.md). 82 ilgili test geçti; R207 üstünlüğü bulunmadı.
 
 Artık sırası/sütun başlıkları değişmiş kayıtlar da değerlerden eşleniyor. [Yayımlanmış 84 harcama kaydı üzerinde örnek ve karşılaştırmalar](examples/public-spending/verified/index.html); [değişen tutar ve bağlı formüller](examples/public-spending/verified/changed_unique_voucher/report/index.html). Değişiklikler deney için eklendi. Belirsiz eşleştirmeler görünür biçimde atlanır; benzerlik ortak köken sayılmaz. Bu eklemeyle 40 workbook/içerik testi geçti.
 
@@ -69,7 +87,7 @@ PYTHONPATH=LAC_REPRO_R210 .venv/bin/python -c 'from lab_kernels import Observabi
 
 ## Kurtarma sınırı
 
-145 Foundry klasörünün **90'ı genel `spec_runtime` uygulamasına**, **20'si ortak referans yeniden uygulamasına** dayanıyor. İncelenen arşivlerde bunların özgün tarihî motor birleşimleri doğrulanamadı. Genel çalıştırıcının hataları giderildi; bu işlem kayıp özgün algoritmaları geri getirmez. P103 için ayrıca gerçek HFAD → BICC → ACRA çağrılarını kullanan yeni bir yerel uygulama yazıldı; özgün tarihî kodu kurtarılmış değildir. Kalan 34 Foundry klasörü kendi paketlenmiş kaynaklarına sahiptir; bu da tek başına bilimsel doğruluk kanıtı değildir.
+145 Foundry klasörünün **89'u genel `spec_runtime` uygulamasına**, **20'si ortak referans yeniden uygulamasına** dayanıyor. İncelenen arşivlerde bunların özgün tarihî motor birleşimleri doğrulanamadı. Genel çalıştırıcının hataları giderildi; bu işlem kayıp özgün algoritmaları geri getirmez. P103 için HFAD → BICC → ACRA, P083 için EBC → AICC çağrılarını kullanan **iki yeni yerel uygulama** yazıldı; özgün tarihî kodları kurtarılmış değildir. Kalan 34 Foundry klasörü kendi paketlenmiş kaynaklarına sahiptir; bu da tek başına bilimsel doğruluk kanıtı değildir.
 
 Beş sonraki V2 ürünü de tam özgün kaynak yerine kurtarılmış referans kod taşır. Ekran bu ayrımları her ürünün içinde gösterir. Tam liste: [RECOVERY_LIMITS.md](RECOVERY_LIMITS.md).
 

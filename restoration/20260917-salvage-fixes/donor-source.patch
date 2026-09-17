@@ -1,0 +1,1079 @@
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P004_OPIA/opia.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P004_OPIA/opia.py
+index 6468be7..fbaccc8 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P004_OPIA/opia.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P004_OPIA/opia.py
+@@ -6,7 +6,6 @@ import sys
+ from typing import Mapping, Sequence
+ 
+ import numpy as np
+-from numpy.polynomial.hermite import hermgauss
+ 
+ # Reuse the exact packaged P138 consumer implementation and its channel type.
+ # K081's neutral confounding/backaction mechanism is reimplemented locally;
+@@ -17,7 +16,7 @@ if str(_FOUNDRY_PRODUCTS) not in sys.path:
+     sys.path.insert(0, str(_FOUNDRY_PRODUCTS))
+ 
+ from P138_SPIA.spia import acquire_for_search_policy  # noqa: E402
+-from P138_SPIA.parents.aicc import InformationChannel  # noqa: E402
++from P138_SPIA.parents.aicc import InformationChannel, affine_information_value
+ 
+ 
+ @dataclass(frozen=True)
+@@ -146,18 +145,13 @@ def _adjusted_channel_value(
+     if predictive_variance <= 0:
+         adjusted_change = float("-inf")
+     else:
+-        gain = covariance @ h / predictive_variance
+-        nodes, weights = hermgauss(int(quadrature_points))
+-        weights = weights / np.sqrt(np.pi)
+         current_value = float(np.max(slopes @ mean))
+-        posterior_value = 0.0
+-        for node, weight in zip(nodes, weights):
+-            residual = np.sqrt(2.0 * predictive_variance) * node
+-            posterior_mean = mean + gain * residual + shift
+-            posterior_value += float(weight) * float(np.max(slopes @ posterior_mean))
+-        # Unlike ordinary information value, a physical observation can hurt.
+-        # Therefore do not clamp this change at zero.
+-        adjusted_change = float(posterior_value - current_value)
++        shifted_intercepts = slopes @ shifted_mean
++        response_slopes = slopes @ (covariance @ h / np.sqrt(predictive_variance))
++        adjusted_change = float(
++            affine_information_value(shifted_intercepts, response_slopes)
++            + np.max(shifted_intercepts) - current_value
++        )
+ 
+     return GuardedChannelValue(
+         name=channel.name,
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/istaicc.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/istaicc.py
+index 048cd3f..7b62899 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/istaicc.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/istaicc.py
+@@ -37,14 +37,14 @@ def _reachable(net_information,network_strength,temperature,start):
+ 
+ def tipping_aware_information_acquisition(channels,*,base_friction,network_strength,temperature,future_opportunity_value,current_participation=0.):
+     if future_opportunity_value<0 or base_friction<0: raise ValueError('nonnegative values required')
++    if temperature<=0: raise ValueError('temperature must be positive')
++    baseline=_reachable(-base_friction,network_strength,temperature,current_participation)
+     scores={}; eq={}
+     immediate={c.name:c.immediate_value-c.cost for c in channels}
+     immediate_choice=max(immediate,key=immediate.get) if immediate and max(immediate.values())>0 else None
+     for c in channels:
+       roots=_fixed_points(c.immediate_value-c.friction_after,network_strength,temperature); eq[c.name]=roots
+-      # Continue from the current participation state; this preserves the basin
+-      # distinction that creates hysteresis instead of assuming the high root is reachable.
+       p=_reachable(c.immediate_value-c.friction_after,network_strength,temperature,current_participation)
+-      scores[c.name]=c.immediate_value-c.cost+future_opportunity_value*max(0.,p-current_participation)
++      scores[c.name]=c.immediate_value-c.cost+future_opportunity_value*(p-baseline)
+     choice=max(scores,key=scores.get) if scores and max(scores.values())>0 else None
+     return Result(choice,scores,eq,immediate_choice,'TIPPING_AWARE_ACQUISITION' if choice else 'NO_POSITIVE_TIPPING_ADJUSTED_CHANNEL')
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/test_istaicc.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/test_istaicc.py
+index 7e94e33..2e7c849 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/test_istaicc.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/test_istaicc.py
+@@ -1,3 +1,4 @@
++import math
+ import unittest
+ from istaicc import *
+ class T(unittest.TestCase):
+@@ -14,4 +15,36 @@ class T(unittest.TestCase):
+  def test_negative_value_rejected(self):
+   with self.assertRaises(ValueError): tipping_aware_information_acquisition(self.channels(),base_friction=-1,network_strength=.9,temperature=.1,future_opportunity_value=.5)
+  def test_status(self): self.assertIn('TIPPING',tipping_aware_information_acquisition(self.channels(),base_friction=.4,network_strength=.9,temperature=.08,future_opportunity_value=.5).status)
++ def test_paid_no_effect_channel_only_scores_cost(self):
++  for start in (0.,.2,.9):
++   with self.subTest(current_participation=start):
++    r=tipping_aware_information_acquisition([Channel('none',0,.01,.1)],base_friction=.1,network_strength=.9,temperature=.08,future_opportunity_value=1.,current_participation=start)
++    self.assertAlmostEqual(r.channel_scores['none'],-.01)
++    self.assertIsNone(r.chosen)
++ def test_score_depends_on_baseline_friction(self):
++  scores=[]
++  for friction in (.1,.2,.4):
++   with self.subTest(base_friction=friction):
++    r=tipping_aware_information_acquisition([Channel('x',0,.01,.2)],base_friction=friction,network_strength=0,temperature=.1,future_opportunity_value=.5)
++    expected=-.01+.5*(1/(1+math.exp(2))-1/(1+math.exp(friction/.1)))
++    self.assertAlmostEqual(r.channel_scores['x'],expected)
++    self.assertEqual(r.chosen,'x' if expected>0 else None)
++    scores.append(r.channel_scores['x'])
++  self.assertLess(scores[0],scores[1])
++  self.assertLess(scores[1],scores[2])
++ def test_negative_incremental_participation_reduces_score(self):
++  for start in (0.,.9):
++   with self.subTest(current_participation=start):
++    r=tipping_aware_information_acquisition([Channel('harmful',.1,.02,.5)],base_friction=.1,network_strength=0,temperature=.1,future_opportunity_value=1.,current_participation=start)
++    expected=.08+1/(1+math.exp(4))-1/(1+math.exp(1))
++    self.assertAlmostEqual(r.channel_scores['harmful'],expected)
++    self.assertEqual(r.immediate_choice,'harmful')
++    self.assertIsNone(r.chosen)
++ def test_baseline_and_channel_use_same_initial_basin(self):
++  results=[tipping_aware_information_acquisition([self.channels()[0]],base_friction=.4,network_strength=.9,temperature=.08,future_opportunity_value=.5,current_participation=start) for start in (0.,1.)]
++  self.assertEqual(results[0].chosen,'trigger')
++  self.assertIsNone(results[1].chosen)
++  self.assertGreater(results[0].channel_scores['trigger'],0)
++  self.assertLess(results[1].channel_scores['trigger'],0)
++  self.assertEqual(results[0].equilibria,results[1].equilibria)
+ if __name__=='__main__': unittest.main()
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
+index 1cda250..bb8d9ed 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
+@@ -1,7 +1,7 @@
+ """Burnout-Aware Mortgage Intervention (BAMI) v0.1.
+ 
+ Directed composition:
+-MBPF -> time-varying performing prepayment hazard -> MCRIS-style competing risks
++MBPF propensity classes -> class-level MCRIS-style competing risks
+ EBC -> conflict-controlled log default multiplier
+ TDSX -> net-value robustness/tipping surface
+ """
+@@ -110,28 +110,37 @@ def _validate_static_rates(rates: MonthlyTransitionRates) -> None:
+ 
+ def _simulate_path(
+     cohort_size: int,
+-    prepayment_path: np.ndarray,
++    class_prepayment_path: np.ndarray,
++    class_weights: np.ndarray,
+     rates: MonthlyTransitionRates,
+     intervention: Intervention,
+     balance_per_loan: float,
+     recovery_fraction: float,
+     prepayment_cost_fraction: float,
+ ) -> ScenarioResult:
+-    if any(value < 0 for value in asdict(intervention).values()):
+-        raise ValueError("intervention multipliers and cost must be nonnegative")
++    if any(not np.isfinite(value) or value < 0 for value in asdict(intervention).values()):
++        raise ValueError("intervention multipliers and cost must be finite and nonnegative")
+     pd = rates.performing_default * intervention.performing_default_multiplier
+     pdel = rates.performing_delinquency * intervention.performing_delinquency_multiplier
+     dd = rates.delinquent_default * intervention.delinquent_default_multiplier
+     dpr = rates.delinquent_prepay * intervention.delinquent_prepay_multiplier
+     dc = rates.delinquent_cure * intervention.delinquent_cure_multiplier
++    values = [pd, pdel, dd, dpr, dc]
++    if any(not np.isfinite(value) or value < 0 or value > 1 for value in values):
++        raise ValueError("intervention transition rates must be finite and lie in [0,1]")
+     if dd + dpr + dc > 1 + 1e-12:
+         raise ValueError("intervention delinquent competing rates exceed one")
+-    performing, delinquent, defaulted, prepaid = float(cohort_size), 0.0, 0.0, 0.0
+-    states = [(performing, delinquent, defaulted, prepaid)]
+-    for base_prepay in prepayment_path:
+-        pp = float(base_prepay) * intervention.performing_prepay_multiplier
+-        if pd + pp + pdel > 1 + 1e-12:
+-            raise ValueError("intervention performing competing rates exceed one")
++    with np.errstate(over="ignore", invalid="ignore"):
++        prepayment_path = class_prepayment_path * intervention.performing_prepay_multiplier
++    if not np.all(np.isfinite(prepayment_path)) or np.any(prepayment_path < 0) or np.any(prepayment_path > 1):
++        raise ValueError("class prepayment rates must be finite and lie in [0,1]")
++    if np.any(pd + prepayment_path + pdel > 1 + 1e-12):
++        raise ValueError("intervention performing competing rates exceed one for a class")
++    performing = cohort_size * class_weights
++    delinquent = np.zeros_like(performing)
++    defaulted, prepaid = 0.0, 0.0
++    states = [(float(performing.sum()), float(delinquent.sum()), defaulted, prepaid)]
++    for pp in prepayment_path:
+         p_default = performing * pd
+         p_prepay = performing * pp
+         p_delinquent = performing * pdel
+@@ -140,9 +149,10 @@ def _simulate_path(
+         d_cure = delinquent * dc
+         performing = performing - p_default - p_prepay - p_delinquent + d_cure
+         delinquent = delinquent + p_delinquent - d_default - d_prepay - d_cure
+-        defaulted += p_default + d_default
+-        prepaid += p_prepay + d_prepay
+-        states.append((performing, delinquent, defaulted, prepaid))
++        defaulted += float((p_default + d_default).sum())
++        prepaid += float((p_prepay + d_prepay).sum())
++        states.append((float(performing.sum()), float(delinquent.sum()), defaulted, prepaid))
++    performing, delinquent, defaulted, prepaid = states[-1]
+     credit_loss = defaulted * balance_per_loan * (1.0 - recovery_fraction)
+     prepay_cost = prepaid * balance_per_loan * prepayment_cost_fraction
+     return ScenarioResult(
+@@ -165,11 +175,12 @@ def simulate_burnout_aware_intervention(
+     recovery_fraction: float,
+     prepayment_cost_fraction: float = 0.0,
+ ) -> BurnoutInterventionComparison:
+-    """Use MBPF's selection-adjusted prepayment hazard inside MCRIS-style competing risks.
++    """Evolve propensity classes independently under additive competing risks in each scenario.
+ 
+-    MBPF is run with zero default hazard because MCRIS owns default/delinquency competition.
+-    MBPF's default hazard is class-neutral, so omitting it does not change relative burnout
+-    composition; it only avoids double-counting exits.
++    Class identity is retained through delinquency and cure. Propensity scales performing
++    prepayment only; baseline_rates.performing_prepay is replaced by the supplied base path.
++    burnout_forecast remains a standalone zero-default MBPF diagnostic, not either scenario's
++    realized prepayment path. The homogeneous parent uses the initial-weighted mean base rate.
+     """
+     _validate_static_rates(baseline_rates)
+     base = np.asarray(base_monthly_prepayment_rates, dtype=float)
+@@ -177,6 +188,15 @@ def simulate_burnout_aware_intervention(
+         raise ValueError("base_monthly_prepayment_rates must be a non-empty vector")
+     if cohort_size <= 0 or balance_per_loan <= 0 or not 0 <= recovery_fraction <= 1 or prepayment_cost_fraction < 0:
+         raise ValueError("invalid cohort, balance, recovery, or prepayment cost")
++    if not all(np.isfinite(value) for value in [balance_per_loan, recovery_fraction, prepayment_cost_fraction]):
++        raise ValueError("balance, recovery, and prepayment cost must be finite")
++    multipliers = np.asarray(propensity_multipliers, dtype=float)
++    weights = np.asarray(initial_class_weights, dtype=float)
++    with np.errstate(over="ignore", invalid="ignore"):
++        weight_sum = weights.sum()
++    if not np.all(np.isfinite(multipliers)) or not np.all(np.isfinite(weights)) or not np.isfinite(weight_sum):
++        raise ValueError("propensity multipliers and weights must be finite with a finite weight sum")
++    weights = weights / weight_sum
+     burnout = forecast_burnout_prepayment(
+         cohort_size=cohort_size,
+         base_monthly_prepayment_rates=base,
+@@ -184,12 +204,14 @@ def simulate_burnout_aware_intervention(
+         initial_class_weights=initial_class_weights,
+         monthly_default_rates=0.0,
+     )
+-    path = np.asarray(burnout.effective_prepayment_rates, dtype=float)
++    class_prepayment_path = base[:, None] * multipliers[None, :]
+     baseline_scenario = _simulate_path(
+-        cohort_size, path, baseline_rates, Intervention(), balance_per_loan, recovery_fraction, prepayment_cost_fraction
++        cohort_size, class_prepayment_path, weights, baseline_rates, Intervention(), balance_per_loan,
++        recovery_fraction, prepayment_cost_fraction,
+     )
+     changed = _simulate_path(
+-        cohort_size, path, baseline_rates, intervention, balance_per_loan, recovery_fraction, prepayment_cost_fraction
++        cohort_size, class_prepayment_path, weights, baseline_rates, intervention, balance_per_loan,
++        recovery_fraction, prepayment_cost_fraction,
+     )
+     cost = float(cohort_size * intervention.one_time_cost_per_loan)
+     gross = float(baseline_scenario.total_economic_loss - changed.total_economic_loss)
+@@ -200,8 +222,6 @@ def simulate_burnout_aware_intervention(
+         gross_loss_reduction=gross, net_value=float(gross - cost),
+         status="INTERVENTION_CREATES_NET_VALUE" if gross - cost > 0 else "INTERVENTION_COST_EXCEEDS_MODELED_BENEFIT",
+     )
+-    multipliers = np.asarray(propensity_multipliers, dtype=float)
+-    weights = np.asarray(initial_class_weights, dtype=float); weights = weights / weights.sum()
+     homogeneous_rate = float(np.mean(base * float(weights @ multipliers)))
+     homogeneous_rates = replace(baseline_rates, performing_prepay=homogeneous_rate)
+     parent_result = simulate_mortgage_intervention(
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
+index 4acb226..2e99598 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
+@@ -59,6 +59,64 @@ class BAMITests(unittest.TestCase):
+         self.assertAlmostEqual(result.burnout_aware.net_value, parent.net_value, places=6)
+         self.assertAlmostEqual(result.burnout_aware.defaults_avoided, parent.defaults_avoided, places=9)
+ 
++    def test_class_stocks_survive_cure_in_competing_risk_baseline(self):
++        rates = MonthlyTransitionRates(0.2, 0.0, 0.1, 0.0, 0.0, 0.5)
++        result = simulate_burnout_aware_intervention(
++            cohort_size=100, base_monthly_prepayment_rates=[0.2, 0.2], propensity_multipliers=[0.0, 2.0],
++            initial_class_weights=[0.5, 0.5], baseline_rates=rates, intervention=Intervention(),
++            balance_per_loan=1.0, recovery_fraction=0.0,
++        )
++        states = result.burnout_aware.baseline.monthly_states
++        self.assertEqual(states, ((100.0, 0.0, 0.0, 0.0), (50.0, 10.0, 20.0, 20.0), (34.0, 10.0, 30.0, 26.0)))
++
++    def test_delinquent_pool_keeps_class_propensity_for_prepayment(self):
++        rates = MonthlyTransitionRates(0.0, 0.0, 0.5, 0.0, 0.4, 0.0)
++        result = simulate_burnout_aware_intervention(
++            cohort_size=100, base_monthly_prepayment_rates=[0.2], propensity_multipliers=[0.0, 1.0],
++            initial_class_weights=[0.5, 0.5], baseline_rates=rates, intervention=Intervention(),
++            balance_per_loan=1.0, recovery_fraction=0.0,
++        )
++        states = result.burnout_aware.baseline.monthly_states
++        self.assertEqual(states, ((100.0, 0.0, 0.0, 0.0), (40.0, 50.0, 0.0, 10.0)))
++
++    def test_intervention_applies_competing_risk_multipliers_per_class(self):
++        rates = MonthlyTransitionRates(0.2, 0.2, 0.1, 0.5, 0.0, 0.1)
++        intervention = Intervention(
++            performing_default_multiplier=0.5, performing_prepay_multiplier=0.5,
++            performing_delinquency_multiplier=1.0, delinquent_default_multiplier=0.4,
++            delinquent_cure_multiplier=2.0, one_time_cost_per_loan=10.0,
++        )
++        result = simulate_burnout_aware_intervention(
++            cohort_size=100, base_monthly_prepayment_rates=[0.2], propensity_multipliers=[1.0],
++            initial_class_weights=[1.0], baseline_rates=rates, intervention=intervention,
++            balance_per_loan=1.0, recovery_fraction=0.0,
++        )
++        states = result.burnout_aware.intervention.monthly_states
++        self.assertEqual(states, ((100.0, 0.0, 0.0, 0.0), (70.0, 10.0, 10.0, 10.0)))
++        self.assertEqual(result.burnout_aware.baseline.monthly_states, ((100.0, 0.0, 0.0, 0.0), (50.0, 10.0, 20.0, 20.0)))
++
++    def test_homogeneous_reduction_matches_parent_mcris_with_zero_default_hazard(self):
++        result = simulate_burnout_aware_intervention(
++            cohort_size=1000, base_monthly_prepayment_rates=np.full(12, 0.02), propensity_multipliers=[1.0],
++            initial_class_weights=[1.0],
++            baseline_rates=MonthlyTransitionRates(0.0, 0.0, 0.0, 0.0, 0.0, 0.0), intervention=Intervention(),
++            balance_per_loan=1000, recovery_fraction=0.5,
++        )
++        self.assertAlmostEqual(
++            result.burnout_forecast.cumulative_prepayments,
++            result.homogeneous_parent.baseline.cumulative_prepay, places=6,
++        )
++
++    def test_competing_exits_change_burnout_composition_vs_zero_default_forecast(self):
++        rates = MonthlyTransitionRates(0.2, 0.0, 0.0, 0.0, 0.0, 0.0)
++        result = simulate_burnout_aware_intervention(
++            cohort_size=100, base_monthly_prepayment_rates=[0.2, 0.2], propensity_multipliers=[0.0, 2.0],
++            initial_class_weights=[0.5, 0.5], baseline_rates=rates, intervention=Intervention(),
++            balance_per_loan=1.0, recovery_fraction=0.0,
++        )
++        self.assertAlmostEqual(result.burnout_forecast.cumulative_prepayments, 32.0, places=10)
++        self.assertAlmostEqual(result.burnout_aware.baseline.cumulative_prepay, 28.0, places=10)
++
+     def test_burnout_path_declines_and_changes_intervention_value(self):
+         result = simulate_burnout_aware_intervention(
+             cohort_size=100000, base_monthly_prepayment_rates=self.base, propensity_multipliers=self.multipliers,
+diff --git a/LAC_REPRO_R210/REPORT/build_report_pdf.py b/LAC_REPRO_R210/REPORT/build_report_pdf.py
+index 0ff6594..e0abab2 100644
+--- a/LAC_REPRO_R210/REPORT/build_report_pdf.py
++++ b/LAC_REPRO_R210/REPORT/build_report_pdf.py
+@@ -1,16 +1,23 @@
+ from __future__ import annotations
+ 
+ import html
++import os
+ import re
++import warnings
+ from pathlib import Path
+ 
++try:
++    import reportlab
++except ModuleNotFoundError as exc:
++    raise SystemExit("PDF generation requires the optional reportlab dependency in this Python environment; the retained Markdown/PDF report remains available.") from exc
++
+ from reportlab.lib import colors
+ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT, TA_RIGHT
+ from reportlab.lib.pagesizes import LETTER
+ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+ from reportlab.lib.units import inch
+ from reportlab.pdfbase import pdfmetrics
+-from reportlab.pdfbase.ttfonts import TTFont
++from reportlab.pdfbase.ttfonts import TTFont, TTFError
+ from reportlab.platypus import (
+     BaseDocTemplate,
+     Frame,
+@@ -27,12 +34,91 @@ from reportlab.platypus import (
+ HERE = Path(__file__).resolve().parent
+ SOURCE = HERE / "LABALLCOMPASS_R193_R208_AKADEMIK_RAPOR.md"
+ OUT = HERE.parents[1] / "output" / "pdf" / "LABALLCOMPASS_R193_R208_AKADEMIK_RAPOR.pdf"
+-OUT.parent.mkdir(parents=True, exist_ok=True)
+ 
+-pdfmetrics.registerFont(TTFont("Arial", "C:/Windows/Fonts/arial.ttf"))
+-pdfmetrics.registerFont(TTFont("Arial-Bold", "C:/Windows/Fonts/arialbd.ttf"))
+-pdfmetrics.registerFont(TTFont("Arial-Italic", "C:/Windows/Fonts/ariali.ttf"))
+-pdfmetrics.registerFont(TTFont("CambriaMath", "C:/Windows/Fonts/cambria.ttc", subfontIndex=0))
++FONT_ALIASES = ("Arial", "Arial-Bold", "Arial-Italic")
++
++_FONT_ROOTS = (
++    Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts",
++    Path("/System/Library/Fonts/Supplemental"),
++    Path("/System/Library/Fonts"),
++    Path("/usr/share/fonts"),
++    Path("/usr/local/share/fonts"),
++    Path.home() / ".fonts",
++    Path.home() / "Library/Fonts",
++    Path("/Library/Fonts"),
++)
++
++_FONT_HINTS = {
++    "Arial": ("arial.ttf", "Arial.ttf", "Arial Regular.ttf", "DejaVuSans.ttf", "LiberationSans-Regular.ttf"),
++    "Arial-Bold": ("arialbd.ttf", "Arial Bold.ttf", "DejaVuSans-Bold.ttf", "LiberationSans-Bold.ttf"),
++    "Arial-Italic": ("ariali.ttf", "Arial Italic.ttf", "DejaVuSans-Oblique.ttf", "LiberationSans-Italic.ttf"),
++}
++
++
++def candidate_font_files(alias):
++    seen = set()
++    for root in _FONT_ROOTS:
++        for name in _FONT_HINTS[alias]:
++            for path in sorted(root.rglob(name)):
++                resolved = path.resolve()
++                if resolved not in seen:
++                    seen.add(resolved)
++                    yield resolved
++
++
++def register_style_font(alias):
++    for path in candidate_font_files(alias):
++        try:
++            pdfmetrics.registerFont(TTFont(alias, str(path)))
++        except (TTFError, OSError):
++            continue
++        return True
++    return False
++
++
++def register_font_fallbacks():
++    return [alias for alias in FONT_ALIASES if not register_style_font(alias)]
++
++
++missing_fonts = register_font_fallbacks()
++if missing_fonts:
++    raise SystemExit("PDF generation needs Arial, DejaVu Sans, or Liberation Sans regular, bold and italic TrueType fonts for Unicode text; missing: " + ', '.join(missing_fonts))
++pdfmetrics.registerFontFamily("Arial", normal="Arial", bold="Arial-Bold", italic="Arial-Italic", boldItalic="Arial-Bold")
++
++_MATH_FONT_CANDIDATES = (
++    Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts" / "cambria.ttc",
++    Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts" / "Cambria.ttc",
++    Path("/System/Library/Fonts/Supplemental/Cambria.ttc"),
++    Path("/System/Library/Fonts/Supplemental/STIXTwoMath.otf"),
++    Path("/usr/share/fonts/truetype/stix/stix2math.otf"),
++    Path("/usr/share/fonts/opentype/stix/stix2math.otf"),
++    Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
++    Path("/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf"),
++)
++
++MATH_FONT = None
++for _path in _MATH_FONT_CANDIDATES:
++    if not _path.is_file():
++        continue
++    try:
++        pdfmetrics.registerFont(TTFont("CambriaMath", str(_path)))
++    except (TTFError, OSError):
++        continue
++    MATH_FONT = _path
++    break
++if MATH_FONT is None:
++    for _path in candidate_font_files("Arial"):
++        try:
++            pdfmetrics.registerFont(TTFont("CambriaMath", str(_path)))
++        except (TTFError, OSError):
++            continue
++        MATH_FONT = _path
++        warnings.warn("No compatible math face found; Unicode text font used for equations. Check mathematical glyph coverage before distributing the PDF.")
++        break
++if MATH_FONT is None:
++    raise SystemExit("No compatible TrueType font available for equations")
++pdfmetrics.registerFontFamily("CambriaMath", normal="CambriaMath", bold="CambriaMath", italic="CambriaMath", boldItalic="CambriaMath")
++
+ 
+ NAVY = colors.HexColor("#203748")
+ BLUE = colors.HexColor("#2E74B5")
+@@ -343,6 +429,7 @@ def parse_story():
+ 
+ 
+ def main():
++    OUT.parent.mkdir(parents=True, exist_ok=True)
+     doc = ReportDocTemplate(str(OUT))
+     story = parse_story()
+     doc.build(story)
+diff --git a/WORKBENCH.md b/WORKBENCH.md
+index 6e0d614..dc23efb 100644
+--- a/WORKBENCH.md
++++ b/WORKBENCH.md
+@@ -6,7 +6,7 @@
+ 
+ `Sales[Amount]`, `[@Amount]`, başlık/toplam seçicileri ve sütun aralıkları artık dosyadaki kayıtlı tablo tanımından gerçek hücrelere çözülür. Kullanıcıdan tablo haritası istenmez. [Yayımlanmış dosyada kaynak etkisini incele](examples/public-tables/StructuredReferences-report/lineage.html): `Table!C3` kapatıldığında toplam etkilenir, ad sütunundaki iki çıktı etkilenmez.
+ 
+-Değiştirilmemiş iki Apache POI dosyasında daha önce çözülemeyen **10/10 formül** çözülüyor. Üçüncü büyük dosya hâlâ 20.000 dolu hücre sınırında reddediliyor. Kaynak koordinatları yayımlanmış ayrıştırıcı testlerinin beklenenleriyle karşılaştırıldı; **69 ilgili test** ve raporun jsdom etkileşimi geçti. [Dosyalar ve önce/sonra](examples/public-tables/README.md), [doğrulama kaydı](restoration/20260915-structured-tables/validation.json). Bunlar mühendislik dosyaları; denetim saha doğrulaması değildir.
++Değiştirilmemiş iki Apache POI dosyasında daha önce çözülemeyen **10/10 formül** çözülüyor. Üçüncü büyük dosya bu doğrulama sırasında 20.000 dolu hücre sınırında reddediliyordu; sınır 100.000 dolu hücreye çıkarıldıktan sonra aynı dosya bu sınırı geçti ve artık 5.000.000 hücre karşılaştırma sınırında reddediliyor ([güncel gözlem](examples/public-tables/README.md)). Kaynak koordinatları yayımlanmış ayrıştırıcı testlerinin beklenenleriyle karşılaştırıldı; **69 ilgili test** ve raporun jsdom etkileşimi geçti. [Dosyalar ve önce/sonra](examples/public-tables/README.md), [doğrulama kaydı](restoration/20260915-structured-tables/validation.json). Bunlar mühendislik dosyaları; denetim saha doğrulaması değildir.
+ 
+ ## Yeni: sırası ve başlıkları değişmiş kayıtları eşleştir
+ 
+@@ -107,7 +107,7 @@ Dört raporda JavaScript çalışması, kaynak kapatma, ortak kayıp, sıfırlam
+ - `IF` içindeki kullanılmayan dal dahil bütün statik referanslar potansiyel bağımlılık sayılır. Kaynak kaybı, sayısal sonucun kesin değişeceği veya audit görüşünün bozulacağı anlamına gelmez.
+ - Verilmeyen dosyalara bağlantılar, dinamik referanslar (`INDIRECT`, `OFFSET`), desteklenmeyen işlevler, desteklenmeyen tablo seçicileri, spill referansları ve döngüler eksik olarak gösterilir. Bunlara bağlı formüller de kapsam dışında tutulur.
+ - Bütün tekli kaynak kayıpları, en fazla 512 ikili kaynak kaybı ve bütün kaynakların kaybı hesaplanır. İkili kesinti listesi büyük dosyalarda tam değildir; daha büyük asgari kesintiler aranmaz.
+-- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, sayfa başına 100.000 hücrelik sınırlayıcı alan, 20.000 düğüm, 4.000 kök kaynak. Bir referans 10.000 hücreden fazla genişletilmez. 500.000 geçişli kaynak üyeliği sınırı vardır.
++- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, sayfa başına 100.000 hücrelik sınırlayıcı alan, koleksiyon başına 100.000 dolu hücre, 20.000 düğüm, 4.000 kök kaynak. Bir referans 10.000 hücreden fazla genişletilmez. 500.000 geçişli kaynak üyeliği sınırı vardır.
+ - Ekran en fazla 150 kaynak satırını gösterir; arama bütün kaynaklarda çalışır. En fazla 200 sonuç gösterilir; JSON dosyaları tam listeyi içerir.
+ 
+ Sonraki ürün çalışmasının ölçütü, sadece motor çalıştırabilmek değil, gerçek bir görevde güçlü mevcut yöntemlere göre gösterilebilir faydadır. Laboratuvarın bütün motorları veya ürün iddiaları bu uygulamayla doğrulanmış değildir.
+diff --git a/examples/public-tables/README.md b/examples/public-tables/README.md
+index bc68cb0..4e4b8a7 100644
+--- a/examples/public-tables/README.md
++++ b/examples/public-tables/README.md
+@@ -8,7 +8,7 @@
+ |---|---|---|
+ | StructuredReferences.xlsx | 0/9 formül çözülebiliyor | 9/9; 12 kök hücre |
+ | evaluate_formula_with_structured_table_references.xlsx | 0/1 | 1/1; 4 kök hücre |
+-| StructuredRefs-lots-with-lookups.xlsx | 20.000 dolu hücre sınırında reddediliyor | Aynı sınırda reddediliyor |
++| StructuredRefs-lots-with-lookups.xlsx | 20.000 dolu hücre sınırında reddediliyor | Dolu hücre sınırını geçti; 17 Eylül 2026'da 5.000.000 hücre karşılaştırma sınırında reddedildiği gözlemlendi |
+ 
+ Bu dosyalar bağımsız yayımlanmış mühendislik girdileridir; denetim müşterisi dosyaları değildir. Büyük dosyayı kırparak başarılı gösterme veya sınırı kaldırma yapılmadı. [Önce/sonra gözlemleri](../../restoration/20260915-structured-tables/public-observations.json), [indirilen asıl dosyaların URL ve özetleri](SOURCES.json).
+ 
+diff --git a/maintenance/catalog.py b/maintenance/catalog.py
+index 8803a26..7fbb810 100644
+--- a/maintenance/catalog.py
++++ b/maintenance/catalog.py
+@@ -1,8 +1,35 @@
+ """Build a source-derived catalog; reported promotion is separate from observed tests."""
+-import ast,json
++import ast,json,os,tempfile
+ from pathlib import Path
+ from maintenance.runner import BASE,ROOT,CORE,sha,atomic
+ 
++def index_snapshot(text,rows):
++ marker='<script>const data='
++ if text.count(marker)!=1:raise ValueError('Expected one embedded catalog in index.html')
++ start=text.index(marker)+len(marker)
++ previous,end=json.JSONDecoder().raw_decode(text[start:])
++ if not isinstance(previous,list) or not text[start+end:].startswith(';'):raise ValueError('Invalid embedded catalog in index.html')
++ payload=json.dumps(rows,ensure_ascii=True).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
++ return text[:start]+payload+text[start+end:]
++
++def publish(document):
++ index=BASE/'index.html';catalog=BASE/'catalog.json'
++ text=index_snapshot(index.read_text(encoding='utf-8'),document['components'])
++ previous=json.loads(catalog.read_text(encoding='utf-8')) if catalog.exists() else None
++ temporary=None
++ try:
++  with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=BASE,prefix='.index-',suffix='.tmp',delete=False) as stream:
++   temporary=Path(stream.name);stream.write(text)
++  temporary.chmod(index.stat().st_mode)
++  atomic(catalog,document)
++  try:os.replace(temporary,index)
++  except OSError:
++   if previous is None:catalog.unlink()
++   else:atomic(catalog,previous)
++   raise
++ finally:
++  if temporary is not None:temporary.unlink(missing_ok=True)
++
+ def build():
+  latest={}
+  for p in sorted((BASE/'runs').glob('*/receipt.json')):
+@@ -60,6 +87,6 @@ def build():
+  for p in ROOT.rglob('02_PRODUCT_LEDGER_R394_R398.jsonl'):
+   for line in p.read_text().splitlines():
+    r=json.loads(line);rows.append({'id':r['product_id']+'_'+r['short_name'],'layer':'recovered_V2','description':r['mechanism'],'declared_status':r['status'],'source_fidelity':r['source_fidelity'],'source_directory':str(p.parent.relative_to(ROOT)),'ledger':str(p.relative_to(ROOT)),'latest_reproduction':latest.get(str((p.parent/'RECOVERED_REFERENCE_CODE').relative_to(ROOT)),{'status':'NOT_RUN','receipt':None}),'scientific_validity':'NOT_ESTABLISHED_BY_TEST_PASS','limitations':r['failure_or_collapse']})
+- atomic(BASE/'catalog.json',{'schema_version':1,'components':rows,'boundary':'Source-derived inventory. Exact manifest verifies bytes; tests verify declared surfaces. Neither proves originality, validity beyond experiments or product readiness.'})
++ publish({'schema_version':1,'components':rows,'boundary':'Source-derived inventory. Exact manifest verifies bytes; tests verify declared surfaces. Neither proves originality, validity beyond experiments or product readiness.'})
+  return len(rows)
+ if __name__=='__main__':print(build(),'components')
+diff --git a/maintenance/components.py b/maintenance/components.py
+index 7d62d8d..da0940c 100644
+--- a/maintenance/components.py
++++ b/maintenance/components.py
+@@ -30,7 +30,7 @@ def main(args):
+   if a.action=='check':
+    targets=[t for t in discover('all') if target_matches(row,t)]
+    if not targets:raise ValueError('No existing test target found for this component')
+-   path=run(targets,profile='component:'+row['id'],timeout=a.timeout);print(path);return int(json.loads(path.read_text())['status']!='PASS')
++   path=run(targets,profile='component:'+row['id'],timeout=a.timeout);build();print(path);return int(json.loads(path.read_text())['status']!='PASS')
+   entries=row.get('demo_entries',[])
+   if not entries:raise ValueError('No shipped demo entry; use show for the public API or check for existing examples in tests')
+   entry=a.entry or (entries[0] if len(entries)==1 else None)
+diff --git a/tests/test_components.py b/tests/test_components.py
+index d6366c4..58c3494 100644
+--- a/tests/test_components.py
++++ b/tests/test_components.py
+@@ -1,10 +1,77 @@
+-import unittest
++import io,json,tempfile,unittest
++from pathlib import Path
++from unittest.mock import patch
++from maintenance import catalog as inventory,components
+ from maintenance.components import resolve,target_matches
+-from maintenance.runner import discover
++from maintenance.runner import BASE,Target,discover
++
+ class ComponentTests(unittest.TestCase):
++ def setUp(self):
++  rows=json.loads((BASE/'catalog.json').read_text())['components']
++  mocked=patch('maintenance.components.catalog',return_value=rows);mocked.start();self.addCleanup(mocked.stop)
+  def test_stable_foundry_id_routes_to_its_tests(self):
+   r=resolve('P039');matched=[t for t in discover('all') if target_matches(r,t)];self.assertEqual(len(matched),1);self.assertIn('P039_CACF',matched[0].pattern)
+  def test_recovered_id_routes_to_recovered_contract(self):
+   r=resolve('V2P057');self.assertEqual(sum(target_matches(r,t) for t in discover('all')),1)
+  def test_unknown_id_explained(self):
+   with self.assertRaises(ValueError):resolve('NOT_REAL')
++ def test_check_refreshes_after_success_and_failure(self):
++  row={'id':'example','layer':'parent','source_directory':'example','latest_reproduction':{'status':'PASS'}}
++  with tempfile.TemporaryDirectory() as directory:
++   receipt=Path(directory)/'receipt.json'
++   for status,code in [('PASS',0),('FAIL',1)]:
++    receipt.write_text(json.dumps({'status':status}))
++    events=[]
++    with patch.object(components,'resolve',return_value=row),patch.object(components,'discover',return_value=[Target('example','example','unittest')]),patch.object(components,'run',side_effect=lambda *a,**k:(events.append('run') or receipt)),patch.object(components,'build',side_effect=lambda:events.append('refresh')),patch('sys.stdout',new=io.StringIO()):
++     self.assertEqual(components.main(['check','example']),code)
++    self.assertEqual(events,['run','refresh'])
++
++class CatalogIndexTests(unittest.TestCase):
++ def setUp(self):
++  self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name);self.addCleanup(self.tmp.cleanup)
++  self.index=self.root/'index.html';self.catalog_path=self.root/'catalog.json'
++  self.rows=[{'id':'P039','layer':'foundry','status':'PASS'}]
++  self.index.write_text('<!doctype html><title>t</title><script>const data=[];render();</script>',encoding='utf-8')
++  mocked=patch.object(inventory,'BASE',self.root);mocked.start();self.addCleanup(mocked.stop)
++ def publish(self):inventory.publish({'schema_version':1,'components':self.rows,'boundary':'x'})
++ def load(self):return json.loads(self.catalog_path.read_text(encoding='utf-8'))
++ def test_publish_updates_both_files(self):
++  self.publish();self.assertEqual(self.load()['components'],self.rows)
++  text=self.index.read_text(encoding='utf-8');marker='<script>const data='
++  embedded,end=json.JSONDecoder().raw_decode(text[text.index(marker)+len(marker):])
++  self.assertEqual(embedded,self.rows);self.assertTrue(text[text.index(marker)+len(marker)+end:].startswith(';render();</script>'))
++ def test_malformed_index_preserves_existing_catalog(self):
++  self.publish();old=self.catalog_path.read_bytes()
++  self.index.write_text('<script>const data=[1,2;render();</script>',encoding='utf-8')
++  with self.assertRaises(ValueError):self.publish()
++  self.assertEqual(self.catalog_path.read_bytes(),old)
++ def test_escaped_payload_roundtrips(self):
++  self.rows=[{'id':'</script><b>x</b>&'}];self.publish()
++  text=self.index.read_text(encoding='utf-8');self.assertNotIn('</script><b>',text);self.assertIn('\\u003c/script\\u003e',text)
++  marker='<script>const data='
++  embedded,_=json.JSONDecoder().raw_decode(text[text.index(marker)+len(marker):]);self.assertEqual(embedded,self.rows)
++ def test_failed_index_replace_restores_catalog(self):
++  self.publish();old=self.catalog_path.read_bytes();old_index=self.index.read_bytes();self.rows=[{'id':'changed'}]
++  replace=inventory.os.replace
++  def fail_index(source,destination):
++   if Path(destination)==self.index:raise OSError('simulated index failure')
++   return replace(source,destination)
++  with patch.object(inventory.os,'replace',side_effect=fail_index):
++   with self.assertRaises(OSError):self.publish()
++  self.assertEqual(self.catalog_path.read_bytes(),old);self.assertEqual(self.index.read_bytes(),old_index)
++ def test_real_index_marker_is_supported(self):
++  text=(BASE/'index.html').read_text(encoding='utf-8')
++  rendered=inventory.index_snapshot(text,self.rows)
++  marker='<script>const data='
++  embedded,_=json.JSONDecoder().raw_decode(rendered[rendered.index(marker)+len(marker):]);self.assertEqual(embedded,self.rows)
++ def test_newer_failed_receipt_overrides_old_pass(self):
++  root=self.root/'source';core=Path('core')
++  for suffix in ['02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS','02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS','02_FOUNDRY_ALL_PRODUCTS/products','01_V2_CORE/products']:
++   (root/core/suffix).mkdir(parents=True,exist_ok=True)
++  (root/'ACTIVE_RESEARCH'/'R001').mkdir(parents=True);(root/'ACTIVE_PRODUCTS').mkdir()
++  for name,status in [('001','PASS'),('002','FAIL')]:
++   folder=self.root/'runs'/name;folder.mkdir(parents=True)
++   (folder/'receipt.json').write_text(json.dumps({'targets':[{'cwd':'ACTIVE_RESEARCH/R001','status':status}]}))
++  with patch.object(inventory,'ROOT',root),patch.object(inventory,'CORE',core):self.assertEqual(inventory.build(),1)
++  row=self.load()['components'][0]
++  self.assertEqual(row['latest_reproduction']['status'],'FAIL');self.assertEqual(row['latest_reproduction']['receipt'],'runs/002/receipt.json')
+diff --git a/tests/test_content.py b/tests/test_content.py
+index 452f39d..a9f90fa 100644
+--- a/tests/test_content.py
++++ b/tests/test_content.py
+@@ -24,6 +24,26 @@ class ContentTests(unittest.TestCase):
+         paths = [self.root/'ledger.xlsx',self.root/'support.xlsx']
+         for p,b in zip(paths,(left,right)):b.save(p)
+         return paths,[left,right]
++    def test_same_layout_detects_changed_row_omitted_by_heuristics(self):
++        paths,books=self.books()
++        for book in books:
++            book.remove(book.active)
++            sheet=book.create_sheet('Data')
++            for r in range(1,5):
++                for c in range(1,11):sheet.cell(r,c,100*r+c)
++        for c in range(1,11):books[1].active.cell(4,c,900+c)
++        default=compare_content(paths,books)
++        self.assertFalse(any(c['left']=='J4' for b in default['blocks'] for c in b['cells']))
++        result=compare_content(paths,books,same_layout=True)
++        block=result['blocks'][0]
++        self.assertEqual(block['kind'],'same_layout')
++        self.assertEqual(block['compared_positions'],40)
++        self.assertEqual(block['matching_cells'],30)
++        changed=next(c for c in block['cells'] if c['left']=='J4')
++        self.assertEqual((changed['right'],changed['left_value'],changed['right_value'],changed['equal']),
++                         ('J4','410','910',False))
++        self.assertEqual(compare_content(paths,books,same_layout=False),default)
++
+     def test_shifted_block_and_changed_interior_are_located(self):
+         paths,books=self.books(changed=True)
+         result=compare_content(paths,books)
+@@ -52,6 +72,23 @@ class ContentTests(unittest.TestCase):
+         self.assertEqual(len(set(problem['bases'].values())),24)
+         self.assertEqual(len(data['blocks'][0]['formula_targets']),2)
+         self.assertTrue(report.with_name('lineage.html').exists())
++    def test_formula_target_itself_is_included_for_single_workbook_difference(self):
++        paths,books=self.books()
++        books[0].active['B3']='=304+2'
++        books[0].active['G1']='=A1'
++        books[0].active['H1']='=INDIRECT("B3")'
++        copied=books[0].create_sheet('Copy')
++        for row in books[1].active:
++            for cell in row:
++                if cell.value is not None:copied.cell(cell.row,cell.column,cell.value)
++        books[0].save(paths[0])
++        report=save_workbook_analysis(paths[:1],self.root/'report')
++        data=json.loads(report.with_name('content.json').read_text())
++        block=next(b for b in data['blocks'] if b['kind']=='translated_block')
++        self.assertEqual(block['difference_formula_targets'],['Sheet!B3'])
++        self.assertEqual(block['formula_targets'],['Sheet!G1'])
++        self.assertEqual([(c['left'],c['right']) for c in block['cells'] if not c['equal']],[('B3','D9')])
++
+     def test_numeric_text_and_numbers_do_not_match(self):
+         paths,books=self.books()
+         for row in books[1].active:
+diff --git a/tests/test_record_matches.py b/tests/test_record_matches.py
+index a883cdb..66bb7f4 100644
+--- a/tests/test_record_matches.py
++++ b/tests/test_record_matches.py
+@@ -3,6 +3,7 @@ import tempfile
+ from pathlib import Path
+ from openpyxl import Workbook
+ from workbench.content import compare_content
++from workbench.record_matches import find_record_matches
+ 
+ 
+ class RecordMatchTests(unittest.TestCase):
+@@ -27,6 +28,52 @@ class RecordMatchTests(unittest.TestCase):
+                 b.active.cell(rows[r-1],cols[c-1],value)
+         return [Path('one.xlsx'),Path('two.xlsx')],[a,b],rows,cols
+ 
++    def test_late_stronger_region_is_ranked_before_bounded_details(self):
++        reads=0
++        class RawValues(dict):
++            def get(self, key, default=None):
++                nonlocal reads
++                reads+=1
++                return super().get(key,default)
++        sheets=[]
++        for sid in range(18):
++            count=200 if sid<16 else 300
++            offset=0 if sid<16 else 100000
++            values={(r,c):('number',offset+10000*c+17*r)
++                    for r in range(1,count+1) for c in range(1,6)}
++            if sid==17:values[300,5]=('number',999999)
++            sheets.append({'workbook':f'{sid:02}.xlsx','sheet':'Sheet','values':values,
++                           'raw':RawValues({p:str(t[1]) for p,t in values.items()})})
++        self.assertEqual(sum(len(s['raw']) for s in sheets),19000)
++        blocks,scope=find_record_matches(sheets)
++        self.assertEqual((blocks[0]['left']['workbook'],blocks[0]['right']['workbook']),('16.xlsx','17.xlsx'))
++        self.assertEqual(blocks[0]['matching_cells'],1499)
++        self.assertEqual([(c['left'],c['right']) for c in blocks[0]['cells'] if not c['equal']],[('E300','E300')])
++        self.assertEqual(len(blocks),99)
++        self.assertEqual(scope['regions_omitted_due_detail_limit'],22)
++        self.assertEqual(sum(len(b['cells']) for b in blocks),99500)
++        self.assertEqual(reads,199000)
++        self.assertTrue(all(b['matching_cells']==sum(c['equal'] for c in b['cells']) for b in blocks))
++
++    def test_unmapped_lists_include_raw_formula_and_error_only_coordinates(self):
++        paths,books,rows,cols=self.pair()
++        books[0].active['A12']='=SUM(A1:A10)'
++        books[0].active['F1']='=A1'
++        books[0].active['G14']='#N/A'
++        books[1].active['B13']='#DIV/0!'
++        books[1].active['H2']='#VALUE!'
++        books[1].active['I15']='=SUM(A1:A10)'
++        books[0].active['J20'].number_format='0.00'
++        result=self.compare(paths,books)
++        match=next(b for b in result['blocks'] if b.get('kind')=='row_alignment')
++        self.assertEqual(match['unmapped_left_rows'],[12,14])
++        self.assertEqual(match['unmapped_right_rows'],[13,15])
++        self.assertEqual(match['unmapped_left_columns'],['F','G'])
++        self.assertEqual(match['unmapped_right_columns'],['H','I'])
++        self.assertEqual(match['matching_rows'],10)
++        self.assertEqual(match['matching_cells'],50)
++        self.assertEqual(match['compared_positions'],50)
++
+     def test_reordered_rows_and_columns_locate_changed_value(self):
+         paths,books,rows,cols=self.pair()
+         books[1].active.cell(rows[3],cols[2],999999)
+@@ -67,6 +114,60 @@ class RecordMatchTests(unittest.TestCase):
+         self.assertEqual(block['unmapped_left_rows'],[1,11])
+         self.assertGreaterEqual(result['record_alignment']['ambiguous_rows_omitted'],2)
+ 
++    def test_formula_difference_traces_only_resolved_downstream_targets(self):
++        import json
++        from workbench.cli import save_workbook_analysis
++        for index,value in enumerate(('=C3+17','=3068','=INDIRECT("C3")','#N/A')):
++            with self.subTest(value=value):
++                paths,books,rows,cols=self.pair()
++                books[0].active['C4']=value
++                books[0].active['G1']='=SUM(C1:C10)'
++                books[0].active['H1']='=G1+1'
++                books[0].active['I1']='=C3'
++                books[1].active['G1']='=SUM(E1:E10)'
++                books[1].active['H1']='=G1+1'
++                books[1].active['I1']="='[one.xlsx]Sheet'!C4"
++                paths=[Path(self.tmp.name)/p.name for p in paths]
++                for path,book in zip(paths,books):book.save(path)
++                report=save_workbook_analysis(paths,Path(self.tmp.name)/f'report-{index}')
++                content=json.loads(report.with_name('content.json').read_text())
++                match=next(b for b in content['blocks'] if b.get('kind')=='row_alignment')
++                expected=['one.xlsx::Sheet!H1','two.xlsx::Sheet!H1','two.xlsx::Sheet!I1'] if index<2 else ['two.xlsx::Sheet!H1']
++                self.assertEqual(match['difference_formula_targets'],expected)
++                different=[c for c in match['cells'] if not c['equal']]
++                self.assertEqual([(c['left'],c['right']) for c in different],[('C4','E1')])
++                self.assertEqual(different[0]['left_type'],'uncompared')
++                self.assertIn('one.xlsx::Sheet!I1',match['formula_targets'])
++
++    def test_existing_synthetic_changed_unique_voucher_pair(self):
++        import hashlib
++        import json
++        from workbench.cli import save_workbook_analysis
++        inputs = Path(__file__).resolve().parents[1] / 'examples/public-spending/verified/changed_unique_voucher/inputs'
++        paths = [inputs / 'derived.xlsx', inputs / 'published.xlsx']
++        before = [hashlib.sha256(path.read_bytes()).hexdigest() for path in paths]
++        report = save_workbook_analysis(paths, Path(self.tmp.name) / 'existing-pair')
++        content = json.loads(report.with_name('content.json').read_text())
++        self.assertTrue(content['lineage_available'])
++        self.assertEqual(len(content['blocks']), 1)
++        block = content['blocks'][0]
++        self.assertEqual(block['kind'], 'row_alignment')
++        self.assertEqual(block['left']['workbook'], 'derived.xlsx')
++        self.assertEqual(block['right']['workbook'], 'published.xlsx')
++        self.assertEqual(block['matching_rows'], 85)
++        self.assertEqual(block['matching_cells'], 679)
++        self.assertEqual(block['compared_positions'], 680)
++        self.assertEqual([cell for cell in block['cells'] if not cell['equal']], [{
++            'left': 'C37', 'right': 'H8',
++            'left_value': '42305.42', 'right_value': '42181.97',
++            'left_type': 'number', 'right_type': 'number', 'equal': False,
++        }])
++        self.assertEqual(block['difference_formula_targets'], [
++            'derived.xlsx::Review total!A2', 'published.xlsx::Review total!A2',
++        ])
++        self.assertEqual(content['blocks_omitted'], 0)
++        self.assertEqual(before, [hashlib.sha256(path.read_bytes()).hexdigest() for path in paths])
++
+     def test_reordered_difference_keeps_both_formula_impacts_and_separate_roots(self):
+         import json
+         from workbench.cli import save_workbook_analysis
+diff --git a/workbench/cli.py b/workbench/cli.py
+index 08e4c69..50b3243 100644
+--- a/workbench/cli.py
++++ b/workbench/cli.py
+@@ -28,9 +28,9 @@ def save_analysis(problem, directory=None):
+     return folder / 'index.html'
+ 
+ 
+-def save_workbook_analysis(paths, directory=None):
++def save_workbook_analysis(paths, directory=None, same_layout=False):
+     with open_workbooks(paths) as (paths, books):
+-        content = compare_content(paths, books)
++        content = compare_content(paths, books, same_layout=same_layout)
+         try:
+             problem = _analyze_loaded(paths, books)
+         except LineageUnavailable as error:
+@@ -45,20 +45,32 @@ def save_workbook_analysis(paths, directory=None):
+         # Keep observed similarities separate from the actual formula graph.
+         report = save_analysis(problem, folder)
+         report.rename(folder / 'lineage.html')
+-        analysis = json.loads((folder / 'analysis.json').read_text())
++        dependents = {}
++        for head, body in problem.rules:
++            for node in body:
++                dependents.setdefault(node, set()).add(head)
++        formula_targets = set(problem.targets)
++        def impacts(nodes):
++            seen = set(nodes)
++            pending = list(nodes)
++            while pending:
++                for node in dependents.get(pending.pop(), ()):
++                    if node not in seen:
++                        seen.add(node)
++                        pending.append(node)
++            return sorted(seen & formula_targets)
+         for block in content['blocks']:
+-            targets = set()
+-            difference_targets = set()
++            matched = set()
++            different = set()
+             for side in ('left', 'right'):
+                 loc = block[side]
+                 prefix = loc['workbook']+'::' if len(paths)>1 else ''
+                 for cell in block['cells']:
+                     node = prefix+loc['sheet']+'!'+cell[side]
+-                    impact = analysis['source_impacts'].get(node, [])
+-                    if cell['equal']: targets.update(impact)
+-                    else: difference_targets.update(impact)
+-            block['formula_targets'] = sorted(targets)
+-            block['difference_formula_targets'] = sorted(difference_targets)
++                    if cell['equal']: matched.add(node)
++                    else: different.add(node)
++            block['formula_targets'] = impacts(matched)
++            block['difference_formula_targets'] = impacts(different)
+     (folder / 'content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
+     write_content_report(content, folder / 'index.html')
+     return folder / 'index.html'
+@@ -69,7 +81,7 @@ def main(argv=None):
+     sub = parser.add_subparsers(dest='command', required=True)
+     bench = sub.add_parser('benchmark'); bench.add_argument('--repeats', type=int, default=3)
+     demo = sub.add_parser('demo'); demo.add_argument('--output')
+-    analyze = sub.add_parser('analyze'); analyze.add_argument('workbooks', nargs='+', help='Workbook files or folders of .xlsx/.xlsm files'); analyze.add_argument('--output')
++    analyze = sub.add_parser('analyze'); analyze.add_argument('workbooks', nargs='+', help='Workbook files or folders of .xlsx/.xlsm files'); analyze.add_argument('--output'); analyze.add_argument('--same-layout', action='store_true', help='Compare exactly two workbooks cell-by-cell at identical sheet names and coordinates')
+     inspect = sub.add_parser('inspect'); inspect.add_argument('problem_json'); inspect.add_argument('--output')
+     args = parser.parse_args(argv)
+     try:
+@@ -86,7 +98,7 @@ def main(argv=None):
+                 if path.is_dir():
+                     paths.extend(p for p in path.iterdir() if p.is_file() and p.suffix.lower() in ('.xlsx','.xlsm') and not p.name.startswith('~$'))
+                 else: paths.append(path)
+-            print(save_workbook_analysis(paths, args.output))
++            print(save_workbook_analysis(paths, args.output, same_layout=args.same_layout))
+             return 0
+         else: problem = DependencyProblem.from_dict(json.loads(Path(args.problem_json).read_text()))
+         print(save_analysis(problem, args.output))
+diff --git a/workbench/content.py b/workbench/content.py
+index 6db5a0a..4cc4a1b 100644
+--- a/workbench/content.py
++++ b/workbench/content.py
+@@ -47,8 +47,70 @@ def _components(points):
+         yield group
+ 
+ 
+-def compare_content(paths, books):
++def _same_layout_result(paths, sheets, populated, excluded):
+     from openpyxl.utils.cell import get_column_letter
++    left_sheets = {s['sheet']: s for s in sheets if s['workbook'] == paths[0].name}
++    right_sheets = {s['sheet']: s for s in sheets if s['workbook'] == paths[1].name}
++    common = sorted(left_sheets.keys() & right_sheets.keys())
++    unmatched = {
++        'left': sorted(left_sheets.keys() - right_sheets.keys()),
++        'right': sorted(right_sheets.keys() - left_sheets.keys()),
++    }
++    blocks, details, omitted_positions = [], 0, 0
++    for name in common:
++        left, right = left_sheets[name], right_sheets[name]
++        points = sorted(left['raw'].keys() | right['raw'].keys())
++        if len(blocks) >= 200 or details + len(points) > 100000:
++            omitted_positions += len(points)
++            continue
++        cells = []
++        for point in points:
++            coordinate = get_column_letter(point[1]) + str(point[0])
++            a, b = left['values'].get(point), right['values'].get(point)
++            cells.append({
++                'left': coordinate, 'right': coordinate,
++                'left_value': left['raw'].get(point), 'right_value': right['raw'].get(point),
++                'left_type': a[0] if a is not None else 'uncompared',
++                'right_type': b[0] if b is not None else 'uncompared',
++                'equal': a is not None and a == b,
++            })
++        bounds = None
++        if points:
++            bounds = (get_column_letter(min(c for r,c in points)) + str(min(r for r,c in points))
++                      + ':' + get_column_letter(max(c for r,c in points)) + str(max(r for r,c in points)))
++        matching = sum(cell['equal'] for cell in cells)
++        blocks.append({
++            'kind': 'same_layout',
++            'left': {'workbook': left['workbook'], 'sheet': name, 'range': bounds},
++            'right': {'workbook': right['workbook'], 'sheet': name, 'range': bounds},
++            'cells': cells, 'matching_cells': matching, 'compared_positions': len(cells),
++            'different_or_uncompared_cells': len(cells) - matching,
++            'match_fraction': matching / len(cells) if cells else None,
++            'interpretation': 'User-selected same-layout assumption: identical sheet names and coordinates; not inferred correspondence or common origin.',
++        })
++        details += len(points)
++    return {
++        'schema_version': 2, 'method': 'same_layout_v1',
++        'input_files': [{'name': p.name, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths],
++        'sheet_count': len(sheets), 'populated_cells': populated, 'excluded_cells': excluded,
++        'blocks': blocks, 'total_blocks_found': len(common), 'blocks_omitted': len(common) - len(blocks),
++        'positions_omitted': omitted_positions, 'unmatched_sheets': unmatched,
++        'scope': [
++            'Explicit same-layout assumption: exactly two workbooks, exact sheet names and identical cell coordinates. No row or column alignment is inferred.',
++            'Every coordinate populated on either side of a common sheet is included, subject to output limits. Empty cells on both sides are skipped; empty common sheets have no compared positions.',
++            'Sheets present on only one side are not compared: left ' + repr(unmatched['left']) + '; right ' + repr(unmatched['right']) + '.',
++            'Exact typed literal equality only. Formula cells, caches, errors and empty text are uncompared, not evaluated. Formatting is ignored.',
++            'Added or deleted cells have a missing value on one side. Inserted rows, moved columns and renamed sheets are not aligned automatically.',
++            'Content comparisons never establish common origin or merge formula roots.',
++            'Output is limited to 200 common sheets and 100,000 detailed positions, in sheet-name order; omitted sheets and positions are counted.',
++        ],
++    }
++
++
++def compare_content(paths, books, same_layout=False):
++    from openpyxl.utils.cell import get_column_letter
++    if same_layout and (len(paths) != 2 or len(books) != 2 or paths[0].name.casefold() == paths[1].name.casefold()):
++        raise ValueError('Same-layout comparison requires exactly two workbooks with distinct filenames')
+     sheets, index, excluded = [], defaultdict(list), defaultdict(int)
+     populated = 0
+     for path, book in zip(paths, books):
+@@ -61,8 +123,8 @@ def compare_content(paths, books):
+                 for cell in row:
+                     if cell.value is None: continue
+                     populated += 1
+-                    if populated > 20000:
+-                        raise ValueError('Content comparison collection limit: 20,000 populated cells')
++                    if populated > 100000:
++                        raise ValueError('Content comparison collection limit: 100,000 populated cells')
+                     point = (cell.row, cell.column)
+                     token = typed_value(cell)
+                     raw[point] = str(cell.value)
+@@ -74,6 +136,8 @@ def compare_content(paths, books):
+                     if token[0] != 'bool' and token not in (('number', 0), ('number', 1), ('number', -1)):
+                         index[token].append((sid, *point))
+             sheets.append({'workbook': path.name, 'sheet': sheet.title, 'values': values, 'raw': raw})
++    if same_layout:
++        return _same_layout_result(paths, sheets, populated, dict(excluded))
+     proposals = defaultdict(set)
+     joins, common = 0, 0
+     for token, positions in index.items():
+diff --git a/workbench/content_report.py b/workbench/content_report.py
+index 229a389..b06316b 100644
+--- a/workbench/content_report.py
++++ b/workbench/content_report.py
+@@ -22,8 +22,14 @@ if(data.example_context){$('#example-context').hidden=false;$('#example-context'
+ $('#files').textContent=data.input_files.map(f=>f.name).join(' · ');
+ $('#stats').textContent=`${data.input_files.length} dosya · ${data.sheet_count} sayfa · ${data.total_blocks_found} eşleşen bölge çifti`;
+ $('#coverage').textContent=`${data.populated_cells} dolu hücre okundu. ${data.excluded_cells.formula||0} formül içerik eşleştirmesine alınmadı. ${data.blocks_omitted} bölge çıktı sınırı nedeniyle gösterilmiyor. Bölge çiftleri örtüşebilir; sayıları bağımsız kaynak sayısı değildir.`;
++if(data.method==='same_layout_v1'){
++ document.querySelector('h1').textContent='Aynı yerleşimde hücre karşılaştırması';
++ document.querySelector('.notice').textContent='Kullanıcının seçtiği aynı yerleşim varsayımı: yalnız aynı sayfa adları ve hücre adresleri karşılaştırılır. Satır/sütun kaymaları otomatik eşlenmez; ortak kaynak kanıtlanmaz.';
++ $('#stats').textContent=`${data.input_files.length} dosya · ${data.sheet_count} sayfa · ${data.total_blocks_found} ortak sayfa çifti`;
++ $('#coverage').textContent=`${data.populated_cells} dolu hücre okundu. ${data.blocks_omitted} ortak sayfa ve ${data.positions_omitted} konum çıktı sınırı nedeniyle gösterilmiyor. Yalnız soldaki sayfalar: ${(data.unmatched_sheets.left||[]).join(', ')||'yok'}. Yalnız sağdaki sayfalar: ${(data.unmatched_sheets.right||[]).join(', ')||'yok'}. Bu sayfalar karşılaştırılmadı. Formüller ve hatalar değer olarak karşılaştırılmaz.`;
++}
+ $('#lineage').innerHTML=data.lineage_available?'<a href="lineage.html">Formül bağlantılarını ve kaynak kaybı etkisini aç →</a>':'<p class="muted">Bu girdide çözülebilen formül izi yok. Değer eşleştirmesi yine yapıldı.</p>';
+ function list(){const q=$('#search').value.toLowerCase();$('#blocks').innerHTML=data.blocks.map((b,i)=>({b,i})).filter(({b})=>(loc(b.left)+' '+loc(b.right)).toLowerCase().includes(q)).map(({b,i})=>`<button class="block" data-index="${i}" aria-pressed="${i===selected}"><b>${b.matching_cells} eşleşme · ${b.different_or_uncompared_cells} fark / kapsam dışı</b><br>${esc(loc(b.left))}<br>↔ ${esc(loc(b.right))}</button>`).join('')||'<p>Arama kapsamında eşleşme yok. Bu, kaynakların bağımsız olduğunu göstermez.</p>';}
+-function detail(){if(selected<0){$('#selection').textContent='Arama kapsamında bölge bulunmadı';return}const b=data.blocks[selected];$('#selection').textContent=loc(b.left)+' ↔ '+loc(b.right);$('#block-stats').textContent=`${b.matching_cells} / ${b.compared_positions} konumda değer ve tür aynı. ${b.kind==='row_alignment'?'Yalnız eşlenen satır ve sütunlar gösteriliyor; aralıktaki diğer hücreler dahil değildir.':'Eşleşen uç hücreler arasındaki alan gösteriliyor.'}`;$('#alignment').textContent=b.kind==='row_alignment'?`${b.matching_rows} satır eşlendi (başlıklar dahil olabilir). Sütunlar: `+b.column_mapping.map(c=>c.left+' ↔ '+c.right).join(', '):'Sabit satır/sütun kaymasıyla eşleşen bölge.';$('#unmapped').textContent=b.kind==='row_alignment'?`Eşlenmeyen satır: sol ${(b.unmapped_left_rows||[]).length}${b.unmapped_left_rows?.length?' ('+b.unmapped_left_rows.slice(0,12).join(', ')+(b.unmapped_left_rows.length>12?'…':'')+')':''}, sağ ${(b.unmapped_right_rows||[]).length}${b.unmapped_right_rows?.length?' ('+b.unmapped_right_rows.slice(0,12).join(', ')+(b.unmapped_right_rows.length>12?'…':'')+')':''}. Eşlenmeyen sütunlar: sol ${(b.unmapped_left_columns||[]).join(', ')||'yok'}; sağ ${(b.unmapped_right_columns||[]).join(', ')||'yok'}. Bu alanlar eşit kabul edilmedi.`:'';$('#difference-impact').textContent=b.difference_formula_targets?.length?'Farklı veya karşılaştırılamayan hücrelere bağlı sonuçlar: '+b.difference_formula_targets.slice(0,12).join(', '):'';$('#impact').textContent=b.formula_targets?.length?`Bu bölgelerdeki eşleşen hücrelere formülle bağlı ${b.formula_targets.length} sonuç var: `+b.formula_targets.slice(0,12).join(', '):'Bu bölge için çözülen formüllerde bağlı sonuç bulunmadı.';const cells=b.cells.filter(c=>!$('#differences').checked||!c.equal);$('#cells').innerHTML=cells.slice(0,500).map(c=>`<tr class="${c.equal?'':'diff'}"><td><b>${esc(c.left)}</b><br>${esc(c.left_value)}<br><small>${esc(c.left_type)}</small></td><td><b>${esc(c.right)}</b><br>${esc(c.right_value)}<br><small>${esc(c.right_type)}</small></td><td>${c.equal?'Aynı değer ve tür':'Farklı / karşılaştırılmadı'}</td></tr>`).join('');$('#cell-limit').textContent=cells.length>500?'İlk 500 konum gösteriliyor; tam bölge JSON dosyasında.':cells.length?'':'Bu seçimde gösterilecek fark yok.';}
++function detail(){if(selected<0){$('#selection').textContent='Arama kapsamında bölge bulunmadı';return}const b=data.blocks[selected];$('#selection').textContent=loc(b.left)+' ↔ '+loc(b.right);$('#block-stats').textContent=`${b.matching_cells} / ${b.compared_positions} konumda değer ve tür aynı. ${b.kind==='row_alignment'?'Yalnız eşlenen satır ve sütunlar gösteriliyor; aralıktaki diğer hücreler dahil değildir.':b.kind==='same_layout'?'İki taraftan en az birinde dolu olan aynı adresler gösteriliyor; boş ortak sayfalarda karşılaştırılan konum yok.':'Eşleşen uç hücreler arasındaki alan gösteriliyor.'}`;$('#alignment').textContent=b.kind==='row_alignment'?`${b.matching_rows} satır eşlendi (başlıklar dahil olabilir). Sütunlar: `+b.column_mapping.map(c=>c.left+' ↔ '+c.right).join(', '):b.kind==='same_layout'?'Kullanıcı tarafından seçilen aynı sayfa adı ve hücre adresi varsayımı; otomatik hizalama yapılmadı.':'Sabit satır/sütun kaymasıyla eşleşen bölge.';$('#unmapped').textContent=b.kind==='row_alignment'?`Eşlenmeyen satır: sol ${(b.unmapped_left_rows||[]).length}${b.unmapped_left_rows?.length?' ('+b.unmapped_left_rows.slice(0,12).join(', ')+(b.unmapped_left_rows.length>12?'…':'')+')':''}, sağ ${(b.unmapped_right_rows||[]).length}${b.unmapped_right_rows?.length?' ('+b.unmapped_right_rows.slice(0,12).join(', ')+(b.unmapped_right_rows.length>12?'…':'')+')':''}. Eşlenmeyen sütunlar: sol ${(b.unmapped_left_columns||[]).join(', ')||'yok'}; sağ ${(b.unmapped_right_columns||[]).join(', ')||'yok'}. Bu alanlar eşit kabul edilmedi.`:'';$('#difference-impact').textContent=b.difference_formula_targets?.length?'Farklı veya karşılaştırılamayan hücrelere bağlı sonuçlar: '+b.difference_formula_targets.slice(0,12).join(', '):'';$('#impact').textContent=b.formula_targets?.length?`Bu bölgelerdeki eşleşen hücrelere formülle bağlı ${b.formula_targets.length} sonuç var: `+b.formula_targets.slice(0,12).join(', '):'Bu bölge için çözülen formüllerde bağlı sonuç bulunmadı.';const cells=b.cells.filter(c=>!$('#differences').checked||!c.equal);$('#cells').innerHTML=cells.slice(0,500).map(c=>`<tr class="${c.equal?'':'diff'}"><td><b>${esc(c.left)}</b><br>${esc(c.left_value)}<br><small>${esc(c.left_type)}</small></td><td><b>${esc(c.right)}</b><br>${esc(c.right_value)}<br><small>${esc(c.right_type)}</small></td><td>${c.equal?'Aynı değer ve tür':'Farklı / karşılaştırılmadı'}</td></tr>`).join('');$('#cell-limit').textContent=cells.length>500?'İlk 500 konum gösteriliyor; tam bölge JSON dosyasında.':cells.length?'':'Bu seçimde gösterilecek fark yok.';}
+ $('#blocks').addEventListener('click',e=>{const button=e.target.closest('[data-index]');if(!button)return;selected=Number(button.dataset.index);list();detail()});$('#search').addEventListener('input',list);$('#differences').addEventListener('change',detail);$('#scope').innerHTML=[...data.scope,...(data.record_alignment?[data.record_alignment.scope,`${data.record_alignment.ambiguous_rows_omitted} belirsiz satır eşleştirmesi gösterilmedi.`]:[])].map(s=>'<li>'+esc(s)+'</li>').join('');list();detail();</script></html>'''
+     path.write_text(page.replace('PAYLOAD', payload))
+diff --git a/workbench/record_matches.py b/workbench/record_matches.py
+index 8f66a9a..052c342 100644
+--- a/workbench/record_matches.py
++++ b/workbench/record_matches.py
+@@ -39,7 +39,7 @@ def find_record_matches(sheets):
+         # Jaccard prefers a specific match over an arbitrary large superset.
+         score=count/len(ta|tb)
+         proposals[columns[a][0],columns[b][0]][a,b]=score
+-    result=[];row_comparisons=0;details=0;ambiguous=0;omitted=0
++    regions=[];row_comparisons=0;ambiguous=0
+     coordinate=lambda r,c:get_column_letter(c)+str(r)
+     for (sa,sb),scores in sorted(proposals.items()):
+         best_a=defaultdict(list);best_b=defaultdict(list)
+@@ -84,6 +84,11 @@ def find_record_matches(sheets):
+             if rb is not None and unique_best(right_best[rb])==ra:row_mapping.append((ra,rb))
+             else:ambiguous+=1
+         if len(row_mapping)<3:continue
++        matching=sum(candidates[pair] for pair in row_mapping)
++        regions.append((matching,sa,sb,mapping,row_mapping))
++    regions.sort(key=lambda region:(-region[0],region[1],region[2]))
++    result=[];details=0;omitted=0
++    for matching,sa,sb,mapping,row_mapping in regions:
+         if details+len(row_mapping)*len(mapping)>100000:
+             omitted+=1
+             continue
+@@ -96,13 +101,13 @@ def find_record_matches(sheets):
+                               'left_value':left['raw'].get(pa),'right_value':right['raw'].get(pb),
+                               'left_type':va[0] if va else 'uncompared','right_type':vb[0] if vb else 'uncompared',
+                               'equal':va is not None and va==vb})
+-        matching=sum(c['equal'] for c in cells)
++        matched = sum(c['equal'] for c in cells)
+         unmatched_rows=[];unmatched_columns=[]
+         for side,sheet in enumerate((left,right)):
+             used_rows={pair[side] for pair in row_mapping}
+             used_cols={columns[pair[side]][1] for pair in mapping}
+-            unmatched_rows.append(sorted({r for r,c in sheet['values']}-used_rows))
+-            unmatched_columns.append([get_column_letter(c) for c in sorted({c for r,c in sheet['values']}-used_cols)])
++            unmatched_rows.append(sorted({r for r,c in sheet['raw']}-used_rows))
++            unmatched_columns.append([get_column_letter(c) for c in sorted({c for r,c in sheet['raw']}-used_cols)])
+         def location(sheet,side):
+             rr=[pair[side] for pair in row_mapping];cc=[columns[pair[side]][1] for pair in mapping]
+             return {'workbook':sheet['workbook'],'sheet':sheet['sheet'],
+@@ -112,8 +117,8 @@ def find_record_matches(sheets):
+                        'unmapped_left_rows':unmatched_rows[0],'unmapped_right_rows':unmatched_rows[1],
+                        'unmapped_left_columns':unmatched_columns[0],'unmapped_right_columns':unmatched_columns[1],
+                        'column_mapping':[{'left':get_column_letter(columns[a][1]),'right':get_column_letter(columns[b][1])} for a,b in mapping],
+-                       'matching_cells':matching,'compared_positions':len(cells),'match_fraction':matching/len(cells),
+-                       'different_or_uncompared_cells':len(cells)-matching,'cells':cells,
++                       'matching_cells':matched,'compared_positions':len(cells),'match_fraction':matched/len(cells),
++                       'different_or_uncompared_cells':len(cells)-matched,'cells':cells,
+                        'interpretation':'Observed row/value correspondences, not inferred copying or common origin. Only mapped rows and columns are shown; the bounding ranges may contain omitted cells.'})
+         details+=len(cells)
+     return result,{'column_candidate_comparisons':comparisons,'row_candidate_comparisons':row_comparisons,
+diff --git a/workbench/workbooks.py b/workbench/workbooks.py
+index 80e0362..3994607 100644
+--- a/workbench/workbooks.py
++++ b/workbench/workbooks.py
+@@ -89,14 +89,14 @@ def _analyze_loaded(paths, books):
+                     node = key(book_id, sheet.title, cell.coordinate)
+                     cells[node] = cell.data_type
+                     labels[node] = node
+-                    if len(cells) > 20000:
+-                        raise ValueError('Pilot collection populated-cell limit: 20,000')
++                    if len(cells) > 100000:
++                        raise ValueError('Pilot collection populated-cell limit: 100,000')
+                     if cell.data_type == 'f':
+                         formulas[node] = cell.value if isinstance(cell.value, str) else None
+                         locations[node] = (book_id, sheet.title, cell.coordinate)
+     if not formulas:
+         raise LineageUnavailable('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
+-    if len(cells) > 20000: raise ValueError('Pilot populated-cell limit: 20,000')
++    if len(cells) > 100000: raise ValueError('Pilot populated-cell limit: 100,000')
+     dependencies = {}
+     issues = defaultdict(list)
+ 

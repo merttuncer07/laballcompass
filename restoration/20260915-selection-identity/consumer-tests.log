@@ -1,0 +1,14 @@
+............................................                             [100%]
+=============================== warnings summary ===============================
+LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/test_cctd.py::CCTDTests::test_design_returns_frozen_deployment
+LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/test_cctd.py::CCTDTests::test_protected_gate_can_retain_incumbent
+  /Users/mertalituncer/Developer/lab/.venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+    c /= stddev[:, None]
+
+LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/test_cctd.py::CCTDTests::test_design_returns_frozen_deployment
+LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/test_cctd.py::CCTDTests::test_protected_gate_can_retain_incumbent
+  /Users/mertalituncer/Developer/lab/.venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+    c /= stddev[None, :]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+44 passed, 4 warnings in 3.23s

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.275" timestamp="2026-09-17T00:30:44.037367+03:00" hostname="MacBook-Air.local"><testcase classname="" name="tests.test_components" time="0.000"><error message="collection failure">tests/test_components.py:13: in &lt;module&gt;
+    class ReadOnlyDiscoveryTests(unittest.TestCase):
+tests/test_components.py:37: in ReadOnlyDiscoveryTests
+    write.assert_called_once_with(BASE/'catalog.json',data)
+    ^^^^^
+E   NameError: name 'write' is not defined</error></testcase></testsuite></testsuites>

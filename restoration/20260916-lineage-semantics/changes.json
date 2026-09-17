@@ -1,0 +1,57 @@
+[
+  {
+    "path": "workbench/contracts.py",
+    "before_sha256": "96150930e7ca00677b0b692a9b9ca0c61d32662dc12de3e25176b326ef3320f4",
+    "after_sha256": "76110bcf96be8e2d556b428879a6ae4664d0167c64c25cf2da5f4ddacb4b73d5"
+  },
+  {
+    "path": "workbench/workbooks.py",
+    "before_sha256": "f449623d1418520b16ecddbe60c4dfb1775e634e5f02126f8fadc6caa6ee4c23",
+    "after_sha256": "f166620ecef231308a5c15943aa361bbd51ad351f8be841767239cf01b085760"
+  },
+  {
+    "path": "workbench/function_references.py",
+    "before_sha256": null,
+    "after_sha256": "cdce286fd1d0260cf8ad9e25abe64b87c93fa5b0d1e2101c4e98d0b11b791ff7"
+  },
+  {
+    "path": "workbench/content.py",
+    "before_sha256": "31bc60e31d043ec40e6ba4f213851d996c51fae80059e5004a6736161be78fb4",
+    "after_sha256": "af4fc6aea366ed983f31a01679107b07638cbd16f59bc62542743e2eefc58687"
+  },
+  {
+    "path": "workbench/report.py",
+    "before_sha256": "a37801dbc3894fa54d0735e2f0c6b31bec15a2dc829e9cf3ad1fa423a3229202",
+    "after_sha256": "d37b388bcbc85fb287f80ee493a0f5cc0dae9a8f932b6aa3d75f99ea823990d0"
+  },
+  {
+    "path": "tests/test_contract_ownership.py",
+    "before_sha256": null,
+    "after_sha256": "3073133b5fbfec34b220608989771becff879c6f78dd49d1b3f627e96c1e9f49"
+  },
+  {
+    "path": "tests/test_function_references.py",
+    "before_sha256": null,
+    "after_sha256": "0317a2a6b2133c420ea853c3dbada6cca1b5973961c9e35144c0aa04eafc9e63"
+  },
+  {
+    "path": "tests/test_workbook_snapshots.py",
+    "before_sha256": null,
+    "after_sha256": "b74a0bede612e7c9cc27a51e3d6d5a0f8145341281c2ea3556e747c313cc7be8"
+  },
+  {
+    "path": "WORKBENCH.md",
+    "before_sha256": "d39993365a607ba0b18b31ad1188ea6eb988c02052582f20d912d7c337a4d065",
+    "after_sha256": "e13be3bf8f9addd739a646c0fa4efea9963699dc8cc56abf8dd5d0127a04c99f"
+  },
+  {
+    "path": "README.md",
+    "before_sha256": "a6cc60d017c62fa96558635890f305f08329d85d62c9b532b17769f49e8cf8bf",
+    "after_sha256": "4a4861de6ce0a9bc30952db1f688823e8ea7a439977ce9d4ff1799e4ec546c72"
+  },
+  {
+    "path": "LAB_STRATEGY.md",
+    "before_sha256": "f1f9a6eb6460ee17196748cfcc36ed699d18d1932843608a2363ce642d9e298d",
+    "after_sha256": "ac1590a8e8f57672dc51062b78956ab4de8205c3f39a8c05d407cfe38002ca66"
+  }
+]

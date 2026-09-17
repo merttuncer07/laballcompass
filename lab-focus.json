@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "active": "workbook-review",
+  "missions": {
+    "workbook-review": {
+      "status": "active",
+      "goal": "Provisional product pilot: help a reviewer see meaningful changes between two genuinely published workbook versions and their potential downstream formula impacts. The user prioritizes faster progress with less token use; this is an existing candidate, not a confirmed market choice.",
+      "baseline": "Coordinate/value diff plus ordinary dependency traversal; header-aware row matching where layouts differ. Compare against the current matcher on identical source files. Preserve the result that batched AND/OR beat R207 in the existing synthetic benchmark.",
+      "success": "A reproducible pair of real published versions, independently checked changed-cell labels, precision/recall and exclusions, runtime, and reviewer steps. Keep a lab mechanism only if it adds correctness, coverage or measured cost benefit over the baseline. No product superiority claim from one file family.",
+      "stop": "First bound source acquisition to one focused session. If no usable genuine pair is found, record the blocker and reassess the candidate. Stop algorithm expansion if the simple baseline solves the task; do not invent changes and call them field evidence.",
+      "next_action": "Find two original published SONI model versions (or another well-sourced versioned financial workbook family), preserve bytes and source URLs, and inspect actual changes before changing algorithms. Do not repeat completed SONI parsing or R207 benchmarks.",
+      "verification": "For workbook changes run .venv/bin/python lab.py run --profile lab --quiet; inspect affected mechanism consumers if shared sources change. Store genuine task evaluation separately from software test receipts.",
+      "read": ["workbench/cli.py", "workbench/workbooks.py", "workbench/record_matches.py", "workbench/report.py"],
+      "evidence": ["examples/soni-price-control/README.md", "examples/public-spending/README.md", "restoration/20260916-lineage-semantics/README.md", "restoration/20260917-salvage-fixes/README.md", "WORKBENCH.md"]
+    },
+    "lab-efficiency": {
+      "status": "complete",
+      "goal": "Reduce repeated startup reading and discovery while preserving source access, failures and quality boundaries.",
+      "baseline": "Pre-redesign AGENTS + handoff + strategy: 43,784 UTF-8 bytes and 5,060 whitespace-delimited words, excluding task-specific source reads. Component show previously parsed every catalog entry.",
+      "success": "At least 70% fewer startup bytes; exact component lookups parse only matching component source; bounded focus briefs reject missing evidence paths or absent baseline/stop criteria; application tests remain discoverable.",
+      "stop": "After validating this small operating layer, stop infrastructure work and resume the product pilot. No agent framework, vector database, full rewrite or automatic test-result cache.",
+      "next_action": "Measure total task tokens and accepted outcomes across subsequent comparable tasks if usage records become available. Byte reduction alone is not measured billing savings or better product performance.",
+      "verification": ".venv/bin/python lab.py run --profile lab --quiet; inspect restoration/20260917-architecture/validation.json for the actual completed run and measurement boundaries.",
+      "read": ["maintenance/focus.py", "maintenance/components.py", "maintenance/catalog.py", "maintenance/runner.py"],
+      "evidence": ["restoration/20260917-architecture/README.md", "ARCHITECTURE.md"]
+    },
+    "information-selection": {
+      "status": "parked",
+      "goal": "Test whether dependency-aware evidence borrowing and next-measurement selection improve a real decision under a stated budget.",
+      "baseline": "Current-only decision and dependency-preserving GLS/known Gaussian knowledge-gradient calculation under the same costs and observations.",
+      "success": "A real task with observed acquisition costs, defensible covariance, held-out decision loss and calibration assessment. Present synthetic Gaussian identities separately.",
+      "stop": "Remain parked until a real task supplies usable covariance and utility semantics. Do not substitute workbook similarity for covariance or model utility for observed value.",
+      "next_action": "Reuse EBC/AICC/HEAG repair evidence if this lane is selected. Find a decision dataset before adding compositions.",
+      "verification": "Resolve EBC/AICC/P083 with components and show; run their checks plus affected consumers only when their code changes.",
+      "read": ["lab.py", "maintenance/compare.py"],
+      "evidence": ["examples/evidence-acquisition/README.md", "PRODUCT_REPAIRS.md"]
+    }
+  }
+}

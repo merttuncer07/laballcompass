@@ -1,0 +1,12 @@
+[
+  {
+    "path": "workbench/contracts.py",
+    "before_sha256": "96150930e7ca00677b0b692a9b9ca0c61d32662dc12de3e25176b326ef3320f4",
+    "after_sha256": "76110bcf96be8e2d556b428879a6ae4664d0167c64c25cf2da5f4ddacb4b73d5"
+  },
+  {
+    "path": "tests/test_contract_ownership.py",
+    "before_sha256": null,
+    "after_sha256": "3073133b5fbfec34b220608989771becff879c6f78dd49d1b3f627e96c1e9f49"
+  }
+]

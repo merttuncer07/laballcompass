@@ -1,9 +1,10 @@
 """Paired comparison contract. A software pass is never a scientific promotion."""
-import csv,hashlib,json,math,random,statistics
+import csv,hashlib,io,json,math,random,statistics
 from pathlib import Path
 
 def evaluate(spec_path,data_path):
- spec_path=Path(spec_path);data_path=Path(data_path);spec=json.loads(spec_path.read_text())
+ spec_path=Path(spec_path);data_path=Path(data_path);spec_bytes=spec_path.read_bytes()
+ with io.TextIOWrapper(io.BytesIO(spec_bytes)) as f:spec=json.load(f)
  for field in ('candidate','baseline','metric','unit','direction','cases','replicates','replication_kind'):
   if field not in spec:raise ValueError('Missing comparison field: '+field)
  if spec['candidate']==spec['baseline']:raise ValueError('Candidate and baseline must differ')
@@ -13,7 +14,8 @@ def evaluate(spec_path,data_path):
  for label,items in [('cases',cases),('replicates',reps)]:
   if not items or any(not isinstance(x,str) or not x for x in items) or len(items)!=len(set(items)):raise ValueError(label+' must be unique nonempty string IDs')
  methods=[spec['candidate'],spec['baseline']];values={}
- with data_path.open(newline='') as f:
+ data_bytes=data_path.read_bytes()
+ with io.TextIOWrapper(io.BytesIO(data_bytes),newline='') as f:
   for row in csv.DictReader(f):
    try:
     key=(row['method'],row['case'],row['replicate'])
@@ -28,7 +30,7 @@ def evaluate(spec_path,data_path):
  sign=1 if spec['direction']=='maximize' else -1
  gains={c:[sign*(values[(methods[0],c,r)]-values[(methods[1],c,r)]) for r in reps] for c in cases}
  blocks=[statistics.mean(gains[c][i] for c in cases) for i in range(len(reps))]
- result={'scope':'declared_metric_on_declared_cases_only','candidate':methods[0],'baseline':methods[1],'metric':spec['metric'],'unit':spec['unit'],'direction':spec['direction'],'cases':len(cases),'replication_blocks':len(reps),'replication_kind':spec['replication_kind'],'mean_gain':statistics.mean(blocks),'per_case_mean_gain':{c:statistics.mean(v) for c,v in gains.items()},'worsened_cases':[c for c,v in gains.items() if statistics.mean(v)<0],'promotion':'NOT_ASSESSED','spec_sha256':hashlib.sha256(spec_path.read_bytes()).hexdigest(),'data_sha256':hashlib.sha256(data_path.read_bytes()).hexdigest(),'interval':None}
+ result={'scope':'declared_metric_on_declared_cases_only','candidate':methods[0],'baseline':methods[1],'metric':spec['metric'],'unit':spec['unit'],'direction':spec['direction'],'cases':len(cases),'replication_blocks':len(reps),'replication_kind':spec['replication_kind'],'mean_gain':statistics.mean(blocks),'per_case_mean_gain':{c:statistics.mean(v) for c,v in gains.items()},'worsened_cases':[c for c,v in gains.items() if statistics.mean(v)<0],'promotion':'NOT_ASSESSED','spec_sha256':hashlib.sha256(spec_bytes).hexdigest(),'data_sha256':hashlib.sha256(data_bytes).hexdigest(),'interval':None}
  if spec['replication_kind']=='independent_blocks' and len(reps)>=5:
   rng=random.Random(0);n=len(blocks);samples=sorted(statistics.mean(blocks[rng.randrange(n)] for _ in range(n)) for _ in range(5000))
   result['interval']={'method':'paired block percentile bootstrap','level':0.95,'low':samples[124],'high':samples[4874],'resamples':5000,'seed':0,'assumption':'Declared replication blocks are independent. Cases are fixed; same blocks are resampled jointly across all cases. Small-sample coverage is not guaranteed.'}

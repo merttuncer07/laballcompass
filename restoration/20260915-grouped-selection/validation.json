@@ -1,0 +1,25 @@
+{
+  "scope": "Grouped ACSA, DREW integration and six consumers; not whole-lab or field validation",
+  "tests": {
+    "passed_total_across_two_runs": 84,
+    "initial_receipt": "runs/20260915T170940Z-a2a6a24f/receipt.json",
+    "initial_passed": 79,
+    "initial_error": "New DREW test used a top-level import that failed under package collection.",
+    "final_receipt": "runs/20260915T174437Z-9df9e1f6/receipt.json",
+    "final_passed": 5,
+    "remaining_failures_or_errors": 0,
+    "only_source_change_between_runs": [
+      "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_grouped_decisions.py"
+    ]
+  },
+  "canonical_and_six_embedded_acsa_copies_identical": true,
+  "installed_acsa_matches_real_data_run_sha256": true,
+  "real_data_result": "examples/grouped-selection/result.json",
+  "package_verification": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "seconds": 0.779
+  },
+  "catalogue_components": 293,
+  "git_actions": "No commit or push; previous user instruction preserved."
+}

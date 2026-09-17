@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "run_id": "20260917T073025Z-a7e31031",
+  "status": "PASS",
+  "started_at": "2026-09-17T07:30:25.763802+00:00",
+  "profile": "component:V2P035_ISTAICC",
+  "source_root": "/Users/mertalituncer/Developer/lab/LAC_REPRO_R210",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "timeout_seconds": 180,
+  "targets": [
+    {
+      "id": "R392_V2P035_ISTAICC",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC",
+      "runner": "unittest",
+      "pattern": "test_*.py",
+      "layer": "V2",
+      "status": "PASS",
+      "started_at": "2026-09-17T07:30:26.137545+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "/Users/mertalituncer/Developer/lab/maintenance/unittest_worker.py",
+        "/Users/mertalituncer/Developer/lab/runs/20260917T073025Z-a7e31031/000.json",
+        "test_*.py"
+      ],
+      "log": "000.log",
+      "result_file": "000.json",
+      "exit_code": 0,
+      "seconds": 0.076,
+      "counts": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "successful": true,
+        "passed": 12
+      },
+      "finished_at": "2026-09-17T07:30:26.214251+00:00"
+    }
+  ],
+  "results_scope": "software_reproduction_only",
+  "input_manifest_sha256": "a217a42c2bfe34efc9ec9fb2527a10407e518653d21537f81a2bcd1413625e26",
+  "source_snapshot_scope": "Python source only; input data, installed packages and external services are not certified by these hashes. Never use this alone to skip tests.",
+  "source_snapshot_sha256": "37e76f4541b2d3fab1d63d47cae35032b123d5d21133d491b4cf8d22388ebeb2",
+  "runner_sha256": "61a091bded37f9a6cbfd802ccd2c175e1bbdc20c4f8d15f4ad70a40279557d0c",
+  "worker_sha256": "4ef857ee58afd19ee9101a442f548cf09c4070fa912d146ce91399a64ea01cb8",
+  "integrity": {
+    "status": "NOT_REQUESTED",
+    "scope": "Working source is hashed above; the historical package manifest is not a gate for development."
+  },
+  "updated_at": "2026-09-17T07:30:26.214736+00:00",
+  "finished_at": "2026-09-17T07:30:26.214728+00:00",
+  "counts": {
+    "tests": 12,
+    "passed": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

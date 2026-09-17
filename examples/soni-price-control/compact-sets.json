@@ -1,0 +1,12 @@
+{
+  "mode": "compact",
+  "seconds": 0.4364588329990511,
+  "process_peak_rss_bytes_before_serialization": 85098496,
+  "full_problem_sha256_without_new_empty_field": "fe9b26d5effac64e26b2844ce7f2f69dd4c31f7fe368d9dfbed3165d6085e10c",
+  "sources": 2904,
+  "formulas": 6694,
+  "targets": 1043,
+  "same_origin_groups": 1379,
+  "input_sha256": "19051c4c283e3b7f2b622dfc36edc657fdf356e8b7265fe20d8c547c850b2e89",
+  "legacy_reference_budget_change": null
+}

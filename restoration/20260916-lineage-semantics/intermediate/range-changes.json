@@ -1,0 +1,17 @@
+[
+  {
+    "path": "workbench/workbooks.py",
+    "before_sha256": "39bdfc4c568180ac69a8239893bb877bcb1dc00c7bb0fd60a52849bbd6e55a6c",
+    "after_sha256": "56bb2987caa020ce65d130ebefcbb90d39a9743e0582074435bf63fd2a5f1b10"
+  },
+  {
+    "path": "workbench/function_references.py",
+    "before_sha256": "cdce286fd1d0260cf8ad9e25abe64b87c93fa5b0d1e2101c4e98d0b11b791ff7",
+    "after_sha256": "cdce286fd1d0260cf8ad9e25abe64b87c93fa5b0d1e2101c4e98d0b11b791ff7"
+  },
+  {
+    "path": "tests/test_function_references.py",
+    "before_sha256": "86d0f805057c243f0035a7260a5d369102055db7e3d4eb86babceb94904cc7e0",
+    "after_sha256": "0317a2a6b2133c420ea853c3dbada6cca1b5973961c9e35144c0aa04eafc9e63"
+  }
+]

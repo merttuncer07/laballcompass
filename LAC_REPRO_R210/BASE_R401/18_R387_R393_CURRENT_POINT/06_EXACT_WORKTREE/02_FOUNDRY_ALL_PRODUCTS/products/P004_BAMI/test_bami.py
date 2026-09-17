@@ -59,6 +59,64 @@ class BAMITests(unittest.TestCase):
         self.assertAlmostEqual(result.burnout_aware.net_value, parent.net_value, places=6)
         self.assertAlmostEqual(result.burnout_aware.defaults_avoided, parent.defaults_avoided, places=9)
 
+    def test_class_stocks_survive_cure_in_competing_risk_baseline(self):
+        rates = MonthlyTransitionRates(0.2, 0.0, 0.1, 0.0, 0.0, 0.5)
+        result = simulate_burnout_aware_intervention(
+            cohort_size=100, base_monthly_prepayment_rates=[0.2, 0.2], propensity_multipliers=[0.0, 2.0],
+            initial_class_weights=[0.5, 0.5], baseline_rates=rates, intervention=Intervention(),
+            balance_per_loan=1.0, recovery_fraction=0.0,
+        )
+        states = result.burnout_aware.baseline.monthly_states
+        self.assertEqual(states, ((100.0, 0.0, 0.0, 0.0), (50.0, 10.0, 20.0, 20.0), (34.0, 10.0, 30.0, 26.0)))
+
+    def test_delinquent_pool_keeps_class_propensity_for_prepayment(self):
+        rates = MonthlyTransitionRates(0.0, 0.0, 0.5, 0.0, 0.4, 0.0)
+        result = simulate_burnout_aware_intervention(
+            cohort_size=100, base_monthly_prepayment_rates=[0.2], propensity_multipliers=[0.0, 1.0],
+            initial_class_weights=[0.5, 0.5], baseline_rates=rates, intervention=Intervention(),
+            balance_per_loan=1.0, recovery_fraction=0.0,
+        )
+        states = result.burnout_aware.baseline.monthly_states
+        self.assertEqual(states, ((100.0, 0.0, 0.0, 0.0), (40.0, 50.0, 0.0, 10.0)))
+
+    def test_intervention_applies_competing_risk_multipliers_per_class(self):
+        rates = MonthlyTransitionRates(0.2, 0.2, 0.1, 0.5, 0.0, 0.1)
+        intervention = Intervention(
+            performing_default_multiplier=0.5, performing_prepay_multiplier=0.5,
+            performing_delinquency_multiplier=1.0, delinquent_default_multiplier=0.4,
+            delinquent_cure_multiplier=2.0, one_time_cost_per_loan=10.0,
+        )
+        result = simulate_burnout_aware_intervention(
+            cohort_size=100, base_monthly_prepayment_rates=[0.2], propensity_multipliers=[1.0],
+            initial_class_weights=[1.0], baseline_rates=rates, intervention=intervention,
+            balance_per_loan=1.0, recovery_fraction=0.0,
+        )
+        states = result.burnout_aware.intervention.monthly_states
+        self.assertEqual(states, ((100.0, 0.0, 0.0, 0.0), (70.0, 10.0, 10.0, 10.0)))
+        self.assertEqual(result.burnout_aware.baseline.monthly_states, ((100.0, 0.0, 0.0, 0.0), (50.0, 10.0, 20.0, 20.0)))
+
+    def test_homogeneous_reduction_matches_parent_mcris_with_zero_default_hazard(self):
+        result = simulate_burnout_aware_intervention(
+            cohort_size=1000, base_monthly_prepayment_rates=np.full(12, 0.02), propensity_multipliers=[1.0],
+            initial_class_weights=[1.0],
+            baseline_rates=MonthlyTransitionRates(0.0, 0.0, 0.0, 0.0, 0.0, 0.0), intervention=Intervention(),
+            balance_per_loan=1000, recovery_fraction=0.5,
+        )
+        self.assertAlmostEqual(
+            result.burnout_forecast.cumulative_prepayments,
+            result.homogeneous_parent.baseline.cumulative_prepay, places=6,
+        )
+
+    def test_competing_exits_change_burnout_composition_vs_zero_default_forecast(self):
+        rates = MonthlyTransitionRates(0.2, 0.0, 0.0, 0.0, 0.0, 0.0)
+        result = simulate_burnout_aware_intervention(
+            cohort_size=100, base_monthly_prepayment_rates=[0.2, 0.2], propensity_multipliers=[0.0, 2.0],
+            initial_class_weights=[0.5, 0.5], baseline_rates=rates, intervention=Intervention(),
+            balance_per_loan=1.0, recovery_fraction=0.0,
+        )
+        self.assertAlmostEqual(result.burnout_forecast.cumulative_prepayments, 32.0, places=10)
+        self.assertAlmostEqual(result.burnout_aware.baseline.cumulative_prepay, 28.0, places=10)
+
     def test_burnout_path_declines_and_changes_intervention_value(self):
         result = simulate_burnout_aware_intervention(
             cohort_size=100000, base_monthly_prepayment_rates=self.base, propensity_multipliers=self.multipliers,
@@ -114,6 +172,41 @@ class BAMITests(unittest.TestCase):
         self.assertEqual(surface.status, "TIPPING_POINT_FOUND")
         self.assertGreater(surface.metric_maximum, 0)
         self.assertLess(surface.metric_minimum, 0)
+
+    def test_class_paths_match_independent_transition_matrix_oracle(self):
+        # A separate four-state Markov calculation, including cure and
+        # time-varying hazards. These are software cases, not mortgage data.
+        rng = np.random.default_rng(717)
+        rates = MonthlyTransitionRates(.04, .02, .08, .07, .03, .12)
+        intervention = Intervention(performing_default_multiplier=.7,
+            performing_prepay_multiplier=1.4, performing_delinquency_multiplier=.9,
+            delinquent_default_multiplier=.8, delinquent_cure_multiplier=1.2)
+        for _ in range(40):
+            weights = rng.dirichlet([1, 1, 1])
+            props = rng.uniform(.1, 2, 3)
+            base = rng.uniform(.01, .12, 12)
+            result = simulate_burnout_aware_intervention(cohort_size=1000,
+                base_monthly_prepayment_rates=base, propensity_multipliers=props,
+                initial_class_weights=weights, baseline_rates=rates,
+                intervention=intervention, balance_per_loan=100, recovery_fraction=.4)
+            for scenario, change in [(result.burnout_aware.baseline, Intervention()),
+                                     (result.burnout_aware.intervention, intervention)]:
+                expected = np.zeros((13, 4))
+                for weight, propensity in zip(weights, props):
+                    state = np.array([1000*weight, 0, 0, 0])
+                    expected[0] += state
+                    for t, rate in enumerate(base):
+                        pd = .04*change.performing_default_multiplier
+                        pp = rate*propensity*change.performing_prepay_multiplier
+                        dl = .08*change.performing_delinquency_multiplier
+                        dd = .07*change.delinquent_default_multiplier
+                        dp = .03*change.delinquent_prepay_multiplier
+                        dc = .12*change.delinquent_cure_multiplier
+                        matrix = np.array([[1-pd-pp-dl, dl, pd, pp],
+                            [dc, 1-dc-dd-dp, dd, dp], [0, 0, 1, 0], [0, 0, 0, 1]])
+                        state = state @ matrix
+                        expected[t+1] += state
+                np.testing.assert_allclose(scenario.monthly_states, expected, rtol=0, atol=1e-10)
 
     def test_invalid_competing_hazard_is_rejected(self):
         bad_rates = MonthlyTransitionRates(0.8, 0.0, 0.4, 0.05, 0.005, 0.2)

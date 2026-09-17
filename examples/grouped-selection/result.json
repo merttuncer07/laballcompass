@@ -1,0 +1,254 @@
+{
+  "source": {
+    "title": "Tsanas & Little (2009), Parkinsons Telemonitoring, UCI",
+    "page": "https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring",
+    "download": "https://archive.ics.uci.edu/static/public/189/parkinsons+telemonitoring.zip",
+    "doi": "10.24432/C5ZS3N",
+    "license": "CC BY 4.0",
+    "zip_sha256": "2f82bb0ef96fa7d8d7edf4d97b89173e07c2cca7723440a64bc38918a83345df",
+    "data_sha256": "f2c7d5025dec4e92e7feae367a5f7ccf58789a10ac6b54bdf15976c599f9dd39",
+    "rows": 5875,
+    "subjects": 42,
+    "features": [
+      "Jitter(%)",
+      "Jitter(Abs)",
+      "Jitter:RAP",
+      "Jitter:PPQ5",
+      "Jitter:DDP",
+      "Shimmer",
+      "Shimmer(dB)",
+      "Shimmer:APQ3",
+      "Shimmer:APQ5",
+      "Shimmer:APQ11",
+      "Shimmer:DDA",
+      "NHR",
+      "HNR",
+      "RPDE",
+      "DFA",
+      "PPE"
+    ],
+    "target": "motor_UPDRS (linearly interpolated by the dataset authors)"
+  },
+  "protocol": {
+    "seed": 20260915,
+    "bootstrap_samples_per_method": 2000,
+    "loss": "absolute prediction error",
+    "estimand": "pooled recording mean",
+    "split_ids": {
+      "fit": [
+        34,
+        40,
+        32,
+        14,
+        12,
+        21,
+        31,
+        5,
+        30,
+        26,
+        38,
+        33,
+        6,
+        24,
+        41,
+        1,
+        39,
+        16,
+        15,
+        3
+      ],
+      "selection": [
+        4,
+        27,
+        13,
+        36,
+        7,
+        11,
+        10,
+        42,
+        29,
+        37,
+        25
+      ],
+      "holdout": [
+        28,
+        2,
+        17,
+        8,
+        22,
+        18,
+        20,
+        35,
+        23,
+        19,
+        9
+      ]
+    },
+    "split_rows": {
+      "fit": 2790,
+      "selection": 1556,
+      "holdout": 1529
+    },
+    "models": {
+      "constant_fit_mean": "DummyRegressor()",
+      "ridge_1": "Pipeline(steps=[('standardscaler', StandardScaler()), ('ridge', Ridge())])",
+      "ridge_100": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('ridge', Ridge(alpha=100.0))])",
+      "knn_5": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('kneighborsregressor', KNeighborsRegressor())])",
+      "knn_25": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('kneighborsregressor', KNeighborsRegressor(n_neighbors=25))])",
+      "hist_gradient_boosting": "HistGradientBoostingRegressor(early_stopping=False, max_leaf_nodes=15,\n                              random_state=20260915)"
+    },
+    "adaptation": "One predeclared seed and family; no tuning on holdout; train-only scaling."
+  },
+  "row_baseline": {
+    "candidate_names": [
+      "constant_fit_mean",
+      "ridge_1",
+      "ridge_100",
+      "knn_5",
+      "knn_25",
+      "hist_gradient_boosting"
+    ],
+    "selected_candidate": "constant_fit_mean",
+    "holdout_best_candidate": "knn_25",
+    "selection_mean_losses": [
+      5.736385388782898,
+      6.481695925010054,
+      6.241353762006844,
+      7.060769524421581,
+      6.51753079948586,
+      6.931088451897584
+    ],
+    "holdout_mean_losses": [
+      8.731238676413673,
+      8.411645407227912,
+      8.41383480916072,
+      8.053576572923474,
+      7.827411230869848,
+      8.397405904368531
+    ],
+    "candidate_generalization_gaps": [
+      2.994853287630775,
+      1.9299494822178582,
+      2.172481047153876,
+      0.9928070485018923,
+      1.3098804313839887,
+      1.466317452470947
+    ],
+    "selected_selection_loss": 5.736385388782898,
+    "selected_holdout_loss": 8.731238676413673,
+    "selected_generalization_gap": 2.994853287630775,
+    "selected_holdout_regret": 0.9038274455438247,
+    "family_worst_absolute_gap": 2.994853287630775,
+    "pointwise_standard_error": 0.11805069147483979,
+    "pointwise_95_radius": 0.23137935529068598,
+    "selected_holdout_loss_bootstrap_interval_95": [
+      8.498302431296018,
+      8.979746242171073
+    ],
+    "selection_bootstrap_frequencies": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "selection_fragility": 0.0,
+    "status": "ADAPTIVE_SELECTION_REGRET_DETECTED",
+    "selection_rule": "minimum_mean_loss_then_column_order",
+    "loss_estimand": "pooled_case_mean",
+    "resampling_method": "iid_rows",
+    "standard_error_method": "iid_sample_mean",
+    "selection_unit_count": 1556,
+    "holdout_unit_count": 1529,
+    "holdout_largest_unit_fraction": 0.0006540222367560497
+  },
+  "grouped": {
+    "candidate_names": [
+      "constant_fit_mean",
+      "ridge_1",
+      "ridge_100",
+      "knn_5",
+      "knn_25",
+      "hist_gradient_boosting"
+    ],
+    "selected_candidate": "constant_fit_mean",
+    "holdout_best_candidate": "knn_25",
+    "selection_mean_losses": [
+      5.736385388782898,
+      6.481695925010054,
+      6.241353762006844,
+      7.060769524421581,
+      6.51753079948586,
+      6.931088451897584
+    ],
+    "holdout_mean_losses": [
+      8.731238676413673,
+      8.411645407227912,
+      8.41383480916072,
+      8.053576572923474,
+      7.827411230869848,
+      8.397405904368531
+    ],
+    "candidate_generalization_gaps": [
+      2.994853287630775,
+      1.9299494822178582,
+      2.172481047153876,
+      0.9928070485018923,
+      1.3098804313839887,
+      1.466317452470947
+    ],
+    "selected_selection_loss": 5.736385388782898,
+    "selected_holdout_loss": 8.731238676413673,
+    "selected_generalization_gap": 2.994853287630775,
+    "selected_holdout_regret": 0.9038274455438247,
+    "family_worst_absolute_gap": 2.994853287630775,
+    "pointwise_standard_error": 1.3425295105980888,
+    "pointwise_95_radius": 2.631357840772254,
+    "selected_holdout_loss_bootstrap_interval_95": [
+      6.224396635553533,
+      11.378711636504253
+    ],
+    "selection_bootstrap_frequencies": [
+      0.8635,
+      0.0045,
+      0.0965,
+      0.0,
+      0.0315,
+      0.004
+    ],
+    "selection_fragility": 0.13649999999999995,
+    "status": "ADAPTIVE_SELECTION_REGRET_DETECTED",
+    "selection_rule": "minimum_mean_loss_then_column_order",
+    "loss_estimand": "pooled_case_mean",
+    "resampling_method": "whole_groups",
+    "standard_error_method": "cluster_CR1_pooled_mean",
+    "selection_unit_count": 11,
+    "holdout_unit_count": 11,
+    "holdout_largest_unit_fraction": 0.1079136690647482
+  },
+  "comparison": {
+    "same_selected_candidate": true,
+    "same_point_estimates": true,
+    "cluster_to_row_standard_error_ratio": 11.372483242795937,
+    "independent_sandwich_baseline_se": 1.3425295105980888,
+    "row_seconds": 0.0887822500008042,
+    "grouped_seconds": 0.08716720799930044
+  },
+  "environment": {
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "acsa_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92",
+  "limitations": [
+    "This is a repeated-source software evaluation, not clinical validation or a banking case.",
+    "Only 11 protected subjects; neither normal nor percentile intervals have proven coverage here.",
+    "Grouping assumes subjects are independent; IDs alone cannot prove this.",
+    "Fixed fitted models and observed losses; no retraining uncertainty or candidate-generation audit.",
+    "No accuracy advantage over ordinary model selection is claimed; point estimates are identical.",
+    "Cluster CR1 and pairs bootstrap are established methods, not a new lab invention."
+  ]
+}

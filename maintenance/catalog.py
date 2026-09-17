@@ -1,9 +1,36 @@
 """Build a source-derived catalog; reported promotion is separate from observed tests."""
-import ast,json
+import ast,json,os,tempfile
 from pathlib import Path
 from maintenance.runner import BASE,ROOT,CORE,sha,atomic
 
-def build():
+def index_snapshot(text,rows):
+ marker='<script>const data='
+ if text.count(marker)!=1:raise ValueError('Expected one embedded catalog in index.html')
+ start=text.index(marker)+len(marker)
+ previous,end=json.JSONDecoder().raw_decode(text[start:])
+ if not isinstance(previous,list) or not text[start+end:].startswith(';'):raise ValueError('Invalid embedded catalog in index.html')
+ payload=json.dumps(rows,ensure_ascii=True).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
+ return text[:start]+payload+text[start+end:]
+
+def publish(document):
+ index=BASE/'index.html';catalog=BASE/'catalog.json'
+ text=index_snapshot(index.read_text(encoding='utf-8'),document['components'])
+ previous=json.loads(catalog.read_text(encoding='utf-8')) if catalog.exists() else None
+ temporary=None
+ try:
+  with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=BASE,prefix='.index-',suffix='.tmp',delete=False) as stream:
+   temporary=Path(stream.name);stream.write(text)
+  temporary.chmod(index.stat().st_mode)
+  atomic(catalog,document)
+  try:os.replace(temporary,index)
+  except OSError:
+   if previous is None:catalog.unlink()
+   else:atomic(catalog,previous)
+   raise
+ finally:
+  if temporary is not None:temporary.unlink(missing_ok=True)
+
+def collect(component=None):
  latest={}
  for p in sorted((BASE/'runs').glob('*/receipt.json')):
   r=json.loads(p.read_text());grouped={}
@@ -14,9 +41,10 @@ def build():
   for source,targets in grouped.items():
    statuses=[t['status'] for t in targets]
    status='PASS' if all(s=='PASS' for s in statuses) else 'FAIL' if any(s in ('FAIL','ERROR','TIMEOUT') for s in statuses) else 'INCOMPLETE'
-   latest[source]={'status':status,'receipt':str(p.relative_to(BASE)),'scope':'All selected targets for this component in this run; see receipt for exact tests.'}
+   latest[source]={'status':status,'receipt':str(p.relative_to(BASE)),'current_source_verified':False,'scope':'Historical observation only. Source/data freshness is not verified. All selected targets for this component in this run; see receipt for exact tests.'}
  rows=[]
  def record(p,layer,declared='Not asserted by maintenance layer',fidelity='Packaged source'):
+  if component is not None and p.name!=component and p.name.split('_')[0]!=component:return
   files=sorted(x for x in p.glob('*.py') if not x.name.startswith(('test_','demo_','run_','__')))
   imports=[];apis=[];interfaces=[];description=''
   for f in files:
@@ -59,7 +87,13 @@ def build():
  # Recovered work remains explicitly separate. Do not upgrade it from a historical receipt.
  for p in ROOT.rglob('02_PRODUCT_LEDGER_R394_R398.jsonl'):
   for line in p.read_text().splitlines():
-   r=json.loads(line);rows.append({'id':r['product_id']+'_'+r['short_name'],'layer':'recovered_V2','description':r['mechanism'],'declared_status':r['status'],'source_fidelity':r['source_fidelity'],'source_directory':str(p.parent.relative_to(ROOT)),'ledger':str(p.relative_to(ROOT)),'latest_reproduction':latest.get(str((p.parent/'RECOVERED_REFERENCE_CODE').relative_to(ROOT)),{'status':'NOT_RUN','receipt':None}),'scientific_validity':'NOT_ESTABLISHED_BY_TEST_PASS','limitations':r['failure_or_collapse']})
- atomic(BASE/'catalog.json',{'schema_version':1,'components':rows,'boundary':'Source-derived inventory. Exact manifest verifies bytes; tests verify declared surfaces. Neither proves originality, validity beyond experiments or product readiness.'})
- return len(rows)
+   r=json.loads(line)
+   if component is not None and component not in (r['product_id'],r['product_id']+'_'+r['short_name']):continue
+   rows.append({'id':r['product_id']+'_'+r['short_name'],'layer':'recovered_V2','description':r['mechanism'],'declared_status':r['status'],'source_fidelity':r['source_fidelity'],'source_directory':str(p.parent.relative_to(ROOT)),'ledger':str(p.relative_to(ROOT)),'latest_reproduction':latest.get(str((p.parent/'RECOVERED_REFERENCE_CODE').relative_to(ROOT)),{'status':'NOT_RUN','receipt':None}),'scientific_validity':'NOT_ESTABLISHED_BY_TEST_PASS','limitations':r['failure_or_collapse']})
+ return {'schema_version':1,'components':rows,'boundary':'Source-derived inventory. Exact manifest verifies bytes; tests verify declared surfaces. Neither proves originality, validity beyond experiments or product readiness.'}
+
+def build():
+ data=collect()
+ publish(data)
+ return len(data['components'])
 if __name__=='__main__':print(build(),'components')

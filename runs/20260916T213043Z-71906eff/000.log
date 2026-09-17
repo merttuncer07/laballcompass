@@ -1,0 +1,13 @@
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_components.py ___________________
+tests/test_components.py:13: in <module>
+    class ReadOnlyDiscoveryTests(unittest.TestCase):
+tests/test_components.py:37: in ReadOnlyDiscoveryTests
+    write.assert_called_once_with(BASE/'catalog.json',data)
+    ^^^^^
+E   NameError: name 'write' is not defined
+=========================== short test summary info ============================
+ERROR tests/test_components.py - NameError: name 'write' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.28s

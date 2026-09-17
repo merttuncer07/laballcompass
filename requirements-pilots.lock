@@ -1,0 +1,6 @@
+# Optional dependencies for the shipped real_data_pilot_digits.py.
+# Core dependency versions remain fixed by the main lock.
+-r requirements.lock
+scikit-learn==1.9.1
+joblib==1.6.0
+threadpoolctl==3.7.0

@@ -1,0 +1,19 @@
+{
+  "selected_by_dlew": "b",
+  "actually_audited": "a",
+  "actual_selected_holdout_regret": 0.0,
+  "reported_selected_holdout_regret": 0.5,
+  "status": "DECISION_SELECTION_FAILS_PROTECTED_AUDIT",
+  "training": [
+    {
+      "name": "a",
+      "mean_regret": 0.0,
+      "mean_payoff": -0.5
+    },
+    {
+      "name": "b",
+      "mean_regret": 0.0,
+      "mean_payoff": 0.0
+    }
+  ]
+}

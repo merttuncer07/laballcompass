@@ -1,0 +1,23 @@
+{
+  "scope": "DREW selected/audited identity, finite ACSA threshold and complete mixed parent test discovery; not complete-lab or field validation",
+  "engine_and_consumer_tests": {
+    "receipt": "runs/20260915T164716Z-0d342c3a/receipt.json",
+    "passed": 85,
+    "current_engine_source_hashes_match_tested": true
+  },
+  "final_runner_tests": {
+    "xml": "restoration/20260915-selection-identity/runner-tests-final.xml",
+    "passed": 17
+  },
+  "runner_followup": "A final guard lets isolated test targets report malformed-module errors rather than aborting component discovery. Final runner tests include this guard; engine sources remain byte-identical to the 85-test run.",
+  "real_data_validation": "restoration/20260915-selection-identity/real-data-validation.json",
+  "canonical_and_six_embedded_acsa_copies_identical": true,
+  "package_verification": {
+    "status": "PASS",
+    "files": 2920,
+    "log": "restoration/20260915-selection-identity/package-verification-final.log"
+  },
+  "catalog_components": 293,
+  "git_commit_or_push_performed": false,
+  "completion": "This repair complete; broader lab objective remains unfinished."
+}

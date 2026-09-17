@@ -1,0 +1,13 @@
+{
+  "receipt": "/Users/mertalituncer/Developer/lab/runs/20260915T164716Z-0d342c3a/receipt.json",
+  "status": "PASS",
+  "counts": {
+    "tests": 85,
+    "passed": 85,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

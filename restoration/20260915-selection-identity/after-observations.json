@@ -1,0 +1,334 @@
+[
+  {
+    "case": "selected_b_good",
+    "training_outcomes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "holdout_outcomes": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "predictions": {
+      "a": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "result": {
+      "candidate_names": [
+        "a",
+        "b"
+      ],
+      "decision_loss": {
+        "selected_by_training_decision_loss": "b",
+        "selected_by_training_prediction_rmse": "b",
+        "selection_ranking_diverges": false,
+        "training_candidates": [
+          {
+            "name": "a",
+            "prediction_rmse": 0.8660254037844386,
+            "mean_realized_payoff": -0.5,
+            "mean_oracle_payoff_given_previous_action": -0.5,
+            "mean_decision_regret": 0.0,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 0.5,
+            "actions": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "b",
+            "prediction_rmse": 0.5,
+            "mean_realized_payoff": 0.0,
+            "mean_oracle_payoff_given_previous_action": 0.0,
+            "mean_decision_regret": 0.0,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 1.0,
+            "actions": [
+              0,
+              0
+            ]
+          }
+        ],
+        "validation_candidates": [
+          {
+            "name": "a",
+            "prediction_rmse": 1.6583123951777,
+            "mean_realized_payoff": -0.5,
+            "mean_oracle_payoff_given_previous_action": 0.0,
+            "mean_decision_regret": 0.5,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 0.0,
+            "actions": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "b",
+            "prediction_rmse": 1.118033988749895,
+            "mean_realized_payoff": 1.0,
+            "mean_oracle_payoff_given_previous_action": 1.0,
+            "mean_decision_regret": 0.0,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 1.0,
+            "actions": [
+              0,
+              0
+            ]
+          }
+        ],
+        "selected_validation_decision_regret": 0.0,
+        "prediction_selected_validation_decision_regret": 0.0,
+        "validation_regret_reduction_from_decision_selection": 0.0,
+        "transaction_cost": 1.0,
+        "status": "DECISION_AND_PREDICTION_SELECTION_AGREE"
+      },
+      "adaptive_selection": {
+        "candidate_names": [
+          "a",
+          "b"
+        ],
+        "selected_candidate": "b",
+        "holdout_best_candidate": "b",
+        "selection_mean_losses": [
+          0.0,
+          0.0
+        ],
+        "holdout_mean_losses": [
+          0.5,
+          0.0
+        ],
+        "candidate_generalization_gaps": [
+          0.5,
+          0.0
+        ],
+        "selected_selection_loss": 0.0,
+        "selected_holdout_loss": 0.0,
+        "selected_generalization_gap": 0.0,
+        "selected_holdout_regret": 0.0,
+        "family_worst_absolute_gap": 0.5,
+        "pointwise_standard_error": 0.0,
+        "pointwise_95_radius": 0.0,
+        "selected_holdout_loss_bootstrap_interval_95": [
+          0.0,
+          0.0
+        ],
+        "selection_bootstrap_frequencies": [
+          0.265,
+          0.735
+        ],
+        "selection_fragility": 0.265,
+        "status": "SELECTED_CANDIDATE_SURVIVES_HOLDOUT_AUDIT",
+        "selection_rule": "minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+      },
+      "selection_loss_matrix_means": [
+        0.0,
+        0.0
+      ],
+      "protected_loss_matrix_means": [
+        0.5,
+        0.0
+      ],
+      "decision_selector_matches_loss_matrix": true,
+      "protected_best_candidate": "b",
+      "status": "DECISION_SELECTION_SURVIVES_PROTECTED_AUDIT"
+    }
+  },
+  {
+    "case": "selected_b_bad",
+    "training_outcomes": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "holdout_outcomes": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "predictions": {
+      "a": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "result": {
+      "candidate_names": [
+        "a",
+        "b"
+      ],
+      "decision_loss": {
+        "selected_by_training_decision_loss": "b",
+        "selected_by_training_prediction_rmse": "b",
+        "selection_ranking_diverges": false,
+        "training_candidates": [
+          {
+            "name": "a",
+            "prediction_rmse": 0.8660254037844386,
+            "mean_realized_payoff": -0.5,
+            "mean_oracle_payoff_given_previous_action": -0.5,
+            "mean_decision_regret": 0.0,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 0.5,
+            "actions": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "b",
+            "prediction_rmse": 0.5,
+            "mean_realized_payoff": 0.0,
+            "mean_oracle_payoff_given_previous_action": 0.0,
+            "mean_decision_regret": 0.0,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 1.0,
+            "actions": [
+              0,
+              0
+            ]
+          }
+        ],
+        "validation_candidates": [
+          {
+            "name": "a",
+            "prediction_rmse": 1.118033988749895,
+            "mean_realized_payoff": 1.0,
+            "mean_oracle_payoff_given_previous_action": 1.0,
+            "mean_decision_regret": 0.0,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 0.5,
+            "actions": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "b",
+            "prediction_rmse": 1.6583123951777,
+            "mean_realized_payoff": -0.5,
+            "mean_oracle_payoff_given_previous_action": 0.0,
+            "mean_decision_regret": 0.5,
+            "total_turnover": 1.0,
+            "action_agreement_with_oracle": 0.5,
+            "actions": [
+              0,
+              0
+            ]
+          }
+        ],
+        "selected_validation_decision_regret": 0.5,
+        "prediction_selected_validation_decision_regret": 0.5,
+        "validation_regret_reduction_from_decision_selection": 0.0,
+        "transaction_cost": 1.0,
+        "status": "DECISION_AND_PREDICTION_SELECTION_AGREE"
+      },
+      "adaptive_selection": {
+        "candidate_names": [
+          "a",
+          "b"
+        ],
+        "selected_candidate": "b",
+        "holdout_best_candidate": "a",
+        "selection_mean_losses": [
+          0.0,
+          0.0
+        ],
+        "holdout_mean_losses": [
+          0.0,
+          0.5
+        ],
+        "candidate_generalization_gaps": [
+          0.0,
+          0.5
+        ],
+        "selected_selection_loss": 0.0,
+        "selected_holdout_loss": 0.5,
+        "selected_generalization_gap": 0.5,
+        "selected_holdout_regret": 0.5,
+        "family_worst_absolute_gap": 0.5,
+        "pointwise_standard_error": 0.5,
+        "pointwise_95_radius": 0.98,
+        "selected_holdout_loss_bootstrap_interval_95": [
+          0.0,
+          1.0
+        ],
+        "selection_bootstrap_frequencies": [
+          0.265,
+          0.735
+        ],
+        "selection_fragility": 0.265,
+        "status": "ADAPTIVE_SELECTION_REGRET_DETECTED",
+        "selection_rule": "minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
+      },
+      "selection_loss_matrix_means": [
+        0.0,
+        0.0
+      ],
+      "protected_loss_matrix_means": [
+        0.0,
+        0.5
+      ],
+      "decision_selector_matches_loss_matrix": true,
+      "protected_best_candidate": "a",
+      "status": "DECISION_SELECTION_FAILS_PROTECTED_AUDIT"
+    }
+  }
+]

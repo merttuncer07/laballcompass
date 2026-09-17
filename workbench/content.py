@@ -8,7 +8,6 @@ silently treated as value equality.
 from collections import defaultdict
 from datetime import date, datetime, time, timedelta
 from itertools import combinations
-import hashlib
 import math
 from .record_matches import find_record_matches
 
@@ -47,25 +46,118 @@ def _components(points):
         yield group
 
 
-def compare_content(paths, books):
+def _same_layout_result(paths, sheets, populated, excluded, input_files):
+    """Compare two explicitly declared same-layout workbooks cell by cell.
+
+    This is deliberately opt-in. It is useful for versioned workbooks whose
+    sheet names and coordinates are known to be stable, but it does not infer
+    correspondence or common provenance.
+    """
     from openpyxl.utils.cell import get_column_letter
+
+    left_sheets = {s['sheet']: s for s in sheets if s['workbook'] == paths[0].name}
+    right_sheets = {s['sheet']: s for s in sheets if s['workbook'] == paths[1].name}
+    common = sorted(left_sheets.keys() & right_sheets.keys())
+    unmatched = {
+        'left': sorted(left_sheets.keys() - right_sheets.keys()),
+        'right': sorted(right_sheets.keys() - left_sheets.keys()),
+    }
+    blocks, details, omitted_positions = [], 0, 0
+    for name in common:
+        left, right = left_sheets[name], right_sheets[name]
+        points = sorted(left['raw'].keys() | right['raw'].keys())
+        if len(blocks) >= 200 or details + len(points) > 100000:
+            omitted_positions += len(points)
+            continue
+        cells = []
+        for point in points:
+            coordinate = get_column_letter(point[1]) + str(point[0])
+            a, b = left['values'].get(point), right['values'].get(point)
+            left_formula = left['cell_types'].get(point) == 'f'
+            right_formula = right['cell_types'].get(point) == 'f'
+            if point not in left['raw']:
+                comparison = 'added'
+            elif point not in right['raw']:
+                comparison = 'removed'
+            elif 'unsupported_formula' in (left['cell_types'].get(point), right['cell_types'].get(point)):
+                comparison = 'uncompared'
+            elif left_formula or right_formula:
+                # This compares saved formula text, never its evaluated value.
+                comparison = ('same_formula' if left_formula and right_formula
+                              and left['raw'][point] == right['raw'][point] else 'changed_formula')
+            elif a is None or b is None:
+                comparison = 'uncompared'
+            else:
+                comparison = 'same_value' if a == b else 'changed_value'
+            cells.append({
+                'left': coordinate, 'right': coordinate,
+                'left_value': left['raw'].get(point), 'right_value': right['raw'].get(point),
+                'left_type': 'formula' if left_formula else a[0] if a is not None else 'uncompared',
+                'right_type': 'formula' if right_formula else b[0] if b is not None else 'uncompared',
+                'equal': a is not None and a == b,
+                'comparison': comparison,
+            })
+        bounds = None
+        if points:
+            bounds = (get_column_letter(min(c for r, c in points)) + str(min(r for r, c in points))
+                      + ':' + get_column_letter(max(c for r, c in points)) + str(max(r for r, c in points)))
+        matching = sum(cell['equal'] for cell in cells)
+        same_formulas = sum(cell['comparison'] == 'same_formula' for cell in cells)
+        uncompared = sum(cell['comparison'] == 'uncompared' for cell in cells)
+        changed = len(cells) - matching - same_formulas - uncompared
+        blocks.append({
+            'kind': 'same_layout',
+            'left': {'workbook': left['workbook'], 'sheet': name, 'range': bounds},
+            'right': {'workbook': right['workbook'], 'sheet': name, 'range': bounds},
+            'cells': cells, 'matching_cells': matching, 'compared_positions': len(cells),
+            'matching_formula_cells': same_formulas, 'changed_cells': changed,
+            'uncompared_cells': uncompared,
+            'different_or_uncompared_cells': changed + uncompared,
+            'match_fraction': matching / len(cells) if cells else None,
+            'interpretation': 'User-selected same-layout assumption: identical sheet names and coordinates; not inferred correspondence or common origin.',
+        })
+        details += len(points)
+    return {
+        'schema_version': 3, 'method': 'same_layout_v1',
+        'input_files': input_files, 'sheet_count': len(sheets), 'populated_cells': populated,
+        'excluded_cells': excluded, 'blocks': blocks, 'total_blocks_found': len(common),
+        'blocks_omitted': len(common) - len(blocks), 'positions_omitted': omitted_positions,
+        'unmatched_sheets': unmatched,
+        'scope': [
+            'Explicit same-layout assumption: exactly two workbooks in supplied before/after order, exact sheet names and identical cell coordinates. No row or column alignment is inferred.',
+            'Every coordinate populated on either side of a common sheet is included, subject to output limits. Empty cells on both sides are skipped; empty common sheets have no compared positions.',
+            'Sheets present on only one side are not compared: left ' + repr(unmatched['left']) + '; right ' + repr(unmatched['right']) + '.',
+            'Literal equality uses exact types and values. Formula text is compared separately; identical text does not imply identical results. Formulas and cached values are never evaluated. Errors and empty text remain uncompared. Formatting is ignored.',
+            'Added or deleted cells have a missing value on one side. Inserted rows, moved columns and renamed sheets are not aligned automatically.',
+            'Content comparisons never establish common origin or merge formula roots.',
+            'Output is limited to 200 common sheets and 100,000 detailed positions, in sheet-name order; omitted sheets and positions are counted.',
+        ],
+    }
+
+
+def compare_content(paths, books, same_layout=False):
+    from openpyxl.utils.cell import get_column_letter
+    if same_layout and (len(paths) != 2 or len(books) != 2 or paths[0].name.casefold() == paths[1].name.casefold()):
+        raise ValueError('Same-layout comparison requires exactly two workbooks with distinct filenames')
     sheets, index, excluded = [], defaultdict(list), defaultdict(int)
     populated = 0
     for path, book in zip(paths, books):
         for sheet in book:
             if sheet.max_row * sheet.max_column > 100000:
                 raise ValueError('Content comparison worksheet limit: 100,000 cells')
-            values, raw = {}, {}
+            values, raw, cell_types = {}, {}, {}
             sid = len(sheets)
             for row in sheet.iter_rows():
                 for cell in row:
                     if cell.value is None: continue
                     populated += 1
-                    if populated > 20000:
-                        raise ValueError('Content comparison collection limit: 20,000 populated cells')
+                    if populated > 100000:
+                        raise ValueError('Content comparison collection limit: 100,000 populated cells')
                     point = (cell.row, cell.column)
                     token = typed_value(cell)
                     raw[point] = str(cell.value)
+                    cell_types[point] = ('unsupported_formula' if cell.data_type == 'f'
+                                         and not isinstance(cell.value, str) else cell.data_type)
                     if token is None:
                         excluded['formula' if cell.data_type == 'f' else 'error_or_empty_text'] += 1
                         continue
@@ -73,7 +165,12 @@ def compare_content(paths, books):
                     # Trivial constants can verify a region, but cannot seed one.
                     if token[0] != 'bool' and token not in (('number', 0), ('number', 1), ('number', -1)):
                         index[token].append((sid, *point))
-            sheets.append({'workbook': path.name, 'sheet': sheet.title, 'values': values, 'raw': raw})
+            sheets.append({'workbook': path.name, 'sheet': sheet.title, 'values': values,
+                           'raw': raw, 'cell_types': cell_types})
+    input_files = [{'name': p.name, 'sha256': getattr(book, '_lab_input_sha256', None)}
+                   for p, book in zip(paths, books)]
+    if same_layout:
+        return _same_layout_result(paths, sheets, populated, dict(excluded), input_files)
     proposals = defaultdict(set)
     joins, common = 0, 0
     for token, positions in index.items():
@@ -153,7 +250,7 @@ def compare_content(paths, books):
             output.append(block);detail_total+=block['compared_positions']
     found_count=len(blocks)+added+record_scope['regions_omitted_due_detail_limit']
     return {'schema_version':2, 'method':'typed_anchor_translation_and_record_alignment_v2',
-            'input_files':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths],
+            'input_files':input_files,
             'sheet_count':len(sheets), 'populated_cells':populated,
             'blocks':output, 'total_blocks_found':found_count, 'blocks_omitted':found_count-len(output),
             'record_alignment':record_scope,

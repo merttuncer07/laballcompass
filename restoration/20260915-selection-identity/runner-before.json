@@ -1,0 +1,14 @@
+[
+  {
+    "component": "R014_S781_S792_ACSA",
+    "runner": "unittest",
+    "unittest_collected_cases": 4,
+    "loader_errors": []
+  },
+  {
+    "component": "R027_S426_S427_MIFF",
+    "runner": "unittest",
+    "unittest_collected_cases": 4,
+    "loader_errors": []
+  }
+]

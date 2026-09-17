@@ -26,7 +26,7 @@ class TriggerDesignResult:
     false_positive_rate: float
     verification_cost: float
     manipulation_cost: float
-    correlation_with_loss: float
+    correlation_with_loss: float | None
     event_rate: float
 
     def as_dict(self) -> dict[str, Any]:
@@ -97,7 +97,8 @@ class DecisionTargetedTriggerDesigner:
                 best = row
         assert best is not None
         objective, threshold, fn, fp = best
-        correlation = float(np.corrcoef(losses, x)[0, 1])
+        correlation = (None if np.ptp(losses) == 0 or np.ptp(x) == 0
+                       else float(np.corrcoef(losses, x)[0, 1]))
         return TriggerDesignResult(
             candidate=candidate.name,
             threshold=threshold,

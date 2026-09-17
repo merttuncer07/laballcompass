@@ -1,0 +1,76 @@
+{
+  "completed_at": "2026-09-17T07:35:16.086039+00:00",
+  "status": "PASS",
+  "tests": [
+    {
+      "receipt": "runs/20260917T073317Z-b122dd65/receipt.json",
+      "profile": "lab",
+      "status": "PASS",
+      "counts": {
+        "tests": 185,
+        "passed": 185,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "source_snapshot_sha256": "16e11fd223f30ccfaa4ef366ac46cc1ac2144430956c2d3e4597e6213c9a1c4b"
+    },
+    {
+      "receipt": "runs/20260917T073025Z-ef883cfc/receipt.json",
+      "profile": "component:P004_BAMI",
+      "status": "PASS",
+      "counts": {
+        "tests": 15,
+        "passed": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "source_snapshot_sha256": "37e76f4541b2d3fab1d63d47cae35032b123d5d21133d491b4cf8d22388ebeb2"
+    },
+    {
+      "receipt": "runs/20260917T073025Z-a7e31031/receipt.json",
+      "profile": "component:V2P035_ISTAICC",
+      "status": "PASS",
+      "counts": {
+        "tests": 12,
+        "passed": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "source_snapshot_sha256": "37e76f4541b2d3fab1d63d47cae35032b123d5d21133d491b4cf8d22388ebeb2"
+    }
+  ],
+  "unique_test_count": 212,
+  "package_verification": "PACKAGE VERIFY: PASS\nfiles=2922 bytes=465599926\nretired_bridge_router_skill=absent discarded_R179_R192=absent",
+  "git_diff_check": "PASS",
+  "donor_unchanged": true,
+  "donor_diff_sha256": "03ddae6d45c5ef6079c0f1554cadd058240f84a196d1b9eddad0f3e9c8deb4e3",
+  "browser": {
+    "status": "PASS",
+    "engine": "Playwright Chromium",
+    "unchanged_formula_rows": 3,
+    "differences_only_rows": 0,
+    "table_positions": 21,
+    "search": "PASS",
+    "visual_inspection": "PASS",
+    "screenshot": "viewer.png",
+    "console": "Only favicon.ico 404; no application JavaScript error observed."
+  },
+  "real_file_check": "real-file-check.json",
+  "boundary": "Software/model consistency and unchanged published engineering-file checks only; no new genuine version-pair evaluation or audit field validation. The larger Apache workbook still hits the 5,000,000 comparison limit.",
+  "deferred": [
+    "Optional PDF font-portability patch retained in donor-source.patch; glyph/visual validation not performed."
+  ],
+  "known_corrections_during_integration": [
+    "Regression tests exposed before/after reversal caused by alphabetical loading; same-layout now preserves explicit argument order.",
+    "Separated identical formula text from literal equality and changed/unknown impacts."
+  ]
+}

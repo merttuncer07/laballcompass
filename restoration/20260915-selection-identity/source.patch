@@ -1,0 +1,1002 @@
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md
+index 6a4d7ec..22e35a9 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md
+@@ -15,3 +15,27 @@ This is not an academic accept/reject gate. It is a practical firewall against s
+ created by the search procedure itself, while preserving the losing ideas and their measured behavior.
+ 
+ Run `python -m unittest -v test_acsa.py` and `python demo_selection.py`.
++
++## 2026-09-15 selection rule repair
++
++The optional `selection_tiebreak_scores` matrix now represents the selector's
++secondary score. Selection minimizes mean loss, then maximizes mean tiebreak
++score on an exact tie, then retains column order. Both matrices must describe
++the same selection cases and candidates. Bootstrap resamples their rows
++together and repeats that complete rule; no holdout values enter selection.
++Omitting scores preserves the previous first-column tie behavior.
++
++`material_regret` must be finite and nonnegative. NaN or infinite thresholds
++previously suppressed the regret-detected status; they now raise ValueError.
++The reported instability status is a diagnostic at the existing 0.5 frequency
++threshold, not a calibrated false-discovery test.
++
++Run all 17 current tests with `python -m pytest -q` in this folder, or
++`./.venv/bin/python lab.py check R014` at the lab root. The older unittest-only
++command does not collect module-level regression functions. The lab runner now
++selects pytest for this mixed suite.
++
++Bootstrap intervals and frequencies resample the supplied rows. They do not
++replay a sequential policy or account for unknown clusters, shared data sources,
++or writer dependence. Those uses need an appropriate sampling model. Observed
++repair records: `restoration/20260915-selection-identity/` at the lab root.
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md
+index 7ab7b56..b6837a5 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md
+@@ -60,3 +60,41 @@ See `PARENT_PROVENANCE.md` for exact source snapshots.
+ MIFF now optimizes declared integer/binary-float cut costs with exact integer residuals. Small costs no longer disappear under a fixed epsilon, and large costs cannot make a super-terminal edge look cheaper than the real cut. Parallel/reverse flows and multiple terminals remain supported; unrepresentable floating-point totals raise an explicit error. DREW's embedded MIFF copy is identical to the canonical parent.
+ 
+ Fresh scope: 24 MIFF tests and 11 DREW tests pass. Includes an exhaustive vertex-partition oracle on small graphs and NetworkX's independently specified directed-graph cut of 23. This is a known graph algorithm repair. Gains, suspect labels and costs remain declared model inputs; no calibrated probability, real pipeline enforcement or audit-field benefit is established. Full observations, preserved originals and proof are in `restoration/20260915-miff` at the repository root.
++
++## 2026-09-15 selected model equals audited model
++
++DLEW resolves equal mean regret by higher realized payoff, then candidate order.
++The ACSA adapter previously dropped the payoff tiebreak and could audit another
++candidate. DREW now passes per-case payoffs from the same sequential action paths
++as its losses; ACSA repeats the same rule in selection and paired row resamples.
++A selection identity mismatch now raises an error instead of returning an audit
++of a different candidate. An unstable ACSA result remains unstable in DREW.
++
++The public `decision_regret_matrix` two-value return is unchanged. The secondary
++payoff matrix is an internal adapter detail. NaN and infinite materiality
++thresholds are rejected in the canonical and all six embedded ACSA copies.
++
++The current DREW suite has 15 passing tests. The canonical ACSA suite has 17.
++Normal lab runs now collect both unittest classes and pytest functions; previous
++`lab.py check R014` and `lab.py check R027` runs omitted the new function tests.
++The repaired ACSA, MIFF and six consumer suites have 85 passing tests; the
++runner/component tests add 17. These counts describe software behavior only.
++
++The unchanged real digits pilot was re-run with scikit-learn 1.9.1. DREW selected
++and audited `knn_k3`; protected evaluation preferred `knn_k1`. Final errors were
++again 8/360 and 6/360. Ordinary protected-sample argmin also chose `knn_k1`.
++Therefore this run demonstrates working model/audit integration, not unique
++DREW accuracy gain. It is one fixed-seed classification dataset, not banking or
++audit field validation. Writer-group independence is not established.
++
++At the lab root, install the optional real-pilot dependencies:
++
++```sh
++.venv/bin/python -m pip install -r requirements-pilots.lock
++.venv/bin/python restoration/20260915-selection-identity/run_real_data_validation.py
++```
++
++The replay stores the actual models' search/holdout error matrices, exact dataset
++and environment fingerprints, comparison results and invalid-threshold checks.
++Original historical result files remain unchanged. See
++`restoration/20260915-selection-identity/real-data-validation.json`.
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
+index 1325dc5..3d5292a 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py
+@@ -106,10 +106,23 @@ def decision_regret_matrix(
+     This is the principal DLEW -> ACSA adapter.  Each candidate follows its own sequential
+     previous-action path, matching DLEW's transaction-cost semantics.  Lower loss is better.
+     """
++    names, losses, _ = _decision_matrices(
++        predictions, outcomes, action_payoff_exposures,
++        initial_action_exposure=initial_action_exposure, transaction_cost=transaction_cost,
++    )
++    return names, losses
++
++
++def _decision_matrices(
++    predictions, outcomes, action_payoff_exposures, *, initial_action_exposure,
++    transaction_cost=0.0,
++):
++    """Keep regret and realized payoff on the identical candidate action paths."""
+     names, y, actions, initial, arrays = _validate_decision_arrays(
+         predictions, outcomes, action_payoff_exposures, initial_action_exposure, transaction_cost
+     )
+     losses = np.empty((y.shape[0], len(names)), dtype=float)
++    payoffs = np.empty_like(losses)
+     for column, name in enumerate(names):
+         previous = initial.copy()
+         for row, (prediction, outcome) in enumerate(zip(arrays[name], y)):
+@@ -118,8 +131,9 @@ def decision_regret_matrix(
+             actual_net = actions @ outcome - transaction_cost * np.sum(np.abs(actions - previous), axis=1)
+             oracle = int(np.argmax(actual_net))
+             losses[row, column] = float(actual_net[oracle] - actual_net[selected])
++            payoffs[row, column] = float(actual_net[selected])
+             previous = actions[selected]
+-    return names, losses
++    return names, losses, payoffs
+ 
+ 
+ def audit_decision_model_selection(
+@@ -145,7 +159,7 @@ def audit_decision_model_selection(
+         initial_action_exposure=initial_action_exposure,
+         transaction_cost=transaction_cost,
+     )
+-    train_names, train_losses = decision_regret_matrix(
++    train_names, train_losses, train_payoffs = _decision_matrices(
+         training_predictions,
+         training_outcomes,
+         action_payoff_exposures,
+@@ -168,13 +182,15 @@ def audit_decision_model_selection(
+         bootstrap_samples=bootstrap_samples,
+         random_seed=random_seed,
+         material_regret=material_regret,
++        selection_tiebreak_scores=train_payoffs,
+     )
+-    matrix_selected = train_names[int(np.argmin(train_losses.mean(axis=0)))]
+-    matches = decision.selected_by_training_decision_loss == matrix_selected
++    matches = decision.selected_by_training_decision_loss == adaptive.selected_candidate
++    if not matches:
++        raise RuntimeError("Decision selector and audited candidate disagree")
+     if adaptive.status == "ADAPTIVE_SELECTION_REGRET_DETECTED":
+         status = "DECISION_SELECTION_FAILS_PROTECTED_AUDIT"
+-    elif not matches:
+-        status = "DLEW_TIEBREAK_DIFFERS_FROM_MEAN_REGRET_MATRIX"
++    elif adaptive.status == "SELECTION_UNSTABLE_ACROSS_RESAMPLES":
++        status = "DECISION_SELECTION_UNSTABLE_ACROSS_RESAMPLES"
+     else:
+         status = "DECISION_SELECTION_SURVIVES_PROTECTED_AUDIT"
+     return DecisionSelectionAudit(
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py
+index 969af38..8cb8300 100644
+--- a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py
+@@ -27,6 +27,7 @@ class SelectionAudit:
+     selection_bootstrap_frequencies: tuple[float, ...]
+     selection_fragility: float
+     status: str
++    selection_rule: str = "minimum_mean_loss_then_column_order"
+ 
+     def to_dict(self) -> dict:
+         return asdict(self)
+@@ -40,12 +41,19 @@ def audit_adaptive_selection(
+     bootstrap_samples: int = 1000,
+     random_seed: int = 0,
+     material_regret: float = 0.0,
++    selection_tiebreak_scores: Sequence[Sequence[float]] | None = None,
+ ) -> SelectionAudit:
+     """Audit the candidate chosen on one sample against an untouched sample.
+ 
+     Rows are cases and columns are candidates. Lower loss is better. The audit does not delete or
+     reject candidates: it exposes the price of adaptive selection and retains every candidate's
+     out-of-sample result.
++
++    Optional case-by-candidate tiebreak scores are maximized only when mean
++    selection losses are exactly equal. They must use selection data only.
++    The same row indices resample loss and score together. This is a bootstrap
++    of supplied case rows, not a replay of a sequential policy or a cluster
++    bootstrap; dependent rows require a different sampling model.
+     """
+ 
+     selection = np.asarray(selection_losses, dtype=float)
+@@ -58,8 +66,19 @@ def audit_adaptive_selection(
+         raise ValueError("losses must be finite")
+     if not isinstance(bootstrap_samples, int) or bootstrap_samples < 100:
+         raise ValueError("bootstrap_samples must be an integer >= 100")
+-    if material_regret < 0:
+-        raise ValueError("material_regret must be nonnegative")
++    if not np.isfinite(material_regret) or material_regret < 0:
++        raise ValueError("material_regret must be finite and nonnegative")
++
++    tiebreak = None
++    if selection_tiebreak_scores is not None:
++        tiebreak = np.asarray(selection_tiebreak_scores, dtype=float)
++        if tiebreak.shape != selection.shape or not np.all(np.isfinite(tiebreak)):
++            raise ValueError("selection_tiebreak_scores must be finite and match selection_losses")
++
++    def choose(mean_losses, mean_scores=None):
++        if mean_scores is None:
++            return int(np.argmin(mean_losses))
++        return min(range(len(mean_losses)), key=lambda j: (mean_losses[j], -mean_scores[j], j))
+ 
+     p = selection.shape[1]
+     names = tuple(candidate_names) if candidate_names is not None else tuple(f"candidate_{j}" for j in range(p))
+@@ -68,7 +87,7 @@ def audit_adaptive_selection(
+ 
+     selection_means = selection.mean(axis=0)
+     holdout_means = holdout.mean(axis=0)
+-    selected = int(np.argmin(selection_means))
++    selected = choose(selection_means, None if tiebreak is None else tiebreak.mean(axis=0))
+     holdout_best = int(np.argmin(holdout_means))
+     gaps = holdout_means - selection_means
+     selected_regret = float(holdout_means[selected] - holdout_means[holdout_best])
+@@ -85,7 +104,8 @@ def audit_adaptive_selection(
+         selection_indices = rng.integers(0, selection.shape[0], selection.shape[0])
+         holdout_bootstrap[b] = np.mean(selected_holdout[holdout_indices])
+         boot_means = np.mean(selection[selection_indices, :], axis=0)
+-        selection_counts[int(np.argmin(boot_means))] += 1
++        boot_scores = None if tiebreak is None else np.mean(tiebreak[selection_indices, :], axis=0)
++        selection_counts[choose(boot_means, boot_scores)] += 1
+ 
+     interval = tuple(map(float, np.quantile(holdout_bootstrap, [0.025, 0.975])))
+     frequencies = selection_counts / bootstrap_samples
+@@ -115,4 +135,6 @@ def audit_adaptive_selection(
+         selection_bootstrap_frequencies=tuple(map(float, frequencies)),
+         selection_fragility=fragility,
+         status=status,
++        selection_rule=("minimum_mean_loss_then_maximum_mean_tiebreak_score_then_column_order"
++                        if tiebreak is not None else "minimum_mean_loss_then_column_order"),
+     )
+diff --git a/PRODUCT_REPAIRS.md b/PRODUCT_REPAIRS.md
+index 50b1686..9a5520a 100644
+--- a/PRODUCT_REPAIRS.md
++++ b/PRODUCT_REPAIRS.md
+@@ -122,3 +122,33 @@ Açık Excel bağlantıları artık verilen dosyalar arasında izlenebilir. Form
+ MIFF, tanımlanmış şüpheli kaynaktan korunan sonuçlara giden bütün yolları en düşük toplam bağlantı kesme maliyetiyle ayırır. Önceki sürüm iki bağlantılı örnekte 1e-13 yerine 5e-13 maliyetli kesintiyi seçiyor, tek bağlantı 1e16 olduğunda hiç kesinti seçemiyordu. Tamsayı artık kapasite hesabı her iki hatayı ve büyük tamsayıların erken yuvarlanmasını giderdi. DREW içindeki gerçek MIFF kopyası da güncellendi.
+ 
+ 24 motor + 11 ürün testi geçti. Küçük ağlarda bütün olası düğüm bölmeleriyle sonuç karşılaştırıldı; NetworkX'in yayımladığı yönlü ağda beklenen kesinti maliyeti 23 yeniden elde edildi. [Önce/sonra hesapları](restoration/20260915-miff/observed-comparison.json), [test kaydı](restoration/20260915-miff/validation.json), [incelenen gerçek algoritma](research/miff-mincut/OBSERVATIONS.md). Bu, bilinen minimum-kesinti hesabının onarımıdır; gerçek sistemde bağlantıları otomatik kesmez veya denetim görüşü üretmez.
++
++## DREW / ACSA: seçilen adayın kendisini denetle
++
++Eşit karar kaybında DLEW, gerçekleşen getirisi daha yüksek adayı seçiyordu;
++ACSA aynı eşitliği sütun sırasıyla bozuyordu. Sonuçta seçilen `b` adayı yerine
++`a` denetlenebiliyordu. DREW artık kayıp ve getiri matrislerini aynı eylem
++yollarından üretiyor. ACSA aynı seçim kuralını, birlikte yeniden örneklenen
++kayıp/getiri satırlarında da uyguluyor. Kimlik uyuşmazlığı hata üretir; kararsız
++seçim sonucu “denetimden geçti” durumuna çevrilmez.
++
++NaN veya sonsuz önemlilik eşiği artık reddediliyor. Gerçek el yazısı veri
++pilotundaki model kayıplarında bu değerler, 0,01111 ek kayıp mevcutken
++“regret detected” durumunu gizliyordu. Geçersiz eşik girdisini reddetmek,
++istatistiksel anlamlılık veya bankacılık faydası kanıtı değildir.
++
++Çalıştırıcıdaki ayrı bir hata da düzeltildi: ACSA ve MIFF'in fonksiyon testleri
++normal unittest keşfinde atlanıyordu. Karma test paketleri artık pytest ile
++çalışıyor. **85 motor/ürün testi ve 17 çalıştırıcı/bileşen testi geçti.**
++[Gerçek çalışma kaydı](runs/20260915T164716Z-0d342c3a/receipt.json).
++
++Mevcut 27 adaylı, tek sabit seed kullanan gerçek digits pilotu yeniden çalıştı:
++seçilen ve denetlenen aday `knn_k3`; korunan doğrulamada en iyi aday `knn_k1`.
++Son bölümde hata sayıları 8/360 ve 6/360. Sıradan doğrulama kaybı minimizasyonu
++da `knn_k1` seçiyor; DREW'e özgü doğruluk üstünlüğü gösterilmedi. Yazar grubu
++bağımsızlığı doğrulanmadı, bankacılık verisi kullanılmadı.
++[Gerçek veri çıktısı](restoration/20260915-selection-identity/real-data-validation.json).
++
++Bootstrap hâlâ verilen satırları yeniden örnekler; ardışık karar politikasını
++yeniden çalıştırmaz ve aynı kaynaktan gelen satırlar için otomatik bağımlılık
++düzeltmesi yapmaz. Bu sınır düzeltilmiş kimlik eşlemesiyle karıştırılmamalı.
+diff --git a/README.md b/README.md
+index 123b458..dfb5a0b 100644
+--- a/README.md
++++ b/README.md
+@@ -1,9 +1,16 @@
+ # LabAllCompass — onarılmış çalışma laboratuvarı
+ 
+-14 Eylül 2026. Bu sürümde mevcut motorların hesaplamaları, ürünlerin birbirini çağırması ve çalıştırma yolları onarıldı. Eski proje ve indirilen arşivler korunuyor. Çalışma kodu `LAC_REPRO_R210/` altında; bu klasör özgün arşivin değiştirilmiş bir kopyasıdır.
++15 Eylül 2026. Bu sürümde mevcut motorların hesaplamaları, ürünlerin birbirini çağırması ve çalıştırma yolları onarıldı. Eski proje ve indirilen arşivler korunuyor. Çalışma kodu `LAC_REPRO_R210/` altında; bu klasör özgün arşivin değiştirilmiş bir kopyasıdır.
+ 
+ ## Yeni motor ve ürün onarımları
+ 
++DREW artık seçtiği modeli denetliyor: eşit kayıpta kullanılan getiri ölçütü
++ACSA'ya da taşındı; geçersiz önemlilik eşikleri reddediliyor. Lab çalıştırıcısı,
++ACSA ve MIFF'te önceden atladığı fonksiyon testlerini artık topluyor.
++85 motor/ürün + 17 çalıştırıcı/bileşen testi geçti. Gerçek digits pilotu yeniden
++çalıştı; basit doğrulama yöntemine üstünlük iddia edilmedi.
++[Onarım ve gerçek veri kaydı](restoration/20260915-selection-identity/README.md).
++
+ P083 HEAG artık kanonik EBC + AICC motorlarını gerçekten çağırıyor: kanıtın tekrar sayılması, ek ölçüm kararına kadar izleniyor. [Çalışan maliyet duyarlılığı görünümü](examples/evidence-acquisition/verified/index.html). Gelecek ölçüm bağımsızlığı açık model girdisi; tarihî kaynak kurtarılmış sayılmaz.
+ 
+ SCIG, verinin çeliştiği bağımsızlık varsayımlarıyla seçim yapmıyor. BICC, geçersiz sınırlardan güven sertifikası üretmiyor. P103 artık gerçek HFAD → BICC → ACRA hesaplarını çağırıyor. Dört değişen bileşendeki **36 test geçti**; önceki geniş test çalışmasının yerine geçmez. [Sonuçlar ve kullanım](PRODUCT_REPAIRS.md).
+@@ -69,7 +76,7 @@ PYTHONPATH=LAC_REPRO_R210 .venv/bin/python -c 'from lab_kernels import Observabi
+ 
+ ## Kurtarma sınırı
+ 
+-145 Foundry klasörünün **90'ı genel `spec_runtime` uygulamasına**, **20'si ortak referans yeniden uygulamasına** dayanıyor. İncelenen arşivlerde bunların özgün tarihî motor birleşimleri doğrulanamadı. Genel çalıştırıcının hataları giderildi; bu işlem kayıp özgün algoritmaları geri getirmez. P103 için ayrıca gerçek HFAD → BICC → ACRA çağrılarını kullanan yeni bir yerel uygulama yazıldı; özgün tarihî kodu kurtarılmış değildir. Kalan 34 Foundry klasörü kendi paketlenmiş kaynaklarına sahiptir; bu da tek başına bilimsel doğruluk kanıtı değildir.
++145 Foundry klasörünün **89'u genel `spec_runtime` uygulamasına**, **20'si ortak referans yeniden uygulamasına** dayanıyor. İncelenen arşivlerde bunların özgün tarihî motor birleşimleri doğrulanamadı. Genel çalıştırıcının hataları giderildi; bu işlem kayıp özgün algoritmaları geri getirmez. P103 için HFAD → BICC → ACRA, P083 için EBC → AICC çağrılarını kullanan **iki yeni yerel uygulama** yazıldı; özgün tarihî kodları kurtarılmış değildir. Kalan 34 Foundry klasörü kendi paketlenmiş kaynaklarına sahiptir; bu da tek başına bilimsel doğruluk kanıtı değildir.
+ 
+ Beş sonraki V2 ürünü de tam özgün kaynak yerine kurtarılmış referans kod taşır. Ekran bu ayrımları her ürünün içinde gösterir. Tam liste: [RECOVERY_LIMITS.md](RECOVERY_LIMITS.md).
+ 
+diff --git a/maintenance/runner.py b/maintenance/runner.py
+index 36edf83..802971c 100644
+--- a/maintenance/runner.py
++++ b/maintenance/runner.py
+@@ -1,6 +1,6 @@
+ """Durable local runner for the original LabAllCompass test surfaces."""
+ from __future__ import annotations
+-import argparse,fnmatch,hashlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time,uuid
++import argparse,ast,fnmatch,hashlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time,uuid
+ from dataclasses import dataclass,asdict
+ from datetime import datetime,timezone
+ from pathlib import Path
+@@ -24,6 +24,22 @@ class Target:
+  pattern:str='test_*.py'
+  layer:str='active'
+ 
++def parent_test_runner(directory):
++ """Use pytest when a parent ships module-level tests alongside TestCase tests.
++
++ unittest discovery imports such modules but silently omits their test functions.
++ Keep the original runner for parents with only unittest suites.
++ """
++ for file in sorted(Path(directory).glob('test_*.py')):
++  try:tree=ast.parse(file.read_text())
++  except (OSError,UnicodeError,SyntaxError):
++   # Let the isolated test target report collection errors; discovery must
++   # still return the other components so their runs can continue.
++   return 'pytest'
++  if any(isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name.startswith('test_') for node in tree.body):
++   return 'pytest'
++ return 'unittest'
++
+ def discover(profile='full',root=ROOT):
+  targets=[]
+  if profile in ('active','full','all'):
+@@ -41,7 +57,7 @@ def discover(profile='full',root=ROOT):
+  if profile in ('parents','all'):
+   for tier in ('CURRENT_PRODUCTS','RETRO_PRODUCTS'):
+    for p in sorted((root/CORE/'02_FOUNDRY_ALL_PRODUCTS/parent_products'/tier).iterdir()):
+-    if p.is_dir() and any(p.glob('test_*.py')):targets.append(Target(p.name,p.relative_to(root).as_posix(),'unittest',layer='parent'))
++    if p.is_dir() and any(p.glob('test_*.py')):targets.append(Target(p.name,p.relative_to(root).as_posix(),parent_test_runner(p),layer='parent'))
+  if profile in ('foundry','all'):
+   foundry=root/CORE/'02_FOUNDRY_ALL_PRODUCTS'
+   for p in sorted((foundry/'products').rglob('test_*.py')):
+diff --git a/tests/test_runner.py b/tests/test_runner.py
+index 2f047e0..03596a6 100644
+--- a/tests/test_runner.py
++++ b/tests/test_runner.py
+@@ -1,6 +1,6 @@
+ import json,tempfile,unittest
+ from pathlib import Path
+-from maintenance.runner import Target,run,counts,discover,doctor
++from maintenance.runner import Target,run,counts,discover,doctor,parent_test_runner
+ 
+ class RunnerTests(unittest.TestCase):
+  def setUp(self):
+@@ -34,6 +34,24 @@ class RunnerTests(unittest.TestCase):
+   t=self.target('ok','import unittest\nclass Test(unittest.TestCase):\n def test_ok(self):pass\n');p,r=self.execute([t]);self.assertTrue((p.parent/'source-hashes.json').exists());self.assertIn('packages',r['environment']);self.assertEqual(r['results_scope'],'software_reproduction_only')
+  def test_discovery_matches_original_scope(self):
+   self.assertEqual(len(discover('active')),22);self.assertEqual(len(discover('full')),90)
++ def test_real_parent_function_regressions_are_collected(self):
++  targets={t.id:t for t in discover('parents')}
++  self.assertEqual(targets['R014_S781_S792_ACSA'].runner,'pytest')
++  self.assertEqual(targets['R027_S426_S427_MIFF'].runner,'pytest')
++  self.assertEqual(targets['R026_S423_S424_EBC'].runner,'unittest')
++ def test_function_failure_cannot_hide_behind_passing_unittest_suite(self):
++  target=self.target('mixed','import unittest\nclass Test(unittest.TestCase):\n def test_ok(self):pass\ndef test_regression():\n assert False, "regression must be collected"\n')
++  target.runner=parent_test_runner(self.root/target.cwd)
++  _,receipt=self.execute([target])
++  self.assertEqual(receipt['status'],'FAIL')
++  self.assertEqual(receipt['counts']['tests'],2)
++  self.assertEqual(receipt['counts']['failures'],1)
++ def test_bad_test_module_does_not_abort_component_discovery(self):
++  bad=self.target('badsyntax','def test_broken(:\n pass\n')
++  bad.runner=parent_test_runner(self.root/bad.cwd)
++  after=self.target('afterbad','import unittest\nclass Test(unittest.TestCase):\n def test_ok(self):pass\n')
++  _,receipt=self.execute([bad,after])
++  self.assertEqual([t['status'] for t in receipt['targets']],['FAIL','PASS'])
+  def test_editing_source_does_not_block_normal_tests(self):
+   t=self.target('edited','import unittest\nclass Test(unittest.TestCase):\n def test_ok(self):pass\n')
+   (self.root/'verify_package.py').write_text('raise SystemExit(1)\n')
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/test_selection_rule.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/test_selection_rule.py
+new file mode 100644
+index 0000000..9e8d4b2
+--- /dev/null
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/test_selection_rule.py
+@@ -0,0 +1,71 @@
++import math
++import numpy as np
++import pytest
++
++from acsa import audit_adaptive_selection
++
++
++def test_tiebreak_audits_the_selected_column_and_its_interval():
++    r = audit_adaptive_selection([[0,0],[0,0]], [[9,0],[9,2],[9,4]],
++        candidate_names=['a','b'], selection_tiebreak_scores=[[-1,0],[0,0]],
++        bootstrap_samples=200, random_seed=0)
++    assert r.selected_candidate == 'b'
++    assert r.selected_holdout_loss == 2
++    assert r.selected_holdout_regret == 0
++    assert r.pointwise_standard_error == pytest.approx(2/math.sqrt(3))
++    assert r.selected_holdout_loss_bootstrap_interval_95[1] <= 4
++    assert 'maximum_mean_tiebreak_score' in r.selection_rule
++
++
++def test_default_rule_still_uses_first_equal_loss_column():
++    r = audit_adaptive_selection([[0,0],[0,0]], [[9,0],[9,2]],
++        candidate_names=['a','b'], bootstrap_samples=100)
++    assert r.selected_candidate == 'a'
++    assert r.selection_bootstrap_frequencies == (1.,0.)
++
++
++def test_secondary_score_cannot_override_primary_loss():
++    r = audit_adaptive_selection([[0,1],[0,1]], [[0,1],[0,1]],
++        selection_tiebreak_scores=[[-1e9,1e9],[-1e9,1e9]], bootstrap_samples=100)
++    assert r.selected_candidate == 'candidate_0'
++
++
++def test_identical_loss_and_score_retains_column_order():
++    r = audit_adaptive_selection([[0,0],[0,0]], [[0,0],[0,0]],
++        selection_tiebreak_scores=[[7,7],[7,7]], bootstrap_samples=100)
++    assert r.selection_bootstrap_frequencies == (1.,0.)
++
++
++def test_bootstrap_preserves_loss_score_pairs_and_repeats_full_selection_rule():
++    # Four equiprobable size-two resamples: (0,0), (0,1), (1,0), (1,1).
++    # First three choose a, last chooses b; exact bootstrap probability is 3/4.
++    r = audit_adaptive_selection([[0,1],[1,0]], [[0,0],[0,0]],
++        candidate_names=['a','b'], selection_tiebreak_scores=[[2,0],[0,1]],
++        bootstrap_samples=4000, random_seed=84)
++    assert r.selected_candidate == 'a'
++    assert r.selection_bootstrap_frequencies[0] == pytest.approx(.75, abs=.03)
++    assert r.selection_fragility == pytest.approx(.25, abs=.03)
++
++
++@pytest.mark.parametrize('scores', [[[0,1]], [[0,float('nan')],[0,1]], [[0,1],[0,float('inf')]]])
++def test_invalid_tiebreak_matrices_rejected(scores):
++    with pytest.raises(ValueError, match='selection_tiebreak_scores'):
++        audit_adaptive_selection([[0,0],[0,0]], [[0,0],[0,0]],
++            selection_tiebreak_scores=scores, bootstrap_samples=100)
++
++
++def test_holdout_outcomes_cannot_change_selection_or_fragility():
++    args=dict(selection_losses=[[0,1],[1,0]], selection_tiebreak_scores=[[2,0],[0,1]],
++              bootstrap_samples=200, random_seed=7)
++    a=audit_adaptive_selection(holdout_losses=[[0,100],[0,100]], **args)
++    b=audit_adaptive_selection(holdout_losses=[[100,0],[100,0]], **args)
++    assert a.selected_candidate == b.selected_candidate
++    assert a.selection_bootstrap_frequencies == b.selection_bootstrap_frequencies
++    assert a.selected_holdout_regret == 0 and b.selected_holdout_regret == 100
++
++
++@pytest.mark.parametrize('threshold', [float('nan'), float('inf'), -float('inf'), -1.0])
++def test_invalid_material_regret_rejected(threshold):
++    with pytest.raises(ValueError, match='material_regret must be finite'):
++        audit_adaptive_selection([[0,1],[0,1]], [[1,0],[1,0]],
++            material_regret=threshold, bootstrap_samples=100)
+diff --git a/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_selection_identity.py b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_selection_identity.py
+new file mode 100644
+index 0000000..5ea1f25
+--- /dev/null
++++ b/LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_selection_identity.py
+@@ -0,0 +1,51 @@
++import pytest
++import numpy as np
++
++if __package__:
++    from .drew import audit_decision_model_selection, _decision_matrices
++else:
++    from drew import audit_decision_model_selection, _decision_matrices
++
++
++def tied_decision(holdout):
++    predictions={'a':[[0,1],[0,1]], 'b':[[1,0],[1,0]]}
++    return audit_decision_model_selection(predictions, [[0,0],[1,0]], predictions, holdout,
++        [[1,0],[0,1]], initial_action_exposure=[.5,.5], transaction_cost=1,
++        bootstrap_samples=200)
++
++
++def test_a_good_selected_model_is_not_failed_using_another_models_holdout():
++    r=tied_decision([[0,0],[3,0]])
++    assert r.decision_loss.selected_by_training_decision_loss == 'b'
++    assert r.adaptive_selection.selected_candidate == 'b'
++    assert r.adaptive_selection.selected_holdout_regret == 0
++    assert r.status == 'DECISION_SELECTION_SURVIVES_PROTECTED_AUDIT'
++    assert r.decision_selector_matches_loss_matrix
++
++
++def test_a_bad_selected_model_is_not_hidden_by_another_models_holdout():
++    r=tied_decision([[0,0],[0,3]])
++    assert r.adaptive_selection.selected_candidate == 'b'
++    assert r.adaptive_selection.selected_holdout_regret == .5
++    assert r.status == 'DECISION_SELECTION_FAILS_PROTECTED_AUDIT'
++
++
++def test_fragility_repeats_the_payoff_tiebreak_on_selection_resamples():
++    r=tied_decision([[0,0],[3,0]])
++    # The two original losses tie. Except for resampling the first row twice,
++    # b has higher realized payoff; a wins the remaining complete tie.
++    assert r.adaptive_selection.selection_bootstrap_frequencies[1] == pytest.approx(.75, abs=.09)
++    assert r.adaptive_selection.selection_fragility == pytest.approx(.25, abs=.09)
++
++
++def test_regret_and_payoff_matrices_match_both_dlew_metrics():
++    predictions={'a':[[0,1],[0,1]], 'b':[[1,0],[1,0]]}
++    names,losses,payoffs=_decision_matrices(predictions, [[0,0],[1,0]],
++        [[1,0],[0,1]], initial_action_exposure=[.5,.5], transaction_cost=1)
++    r=tied_decision([[0,0],[3,0]])
++    by_name={x.name:x for x in r.decision_loss.training_candidates}
++    for j,name in enumerate(names):
++        assert losses[:,j].mean() == by_name[name].mean_decision_regret
++        assert payoffs[:,j].mean() == by_name[name].mean_realized_payoff
++    np.testing.assert_array_equal(losses,[[0,0],[0,0]])
++    np.testing.assert_array_equal(payoffs,[[-1,-1],[0,1]])
+diff --git a/requirements-pilots.lock b/requirements-pilots.lock
+new file mode 100644
+index 0000000..f6318e4
+--- /dev/null
++++ b/requirements-pilots.lock
+@@ -0,0 +1,6 @@
++# Optional dependencies for the shipped real_data_pilot_digits.py.
++# Core dependency versions remain fixed by the main lock.
++-r requirements.lock
++scikit-learn==1.9.1
++joblib==1.6.0
++threadpoolctl==3.7.0

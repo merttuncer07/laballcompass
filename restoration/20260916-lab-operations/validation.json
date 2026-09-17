@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-16",
+  "scope": "Read-only component discovery; comparison provenance",
+  "checks": [
+    {
+      "check": 0,
+      "chunk_id": "9299c3",
+      "wall_time_seconds": 1.001518209,
+      "original_token_count": 65,
+      "output": "test_recovered_id_routes_to_recovered_contract (test_components.ComponentTests.test_recovered_id_routes_to_recovered_contract) ... ok\ntest_stable_foundry_id_routes_to_its_tests (test_components.ComponentTests.test_stable_foundry_id_routes_to_its_tests) ... ok\ntest_unknown_id_explained (test_components.ComponentTests.test_unknown_id_explained) ... ok\ntest_explicit_build_still_persists_the_collected_catalog (test_components.ReadOnlyDiscoveryTests.test_explicit_build_still_persists_the_collected_catalog) ... ok\ntest_show_uses_current_sources_without_rewriting_catalog (test_components.ReadOnlyDiscoveryTests.test_show_uses_current_sources_without_rewriting_catalog) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 1.926s\n\nOK\n",
+      "exit_code": 0
+    },
+    {
+      "check": 1,
+      "chunk_id": "b9d070",
+      "wall_time_seconds": 0.298899125,
+      "exit_code": 0,
+      "original_token_count": 278,
+      "output": "test_average_does_not_hide_worse_case (test_compare.ComparisonTests.test_average_does_not_hide_worse_case) ... ok\ntest_data_changes_after_parsing_keep_original_provenance (test_compare.ComparisonTests.test_data_changes_after_parsing_keep_original_provenance) ... ok\ntest_deterministic_bootstrap (test_compare.ComparisonTests.test_deterministic_bootstrap) ... ok\ntest_duplicate_not_independent (test_compare.ComparisonTests.test_duplicate_not_independent) ... ok\ntest_each_input_is_read_once (test_compare.ComparisonTests.test_each_input_is_read_once) ... ok\ntest_missing_baseline_rejected (test_compare.ComparisonTests.test_missing_baseline_rejected) ... ok\ntest_nonfinite_rejected (test_compare.ComparisonTests.test_nonfinite_rejected) ... ok\ntest_spec_changes_after_parsing_keep_original_provenance (test_compare.ComparisonTests.test_spec_changes_after_parsing_keep_original_provenance) ... ok\ntest_timing_repetitions_not_independent (test_compare.ComparisonTests.test_timing_repetitions_not_independent) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.210s\n\nOK\n"
+    },
+    {
+      "check": 2,
+      "chunk_id": "c612f1",
+      "wall_time_seconds": 0.5806265,
+      "exit_code": 0,
+      "original_token_count": 16,
+      "output": "R014_S781_S792_ACSA                    parent           PASS\n"
+    }
+  ],
+  "passed_tests": 14,
+  "regression_scope": "3 comparison regressions and 2 discovery/persistence tests; 9 existing tests retained.",
+  "actual_repository_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python lab.py components --query ACSA",
+  "actual_repository_result": "R014_S781_S792_ACSA parent PASS; exit 0 in default read-only-outside-workspace sandbox. Before repair this command failed trying to write catalog.json.",
+  "whitespace_check": "git -c core.whitespace=cr-at-eol diff --check: exit 0",
+  "github": {
+    "checked_account": "merttuncer07",
+    "repository": "merttuncer07/laballcompass",
+    "visibility": "public",
+    "reported_push_permission": true,
+    "remote_main": "83a3a712f340a7826ace0478e553e18a09c23267",
+    "write_exercised": false,
+    "terminal_https_auth": "not fixed; prior dry-run lacked credentials",
+    "visibility_change": "pending user answer"
+  },
+  "limits": [
+    "No claim of measured token/quota savings.",
+    "No new field-performance or engine-superiority claim.",
+    "No full-lab completion or full-suite pass claim.",
+    "No commit, push, deployment or repository visibility change."
+  ]
+}

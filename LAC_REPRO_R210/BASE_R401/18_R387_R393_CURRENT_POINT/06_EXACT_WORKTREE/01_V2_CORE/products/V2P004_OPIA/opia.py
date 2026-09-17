@@ -6,7 +6,6 @@ import sys
 from typing import Mapping, Sequence
 
 import numpy as np
-from numpy.polynomial.hermite import hermgauss
 
 # Reuse the exact packaged P138 consumer implementation and its channel type.
 # K081's neutral confounding/backaction mechanism is reimplemented locally;
@@ -17,7 +16,7 @@ if str(_FOUNDRY_PRODUCTS) not in sys.path:
     sys.path.insert(0, str(_FOUNDRY_PRODUCTS))
 
 from P138_SPIA.spia import acquire_for_search_policy  # noqa: E402
-from P138_SPIA.parents.aicc import InformationChannel  # noqa: E402
+from P138_SPIA.parents.aicc import InformationChannel, affine_information_value  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -131,8 +130,6 @@ def _adjusted_channel_value(
     slopes: np.ndarray,
     channel: InformationChannel,
     estimate: BackactionEstimate,
-    *,
-    quadrature_points: int = 31,
 ) -> GuardedChannelValue:
     h = np.asarray(channel.measurement_vector, dtype=float)
     shift = np.asarray(estimate.belief_shift, dtype=float)
@@ -143,18 +140,17 @@ def _adjusted_channel_value(
         raise ValueError("estimated backaction would move the expected belief outside the probability simplex")
 
     predictive_variance = float(h @ covariance @ h + channel.noise_variance)
+    current_value = float(np.max(slopes @ mean))
+    shifted_utilities = slopes @ shifted_mean
     if predictive_variance <= 0:
-        adjusted_change = float("-inf")
+        adjusted_change = float(np.max(shifted_utilities) - current_value)
     else:
         gain = covariance @ h / predictive_variance
-        nodes, weights = hermgauss(int(quadrature_points))
-        weights = weights / np.sqrt(np.pi)
-        current_value = float(np.max(slopes @ mean))
-        posterior_value = 0.0
-        for node, weight in zip(nodes, weights):
-            residual = np.sqrt(2.0 * predictive_variance) * node
-            posterior_mean = mean + gain * residual + shift
-            posterior_value += float(weight) * float(np.max(slopes @ posterior_mean))
+        standardized_slopes = slopes @ gain * np.sqrt(predictive_variance)
+        posterior_value = (
+            float(np.max(shifted_utilities))
+            + affine_information_value(shifted_utilities, standardized_slopes)
+        )
         # Unlike ordinary information value, a physical observation can hurt.
         # Therefore do not clamp this change at zero.
         adjusted_change = float(posterior_value - current_value)

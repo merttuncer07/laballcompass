@@ -1,0 +1,117 @@
+[
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/README.md",
+    "before_sha256": "d3e7a55875ec7592580f7595e17756dcd986fca8477c18afb6a8b628905f6b1b",
+    "after_sha256": "7faa6d9d581ffbe52aecbc5404cfc114c892cdf8be0f9d4a7dbfef09afc9b1d1"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R014_S781_S792_ACSA/test_grouped_selection.py",
+    "before_sha256": null,
+    "after_sha256": "c77ae3c6402f8d767c4beae113ffac6e1d338f40a1197f94042de647826c28ba"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/parents/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P008_CCTD/parents/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P137_MPHA/parents/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P139_PAOS/parents/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P142_BMSA/parents/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P145_RTHA/parents/acsa.py",
+    "before_sha256": "ac8e8c0ce1c06d5eb2859e34933ccd171cd98dac65cbab499eebb81fc4f518a4",
+    "after_sha256": "4908a7093c52e772ecdd0874e9c1fb7aae0d7eaca400a336d624bfcd0b471c92"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/drew.py",
+    "before_sha256": "581e48149731f364810af3a973e5690c048d6eab4d2d02a06861c89cf1eea903",
+    "after_sha256": "717aa02b1621d7b1cc2c29ae68049dd6206ad93f7ea2a95322e2700a181e3f40"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/README.md",
+    "before_sha256": "5106d35dc8034563e68341e488bd1415336c6fe6c0322a72e3337ab53157ee15",
+    "after_sha256": "0cf0f18fb6690fffd71f7eaad2bae52b1ac886d5137be409419d73f836e64759"
+  },
+  {
+    "destination": "LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW/test_grouped_decisions.py",
+    "before_sha256": null,
+    "after_sha256": "51736bc38f6e02156ef4b00bac4832ad3f3fb7bd203350eaf0c53470dacfd05a"
+  },
+  {
+    "destination": "README.md",
+    "before_sha256": "ee49f35df1c7d61dae127af27183c22670f092c2d07004ba7f5de206411a9ffb",
+    "after_sha256": "ec134f33f4844e0056df857a371221818abf37468f9edaab55f6e9ff2600cbeb"
+  },
+  {
+    "destination": "PRODUCT_REPAIRS.md",
+    "before_sha256": "0c756c140e708d1153b2aa83f25bbd5e889a48f971511161846e977d26061af3",
+    "after_sha256": "356c55c53c36bc80899e1bef8e105970e709720ab4fdd36383f1202282a4d706"
+  },
+  {
+    "destination": "examples/grouped-selection/PROTOCOL.md",
+    "before_sha256": null,
+    "after_sha256": "d6c209b997f3cf38a4e0acb34d3fd7ffb72d44cb06e70f576b27a6b6ceaf5e0e"
+  },
+  {
+    "destination": "examples/grouped-selection/README.md",
+    "before_sha256": null,
+    "after_sha256": "33a3fbe9ae4d6d1fe770f0e421d38d69fa38d7d31fbc2556a2ac56b0eff3c07e"
+  },
+  {
+    "destination": "examples/grouped-selection/data/parkinsons-telemonitoring.zip",
+    "before_sha256": null,
+    "after_sha256": "2f82bb0ef96fa7d8d7edf4d97b89173e07c2cca7723440a64bc38918a83345df"
+  },
+  {
+    "destination": "examples/grouped-selection/holdout-losses.csv",
+    "before_sha256": null,
+    "after_sha256": "0915b8965072b44a596ed4aa7171f69c8964c81d9bf3e94ef232ffd4c46d7b5b"
+  },
+  {
+    "destination": "examples/grouped-selection/result.json",
+    "before_sha256": null,
+    "after_sha256": "b8bce404d73d8faa90c9739eaeb6b57ee184caf04123e2877739989544b1d1ef"
+  },
+  {
+    "destination": "examples/grouped-selection/run.py",
+    "before_sha256": null,
+    "after_sha256": "6068d3a3a1ed9480e78d791112f52544c6a42ab2dfd7f3db68e1acc7f0ce4c60"
+  },
+  {
+    "destination": "examples/grouped-selection/selection-losses.csv",
+    "before_sha256": null,
+    "after_sha256": "ae759377625e38e7124699d29e0bc0d1b9a5c3bdc2fd1e75420607b4758cc872"
+  },
+  {
+    "destination": "LAC_REPRO_R210/04_FILE_MANIFEST_SHA256.tsv",
+    "before_sha256": "2b9ae8e75c7c3044b6063676c09c5487d77e98abb1af4930c74b5d70311b7ab8",
+    "after_sha256": "584c09b621abefbc101d887e1c9ee54facfd67b8aa7813307baa719d79b2a264"
+  },
+  {
+    "destination": "catalog.json",
+    "before_sha256": "caf9fcbf84507fd8fcf02af666d3854283d248501cf6c8c6d4ec884963f4a508",
+    "after_sha256": "97b599dca13050300d5dc813652fc3431297e7391f477d24c2ef18a504b0f530"
+  }
+]

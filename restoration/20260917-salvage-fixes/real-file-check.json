@@ -1,0 +1,11 @@
+{
+  "viewer": "/var/folders/87/7zcwj9x95fq3g0bv00f1t_gh0000gn/T/lab-salvage-viewer-idxdterk/report/index.html",
+  "source": "examples/public-tables/StructuredReferences.xlsx",
+  "source_sha256": "a746e336176f8157c50a0a3b017c4633b7b1d546bd1b8af0f8165a48d1bacc56",
+  "scope": "Two byte-identical copies of an unmodified published Apache POI engineering fixture; unchanged-file check only, not a real version pair or audit case.",
+  "same_layout_seconds": 0.012,
+  "changed_cells": 0,
+  "same_formula_cells": 9,
+  "large_workbook": "Content comparison exceeds 5,000,000 cell checks; supply a smaller collection",
+  "large_source_sha256": "09af82b9abae2ffcff04777b69cbb23dfd15df788426153bcfa1e9359c3552be"
+}

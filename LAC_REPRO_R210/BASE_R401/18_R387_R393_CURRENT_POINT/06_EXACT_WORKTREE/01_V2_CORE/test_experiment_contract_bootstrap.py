@@ -21,7 +21,7 @@ class ExperimentContractBootstrapTests(unittest.TestCase):
         self.assertGreaterEqual(len(suites[('LCB-K048','FOUNDRY:P136')].cases),5)
         self.assertIn(('LCB-K048','FOUNDRY:P144'),suites)
         self.assertIn(('LCB-K081','FOUNDRY:P138'),suites)
-        self.assertEqual(len(suites[('LCB-K081','FOUNDRY:P138')].cases),12)
+        self.assertEqual(len(suites[('LCB-K081','FOUNDRY:P138')].cases),13)
         self.assertIn(('LCB-K019','FOUNDRY:P003'),suites)
         self.assertEqual(len(suites[('LCB-K019','FOUNDRY:P003')].cases),12)
         self.assertIn(('LCB-K068','FOUNDRY:P025'),suites)

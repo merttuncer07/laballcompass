@@ -2,12 +2,14 @@
 from collections import defaultdict, deque
 from contextlib import ExitStack, contextmanager
 import json
+from io import BytesIO
 from urllib.parse import unquote, urlsplit
 import hashlib
 from pathlib import Path
 import re
 import zipfile
 from .contracts import DependencyProblem
+from .function_references import conditional_range_overrides
 from .table_references import TableReferences, split_sheet_reference
 
 DIRECT = re.compile(r'^\$?[A-Za-z]{1,3}\$?[1-9][0-9]*(?::\$?[A-Za-z]{1,3}\$?[1-9][0-9]*)?$')
@@ -36,10 +38,12 @@ class LineageUnavailable(ValueError):
 
 
 @contextmanager
-def open_workbooks(paths):
+def open_workbooks(paths, *, preserve_order=False):
     """Read only supplied files; external locators never trigger file/network access."""
     from openpyxl import load_workbook
-    paths = sorted({Path(p).resolve() for p in paths}, key=lambda p: (p.name.casefold(), str(p)))
+    paths = list(dict.fromkeys(Path(p).resolve() for p in paths))
+    if not preserve_order:
+        paths.sort(key=lambda p: (p.name.casefold(), str(p)))
     if not 1 <= len(paths) <= 20:
         raise ValueError('Supply between 1 and 20 workbooks')
     if len({p.name.casefold() for p in paths}) != len(paths):
@@ -50,13 +54,18 @@ def open_workbooks(paths):
         for path in paths:
             if path.suffix.lower() not in ('.xlsx', '.xlsm'):
                 raise ValueError('The pilot reads .xlsx and .xlsm workbooks')
-            if path.stat().st_size > 32 * 1024**2:
+            with path.open('rb') as input_file:
+                raw = input_file.read(32 * 1024**2 + 1)
+            if len(raw) > 32 * 1024**2:
                 raise ValueError('Pilot workbook limit: 32 MB compressed')
-            with zipfile.ZipFile(path) as archive:
+            stream = stack.enter_context(BytesIO(raw))
+            with zipfile.ZipFile(stream) as archive:
                 expanded += sum(i.file_size for i in archive.infolist())
             if expanded > 256 * 1024**2:
                 raise ValueError('Pilot workbook collection limit: 256 MB expanded')
-            workbook = load_workbook(path, data_only=False, keep_links=True, keep_vba=False)
+            stream.seek(0)
+            workbook = load_workbook(stream, data_only=False, keep_links=True, keep_vba=False)
+            workbook._lab_input_sha256 = hashlib.sha256(raw).hexdigest()
             stack.callback(workbook.close)
             books.append(workbook)
         yield paths, books
@@ -89,18 +98,19 @@ def _analyze_loaded(paths, books):
                     node = key(book_id, sheet.title, cell.coordinate)
                     cells[node] = cell.data_type
                     labels[node] = node
-                    if len(cells) > 20000:
-                        raise ValueError('Pilot collection populated-cell limit: 20,000')
+                    if len(cells) > 100000:
+                        raise ValueError('Pilot collection populated-cell limit: 100,000')
                     if cell.data_type == 'f':
                         formulas[node] = cell.value if isinstance(cell.value, str) else None
                         locations[node] = (book_id, sheet.title, cell.coordinate)
     if not formulas:
         raise LineageUnavailable('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
-    if len(cells) > 20000: raise ValueError('Pilot populated-cell limit: 20,000')
+    if len(cells) > 100000: raise ValueError('Pilot populated-cell limit: 100,000')
     dependencies = {}
     issues = defaultdict(list)
+    function_range_adjustments = []
 
-    def reference(token, book_id, current_sheet, current_coordinate=None, names_seen=frozenset()):
+    def reference(token, book_id, current_sheet, current_coordinate=None, names_seen=frozenset(), *, single_area=False):
         workbook = books[book_id]
         sheet_name, address = split_sheet_reference(token)
         if sheet_name is not None:
@@ -133,6 +143,8 @@ def _analyze_loaded(paths, books):
             workbook = books[book_id]
 
         if ':' in sheet_name:
+            if single_area:
+                raise ValueError('3D references are not a single function range: ' + token)
             endpoints = sheet_name.split(':')
             by_name = {s.casefold(): i for i, s in enumerate(workbook.sheetnames)}
             if len(endpoints) != 2 or any(s.casefold() not in by_name for s in endpoints):
@@ -175,9 +187,12 @@ def _analyze_loaded(paths, books):
         # Names are accepted only when they resolve to static coordinates.
         if name.type != 'RANGE': raise ValueError('Non-range defined name: ' + address)
         results = set()
-        for destination_sheet, destination in name.destinations:
+        destinations = list(name.destinations)
+        if single_area and len(destinations) != 1:
+            raise ValueError('Multi-area defined name is not a single function range: ' + address)
+        for destination_sheet, destination in destinations:
             results.update(reference("'" + destination_sheet.replace("'", "''") + "'!" + destination,
-                                     book_id, current_sheet, current_coordinate, names_seen | {address.casefold()}))
+                                     book_id, current_sheet, current_coordinate, names_seen | {address.casefold()}, single_area=single_area))
         if not results: raise ValueError('Empty defined name: ' + address)
         return results
 
@@ -187,13 +202,19 @@ def _analyze_loaded(paths, books):
             issues[node].append('Array/shared formula representation unsupported')
         else:
             try:
-                for token in Tokenizer(formula).items:
+                tokens = Tokenizer(formula).items
+                overrides, adjustments, range_issues = conditional_range_overrides(
+                    tokens, lambda text: reference(text, *locations[node], single_area=True), node)
+                function_range_adjustments.extend(adjustments)
+                if range_issues:
+                    issues[node].extend(range_issues)
+                for token_index, token in enumerate(tokens):
                     if token.type == 'FUNC' and token.subtype == 'OPEN':
                         function = token.value[:-1].upper().replace('_XLFN.', '').replace('_XLWS.', '')
                         if function in DYNAMIC or function not in KNOWN_FUNCTIONS:
                             issues[node].append('Dynamic or unsupported function: ' + function)
                     elif token.type == 'OPERAND' and token.subtype == 'RANGE':
-                        try: refs.update(reference(token.value, *locations[node]))
+                        try: refs.update(overrides[token_index] if token_index in overrides else reference(token.value, *locations[node]))
                         except ValueError as error: issues[node].append(str(error))
                     elif token.type == 'OPERAND' and token.subtype == 'ERROR':
                         issues[node].append('Formula contains error: ' + token.value)
@@ -233,26 +254,37 @@ def _analyze_loaded(paths, books):
         raise LineageUnavailable('No formula has a fully resolved static reference graph. ' + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]))
     used = {ref for node in safe for ref in dependencies[node] if ref in safe}
     targets = tuple(sorted(safe - used))
-    source_sets = {root: frozenset((root,)) for root in roots}
-    membership_count = len(roots)
+    # A bit identifies a root once; descendant sets share compact immutable integers.
+    # Unlike materializing a frozenset per formula, memory scales with graph size
+    # and root bits rather than repeated Python set entries.
+    root_order = sorted(roots)
+    source_masks = {root: 1 << i for i, root in enumerate(root_order)}
     for node in safe_order:
-        source_sets[node] = frozenset().union(*(source_sets[p] for p in dependencies[node]))
-        membership_count += len(source_sets[node])
-        if membership_count > 500000:
-            raise ValueError('Pilot lineage limit: 500,000 transitive source memberships')
+        mask = 0
+        for premise in dependencies[node]:
+            mask |= source_masks[premise]
+        source_masks[node] = mask
     groups = defaultdict(list)
     for node in safe:
-        if source_sets[node]: groups[tuple(sorted(source_sets[node]))].append(node)
-    same_origins = [{'root_cells': list(key_), 'formula_cells': sorted(nodes)}
-                    for key_, nodes in groups.items() if len(nodes) > 1]
+        if source_masks[node]: groups[source_masks[node]].append(node)
+    def root_cells(mask):
+        cells = []
+        while mask:
+            bit = mask & -mask
+            cells.append(root_order[bit.bit_length() - 1])
+            mask ^= bit
+        return cells
+    same_origins = [{'root_cells': root_cells(mask), 'formula_cells': sorted(nodes)}
+                    for mask, nodes in groups.items() if len(nodes) > 1]
     same_origins.sort(key=lambda g: (-len(g['formula_cells']), g['formula_cells']))
-    input_files = [{'name': p.name, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths]
+    input_files = [{'name': p.name, 'sha256': book._lab_input_sha256} for p, book in zip(paths, books)]
     digest = (hashlib.sha256(json.dumps(input_files, sort_keys=True).encode()).hexdigest()
               if multiple else input_files[0]['sha256'])
     metadata = {'title': f'{len(paths)} workbooks: ' + ', '.join(p.name for p in paths) if multiple else paths[0].name,
                 'input_sha256': digest, 'input_files': input_files,
                 'linked_workbooks': list(linked_workbooks.values()),
                 'structured_references': list(table_links.values()),
+                'function_range_adjustments': function_range_adjustments,
                 'origin': 'Workbook formulas parsed automatically; workbook values were not recalculated.',
                 'labels': labels, 'formula_text': {n: formulas[n] for n in sorted(safe)},
                 'formula_count': len(formulas), 'resolved_formula_count': len(safe),

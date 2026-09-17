@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "run_id": "20260915T174437Z-9df9e1f6",
+  "status": "PASS",
+  "started_at": "2026-09-15T17:44:37.239545+00:00",
+  "profile": "grouped-selection-import-fix",
+  "source_root": "/Users/mertalituncer/Developer/lab/LAC_REPRO_R210",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "timeout_seconds": 180,
+  "targets": [
+    {
+      "id": "FOUNDRY_P001_DREW__test_grouped_decisions",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P001_DREW/test_grouped_decisions.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-15T17:44:38.418894+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260915T174437Z-9df9e1f6/000.xml",
+        "products/P001_DREW/test_grouped_decisions.py"
+      ],
+      "log": "000.log",
+      "result_file": "000.xml",
+      "exit_code": 0,
+      "seconds": 0.398,
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 5
+      },
+      "finished_at": "2026-09-15T17:44:38.817335+00:00"
+    }
+  ],
+  "results_scope": "software_reproduction_only",
+  "input_manifest_sha256": "584c09b621abefbc101d887e1c9ee54facfd67b8aa7813307baa719d79b2a264",
+  "source_snapshot_sha256": "5b3b154176318bfb08d6f5d487a2e29bd7d260c5c1f2a73c902c1ebe3dd6a082",
+  "runner_sha256": "9916ee07320cea228705f0806570f68f220ee50e4854cbddab655f29e39d132b",
+  "worker_sha256": "4ef857ee58afd19ee9101a442f548cf09c4070fa912d146ce91399a64ea01cb8",
+  "integrity": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "seconds": 0.779
+  },
+  "updated_at": "2026-09-15T17:44:38.817965+00:00",
+  "finished_at": "2026-09-15T17:44:38.817956+00:00",
+  "counts": {
+    "tests": 5,
+    "passed": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

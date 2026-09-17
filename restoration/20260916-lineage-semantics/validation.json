@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-16",
+  "scope": "Owned dependency inputs, effective SUMIF/AVERAGEIF ranges, compact exact lineage, workbook source snapshots",
+  "tests": {
+    "chunk_id": "4b3850",
+    "wall_time_seconds": 0.738271292,
+    "exit_code": 0,
+    "original_token_count": 205,
+    "output": "............................................................ [ 73%]\n......................                                                   [100%]\n=============================== warnings summary ===============================\ntests/test_workbench.py::WorkbookCollectionTests::test_apache_poi_external_pair_has_two_actual_root_cells\ntests/test_workbench.py::WorkbookCollectionTests::test_numeric_external_index_uses_workbook_relationship\n  /Users/mertalituncer/Developer/lab/.venv/lib/python3.12/site-packages/openpyxl/styles/stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default\n    warn(\"Workbook contains no default style, apply openpyxl's default\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n82 passed, 2 warnings, 12 subtests passed in 0.57s\n"
+  },
+  "regression_results": {
+    "ownership_before": "4 failures against original contract",
+    "function_ranges_before": "12 tests: 11 failures / 5 errors across subtests against original parser",
+    "intermediate": "70 passed / 1 failure; renamed reserved built-in Excel name Criteria to Conditions in the test fixture",
+    "final": "82 passed; 12 subtests passed; 2 existing style warnings"
+  },
+  "public_case": "examples/soni-price-control",
+  "browser": {
+    "status": "NOT_VISUALLY_VERIFIED",
+    "reason": "Browser URL security policy rejected file:// navigation. No alternate browser or indirect navigation attempted.",
+    "javascript_syntax": "Both generated HTML scripts pass node --check"
+  },
+  "limitations": [
+    "Formula lineage is potential structural dependence, not numeric value evaluation or an audit opinion.",
+    "SONI financial model has no SUMIF/AVERAGEIF, so those semantics are supported by mechanism regressions and inspected implementations, not an observed field example in this workbook.",
+    "Metadata annotations remain directly editable by the owning problem; constructor inputs and to_dict exports are detached, and semantic bases/rules/targets cannot be mutated through shared collections.",
+    "Single-run timing/RSS observations are not a general benchmark claim.",
+    "Full-lab objective remains unfinished."
+  ]
+}

@@ -1,7 +1,7 @@
 """Burnout-Aware Mortgage Intervention (BAMI) v0.1.
 
 Directed composition:
-MBPF -> time-varying performing prepayment hazard -> MCRIS-style competing risks
+MBPF propensity classes -> class-level MCRIS-style competing risks
 EBC -> conflict-controlled log default multiplier
 TDSX -> net-value robustness/tipping surface
 """
@@ -110,28 +110,37 @@ def _validate_static_rates(rates: MonthlyTransitionRates) -> None:
 
 def _simulate_path(
     cohort_size: int,
-    prepayment_path: np.ndarray,
+    class_prepayment_path: np.ndarray,
+    class_weights: np.ndarray,
     rates: MonthlyTransitionRates,
     intervention: Intervention,
     balance_per_loan: float,
     recovery_fraction: float,
     prepayment_cost_fraction: float,
 ) -> ScenarioResult:
-    if any(value < 0 for value in asdict(intervention).values()):
-        raise ValueError("intervention multipliers and cost must be nonnegative")
+    if any(not np.isfinite(value) or value < 0 for value in asdict(intervention).values()):
+        raise ValueError("intervention multipliers and cost must be finite and nonnegative")
     pd = rates.performing_default * intervention.performing_default_multiplier
     pdel = rates.performing_delinquency * intervention.performing_delinquency_multiplier
     dd = rates.delinquent_default * intervention.delinquent_default_multiplier
     dpr = rates.delinquent_prepay * intervention.delinquent_prepay_multiplier
     dc = rates.delinquent_cure * intervention.delinquent_cure_multiplier
+    values = [pd, pdel, dd, dpr, dc]
+    if any(not np.isfinite(value) or value < 0 or value > 1 for value in values):
+        raise ValueError("intervention transition rates must be finite and lie in [0,1]")
     if dd + dpr + dc > 1 + 1e-12:
         raise ValueError("intervention delinquent competing rates exceed one")
-    performing, delinquent, defaulted, prepaid = float(cohort_size), 0.0, 0.0, 0.0
-    states = [(performing, delinquent, defaulted, prepaid)]
-    for base_prepay in prepayment_path:
-        pp = float(base_prepay) * intervention.performing_prepay_multiplier
-        if pd + pp + pdel > 1 + 1e-12:
-            raise ValueError("intervention performing competing rates exceed one")
+    with np.errstate(over="ignore", invalid="ignore"):
+        prepayment_path = class_prepayment_path * intervention.performing_prepay_multiplier
+    if not np.all(np.isfinite(prepayment_path)) or np.any(prepayment_path < 0) or np.any(prepayment_path > 1):
+        raise ValueError("class prepayment rates must be finite and lie in [0,1]")
+    if np.any(pd + prepayment_path + pdel > 1 + 1e-12):
+        raise ValueError("intervention performing competing rates exceed one for a class")
+    performing = cohort_size * class_weights
+    delinquent = np.zeros_like(performing)
+    defaulted, prepaid = 0.0, 0.0
+    states = [(float(performing.sum()), float(delinquent.sum()), defaulted, prepaid)]
+    for pp in prepayment_path:
         p_default = performing * pd
         p_prepay = performing * pp
         p_delinquent = performing * pdel
@@ -140,9 +149,10 @@ def _simulate_path(
         d_cure = delinquent * dc
         performing = performing - p_default - p_prepay - p_delinquent + d_cure
         delinquent = delinquent + p_delinquent - d_default - d_prepay - d_cure
-        defaulted += p_default + d_default
-        prepaid += p_prepay + d_prepay
-        states.append((performing, delinquent, defaulted, prepaid))
+        defaulted += float((p_default + d_default).sum())
+        prepaid += float((p_prepay + d_prepay).sum())
+        states.append((float(performing.sum()), float(delinquent.sum()), defaulted, prepaid))
+    performing, delinquent, defaulted, prepaid = states[-1]
     credit_loss = defaulted * balance_per_loan * (1.0 - recovery_fraction)
     prepay_cost = prepaid * balance_per_loan * prepayment_cost_fraction
     return ScenarioResult(
@@ -165,11 +175,12 @@ def simulate_burnout_aware_intervention(
     recovery_fraction: float,
     prepayment_cost_fraction: float = 0.0,
 ) -> BurnoutInterventionComparison:
-    """Use MBPF's selection-adjusted prepayment hazard inside MCRIS-style competing risks.
+    """Evolve propensity classes independently under additive competing risks in each scenario.
 
-    MBPF is run with zero default hazard because MCRIS owns default/delinquency competition.
-    MBPF's default hazard is class-neutral, so omitting it does not change relative burnout
-    composition; it only avoids double-counting exits.
+    Class identity is retained through delinquency and cure. Propensity scales performing
+    prepayment only; baseline_rates.performing_prepay is replaced by the supplied base path.
+    burnout_forecast remains a standalone zero-default MBPF diagnostic, not either scenario's
+    realized prepayment path. The homogeneous parent uses the initial-weighted mean base rate.
     """
     _validate_static_rates(baseline_rates)
     base = np.asarray(base_monthly_prepayment_rates, dtype=float)
@@ -177,6 +188,15 @@ def simulate_burnout_aware_intervention(
         raise ValueError("base_monthly_prepayment_rates must be a non-empty vector")
     if cohort_size <= 0 or balance_per_loan <= 0 or not 0 <= recovery_fraction <= 1 or prepayment_cost_fraction < 0:
         raise ValueError("invalid cohort, balance, recovery, or prepayment cost")
+    if not all(np.isfinite(value) for value in [balance_per_loan, recovery_fraction, prepayment_cost_fraction]):
+        raise ValueError("balance, recovery, and prepayment cost must be finite")
+    multipliers = np.asarray(propensity_multipliers, dtype=float)
+    weights = np.asarray(initial_class_weights, dtype=float)
+    with np.errstate(over="ignore", invalid="ignore"):
+        weight_sum = weights.sum()
+    if not np.all(np.isfinite(multipliers)) or not np.all(np.isfinite(weights)) or not np.isfinite(weight_sum):
+        raise ValueError("propensity multipliers and weights must be finite with a finite weight sum")
+    weights = weights / weight_sum
     burnout = forecast_burnout_prepayment(
         cohort_size=cohort_size,
         base_monthly_prepayment_rates=base,
@@ -184,12 +204,14 @@ def simulate_burnout_aware_intervention(
         initial_class_weights=initial_class_weights,
         monthly_default_rates=0.0,
     )
-    path = np.asarray(burnout.effective_prepayment_rates, dtype=float)
+    class_prepayment_path = base[:, None] * multipliers[None, :]
     baseline_scenario = _simulate_path(
-        cohort_size, path, baseline_rates, Intervention(), balance_per_loan, recovery_fraction, prepayment_cost_fraction
+        cohort_size, class_prepayment_path, weights, baseline_rates, Intervention(), balance_per_loan,
+        recovery_fraction, prepayment_cost_fraction,
     )
     changed = _simulate_path(
-        cohort_size, path, baseline_rates, intervention, balance_per_loan, recovery_fraction, prepayment_cost_fraction
+        cohort_size, class_prepayment_path, weights, baseline_rates, intervention, balance_per_loan,
+        recovery_fraction, prepayment_cost_fraction,
     )
     cost = float(cohort_size * intervention.one_time_cost_per_loan)
     gross = float(baseline_scenario.total_economic_loss - changed.total_economic_loss)
@@ -200,8 +222,6 @@ def simulate_burnout_aware_intervention(
         gross_loss_reduction=gross, net_value=float(gross - cost),
         status="INTERVENTION_CREATES_NET_VALUE" if gross - cost > 0 else "INTERVENTION_COST_EXCEEDS_MODELED_BENEFIT",
     )
-    multipliers = np.asarray(propensity_multipliers, dtype=float)
-    weights = np.asarray(initial_class_weights, dtype=float); weights = weights / weights.sum()
     homogeneous_rate = float(np.mean(base * float(weights @ multipliers)))
     homogeneous_rates = replace(baseline_rates, performing_prepay=homogeneous_rate)
     parent_result = simulate_mortgage_intervention(

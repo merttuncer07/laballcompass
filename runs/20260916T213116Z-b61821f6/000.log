@@ -1,0 +1,11 @@
+................................................................. [ 38%]
+.............................................................. [ 76%]
+........................................                                 [100%]
+=============================== warnings summary ===============================
+tests/test_workbench.py::WorkbookCollectionTests::test_apache_poi_external_pair_has_two_actual_root_cells
+tests/test_workbench.py::WorkbookCollectionTests::test_numeric_external_index_uses_workbook_relationship
+  /Users/mertalituncer/Developer/lab/.venv/lib/python3.12/site-packages/openpyxl/styles/stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default
+    warn("Workbook contains no default style, apply openpyxl's default")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+167 passed, 2 warnings, 17 subtests passed in 4.48s

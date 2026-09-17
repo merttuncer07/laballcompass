@@ -24,6 +24,26 @@ class ContentTests(unittest.TestCase):
         paths = [self.root/'ledger.xlsx',self.root/'support.xlsx']
         for p,b in zip(paths,(left,right)):b.save(p)
         return paths,[left,right]
+    def test_same_layout_detects_changed_row_omitted_by_heuristics(self):
+        paths,books=self.books()
+        for book in books:
+            book.remove(book.active)
+            sheet=book.create_sheet('Data')
+            for r in range(1,5):
+                for c in range(1,11):sheet.cell(r,c,100*r+c)
+        for c in range(1,11):books[1].active.cell(4,c,900+c)
+        default=compare_content(paths,books)
+        self.assertFalse(any(c['left']=='J4' for b in default['blocks'] for c in b['cells']))
+        result=compare_content(paths,books,same_layout=True)
+        block=result['blocks'][0]
+        self.assertEqual(block['kind'],'same_layout')
+        self.assertEqual(block['compared_positions'],40)
+        self.assertEqual(block['matching_cells'],30)
+        changed=next(c for c in block['cells'] if c['left']=='J4')
+        self.assertEqual((changed['right'],changed['left_value'],changed['right_value'],changed['equal']),
+                         ('J4','410','910',False))
+        self.assertEqual(compare_content(paths,books,same_layout=False),default)
+
     def test_shifted_block_and_changed_interior_are_located(self):
         paths,books=self.books(changed=True)
         result=compare_content(paths,books)
@@ -52,6 +72,23 @@ class ContentTests(unittest.TestCase):
         self.assertEqual(len(set(problem['bases'].values())),24)
         self.assertEqual(len(data['blocks'][0]['formula_targets']),2)
         self.assertTrue(report.with_name('lineage.html').exists())
+    def test_formula_target_itself_is_included_for_single_workbook_difference(self):
+        paths,books=self.books()
+        books[0].active['B3']='=304+2'
+        books[0].active['G1']='=A1'
+        books[0].active['H1']='=INDIRECT("B3")'
+        copied=books[0].create_sheet('Copy')
+        for row in books[1].active:
+            for cell in row:
+                if cell.value is not None:copied.cell(cell.row,cell.column,cell.value)
+        books[0].save(paths[0])
+        report=save_workbook_analysis(paths[:1],self.root/'report')
+        data=json.loads(report.with_name('content.json').read_text())
+        block=next(b for b in data['blocks'] if b['kind']=='translated_block')
+        self.assertEqual(block['difference_formula_targets'],['Sheet!B3'])
+        self.assertEqual(block['formula_targets'],['Sheet!G1'])
+        self.assertEqual([(c['left'],c['right']) for c in block['cells'] if not c['equal']],[('B3','D9')])
+
     def test_numeric_text_and_numbers_do_not_match(self):
         paths,books=self.books()
         for row in books[1].active:

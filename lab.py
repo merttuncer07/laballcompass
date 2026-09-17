@@ -3,7 +3,10 @@ import argparse,json,sys
 from pathlib import Path
 from maintenance import runner
 from maintenance.compare import evaluate
-if len(sys.argv)>1 and sys.argv[1]=='workbench':
+if len(sys.argv)>1 and sys.argv[1]=='focus':
+ from maintenance.focus import main
+ sys.exit(main(sys.argv[2:]))
+elif len(sys.argv)>1 and sys.argv[1]=='workbench':
  from workbench.cli import main
  sys.exit(main(sys.argv[2:]))
 elif len(sys.argv)>1 and sys.argv[1]=='flow-review':
