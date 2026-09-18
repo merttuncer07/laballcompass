@@ -55,8 +55,10 @@ class RunnerTests(unittest.TestCase):
   self.assertIn('quietbad: FAIL',text)
   self.assertIn('FAIL: 1/2 tests passed',text)
   self.assertIn('kept failure',(p.parent/r['targets'][1]['log']).read_text())
- def test_discovery_matches_original_scope(self):
-  self.assertEqual(len(discover('active')),22);self.assertEqual(len(discover('full')),90)
+ def test_discovery_matches_current_scope(self):
+  active=discover('active');self.assertEqual(len(active),24);self.assertEqual(len(discover('full')),92)
+  self.assertIn('R211_VOLTERRA_ACTIVE_PROBE_TRANSFER',[target.id for target in active])
+  self.assertIn('R212_VOLTERRA_NO_RESET_INTRINSIC',[target.id for target in active])
  def test_real_parent_function_regressions_are_collected(self):
   targets={t.id:t for t in discover('parents')}
   self.assertEqual(targets['R014_S781_S792_ACSA'].runner,'pytest')

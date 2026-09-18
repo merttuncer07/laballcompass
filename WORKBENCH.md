@@ -1,5 +1,44 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## 18 Eylül: kalıcı Evidence Version Intelligence workspace'i
+
+Çok dosyalı bir müşteri/evidence klasörünü önce tek tek A/B çifti seçmeden
+envantere almak için yerel workspace oluştur:
+
+```sh
+.venv/bin/python lab.py workbench workspace create /tmp/revenue-workspace --name "Revenue evidence"
+.venv/bin/python lab.py workbench workspace import /tmp/revenue-workspace /tam/yol/musteri-klasoru
+.venv/bin/python lab.py workbench workspace report /tmp/revenue-workspace
+```
+
+Workspace, analiz edilen özgün baytların SHA-256 kimliğini ve değişmez içerik
+adresli bir kopyasını saklar. Aynı baytlar tekrar geldiğinde yeni sürüm yaratmaz;
+yeni gözlenen dosya yolu aynı exact version'a bağlanır. Farklı baytlar için sayfa
+yapısı, dolu hücre sayıları, ortak formül metinleri ve mevcut same-layout / kayıt
+eşleme motorları kullanılarak açıklanabilir adaylar oluşturulur. Dosya adı yalnız
+açıklayıcı bağlamdır ve tek başına aday yaratmaz.
+
+`index.html` aday kimliğini, iki version kimliğini ve neden önerildiğini gösterir.
+İlişki otomatik kurulmaz. Kullanıcı hangi sürümün önce olduğunu açıkça verir:
+
+```sh
+.venv/bin/python lab.py workbench workspace confirm /tmp/revenue-workspace \
+  cand_... --before ev_... --artifact-name "Revenue Schedule"
+
+.venv/bin/python lab.py workbench workspace reject /tmp/revenue-workspace cand_...
+```
+
+Onay, red, artifact üyeliği ve sürüm sırası `workspace.sqlite3` içinde kalır.
+Onaylanan çift için mevcut aynı-yerleşim karşılaştırması ve statik formül etkisi
+üretilir; kayıt eşleştirici taşınmış satır/sütunlar bulduysa ayrıca structural
+correspondence raporu oluşturulur. `--override-no-match`, yalnız kullanıcının
+dosyaların ilişkisini sistemden bağımsız bildiği durumda açık manuel bağ kurar.
+
+[Gerçek çok-dosyalı demo](examples/evidence-version-workspace/README.md), aynı
+klasörde iki resmi Ofgem sürümü, yeniden adlandırılmış dosya, exact duplicate ve
+alakasız SONI modelini kullanır. Muhtemel sürüm hiçbir zaman doğrulanmış provenance
+sayılmaz; statik downstream etki sayısal etki veya audit bulgusu değildir.
+
 ## 17 Eylül: aynı yerleşimde sürüm karşılaştırması
 
 `.venv/bin/python lab.py workbench analyze BEFORE.xlsx AFTER.xlsx --same-layout --output /tmp/version-report`

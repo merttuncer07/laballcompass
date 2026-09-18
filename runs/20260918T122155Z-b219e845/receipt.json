@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "run_id": "20260918T122155Z-b219e845",
+  "status": "PASS",
+  "started_at": "2026-09-18T12:21:55.994140+00:00",
+  "profile": "lab",
+  "source_root": "/Users/mertalituncer/Developer/lab/LAC_REPRO_R210",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "timeout_seconds": 180,
+  "targets": [
+    {
+      "id": "LAB_APPLICATION",
+      "cwd": "..",
+      "runner": "pytest",
+      "pattern": "tests",
+      "layer": "lab",
+      "status": "PASS",
+      "started_at": "2026-09-18T12:21:56.242665+00:00",
+      "command": [
+        "/Users/mertalituncer/Developer/lab/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Developer/lab/runs/20260918T122155Z-b219e845/000.xml",
+        "tests"
+      ],
+      "log": "000.log",
+      "result_file": "000.xml",
+      "exit_code": 0,
+      "seconds": 5.501,
+      "counts": {
+        "tests": 190,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 190
+      },
+      "finished_at": "2026-09-18T12:22:01.744985+00:00"
+    }
+  ],
+  "results_scope": "software_reproduction_only",
+  "input_manifest_sha256": "872fee3b82d9d6e4d38af451bcd720e67f25029d9e798c6daa979ca1404f34e9",
+  "source_snapshot_scope": "Python source only; input data, installed packages and external services are not certified by these hashes. Never use this alone to skip tests.",
+  "source_snapshot_sha256": "0e4bf8f238e3059092a9138f0241f56575a24ba95591f6cb82392d2c93531e39",
+  "runner_sha256": "61a091bded37f9a6cbfd802ccd2c175e1bbdc20c4f8d15f4ad70a40279557d0c",
+  "worker_sha256": "4ef857ee58afd19ee9101a442f548cf09c4070fa912d146ce91399a64ea01cb8",
+  "integrity": {
+    "status": "NOT_REQUESTED",
+    "scope": "Working source is hashed above; the historical package manifest is not a gate for development."
+  },
+  "updated_at": "2026-09-18T12:22:01.745572+00:00",
+  "finished_at": "2026-09-18T12:22:01.745562+00:00",
+  "counts": {
+    "tests": 190,
+    "passed": 190,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

@@ -108,8 +108,33 @@ def main(argv=None):
     demo = sub.add_parser('demo'); demo.add_argument('--output')
     analyze = sub.add_parser('analyze'); analyze.add_argument('workbooks', nargs='+', help='Workbook files or folders of .xlsx/.xlsm files'); analyze.add_argument('--output'); analyze.add_argument('--same-layout', action='store_true', help='Compare exactly two workbooks cell-by-cell at identical sheet names and coordinates')
     inspect = sub.add_parser('inspect'); inspect.add_argument('problem_json'); inspect.add_argument('--output')
+    workspace = sub.add_parser('workspace', help='Persistent local evidence-version workspace')
+    workspace_sub = workspace.add_subparsers(dest='workspace_command', required=True)
+    workspace_create = workspace_sub.add_parser('create'); workspace_create.add_argument('path'); workspace_create.add_argument('--name')
+    workspace_import = workspace_sub.add_parser('import'); workspace_import.add_argument('path'); workspace_import.add_argument('folder')
+    workspace_confirm = workspace_sub.add_parser('confirm'); workspace_confirm.add_argument('path'); workspace_confirm.add_argument('candidate_id'); workspace_confirm.add_argument('--before', required=True); workspace_confirm.add_argument('--artifact-name'); workspace_confirm.add_argument('--artifact-id'); workspace_confirm.add_argument('--override-no-match', action='store_true')
+    workspace_reject = workspace_sub.add_parser('reject'); workspace_reject.add_argument('path'); workspace_reject.add_argument('candidate_id')
+    workspace_report = workspace_sub.add_parser('report'); workspace_report.add_argument('path'); workspace_report.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
     try:
+        if args.command == 'workspace':
+            from .evidence_workspace import (create_workspace, import_folder, confirm_candidate,
+                                             reject_candidate, workspace_state)
+            from .workspace_report import write_workspace_report
+            if args.workspace_command == 'create': result = create_workspace(args.path, args.name)
+            elif args.workspace_command == 'import': result = import_folder(args.path, args.folder)
+            elif args.workspace_command == 'confirm':
+                result = confirm_candidate(args.path, args.candidate_id, args.before,
+                                           args.artifact_name, args.artifact_id,
+                                           args.override_no_match)
+            elif args.workspace_command == 'reject': result = reject_candidate(args.path, args.candidate_id)
+            elif args.json:
+                print(json.dumps(workspace_state(args.path), indent=2, ensure_ascii=False))
+                return 0
+            else:
+                result = {'report': str(write_workspace_report(args.path))}
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+            return 0
         if args.command == 'benchmark':
             folder, report = run_benchmark(args.repeats)
             write_benchmark_report(report, folder / 'index.html')
