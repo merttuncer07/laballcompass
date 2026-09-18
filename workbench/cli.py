@@ -114,12 +114,20 @@ def main(argv=None):
     workspace_import = workspace_sub.add_parser('import'); workspace_import.add_argument('path'); workspace_import.add_argument('folder')
     workspace_confirm = workspace_sub.add_parser('confirm'); workspace_confirm.add_argument('path'); workspace_confirm.add_argument('candidate_id'); workspace_confirm.add_argument('--before', required=True); workspace_confirm.add_argument('--artifact-name'); workspace_confirm.add_argument('--artifact-id'); workspace_confirm.add_argument('--override-no-match', action='store_true')
     workspace_reject = workspace_sub.add_parser('reject'); workspace_reject.add_argument('path'); workspace_reject.add_argument('candidate_id')
+    workspace_withdraw = workspace_sub.add_parser('withdraw'); workspace_withdraw.add_argument('path'); workspace_withdraw.add_argument('relationship_id'); workspace_withdraw.add_argument('--reason', required=True)
+    workspace_reassign = workspace_sub.add_parser('reassign'); workspace_reassign.add_argument('path'); workspace_reassign.add_argument('version_id'); workspace_reassign.add_argument('--artifact-id'); workspace_reassign.add_argument('--artifact-name'); workspace_reassign.add_argument('--reason', required=True)
+    workspace_order = workspace_sub.add_parser('correct-order'); workspace_order.add_argument('path'); workspace_order.add_argument('relationship_id'); workspace_order.add_argument('--before', required=True); workspace_order.add_argument('--reason', required=True)
+    workspace_rename = workspace_sub.add_parser('rename-artifact'); workspace_rename.add_argument('path'); workspace_rename.add_argument('artifact_id'); workspace_rename.add_argument('name'); workspace_rename.add_argument('--reason', required=True)
+    workspace_version = workspace_sub.add_parser('create-version'); workspace_version.add_argument('path'); workspace_version.add_argument('blob_id'); workspace_version.add_argument('--artifact-id'); workspace_version.add_argument('--artifact-name'); workspace_version.add_argument('--reason', default='Explicit logical version creation')
     workspace_report = workspace_sub.add_parser('report'); workspace_report.add_argument('path'); workspace_report.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
     try:
         if args.command == 'workspace':
             from .evidence_workspace import (create_workspace, import_folder, confirm_candidate,
-                                             reject_candidate, workspace_state)
+                                             reject_candidate, workspace_state,
+                                             withdraw_relationship, reassign_version,
+                                             correct_order, rename_artifact,
+                                             create_logical_version)
             from .workspace_report import write_workspace_report
             if args.workspace_command == 'create': result = create_workspace(args.path, args.name)
             elif args.workspace_command == 'import': result = import_folder(args.path, args.folder)
@@ -128,6 +136,11 @@ def main(argv=None):
                                            args.artifact_name, args.artifact_id,
                                            args.override_no_match)
             elif args.workspace_command == 'reject': result = reject_candidate(args.path, args.candidate_id)
+            elif args.workspace_command == 'withdraw': result = withdraw_relationship(args.path, args.relationship_id, args.reason)
+            elif args.workspace_command == 'reassign': result = reassign_version(args.path, args.version_id, artifact_id=args.artifact_id, artifact_name=args.artifact_name, reason=args.reason)
+            elif args.workspace_command == 'correct-order': result = correct_order(args.path, args.relationship_id, args.before, args.reason)
+            elif args.workspace_command == 'rename-artifact': result = rename_artifact(args.path, args.artifact_id, args.name, args.reason)
+            elif args.workspace_command == 'create-version': result = create_logical_version(args.path, args.blob_id, artifact_id=args.artifact_id, artifact_name=args.artifact_name, reason=args.reason)
             elif args.json:
                 print(json.dumps(workspace_state(args.path), indent=2, ensure_ascii=False))
                 return 0

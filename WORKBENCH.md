@@ -11,28 +11,46 @@ envantere almak için yerel workspace oluştur:
 .venv/bin/python lab.py workbench workspace report /tmp/revenue-workspace
 ```
 
-Workspace, analiz edilen özgün baytların SHA-256 kimliğini ve değişmez içerik
-adresli bir kopyasını saklar. Aynı baytlar tekrar geldiğinde yeni sürüm yaratmaz;
-yeni gözlenen dosya yolu aynı exact version'a bağlanır. Farklı baytlar için sayfa
+Workspace, analiz edilen özgün baytları SHA-256 ile kimliklenen bir `FileBlob`
+ve değişmez içerik adresli tek kopya olarak saklar. Her gözlenen yol/ad/zaman ayrı
+bir `FileOccurrence` kaydıdır. Import sırasında mantıksal sürüm yaratılmaz;
+aynı baytlar tekrar geldiğinde yeni blob oluşmaz ve yeni occurrence aynı blob'a
+bağlanır. Farklı baytlar için sayfa
 yapısı, dolu hücre sayıları, ortak formül metinleri ve mevcut same-layout / kayıt
 eşleme motorları kullanılarak açıklanabilir adaylar oluşturulur. Dosya adı yalnız
 açıklayıcı bağlamdır ve tek başına aday yaratmaz.
 
-`index.html` aday kimliğini, iki version kimliğini ve neden önerildiğini gösterir.
+`index.html` aday kimliğini, iki blob kimliğini ve neden önerildiğini gösterir.
 İlişki otomatik kurulmaz. Kullanıcı hangi sürümün önce olduğunu açıkça verir:
 
 ```sh
 .venv/bin/python lab.py workbench workspace confirm /tmp/revenue-workspace \
-  cand_... --before ev_... --artifact-name "Revenue Schedule"
+  cand_... --before blob_... --artifact-name "Revenue Schedule"
 
 .venv/bin/python lab.py workbench workspace reject /tmp/revenue-workspace cand_...
 ```
 
+Onay, seçilen tek `EvidenceArtifact` içinde her blob için birer `EvidenceVersion`
+yaratır. Bir EvidenceVersion yalnız bir artifact'a aittir; aynı blob, kullanıcı
+açıkça isterse başka artifact'taki ayrı bir EvidenceVersion'ı da destekleyebilir.
 Onay, red, artifact üyeliği ve sürüm sırası `workspace.sqlite3` içinde kalır.
 Onaylanan çift için mevcut aynı-yerleşim karşılaştırması ve statik formül etkisi
 üretilir; kayıt eşleştirici taşınmış satır/sütunlar bulduysa ayrıca structural
 correspondence raporu oluşturulur. `--override-no-match`, yalnız kullanıcının
 dosyaların ilişkisini sistemden bağımsız bildiği durumda açık manuel bağ kurar.
+
+Hatalı kullanıcı kararları geçmişi silmeden düzeltilebilir. Her düzeltme gerekçe
+ister; eski ilişki ve karşılaştırma kaydı korunur:
+
+```sh
+.venv/bin/python lab.py workbench workspace withdraw /tmp/revenue-workspace rel_... --reason "Yanlış eşleştirme"
+.venv/bin/python lab.py workbench workspace correct-order /tmp/revenue-workspace rel_... --before ev_... --reason "Sıra ters girildi"
+.venv/bin/python lab.py workbench workspace reassign /tmp/revenue-workspace ev_... --artifact-name "Tax Schedule" --reason "Yanlış artifact"
+.venv/bin/python lab.py workbench workspace rename-artifact /tmp/revenue-workspace art_... "Revenue Schedule" --reason "Ad düzeltmesi"
+```
+
+Schema v1 workspace'leri ilk açılışta v2'ye taşınır. Eski artifact/version
+kimlikleri, onaylanan sıra, karşılaştırma yolları ve karar kayıtları korunur.
 
 [Gerçek çok-dosyalı demo](examples/evidence-version-workspace/README.md), aynı
 klasörde iki resmi Ofgem sürümü, yeniden adlandırılmış dosya, exact duplicate ve

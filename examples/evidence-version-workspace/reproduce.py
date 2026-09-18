@@ -49,12 +49,12 @@ def main(argv=None):
     create_workspace(workspace, "Evidence Version Intelligence demo")
     imported = import_folder(workspace, incoming)
     state = workspace_state(workspace)
-    before_id = next(version["id"] for version in state["versions"]
-                     if version["sha256"] == preserved["before"]["sha256"])
-    after_id = next(version["id"] for version in state["versions"]
-                    if version["sha256"] == preserved["after"]["sha256"])
+    before_id = next(blob["id"] for blob in state["file_blobs"]
+                     if blob["sha256"] == preserved["before"]["sha256"])
+    after_id = next(blob["id"] for blob in state["file_blobs"]
+                    if blob["sha256"] == preserved["after"]["sha256"])
     candidate = next(candidate for candidate in state["candidates"]
-                     if {candidate["left_version_id"], candidate["right_version_id"]} == {before_id, after_id})
+                     if {candidate["left_blob_id"], candidate["right_blob_id"]} == {before_id, after_id})
     if candidate["classification"] != "likely_revision" or candidate["status"] != "pending":
         raise RuntimeError("The genuine Ofgem versions were not proposed for confirmation")
     confirmed = confirm_candidate(
@@ -84,7 +84,7 @@ def main(argv=None):
             raise RuntimeError(f"Ofgem count changed for {key}: {value} != {expected[key]}")
     final_state = workspace_state(workspace)
     result = {
-        "schema_version": 1,
+        "schema_version": final_state["schema_version"],
         "import": imported,
         "ofgem_candidate": candidate,
         "confirmation": confirmed,

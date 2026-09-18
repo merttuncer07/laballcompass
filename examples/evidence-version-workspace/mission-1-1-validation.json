@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "validated_at": "2026-09-18",
+  "fresh_v2_real_file_run": {
+    "command": ".venv/bin/python examples/evidence-version-workspace/reproduce.py --output /tmp/evidence-version-demo-mission11-final-20260918",
+    "input_files": 4,
+    "file_blobs": 3,
+    "exact_duplicate_occurrences": 1,
+    "likely_revision_candidates": 1,
+    "no_confident_match_assessments": 2,
+    "candidate_id": "cand_0d0e22177613ce630a63",
+    "before_blob_id": "blob_794fde9ebae9c407f1ae",
+    "after_blob_id": "blob_15f34eea70e6bb9e5ba8",
+    "comparison_counts": {
+      "same_value": 37588,
+      "same_formula": 20869,
+      "changed_value": 4054,
+      "changed_formula": 0,
+      "added": 87,
+      "removed": 60,
+      "uncompared": 0,
+      "unique_potential_downstream_targets": 416,
+      "changed_blocks_with_impacts": 16
+    },
+    "preserved_counts_match": true,
+    "original_files_unchanged": true
+  },
+  "real_mission_1_workspace_migration": {
+    "source": "copy of the completed Mission #1 Ofgem demonstration workspace",
+    "schema_after_open": 2,
+    "file_blobs": 3,
+    "evidence_version_ids_preserved": [
+      "ev_794fde9ebae9c407f1ae",
+      "ev_15f34eea70e6bb9e5ba8"
+    ],
+    "artifact_id_preserved": "art_13944ad7c4544e879301",
+    "artifact_name_preserved": "Ofgem ED2 Price Control Financial Model",
+    "version_order_preserved": [
+      "ev_794fde9ebae9c407f1ae",
+      "ev_15f34eea70e6bb9e5ba8"
+    ],
+    "relationship_id_preserved": "rel_ccea3830bd0845d0b23e",
+    "relationship_status": "active",
+    "comparison_path_preserved": "comparisons/rel_ccea3830bd0845d0b23e/exact/index.html",
+    "decision_event_migrated": "candidate_confirmed",
+    "foreign_key_violations": 0
+  },
+  "scope": "Engineering validation with genuine public Ofgem and SONI files; it is not audit-field validation.",
+  "test_suite": {
+    "command": ".venv/bin/python -m pytest -q -p no:cacheprovider tests",
+    "pytest_tests_passed": 193,
+    "unittest_subtests_passed": 21,
+    "warnings": 2
+  },
+  "lab_receipt": "runs/20260918T125339Z-a0dabed8/receipt.json"
+}

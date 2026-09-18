@@ -8,10 +8,17 @@ It assembles, without modifying the originals:
 - an exact byte copy of the 2025 file under another filename; and
 - the unrelated genuine SONI financial model.
 
-The import should produce three exact evidence versions, identify one duplicate
-occurrence, propose the two Ofgem versions for confirmation, and leave both
+The import should produce three content-addressed `FileBlob` records, identify
+one duplicate `FileOccurrence`, propose the two Ofgem blobs for confirmation,
+and leave both
 Ofgem/SONI pairings as no-confident-match assessments. Filename similarity is
 reported only as context and is not a candidate rule.
+
+Import does not silently create logical evidence versions. Confirmation creates
+two `EvidenceVersion` records inside one `EvidenceArtifact`; each version belongs
+to exactly that artifact and points to its immutable blob. The same blob may back
+a separately and explicitly created version in another artifact without copying
+the stored bytes.
 
 Run from the repository root with a new output directory:
 
@@ -24,8 +31,14 @@ The script explicitly performs the human confirmation step on behalf of the
 reproduction and supplies the 2025 version as `before`. It then generates the
 confirmed comparison through the ordinary workbench engine and checks the
 preserved Ofgem counts. Open `workspace/index.html` to inspect the artifact
-history and comparison link. `result.json` records the observed IDs, hashes,
+history, blob occurrences and comparison link. `result.json` records the observed IDs, hashes,
 candidate explanation, comparison counts and original-file immutability check.
+
+Confirmed decisions are correctable without erasing history. The workspace CLI
+supports `withdraw`, `reassign`, `correct-order`, and `rename-artifact`; every
+correction requires a reason and appends a durable decision-history event. Old
+relationships and comparison runs remain present with withdrawn or superseded
+status.
 
 The concise result preserved in this directory records the verified 18 September
 2026 run. The reproduction writes its full run-specific result into the requested

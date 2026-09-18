@@ -1,10 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "observed_at": "2026-09-18",
-  "command": ".venv/bin/python examples/evidence-version-workspace/reproduce.py --output /tmp/evidence-version-demo-mission1-20260918",
+  "command": ".venv/bin/python examples/evidence-version-workspace/reproduce.py --output /tmp/evidence-version-demo-mission11-final-20260918",
   "input_folder": {
     "files": 4,
-    "unique_exact_versions": 3,
+    "unique_file_blobs": 3,
     "exact_duplicate_occurrences": 1,
     "likely_revision_candidates": 1,
     "no_confident_match_assessments": 2,
@@ -16,11 +16,11 @@
     ]
   },
   "ofgem_versions": {
-    "before_version_id": "ev_794fde9ebae9c407f1ae",
+    "before_blob_id": "blob_794fde9ebae9c407f1ae",
     "before_sha256": "794fde9ebae9c407f1ae1378e269cee81b441ea05bc92cdfada8fbb788e8aba5",
-    "after_version_id": "ev_15f34eea70e6bb9e5ba8",
+    "after_blob_id": "blob_15f34eea70e6bb9e5ba8",
     "after_sha256": "15f34eea70e6bb9e5ba873a546d4131a412072a6a46651509022518f2549e335",
-    "candidate_id": "cand_3738608fee2db17ab25d",
+    "candidate_id": "cand_0d0e22177613ce630a63",
     "classification": "likely_revision",
     "explanation": {
       "sheet_name_overlap": 1.0,
@@ -30,10 +30,7 @@
       "unchanged_values_or_formulas": 58457,
       "compared_positions": 62658
     },
-    "confirmed_order": [
-      "ev_794fde9ebae9c407f1ae",
-      "ev_15f34eea70e6bb9e5ba8"
-    ]
+    "confirmed_order": "Confirmation creates run-specific logical EvidenceVersion IDs in one artifact; ordering is before_blob -> after_blob."
   },
   "comparison": {
     "same_value": 37588,
@@ -51,6 +48,15 @@
     "original_source_files_unchanged": true,
     "workspace_reopened_in_a_separate_process": true,
     "confirmed_order_survived_reopen": true
+  },
+  "identity_checks": {
+    "import_created_logical_versions": false,
+    "same_bytes_share_one_blob": true,
+    "separate_occurrences_preserved": true,
+    "version_has_exactly_one_artifact": true,
+    "same_blob_can_back_explicit_versions_in_distinct_artifacts": true,
+    "corrections_append_history_without_deleting_prior_relationships": true,
+    "mission_1_schema_migration_tested": true
   },
   "scope": "Software and genuine-file validation. Candidate generation does not establish provenance. Static downstream impact does not establish numeric effect or audit misstatement."
 }
