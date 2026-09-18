@@ -45,6 +45,11 @@ def save_workbook_analysis(paths, directory=None, same_layout=False, preserve_or
                 content['lineage_view_available'] = True
         except (LineageUnavailable, ValueError) as error:
             problem = None
+            content['external_dependencies'] = getattr(
+                error, 'external_dependencies', {
+                    'parser_available': False, 'references': [],
+                    'limitations': [str(error)],
+                })
             content['lineage_view_available'] = False
             content['lineage_unavailable_reason'] = str(error)
     folder = Path(directory) if directory is not None else new_run('workbooks')
@@ -53,6 +58,10 @@ def save_workbook_analysis(paths, directory=None, same_layout=False, preserve_or
     folder.mkdir(parents=True, exist_ok=True)
     content['lineage_available'] = problem is not None
     if problem is not None:
+        content['external_dependencies'] = problem.metadata.get(
+            'external_dependencies', {
+                'parser_available': True, 'references': [], 'limitations': [],
+            })
         unresolved_nodes = {row['cell'] for row in problem.metadata.get('unresolved', [])}
         content['dependency_coverage'] = {
             'lineage_available': True,

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-09-19",
+  "ofgem": {
+    "raw_change_count": 4201,
+    "triage_group_count": 362,
+    "resolved_impact_group_count": 83,
+    "workbook_structure": {
+      "sheets_added": [],
+      "sheets_removed": [],
+      "likely_sheet_renames": [],
+      "rename_candidates_withheld": [],
+      "correspondence_available": false,
+      "interpretation": "Structural correspondence was not available; rename identity was not inferred."
+    },
+    "record_correspondence_available": false,
+    "formula_structure": {
+      "formula_logic_changes": {
+        "group_count": 0,
+        "changed_cell_count": 0,
+        "triage_group_ids": []
+      },
+      "formula_to_literal": {
+        "group_count": 0,
+        "changed_cell_count": 0,
+        "triage_group_ids": []
+      },
+      "literal_to_formula": {
+        "group_count": 0,
+        "changed_cell_count": 0,
+        "triage_group_ids": []
+      },
+      "formulas_introduced": {
+        "group_count": 0,
+        "changed_cell_count": 0,
+        "triage_group_ids": []
+      },
+      "formulas_removed": {
+        "group_count": 0,
+        "changed_cell_count": 0,
+        "triage_group_ids": []
+      }
+    },
+    "external_dependencies": {
+      "parser_available": false,
+      "before_references": [],
+      "after_references": [],
+      "introduced": [],
+      "removed": [],
+      "resolved_against_supplied_evidence": [],
+      "unresolved_or_missing": [],
+      "identity_ambiguous": [],
+      "limitations": [
+        "External-reference observations were unavailable from the existing parser output."
+      ]
+    },
+    "analysis_coverage": {
+      "lineage_available": true,
+      "formula_count": 41738,
+      "resolved_formula_count": 4742,
+      "unresolved_formula_count": 36996
+    },
+    "desktop_snapshot_visible": true
+  },
+  "changed_since_use_v1_to_v3": {
+    "comparison": "v1→v3",
+    "snapshot_method": "structural_drift_snapshot_v1",
+    "before_version_id_matches_checkpoint": true,
+    "after_version_id_matches_latest": true
+  },
+  "performance": {
+    "existing_ofgem_backfill_seconds": 0.131962,
+    "snapshot_build_seconds_median": 3.4e-05,
+    "snapshot_build_seconds_runs": [
+      5.4e-05,
+      3.7e-05,
+      3.7e-05,
+      3.5e-05,
+      3.4e-05,
+      3.4e-05,
+      3.4e-05,
+      3.5e-05,
+      3.4e-05,
+      3.4e-05,
+      3.4e-05
+    ],
+    "note": "Snapshot timing reads already-derived exact and triage objects; workbook parsing and Revision Triage are excluded."
+  },
+  "preserved_metrics_match_mission_2": true,
+  "test_suite": {
+    "pytest_tests_passed": 215,
+    "unittest_subtests_passed": 21,
+    "warnings": 2,
+    "lab_receipt": "runs/20260918T223644Z-2af5b83b/receipt.json"
+  }
+}

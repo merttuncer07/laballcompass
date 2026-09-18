@@ -1,5 +1,20 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## Structural Drift Snapshot
+
+Her confirmed revision ve changed-since-use karşılaştırması artık mevcut exact
+diff, record correspondence, Revision Triage ve formula-parser çıktılarından
+kompakt bir `structural-drift.json` üretir. Desktop bu özeti yüzlerce triage
+grubundan önce gösterir: eklenen/kaldırılan sheet'ler, yalnızca güçlü ve tekil
+correspondence varsa rename adayları, desteklenen record/column değişimleri,
+formula transition'ları, external workbook reference değişimleri ve dependency
+coverage.
+
+Structural correspondence veya external-reference parser gözlemi mevcut değilse
+arayüz sıfır değişim iddiası yerine analizin unavailable olduğunu söyler.
+Ambiguous mapping'ler rename olarak sunulmaz. Bu snapshot risk, materiality veya
+yeniden çalışma kararı üretmez.
+
 ## Evidence use baselines
 
 Bir `EvidenceVersion`, desktop ağacındaki context menu ile kullanım checkpoint'i

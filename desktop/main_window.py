@@ -79,6 +79,13 @@ class AuditMainWindow(QMainWindow):
         self.summary_label = QLabel("Select an adjacent confirmed revision pair.")
         self.summary_label.setWordWrap(True)
         layout.addWidget(self.summary_label)
+        self.drift_label = QLabel("Structural Drift: select a revision to summarize workbook structure.")
+        self.drift_label.setObjectName("structuralDriftSnapshot")
+        self.drift_label.setWordWrap(True)
+        self.drift_label.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.drift_label.setStyleSheet(
+            "QLabel { border: 1px solid palette(mid); padding: 8px; background: palette(base); }")
+        layout.addWidget(self.drift_label)
         controls = QHBoxLayout()
         controls.addWidget(QLabel("Type"))
         self.type_filter = QComboBox()
@@ -267,6 +274,7 @@ class AuditMainWindow(QMainWindow):
             self.summary_label.setText(
                 f'{checkpoint["purpose"]} references the latest confirmed version. '
                 "The checkpoint remains attached to its exact evidence bytes.")
+            self.drift_label.setText("Structural Drift: no newer confirmed version to compare.")
             self.group_table.setRowCount(0)
             return
         if checkpoint["change_state"] != "NEWER_VERSION_EXISTS":
@@ -275,6 +283,8 @@ class AuditMainWindow(QMainWindow):
             self.summary_label.setText(
                 "The confirmed version ordering is incomplete or ambiguous. "
                 "Correct the version relationship before comparing this checkpoint.")
+            self.drift_label.setText(
+                "Structural Drift: withheld because version ordering is unresolved.")
             self.group_table.setRowCount(0)
             return
         self.statusBar().showMessage("Comparing checkpoint version to current version…")
@@ -299,12 +309,61 @@ class AuditMainWindow(QMainWindow):
             f'({summary["compression_ratio"]:.2f}× compression). '
             f'Dependency resolution: {coverage.get("resolved_formula_count", 0):,} of '
             f'{coverage.get("formula_count", 0):,} formulas.')
+        self.drift_label.setText(self._drift_text(triage.get("structural_drift", {})))
         types = sorted({row["category"] for row in triage["groups"]})
         self.type_filter.blockSignals(True); self.type_filter.clear()
         self.type_filter.addItem("All change types", None)
         for value in types: self.type_filter.addItem(value.replace("_", " ").title(), value)
         self.type_filter.blockSignals(False)
         self._populate_groups()
+
+    @staticmethod
+    def _drift_text(drift):
+        if not drift:
+            return "Structural Drift: snapshot unavailable for this comparison."
+        workbook = drift.get("workbook_structure", {})
+        records = drift.get("record_structure", {})
+        formulas = drift.get("formula_structure", {})
+        external = drift.get("external_dependencies", {})
+        coverage = drift.get("analysis_coverage", {})
+        formula_parts = []
+        for key, label in (("formula_logic_changes", "logic"),
+                           ("formula_to_literal", "formula→literal"),
+                           ("literal_to_formula", "literal→formula"),
+                           ("formulas_introduced", "introduced"),
+                           ("formulas_removed", "removed")):
+            count = formulas.get(key, {}).get("group_count", 0)
+            if count: formula_parts.append(f"{label} {count}")
+        region_count = len(records.get("regions", []))
+        matched = sum(row.get("matched_record_count", 0) for row in records.get("regions", []))
+        unresolved = coverage.get("unresolved_formula_count")
+        sheet_note = (f'likely renames {len(workbook.get("likely_sheet_renames", []))}; '
+                      f'withheld {len(workbook.get("rename_candidates_withheld", []))}'
+                      if workbook.get("correspondence_available") else
+                      "rename correspondence unavailable")
+        record_note = (
+            f'+{len(records.get("columns_added", []))} '
+            f'−{len(records.get("columns_removed", []))}; '
+            f'reordered {len(records.get("columns_reordered", []))}; '
+            f'likely renamed {len(records.get("likely_column_renames", []))}; '
+            f'{matched} matched records across {region_count} region(s)'
+            if records.get("correspondence_available") else
+            "record correspondence unavailable; column identity withheld")
+        external_note = (
+            f'introduced {len(external.get("introduced", []))}, '
+            f'removed {len(external.get("removed", []))}, '
+            f'unresolved/missing {len(external.get("unresolved_or_missing", []))}'
+            if external.get("parser_available") else
+            "parser observations unavailable for this comparison")
+        return "\n".join((
+            "Structural Drift",
+            f'Sheets: +{len(workbook.get("sheets_added", []))} '
+            f'−{len(workbook.get("sheets_removed", []))}; {sheet_note}.',
+            f'Columns/records: {record_note}.',
+            "Formula structure: " + (", ".join(formula_parts) or "no structural formula group observed") + ".",
+            f'External references: {external_note}. '
+            f'Dependency coverage: {unresolved if unresolved is not None else "unknown"} unresolved formulas.',
+        ))
 
     def _version_label(self, version_id):
         for artifact in self._snapshot["artifacts"]:

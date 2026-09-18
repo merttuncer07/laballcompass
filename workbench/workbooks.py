@@ -55,6 +55,66 @@ def analyze_workbooks(paths):
 class LineageUnavailable(ValueError):
     """Valid workbook input without a resolved formula graph."""
 
+    def __init__(self, message, *, external_dependencies=None):
+        super().__init__(message)
+        self.external_dependencies = external_dependencies or {
+            "parser_available": False, "references": [],
+            "limitations": ["Formula lineage was unavailable before external references could be summarized."],
+        }
+
+
+def _external_dependency_observations(paths, linked_workbooks, issues):
+    """Expose conservative observations already produced by the formula parser."""
+    references = []
+    for link in linked_workbooks.values():
+        locator = str(link["declared_locator"])
+        filename = unquote(urlsplit(locator.replace('\\', '/')).path).rstrip('/').rsplit('/', 1)[-1]
+        references.append({
+            "from_workbook": link["from_workbook"],
+            "formula_cell": None,
+            "reference": filename or locator,
+            "declared_locator": locator,
+            "status": "resolved_against_supplied_evidence",
+            "matched_workbook": link["matched_workbook"],
+            "identity_basis": "Unique supplied filename match",
+        })
+    prefixes = (
+        "External workbook not supplied: ",
+        "Unresolved external workbook index: ",
+        "Unsupported external workbook reference: ",
+    )
+    multiple = len(paths) > 1
+    for cell, reasons in sorted(issues.items()):
+        from_workbook = cell.split("::", 1)[0] if multiple and "::" in cell else paths[0].name
+        for reason in reasons:
+            prefix = next((value for value in prefixes if reason.startswith(value)), None)
+            if prefix is None:
+                continue
+            reference = reason[len(prefix):]
+            known_identity = prefix == "External workbook not supplied: "
+            references.append({
+                "from_workbook": from_workbook,
+                "formula_cell": cell,
+                "reference": reference,
+                "declared_locator": None,
+                "status": "unresolved_or_missing",
+                "matched_workbook": None,
+                "identity_basis": ("Filename parsed from static formula reference" if known_identity
+                                   else "Before/after identity cannot be established safely"),
+            })
+    unique = {}
+    for row in references:
+        key = (row["from_workbook"], row["formula_cell"], row["reference"], row["status"])
+        unique[key] = row
+    return {
+        "parser_available": True,
+        "references": [unique[key] for key in sorted(unique)],
+        "limitations": [
+            "Only static external references observed by the existing formula parser are included.",
+            "A filename match does not establish workbook version or authenticity.",
+        ],
+    }
+
 
 @contextmanager
 def open_workbooks(paths, *, preserve_order=False):
@@ -277,8 +337,12 @@ def _analyze_loaded(paths, books):
     roots = {ref for node in safe for ref in dependencies[node] if ref not in formulas}
     if len(roots) + len(safe) > LINEAGE_NODES:
         raise ValueError(f'Expanded lineage exceeds {LINEAGE_NODES:,} nodes')
+    external_dependencies = _external_dependency_observations(paths, linked_workbooks, issues)
     if not safe:
-        raise LineageUnavailable('No formula has a fully resolved static reference graph. ' + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]))
+        raise LineageUnavailable(
+            'No formula has a fully resolved static reference graph. '
+            + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]),
+            external_dependencies=external_dependencies)
     used = {ref for node in safe for ref in dependencies[node] if ref in safe}
     targets = tuple(sorted(safe - used))
     # A bit identifies a root once; descendant sets share compact immutable integers.
@@ -310,6 +374,7 @@ def _analyze_loaded(paths, books):
     metadata = {'title': f'{len(paths)} workbooks: ' + ', '.join(p.name for p in paths) if multiple else paths[0].name,
                 'input_sha256': digest, 'input_files': input_files,
                 'linked_workbooks': list(linked_workbooks.values()),
+                'external_dependencies': external_dependencies,
                 'structured_references': list(table_links.values()),
                 'function_range_adjustments': function_range_adjustments,
                 'origin': 'Workbook formulas parsed automatically; workbook values were not recalculated.',

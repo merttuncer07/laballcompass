@@ -1,6 +1,6 @@
 import importlib
 
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QLabel
 
 from desktop.app import build_application
 
@@ -28,4 +28,5 @@ def test_application_starts_headlessly_without_workspace(monkeypatch):
     assert isinstance(application, QApplication)
     assert window.centralWidget().count() == 3
     assert window.windowTitle() == "Audit Evidence Workspace"
+    assert window.findChild(QLabel, "structuralDriftSnapshot") is not None
     window.close()

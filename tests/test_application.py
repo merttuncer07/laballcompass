@@ -67,6 +67,7 @@ def test_confirmed_history_and_triage_are_available_through_service(tmp_path):
     triage = application.get_revision_triage(relationship_id)
     assert triage["summary"]["triage_group_count"] >= 1
     assert "dependency_coverage" in triage
+    assert triage["structural_drift"]["method"] == "structural_drift_snapshot_v1"
     assert "formula_to_literal" in {row["category"] for row in triage["groups"]}
     group = application.get_triage_group(relationship_id, triage["groups"][0]["id"])
     assert group["id"] == triage["groups"][0]["id"]
@@ -166,6 +167,9 @@ def test_v1_checkpoint_compares_directly_to_v3_and_preserves_partial_coverage(tm
     assert result["triage"]["comparison"]["before_version_id"] == first_version["id"]
     assert result["triage"]["comparison"]["after_version_id"] == result["latest_version_id"]
     assert result["triage"]["summary"]["triage_group_count"] >= 1
+    assert result["triage"]["structural_drift"]["method"] == "structural_drift_snapshot_v1"
+    assert (result["triage"]["structural_drift"]["analysis_coverage"]
+            == result["triage"]["dependency_coverage"])
     assert "analysis_partial" in result
     cached = EvidenceApplication(tmp_path / "workspace").get_changed_since_use(
         checkpoint["checkpoint_id"])

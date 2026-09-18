@@ -477,11 +477,23 @@ def _comparison_inputs(root, connection, before_id, after_id, temporary):
     return paths
 
 
+def _write_structural_drift_folder(folder):
+    from .structural_drift import write_structural_drift
+    folder = Path(folder)
+    structural = folder / "structural" / "content.json"
+    return write_structural_drift(
+        folder / "exact" / "content.json", folder / "triage" / "triage.json",
+        folder / "structural-drift.json", structural if structural.is_file() else None)
+
+
 def _ensure_comparison(root, connection, relationship_id):
     existing = connection.execute(
         "SELECT report_path FROM comparison_runs WHERE relationship_id = ?", (relationship_id,)).fetchone()
     triage_report = root / "comparisons" / relationship_id / "triage" / "index.html"
+    drift_report = root / "comparisons" / relationship_id / "structural-drift.json"
     if existing and (root / existing["report_path"]).is_file() and triage_report.is_file():
+        if not drift_report.is_file():
+            _write_structural_drift_folder(drift_report.parent)
         return root / existing["report_path"]
     relationship = connection.execute(
         "SELECT before_version_id, after_version_id, candidate_id FROM version_relationships WHERE id = ?",
@@ -513,6 +525,7 @@ def _ensure_comparison(root, connection, relationship_id):
                 temporary_report / "triage",
                 structural_content if structural_content.is_file() else None,
             )
+            _write_structural_drift_folder(temporary_report)
         if final.exists():
             shutil.rmtree(final)
         temporary_report.replace(final)
@@ -556,6 +569,9 @@ def _ensure_version_comparison(root, connection, artifact_id, before_version_id,
     if existing:
         triage = root / Path(existing["report_path"]).parents[1] / "triage" / "triage.json"
         if triage.is_file():
+            drift = triage.parents[1] / "structural-drift.json"
+            if not drift.is_file():
+                _write_structural_drift_folder(drift.parent)
             return dict(existing)
 
     adjacent = connection.execute(
@@ -598,6 +614,7 @@ def _ensure_version_comparison(root, connection, artifact_id, before_version_id,
                     temporary_report / "triage",
                     structural_content if structural_content.is_file() else None,
                 )
+                _write_structural_drift_folder(temporary_report)
             if final.exists():
                 shutil.rmtree(final)
             temporary_report.replace(final)
@@ -636,7 +653,26 @@ def ensure_version_comparison(workspace, artifact_id, before_version_id, after_v
             root, connection, artifact_id, before_version_id, after_version_id)
     triage_path = root / Path(comparison["report_path"]).parents[1] / "triage" / "triage.json"
     result = json.loads(triage_path.read_text(encoding="utf-8"))
+    drift_path = triage_path.parents[1] / "structural-drift.json"
+    result["structural_drift"] = json.loads(drift_path.read_text(encoding="utf-8"))
     result["comparison"] = comparison
+    return result
+
+
+def get_relationship_triage(workspace, relationship_id):
+    root = _workspace_path(workspace)
+    with _connect(root) as connection:
+        relationship = connection.execute(
+            "SELECT * FROM version_relationships WHERE id = ?", (relationship_id,)).fetchone()
+        if relationship is None or relationship["status"] != "active":
+            raise ValueError("Revision triage is available only for an active relationship")
+        report = _ensure_comparison(root, connection, relationship_id)
+        relationship = dict(relationship)
+    folder = report.parents[1]
+    result = json.loads((folder / "triage" / "triage.json").read_text(encoding="utf-8"))
+    result["structural_drift"] = json.loads(
+        (folder / "structural-drift.json").read_text(encoding="utf-8"))
+    result["relationship"] = relationship
     return result
 
 

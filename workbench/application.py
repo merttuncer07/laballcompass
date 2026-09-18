@@ -6,7 +6,6 @@ modules.
 """
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 from .evidence_workspace import (
@@ -16,6 +15,7 @@ from .evidence_workspace import (
     create_workspace as _create_workspace,
     import_folder as _import_folder,
     ensure_version_comparison as _ensure_version_comparison,
+    get_relationship_triage as _get_relationship_triage,
     reassign_version as _reassign_version,
     reject_candidate as _reject_candidate,
     rename_artifact as _rename_artifact,
@@ -134,23 +134,7 @@ class EvidenceApplication:
         return {"operation": result, "workspace": self.snapshot()}
 
     def get_revision_triage(self, relationship_id):
-        snapshot = self.snapshot()
-        relationship = self._by_id(snapshot["relationships"], relationship_id, "relationship")
-        if relationship["status"] != "active":
-            raise ValueError("Revision triage is available only for an active relationship")
-        comparison = next(
-            (row for row in snapshot["comparisons"] if row["relationship_id"] == relationship_id),
-            None,
-        )
-        if comparison is None:
-            raise ValueError("This revision has no completed comparison")
-        triage_path = (self._require_workspace() / "comparisons" / relationship_id /
-                       "triage" / "triage.json")
-        if not triage_path.is_file():
-            raise ValueError("This revision has no completed triage")
-        result = json.loads(triage_path.read_text(encoding="utf-8"))
-        result["relationship"] = relationship
-        return result
+        return _get_relationship_triage(self._require_workspace(), relationship_id)
 
     def get_triage_group(self, relationship_id, group_id):
         triage = self.get_revision_triage(relationship_id)
