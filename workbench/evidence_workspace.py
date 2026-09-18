@@ -281,9 +281,13 @@ def import_folder(workspace, folder):
     before_hashes = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
     inventory = []
     new_blob_ids = []
-    with open_workbooks(paths) as (loaded_paths, books):
-        fingerprints = [_fingerprint(book) for book in books]
-        with _connect(root) as connection:
+    proposed = no_match = 0
+    # Blob identity, occurrences and candidate observations are one database
+    # operation. If parsing or candidate analysis fails, no partial import is
+    # committed; content-addressed object files are safe to reuse on retry.
+    with _connect(root) as connection:
+        with open_workbooks(paths) as (loaded_paths, books):
+            fingerprints = [_fingerprint(book) for book in books]
             for path, book, fingerprint in zip(loaded_paths, books, fingerprints):
                 sha256 = book._lab_input_sha256
                 existing = connection.execute(
@@ -321,8 +325,6 @@ def import_folder(workspace, folder):
                         (bid, str(path), path.name, timestamp, timestamp))
                 inventory.append({"path": str(path), "name": path.name, "blob_id": bid,
                                   "sha256": sha256, "classification": classification})
-    proposed = no_match = 0
-    with _connect(root) as connection:
         rows = connection.execute(
             "SELECT id, object_path, sha256, extension, fingerprint_json FROM file_blobs ORDER BY first_seen_at, id").fetchall()
         by_id = {row["id"]: row for row in rows}
@@ -348,9 +350,9 @@ def import_folder(workspace, folder):
                  status, _json(evidence), _now()))
             proposed += int(classification == "likely_revision")
             no_match += int(classification == "no_confident_match")
-    after_hashes = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
-    if before_hashes != after_hashes:
-        raise RuntimeError("An original evidence file changed during import")
+        after_hashes = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
+        if before_hashes != after_hashes:
+            raise RuntimeError("An original evidence file changed during import")
     from .workspace_report import write_workspace_report
     report = write_workspace_report(root)
     return {"workspace": str(root), "files": inventory, "new_blobs": len(new_blob_ids),

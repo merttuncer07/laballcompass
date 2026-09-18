@@ -1,6 +1,6 @@
 import importlib
 
-from PySide6.QtWidgets import QApplication, QLabel
+from PySide6.QtWidgets import QApplication, QLabel, QProgressBar
 
 from desktop.app import build_application
 
@@ -29,4 +29,7 @@ def test_application_starts_headlessly_without_workspace(monkeypatch):
     assert window.centralWidget().count() == 3
     assert window.windowTitle() == "Audit Evidence Workspace"
     assert window.findChild(QLabel, "structuralDriftSnapshot") is not None
+    progress = window.findChild(QProgressBar, "backgroundJobProgress")
+    assert progress is not None
+    assert (progress.minimum(), progress.maximum()) == (0, 0)
     window.close()

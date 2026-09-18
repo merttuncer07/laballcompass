@@ -1,5 +1,16 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## Responsive desktop operations
+
+The native Qt application runs imports, revision-candidate analysis, uncached
+revision triage and changed-since-use comparisons through a single-flight
+background worker. While exact progress is unavailable, the status bar shows
+an indeterminate progress indicator and the current operation. Conflicting
+workspace actions remain disabled until completion. Failures show a concise
+message and append the technical traceback to the platform application-data
+debug log. Cancellation is intentionally unavailable because workbook parsing
+does not yet expose a transaction-safe cooperative cancellation boundary.
+
 ## Structural Drift Snapshot
 
 Her confirmed revision ve changed-since-use karşılaştırması artık mevcut exact

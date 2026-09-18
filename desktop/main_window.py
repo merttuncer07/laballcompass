@@ -1,17 +1,18 @@
 from __future__ import annotations
 
-import json
+from pathlib import Path
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import QStandardPaths, Qt
 from PySide6.QtWidgets import (
     QAbstractItemView, QComboBox, QDialog, QDialogButtonBox, QFileDialog,
     QFormLayout, QHBoxLayout, QInputDialog, QLabel, QLineEdit, QMainWindow,
-    QMessageBox, QPushButton, QSplitter,
+    QMessageBox, QProgressBar, QPushButton, QSplitter,
     QPlainTextEdit, QTableWidget, QTableWidgetItem, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
     QWidget,
 )
 
 from workbench.application import EvidenceApplication
+from .background_jobs import BackgroundJobRunner
 
 
 ROLE_KIND = Qt.ItemDataRole.UserRole
@@ -19,13 +20,21 @@ ROLE_ID = Qt.ItemDataRole.UserRole + 1
 
 
 class AuditMainWindow(QMainWindow):
-    def __init__(self, application=None):
+    def __init__(self, application=None, debug_log_path=None):
         super().__init__()
         self.application = application or EvidenceApplication()
         self._snapshot = None
         self._triage = None
         self._relationship_id = None
         self._checkpoint_id = None
+        self._job_success = None
+        self._job_success_status = None
+        self._debug_log_path = Path(debug_log_path) if debug_log_path else None
+        self.jobs = BackgroundJobRunner(self)
+        self.jobs.started.connect(self._job_started)
+        self.jobs.succeeded.connect(self._job_succeeded)
+        self.jobs.failed.connect(self._job_failed)
+        self.jobs.finished.connect(self._job_finished)
         self.setWindowTitle("Audit Evidence Workspace")
         self.resize(1440, 850)
         self._build_ui()
@@ -35,11 +44,13 @@ class AuditMainWindow(QMainWindow):
     def _build_ui(self):
         toolbar = self.addToolBar("Workspace")
         toolbar.setMovable(False)
+        self._workspace_actions = []
         for text, callback in (("Create Workspace", self.create_workspace),
                                ("Open Workspace", self.open_workspace),
                                ("Import Folder", self.import_folder)):
             action = toolbar.addAction(text)
             action.triggered.connect(callback)
+            self._workspace_actions.append(action)
 
         splitter = QSplitter(Qt.Orientation.Horizontal)
         splitter.addWidget(self._left_pane())
@@ -47,6 +58,12 @@ class AuditMainWindow(QMainWindow):
         splitter.addWidget(self._right_pane())
         splitter.setSizes([380, 610, 450])
         self.setCentralWidget(splitter)
+        self.job_progress = QProgressBar()
+        self.job_progress.setObjectName("backgroundJobProgress")
+        self.job_progress.setRange(0, 0)
+        self.job_progress.setMaximumWidth(180)
+        self.job_progress.setVisible(False)
+        self.statusBar().addPermanentWidget(self.job_progress)
         self.statusBar().showMessage("Create or open an evidence workspace")
 
     def _left_pane(self):
@@ -157,7 +174,10 @@ class AuditMainWindow(QMainWindow):
             return self._error(ValueError("Create or open a workspace first"))
         path = QFileDialog.getExistingDirectory(self, "Import workbook folder")
         if path:
-            self._run(lambda: self.application.import_folder(path), busy="Analyzing evidence…")
+            self._run(
+                lambda: self.application.import_folder(path),
+                busy="Importing and analyzing evidence…",
+                success="Evidence import complete")
 
     def refresh(self):
         self._snapshot = self.application.snapshot()
@@ -251,15 +271,18 @@ class AuditMainWindow(QMainWindow):
             self._load_checkpoint(item_id)
 
     def _load_triage(self, relationship_id):
-        try:
-            self._triage = self.application.get_revision_triage(relationship_id)
-        except (ValueError, OSError, json.JSONDecodeError) as error:
-            return self._error(error)
-        self._relationship_id = relationship_id
-        relation = self._triage["relationship"]
-        self._checkpoint_id = None
-        self._present_triage(
-            self._triage, relation["before_version_id"], relation["after_version_id"])
+        def present(triage):
+            self._triage = triage
+            self._relationship_id = relationship_id
+            relation = triage["relationship"]
+            self._checkpoint_id = None
+            self._present_triage(
+                triage, relation["before_version_id"], relation["after_version_id"])
+
+        self._run(
+            lambda: self.application.get_revision_triage(relationship_id),
+            busy="Analyzing revision…", success="Revision analysis ready",
+            on_success=present, refresh=False)
 
     def _load_checkpoint(self, checkpoint_id):
         checkpoint = next(row for row in self._snapshot["use_checkpoints"]
@@ -287,16 +310,18 @@ class AuditMainWindow(QMainWindow):
                 "Structural Drift: withheld because version ordering is unresolved.")
             self.group_table.setRowCount(0)
             return
-        self.statusBar().showMessage("Comparing checkpoint version to current version…")
-        try:
-            result = self.application.get_changed_since_use(checkpoint_id)
-        except (ValueError, OSError, json.JSONDecodeError) as error:
-            return self._error(error)
-        self._triage = result["triage"]
-        self._relationship_id = None
-        self._present_triage(
-            self._triage, checkpoint["version_id"], checkpoint["latest_version_id"],
-            heading=f'Evidence changed since use · {checkpoint["purpose"]}')
+        def present(result):
+            self._triage = result["triage"]
+            self._relationship_id = None
+            self._present_triage(
+                self._triage, checkpoint["version_id"], checkpoint["latest_version_id"],
+                heading=f'Evidence changed since use · {checkpoint["purpose"]}')
+
+        self._run(
+            lambda: self.application.get_changed_since_use(checkpoint_id),
+            busy="Comparing checkpoint version to current version…",
+            success="Changed-since-use analysis ready", on_success=present,
+            refresh=False)
 
     def _present_triage(self, triage, before_version_id, after_version_id, heading=None):
         self.revision_title.setText(
@@ -453,7 +478,8 @@ class AuditMainWindow(QMainWindow):
         else:
             kwargs["artifact_id"] = next(row["id"] for row in self._snapshot["artifacts"] if row["name"] == choice)
         self._run(lambda: self.application.confirm_candidate(
-            candidate["id"], before_id, **kwargs), busy="Building revision triage…")
+            candidate["id"], before_id, **kwargs), busy="Building revision triage…",
+            success="Revision confirmed and triage ready")
 
     def reject_selected_candidate(self):
         item = self.evidence_tree.currentItem()
@@ -559,13 +585,73 @@ class AuditMainWindow(QMainWindow):
             self._run(lambda: self.application.reassign_version(
                 version_id, artifact_id=target, reason=reason))
 
-    def _run(self, operation, busy=None):
-        if busy: self.statusBar().showMessage(busy)
+    def _run(self, operation, busy=None, success=None, on_success=None, refresh=True):
+        if self.jobs.is_busy:
+            self.statusBar().showMessage("Another workspace operation is still running")
+            return False
+        self._job_success = on_success or (lambda _result: self.refresh() if refresh else None)
+        self._job_success_status = success or "Workspace updated"
+        return self.jobs.start(operation, busy or "Updating workspace…")
+
+    def _job_started(self, status):
+        for action in self._workspace_actions:
+            action.setEnabled(False)
+        self.evidence_tree.setEnabled(False)
+        self.confirm_button.setEnabled(False)
+        self.reject_button.setEnabled(False)
+        self.job_progress.setVisible(True)
+        self.statusBar().showMessage(status)
+
+    def _job_succeeded(self, result):
         try:
-            operation()
-            self.refresh()
-        except (ValueError, OSError, KeyError, json.JSONDecodeError) as error:
-            self._error(error)
+            if self._job_success:
+                self._job_success(result)
+        except Exception as error:
+            self._job_failed(str(error) or type(error).__name__, "UI result handling failed:\n" + repr(error))
+            return
+        self.statusBar().showMessage(self._job_success_status or "Workspace updated")
+
+    def _job_failed(self, summary, detail):
+        path = self._write_debug_detail(detail)
+        message = summary
+        if path:
+            message += f"\n\nTechnical details were saved to:\n{path}"
+        QMessageBox.critical(self, "Audit Evidence Workspace", message)
+        self.statusBar().showMessage(summary)
+
+    def _job_finished(self):
+        self._job_success = None
+        self._job_success_status = None
+        self.job_progress.setVisible(False)
+        for action in self._workspace_actions:
+            action.setEnabled(True)
+        self.evidence_tree.setEnabled(True)
+        item = self.evidence_tree.currentItem()
+        is_candidate = bool(item and item.data(0, ROLE_KIND) == "candidate")
+        self.confirm_button.setEnabled(is_candidate)
+        self.reject_button.setEnabled(is_candidate)
+
+    def _write_debug_detail(self, detail):
+        try:
+            path = self._debug_log_path
+            if path is None:
+                root = Path(QStandardPaths.writableLocation(
+                    QStandardPaths.StandardLocation.AppLocalDataLocation))
+                path = root / "desktop-debug.log"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with path.open("a", encoding="utf-8") as stream:
+                stream.write(detail.rstrip() + "\n\n")
+            return path
+        except OSError:
+            return None
+
+    def closeEvent(self, event):
+        if self.jobs.is_busy:
+            event.ignore()
+            self.statusBar().showMessage(
+                "Wait for the current workspace operation to finish before closing")
+            return
+        super().closeEvent(event)
 
     def _error(self, error):
         QMessageBox.critical(self, "Audit Evidence Workspace", str(error))

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-09-19",
+  "scope": "Desktop responsiveness and failure isolation only; no audit analysis behavior changed.",
+  "worker": {
+    "model": "single-flight QThread worker",
+    "ui_event_loop_responsive_during_controlled_slow_job": true,
+    "duplicate_concurrent_job_rejected": true,
+    "indeterminate_progress_visible_while_running": true,
+    "workspace_actions_disabled_while_running": true,
+    "window_close_deferred_while_running": true,
+    "cancellation_exposed": false,
+    "cancellation_reason": "Workbook parsing has no cooperative transaction-safe cancellation boundary."
+  },
+  "operations_routed_off_ui_thread": [
+    "folder import and candidate generation",
+    "candidate confirmation and uncached adjacent revision triage",
+    "revision triage selection when cache generation is required",
+    "changed-since-use comparison and triage",
+    "other workspace mutations routed through the same single-flight boundary"
+  ],
+  "failure_validation": {
+    "controlled_candidate_analysis_failure": true,
+    "database_import_rolled_back": true,
+    "workspace_reopened_after_failure": true,
+    "concise_user_message": true,
+    "technical_traceback_preserved_separately": true
+  },
+  "persistence_validation": {
+    "successful_background_import_updated_ui": true,
+    "successful_import_visible_after_restart": true
+  },
+  "ofgem": {
+    "raw_change_count": 4201,
+    "triage_group_count": 362,
+    "resolved_impact_group_count": 83,
+    "formula_count": 41738,
+    "resolved_formula_count": 4742,
+    "unresolved_formula_count": 36996,
+    "structural_drift_method": "structural_drift_snapshot_v1",
+    "metrics_unchanged": true
+  },
+  "test_suite": {
+    "tests_passed": 218,
+    "targets": 1,
+    "lab_receipt": "runs/20260918T224714Z-b5953213/receipt.json"
+  }
+}
