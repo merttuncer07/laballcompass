@@ -1,0 +1,30 @@
+{
+  "source_page": "https://www.ofgem.gov.uk/guidance/ed2-price-control-financial-model",
+  "before": {
+    "file": "sources/ED2_PCFM_V4_2025-01-30.xlsx",
+    "sha256": "794fde9ebae9c407f1ae1378e269cee81b441ea05bc92cdfada8fbb788e8aba5",
+    "published": "2025-01-30",
+    "populated_cells": 62571
+  },
+  "after": {
+    "file": "sources/ED2_PCFM_V4_2026-01-28.xlsx",
+    "sha256": "15f34eea70e6bb9e5ba873a546d4131a412072a6a46651509022518f2549e335",
+    "published": "2026-01-28",
+    "populated_cells": 62598
+  },
+  "comparison": {
+    "sheets": 31,
+    "same_value": 37588,
+    "same_formula": 20869,
+    "changed_value": 4054,
+    "changed_formula": 0,
+    "added": 87,
+    "removed": 60,
+    "uncompared": 0,
+    "unique_potential_downstream_targets": 416,
+    "changed_blocks_with_impacts": 16,
+    "lineage_view_available": false,
+    "lineage_view_reason": "20,660 root cells exceed the 4,000-source interactive viewer budget"
+  },
+  "method": "Independent exact coordinate/value check plus workbench same-layout static formula tracing; formulas were not recalculated."
+}
