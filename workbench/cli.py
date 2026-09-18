@@ -28,8 +28,8 @@ def save_analysis(problem, directory=None):
     return folder / 'index.html'
 
 
-def save_workbook_analysis(paths, directory=None, same_layout=False):
-    with open_workbooks(paths, preserve_order=same_layout) as (paths, books):
+def save_workbook_analysis(paths, directory=None, same_layout=False, preserve_order=False):
+    with open_workbooks(paths, preserve_order=same_layout or preserve_order) as (paths, books):
         content = compare_content(paths, books, same_layout=same_layout)
         try:
             problem = _analyze_loaded(paths, books)
@@ -53,6 +53,13 @@ def save_workbook_analysis(paths, directory=None, same_layout=False):
     folder.mkdir(parents=True, exist_ok=True)
     content['lineage_available'] = problem is not None
     if problem is not None:
+        unresolved_nodes = {row['cell'] for row in problem.metadata.get('unresolved', [])}
+        content['dependency_coverage'] = {
+            'lineage_available': True,
+            'formula_count': problem.metadata.get('formula_count', 0),
+            'resolved_formula_count': problem.metadata.get('resolved_formula_count', 0),
+            'unresolved_formula_count': len(unresolved_nodes),
+        }
         # Keep observed similarities separate from the actual formula graph.
         if content.get('lineage_view_available', True):
             try:
@@ -96,6 +103,31 @@ def save_workbook_analysis(paths, directory=None, same_layout=False):
             block['difference_formula_targets'] = impacts(different)
             if same_layout:
                 block['uncompared_formula_targets'] = impacts(uncompared)
+            cell_impacts = []
+            for cell in block['cells']:
+                changed = (cell.get('comparison') not in ('same_value', 'same_formula')
+                           if same_layout else not cell['equal'])
+                if not changed:
+                    continue
+                nodes = set()
+                for side in ('left', 'right'):
+                    loc = block[side]
+                    prefix = loc['workbook']+'::' if len(paths)>1 else ''
+                    nodes.add(prefix+loc['sheet']+'!'+cell[side])
+                cell_impacts.append({
+                    'left': cell['left'], 'right': cell['right'],
+                    'resolved_downstream_targets': impacts(nodes),
+                    'unresolved_dependency_cells': sorted(nodes & unresolved_nodes),
+                })
+            block['cell_difference_impacts'] = cell_impacts
+    else:
+        content['dependency_coverage'] = {
+            'lineage_available': False,
+            'formula_count': None,
+            'resolved_formula_count': None,
+            'unresolved_formula_count': None,
+            'reason': content.get('lineage_unavailable_reason'),
+        }
     (folder / 'content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
     write_content_report(content, folder / 'index.html')
     return folder / 'index.html'

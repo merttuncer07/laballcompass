@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "observed_at": "2026-09-18",
-  "command": ".venv/bin/python examples/evidence-version-workspace/reproduce.py --output /tmp/evidence-version-demo-mission11-final-20260918",
+  "command": ".venv/bin/python examples/evidence-version-workspace/reproduce.py --output /tmp/evidence-version-demo-mission2-final-20260918",
   "input_folder": {
     "files": 4,
     "unique_file_blobs": 3,
@@ -42,6 +42,29 @@
     "uncompared": 0,
     "unique_potential_downstream_targets": 416,
     "changed_blocks_with_impacts": 16
+  },
+  "revision_triage": {
+    "raw_change_count": 4201,
+    "triage_group_count": 362,
+    "compression_ratio": 11.604972,
+    "group_type_distribution": {
+      "added_content": 15,
+      "removed_content": 8,
+      "value_change": 339
+    },
+    "groups_with_resolved_impact": 83,
+    "groups_without_resolved_impact": 279,
+    "groups_with_unresolved_coverage": 0,
+    "formula_logic_change_groups": 0,
+    "formula_to_literal_groups": 0,
+    "literal_to_formula_groups": 0,
+    "movement_candidate_groups": 0,
+    "resolved_structural_reach_range": [0, 60],
+    "formula_dependency_coverage": {
+      "formula_count": 41738,
+      "resolved_formula_count": 4742,
+      "unresolved_formula_count": 36996
+    }
   },
   "checks": {
     "preserved_ofgem_counts_match": true,

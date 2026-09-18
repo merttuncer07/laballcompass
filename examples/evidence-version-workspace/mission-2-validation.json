@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-09-18",
+  "ofgem_revision_triage": {
+    "raw_comparison_counts": {
+      "same_value": 37588,
+      "same_formula": 20869,
+      "changed_value": 4054,
+      "changed_formula": 0,
+      "added": 87,
+      "removed": 60,
+      "uncompared": 0
+    },
+    "summary": {
+      "raw_change_count": 4201,
+      "triage_group_count": 362,
+      "compression_ratio": 11.604972,
+      "groups_with_resolved_impact": 83,
+      "groups_without_resolved_impact": 279,
+      "groups_with_unresolved_coverage": 0,
+      "formula_logic_change_groups": 0,
+      "formula_to_literal_groups": 0,
+      "literal_to_formula_groups": 0,
+      "movement_candidate_groups": 0
+    },
+    "group_type_distribution": {
+      "added_content": 15,
+      "removed_content": 8,
+      "value_change": 339
+    },
+    "structural_reach": {
+      "minimum": 0,
+      "maximum": 60,
+      "resolved_target_count_distribution": {
+        "0": 279,
+        "8": 5,
+        "10": 2,
+        "16": 5,
+        "20": 28,
+        "24": 42,
+        "60": 1
+      }
+    },
+    "dependency_coverage": {
+      "lineage_available": true,
+      "formula_count": 41738,
+      "resolved_formula_count": 4742,
+      "unresolved_formula_count": 36996
+    }
+  },
+  "synthetic_edge_cases": {
+    "formula_transitions": {
+      "raw_change_count": 8,
+      "group_type_distribution": {
+        "added_content": 2,
+        "formula_logic_change": 1,
+        "formula_to_literal": 1,
+        "literal_to_formula": 1,
+        "removed_content": 2,
+        "value_change": 1
+      },
+      "added_formula_transition": "formula_introduced",
+      "removed_formula_transition": "formula_removed"
+    },
+    "pure_reorder": {
+      "raw_change_count": 55,
+      "triage_group_count": 1,
+      "group_type_distribution": {
+        "movement_candidate": 1
+      },
+      "movement_candidate_groups": 1,
+      "row_alignment_found": true,
+      "ambiguous_rows_omitted": 0
+    },
+    "mixed_reorder_and_value_change": {
+      "raw_change_count": 55,
+      "triage_group_count": 2,
+      "group_type_distribution": {
+        "movement_candidate": 1,
+        "value_change": 1
+      },
+      "movement_candidate_groups": 1,
+      "row_alignment_found": true,
+      "ambiguous_rows_omitted": 0
+    },
+    "ambiguous_mapping": {
+      "raw_change_count": 55,
+      "triage_group_count": 1,
+      "group_type_distribution": {
+        "value_change": 1
+      },
+      "movement_candidate_groups": 0,
+      "row_alignment_found": false,
+      "ambiguous_rows_omitted": 0
+    }
+  },
+  "performance": {
+    "end_to_end_demo_seconds": 79.17,
+    "triage_build_seconds_median": 0.043614,
+    "triage_build_seconds_runs": [
+      0.045977,
+      0.053278,
+      0.043614,
+      0.055977,
+      0.034722,
+      0.039707,
+      0.031374
+    ],
+    "environment_note": "End-to-end includes import, candidate assessment, exact comparison, formula analysis, triage, and report generation on this Mac. Triage-only timing parses an in-memory exact result and builds groups; it excludes JSON and HTML writes."
+  },
+  "scope": "Engineering validation with genuine public Ofgem and SONI workbooks plus synthetic edge cases. Structural reach is not materiality, risk, numeric effect, or an audit conclusion.",
+  "test_suite": {
+    "pytest_tests_passed": 197,
+    "unittest_subtests_passed": 21,
+    "warnings": 2,
+    "lab_receipt": "runs/20260918T131858Z-0564dff9/receipt.json"
+  },
+  "ui_validation": {
+    "report_contract_tested": true,
+    "controls": [
+      "change type filter",
+      "minimum resolved reach filter",
+      "structural reach/location/type sort",
+      "raw comparison link"
+    ],
+    "live_browser_visual_check": "blocked by the in-app browser file-URL security policy"
+  }
+}

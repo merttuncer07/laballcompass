@@ -95,6 +95,10 @@ class EvidenceWorkspaceTests(unittest.TestCase):
         confirmed = confirm_candidate(
             self.workspace, candidate["id"], before_blob, artifact_name="Revenue Schedule")
         self.assertTrue(Path(confirmed["comparison_report"]).is_file())
+        triage_report = Path(confirmed["comparison_report"]).parents[1] / "triage" / "index.html"
+        self.assertTrue(triage_report.is_file())
+        self.assertTrue(triage_report.with_name("triage.json").is_file())
+        self.assertIn("open revision triage", (self.workspace / "index.html").read_text())
         repeated_confirmation = confirm_candidate(self.workspace, candidate["id"], before_blob)
         self.assertTrue(repeated_confirmation["existing"])
         reopened = workspace_state(self.workspace)

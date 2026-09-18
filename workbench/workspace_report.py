@@ -34,7 +34,10 @@ def write_workspace_report(workspace):
             relationship = relationship_by_after.get(version_id)
             if relationship and relationship["id"] in comparisons:
                 comparison = comparisons[relationship["id"]]
-                links = f' · <a href="{_h(comparison["report_path"])}">open comparison</a>'
+                triage_path = Path("comparisons") / relationship["id"] / "triage" / "index.html"
+                if (root / triage_path).is_file():
+                    links = f' · <a href="{_h(triage_path.as_posix())}"><b>open revision triage</b></a>'
+                links += f' · <a href="{_h(comparison["report_path"])}">raw comparison</a>'
                 if comparison.get("structural_report_path"):
                     links += f' · <a href="{_h(comparison["structural_report_path"])}">structural correspondence</a>'
             history.append(

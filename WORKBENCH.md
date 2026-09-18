@@ -1,5 +1,32 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## 18 Eylül: Revision Triage
+
+Confirmed iki komşu EvidenceVersion için workspace artık otomatik olarak
+`comparisons/<relationship>/triage/index.html` üretir. Artifact geçmişindeki
+**open revision triage** bağlantısı ilk olarak bu özeti açar; raw comparison ve
+lineage ayrı drill-down olarak korunur.
+
+Triage; literal değer değişimi, formül metni değişimi, formula→hardcode,
+hardcode→formula, eklenen/kaldırılan içerik ve karşılaştırılamayan konumları ayrı
+sınıflandırır. Aynı türde ve aynı sayfada birbirine en fazla bir boş hücre
+uzaklıktaki değişiklikler deterministik bölgeler halinde birleştirilir. Bu,
+mevcut içerik motorunun bölge komşuluğudur; aynı business anlamı iddia etmez.
+
+Mevcut row-alignment motoru karşılıklı tekil kayıt eşleşmesi bulduğunda taşınan
+eşit hücreler movement/reorder candidate olarak özetlenir. Ham aynı-adres diff
+silinmez. Eşleme belirsizse hareket etiketi verilmez; raw değişiklikler kalır.
+Her grup desteklenen statik grafikte eriştiği terminal formül sayısıyla gelir ve
+bu sayıya göre filtrelenip sıralanabilir. Reach, materiality/risk veya sayısal
+etki değildir. Çözülemeyen formül kapsamı raporun üstünde ayrıca gösterilir;
+sıfır resolved reach etkisizlik kanıtı değildir.
+
+[Ofgem Mission #2 ölçümü](examples/evidence-version-workspace/mission-2-validation.json):
+4.201 raw değişiklik, 362 grup (11,60× sıkıştırma), 83 resolved downstream
+impact taşıyan grup; maksimum terminal reach 60. Ofgem çiftinde formül metni
+değişimi veya formula/literal geçişi gözlenmedi. 41.738 formülün 4.742'si tam
+çözüldü, 36.996'sı unresolved kaldı.
+
 ## 18 Eylül: kalıcı Evidence Version Intelligence workspace'i
 
 Çok dosyalı bir müşteri/evidence klasörünü önce tek tek A/B çifti seçmeden

@@ -474,7 +474,8 @@ def _comparison_inputs(root, connection, before_id, after_id, temporary):
 def _ensure_comparison(root, connection, relationship_id):
     existing = connection.execute(
         "SELECT report_path FROM comparison_runs WHERE relationship_id = ?", (relationship_id,)).fetchone()
-    if existing and (root / existing["report_path"]).is_file():
+    triage_report = root / "comparisons" / relationship_id / "triage" / "index.html"
+    if existing and (root / existing["report_path"]).is_file() and triage_report.is_file():
         return root / existing["report_path"]
     relationship = connection.execute(
         "SELECT before_version_id, after_version_id, candidate_id FROM version_relationships WHERE id = ?",
@@ -495,9 +496,17 @@ def _ensure_comparison(root, connection, relationship_id):
             ).fetchone() if relationship["candidate_id"] else None
             evidence = _load_json(candidate["evidence_json"]) if candidate else {}
             if evidence.get("general_correspondence"):
-                save_workbook_analysis(inputs, temporary_report / "structural", same_layout=False)
+                save_workbook_analysis(inputs, temporary_report / "structural", same_layout=False,
+                                       preserve_order=True)
                 structural_relative = (Path("comparisons") / relationship_id /
                                        "structural" / "index.html").as_posix()
+            from .revision_triage import write_revision_triage
+            structural_content = temporary_report / "structural" / "content.json"
+            write_revision_triage(
+                temporary_report / "exact" / "content.json",
+                temporary_report / "triage",
+                structural_content if structural_content.is_file() else None,
+            )
         if final.exists():
             shutil.rmtree(final)
         temporary_report.replace(final)

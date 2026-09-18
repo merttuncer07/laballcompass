@@ -34,6 +34,13 @@ preserved Ofgem counts. Open `workspace/index.html` to inspect the artifact
 history, blob occurrences and comparison link. `result.json` records the observed IDs, hashes,
 candidate explanation, comparison counts and original-file immutability check.
 
+Each confirmed relationship also receives `triage/index.html`. This view groups
+nearby changes by deterministic change type, exposes formula/literal transitions,
+uses supported row correspondence as movement evidence, and sorts or filters by
+resolved terminal-formula reach. The raw same-layout report remains linked and
+unchanged. [Mission #2 validation](mission-2-validation.json) preserves the
+Ofgem metrics, synthetic edge-case outcomes and measured runtime.
+
 Confirmed decisions are correctable without erasing history. The workspace CLI
 supports `withdraw`, `reassign`, `correct-order`, and `rename-artifact`; every
 correction requires a reason and appends a durable decision-history event. Old

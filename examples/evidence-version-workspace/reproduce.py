@@ -83,6 +83,8 @@ def main(argv=None):
         if value != expected[key]:
             raise RuntimeError(f"Ofgem count changed for {key}: {value} != {expected[key]}")
     final_state = workspace_state(workspace)
+    triage_path = Path(confirmed["comparison_report"]).parents[1] / "triage" / "triage.json"
+    triage = json.loads(triage_path.read_text())
     result = {
         "schema_version": final_state["schema_version"],
         "import": imported,
@@ -90,6 +92,13 @@ def main(argv=None):
         "confirmation": confirmed,
         "artifact_history": final_state["artifacts"],
         "comparison_counts": counts,
+        "revision_triage": {
+            "report": str(triage_path.with_name("index.html")),
+            "summary": triage["summary"],
+            "group_type_distribution": triage["group_type_distribution"],
+            "structural_reach": triage["structural_reach"],
+            "dependency_coverage": triage["dependency_coverage"],
+        },
         "preserved_counts_match": True,
         "original_files_unchanged": original_hashes == {str(path): sha(path) for path in sources},
     }
