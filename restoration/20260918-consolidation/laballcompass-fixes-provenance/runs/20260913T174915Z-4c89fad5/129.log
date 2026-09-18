@@ -1,0 +1,9 @@
+test_feasible_design_meets_both_limits (test_tfld.TFLDTests.test_feasible_design_meets_both_limits) ... ok
+test_gaussian_uncertainty_product_near_lower_scale (test_tfld.TFLDTests.test_gaussian_uncertainty_product_near_lower_scale) ... ok
+test_impossible_joint_request_is_explicit (test_tfld.TFLDTests.test_impossible_joint_request_is_explicit) ... ok
+test_invalid_length_rejected (test_tfld.TFLDTests.test_invalid_length_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK

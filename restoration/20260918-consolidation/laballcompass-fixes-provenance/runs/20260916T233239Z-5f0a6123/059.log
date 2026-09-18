@@ -1,0 +1,22 @@
+test_packet_auto_uses_canonical_telemetry_for_exact_bootstrap_shell (test_r12_closure.AutoTelemetryRoutingTests.test_packet_auto_uses_canonical_telemetry_for_exact_bootstrap_shell) ... ok
+test_current_memory_does_not_fake_empirical_learning (test_r12_closure.CampaignMemoryTests.test_current_memory_does_not_fake_empirical_learning) ... ok
+test_only_explicit_empirical_events_can_become_relevance_feedback (test_r12_closure.CampaignMemoryTests.test_only_explicit_empirical_events_can_become_relevance_feedback) ... ok
+test_protected_validation_cannot_be_marked_learning_eligible (test_r12_closure.CampaignMemoryTests.test_protected_validation_cannot_be_marked_learning_eligible) ... ok
+test_completed_edge_carries_product_and_telemetry (test_r12_closure.InteractionMapTests.test_completed_edge_carries_product_and_telemetry) ... ok
+test_completed_rejected_and_hypothesis_are_distinct (test_r12_closure.InteractionMapTests.test_completed_rejected_and_hypothesis_are_distinct) ... ok
+test_inferred_candidates_do_not_enter_search_adjacency (test_r12_closure.InteractionMapTests.test_inferred_candidates_do_not_enter_search_adjacency) ... ok
+test_interaction_map_covers_every_search_node_without_inventing_edges (test_r12_closure.InteractionMapTests.test_interaction_map_covers_every_search_node_without_inventing_edges) ... ok
+test_parent_provenance_products_are_all_mapped (test_r12_closure.InteractionMapTests.test_parent_provenance_products_are_all_mapped) ... ok
+test_rejected_edges_are_inactive_but_preserved (test_r12_closure.InteractionMapTests.test_rejected_edges_are_inactive_but_preserved) ... ok
+test_packet_carries_map_and_telemetry_fingerprints (test_r12_closure.SearchTraceTests.test_packet_carries_map_and_telemetry_fingerprints) ... ok
+test_corpus_primitive_text_is_simple_and_provenance_is_separate (test_r12_closure.SimpleLexiconTests.test_corpus_primitive_text_is_simple_and_provenance_is_separate) ... ok
+test_identity_ignores_domain_and_source_label (test_r12_closure.SimpleLexiconTests.test_identity_ignores_domain_and_source_label) ... ok
+test_all_completed_suites_are_calibrated (test_r12_closure.TelemetryClosureTests.test_all_completed_suites_are_calibrated) ... ok
+test_all_current_bootstrap_events_match_current_suites (test_r12_closure.TelemetryClosureTests.test_all_current_bootstrap_events_match_current_suites) ... ok
+test_queue_is_hydrated_from_canonical_telemetry (test_r12_closure.TelemetryClosureTests.test_queue_is_hydrated_from_canonical_telemetry) ... ok
+test_canonical_runtime_event_survives_registry_refresh (test_r12_closure.TelemetryPersistenceTests.test_canonical_runtime_event_survives_registry_refresh) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.937s
+
+OK

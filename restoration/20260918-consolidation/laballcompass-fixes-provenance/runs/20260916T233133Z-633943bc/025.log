@@ -1,0 +1,12 @@
+test_bad_bound_is_falsified (test_bicc.BICCTests.test_bad_bound_is_falsified) ... ok
+test_distributed_influence_has_more_effective_coordinates (test_bicc.BICCTests.test_distributed_influence_has_more_effective_coordinates) ... ok
+test_linear_bounds_produce_conditional_certificate (test_bicc.BICCTests.test_linear_bounds_produce_conditional_certificate) ... ok
+test_no_global_bounds_stays_empirical (test_bicc.BICCTests.test_no_global_bounds_stays_empirical) ... ok
+test_invalid_tolerance_cannot_hide_observed_violation (test_bicc.CertificateRepairTests.test_invalid_tolerance_cannot_hide_observed_violation) ... ok
+test_observed_violation_removes_radius_and_tail_guarantees (test_bicc.CertificateRepairTests.test_observed_violation_removes_radius_and_tail_guarantees) ... ok
+test_single_deterministic_probe_has_sensitivity_but_no_probability_certificate (test_bicc.CertificateRepairTests.test_single_deterministic_probe_has_sensitivity_but_no_probability_certificate) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.144s
+
+OK

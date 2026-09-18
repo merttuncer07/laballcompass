@@ -1,0 +1,8 @@
+test_confidence_interval_is_ordered (test_ote.OrthogonalTargetEstimatorTests.test_confidence_interval_is_ordered) ... ok
+test_recovers_linear_target_with_confounding (test_ote.OrthogonalTargetEstimatorTests.test_recovers_linear_target_with_confounding) ... ok
+test_zero_residual_treatment_is_rejected (test_ote.OrthogonalTargetEstimatorTests.test_zero_residual_treatment_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.017s
+
+OK

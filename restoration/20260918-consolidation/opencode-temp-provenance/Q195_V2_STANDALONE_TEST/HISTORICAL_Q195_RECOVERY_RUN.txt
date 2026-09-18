@@ -1,0 +1,56 @@
+[ok] dependency loads from run dir: VOLTERRA_RESONANT_FIXED_STATE_CERT_STANDALONE.py
+[ok] dependency loads from run dir: q195_collision_recovered.py
+[ok] schedule r=3d,n=d,e=(d-1)/2
+[ok] P time d equals h_{d-1} time r-2-2(d-1)
+[ok] q_{d-1} time is d+1
+[ok] b_in spans (d,d+1); b_out spans (r-2,r-1)
+[ok] R_0 = 1 initialization
+[ok] d=3 word
+[ok] d=3 cumulative P
+[ok] d=3 keys
+[ok] d=3 T
+[ok] d=3 formal edges
+[ok] d=3 code dims
+[ok] d=3 formal joint (90,4)
+[ok] d=3 FORMAL intersection 0
+[ok] d=3 projected fwd/rev rank 2
+[ok] d=3 physical joint (9,4) rank 4 nullity 0
+[ok] buggy T reproduces chat duplicate
+[ok] buggy first generator is the zero vector
+[ok] buggy run reproduces chat nullity 2
+[ok] corrected chronology is duplicate-free
+[ok] sweep d=3 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=5 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=7 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=9 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=11 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=13 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=15 n0=1 formal0/rankfull/nullity0
+[ok] sweep d=3 n0=2 formal0/rankfull/nullity0
+[ok] sweep d=5 n0=2 formal0/rankfull/nullity0
+[ok] sweep d=7 n0=2 formal0/rankfull/nullity0
+[ok] sweep d=9 n0=2 formal0/rankfull/nullity0
+[ok] sweep d=11 n0=2 formal0/rankfull/nullity0
+[ok] sweep d=13 n0=2 formal0/rankfull/nullity0
+[ok] sweep d=15 n0=2 formal0/rankfull/nullity0
+[ok] d=3 ker_pi nontrivial (82 dims)
+[ok] d=3 bins/max match chat (17/5)
+[ok] d=5 ker_pi nontrivial (226 dims)
+[ok] d=5 bins/max match chat (29/8)
+[ok] d=7 ker_pi nontrivial (442 dims)
+[ok] d=7 bins/max match chat (41/10)
+[ok] negative control n0=1 d=3 nullity=6
+[ok] negative control n0=1 d=5 nullity=30
+[ok] negative control n0=1 d=7 nullity=72
+[ok] negative control n0=1 d=9 nullity=132
+[ok] negative control n0=2 d=3 nullity=6
+[ok] negative control n0=2 d=5 nullity=30
+[ok] negative control n0=2 d=7 nullity=72
+[ok] negative control n0=2 d=9 nullity=132
+[ok] d=5 labels generated, match chat
+[ok] d=5 walk closed + matches chat
+[ok] unsigned histogram matches chat
+[ok] signed histogram matches chat
+[ok] c_delta shape d x 3
+[ok] c_delta regroup == direct projection
+Q195 UNIONALPHA RECOVERY: ALL CHECKS PASS

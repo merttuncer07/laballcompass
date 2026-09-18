@@ -1,0 +1,13 @@
+test_cbia_selects_measurement (test_cbscg.T.test_cbia_selects_measurement) ... ok
+test_expensive_measurement_is_skipped (test_cbscg.T.test_expensive_measurement_is_skipped) ... ok
+test_information_gain_survives_cost (test_cbscg.T.test_information_gain_survives_cost) ... ok
+test_invalid_cost (test_cbscg.T.test_invalid_cost) ... ok
+test_low_and_high_actions_differ (test_cbscg.T.test_low_and_high_actions_differ) ... ok
+test_no_boundary_no_measurement (test_cbscg.T.test_no_boundary_no_measurement) ... ok
+test_reproducible (test_cbscg.T.test_reproducible) ... ok
+test_strategic_response_creates_action_boundary (test_cbscg.T.test_strategic_response_creates_action_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.389s
+
+OK

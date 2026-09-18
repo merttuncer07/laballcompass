@@ -1,0 +1,13 @@
+test_coherent_pair_can_be_localized (test_rel.RelationalEvidenceLocalizerTests.test_coherent_pair_can_be_localized) ... ok
+test_consistent_records_do_not_force_a_suspect (test_rel.RelationalEvidenceLocalizerTests.test_consistent_records_do_not_force_a_suspect) ... ok
+test_different_thresholds_on_same_pair_are_not_independent_tests (test_rel.RelationalEvidenceLocalizerTests.test_different_thresholds_on_same_pair_are_not_independent_tests) ... ok
+test_missing_record_reference_is_rejected (test_rel.RelationalEvidenceLocalizerTests.test_missing_record_reference_is_rejected) ... ok
+test_no_observations_retains_null_and_normalized_model_prior (test_rel.RelationalEvidenceLocalizerTests.test_no_observations_retains_null_and_normalized_model_prior) ... ok
+test_repeating_or_reversing_a_comparison_adds_no_weight (test_rel.RelationalEvidenceLocalizerTests.test_repeating_or_reversing_a_comparison_adds_no_weight) ... ok
+test_single_altered_record_is_localized (test_rel.RelationalEvidenceLocalizerTests.test_single_altered_record_is_localized) ... ok
+test_uninformative_sensor_does_not_change_prior_weights (test_rel.RelationalEvidenceLocalizerTests.test_uninformative_sensor_does_not_change_prior_weights) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

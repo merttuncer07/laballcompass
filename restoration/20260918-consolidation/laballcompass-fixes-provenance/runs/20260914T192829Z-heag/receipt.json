@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "20260914T192829Z-heag",
+  "status": "PASS",
+  "finished_at": "2026-09-14T19:30:23.292936+00:00",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "counts": {
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 13
+  },
+  "targets": [
+    {
+      "id": "P083_HEAG",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P083_HEAG",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 13
+      }
+    }
+  ],
+  "source_changes": "restoration/20260914-heag/changes.json",
+  "test_log": "restoration/20260914-heag/tests.log",
+  "test_xml": "restoration/20260914-heag/tests.xml",
+  "ui_check": "restoration/20260914-heag/ui-check.json",
+  "example_receipt": "examples/evidence-acquisition/verified/receipt.json",
+  "cli_matches_api": true,
+  "scope": "New native EBC -> AICC composition. Thirteen product tests and independent closed-form/GLS numerical references. Public observations use hypothetical acquisition utilities and future measurement precision; no field benefit, calibrated adaptive posterior, scientific novelty or original historical equivalence.",
+  "remaining": "Future error shared with used evidence needs a different joint model; the adapter rejects that declared condition. Actual covariance and utility validity are not inferred. Real-browser screenshot check unavailable: bridge status returned MCP 404; jsdom passed."
+}

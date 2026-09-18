@@ -1,0 +1,14 @@
+test_budget_is_respected (test_planner.InspectionPlannerTests.test_budget_is_respected) ... ok
+test_cli_writes_json_and_markdown (test_planner.InspectionPlannerTests.test_cli_writes_json_and_markdown) ... Wrote /var/folders/87/7zcwj9x95fq3g0bv00f1t_gh0000gn/T/tmpdfz51675/plan.json and /var/folders/87/7zcwj9x95fq3g0bv00f1t_gh0000gn/T/tmpdfz51675/plan.md; cost=17.600, loss=1159.700
+ok
+test_exact_frontier_matches_bruteforce_small_case (test_planner.InspectionPlannerTests.test_exact_frontier_matches_bruteforce_small_case) ... ok
+test_higher_consequence_target_receives_limited_upgrade (test_planner.InspectionPlannerTests.test_higher_consequence_target_receives_limited_upgrade) ... ok
+test_infeasible_budget_reports_minimum (test_planner.InspectionPlannerTests.test_infeasible_budget_reports_minimum) ... ok
+test_stress_case_can_change_allocation (test_planner.InspectionPlannerTests.test_stress_case_can_change_allocation) ... ok
+test_target_mode_restriction_is_enforced (test_planner.InspectionPlannerTests.test_target_mode_restriction_is_enforced) ... ok
+test_uniform_comparator_is_reported (test_planner.InspectionPlannerTests.test_uniform_comparator_is_reported) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK

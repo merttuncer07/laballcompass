@@ -1,0 +1,13 @@
+test_authority_transition_is_explicit (test_r389_product_overlay_closure.R389Closure.test_authority_transition_is_explicit) ... ok
+test_control_plane (test_r389_product_overlay_closure.R389Closure.test_control_plane) ... ok
+test_mechanics_nonlearning (test_r389_product_overlay_closure.R389Closure.test_mechanics_nonlearning) ... ok
+test_overlay_counts (test_r389_product_overlay_closure.R389Closure.test_overlay_counts) ... ok
+test_quality_controls_present (test_r389_product_overlay_closure.R389Closure.test_quality_controls_present) ... ok
+test_state_overlay_separate_from_authority (test_r389_product_overlay_closure.R389Closure.test_state_overlay_separate_from_authority) ... ok
+test_v2p050_exact_shell (test_r389_product_overlay_closure.R389Closure.test_v2p050_exact_shell) ... ok
+test_visibility_inherited (test_r389_product_overlay_closure.R389Closure.test_visibility_inherited) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.046s
+
+OK

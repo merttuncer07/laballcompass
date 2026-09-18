@@ -1,0 +1,9 @@
+test_equal_weight_point_barycenter_is_midpoint (test_wbdp.WBDPTests.test_equal_weight_point_barycenter_is_midpoint) ... ok
+test_invalid_mass_is_rejected (test_wbdp.WBDPTests.test_invalid_mass_is_rejected) ... ok
+test_path_distance_is_linear_in_fraction (test_wbdp.WBDPTests.test_path_distance_is_linear_in_fraction) ... ok
+test_point_mass_interpolation_moves_mass (test_wbdp.WBDPTests.test_point_mass_interpolation_moves_mass) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

@@ -1,0 +1,9 @@
+test_minimum_cut_removes_bad_feedback_not_forward_module (test_miff.Tests.test_minimum_cut_removes_bad_feedback_not_forward_module) ... ok
+test_unconnected_suspect_requires_no_cut (test_miff.Tests.test_unconnected_suspect_requires_no_cut) ... ok
+test_undeclared_module_is_rejected (test_miff.Tests.test_undeclared_module_is_rejected) ... ok
+test_unstable_loop_can_be_stabilized_by_cut (test_miff.Tests.test_unstable_loop_can_be_stabilized_by_cut) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

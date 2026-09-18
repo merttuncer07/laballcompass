@@ -1,0 +1,16 @@
+test_cumulative_updates_never_diverge (test_lab_search_engine.CertifiedSearchTests.test_cumulative_updates_never_diverge) ... ok
+test_full_matches_naive (test_lab_search_engine.CertifiedSearchTests.test_full_matches_naive) ... ok
+test_random_differential_against_naive (test_lab_search_engine.CertifiedSearchTests.test_random_differential_against_naive) ... ok
+test_relevant_small_change_is_certified_or_selective_and_exact (test_lab_search_engine.CertifiedSearchTests.test_relevant_small_change_is_certified_or_selective_and_exact) ... ok
+test_strong_query_shift_changes_frontier_correctly (test_lab_search_engine.CertifiedSearchTests.test_strong_query_shift_changes_frontier_correctly) ... ok
+test_top_k_change_fails_closed_to_full_search (test_lab_search_engine.CertifiedSearchTests.test_top_k_change_fails_closed_to_full_search) ... ok
+test_unrelated_feature_reuses_everything (test_lab_search_engine.CertifiedSearchTests.test_unrelated_feature_reuses_everything) ... ok
+test_identity_seed_propagates_to_connected_supplier (test_lab_search_engine.InteractionSearchTests.test_identity_seed_propagates_to_connected_supplier) ... ok
+test_interaction_incremental_update_matches_full_search (test_lab_search_engine.InteractionSearchTests.test_interaction_incremental_update_matches_full_search) ... ok
+test_snapshot_fails_closed_on_corpus_change (test_lab_search_engine.SearchSnapshotTests.test_snapshot_fails_closed_on_corpus_change) ... ok
+test_snapshot_restore_preserves_incremental_equivalence (test_lab_search_engine.SearchSnapshotTests.test_snapshot_restore_preserves_incremental_equivalence) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.018s
+
+OK

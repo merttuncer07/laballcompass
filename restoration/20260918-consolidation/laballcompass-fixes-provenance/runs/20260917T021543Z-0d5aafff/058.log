@@ -1,0 +1,13 @@
+test_beats_uniform (test_dwpcft.T.test_beats_uniform) ... ok
+test_boundary_consequence_gets_most (test_dwpcft.T.test_boundary_consequence_gets_most) ... ok
+test_budget_conserved (test_dwpcft.T.test_budget_conserved) ... ok
+test_empty (test_dwpcft.T.test_empty) ... ok
+test_negative_budget (test_dwpcft.T.test_negative_budget) ... ok
+test_status (test_dwpcft.T.test_status) ... ok
+test_uncertainty_reduced (test_dwpcft.T.test_uncertainty_reduced) ... ok
+test_zero_budget (test_dwpcft.T.test_zero_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.000s
+
+OK

@@ -1,0 +1,8 @@
+test_core_entrypoint_returns_exact_top_k (test_search_corpus_integration.SearchCorpusIntegrationTests.test_core_entrypoint_returns_exact_top_k) ... ok
+test_corpus_contains_capabilities_and_primitives (test_search_corpus_integration.SearchCorpusIntegrationTests.test_corpus_contains_capabilities_and_primitives) ... ok
+test_crypto_contract_recovers_declared_mechanism_anchors (test_search_corpus_integration.SearchRelevanceSmokeTests.test_crypto_contract_recovers_declared_mechanism_anchors) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.460s
+
+OK

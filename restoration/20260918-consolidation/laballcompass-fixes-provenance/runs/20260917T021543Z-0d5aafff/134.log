@@ -1,0 +1,28 @@
+test_adaptive_conditional_likelihood_matches_scalar_closed_form (test_correlated.CorrelatedEvidenceTests.test_adaptive_conditional_likelihood_matches_scalar_closed_form) ... ok
+test_covariance_review_uses_same_policy_and_marginal_variances (test_correlated.CorrelatedEvidenceTests.test_covariance_review_uses_same_policy_and_marginal_variances) ... ok
+test_current_alias_is_removed_before_conditional_solve (test_correlated.CorrelatedEvidenceTests.test_current_alias_is_removed_before_conditional_solve) ... ok
+test_diagonal_joint_model_matches_existing_ebc (test_correlated.CorrelatedEvidenceTests.test_diagonal_joint_model_matches_existing_ebc) ... ok
+test_exact_alias_invariance_with_partial_cross_source_covariance (test_correlated.CorrelatedEvidenceTests.test_exact_alias_invariance_with_partial_cross_source_covariance) ... ok
+test_invalid_covariance_and_identity_are_explained (test_correlated.CorrelatedEvidenceTests.test_invalid_covariance_and_identity_are_explained) ... ok
+test_joint_gls_does_not_depend_on_which_observation_is_current (test_correlated.CorrelatedEvidenceTests.test_joint_gls_does_not_depend_on_which_observation_is_current) ... ok
+test_linear_source_propagation_preserves_shared_noise_cancellation (test_correlated.CorrelatedEvidenceTests.test_linear_source_propagation_preserves_shared_noise_cancellation) ... ok
+test_negative_linear_weights_are_retained_not_clipped (test_correlated.CorrelatedEvidenceTests.test_negative_linear_weights_are_retained_not_clipped) ... ok
+test_shared_noise_does_not_look_like_three_independent_measurements (test_correlated.CorrelatedEvidenceTests.test_shared_noise_does_not_look_like_three_independent_measurements) ... ok
+test_unit_powers_match_separate_whitened_least_squares_reference (test_correlated.CorrelatedEvidenceTests.test_unit_powers_match_separate_whitened_least_squares_reference) ... ok
+test_zero_cap_or_zero_power_returns_current_only (test_correlated.CorrelatedEvidenceTests.test_zero_cap_or_zero_power_returns_current_only) ... ok
+test_compatible_history_reduces_uncertainty (test_ebc.EBCTests.test_compatible_history_reduces_uncertainty) ... ok
+test_conflicting_precise_history_is_downweighted (test_ebc.EBCTests.test_conflicting_precise_history_is_downweighted) ... ok
+test_conflicting_values_under_one_identity_require_joint_model (test_ebc.EBCTests.test_conflicting_values_under_one_identity_require_joint_model) ... ok
+test_current_observation_cannot_be_borrowed_again (test_ebc.EBCTests.test_current_observation_cannot_be_borrowed_again) ... ok
+test_declared_copies_do_not_shift_estimate_or_shrink_uncertainty (test_ebc.EBCTests.test_declared_copies_do_not_shift_estimate_or_shrink_uncertainty) ... ok
+test_duplicate_power_policy_is_max_not_sum_and_order_invariant (test_ebc.EBCTests.test_duplicate_power_policy_is_max_not_sum_and_order_invariant) ... ok
+test_equal_values_alone_do_not_establish_duplicate_identity (test_ebc.EBCTests.test_equal_values_alone_do_not_establish_duplicate_identity) ... ok
+test_matches_gls_reference_for_perfectly_repeated_estimates (test_ebc.EBCTests.test_matches_gls_reference_for_perfectly_repeated_estimates) ... ok
+test_review_separates_assumed_independence_from_declared_identity (test_ebc.EBCTests.test_review_separates_assumed_independence_from_declared_identity) ... ok
+test_total_borrowed_precision_obeys_cap (test_ebc.EBCTests.test_total_borrowed_precision_obeys_cap) ... ok
+test_zero_cap_equals_current_only (test_ebc.EBCTests.test_zero_cap_equals_current_only) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.018s
+
+OK

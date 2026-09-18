@@ -1,0 +1,15 @@
+test_asset_dimension_mismatch_rejected (test_sacapl.SACAPLTests.test_asset_dimension_mismatch_rejected) ... ok
+test_candidate_constraints_remain_certified (test_sacapl.SACAPLTests.test_candidate_constraints_remain_certified) ... ok
+test_dense_support_mechanism_removal_collapses_exactly (test_sacapl.SACAPLTests.test_dense_support_mechanism_removal_collapses_exactly) ... ok
+test_deterministic (test_sacapl.SACAPLTests.test_deterministic) ... ok
+test_invalid_support_rejected_by_parent_contract (test_sacapl.SACAPLTests.test_invalid_support_rejected_by_parent_contract) ... ok
+test_realized_validation_ce_improves (test_sacapl.SACAPLTests.test_realized_validation_ce_improves) ... ok
+test_realized_validation_variance_improves (test_sacapl.SACAPLTests.test_realized_validation_variance_improves) ... ok
+test_support_contradiction_abstains (test_sacapl.SACAPLTests.test_support_contradiction_abstains) ... ok
+test_support_mechanism_changes_policy (test_sacapl.SACAPLTests.test_support_mechanism_changes_policy) ... ok
+test_support_removes_off_support_covariance (test_sacapl.SACAPLTests.test_support_removes_off_support_covariance) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.372s
+
+OK

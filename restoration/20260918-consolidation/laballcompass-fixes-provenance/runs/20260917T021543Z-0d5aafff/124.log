@@ -1,0 +1,9 @@
+test_every_tree_connection_is_rank_one (test_fcms.Tests.test_every_tree_connection_is_rank_one) ... ok
+test_fabrication_resolution_can_be_the_only_blocker (test_fcms.Tests.test_fabrication_resolution_can_be_the_only_blocker) ... ok
+test_second_order_laminate_realizes_forbidden_zero (test_fcms.Tests.test_second_order_laminate_realizes_forbidden_zero) ... ok
+test_shape_mismatch_is_rejected (test_fcms.Tests.test_shape_mismatch_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.007s
+
+OK

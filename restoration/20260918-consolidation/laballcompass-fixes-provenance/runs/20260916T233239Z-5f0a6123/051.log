@@ -1,0 +1,17 @@
+test_candidate_action_constraints_are_certified (test_swcapl.SWCAPLTests.test_candidate_action_constraints_are_certified) ... ok
+test_candidate_concentrates_on_target_favored_asset (test_swcapl.SWCAPLTests.test_candidate_concentrates_on_target_favored_asset) ... ok
+test_control_action_constraints_are_certified (test_swcapl.SWCAPLTests.test_control_action_constraints_are_certified) ... ok
+test_control_concentrates_on_source_favored_asset (test_swcapl.SWCAPLTests.test_control_concentrates_on_source_favored_asset) ... ok
+test_fragile_importance_weights_fail_closed (test_swcapl.SWCAPLTests.test_fragile_importance_weights_fail_closed) ... ok
+test_negative_importance_weight_rejected (test_swcapl.SWCAPLTests.test_negative_importance_weight_rejected) ... ok
+test_source_like_validation_is_explicit_failure_region (test_swcapl.SWCAPLTests.test_source_like_validation_is_explicit_failure_region) ... ok
+test_support_gate_is_usable_in_declared_working_region (test_swcapl.SWCAPLTests.test_support_gate_is_usable_in_declared_working_region) ... ok
+test_target_weighting_changes_policy_actions (test_swcapl.SWCAPLTests.test_target_weighting_changes_policy_actions) ... ok
+test_uniform_weights_collapse_exactly_to_control (test_swcapl.SWCAPLTests.test_uniform_weights_collapse_exactly_to_control) ... ok
+test_working_region_beats_mechanism_removed_control (test_swcapl.SWCAPLTests.test_working_region_beats_mechanism_removed_control) ... ok
+test_wrong_length_importance_weight_rejected (test_swcapl.SWCAPLTests.test_wrong_length_importance_weight_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 9.368s
+
+OK

@@ -1,0 +1,17 @@
+test_budget_respected_fragile (test_sgmb.SGMBTests.test_budget_respected_fragile) ... ok
+test_budget_respected_supported (test_sgmb.SGMBTests.test_budget_respected_supported) ... ok
+test_budget_too_small_returns_unfunded (test_sgmb.SGMBTests.test_budget_too_small_returns_unfunded) ... ok
+test_early_supported_month_allows_multifidelity (test_sgmb.SGMBTests.test_early_supported_month_allows_multifidelity) ... ok
+test_fragile_gate_overrides_high_correlation (test_sgmb.SGMBTests.test_fragile_gate_overrides_high_correlation) ... ok
+test_late_fragile_month_forces_fine_only (test_sgmb.SGMBTests.test_late_fragile_month_forces_fine_only) ... ok
+test_low_correlation_routes_fine_only_even_with_support (test_sgmb.SGMBTests.test_low_correlation_routes_fine_only_even_with_support) ... ok
+test_mechanism_removing_comparator_would_use_unsupported_cheap_channel (test_sgmb.SGMBTests.test_mechanism_removing_comparator_would_use_unsupported_cheap_channel) ... ok
+test_negative_month_rejected (test_sgmb.SGMBTests.test_negative_month_rejected) ... ok
+test_support_degrades_across_declared_burnout_shell (test_sgmb.SGMBTests.test_support_degrades_across_declared_burnout_shell) ... ok
+test_supported_branch_matches_k048_count_allocator (test_sgmb.SGMBTests.test_supported_branch_matches_k048_count_allocator) ... ok
+test_threshold_change_moves_same_month_across_gate (test_sgmb.SGMBTests.test_threshold_change_moves_same_month_across_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.004s
+
+OK

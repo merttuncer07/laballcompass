@@ -1,0 +1,81 @@
+[ok] dependency loads from run dir: VOLTERRA_RESONANT_FIXED_STATE_CERT_STANDALONE.py
+[ok] dependency loads from run dir: q195_exact_gamma.py
+[ok] dependency loads from run dir: q196_boundary_closure.py
+[ok] frozen V3 harness hash
+[ok] grid/PH/PG/MU d=3 n0=1
+[ok] grid/PH/PG/MU d=3 n0=2
+[ok] grid/PH/PG/MU d=5 n0=1
+[ok] grid/PH/PG/MU d=5 n0=2
+[ok] grid/PH/PG/MU d=7 n0=1
+[ok] grid/PH/PG/MU d=7 n0=2
+[ok] grid/PH/PG/MU d=9 n0=1
+[ok] grid/PH/PG/MU d=9 n0=2
+[ok] grid/PH/PG/MU d=11 n0=1
+[ok] grid/PH/PG/MU d=11 n0=2
+[ok] grid/PH/PG/MU d=13 n0=1
+[ok] grid/PH/PG/MU d=13 n0=2
+[ok] grid/PH/PG/MU d=15 n0=1
+[ok] grid/PH/PG/MU d=15 n0=2
+[ok] grid/PH/PG/MU d=17 n0=1
+[ok] grid/PH/PG/MU d=17 n0=2
+[ok] grid/PH/PG/MU d=19 n0=1
+[ok] grid/PH/PG/MU d=19 n0=2
+[ok] grid/PH/PG/MU d=21 n0=1
+[ok] grid/PH/PG/MU d=21 n0=2
+[ok] grid/PH/PG/MU d=23 n0=1
+[ok] grid/PH/PG/MU d=23 n0=2
+[ok] grid/PH/PG/MU d=25 n0=1
+[ok] grid/PH/PG/MU d=25 n0=2
+[ok] grid/PH/PG/MU d=27 n0=1
+[ok] grid/PH/PG/MU d=27 n0=2
+[ok] grid/PH/PG/MU d=29 n0=1
+[ok] grid/PH/PG/MU d=29 n0=2
+[ok] grid/PH/PG/MU d=31 n0=1
+[ok] grid/PH/PG/MU d=31 n0=2
+[ok] grid path Hamiltonian d=3 n0=1
+[ok] grid path Hamiltonian d=3 n0=2
+[ok] grid path Hamiltonian d=5 n0=1
+[ok] grid path Hamiltonian d=5 n0=2
+[ok] grid path Hamiltonian d=7 n0=1
+[ok] grid path Hamiltonian d=7 n0=2
+[ok] grid path Hamiltonian d=9 n0=1
+[ok] grid path Hamiltonian d=9 n0=2
+[ok] grid path Hamiltonian d=11 n0=1
+[ok] grid path Hamiltonian d=11 n0=2
+[ok] grid path Hamiltonian d=13 n0=1
+[ok] grid path Hamiltonian d=13 n0=2
+[ok] grid path Hamiltonian d=15 n0=1
+[ok] grid path Hamiltonian d=15 n0=2
+[ok] grid path Hamiltonian d=17 n0=1
+[ok] grid path Hamiltonian d=17 n0=2
+[ok] grid path Hamiltonian d=19 n0=1
+[ok] grid path Hamiltonian d=19 n0=2
+[ok] grid path Hamiltonian d=21 n0=1
+[ok] grid path Hamiltonian d=21 n0=2
+[ok] grid path Hamiltonian d=23 n0=1
+[ok] grid path Hamiltonian d=23 n0=2
+[ok] grid path Hamiltonian d=25 n0=1
+[ok] grid path Hamiltonian d=25 n0=2
+[ok] grid path Hamiltonian d=27 n0=1
+[ok] grid path Hamiltonian d=27 n0=2
+[ok] grid path Hamiltonian d=29 n0=1
+[ok] grid path Hamiltonian d=29 n0=2
+[ok] grid path Hamiltonian d=31 n0=1
+[ok] grid path Hamiltonian d=31 n0=2
+[ok] END1 branch sum d=5 n0=1
+[ok] J grid coords d=5 n0=1 p=61
+[ok] END1 branch sum d=7 n0=2
+[ok] J grid coords d=7 n0=2 p=43
+[ok] END1 branch sum d=11 n0=1
+[ok] J grid coords d=11 n0=1 p=199
+[ok] TR1/TR2 d=3 n0=1
+[ok] TR1/TR2 d=3 n0=2
+[ok] TR1/TR2 d=5 n0=1
+[ok] TR1/TR2 d=5 n0=2
+[ok] TR1/TR2 d=7 n0=1
+[ok] TR1/TR2 d=7 n0=2
+[ok] TR1/TR2 d=9 n0=1
+[ok] TR1/TR2 d=9 n0=2
+[ok] TR1/TR2 d=11 n0=1
+[ok] TR1/TR2 d=11 n0=2
+Q196 V5 GRID THEOREM CHECKS COMPLETE

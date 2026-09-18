@@ -1,0 +1,17 @@
+test_bad_current_belief_rejected (test_scspia.SCSPIATests.test_bad_current_belief_rejected) ... ok
+test_bad_support_shape_rejected (test_scspia.SCSPIATests.test_bad_support_shape_rejected) ... ok
+test_condition_number_is_finite (test_scspia.SCSPIATests.test_condition_number_is_finite) ... ok
+test_covariance_is_psd_on_tangent_space (test_scspia.SCSPIATests.test_covariance_is_psd_on_tangent_space) ... ok
+test_declared_tangent_support_is_exact (test_scspia.SCSPIATests.test_declared_tangent_support_is_exact) ... ok
+test_holdout_calibration_path_runs (test_scspia.SCSPIATests.test_holdout_calibration_path_runs) ... ok
+test_lifted_covariance_is_simplex_tangent (test_scspia.SCSPIATests.test_lifted_covariance_is_simplex_tangent) ... ok
+test_negative_probability_rejected (test_scspia.SCSPIATests.test_negative_probability_rejected) ... ok
+test_noncontrast_channel_still_fails_p138_contract (test_scspia.SCSPIATests.test_noncontrast_channel_still_fails_p138_contract) ... ok
+test_nonunit_row_sum_rejected (test_scspia.SCSPIATests.test_nonunit_row_sum_rejected) ... ok
+test_result_exposes_ranked_channels (test_scspia.SCSPIATests.test_result_exposes_ranked_channels) ... ok
+test_seed_one_recovers_oracle_channel_while_raw_sample_does_not (test_scspia.SCSPIATests.test_seed_one_recovers_oracle_channel_while_raw_sample_does_not) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.017s
+
+OK

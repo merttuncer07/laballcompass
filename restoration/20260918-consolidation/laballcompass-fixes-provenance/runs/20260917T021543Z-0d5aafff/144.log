@@ -1,0 +1,9 @@
+test_clean_signal_recovers_parameters_without_derivative (test_dfdpe.Tests.test_clean_signal_recovers_parameters_without_derivative) ... ok
+test_noisy_estimate_is_useful_on_untouched_rollout (test_dfdpe.Tests.test_noisy_estimate_is_useful_on_untouched_rollout) ... ok
+test_partial_validation_data_is_rejected (test_dfdpe.Tests.test_partial_validation_data_is_rejected) ... ok
+test_underexcited_data_is_preserved_as_nonidentifiable (test_dfdpe.Tests.test_underexcited_data_is_preserved_as_nonidentifiable) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.020s
+
+OK

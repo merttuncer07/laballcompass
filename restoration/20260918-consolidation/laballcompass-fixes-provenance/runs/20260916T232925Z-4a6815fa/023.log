@@ -1,0 +1,9 @@
+test_energy_transferring_lock_is_detected (test_slerm.Tests.test_energy_transferring_lock_is_detected) ... ok
+test_frequency_lock_without_amplitude_is_separate (test_slerm.Tests.test_frequency_lock_without_amplitude_is_separate) ... ok
+test_frequency_mismatch_is_not_lock (test_slerm.Tests.test_frequency_mismatch_is_not_lock) ... ok
+test_mismatched_vectors_are_rejected (test_slerm.Tests.test_mismatched_vectors_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK

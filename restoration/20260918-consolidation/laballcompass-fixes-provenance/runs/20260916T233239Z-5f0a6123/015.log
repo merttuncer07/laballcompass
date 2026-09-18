@@ -1,0 +1,11 @@
+test_comparator_diff (test_bvrp.T.test_comparator_diff) ... ok
+test_empty (test_bvrp.T.test_empty) ... ok
+test_fallback (test_bvrp.T.test_fallback) ... ok
+test_flag (test_bvrp.T.test_flag) ... ok
+test_no_flag (test_bvrp.T.test_no_flag) ... ok
+test_nominal (test_bvrp.T.test_nominal) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

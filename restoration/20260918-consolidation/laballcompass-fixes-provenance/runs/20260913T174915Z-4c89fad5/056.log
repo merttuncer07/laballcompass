@@ -1,0 +1,13 @@
+test_bad_temp (test_istaicc.T.test_bad_temp) ... ok
+test_equilibria_reported (test_istaicc.T.test_equilibria_reported) ... ok
+test_high_cost_skips (test_istaicc.T.test_high_cost_skips) ... ok
+test_immediate_prefers_myopic (test_istaicc.T.test_immediate_prefers_myopic) ... ok
+test_negative_value_rejected (test_istaicc.T.test_negative_value_rejected) ... ok
+test_status (test_istaicc.T.test_status) ... ok
+test_tipping_can_choose_trigger (test_istaicc.T.test_tipping_can_choose_trigger) ... ok
+test_zero_future_reverts_to_immediate (test_istaicc.T.test_zero_future_reverts_to_immediate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK

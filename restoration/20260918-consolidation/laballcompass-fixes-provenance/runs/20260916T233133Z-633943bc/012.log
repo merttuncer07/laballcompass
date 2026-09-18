@@ -1,0 +1,8 @@
+test_composed_architecture_beats_single_route_worst_case (test_mfpa.MFPATests.test_composed_architecture_beats_single_route_worst_case) ... ok
+test_late_route_needs_activation_bridge (test_mfpa.MFPATests.test_late_route_needs_activation_bridge) ... ok
+test_optimizer_respects_equal_mass_budget (test_mfpa.MFPATests.test_optimizer_respects_equal_mass_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.040s
+
+OK

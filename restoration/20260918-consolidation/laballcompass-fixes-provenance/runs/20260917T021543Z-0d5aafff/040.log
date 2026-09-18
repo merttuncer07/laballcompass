@@ -1,0 +1,11 @@
+test_abstain (test_stha.T.test_abstain) ... ok
+test_bad_fraction (test_stha.T.test_bad_fraction) ... ok
+test_comparator_diff (test_stha.T.test_comparator_diff) ... ok
+test_empty (test_stha.T.test_empty) ... ok
+test_equal_floor (test_stha.T.test_equal_floor) ... ok
+test_select (test_stha.T.test_select) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

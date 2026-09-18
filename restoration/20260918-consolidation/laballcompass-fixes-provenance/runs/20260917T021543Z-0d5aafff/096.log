@@ -1,0 +1,12 @@
+test_action_specific_flow_is_detected (test_dtrm.DecisionTransientRiskMonitorTests.test_action_specific_flow_is_detected) ... ok
+test_config_interface (test_dtrm.DecisionTransientRiskMonitorTests.test_config_interface) ... ok
+test_dimension_mismatch_is_rejected (test_dtrm.DecisionTransientRiskMonitorTests.test_dimension_mismatch_is_rejected) ... ok
+test_irrelevant_direction_is_certified (test_dtrm.DecisionTransientRiskMonitorTests.test_irrelevant_direction_is_certified) ... ok
+test_positive_growth_can_expose_decision_risk (test_dtrm.DecisionTransientRiskMonitorTests.test_positive_growth_can_expose_decision_risk) ... ok
+test_relevant_direction_finds_flip (test_dtrm.DecisionTransientRiskMonitorTests.test_relevant_direction_finds_flip) ... ok
+test_zero_growth_envelope (test_dtrm.DecisionTransientRiskMonitorTests.test_zero_growth_envelope) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.078s
+
+OK

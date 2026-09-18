@@ -10,6 +10,27 @@ from datetime import date, datetime, time, timedelta
 from itertools import combinations
 import math
 from .record_matches import find_record_matches
+from .limits import (
+    DETAIL_BLOCKS,
+    DETAIL_POSITIONS,
+    POPULATED_CELLS_PER_COLLECTION,
+    POPULATED_CELLS_PER_WORKBOOK,
+    WORKSHEET_BOUNDING_CELLS,
+)
+
+
+def formula_descriptor(cell):
+    """Return stable text for ordinary and Excel array formulas."""
+    if cell.data_type != 'f':
+        return None
+    value = cell.value
+    if isinstance(value, str):
+        return value
+    text = getattr(value, 'text', None)
+    if not isinstance(text, str):
+        return None
+    ref = getattr(value, 'ref', None)
+    return text + (f' [array_ref={ref}]' if ref else '')
 
 
 def typed_value(cell):
@@ -66,7 +87,7 @@ def _same_layout_result(paths, sheets, populated, excluded, input_files):
     for name in common:
         left, right = left_sheets[name], right_sheets[name]
         points = sorted(left['raw'].keys() | right['raw'].keys())
-        if len(blocks) >= 200 or details + len(points) > 100000:
+        if len(blocks) >= DETAIL_BLOCKS or details + len(points) > DETAIL_POSITIONS:
             omitted_positions += len(points)
             continue
         cells = []
@@ -130,7 +151,7 @@ def _same_layout_result(paths, sheets, populated, excluded, input_files):
             'Literal equality uses exact types and values. Formula text is compared separately; identical text does not imply identical results. Formulas and cached values are never evaluated. Errors and empty text remain uncompared. Formatting is ignored.',
             'Added or deleted cells have a missing value on one side. Inserted rows, moved columns and renamed sheets are not aligned automatically.',
             'Content comparisons never establish common origin or merge formula roots.',
-            'Output is limited to 200 common sheets and 100,000 detailed positions, in sheet-name order; omitted sheets and positions are counted.',
+            f'Output is limited to {DETAIL_BLOCKS} common sheets and {DETAIL_POSITIONS:,} detailed positions, in sheet-name order; omitted sheets and positions are counted.',
         ],
     }
 
@@ -141,23 +162,30 @@ def compare_content(paths, books, same_layout=False):
         raise ValueError('Same-layout comparison requires exactly two workbooks with distinct filenames')
     sheets, index, excluded = [], defaultdict(list), defaultdict(int)
     populated = 0
+    populated_by_workbook = defaultdict(int)
     for path, book in zip(paths, books):
         for sheet in book:
-            if sheet.max_row * sheet.max_column > 100000:
-                raise ValueError('Content comparison worksheet limit: 100,000 cells')
+            if sheet.max_row * sheet.max_column > WORKSHEET_BOUNDING_CELLS:
+                raise ValueError(f'Content comparison worksheet bounding limit: {WORKSHEET_BOUNDING_CELLS:,} cells')
             values, raw, cell_types = {}, {}, {}
             sid = len(sheets)
             for row in sheet.iter_rows():
                 for cell in row:
                     if cell.value is None: continue
                     populated += 1
-                    if populated > 100000:
-                        raise ValueError('Content comparison collection limit: 100,000 populated cells')
+                    populated_by_workbook[path.name] += 1
+                    if populated_by_workbook[path.name] > POPULATED_CELLS_PER_WORKBOOK:
+                        raise ValueError(
+                            f'Content comparison workbook limit: {POPULATED_CELLS_PER_WORKBOOK:,} populated cells ({path.name})')
+                    if populated > POPULATED_CELLS_PER_COLLECTION:
+                        raise ValueError(
+                            f'Content comparison collection limit: {POPULATED_CELLS_PER_COLLECTION:,} populated cells')
                     point = (cell.row, cell.column)
                     token = typed_value(cell)
-                    raw[point] = str(cell.value)
-                    cell_types[point] = ('unsupported_formula' if cell.data_type == 'f'
-                                         and not isinstance(cell.value, str) else cell.data_type)
+                    descriptor = formula_descriptor(cell)
+                    raw[point] = descriptor if descriptor is not None else str(cell.value)
+                    cell_types[point] = ('f' if descriptor is not None else 'unsupported_formula') \
+                        if cell.data_type == 'f' else cell.data_type
                     if token is None:
                         excluded['formula' if cell.data_type == 'f' else 'error_or_empty_text'] += 1
                         continue
@@ -170,7 +198,9 @@ def compare_content(paths, books, same_layout=False):
     input_files = [{'name': p.name, 'sha256': getattr(book, '_lab_input_sha256', None)}
                    for p, book in zip(paths, books)]
     if same_layout:
-        return _same_layout_result(paths, sheets, populated, dict(excluded), input_files)
+        result = _same_layout_result(paths, sheets, populated, dict(excluded), input_files)
+        result['populated_cells_by_workbook'] = dict(populated_by_workbook)
+        return result
     proposals = defaultdict(set)
     joins, common = 0, 0
     for token, positions in index.items():
@@ -215,7 +245,7 @@ def compare_content(paths, books, same_layout=False):
     # Materialize bounded report details only after ranking candidate regions.
     selected, detail_cells = [], 0
     for block in blocks:
-        if len(selected) >= 200 or detail_cells + block['compared_positions'] > 100000:
+        if len(selected) >= DETAIL_BLOCKS or detail_cells + block['compared_positions'] > DETAIL_POSITIONS:
             continue
         a,b,r1,r2,c1,c2,dr,dc = block.pop('_region')
         left,right = sheets[a],sheets[b]
@@ -246,12 +276,13 @@ def compare_content(paths, books, same_layout=False):
     selected.sort(key=lambda b:-b['matching_cells'])
     output=[];detail_total=0
     for block in selected:
-        if len(output)<200 and detail_total+block['compared_positions']<=100000:
+        if len(output)<DETAIL_BLOCKS and detail_total+block['compared_positions']<=DETAIL_POSITIONS:
             output.append(block);detail_total+=block['compared_positions']
     found_count=len(blocks)+added+record_scope['regions_omitted_due_detail_limit']
     return {'schema_version':2, 'method':'typed_anchor_translation_and_record_alignment_v2',
             'input_files':input_files,
             'sheet_count':len(sheets), 'populated_cells':populated,
+            'populated_cells_by_workbook':dict(populated_by_workbook),
             'blocks':output, 'total_blocks_found':found_count, 'blocks_omitted':found_count-len(output),
             'record_alignment':record_scope,
             'excluded_cells':dict(excluded), 'common_anchor_values_skipped':common,
@@ -263,5 +294,5 @@ def compare_content(paths, books, same_layout=False):
                 'Translations and unambiguous reordered row/column correspondences are searched. Unmatched rows/columns, transposition, rounding and sparse overlaps can be missed. A displayed bounding range is not a claim that all its cells were matched.',
                 'No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.',
                 'Thresholds are review heuristics, not calibrated confidence or an audit conclusion.',
-                'Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count.',
+                f'Output is limited to {DETAIL_BLOCKS} regions and {DETAIL_POSITIONS:,} detailed positions, ranked by matching cell count.',
             ]}

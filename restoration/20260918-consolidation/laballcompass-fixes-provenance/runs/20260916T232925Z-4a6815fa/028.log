@@ -1,0 +1,9 @@
+test_basic_composition_sums_mechanisms (test_ppsa.PPSATests.test_basic_composition_sums_mechanisms) ... ok
+test_many_small_releases_can_use_advanced_bound (test_ppsa.PPSATests.test_many_small_releases_can_use_advanced_bound) ... ok
+test_post_processing_costs_no_new_budget (test_ppsa.PPSATests.test_post_processing_costs_no_new_budget) ... ok
+test_raw_data_access_cannot_claim_post_processing (test_ppsa.PPSATests.test_raw_data_access_cannot_claim_post_processing) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

@@ -1,0 +1,107 @@
+[ok] dependency loads from run dir: VOLTERRA_RESONANT_FIXED_STATE_CERT_STANDALONE.py
+[ok] dependency loads from run dir: q195_exact_gamma.py
+[ok] dependency loads from run dir: q196_boundary_closure.py
+[ok] dependency loads from run dir: q196_canonical.py
+[ok] frozen V3 harness hash
+[ok] Part-E chronology d=3
+[ok] Part-E chronology d=5
+[ok] Part-E chronology d=7
+[ok] Part-E chronology d=9
+[ok] Part-E chronology d=11
+[ok] Part-E chronology d=13
+[ok] Part-E chronology d=15
+[ok] Part-E chronology d=17
+[ok] Part-E chronology d=19
+[ok] Part-E chronology d=21
+[ok] Part-E chronology d=23
+[ok] Part-E chronology d=25
+[ok] Part-E chronology d=27
+[ok] Part-E chronology d=29
+[ok] Part-E chronology d=31
+[ok] Part-E gaps in {1,2} d=5
+[ok] Part-E gaps in {1,2} d=7
+[ok] Part-E gaps in {1,2} d=9
+[ok] Part-E gaps in {1,2} d=11
+[ok] Part-E gaps in {1,2} d=13
+[ok] Part-E gaps in {1,2} d=15
+[ok] Part-I phase walk d=3 n0=1
+[ok] Part-I phase walk d=3 n0=2
+[ok] Part-I phase walk d=5 n0=1
+[ok] Part-I phase walk d=5 n0=2
+[ok] Part-I phase walk d=7 n0=1
+[ok] Part-I phase walk d=7 n0=2
+[ok] Part-I phase walk d=9 n0=1
+[ok] Part-I phase walk d=9 n0=2
+[ok] Part-I phase walk d=11 n0=1
+[ok] Part-I phase walk d=11 n0=2
+[ok] Part-F C-intervals d=3
+[ok] Part-F C-intervals d=5
+[ok] Part-F C-intervals d=7
+[ok] Part-F C-intervals d=9
+[ok] Part-F C-intervals d=11
+[ok] Part-F C-intervals d=13
+[ok] Part-F C-intervals d=15
+[ok] Part-F C-intervals d=17
+[ok] Part-F C-intervals d=19
+[ok] Part-F C-intervals d=21
+[ok] Part-F C-intervals d=23
+[ok] Part-F C-intervals d=25
+[ok] Part-F C-intervals d=27
+[ok] Part-F C-intervals d=29
+[ok] Part-F C-intervals d=31
+[ok] Part-F C-intervals d=3
+[ok] Part-F C-intervals d=5
+[ok] Part-F C-intervals d=7
+[ok] Part-F C-intervals d=9
+[ok] Part-F C-intervals d=11
+[ok] Part-F C-intervals d=13
+[ok] Part-F C-intervals d=15
+[ok] Part-F C-intervals d=17
+[ok] Part-F C-intervals d=19
+[ok] Part-F C-intervals d=21
+[ok] Part-F C-intervals d=23
+[ok] Part-F C-intervals d=25
+[ok] Part-F C-intervals d=27
+[ok] Part-F C-intervals d=29
+[ok] Part-F C-intervals d=31
+Q196 V3 PART-A COMPLETE
+Part-G b_in unit form + 2z identity verified
+Parts K-M: 375 agreement cells; collinear 4; alternate-pair 22; pivot-break-skipped 3
+  ALT-PAIR d=3 n0=1 p=37 xi=1 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=16 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=34 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=26 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=9 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=33 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=10 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=12 pair=(4, 8)
+  ALT-PAIR d=3 n0=1 p=37 xi=7 pair=(4, 8)
+  ALT-PAIR d=9 n0=1 p=163 xi=155 pair=(10, 26)
+  ALT-PAIR d=3 n0=2 p=37 xi=1 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=16 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=34 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=26 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=9 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=33 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=10 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=12 pair=(4, 8)
+  ALT-PAIR d=3 n0=2 p=37 xi=7 pair=(4, 8)
+  ALT-PAIR d=5 n0=2 p=61 xi=34 pair=(6, 14)
+  ALT-PAIR d=13 n0=2 p=157 xi=52 pair=(14, 38)
+  ALT-PAIR d=15 n0=2 p=271 xi=80 pair=(16, 44)
+Part-B leading-block witnesses complete
+[ok] cyclo field s=5
+[ok] cyclo detA full rank d=5 n0=1 s=5
+[ok] cyclo field s=9
+[ok] cyclo detA full rank d=3 n0=2 s=9
+[ok] cyclo field s=21
+[ok] cyclo detA full rank d=7 n0=2 s=21
+[ok] cyclo field s=33
+[ok] cyclo detA full rank d=11 n0=2 s=33
+[ok] cyclo field s=45
+[ok] cyclo detA full rank d=15 n0=1 s=45
+[ok] cyclo field s=45
+[ok] cyclo detA full rank d=15 n0=2 s=45
+Part-C cyclotomic detA verified on all six sectors
+Part-N data rows: 1530
+Q196 V3 ALL PARTS COMPLETE

@@ -1,0 +1,17 @@
+test_boundary_is_inclusive (test_tgcars.TGCARSTests.test_boundary_is_inclusive) ... ok
+test_budget_is_respected_in_both_branches (test_tgcars.TGCARSTests.test_budget_is_respected_in_both_branches) ... ok
+test_certificate_identity_is_preserved_for_audit (test_tgcars.TGCARSTests.test_certificate_identity_is_preserved_for_audit) ... ok
+test_degenerate_source_scale_fails_closed (test_tgcars.TGCARSTests.test_degenerate_source_scale_fails_closed) ... ok
+test_driver_dependence_can_break_transport_even_without_marginal_shift (test_tgcars.TGCARSTests.test_driver_dependence_can_break_transport_even_without_marginal_shift) ... ok
+test_fallback_changes_resolution_when_deleted_feature_would_dominate_if_nonzero (test_tgcars.TGCARSTests.test_fallback_changes_resolution_when_deleted_feature_would_dominate_if_nonzero) ... ok
+test_insufficient_support_fails_closed (test_tgcars.TGCARSTests.test_insufficient_support_fails_closed) ... ok
+test_mean_shift_disables_certificate_zeroing (test_tgcars.TGCARSTests.test_mean_shift_disables_certificate_zeroing) ... ok
+test_nonfinite_residuals_fail_closed (test_tgcars.TGCARSTests.test_nonfinite_residuals_fail_closed) ... ok
+test_scale_shift_disables_certificate_zeroing (test_tgcars.TGCARSTests.test_scale_shift_disables_certificate_zeroing) ... ok
+test_stable_transport_preserves_exact_p135_allocation (test_tgcars.TGCARSTests.test_stable_transport_preserves_exact_p135_allocation) ... ok
+test_target_driver_shape_mismatch_fails_closed (test_tgcars.TGCARSTests.test_target_driver_shape_mismatch_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.016s
+
+OK

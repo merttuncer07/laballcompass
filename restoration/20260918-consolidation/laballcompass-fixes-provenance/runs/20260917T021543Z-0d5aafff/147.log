@@ -1,0 +1,9 @@
+test_action_equivalent_beliefs_compress_without_regret (test_dsbc.Tests.test_action_equivalent_beliefs_compress_without_regret) ... ok
+test_controlled_loss_allows_more_compression_and_reports_bound (test_dsbc.Tests.test_controlled_loss_allows_more_compression_and_reports_bound) ... ok
+test_invalid_belief_is_rejected (test_dsbc.Tests.test_invalid_belief_is_rejected) ... ok
+test_same_most_likely_state_does_not_override_decision_loss (test_dsbc.Tests.test_same_most_likely_state_does_not_override_decision_loss) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

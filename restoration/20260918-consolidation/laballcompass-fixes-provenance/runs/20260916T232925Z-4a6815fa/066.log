@@ -1,0 +1,9 @@
+test_high_propensity_exit_creates_burnout (test_mbpf.Tests.test_high_propensity_exit_creates_burnout) ... ok
+test_homogeneous_pool_matches_naive_forecast (test_mbpf.Tests.test_homogeneous_pool_matches_naive_forecast) ... ok
+test_impossible_class_rate_is_rejected (test_mbpf.Tests.test_impossible_class_rate_is_rejected) ... ok
+test_mass_is_conserved_with_competing_defaults (test_mbpf.Tests.test_mass_is_conserved_with_competing_defaults) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "run_id": "20260914T191000Z-aicc",
+  "status": "PASS",
+  "finished_at": "2026-09-14T19:11:28.866832+00:00",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "counts": {
+    "tests": 36,
+    "passed": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "targets": [
+    {
+      "id": "IM359_IM014_AICC",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM359_IM014_AICC",
+      "layer": "parent",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 17,
+        "passed": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P136_QAIG",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P136_QAIG",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 7,
+        "passed": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P138_SPIA",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P138_SPIA",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 6,
+        "passed": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "P144_DPAI",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P144_DPAI",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 6,
+        "passed": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "source_changes": "restoration/20260914-aicc/changes.json",
+  "test_logs": [
+    "restoration/20260914-aicc/verified-parent.log",
+    "restoration/20260914-aicc/verified-consumers.log"
+  ],
+  "scope": "Targeted AICC analytic information-value and finite correlated-observation behavior plus its three full consumer test suites; not whole-lab, audit efficacy or novel acquisition policy validation.",
+  "example": "examples/information-selection/result.json",
+  "source_reference": "research/aicc-knowledge-gradient/OBSERVATIONS.md"
+}

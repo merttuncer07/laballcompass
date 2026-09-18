@@ -1,0 +1,9 @@
+test_candidate_shape_mismatch_is_rejected (test_dlew.Tests.test_candidate_shape_mismatch_is_rejected) ... ok
+test_decision_selection_reduces_untouched_regret (test_dlew.Tests.test_decision_selection_reduces_untouched_regret) ... ok
+test_every_induced_action_and_turnover_is_retained (test_dlew.Tests.test_every_induced_action_and_turnover_is_retained) ... ok
+test_prediction_and_decision_rankings_can_diverge (test_dlew.Tests.test_prediction_and_decision_rankings_can_diverge) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.067s
+
+OK

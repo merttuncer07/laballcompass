@@ -1,0 +1,9 @@
+test_bayes_plausibility (test_bpisd.BPISDTests.test_bayes_plausibility) ... ok
+test_channel_likelihoods_sum_by_state (test_bpisd.BPISDTests.test_channel_likelihoods_sum_by_state) ... ok
+test_invalid_prior_rejected (test_bpisd.BPISDTests.test_invalid_prior_rejected) ... ok
+test_persuasion_improves_sender_value (test_bpisd.BPISDTests.test_persuasion_improves_sender_value) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.059s
+
+OK

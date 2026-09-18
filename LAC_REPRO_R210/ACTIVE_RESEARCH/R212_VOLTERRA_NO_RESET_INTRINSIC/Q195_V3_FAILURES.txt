@@ -1,0 +1,5 @@
+# failing/disagreeing cells (empty = none found)
+SWEEP FAIL d=7 n0=1 p=43 xi=4 rankC=9 rankJC=9 joint=17 inter=1
+HIST FAIL r=15 n=5 p=31 xi=10 rankA=7 dimWJW=13
+HIST FAIL r=33 n=11 p=67 xi=40 rankA=16 dimWJW=31
+DISAGREE d=7 n0=1 p=43 xi=4 formal=0 kerPi=1

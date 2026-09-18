@@ -1,0 +1,9 @@
+test_averaging_stabilizes_reflection_cycle (test_oasrd.Tests.test_averaging_stabilizes_reflection_cycle) ... ok
+test_direct_contraction_can_remain_best (test_oasrd.Tests.test_direct_contraction_can_remain_best) ... ok
+test_invalid_operator_output_is_visible (test_oasrd.Tests.test_invalid_operator_output_is_visible) ... ok
+test_nonconvergence_returns_best_residual_without_deleting_runs (test_oasrd.Tests.test_nonconvergence_returns_best_residual_without_deleting_runs) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK

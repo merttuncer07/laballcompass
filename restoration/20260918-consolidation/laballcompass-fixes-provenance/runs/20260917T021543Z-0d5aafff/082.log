@@ -1,0 +1,12 @@
+test_current_control_plane_contains_the_r387_suite_set (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_current_control_plane_contains_the_r387_suite_set) ... ok
+test_mechanics_telemetry_is_not_empirical_learning (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_mechanics_telemetry_is_not_empirical_learning) ... ok
+test_promoted_and_quarantined_ids_are_disjoint_and_complete (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_promoted_and_quarantined_ids_are_disjoint_and_complete) ... ok
+test_quality_family_accounting_is_distinct_from_suite_count (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_quality_family_accounting_is_distinct_from_suite_count) ... ok
+test_r386_overlay_history_remains_intact (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_r386_overlay_history_remains_intact) ... ok
+test_registry_authority_is_not_inflated (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_registry_authority_is_not_inflated) ... ok
+test_state_keeps_r387_authority_separate_from_later_candidate_overlays (test_r387_product_overlay_closure.R387ProductOverlayClosureTests.test_state_keeps_r387_authority_separate_from_later_candidate_overlays) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.045s
+
+OK

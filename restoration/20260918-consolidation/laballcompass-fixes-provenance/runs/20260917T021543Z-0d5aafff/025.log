@@ -1,0 +1,17 @@
+test_estimated_shift_stays_in_simplex_tangent_space (test_opia.K081ContrastiveCompositionTests.test_estimated_shift_stays_in_simplex_tangent_space) ... ok
+test_harmful_backaction_flips_acquisition_decision (test_opia.K081ContrastiveCompositionTests.test_harmful_backaction_flips_acquisition_decision) ... ok
+test_missing_channel_model_fails_closed (test_opia.K081ContrastiveCompositionTests.test_missing_channel_model_fails_closed) ... ok
+test_non_tangent_effect_contrast_rejected (test_opia.K081ContrastiveCompositionTests.test_non_tangent_effect_contrast_rejected) ... ok
+test_policy_adjustment_recovers_backaction_hidden_by_naive_difference (test_opia.K081ContrastiveCompositionTests.test_policy_adjustment_recovers_backaction_hidden_by_naive_difference) ... ok
+test_zero_backaction_preserves_base_net_value (test_opia.K081ContrastiveCompositionTests.test_zero_backaction_preserves_base_net_value) ... ok
+test_channel_must_be_contrast (test_opia.P138InvariantPreservationTests.test_channel_must_be_contrast) ... ok
+test_covariance_must_preserve_probability_sum (test_opia.P138InvariantPreservationTests.test_covariance_must_preserve_probability_sum) ... ok
+test_expected_time_is_linear_policy_utility (test_opia.P138InvariantPreservationTests.test_expected_time_is_linear_policy_utility) ... ok
+test_far_boundary_still_skips_under_zero_backaction (test_opia.P138InvariantPreservationTests.test_far_boundary_still_skips_under_zero_backaction) ... ok
+test_near_boundary_still_acquires_under_zero_backaction (test_opia.P138InvariantPreservationTests.test_near_boundary_still_acquires_under_zero_backaction) ... ok
+test_policy_vectors_cover_all_locations (test_opia.P138InvariantPreservationTests.test_policy_vectors_cover_all_locations) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.007s
+
+OK

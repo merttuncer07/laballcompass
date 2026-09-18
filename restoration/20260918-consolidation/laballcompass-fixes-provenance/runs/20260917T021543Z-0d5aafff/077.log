@@ -1,0 +1,13 @@
+test_core_entry_point (test_experiment_integration.ExperimentIntegrationTests.test_core_entry_point) ... ok
+test_current_queue_is_not_ready_without_telemetry (test_experiment_integration.ExperimentIntegrationTests.test_current_queue_is_not_ready_without_telemetry) ... ok
+test_foundry_packet_exposes_not_ready_gate (test_experiment_integration.ExperimentIntegrationTests.test_foundry_packet_exposes_not_ready_gate) ... ok
+test_foundry_packet_routes_declared_contract (test_experiment_integration.ExperimentIntegrationTests.test_foundry_packet_routes_declared_contract) ... ok
+test_foundry_packet_routes_from_prior_generation_telemetry (test_experiment_integration.ExperimentIntegrationTests.test_foundry_packet_routes_from_prior_generation_telemetry) ... ok
+test_search_packet_surfaces_existing_bootstrap_pilot (test_experiment_integration.ExperimentIntegrationTests.test_search_packet_surfaces_existing_bootstrap_pilot) ... ok
+test_search_packet_surfaces_r7_adapter_bootstrap_pilot (test_experiment_integration.ExperimentIntegrationTests.test_search_packet_surfaces_r7_adapter_bootstrap_pilot) ... ok
+test_search_packet_surfaces_r8_observation_policy_adapter (test_experiment_integration.ExperimentIntegrationTests.test_search_packet_surfaces_r8_observation_policy_adapter) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 9.870s
+
+OK

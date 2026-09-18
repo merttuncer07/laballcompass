@@ -1,0 +1,9 @@
+test_failure_returns_witness (test_mcsc.Tests.test_failure_returns_witness) ... ok
+test_increasing_differences_certified (test_mcsc.Tests.test_increasing_differences_certified) ... ok
+test_optimal_selections_move_up (test_mcsc.Tests.test_optimal_selections_move_up) ... ok
+test_unsorted_actions_rejected (test_mcsc.Tests.test_unsorted_actions_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

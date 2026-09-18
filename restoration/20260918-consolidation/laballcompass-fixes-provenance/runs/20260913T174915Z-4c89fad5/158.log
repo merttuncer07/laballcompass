@@ -1,0 +1,9 @@
+test_arm_sizes_are_exact (test_cbac.CBACTests.test_arm_sizes_are_exact) ... ok
+test_constant_covariate_is_reported_and_ignored (test_cbac.CBACTests.test_constant_covariate_is_reported_and_ignored) ... ok
+test_invalid_arm_size_is_rejected (test_cbac.CBACTests.test_invalid_arm_size_is_rejected) ... ok
+test_selected_assignment_lies_inside_acceptance_region (test_cbac.CBACTests.test_selected_assignment_lies_inside_acceptance_region) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.057s
+
+OK

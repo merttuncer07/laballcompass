@@ -1,0 +1,10 @@
+test_bootstrap_preserves_structural_questions_but_only_quantifies_coverage (test_experiment_contract_bootstrap.ExperimentContractBootstrapTests.test_bootstrap_preserves_structural_questions_but_only_quantifies_coverage) ... ok
+test_discovers_completed_composition_suites (test_experiment_contract_bootstrap.ExperimentContractBootstrapTests.test_discovers_completed_composition_suites) ... ok
+test_nonmatching_queue_row_remains_unquantified (test_experiment_contract_bootstrap.ExperimentContractBootstrapTests.test_nonmatching_queue_row_remains_unquantified) ... ok
+test_queue_audit_is_explicit (test_experiment_contract_bootstrap.ExperimentContractBootstrapTests.test_queue_audit_is_explicit) ... ok
+test_real_fixed_suite_pilot_unlocks_later_generation_only (test_experiment_contract_bootstrap.ExperimentContractBootstrapTests.test_real_fixed_suite_pilot_unlocks_later_generation_only) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.918s
+
+OK

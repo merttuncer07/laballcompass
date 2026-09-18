@@ -1,0 +1,10 @@
+test_comparator_loss_narrows_region_but_does_not_delete_capability (test_core_v2.CoreV2Tests.test_comparator_loss_narrows_region_but_does_not_delete_capability) ... ok
+test_implementation_failure_is_not_theory_death (test_core_v2.CoreV2Tests.test_implementation_failure_is_not_theory_death) ... ok
+test_incompatible_pair_is_not_forced (test_core_v2.CoreV2Tests.test_incompatible_pair_is_not_forced) ... ok
+test_product_value_and_production_readiness_are_separate (test_core_v2.CoreV2Tests.test_product_value_and_production_readiness_are_separate) ... ok
+test_strength_can_fill_weakness_without_novelty_gate (test_core_v2.CoreV2Tests.test_strength_can_fill_weakness_without_novelty_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

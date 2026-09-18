@@ -1,0 +1,9 @@
+test_good_one_step_partition_can_fail_recursive_closure (test_psct.Tests.test_good_one_step_partition_can_fail_recursive_closure) ... ok
+test_observable_symbols_collapse_to_closed_predictive_states (test_psct.Tests.test_observable_symbols_collapse_to_closed_predictive_states) ... ok
+test_predictive_state_beats_memoryless_log_loss (test_psct.Tests.test_predictive_state_beats_memoryless_log_loss) ... ok
+test_single_symbol_sequence_is_rejected (test_psct.Tests.test_single_symbol_sequence_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.315s
+
+OK

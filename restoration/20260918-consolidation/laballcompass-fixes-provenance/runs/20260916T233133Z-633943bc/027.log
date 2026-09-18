@@ -1,0 +1,9 @@
+test_controller_stops_at_requested_mean (test_csdc.Tests.test_controller_stops_at_requested_mean) ... ok
+test_material_volume_is_preserved (test_csdc.Tests.test_material_volume_is_preserved) ... ok
+test_nonpositive_radius_is_rejected (test_csdc.Tests.test_nonpositive_radius_is_rejected) ... ok
+test_small_particles_dissolve_and_mean_size_grows (test_csdc.Tests.test_small_particles_dissolve_and_mean_size_grows) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.079s
+
+OK

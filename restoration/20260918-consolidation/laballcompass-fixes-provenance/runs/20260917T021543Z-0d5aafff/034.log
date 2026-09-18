@@ -1,0 +1,17 @@
+test_bound_is_top_two_sum (test_cadre.T.test_bound_is_top_two_sum) ... ok
+test_certified_does_not_use_full (test_cadre.T.test_certified_does_not_use_full) ... ok
+test_full_name_mismatch_rejected (test_cadre.T.test_full_name_mismatch_rejected) ... ok
+test_full_resolution_repairs_choice (test_cadre.T.test_full_resolution_repairs_choice) ... ok
+test_full_resolution_used (test_cadre.T.test_full_resolution_used) ... ok
+test_key_mismatch_rejected (test_cadre.T.test_key_mismatch_rejected) ... ok
+test_mechanism_removing_comparator_is_blind_compressed_choice (test_cadre.T.test_mechanism_removing_comparator_is_blind_compressed_choice) ... ok
+test_near_margin_uncertified (test_cadre.T.test_near_margin_uncertified) ... ok
+test_negative_bound_rejected (test_cadre.T.test_negative_bound_rejected) ... ok
+test_small_bounds_certify (test_cadre.T.test_small_bounds_certify) ... ok
+test_two_arms_required (test_cadre.T.test_two_arms_required) ... ok
+test_uncertified_without_full_abstains (test_cadre.T.test_uncertified_without_full_abstains) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.000s
+
+OK

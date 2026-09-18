@@ -1,0 +1,26 @@
+[ok] dependency loads from run dir: VOLTERRA_RESONANT_FIXED_STATE_CERT_STANDALONE.py
+[ok] dependency loads from run dir: q195_corrected_sourcefaithful.py
+[ok] d=3 F* keys
+[ok] d=3 F* times
+[ok] d=3 |F*| = H
+[ok] d=5 F* keys
+[ok] d=5 F* times
+[ok] d=5 |F*| = H
+[ok] d=3 dim(C) = H-2 = 3
+[ok] d=3 b_in = Gamma[T0,T1]
+[ok] d=3 objects separate
+[ok] provisional n0=1 d=3 rank=6 nullity=0
+[ok] provisional n0=1 d=5 rank=12 nullity=0
+[ok] provisional n0=1 d=7 rank=18 nullity=0
+[ok] provisional n0=1 d=9 rank=22 nullity=2
+[ok] provisional n0=1 d=11 rank=30 nullity=0
+[ok] provisional n0=1 d=13 rank=36 nullity=0
+[ok] provisional n0=1 d=15 rank=36 nullity=6
+[ok] provisional n0=2 d=3 full column rank
+[ok] provisional n0=2 d=5 full column rank
+[ok] provisional n0=2 d=7 full column rank
+[ok] provisional n0=2 d=9 full column rank
+[ok] provisional n0=2 d=11 full column rank
+[ok] provisional n0=2 d=13 full column rank
+[ok] provisional n0=2 d=15 full column rank
+Q195 CORRECTED DIAGNOSTIC: ALL CHECKPOINTS REPRODUCED (provisional reversal; NOT a Q195 result)

@@ -1,0 +1,9 @@
+test_collinear_hedges_are_stabilized (test_dhcc.Tests.test_collinear_hedges_are_stabilized) ... ok
+test_mismatched_validation_columns_are_rejected (test_dhcc.Tests.test_mismatched_validation_columns_are_rejected) ... ok
+test_selected_candidate_minimizes_declared_decision_loss (test_dhcc.Tests.test_selected_candidate_minimizes_declared_decision_loss) ... ok
+test_turnover_penalty_changes_declared_loss (test_dhcc.Tests.test_turnover_penalty_changes_declared_loss) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.009s
+
+OK

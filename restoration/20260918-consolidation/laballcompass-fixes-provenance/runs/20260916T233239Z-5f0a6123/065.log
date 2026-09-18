@@ -1,0 +1,15 @@
+test_authority_transition_is_explicit (test_r392_product_overlay_closure.R392Closure.test_authority_transition_is_explicit) ... ok
+test_candidate_counts_and_quarantine (test_r392_product_overlay_closure.R392Closure.test_candidate_counts_and_quarantine) ... ok
+test_control_plane_closes_over_52 (test_r392_product_overlay_closure.R392Closure.test_control_plane_closes_over_52) ... ok
+test_full_visibility_not_top1000_only (test_r392_product_overlay_closure.R392Closure.test_full_visibility_not_top1000_only) ... ok
+test_mechanics_nonlearning (test_r392_product_overlay_closure.R392Closure.test_mechanics_nonlearning) ... ok
+test_quality_controls_present (test_r392_product_overlay_closure.R392Closure.test_quality_controls_present) ... ok
+test_registry455_unchanged (test_r392_product_overlay_closure.R392Closure.test_registry455_unchanged) ... ok
+test_state_overlay_separate_from_authority (test_r392_product_overlay_closure.R392Closure.test_state_overlay_separate_from_authority) ... ok
+test_v2p053_exact_shell (test_r392_product_overlay_closure.R392Closure.test_v2p053_exact_shell) ... ok
+test_visibility_inherited (test_r392_product_overlay_closure.R392Closure.test_visibility_inherited) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.044s
+
+OK

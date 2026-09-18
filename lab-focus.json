@@ -8,10 +8,10 @@
       "baseline": "Coordinate/value diff plus ordinary dependency traversal; header-aware row matching where layouts differ. Compare against the current matcher on identical source files. Preserve the result that batched AND/OR beat R207 in the existing synthetic benchmark.",
       "success": "A reproducible pair of real published versions, independently checked changed-cell labels, precision/recall and exclusions, runtime, and reviewer steps. Keep a lab mechanism only if it adds correctness, coverage or measured cost benefit over the baseline. No product superiority claim from one file family.",
       "stop": "First bound source acquisition to one focused session. If no usable genuine pair is found, record the blocker and reassess the candidate. Stop algorithm expansion if the simple baseline solves the task; do not invent changes and call them field evidence.",
-      "next_action": "Find two original published SONI model versions (or another well-sourced versioned financial workbook family), preserve bytes and source URLs, and inspect actual changes before changing algorithms. Do not repeat completed SONI parsing or R207 benchmarks.",
+      "next_action": "Review the preserved Ofgem pair's changed-cell and downstream-target evidence with an independent impact-label check before changing matching algorithms. Do not treat static impacts as recalculated numeric results.",
       "verification": "For workbook changes run .venv/bin/python lab.py run --profile lab --quiet; inspect affected mechanism consumers if shared sources change. Store genuine task evaluation separately from software test receipts.",
       "read": ["workbench/cli.py", "workbench/workbooks.py", "workbench/record_matches.py", "workbench/report.py"],
-      "evidence": ["examples/soni-price-control/README.md", "examples/public-spending/README.md", "restoration/20260916-lineage-semantics/README.md", "restoration/20260917-salvage-fixes/README.md", "WORKBENCH.md"]
+      "evidence": ["examples/published-version-review/ofgem-ed2-pcfm/README.md", "examples/published-version-review/ofgem-ed2-pcfm/result.json", "examples/soni-price-control/README.md", "examples/public-spending/README.md", "restoration/20260916-lineage-semantics/README.md", "restoration/20260917-salvage-fixes/README.md", "WORKBENCH.md"]
     },
     "lab-efficiency": {
       "status": "complete",

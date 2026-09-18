@@ -1,0 +1,9 @@
+test_channels_revealing_different_state_partitions_are_incomparable (test_cda.CDATests.test_channels_revealing_different_state_partitions_are_incomparable) ... ok
+test_garbling_cannot_raise_decision_value (test_cda.CDATests.test_garbling_cannot_raise_decision_value) ... ok
+test_known_garbling_is_certified (test_cda.CDATests.test_known_garbling_is_certified) ... ok
+test_signal_relabeling_is_equivalent (test_cda.CDATests.test_signal_relabeling_is_equivalent) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

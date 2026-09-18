@@ -1,0 +1,9 @@
+test_equal_diffusivities_do_not_create_mismatch_claim (test_utdim.Tests.test_equal_diffusivities_do_not_create_mismatch_claim) ... ok
+test_rate_mismatch_destabilizes_statically_stable_gradient (test_utdim.Tests.test_rate_mismatch_destabilizes_statically_stable_gradient) ... ok
+test_statically_unstable_case_is_not_misattributed (test_utdim.Tests.test_statically_unstable_case_is_not_misattributed) ... ok
+test_unsorted_wavenumbers_are_rejected (test_utdim.Tests.test_unsorted_wavenumbers_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.014s
+
+OK

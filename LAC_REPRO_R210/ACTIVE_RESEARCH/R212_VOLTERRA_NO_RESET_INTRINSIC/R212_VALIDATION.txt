@@ -1,0 +1,9 @@
+PASS  intrinsic_core: 160 rank-one cases, worst err 7.12e-13
+PASS  rank_r_closure: 104 valid charts, worst err 6.22e-15
+PASS  antipodal_separation: affine odd / quadratic even, exact, r=5,7,9
+PASS  phasezero_replay: PHASE-ZERO SELF-CONTAINED REPLAY: PASS
+PASS  bipartite_unimodular: PHASE-ZERO BIPARTITE UNIMODULAR STANDALONE CHECK: PASS
+PASS  cubic_cert: RESONANT SIX-BOUNDARY CUBIC CERTIFICATES: PASS
+PASS  fixed_state_cert: ALL RESONANT FIXED-STATE CERTIFICATES PASS
+
+ALL 7 CHECKS PASS

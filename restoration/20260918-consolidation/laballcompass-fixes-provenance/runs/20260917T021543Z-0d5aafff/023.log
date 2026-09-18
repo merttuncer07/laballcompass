@@ -1,0 +1,11 @@
+test_budget_respected (test_mfqa.MFQATests.test_budget_respected) ... ok
+test_far_boundary_skips_program (test_mfqa.MFQATests.test_far_boundary_skips_program) ... ok
+test_invalid_channel_contract_rejected (test_mfqa.MFQATests.test_invalid_channel_contract_rejected) ... ok
+test_low_correlation_routes_to_fine_only (test_mfqa.MFQATests.test_low_correlation_routes_to_fine_only) ... ok
+test_near_boundary_high_correlation_uses_multifidelity (test_mfqa.MFQATests.test_near_boundary_high_correlation_uses_multifidelity) ... ok
+test_negative_value_cheap_channel_routes_to_fine (test_mfqa.MFQATests.test_negative_value_cheap_channel_routes_to_fine) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.009s
+
+OK

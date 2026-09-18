@@ -1,0 +1,13 @@
+test_fragile_excluded (test_susca.T.test_fragile_excluded) ... ok
+test_full_support_reduces_to_nominal (test_susca.T.test_full_support_reduces_to_nominal) ... ok
+test_hard_floor (test_susca.T.test_hard_floor) ... ok
+test_invalid_shape (test_susca.T.test_invalid_shape) ... ok
+test_invalid_support (test_susca.T.test_invalid_support) ... ok
+test_no_double_count (test_susca.T.test_no_double_count) ... ok
+test_support_changes_ranking (test_susca.T.test_support_changes_ranking) ... ok
+test_supported_first (test_susca.T.test_supported_first) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.000s
+
+OK

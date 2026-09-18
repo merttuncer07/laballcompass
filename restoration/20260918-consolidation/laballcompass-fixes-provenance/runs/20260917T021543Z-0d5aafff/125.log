@@ -1,0 +1,9 @@
+test_existing_claimants_can_be_protected (test_priu.PRIUTests.test_existing_claimants_can_be_protected) ... ok
+test_junior_new_money_remains_blocked (test_priu.PRIUTests.test_junior_new_money_remains_blocked) ... ok
+test_probability_validation (test_priu.PRIUTests.test_probability_validation) ... ok
+test_superpriority_unlocks_positive_value_investment (test_priu.PRIUTests.test_superpriority_unlocks_positive_value_investment) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

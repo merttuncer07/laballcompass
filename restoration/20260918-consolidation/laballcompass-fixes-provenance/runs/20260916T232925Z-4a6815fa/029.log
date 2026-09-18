@@ -1,0 +1,9 @@
+test_equal_price_marginal_block_is_prorated (test_mcpr.MCPRTests.test_equal_price_marginal_block_is_prorated) ... ok
+test_marginal_offer_sets_common_price_and_rent (test_mcpr.MCPRTests.test_marginal_offer_sets_common_price_and_rent) ... ok
+test_shortage_uses_explicit_scarcity_price (test_mcpr.MCPRTests.test_shortage_uses_explicit_scarcity_price) ... ok
+test_zero_demand_has_no_price (test_mcpr.MCPRTests.test_zero_demand_has_no_price) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

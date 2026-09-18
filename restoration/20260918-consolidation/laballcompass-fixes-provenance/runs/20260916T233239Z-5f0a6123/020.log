@@ -1,0 +1,11 @@
+test_comparator (test_bmdre.T.test_comparator) ... ok
+test_negative (test_bmdre.T.test_negative) ... ok
+test_over (test_bmdre.T.test_over) ... ok
+test_safe (test_bmdre.T.test_safe) ... ok
+test_tip (test_bmdre.T.test_tip) ... ok
+test_zero_error (test_bmdre.T.test_zero_error) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

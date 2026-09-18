@@ -1,0 +1,9 @@
+test_budget_is_never_exceeded (test_atrc.Tests.test_budget_is_never_exceeded) ... ok
+test_every_eviction_preserves_exact_budget (test_atrc.Tests.test_every_eviction_preserves_exact_budget) ... ok
+test_invalid_budget_rejected (test_atrc.Tests.test_invalid_budget_rejected) ... ok
+test_target_aware_retention_beats_fifo_on_rare_context (test_atrc.Tests.test_target_aware_retention_beats_fifo_on_rare_context) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.898s
+
+OK

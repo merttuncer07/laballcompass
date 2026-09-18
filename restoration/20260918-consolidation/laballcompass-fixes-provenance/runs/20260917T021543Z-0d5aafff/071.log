@@ -1,0 +1,17 @@
+test_bad_support_rejected (test_sacdlw.T.test_bad_support_rejected) ... ok
+test_dense_support_zero_shrinkage_collapses_to_raw_control (test_sacdlw.T.test_dense_support_zero_shrinkage_collapses_to_raw_control) ... ok
+test_deterministic (test_sacdlw.T.test_deterministic) ... ok
+test_negative_risk_rejected (test_sacdlw.T.test_negative_risk_rejected) ... ok
+test_off_support_noise_is_removed (test_sacdlw.T.test_off_support_noise_is_removed) ... ok
+test_prediction_key_mismatch_rejected (test_sacdlw.T.test_prediction_key_mismatch_rejected) ... ok
+test_support_contradiction_check_requires_calibration (test_sacdlw.T.test_support_contradiction_check_requires_calibration) ... ok
+test_working_region_changes_actions (test_sacdlw.T.test_working_region_changes_actions) ... ok
+test_working_region_changes_selected_model (test_sacdlw.T.test_working_region_changes_selected_model) ... ok
+test_working_region_improves_common_reference_regret (test_sacdlw.T.test_working_region_improves_common_reference_regret) ... ok
+test_wrong_support_abstains_when_calibration_contradicts_it (test_sacdlw.T.test_wrong_support_abstains_when_calibration_contradicts_it) ... ok
+test_zero_risk_aversion_collapses_to_parent_dlew_selection (test_sacdlw.T.test_zero_risk_aversion_collapses_to_parent_dlew_selection) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.145s
+
+OK

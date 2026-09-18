@@ -1,0 +1,13 @@
+test_baseline_is_fragile (test_cdtdlew.T.test_baseline_is_fragile) ... ok
+test_empty_protected_rejected (test_cdtdlew.T.test_empty_protected_rejected) ... ok
+test_gain_positive (test_cdtdlew.T.test_gain_positive) ... ok
+test_no_flip_helper (test_cdtdlew.T.test_no_flip_helper) ... ok
+test_protected_interval (test_cdtdlew.T.test_protected_interval) ... ok
+test_robust_selects_stable (test_cdtdlew.T.test_robust_selects_stable) ... ok
+test_tipping_found (test_cdtdlew.T.test_tipping_found) ... ok
+test_worst_case_exposes_fragility (test_cdtdlew.T.test_worst_case_exposes_fragility) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.137s
+
+OK

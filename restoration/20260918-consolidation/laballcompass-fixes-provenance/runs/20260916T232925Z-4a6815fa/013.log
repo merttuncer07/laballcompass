@@ -1,0 +1,8 @@
+test_budget_is_respected (test_acra.AdaptiveConsequenceResolutionAllocatorTests.test_budget_is_respected) ... ok
+test_frequency_sensitive_region_prefers_long_option (test_acra.AdaptiveConsequenceResolutionAllocatorTests.test_frequency_sensitive_region_prefers_long_option) ... ok
+test_time_sensitive_region_prefers_short_option_when_affordable (test_acra.AdaptiveConsequenceResolutionAllocatorTests.test_time_sensitive_region_prefers_short_option_when_affordable) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+OK

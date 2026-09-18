@@ -1,0 +1,11 @@
+test_all_blocked (test_drfiac.T.test_all_blocked) ... ok
+test_best_clean (test_drfiac.T.test_best_clean) ... ok
+test_block_list (test_drfiac.T.test_block_list) ... ok
+test_blocks (test_drfiac.T.test_blocks) ... ok
+test_comparator_diff (test_drfiac.T.test_comparator_diff) ... ok
+test_empty (test_drfiac.T.test_empty) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "run_id": "20260915T073011Z-miff",
+  "status": "PASS",
+  "finished_at": "2026-09-15T07:30:11.249571+00:00",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "primary_local_repository": "/Users/mertalituncer/Developer/lab",
+  "counts": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 35
+  },
+  "targets": [
+    {
+      "id": "R027_S426_S427_MIFF",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R027_S426_S427_MIFF",
+      "layer": "parent",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 24
+      }
+    },
+    {
+      "id": "P001_DREW",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P001_DREW",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "runner": "pytest",
+      "status": "PASS",
+      "counts": {
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 11
+      }
+    }
+  ],
+  "source_changes": "restoration/20260915-miff/changes.json",
+  "scope": "35 tests cover MIFF numerical cut optimization and its DREW consumer. Exhaustive partition references and one upstream graph; no novel algorithm, posterior inference or real-pipeline/audit validation.",
+  "test_logs": [
+    "restoration/20260915-miff/verified-parent-tests.log",
+    "restoration/20260915-miff/verified-consumer-tests.log"
+  ],
+  "observations": "restoration/20260915-miff/observed-comparison.json",
+  "limitations": [
+    "Path listing still capped at 100 and enumeration can be expensive",
+    "Contamination is a declared nonnegative linear model, not an audit opinion or Bayesian cut posterior"
+  ],
+  "deployment": "Applied to primary local repository after filesystem permission grant; original tests used the identical final source in the old permitted workspace."
+}

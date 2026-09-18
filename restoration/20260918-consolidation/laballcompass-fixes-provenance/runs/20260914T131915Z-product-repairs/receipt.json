@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "run_id": "20260914T131915Z-product-repairs",
+  "status": "PASS",
+  "profile": "product-repairs-20260914",
+  "finished_at": "2026-09-14T13:19:15.910120+00:00",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "results_scope": "Targeted software behavior on four changed components; no field or novelty claim. Counts partition one observed pytest run by component classname.",
+  "source_hash_scope": "Changed component Python files plus actual HFAD, SACPS and CSID parent implementations; no whole-lab snapshot asserted.",
+  "source_snapshot_sha256": "ebbaf932d5cd8aa9c570288335a765805eeef0d2a71a1731410b103b2541935e",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2"
+    }
+  },
+  "counts": {
+    "tests": 36,
+    "passed": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  },
+  "targets": [
+    {
+      "id": "V2P050_SCIG",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P050_SCIG",
+      "runner": "pytest",
+      "layer": "V2",
+      "pattern": "test_*.py",
+      "status": "PASS",
+      "counts": {
+        "tests": 18,
+        "passed": 18,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "log": "../../restoration/20260914-product-repairs/tests-20260914.log",
+      "result_file": "../../restoration/20260914-product-repairs/tests-20260914.xml"
+    },
+    {
+      "id": "P103_CFAI",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P103_CFAI",
+      "runner": "pytest",
+      "layer": "foundry",
+      "pattern": "test_*.py",
+      "status": "PASS",
+      "counts": {
+        "tests": 8,
+        "passed": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "log": "../../restoration/20260914-product-repairs/tests-20260914.log",
+      "result_file": "../../restoration/20260914-product-repairs/tests-20260914.xml"
+    },
+    {
+      "id": "IM406_IM037_ACRA",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/CURRENT_PRODUCTS/IM406_IM037_ACRA",
+      "runner": "pytest",
+      "layer": "parent",
+      "pattern": "test_*.py",
+      "status": "PASS",
+      "counts": {
+        "tests": 3,
+        "passed": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "log": "../../restoration/20260914-product-repairs/tests-20260914.log",
+      "result_file": "../../restoration/20260914-product-repairs/tests-20260914.xml"
+    },
+    {
+      "id": "R007_C349_BICC",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/parent_products/RETRO_PRODUCTS/R007_C349_BICC",
+      "runner": "pytest",
+      "layer": "parent",
+      "pattern": "test_*.py",
+      "status": "PASS",
+      "counts": {
+        "tests": 7,
+        "passed": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0
+      },
+      "log": "../../restoration/20260914-product-repairs/tests-20260914.log",
+      "result_file": "../../restoration/20260914-product-repairs/tests-20260914.xml"
+    }
+  ]
+}

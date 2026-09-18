@@ -1,0 +1,9 @@
+test_chapman_estimate_is_bias_corrected (test_mlhpe.MLHPETests.test_chapman_estimate_is_bias_corrected) ... ok
+test_dependence_changes_hidden_population_estimate (test_mlhpe.MLHPETests.test_dependence_changes_hidden_population_estimate) ... ok
+test_independence_and_pairwise_surface_is_complete (test_mlhpe.MLHPETests.test_independence_and_pairwise_surface_is_complete) ... ok
+test_saturated_model_is_flagged (test_mlhpe.MLHPETests.test_saturated_model_is_flagged) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.019s
+
+OK

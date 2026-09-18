@@ -1,0 +1,9 @@
+test_competing_prepayment_reduces_later_defaults (test_mcris.Tests.test_competing_prepayment_reduces_later_defaults) ... ok
+test_default_reduction_is_valued_net_of_cost (test_mcris.Tests.test_default_reduction_is_valued_net_of_cost) ... ok
+test_impossible_competing_rates_are_rejected (test_mcris.Tests.test_impossible_competing_rates_are_rejected) ... ok
+test_probability_mass_is_conserved (test_mcris.Tests.test_probability_mass_is_conserved) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

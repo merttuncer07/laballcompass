@@ -1,0 +1,13 @@
+test_composition_gain_positive (test_pipeg.T.test_composition_gain_positive) ... ok
+test_externality_changes_choice (test_pipeg.T.test_externality_changes_choice) ... ok
+test_noinfo_preserves_entry (test_pipeg.T.test_noinfo_preserves_entry) ... ok
+test_persuasion_kills_entry_in_declared_shell (test_pipeg.T.test_persuasion_kills_entry_in_declared_shell) ... ok
+test_reproducible (test_pipeg.T.test_reproducible) ... ok
+test_unrestricted_persuasion_is_current_payoff_choice (test_pipeg.T.test_unrestricted_persuasion_is_current_payoff_choice) ... ok
+test_zero_disclosure_effect_collapses (test_pipeg.T.test_zero_disclosure_effect_collapses) ... ok
+test_zero_future_weight_collapses (test_pipeg.T.test_zero_future_weight_collapses) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.134s
+
+OK

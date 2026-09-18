@@ -1,0 +1,8 @@
+test_chain_bottleneck_limits_delivery (test_cdbl.CDBLTests.test_chain_bottleneck_limits_delivery) ... ok
+test_deadline_blocks_too_slow_path (test_cdbl.CDBLTests.test_deadline_blocks_too_slow_path) ... ok
+test_disconnected_stock_does_not_increase_delivery (test_cdbl.CDBLTests.test_disconnected_stock_does_not_increase_delivery) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+OK

@@ -1,0 +1,13 @@
+[ok] dependency loads from run dir: VOLTERRA_RESONANT_FIXED_STATE_CERT_STANDALONE.py
+[ok] dependency loads from run dir: q195_exact_gamma.py
+[ok] dependency loads from run dir: q196_boundary_closure.py
+[ok] frozen V3 harness hash
+Q196 V4 PART-A COMPLETE
+Part-8 quadratic telescoping identity verified (all cells)
+LSTAR-SINGULAR d=3 n0=1 p=19 xi=6 (recorded; bad reduction)
+LSTAR-SINGULAR d=5 n0=1 p=31 xi=14 (recorded; bad reduction)
+LSTAR-SINGULAR d=7 n0=1 p=43 xi=23 (recorded; bad reduction)
+LSTAR-SINGULAR d=11 n0=2 p=199 xi=40 (recorded; bad reduction)
+lambda_star singular cells: [(3, 1, 19, 6, 9), (5, 1, 31, 14, 15), (7, 1, 43, 23, 21), (11, 2, 199, 40, 33)]
+Parts 2/4-11 verified; Theta + pair tables written
+Q196 V4 PART-A COMPLETE

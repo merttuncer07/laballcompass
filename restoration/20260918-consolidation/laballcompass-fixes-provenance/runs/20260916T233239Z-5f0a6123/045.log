@@ -1,0 +1,13 @@
+test_coverage_rmse_gain (test_mtcwc.T.test_coverage_rmse_gain) ... ok
+test_interval_score_gain (test_mtcwc.T.test_interval_score_gain) ... ok
+test_no_shift_collapses (test_mtcwc.T.test_no_shift_collapses) ... ok
+test_one_reset (test_mtcwc.T.test_one_reset) ... ok
+test_post_shift_coverage_gain (test_mtcwc.T.test_post_shift_coverage_gain) ... ok
+test_removal_has_no_reset (test_mtcwc.T.test_removal_has_no_reset) ... ok
+test_reproducible (test_mtcwc.T.test_reproducible) ... ok
+test_tipping_exists (test_mtcwc.T.test_tipping_exists) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.039s
+
+OK

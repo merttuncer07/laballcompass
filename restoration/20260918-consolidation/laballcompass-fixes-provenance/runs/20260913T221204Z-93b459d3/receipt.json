@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "run_id": "20260913T221204Z-93b459d3",
+  "status": "PASS",
+  "started_at": "2026-09-13T22:12:04.825951+00:00",
+  "profile": "parents+foundry",
+  "source_root": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/LAC_REPRO_R210",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "timeout_seconds": 180,
+  "targets": [
+    {
+      "id": "FOUNDRY_P134_REIG__test_reig",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P134_REIG/test_reig.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-13T22:12:06.792304+00:00",
+      "command": [
+        "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/runs/20260913T221204Z-93b459d3/000.xml",
+        "products/P134_REIG/test_reig.py"
+      ],
+      "log": "000.log",
+      "result_file": "000.xml",
+      "exit_code": 0,
+      "seconds": 39.646,
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 6
+      },
+      "finished_at": "2026-09-13T22:12:46.440463+00:00"
+    },
+    {
+      "id": "FOUNDRY_P134_REIG__test_reig_unittest",
+      "cwd": "BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS",
+      "runner": "pytest",
+      "pattern": "products/P134_REIG/test_reig_unittest.py",
+      "layer": "foundry",
+      "status": "PASS",
+      "started_at": "2026-09-13T22:12:46.441481+00:00",
+      "command": [
+        "/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Documents/Codex/2026-09-13/do-x20/outputs/lab-restored/runs/20260913T221204Z-93b459d3/001.xml",
+        "products/P134_REIG/test_reig_unittest.py"
+      ],
+      "log": "001.log",
+      "result_file": "001.xml",
+      "exit_code": 0,
+      "seconds": 0.282,
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 6
+      },
+      "finished_at": "2026-09-13T22:12:46.724224+00:00"
+    }
+  ],
+  "results_scope": "software_reproduction_only",
+  "input_manifest_sha256": "52892fa46ccafa139a981134e3da44b139c1c9061a528a9507efcfe322bbce12",
+  "source_snapshot_sha256": "2bec520d117516cc7f223b0e67a9b7a279899936c40b85c8bab90552b2f8b219",
+  "runner_sha256": "1cef58f197783c075193cdfee1d9cc4d9a387269cab6afdfb05e52b20d683ba4",
+  "worker_sha256": "4ef857ee58afd19ee9101a442f548cf09c4070fa912d146ce91399a64ea01cb8",
+  "integrity": {
+    "status": "NOT_REQUESTED",
+    "scope": "Working source is hashed above; the historical package manifest is not a gate for development."
+  },
+  "updated_at": "2026-09-13T22:12:46.725287+00:00",
+  "finished_at": "2026-09-13T22:12:46.725278+00:00",
+  "counts": {
+    "tests": 12,
+    "passed": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

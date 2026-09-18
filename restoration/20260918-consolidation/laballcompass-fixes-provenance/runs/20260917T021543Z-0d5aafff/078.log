@@ -1,0 +1,15 @@
+test_blind_axis_reported (test_experiment_selector.ExperimentSelectorTests.test_blind_axis_reported) ... ok
+test_compute_ceiling (test_experiment_selector.ExperimentSelectorTests.test_compute_ceiling) ... ok
+test_outcome_only_changes_next_round (test_experiment_selector.ExperimentSelectorTests.test_outcome_only_changes_next_round) ... ok
+test_plan_fingerprint_detects_contract_change (test_experiment_selector.ExperimentSelectorTests.test_plan_fingerprint_detects_contract_change) ... ok
+test_protected_outcome_cannot_adapt (test_experiment_selector.ExperimentSelectorTests.test_protected_outcome_cannot_adapt) ... ok
+test_protected_validation_never_selected (test_experiment_selector.ExperimentSelectorTests.test_protected_validation_never_selected) ... ok
+test_selects_progress_per_compute (test_experiment_selector.ExperimentSelectorTests.test_selects_progress_per_compute) ... ok
+test_stop_threshold (test_experiment_selector.ExperimentSelectorTests.test_stop_threshold) ... ok
+test_unadjusted_backreaction_stays_unquantified (test_experiment_selector.ExperimentSelectorTests.test_unadjusted_backreaction_stays_unquantified) ... ok
+test_unknown_calibration_never_gets_fake_score (test_experiment_selector.ExperimentSelectorTests.test_unknown_calibration_never_gets_fake_score) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

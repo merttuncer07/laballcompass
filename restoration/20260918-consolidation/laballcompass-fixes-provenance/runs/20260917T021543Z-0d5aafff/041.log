@@ -1,0 +1,11 @@
+test_allow_choice (test_padre.T.test_allow_choice) ... ok
+test_block_choice_none (test_padre.T.test_block_choice_none) ... ok
+test_high_epsilon_allows (test_padre.T.test_high_epsilon_allows) ... ok
+test_invalid (test_padre.T.test_invalid) ... ok
+test_low_epsilon_blocks (test_padre.T.test_low_epsilon_blocks) ... ok
+test_monotone (test_padre.T.test_monotone) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

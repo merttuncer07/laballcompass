@@ -1,0 +1,13 @@
+test_active_status (test_atscwc.T.test_active_status) ... ok
+test_bad_budget (test_atscwc.T.test_bad_budget) ... ok
+test_coverage_rmse_improves (test_atscwc.T.test_coverage_rmse_improves) ... ok
+test_interval_score_improves (test_atscwc.T.test_interval_score_improves) ... ok
+test_reproducible (test_atscwc.T.test_reproducible) ... ok
+test_target_coverage_preserved (test_atscwc.T.test_target_coverage_preserved) ... ok
+test_uninformative_accuracy_rejected (test_atscwc.T.test_uninformative_accuracy_rejected) ... ok
+test_width_reduces (test_atscwc.T.test_width_reduces) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 8.874s
+
+OK

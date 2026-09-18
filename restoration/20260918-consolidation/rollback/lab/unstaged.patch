@@ -1,0 +1,397 @@
+diff --git a/CONTINUE_HERE.md b/CONTINUE_HERE.md
+index 6b02cbe..c1ad81d 100644
+--- a/CONTINUE_HERE.md
++++ b/CONTINUE_HERE.md
+@@ -11,7 +11,11 @@ Use `focus --list` for parked work. Do not reload all previous experiments.
+ The architecture is now problem-first with one active product pilot:
+ compare genuine published workbook versions and show potential formula impacts.
+ This is provisional, based on existing work; customer demand is unvalidated.
+-The next action is source acquisition and labeling, not another engine rewrite.
++The genuine Ofgem pair is now preserved and has been run end to end. The next
++action is reviewer-focused interpretation and a stronger independent impact
++check, not another broad limit increase.
++
++The real-file result is in [examples/published-version-review/ofgem-ed2-pcfm/README.md](examples/published-version-review/ofgem-ed2-pcfm/README.md): 125,169 populated cells were accepted across two official versions, array formulas were normalized, and 416 unique static downstream targets were traced. The interactive source checklist remains bounded at 4,000 roots; large reports retain the content diff and bounded impact lists.
+ Existing SONI parsing and R207 comparisons are completed evidence, not tasks.
+ 
+ 17 September selective salvage: BAMI/ISTAICC repairs, matching and formula-impact
+diff --git a/WORKBENCH.md b/WORKBENCH.md
+index 89f8ce3..b2ac5f4 100644
+--- a/WORKBENCH.md
++++ b/WORKBENCH.md
+@@ -12,9 +12,22 @@ Değişen girdilerin ve formül metinlerinin çözülen grafikteki potansiyel ni
+ etkileri gösterilir. Yeniden adlandırılan/tek tarafta bulunan sayfalar listelenir,
+ otomatik eşlenmez. Çıktı klasörü yeni veya boş olmalıdır.
+ 
+-Koleksiyon sınırı 100.000 dolu hücredir; diğer grafik ve arama sınırları devam eder.
++Gerçek sürüm çiftlerinde her dosya için 150.000, koleksiyon için 300.000 dolu
++hücre bütçesi vardır. Seyrek sayfalar artık yalnızca gerçek bounding box 2.000.000
++hücreyi aşarsa durdurulur; dolu hücre sayısı ile fiziksel sayfa alanı birbirine
++karıştırılmaz. Formül izi bu bütçeden daha büyükse içerik farkı yine üretilir ve
++etki listesi yalnız çözülen statik grafik için gösterilir.
+ [Seçici entegrasyon ve doğrulama](restoration/20260917-salvage-fixes/README.md).
+ 
++## Gerçek yayımlanmış sürüm çifti
++
++[Ofgem ED2 PCFM V4 incelemesi](examples/published-version-review/ofgem-ed2-pcfm/README.md)
++iki resmi sürümü ve hash'lerini korur. Çalıştırmada 125.169 dolu hücre okundu;
++20.869 formül metni aynı, 4.054 sabit değer değişikliği, 87 ekleme ve 60 silme
++bulundu. Array formula nesneleri metin ve kapsamıyla normalize edildi. Statik
++grafik 416 benzersiz potansiyel downstream hedefi izledi; Excel yeniden
++hesaplanmadığı için bunlar sayısal sonuç veya audit bulgusu değildir.
++
+ 15 Eylül 2026. Mevcut labın R207 motoru gerçek kaynak dosyasından çağrılıyor. Uygulama, bir kaynağın farklı türevlerini aynı köke bağlayarak kaynak kaybının hangi sonuçlara yayıldığını gösteriyor. Excel dosyasında formül bağlantılarını kendisi okuyor; kullanıcıdan bağlantıları çizmesini istemiyor.
+ 
+ ## Excel tablo başvuruları da okunuyor
+@@ -122,7 +135,7 @@ Dört raporda JavaScript çalışması, kaynak kapatma, ortak kayıp, sıfırlam
+ - `IF` içindeki kullanılmayan dal dahil bütün statik referanslar potansiyel bağımlılık sayılır. Kaynak kaybı, sayısal sonucun kesin değişeceği veya audit görüşünün bozulacağı anlamına gelmez.
+ - Verilmeyen dosyalara bağlantılar, dinamik referanslar (`INDIRECT`, `OFFSET`), desteklenmeyen işlevler, desteklenmeyen tablo seçicileri, spill referansları ve döngüler eksik olarak gösterilir. Bunlara bağlı formüller de kapsam dışında tutulur.
+ - Bütün tekli kaynak kayıpları, en fazla 512 ikili kaynak kaybı ve bütün kaynakların kaybı hesaplanır. İkili kesinti listesi büyük dosyalarda tam değildir; daha büyük asgari kesintiler aranmaz.
+-- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, sayfa başına 100.000 hücrelik sınırlayıcı alan, 20.000 düğüm, 4.000 kök kaynak. Bir referans 10.000 hücreden fazla genişletilmez. Geçişli kaynak kümeleri bitset olarak taşınır; önceki 500.000 üyelik durdurma sınırı kaldırıldı.
++- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, dosya başına 150.000 ve koleksiyon başına 300.000 dolu hücre, sayfa başına 2.000.000 hücrelik sınırlayıcı alan, statik grafik için 30.000 düğüm ve 250.000 kural girdisi. Etkileşimli kaynak görünümü 4.000 kök kaynakla sınırlıdır; daha büyük grafiklerde içerik farkı ve çözülen sınırlı etki listeleri yine üretilir. Bir referans 10.000 hücreden fazla genişletilmez. Geçişli kaynak kümeleri bitset olarak taşınır; önceki 500.000 üyelik durdurma sınırı kaldırıldı.
+ - Ekran en fazla 150 kaynak satırını gösterir; arama bütün kaynaklarda çalışır. En fazla 200 sonuç gösterilir; JSON dosyaları tam listeyi içerir.
+ 
+ Sonraki ürün çalışmasının ölçütü, sadece motor çalıştırabilmek değil, gerçek bir görevde güçlü mevcut yöntemlere göre gösterilebilir faydadır. Laboratuvarın bütün motorları veya ürün iddiaları bu uygulamayla doğrulanmış değildir.
+diff --git a/lab-focus.json b/lab-focus.json
+index 3c27749..7c7db38 100644
+--- a/lab-focus.json
++++ b/lab-focus.json
+@@ -8,10 +8,10 @@
+       "baseline": "Coordinate/value diff plus ordinary dependency traversal; header-aware row matching where layouts differ. Compare against the current matcher on identical source files. Preserve the result that batched AND/OR beat R207 in the existing synthetic benchmark.",
+       "success": "A reproducible pair of real published versions, independently checked changed-cell labels, precision/recall and exclusions, runtime, and reviewer steps. Keep a lab mechanism only if it adds correctness, coverage or measured cost benefit over the baseline. No product superiority claim from one file family.",
+       "stop": "First bound source acquisition to one focused session. If no usable genuine pair is found, record the blocker and reassess the candidate. Stop algorithm expansion if the simple baseline solves the task; do not invent changes and call them field evidence.",
+-      "next_action": "Find two original published SONI model versions (or another well-sourced versioned financial workbook family), preserve bytes and source URLs, and inspect actual changes before changing algorithms. Do not repeat completed SONI parsing or R207 benchmarks.",
++      "next_action": "Review the preserved Ofgem pair's changed-cell and downstream-target evidence with an independent impact-label check before changing matching algorithms. Do not treat static impacts as recalculated numeric results.",
+       "verification": "For workbook changes run .venv/bin/python lab.py run --profile lab --quiet; inspect affected mechanism consumers if shared sources change. Store genuine task evaluation separately from software test receipts.",
+       "read": ["workbench/cli.py", "workbench/workbooks.py", "workbench/record_matches.py", "workbench/report.py"],
+-      "evidence": ["examples/soni-price-control/README.md", "examples/public-spending/README.md", "restoration/20260916-lineage-semantics/README.md", "restoration/20260917-salvage-fixes/README.md", "WORKBENCH.md"]
++      "evidence": ["examples/published-version-review/ofgem-ed2-pcfm/README.md", "examples/published-version-review/ofgem-ed2-pcfm/result.json", "examples/soni-price-control/README.md", "examples/public-spending/README.md", "restoration/20260916-lineage-semantics/README.md", "restoration/20260917-salvage-fixes/README.md", "WORKBENCH.md"]
+     },
+     "lab-efficiency": {
+       "status": "complete",
+diff --git a/tests/test_same_layout.py b/tests/test_same_layout.py
+index cead919..54e25df 100644
+--- a/tests/test_same_layout.py
++++ b/tests/test_same_layout.py
+@@ -8,6 +8,7 @@ import tempfile
+ import unittest
+ 
+ from openpyxl import Workbook
++from openpyxl.worksheet.formula import ArrayFormula
+ from workbench.cli import main, save_workbook_analysis
+ from workbench.content import compare_content
+ from workbench.workbooks import open_workbooks
+@@ -46,6 +47,14 @@ class SameLayoutTests(unittest.TestCase):
+         self.assertEqual(formula['comparison'], 'same_formula')
+         self.assertFalse(formula['equal'])  # Text equality never asserts evaluated equality.
+ 
++    def test_identical_array_formula_text_is_compared_without_cached_values(self):
++        for book in self.books:
++            book.active['D1'] = ArrayFormula(ref='D1', text='=SUM(A1:C1)')
++        block = self.report()['blocks'][0]
++        formula = next(c for c in block['cells'] if c['left'] == 'D1')
++        self.assertEqual(formula['comparison'], 'same_formula')
++        self.assertEqual(block['uncompared_cells'], 0)
++
+     def test_changes_and_unknowns_have_distinct_counts_and_impacts(self):
+         for book in self.books:
+             book.active['D1'] = '=2'
+diff --git a/workbench/cli.py b/workbench/cli.py
+index def529c..f2bd054 100644
+--- a/workbench/cli.py
++++ b/workbench/cli.py
+@@ -33,8 +33,19 @@ def save_workbook_analysis(paths, directory=None, same_layout=False):
+         content = compare_content(paths, books, same_layout=same_layout)
+         try:
+             problem = _analyze_loaded(paths, books)
+-        except LineageUnavailable as error:
++            # The interactive lineage viewer has a smaller source budget than
++            # the bounded content comparison. Keep the useful diff when a
++            # large workbook cannot be rendered as one source checklist.
++            if len(problem.sources) > 4000:
++                content['lineage_view_available'] = False
++                content['lineage_unavailable_reason'] = (
++                    'Interactive lineage view limit: 4,000 source cells; '
++                    'bounded formula impact tracing remains available.')
++            else:
++                content['lineage_view_available'] = True
++        except (LineageUnavailable, ValueError) as error:
+             problem = None
++            content['lineage_view_available'] = False
+             content['lineage_unavailable_reason'] = str(error)
+     folder = Path(directory) if directory is not None else new_run('workbooks')
+     if folder.exists() and any(folder.iterdir()):
+@@ -43,8 +54,14 @@ def save_workbook_analysis(paths, directory=None, same_layout=False):
+     content['lineage_available'] = problem is not None
+     if problem is not None:
+         # Keep observed similarities separate from the actual formula graph.
+-        report = save_analysis(problem, folder)
+-        report.rename(folder / 'lineage.html')
++        if content.get('lineage_view_available', True):
++            try:
++                report = save_analysis(problem, folder)
++            except ValueError as error:
++                content['lineage_view_available'] = False
++                content['lineage_unavailable_reason'] = str(error)
++            else:
++                report.rename(folder / 'lineage.html')
+         dependents = {}
+         for head, body in problem.rules:
+             for node in body:
+diff --git a/workbench/content.py b/workbench/content.py
+index 9d9a2bc..01ad487 100644
+--- a/workbench/content.py
++++ b/workbench/content.py
+@@ -10,6 +10,27 @@ from datetime import date, datetime, time, timedelta
+ from itertools import combinations
+ import math
+ from .record_matches import find_record_matches
++from .limits import (
++    DETAIL_BLOCKS,
++    DETAIL_POSITIONS,
++    POPULATED_CELLS_PER_COLLECTION,
++    POPULATED_CELLS_PER_WORKBOOK,
++    WORKSHEET_BOUNDING_CELLS,
++)
++
++
++def formula_descriptor(cell):
++    """Return stable text for ordinary and Excel array formulas."""
++    if cell.data_type != 'f':
++        return None
++    value = cell.value
++    if isinstance(value, str):
++        return value
++    text = getattr(value, 'text', None)
++    if not isinstance(text, str):
++        return None
++    ref = getattr(value, 'ref', None)
++    return text + (f' [array_ref={ref}]' if ref else '')
+ 
+ 
+ def typed_value(cell):
+@@ -66,7 +87,7 @@ def _same_layout_result(paths, sheets, populated, excluded, input_files):
+     for name in common:
+         left, right = left_sheets[name], right_sheets[name]
+         points = sorted(left['raw'].keys() | right['raw'].keys())
+-        if len(blocks) >= 200 or details + len(points) > 100000:
++        if len(blocks) >= DETAIL_BLOCKS or details + len(points) > DETAIL_POSITIONS:
+             omitted_positions += len(points)
+             continue
+         cells = []
+@@ -130,7 +151,7 @@ def _same_layout_result(paths, sheets, populated, excluded, input_files):
+             'Literal equality uses exact types and values. Formula text is compared separately; identical text does not imply identical results. Formulas and cached values are never evaluated. Errors and empty text remain uncompared. Formatting is ignored.',
+             'Added or deleted cells have a missing value on one side. Inserted rows, moved columns and renamed sheets are not aligned automatically.',
+             'Content comparisons never establish common origin or merge formula roots.',
+-            'Output is limited to 200 common sheets and 100,000 detailed positions, in sheet-name order; omitted sheets and positions are counted.',
++            f'Output is limited to {DETAIL_BLOCKS} common sheets and {DETAIL_POSITIONS:,} detailed positions, in sheet-name order; omitted sheets and positions are counted.',
+         ],
+     }
+ 
+@@ -141,23 +162,30 @@ def compare_content(paths, books, same_layout=False):
+         raise ValueError('Same-layout comparison requires exactly two workbooks with distinct filenames')
+     sheets, index, excluded = [], defaultdict(list), defaultdict(int)
+     populated = 0
++    populated_by_workbook = defaultdict(int)
+     for path, book in zip(paths, books):
+         for sheet in book:
+-            if sheet.max_row * sheet.max_column > 100000:
+-                raise ValueError('Content comparison worksheet limit: 100,000 cells')
++            if sheet.max_row * sheet.max_column > WORKSHEET_BOUNDING_CELLS:
++                raise ValueError(f'Content comparison worksheet bounding limit: {WORKSHEET_BOUNDING_CELLS:,} cells')
+             values, raw, cell_types = {}, {}, {}
+             sid = len(sheets)
+             for row in sheet.iter_rows():
+                 for cell in row:
+                     if cell.value is None: continue
+                     populated += 1
+-                    if populated > 100000:
+-                        raise ValueError('Content comparison collection limit: 100,000 populated cells')
++                    populated_by_workbook[path.name] += 1
++                    if populated_by_workbook[path.name] > POPULATED_CELLS_PER_WORKBOOK:
++                        raise ValueError(
++                            f'Content comparison workbook limit: {POPULATED_CELLS_PER_WORKBOOK:,} populated cells ({path.name})')
++                    if populated > POPULATED_CELLS_PER_COLLECTION:
++                        raise ValueError(
++                            f'Content comparison collection limit: {POPULATED_CELLS_PER_COLLECTION:,} populated cells')
+                     point = (cell.row, cell.column)
+                     token = typed_value(cell)
+-                    raw[point] = str(cell.value)
+-                    cell_types[point] = ('unsupported_formula' if cell.data_type == 'f'
+-                                         and not isinstance(cell.value, str) else cell.data_type)
++                    descriptor = formula_descriptor(cell)
++                    raw[point] = descriptor if descriptor is not None else str(cell.value)
++                    cell_types[point] = ('f' if descriptor is not None else 'unsupported_formula') \
++                        if cell.data_type == 'f' else cell.data_type
+                     if token is None:
+                         excluded['formula' if cell.data_type == 'f' else 'error_or_empty_text'] += 1
+                         continue
+@@ -170,7 +198,9 @@ def compare_content(paths, books, same_layout=False):
+     input_files = [{'name': p.name, 'sha256': getattr(book, '_lab_input_sha256', None)}
+                    for p, book in zip(paths, books)]
+     if same_layout:
+-        return _same_layout_result(paths, sheets, populated, dict(excluded), input_files)
++        result = _same_layout_result(paths, sheets, populated, dict(excluded), input_files)
++        result['populated_cells_by_workbook'] = dict(populated_by_workbook)
++        return result
+     proposals = defaultdict(set)
+     joins, common = 0, 0
+     for token, positions in index.items():
+@@ -215,7 +245,7 @@ def compare_content(paths, books, same_layout=False):
+     # Materialize bounded report details only after ranking candidate regions.
+     selected, detail_cells = [], 0
+     for block in blocks:
+-        if len(selected) >= 200 or detail_cells + block['compared_positions'] > 100000:
++        if len(selected) >= DETAIL_BLOCKS or detail_cells + block['compared_positions'] > DETAIL_POSITIONS:
+             continue
+         a,b,r1,r2,c1,c2,dr,dc = block.pop('_region')
+         left,right = sheets[a],sheets[b]
+@@ -246,12 +276,13 @@ def compare_content(paths, books, same_layout=False):
+     selected.sort(key=lambda b:-b['matching_cells'])
+     output=[];detail_total=0
+     for block in selected:
+-        if len(output)<200 and detail_total+block['compared_positions']<=100000:
++        if len(output)<DETAIL_BLOCKS and detail_total+block['compared_positions']<=DETAIL_POSITIONS:
+             output.append(block);detail_total+=block['compared_positions']
+     found_count=len(blocks)+added+record_scope['regions_omitted_due_detail_limit']
+     return {'schema_version':2, 'method':'typed_anchor_translation_and_record_alignment_v2',
+             'input_files':input_files,
+             'sheet_count':len(sheets), 'populated_cells':populated,
++            'populated_cells_by_workbook':dict(populated_by_workbook),
+             'blocks':output, 'total_blocks_found':found_count, 'blocks_omitted':found_count-len(output),
+             'record_alignment':record_scope,
+             'excluded_cells':dict(excluded), 'common_anchor_values_skipped':common,
+@@ -263,5 +294,5 @@ def compare_content(paths, books, same_layout=False):
+                 'Translations and unambiguous reordered row/column correspondences are searched. Unmatched rows/columns, transposition, rounding and sparse overlaps can be missed. A displayed bounding range is not a claim that all its cells were matched.',
+                 'No match means no match within this search, not independent evidence. Matched cells are never merged into one lineage root.',
+                 'Thresholds are review heuristics, not calibrated confidence or an audit conclusion.',
+-                'Output is limited to 200 regions and 100,000 detailed positions, ranked by matching cell count.',
++                f'Output is limited to {DETAIL_BLOCKS} regions and {DETAIL_POSITIONS:,} detailed positions, ranked by matching cell count.',
+             ]}
+diff --git a/workbench/content_report.py b/workbench/content_report.py
+index 3bc59fa..8ede613 100644
+--- a/workbench/content_report.py
++++ b/workbench/content_report.py
+@@ -30,7 +30,7 @@ if(data.method==='same_layout_v1'){
+  $('#stats').textContent=`${data.input_files.length} dosya · ${data.sheet_count} sayfa · ${data.total_blocks_found} ortak sayfa çifti`;
+  $('#coverage').textContent=`${data.populated_cells} dolu hücre okundu. ${data.blocks_omitted} ortak sayfa ve ${data.positions_omitted} konum çıktı sınırı nedeniyle gösterilmiyor. Yalnız soldaki sayfalar: ${(data.unmatched_sheets.left||[]).join(', ')||'yok'}. Yalnız sağdaki sayfalar: ${(data.unmatched_sheets.right||[]).join(', ')||'yok'}. Bu sayfalar karşılaştırılmadı. Formül metinleri ayrı karşılaştırılır; aynı metin aynı sonuç demek değildir. Hatalar karşılaştırılamayan olarak kalır.`;
+ }
+-$('#lineage').innerHTML=data.lineage_available?'<a href="lineage.html">Formül bağlantılarını ve kaynak kaybı etkisini aç →</a>':'<p class="muted">Bu girdide çözülebilen formül izi yok. Değer eşleştirmesi yine yapıldı.</p>';
++$('#lineage').innerHTML=data.lineage_view_available?'<a href="lineage.html">Formül bağlantılarını ve kaynak kaybı etkisini aç →</a>':data.lineage_available?'<p class="muted">Formül bağlantıları çözüldü; büyük kaynak sayısı nedeniyle etkileşimli kaynak görünümü açılmadı. Değişiklik bloklarının sınırlı etki listeleri aşağıda gösterilir.</p>':'<p class="muted">Bu girdide çözülebilen formül izi yok. '+esc(data.lineage_unavailable_reason||'Değer eşleştirmesi yine yapıldı.')+'</p>';
+ function list(){const q=$('#search').value.toLowerCase();$('#blocks').innerHTML=data.blocks.map((b,i)=>({b,i})).filter(({b})=>(loc(b.left)+' '+loc(b.right)).toLowerCase().includes(q)).map(({b,i})=>`<button class="block" data-index="${i}" aria-pressed="${i===selected}"><b>${b.kind==='same_layout'?b.matching_cells+' aynı değer · '+b.matching_formula_cells+' aynı formül · '+b.changed_cells+' değişen · '+b.uncompared_cells+' bilinmeyen':b.matching_cells+' eşleşme · '+b.different_or_uncompared_cells+' fark / kapsam dışı'}</b><br>${esc(loc(b.left))}<br>↔ ${esc(loc(b.right))}</button>`).join('')||'<p>Arama kapsamında eşleşme yok. Bu, kaynakların bağımsız olduğunu göstermez.</p>';}
+ const sameLayout=data.method==='same_layout_v1';
+ const changedOrUnknown=c=>!c.equal&&c.comparison!=='same_formula';
+diff --git a/workbench/contracts.py b/workbench/contracts.py
+index 291f24a..531964a 100644
+--- a/workbench/contracts.py
++++ b/workbench/contracts.py
+@@ -6,6 +6,7 @@ from types import MappingProxyType
+ from graphlib import TopologicalSorter, CycleError
+ import hashlib
+ import json
++from .limits import LINEAGE_NODES, LINEAGE_RULE_INPUTS
+ 
+ 
+ @dataclass(frozen=True)
+@@ -35,8 +36,9 @@ class DependencyProblem:
+         if heads & self.bases.keys():
+             raise ValueError('An input proposition cannot also be a derived proposition')
+         known = set(self.bases) | heads
+-        if len(known) > 20000 or sum(len(b) for _, b in self.rules) > 200000:
+-            raise ValueError('Pilot task size exceeded: 20,000 nodes / 200,000 rule inputs')
++        if len(known) > LINEAGE_NODES or sum(len(b) for _, b in self.rules) > LINEAGE_RULE_INPUTS:
++            raise ValueError(
++                f'Pilot task size exceeded: {LINEAGE_NODES:,} nodes / {LINEAGE_RULE_INPUTS:,} rule inputs')
+         if not self.targets or len(set(self.targets)) != len(self.targets):
+             raise ValueError('Targets must be nonempty and unique')
+         if not set(self.targets) <= known or any(not set(b) <= known for _, b in self.rules):
+diff --git a/workbench/workbooks.py b/workbench/workbooks.py
+index aff1722..2bd3d6b 100644
+--- a/workbench/workbooks.py
++++ b/workbench/workbooks.py
+@@ -11,6 +11,12 @@ import zipfile
+ from .contracts import DependencyProblem
+ from .function_references import conditional_range_overrides
+ from .table_references import TableReferences, split_sheet_reference
++from .limits import (
++    LINEAGE_NODES,
++    POPULATED_CELLS_PER_COLLECTION,
++    POPULATED_CELLS_PER_WORKBOOK,
++    WORKSHEET_BOUNDING_CELLS,
++)
+ 
+ DIRECT = re.compile(r'^\$?[A-Za-z]{1,3}\$?[1-9][0-9]*(?::\$?[A-Za-z]{1,3}\$?[1-9][0-9]*)?$')
+ DYNAMIC = {'INDIRECT', 'OFFSET', 'LAMBDA', 'LET'}
+@@ -24,6 +30,19 @@ KNOWN_FUNCTIONS = {'SUM', 'AVERAGE', 'MIN', 'MAX', 'COUNT', 'COUNTA', 'COUNTBLAN
+                    'ISNA', 'DATE', 'YEAR', 'MONTH', 'DAY', 'DAYS', 'TRUE', 'FALSE'}
+ 
+ 
++def formula_descriptor(cell):
++    """Return stable text for ordinary and Excel array formulas."""
++    if cell.data_type != 'f':
++        return None
++    value = cell.value
++    if isinstance(value, str):
++        return value
++    text = getattr(value, 'text', None)
++    if not isinstance(text, str):
++        return None
++    return text
++
++
+ def analyze_workbook(path):
+     return analyze_workbooks([path])
+ 
+@@ -81,6 +100,7 @@ def _analyze_loaded(paths, books):
+     table_links = {}
+     formulas = {}
+     cells = {}
++    populated_by_workbook = defaultdict(int)
+     labels = {}
+     locations = {}
+ 
+@@ -90,22 +110,28 @@ def _analyze_loaded(paths, books):
+ 
+     for book_id, workbook in enumerate(books):
+         for sheet in workbook:
+-            if sheet.max_row * sheet.max_column > 100000:
+-                raise ValueError('Pilot worksheet bounding range limit: 100,000 cells')
++            if sheet.max_row * sheet.max_column > WORKSHEET_BOUNDING_CELLS:
++                raise ValueError(f'Pilot worksheet bounding range limit: {WORKSHEET_BOUNDING_CELLS:,} cells')
+             for row in sheet.iter_rows():
+                 for cell in row:
+                     if cell.value is None: continue
+                     node = key(book_id, sheet.title, cell.coordinate)
+                     cells[node] = cell.data_type
+                     labels[node] = node
+-                    if len(cells) > 100000:
+-                        raise ValueError('Pilot collection populated-cell limit: 100,000')
++                    populated_by_workbook[paths[book_id].name] += 1
++                    if populated_by_workbook[paths[book_id].name] > POPULATED_CELLS_PER_WORKBOOK:
++                        raise ValueError(
++                            f'Pilot workbook populated-cell limit: {POPULATED_CELLS_PER_WORKBOOK:,} ({paths[book_id].name})')
++                    if len(cells) > POPULATED_CELLS_PER_COLLECTION:
++                        raise ValueError(
++                            f'Pilot collection populated-cell limit: {POPULATED_CELLS_PER_COLLECTION:,}')
+                     if cell.data_type == 'f':
+-                        formulas[node] = cell.value if isinstance(cell.value, str) else None
++                        formulas[node] = formula_descriptor(cell)
+                         locations[node] = (book_id, sheet.title, cell.coordinate)
+     if not formulas:
+         raise LineageUnavailable('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
+-    if len(cells) > 100000: raise ValueError('Pilot populated-cell limit: 100,000')
++    if len(cells) > POPULATED_CELLS_PER_COLLECTION:
++        raise ValueError(f'Pilot populated-cell limit: {POPULATED_CELLS_PER_COLLECTION:,}')
+     dependencies = {}
+     issues = defaultdict(list)
+     function_range_adjustments = []
+@@ -249,7 +275,8 @@ def _analyze_loaded(paths, books):
+     safe = set(formulas) - blocked
+     safe_order = [node for node in order if node in safe]
+     roots = {ref for node in safe for ref in dependencies[node] if ref not in formulas}
+-    if len(roots) + len(safe) > 20000: raise ValueError('Expanded lineage exceeds 20,000 nodes')
++    if len(roots) + len(safe) > LINEAGE_NODES:
++        raise ValueError(f'Expanded lineage exceeds {LINEAGE_NODES:,} nodes')
+     if not safe:
+         raise LineageUnavailable('No formula has a fully resolved static reference graph. ' + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]))
+     used = {ref for node in safe for ref in dependencies[node] if ref in safe}

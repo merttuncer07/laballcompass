@@ -1,0 +1,13 @@
+test_collinearity_abstains (test_scopg.T.test_collinearity_abstains) ... ok
+test_condition_reported (test_scopg.T.test_condition_reported) ... ok
+test_effect_recovered_when_supported (test_scopg.T.test_effect_recovered_when_supported) ... ok
+test_ess_fraction_bounded (test_scopg.T.test_ess_fraction_bounded) ... ok
+test_low_ess_abstains (test_scopg.T.test_low_ess_abstains) ... ok
+test_negative_weights_rejected (test_scopg.T.test_negative_weights_rejected) ... ok
+test_shape_rejected (test_scopg.T.test_shape_rejected) ... ok
+test_status (test_scopg.T.test_status) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

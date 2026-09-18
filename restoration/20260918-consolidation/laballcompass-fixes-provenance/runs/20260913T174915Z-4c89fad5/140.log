@@ -1,0 +1,9 @@
+test_accounting_balances_hold (test_umca.UMCATests.test_accounting_balances_hold) ... ok
+test_cheap_equal_mass_transport_moves_without_mass_change (test_umca.UMCATests.test_cheap_equal_mass_transport_moves_without_mass_change) ... ok
+test_expensive_cross_move_uses_local_destroy_and_create (test_umca.UMCATests.test_expensive_cross_move_uses_local_destroy_and_create) ... ok
+test_unequal_total_requires_net_creation (test_umca.UMCATests.test_unequal_total_requires_net_creation) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

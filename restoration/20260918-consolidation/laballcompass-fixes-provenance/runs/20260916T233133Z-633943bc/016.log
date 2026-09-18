@@ -1,0 +1,9 @@
+test_budget_is_respected (test_csid.ContractSafeguardDesignerTests.test_budget_is_respected) ... ok
+test_config_interface (test_csid.ContractSafeguardDesignerTests.test_config_interface) ... ok
+test_distinct_evidence_families_compose (test_csid.ContractSafeguardDesignerTests.test_distinct_evidence_families_compose) ... ok
+test_same_evidence_family_is_not_multiplied (test_csid.ContractSafeguardDesignerTests.test_same_evidence_family_is_not_multiplied) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

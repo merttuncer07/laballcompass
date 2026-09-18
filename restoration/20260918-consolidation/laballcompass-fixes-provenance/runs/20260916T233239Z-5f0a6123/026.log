@@ -1,0 +1,11 @@
+test_comparator (test_drmpha.T.test_comparator) ... ok
+test_empty (test_drmpha.T.test_empty) ... ok
+test_holdout_best (test_drmpha.T.test_holdout_best) ... ok
+test_mismatch (test_drmpha.T.test_mismatch) ... ok
+test_no_leak_order (test_drmpha.T.test_no_leak_order) ... ok
+test_order_dev (test_drmpha.T.test_order_dev) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

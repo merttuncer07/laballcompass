@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.272" timestamp="2026-09-17T05:15:47.968175+03:00" hostname="MacBook-Air.local"><testcase classname="test_multivariate_closure.MultivariateClosureTests" name="test_update_is_finite_and_psd" time="0.239" /></testsuite></testsuites>

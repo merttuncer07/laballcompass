@@ -1,0 +1,13 @@
+test_bad_support (test_bosaro.T.test_bad_support) ... ok
+test_direction_exposure_matches (test_bosaro.T.test_direction_exposure_matches) ... ok
+test_fragile_exposure_reduced (test_bosaro.T.test_fragile_exposure_reduced) ... ok
+test_full_support_base_radius (test_bosaro.T.test_full_support_base_radius) ... ok
+test_radius_inflates (test_bosaro.T.test_radius_inflates) ... ok
+test_shape (test_bosaro.T.test_shape) ... ok
+test_status (test_bosaro.T.test_status) ... ok
+test_weights_sum_one (test_bosaro.T.test_weights_sum_one) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.005s
+
+OK

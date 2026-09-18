@@ -1,0 +1,31 @@
+## fixes/20260917-review-findings
+ M LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P004_OPIA/opia.py
+ M LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/istaicc.py
+ M LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/01_V2_CORE/products/V2P035_ISTAICC/test_istaicc.py
+ M LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/bami.py
+ M LAC_REPRO_R210/BASE_R401/18_R387_R393_CURRENT_POINT/06_EXACT_WORKTREE/02_FOUNDRY_ALL_PRODUCTS/products/P004_BAMI/test_bami.py
+ M LAC_REPRO_R210/REPORT/build_report_pdf.py
+ M WORKBENCH.md
+ M catalog.json
+ M examples/public-tables/README.md
+ M index.html
+ M maintenance/catalog.py
+ M maintenance/components.py
+ M tests/test_components.py
+ M tests/test_content.py
+ M tests/test_record_matches.py
+ M workbench/cli.py
+ M workbench/content.py
+ M workbench/content_report.py
+ M workbench/record_matches.py
+ M workbench/workbooks.py
+?? output/
+?? runs/20260916T232733Z-63eab374/
+?? runs/20260916T232925Z-4a6815fa/
+?? runs/20260916T233113Z-695e3750/
+?? runs/20260916T233133Z-633943bc/
+?? runs/20260916T233150Z-9d593e42/
+?? runs/20260916T233239Z-5f0a6123/
+?? runs/20260916T233337Z-5d294672/
+?? runs/20260916T233337Z-9bd02f3e/
+?? runs/20260917T021543Z-0d5aafff/

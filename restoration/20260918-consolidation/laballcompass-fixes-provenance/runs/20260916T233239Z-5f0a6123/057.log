@@ -1,0 +1,13 @@
+test_exact_shell_and_signature_only (test_experiment_telemetry.ExperimentTelemetryTests.test_exact_shell_and_signature_only) ... ok
+test_insufficient_support_stays_unknown (test_experiment_telemetry.ExperimentTelemetryTests.test_insufficient_support_stays_unknown) ... ok
+test_jsonl_ledger_rejects_duplicate_event (test_experiment_telemetry.ExperimentTelemetryTests.test_jsonl_ledger_rejects_duplicate_event) ... ok
+test_prior_generation_telemetry_unlocks_future_routing (test_experiment_telemetry.ExperimentTelemetryTests.test_prior_generation_telemetry_unlocks_future_routing) ... ok
+test_record_from_frozen_round_captures_before_after (test_experiment_telemetry.ExperimentTelemetryTests.test_record_from_frozen_round_captures_before_after) ... ok
+test_same_generation_and_protected_never_calibrate (test_experiment_telemetry.ExperimentTelemetryTests.test_same_generation_and_protected_never_calibrate) ... ok
+test_snapshot_is_deterministic (test_experiment_telemetry.ExperimentTelemetryTests.test_snapshot_is_deterministic) ... ok
+test_unadjusted_backreaction_is_unusable_and_penalizes_reliability (test_experiment_telemetry.ExperimentTelemetryTests.test_unadjusted_backreaction_is_unusable_and_penalizes_reliability) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

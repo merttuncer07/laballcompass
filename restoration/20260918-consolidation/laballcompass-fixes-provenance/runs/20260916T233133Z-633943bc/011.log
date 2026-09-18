@@ -1,0 +1,9 @@
+test_damage_proxy_grows_with_load_cycles (test_dsda.DSDATests.test_damage_proxy_grows_with_load_cycles) ... ok
+test_opposite_direction_does_not_accumulate (test_dsda.DSDATests.test_opposite_direction_does_not_accumulate) ... ok
+test_repeated_subcritical_signal_accumulates_to_alarm (test_dsda.DSDATests.test_repeated_subcritical_signal_accumulates_to_alarm) ... ok
+test_single_extreme_cycle_cannot_trigger_sequential_alarm (test_dsda.DSDATests.test_single_extreme_cycle_cannot_trigger_sequential_alarm) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

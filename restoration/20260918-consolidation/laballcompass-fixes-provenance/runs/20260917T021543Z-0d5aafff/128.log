@@ -1,0 +1,9 @@
+test_capacity_designer_chooses_smallest_feasible_scale (test_sccrt.Tests.test_capacity_designer_chooses_smallest_feasible_scale) ... ok
+test_impossible_scaled_rates_are_not_silently_clipped (test_sccrt.Tests.test_impossible_scaled_rates_are_not_silently_clipped) ... ok
+test_material_balance_closes (test_sccrt.Tests.test_material_balance_closes) ... ok
+test_no_regeneration_depletes_state_and_passive_model_overpredicts (test_sccrt.Tests.test_no_regeneration_depletes_state_and_passive_model_overpredicts) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK

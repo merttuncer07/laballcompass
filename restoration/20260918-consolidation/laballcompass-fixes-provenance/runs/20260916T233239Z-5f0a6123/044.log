@@ -1,0 +1,13 @@
+test_discovery_gain (test_fptwc.T.test_discovery_gain) ... ok
+test_far_tipping_collapses (test_fptwc.T.test_far_tipping_collapses) ... ok
+test_near_tipping_frontloads (test_fptwc.T.test_near_tipping_frontloads) ... ok
+test_removal_stays_baseline (test_fptwc.T.test_removal_stays_baseline) ... ok
+test_reproducible (test_fptwc.T.test_reproducible) ... ok
+test_same_pvalue_stream (test_fptwc.T.test_same_pvalue_stream) ... ok
+test_status_changes_only_when_coupled (test_fptwc.T.test_status_changes_only_when_coupled) ... ok
+test_tipping_found (test_fptwc.T.test_tipping_found) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

@@ -1,0 +1,9 @@
+test_assignment_lp_has_zero_integrality_gap (test_ric.RICTests.test_assignment_lp_has_zero_integrality_gap) ... ok
+test_assignment_matrix_is_totally_unimodular (test_ric.RICTests.test_assignment_matrix_is_totally_unimodular) ... ok
+test_triangle_cover_exposes_determinant_two (test_ric.RICTests.test_triangle_cover_exposes_determinant_two) ... ok
+test_triangle_cover_lp_is_fractional (test_ric.RICTests.test_triangle_cover_lp_is_fractional) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.070s
+
+OK

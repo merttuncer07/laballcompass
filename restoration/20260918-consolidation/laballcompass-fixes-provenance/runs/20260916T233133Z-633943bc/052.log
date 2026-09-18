@@ -1,0 +1,9 @@
+test_adjacent_synchrony_is_not_remote (test_rspi.Tests.test_adjacent_synchrony_is_not_remote) ... ok
+test_asymmetric_adjacency_is_rejected (test_rspi.Tests.test_asymmetric_adjacency_is_rejected) ... ok
+test_remote_pair_is_found_through_unsynchronized_mediator (test_rspi.Tests.test_remote_pair_is_found_through_unsynchronized_mediator) ... ok
+test_synchronized_mediator_prevents_remote_label (test_rspi.Tests.test_synchronized_mediator_prevents_remote_label) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.008s
+
+OK

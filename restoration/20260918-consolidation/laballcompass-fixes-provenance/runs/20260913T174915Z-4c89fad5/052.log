@@ -1,0 +1,13 @@
+test_all_regions_allocated (test_qdra.T.test_all_regions_allocated) ... ok
+test_budget_respected (test_qdra.T.test_budget_respected) ... ok
+test_empty_rejected (test_qdra.T.test_empty_rejected) ... ok
+test_far_from_boundary_weight_small (test_qdra.T.test_far_from_boundary_weight_small) ... ok
+test_fine_selected_near_when_budget_allows (test_qdra.T.test_fine_selected_near_when_budget_allows) ... ok
+test_near_gets_more_weight (test_qdra.T.test_near_gets_more_weight) ... ok
+test_status (test_qdra.T.test_status) ... ok
+test_zero_variance_far_weight_zero (test_qdra.T.test_zero_variance_far_weight_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.005s
+
+OK

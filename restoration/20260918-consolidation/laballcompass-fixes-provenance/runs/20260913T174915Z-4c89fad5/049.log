@@ -1,0 +1,11 @@
+test_best_safe (test_scfiac.T.test_best_safe) ... ok
+test_comparator_diff (test_scfiac.T.test_comparator_diff) ... ok
+test_lists (test_scfiac.T.test_lists) ... ok
+test_none (test_scfiac.T.test_none) ... ok
+test_support_block (test_scfiac.T.test_support_block) ... ok
+test_suspect_block (test_scfiac.T.test_suspect_block) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

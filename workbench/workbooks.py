@@ -11,6 +11,12 @@ import zipfile
 from .contracts import DependencyProblem
 from .function_references import conditional_range_overrides
 from .table_references import TableReferences, split_sheet_reference
+from .limits import (
+    LINEAGE_NODES,
+    POPULATED_CELLS_PER_COLLECTION,
+    POPULATED_CELLS_PER_WORKBOOK,
+    WORKSHEET_BOUNDING_CELLS,
+)
 
 DIRECT = re.compile(r'^\$?[A-Za-z]{1,3}\$?[1-9][0-9]*(?::\$?[A-Za-z]{1,3}\$?[1-9][0-9]*)?$')
 DYNAMIC = {'INDIRECT', 'OFFSET', 'LAMBDA', 'LET'}
@@ -22,6 +28,19 @@ KNOWN_FUNCTIONS = {'SUM', 'AVERAGE', 'MIN', 'MAX', 'COUNT', 'COUNTA', 'COUNTBLAN
                    'CONCAT', 'CONCATENATE', 'TEXTJOIN', 'TEXT', 'LEFT', 'RIGHT', 'MID', 'LEN',
                    'TRIM', 'UPPER', 'LOWER', 'VALUE', 'ISNUMBER', 'ISTEXT', 'ISBLANK', 'ISERROR',
                    'ISNA', 'DATE', 'YEAR', 'MONTH', 'DAY', 'DAYS', 'TRUE', 'FALSE'}
+
+
+def formula_descriptor(cell):
+    """Return stable text for ordinary and Excel array formulas."""
+    if cell.data_type != 'f':
+        return None
+    value = cell.value
+    if isinstance(value, str):
+        return value
+    text = getattr(value, 'text', None)
+    if not isinstance(text, str):
+        return None
+    return text
 
 
 def analyze_workbook(path):
@@ -81,6 +100,7 @@ def _analyze_loaded(paths, books):
     table_links = {}
     formulas = {}
     cells = {}
+    populated_by_workbook = defaultdict(int)
     labels = {}
     locations = {}
 
@@ -90,22 +110,28 @@ def _analyze_loaded(paths, books):
 
     for book_id, workbook in enumerate(books):
         for sheet in workbook:
-            if sheet.max_row * sheet.max_column > 100000:
-                raise ValueError('Pilot worksheet bounding range limit: 100,000 cells')
+            if sheet.max_row * sheet.max_column > WORKSHEET_BOUNDING_CELLS:
+                raise ValueError(f'Pilot worksheet bounding range limit: {WORKSHEET_BOUNDING_CELLS:,} cells')
             for row in sheet.iter_rows():
                 for cell in row:
                     if cell.value is None: continue
                     node = key(book_id, sheet.title, cell.coordinate)
                     cells[node] = cell.data_type
                     labels[node] = node
-                    if len(cells) > 100000:
-                        raise ValueError('Pilot collection populated-cell limit: 100,000')
+                    populated_by_workbook[paths[book_id].name] += 1
+                    if populated_by_workbook[paths[book_id].name] > POPULATED_CELLS_PER_WORKBOOK:
+                        raise ValueError(
+                            f'Pilot workbook populated-cell limit: {POPULATED_CELLS_PER_WORKBOOK:,} ({paths[book_id].name})')
+                    if len(cells) > POPULATED_CELLS_PER_COLLECTION:
+                        raise ValueError(
+                            f'Pilot collection populated-cell limit: {POPULATED_CELLS_PER_COLLECTION:,}')
                     if cell.data_type == 'f':
-                        formulas[node] = cell.value if isinstance(cell.value, str) else None
+                        formulas[node] = formula_descriptor(cell)
                         locations[node] = (book_id, sheet.title, cell.coordinate)
     if not formulas:
         raise LineageUnavailable('No formulas found. Hardcoded equal values alone cannot establish shared provenance.')
-    if len(cells) > 100000: raise ValueError('Pilot populated-cell limit: 100,000')
+    if len(cells) > POPULATED_CELLS_PER_COLLECTION:
+        raise ValueError(f'Pilot populated-cell limit: {POPULATED_CELLS_PER_COLLECTION:,}')
     dependencies = {}
     issues = defaultdict(list)
     function_range_adjustments = []
@@ -249,7 +275,8 @@ def _analyze_loaded(paths, books):
     safe = set(formulas) - blocked
     safe_order = [node for node in order if node in safe]
     roots = {ref for node in safe for ref in dependencies[node] if ref not in formulas}
-    if len(roots) + len(safe) > 20000: raise ValueError('Expanded lineage exceeds 20,000 nodes')
+    if len(roots) + len(safe) > LINEAGE_NODES:
+        raise ValueError(f'Expanded lineage exceeds {LINEAGE_NODES:,} nodes')
     if not safe:
         raise LineageUnavailable('No formula has a fully resolved static reference graph. ' + '; '.join(f'{n}: {issues[n][0]}' for n in list(issues)[:5]))
     used = {ref for node in safe for ref in dependencies[node] if ref in safe}

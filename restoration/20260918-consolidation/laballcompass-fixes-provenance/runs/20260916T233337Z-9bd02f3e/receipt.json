@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "run_id": "20260916T233337Z-9bd02f3e",
+  "status": "PASS",
+  "started_at": "2026-09-16T23:33:37.164574+00:00",
+  "profile": "recovered",
+  "source_root": "/Users/mertalituncer/Documents/Default Project/laballcompass/LAC_REPRO_R210",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/mertalituncer/Documents/Default Project/laballcompass/.venv/bin/python",
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "pytest": "9.0.2",
+      "iniconfig": "2.3.0",
+      "packaging": "26.3",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0"
+    }
+  },
+  "timeout_seconds": 180,
+  "targets": [
+    {
+      "id": "RECOVERED_test_recovered_contracts",
+      "cwd": "BASE_R401/19_R394_R398_FINAL_RETIREMENT_DELTA/RECOVERED_REFERENCE_CODE",
+      "runner": "pytest",
+      "pattern": "test_recovered_contracts.py",
+      "layer": "recovered",
+      "status": "PASS",
+      "started_at": "2026-09-16T23:33:37.435689+00:00",
+      "command": [
+        "/Users/mertalituncer/Documents/Default Project/laballcompass/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/Users/mertalituncer/Documents/Default Project/laballcompass/runs/20260916T233337Z-9bd02f3e/000.xml",
+        "test_recovered_contracts.py"
+      ],
+      "log": "000.log",
+      "result_file": "000.xml",
+      "exit_code": 0,
+      "seconds": 0.284,
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "passed": 1
+      },
+      "finished_at": "2026-09-16T23:33:37.721033+00:00"
+    }
+  ],
+  "results_scope": "software_reproduction_only",
+  "input_manifest_sha256": "b428901401d2fb4629a6e684ce4d3ad4024b99b0638fc198794bee594151e508",
+  "source_snapshot_sha256": "cfaddbf6df18bf981bcebe50aefc77a4e3edb04943297d0cb43085531b82f4ae",
+  "runner_sha256": "1cef58f197783c075193cdfee1d9cc4d9a387269cab6afdfb05e52b20d683ba4",
+  "worker_sha256": "4ef857ee58afd19ee9101a442f548cf09c4070fa912d146ce91399a64ea01cb8",
+  "integrity": {
+    "status": "NOT_REQUESTED",
+    "scope": "Working source is hashed above; the historical package manifest is not a gate for development."
+  },
+  "updated_at": "2026-09-16T23:33:37.721603+00:00",
+  "finished_at": "2026-09-16T23:33:37.721592+00:00",
+  "counts": {
+    "tests": 1,
+    "passed": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  }
+}

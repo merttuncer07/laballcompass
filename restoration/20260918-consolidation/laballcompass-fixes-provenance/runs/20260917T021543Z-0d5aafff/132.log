@@ -1,0 +1,9 @@
+test_reduced_model_remains_stable (test_bred.BREDTests.test_reduced_model_remains_stable) ... ok
+test_small_channel_is_removed_within_budget (test_bred.BREDTests.test_small_channel_is_removed_within_budget) ... ok
+test_unstable_system_is_rejected (test_bred.BREDTests.test_unstable_system_is_rejected) ... ok
+test_zero_budget_retains_effective_order (test_bred.BREDTests.test_zero_budget_retains_effective_order) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK

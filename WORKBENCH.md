@@ -12,8 +12,21 @@ Değişen girdilerin ve formül metinlerinin çözülen grafikteki potansiyel ni
 etkileri gösterilir. Yeniden adlandırılan/tek tarafta bulunan sayfalar listelenir,
 otomatik eşlenmez. Çıktı klasörü yeni veya boş olmalıdır.
 
-Koleksiyon sınırı 100.000 dolu hücredir; diğer grafik ve arama sınırları devam eder.
+Gerçek sürüm çiftlerinde her dosya için 150.000, koleksiyon için 300.000 dolu
+hücre bütçesi vardır. Seyrek sayfalar artık yalnızca gerçek bounding box 2.000.000
+hücreyi aşarsa durdurulur; dolu hücre sayısı ile fiziksel sayfa alanı birbirine
+karıştırılmaz. Formül izi bu bütçeden daha büyükse içerik farkı yine üretilir ve
+etki listesi yalnız çözülen statik grafik için gösterilir.
 [Seçici entegrasyon ve doğrulama](restoration/20260917-salvage-fixes/README.md).
+
+## Gerçek yayımlanmış sürüm çifti
+
+[Ofgem ED2 PCFM V4 incelemesi](examples/published-version-review/ofgem-ed2-pcfm/README.md)
+iki resmi sürümü ve hash'lerini korur. Çalıştırmada 125.169 dolu hücre okundu;
+20.869 formül metni aynı, 4.054 sabit değer değişikliği, 87 ekleme ve 60 silme
+bulundu. Array formula nesneleri metin ve kapsamıyla normalize edildi. Statik
+grafik 416 benzersiz potansiyel downstream hedefi izledi; Excel yeniden
+hesaplanmadığı için bunlar sayısal sonuç veya audit bulgusu değildir.
 
 15 Eylül 2026. Mevcut labın R207 motoru gerçek kaynak dosyasından çağrılıyor. Uygulama, bir kaynağın farklı türevlerini aynı köke bağlayarak kaynak kaybının hangi sonuçlara yayıldığını gösteriyor. Excel dosyasında formül bağlantılarını kendisi okuyor; kullanıcıdan bağlantıları çizmesini istemiyor.
 
@@ -122,7 +135,7 @@ Dört raporda JavaScript çalışması, kaynak kapatma, ortak kayıp, sıfırlam
 - `IF` içindeki kullanılmayan dal dahil bütün statik referanslar potansiyel bağımlılık sayılır. Kaynak kaybı, sayısal sonucun kesin değişeceği veya audit görüşünün bozulacağı anlamına gelmez.
 - Verilmeyen dosyalara bağlantılar, dinamik referanslar (`INDIRECT`, `OFFSET`), desteklenmeyen işlevler, desteklenmeyen tablo seçicileri, spill referansları ve döngüler eksik olarak gösterilir. Bunlara bağlı formüller de kapsam dışında tutulur.
 - Bütün tekli kaynak kayıpları, en fazla 512 ikili kaynak kaybı ve bütün kaynakların kaybı hesaplanır. İkili kesinti listesi büyük dosyalarda tam değildir; daha büyük asgari kesintiler aranmaz.
-- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, sayfa başına 100.000 hücrelik sınırlayıcı alan, 20.000 düğüm, 4.000 kök kaynak. Bir referans 10.000 hücreden fazla genişletilmez. Geçişli kaynak kümeleri bitset olarak taşınır; önceki 500.000 üyelik durdurma sınırı kaldırıldı.
+- Pilot sınırları: 32 MB sıkıştırılmış dosya, dosya koleksiyonunda toplam 256 MB açılmış içerik, dosya başına 150.000 ve koleksiyon başına 300.000 dolu hücre, sayfa başına 2.000.000 hücrelik sınırlayıcı alan, statik grafik için 30.000 düğüm ve 250.000 kural girdisi. Etkileşimli kaynak görünümü 4.000 kök kaynakla sınırlıdır; daha büyük grafiklerde içerik farkı ve çözülen sınırlı etki listeleri yine üretilir. Bir referans 10.000 hücreden fazla genişletilmez. Geçişli kaynak kümeleri bitset olarak taşınır; önceki 500.000 üyelik durdurma sınırı kaldırıldı.
 - Ekran en fazla 150 kaynak satırını gösterir; arama bütün kaynaklarda çalışır. En fazla 200 sonuç gösterilir; JSON dosyaları tam listeyi içerir.
 
 Sonraki ürün çalışmasının ölçütü, sadece motor çalıştırabilmek değil, gerçek bir görevde güçlü mevcut yöntemlere göre gösterilebilir faydadır. Laboratuvarın bütün motorları veya ürün iddiaları bu uygulamayla doğrulanmış değildir.

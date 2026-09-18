@@ -1,0 +1,9 @@
+test_bad_shapes_are_rejected (test_corma.CORMATests.test_bad_shapes_are_rejected) ... ok
+test_four_kalman_categories_are_exposed (test_corma.CORMATests.test_four_kalman_categories_are_exposed) ... ok
+test_full_minimal_system (test_corma.CORMATests.test_full_minimal_system) ... ok
+test_no_io_channel_is_detected (test_corma.CORMATests.test_no_io_channel_is_detected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

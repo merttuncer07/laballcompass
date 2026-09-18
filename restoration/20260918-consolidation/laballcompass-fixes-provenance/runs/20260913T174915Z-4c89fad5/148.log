@@ -1,0 +1,9 @@
+test_error_budget_status_is_reported (test_salc.SALCTests.test_error_budget_status_is_reported) ... ok
+test_exact_lumpability_produces_two_state_chain (test_salc.SALCTests.test_exact_lumpability_produces_two_state_chain) ... ok
+test_non_stochastic_matrix_is_rejected (test_salc.SALCTests.test_non_stochastic_matrix_is_rejected) ... ok
+test_violation_is_localized (test_salc.SALCTests.test_violation_is_localized) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK

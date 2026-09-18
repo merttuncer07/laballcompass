@@ -1,0 +1,8 @@
+test_inactive_slow_mode_does_not_trigger_joint_alarm (test_hmrm.HMRMTests.test_inactive_slow_mode_does_not_trigger_joint_alarm) ... ok
+test_scalar_cancellation_does_not_hide_loaded_slow_mode (test_hmrm.HMRMTests.test_scalar_cancellation_does_not_hide_loaded_slow_mode) ... ok
+test_transition_fit_recovers_known_dynamics (test_hmrm.HMRMTests.test_transition_fit_recovers_known_dynamics) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.016s
+
+OK

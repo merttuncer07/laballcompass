@@ -1,0 +1,9 @@
+test_assumption_failure_returns_exact_witness (test_vico.Tests.test_assumption_failure_returns_exact_witness) ... ok
+test_boundary_result_reports_insufficient_range (test_vico.Tests.test_boundary_result_reports_insufficient_range) ... ok
+test_minimax_regret_handles_scenarios (test_vico.Tests.test_minimax_regret_handles_scenarios) ... ok
+test_symmetric_two_bottleneck_problem_has_interior_optimum (test_vico.Tests.test_symmetric_two_bottleneck_problem_has_interior_optimum) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

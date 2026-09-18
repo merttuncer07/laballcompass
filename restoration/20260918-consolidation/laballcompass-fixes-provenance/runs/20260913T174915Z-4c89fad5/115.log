@@ -1,0 +1,9 @@
+test_bad_bound_is_falsified (test_bicc.BICCTests.test_bad_bound_is_falsified) ... ok
+test_distributed_influence_has_more_effective_coordinates (test_bicc.BICCTests.test_distributed_influence_has_more_effective_coordinates) ... ok
+test_linear_bounds_produce_conditional_certificate (test_bicc.BICCTests.test_linear_bounds_produce_conditional_certificate) ... ok
+test_no_global_bounds_stays_empirical (test_bicc.BICCTests.test_no_global_bounds_stays_empirical) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.197s
+
+OK

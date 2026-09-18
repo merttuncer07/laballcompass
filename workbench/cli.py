@@ -33,8 +33,19 @@ def save_workbook_analysis(paths, directory=None, same_layout=False):
         content = compare_content(paths, books, same_layout=same_layout)
         try:
             problem = _analyze_loaded(paths, books)
-        except LineageUnavailable as error:
+            # The interactive lineage viewer has a smaller source budget than
+            # the bounded content comparison. Keep the useful diff when a
+            # large workbook cannot be rendered as one source checklist.
+            if len(problem.sources) > 4000:
+                content['lineage_view_available'] = False
+                content['lineage_unavailable_reason'] = (
+                    'Interactive lineage view limit: 4,000 source cells; '
+                    'bounded formula impact tracing remains available.')
+            else:
+                content['lineage_view_available'] = True
+        except (LineageUnavailable, ValueError) as error:
             problem = None
+            content['lineage_view_available'] = False
             content['lineage_unavailable_reason'] = str(error)
     folder = Path(directory) if directory is not None else new_run('workbooks')
     if folder.exists() and any(folder.iterdir()):
@@ -43,8 +54,14 @@ def save_workbook_analysis(paths, directory=None, same_layout=False):
     content['lineage_available'] = problem is not None
     if problem is not None:
         # Keep observed similarities separate from the actual formula graph.
-        report = save_analysis(problem, folder)
-        report.rename(folder / 'lineage.html')
+        if content.get('lineage_view_available', True):
+            try:
+                report = save_analysis(problem, folder)
+            except ValueError as error:
+                content['lineage_view_available'] = False
+                content['lineage_unavailable_reason'] = str(error)
+            else:
+                report.rename(folder / 'lineage.html')
         dependents = {}
         for head, body in problem.rules:
             for node in body:

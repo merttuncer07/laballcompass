@@ -1,0 +1,17 @@
+test_budget_is_respected (test_mfpd.K048ContrastiveCompositionTests.test_budget_is_respected) ... ok
+test_high_correlation_near_boundary_uses_multifidelity (test_mfpd.K048ContrastiveCompositionTests.test_high_correlation_near_boundary_uses_multifidelity) ... ok
+test_invalid_budget_contract_rejected (test_mfpd.K048ContrastiveCompositionTests.test_invalid_budget_contract_rejected) ... ok
+test_low_correlation_near_boundary_routes_fine_only (test_mfpd.K048ContrastiveCompositionTests.test_low_correlation_near_boundary_routes_fine_only) ... ok
+test_multifidelity_proxy_improves_on_fine_only_baseline (test_mfpd.K048ContrastiveCompositionTests.test_multifidelity_proxy_improves_on_fine_only_baseline) ... ok
+test_negative_value_cheap_channel_routes_fine_only (test_mfpd.K048ContrastiveCompositionTests.test_negative_value_cheap_channel_routes_fine_only) ... ok
+test_action_label_preserved (test_mfpd.P144InvariantPreservationTests.test_action_label_preserved) ... ok
+test_far_case_remains_precise (test_mfpd.P144InvariantPreservationTests.test_far_case_remains_precise) ... ok
+test_far_stable_case_still_skips (test_mfpd.P144InvariantPreservationTests.test_far_stable_case_still_skips) ... ok
+test_near_case_uncertainty_remains_material (test_mfpd.P144InvariantPreservationTests.test_near_case_uncertainty_remains_material) ... ok
+test_status_contract_preserved (test_mfpd.P144InvariantPreservationTests.test_status_contract_preserved) ... ok
+test_uncertain_boundary_case_still_acquires (test_mfpd.P144InvariantPreservationTests.test_uncertain_boundary_case_still_acquires) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.039s
+
+OK

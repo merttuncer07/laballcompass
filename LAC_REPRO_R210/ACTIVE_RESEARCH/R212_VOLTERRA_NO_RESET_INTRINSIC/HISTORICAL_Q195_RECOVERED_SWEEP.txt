@@ -1,0 +1,15 @@
+# Q195 Recovered Exact Sweep (Step 8)
+d=3 n0=1 dim C_forward=2 dim C_reverse=2 formal intersection=0 physical projected rank=4 collision nullity=0 PASS
+d=5 n0=1 dim C_forward=5 dim C_reverse=5 formal intersection=0 physical projected rank=10 collision nullity=0 PASS
+d=7 n0=1 dim C_forward=8 dim C_reverse=8 formal intersection=0 physical projected rank=16 collision nullity=0 PASS
+d=9 n0=1 dim C_forward=11 dim C_reverse=11 formal intersection=0 physical projected rank=22 collision nullity=0 PASS
+d=11 n0=1 dim C_forward=14 dim C_reverse=14 formal intersection=0 physical projected rank=28 collision nullity=0 PASS
+d=13 n0=1 dim C_forward=17 dim C_reverse=17 formal intersection=0 physical projected rank=34 collision nullity=0 PASS
+d=15 n0=1 dim C_forward=20 dim C_reverse=20 formal intersection=0 physical projected rank=40 collision nullity=0 PASS
+d=3 n0=2 dim C_forward=2 dim C_reverse=2 formal intersection=0 physical projected rank=4 collision nullity=0 PASS
+d=5 n0=2 dim C_forward=5 dim C_reverse=5 formal intersection=0 physical projected rank=10 collision nullity=0 PASS
+d=7 n0=2 dim C_forward=8 dim C_reverse=8 formal intersection=0 physical projected rank=16 collision nullity=0 PASS
+d=9 n0=2 dim C_forward=11 dim C_reverse=11 formal intersection=0 physical projected rank=22 collision nullity=0 PASS
+d=11 n0=2 dim C_forward=14 dim C_reverse=14 formal intersection=0 physical projected rank=28 collision nullity=0 PASS
+d=13 n0=2 dim C_forward=17 dim C_reverse=17 formal intersection=0 physical projected rank=34 collision nullity=0 PASS
+d=15 n0=2 dim C_forward=20 dim C_reverse=20 formal intersection=0 physical projected rank=40 collision nullity=0 PASS

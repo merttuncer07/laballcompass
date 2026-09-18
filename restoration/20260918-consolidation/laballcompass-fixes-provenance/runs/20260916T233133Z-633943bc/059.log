@@ -1,0 +1,9 @@
+test_infeasible_weight_cap_is_rejected (test_capl.Tests.test_infeasible_weight_cap_is_rejected) ... ok
+test_learned_actions_satisfy_every_constraint (test_capl.Tests.test_learned_actions_satisfy_every_constraint) ... ok
+test_policy_improves_untouched_decision_objective (test_capl.Tests.test_policy_improves_untouched_decision_objective) ... ok
+test_result_preserves_all_validation_actions (test_capl.Tests.test_result_preserves_all_validation_actions) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.979s
+
+OK

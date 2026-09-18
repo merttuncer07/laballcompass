@@ -1,0 +1,13 @@
+test_bad_direction (test_pcfmcsc.T.test_bad_direction) ... ok
+test_grid_order (test_pcfmcsc.T.test_grid_order) ... ok
+test_monotone_pass (test_pcfmcsc.T.test_monotone_pass) ... ok
+test_nonmonotone_witness (test_pcfmcsc.T.test_nonmonotone_witness) ... ok
+test_recovery_creates_two_intervals (test_pcfmcsc.T.test_recovery_creates_two_intervals) ... ok
+test_safe_interval (test_pcfmcsc.T.test_safe_interval) ... ok
+test_status (test_pcfmcsc.T.test_status) ... ok
+test_witness_exact (test_pcfmcsc.T.test_witness_exact) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.000s
+
+OK

@@ -1,0 +1,22 @@
+test_decision_relevant_channel_beats_high_variance_nuisance (test_aicc.AICCTests.test_decision_relevant_channel_beats_high_variance_nuisance) ... ok
+test_irrelevant_channel_has_zero_decision_value (test_aicc.AICCTests.test_irrelevant_channel_has_zero_decision_value) ... ok
+test_measurement_reduces_variance_in_its_direction (test_aicc.AICCTests.test_measurement_reduces_variance_in_its_direction) ... ok
+test_cost_boundary_rejected_by_old_31_node_quadrature (test_information_values.ExactValueTests.test_cost_boundary_rejected_by_old_31_node_quadrature) ... ok
+test_duplicate_dominated_and_common_slope_invariance (test_information_values.ExactValueTests.test_duplicate_dominated_and_common_slope_invariance) ... ok
+test_quadrature_parameter_no_longer_changes_decision (test_information_values.ExactValueTests.test_quadrature_parameter_no_longer_changes_decision) ... ok
+test_random_actions_against_independent_piecewise_numerical_integration (test_information_values.ExactValueTests.test_random_actions_against_independent_piecewise_numerical_integration) ... ok
+test_small_positive_tail_does_not_cancel_to_zero (test_information_values.ExactValueTests.test_small_positive_tail_does_not_cancel_to_zero) ... ok
+test_conflicting_repeat_rejected_without_state_mutation (test_information_values.JointObservationTests.test_conflicting_repeat_rejected_without_state_mutation) ... ok
+test_distinct_independent_equal_values_are_not_merged (test_information_values.JointObservationTests.test_distinct_independent_equal_values_are_not_merged) ... ok
+test_joint_model_validation (test_information_values.JointObservationTests.test_joint_model_validation) ... ok
+test_multidimensional_joint_matches_direct_batch_reference (test_information_values.JointObservationTests.test_multidimensional_joint_matches_direct_batch_reference) ... ok
+test_opposite_common_error_cancels_and_identifies_state (test_information_values.JointObservationTests.test_opposite_common_error_cancels_and_identifies_state) ... ok
+test_partial_noise_dependence_matches_batch_conditioning_in_any_order (test_information_values.JointObservationTests.test_partial_noise_dependence_matches_batch_conditioning_in_any_order) ... ok
+test_perfect_alias_does_not_gain_information_or_shift_belief (test_information_values.JointObservationTests.test_perfect_alias_does_not_gain_information_or_shift_belief) ... ok
+test_remaining_channel_value_uses_conditional_noise_and_predictive_mean (test_information_values.JointObservationTests.test_remaining_channel_value_uses_conditional_noise_and_predictive_mean) ... ok
+test_repeated_finite_observation_is_idempotent_but_default_is_fresh (test_information_values.JointObservationTests.test_repeated_finite_observation_is_idempotent_but_default_is_fresh) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.024s
+
+OK

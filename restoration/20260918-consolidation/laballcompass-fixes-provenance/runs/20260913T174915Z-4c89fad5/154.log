@@ -1,0 +1,9 @@
+test_action_inversion_counted (test_mddc.Tests.test_action_inversion_counted) ... ok
+test_invalid_probability_rejected (test_mddc.Tests.test_invalid_probability_rejected) ... ok
+test_no_false_divergence (test_mddc.Tests.test_no_false_divergence) ... ok
+test_small_metric_error_can_make_worse_decision (test_mddc.Tests.test_small_metric_error_can_make_worse_decision) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

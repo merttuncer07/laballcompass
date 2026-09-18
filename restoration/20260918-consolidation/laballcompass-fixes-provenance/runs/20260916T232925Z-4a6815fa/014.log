@@ -1,0 +1,14 @@
+test_argmax_release_returns_only_a_candidate_action (test_dtpr.DecisionTargetedPrivateReleaseTests.test_argmax_release_returns_only_a_candidate_action) ... ok
+test_budget_accountant_blocks_overspend (test_dtpr.DecisionTargetedPrivateReleaseTests.test_budget_accountant_blocks_overspend) ... ok
+test_count_score_has_expected_value (test_dtpr.DecisionTargetedPrivateReleaseTests.test_count_score_has_expected_value) ... ok
+test_csv_policy_outputs_action_and_enforces_lifetime_budget (test_dtpr.DecisionTargetedPrivateReleaseTests.test_csv_policy_outputs_action_and_enforces_lifetime_budget) ... ok
+test_raw_score_hidden_by_default (test_dtpr.DecisionTargetedPrivateReleaseTests.test_raw_score_hidden_by_default) ... ok
+test_threshold_actions (test_dtpr.DecisionTargetedPrivateReleaseTests.test_threshold_actions) ... ok
+test_top_k_is_unique_and_composes_to_total_budget (test_dtpr.DecisionTargetedPrivateReleaseTests.test_top_k_is_unique_and_composes_to_total_budget) ... ok
+test_weighted_budget_uses_cube_root_solution (test_dtpr.DecisionTargetedPrivateReleaseTests.test_weighted_budget_uses_cube_root_solution) ... ok
+test_zero_consequence_query_is_not_released (test_dtpr.DecisionTargetedPrivateReleaseTests.test_zero_consequence_query_is_not_released) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.004s
+
+OK

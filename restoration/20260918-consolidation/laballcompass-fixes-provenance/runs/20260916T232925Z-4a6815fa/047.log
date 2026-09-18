@@ -1,0 +1,9 @@
+test_confounding_changes_magnitude (test_sce.SCETests.test_confounding_changes_magnitude) ... ok
+test_declared_choice_cross_product_is_complete (test_sce.SCETests.test_declared_choice_cross_product_is_complete) ... ok
+test_exact_linear_effect_is_recovered (test_sce.SCETests.test_exact_linear_effect_is_recovered) ... ok
+test_rank_deficiency_is_visible_not_silently_dropped (test_sce.SCETests.test_rank_deficiency_is_visible_not_silently_dropped) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.015s
+
+OK

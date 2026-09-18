@@ -1,0 +1,13 @@
+test_bad_margin_rejected (test_bmcapl.T.test_bad_margin_rejected) ... ok
+test_candidate_turnover_lower (test_bmcapl.T.test_candidate_turnover_lower) ... ok
+test_constraints_preserved (test_bmcapl.T.test_constraints_preserved) ... ok
+test_distance (test_bmcapl.T.test_distance) ... ok
+test_empty_rejected (test_bmcapl.T.test_empty_rejected) ... ok
+test_no_flip_reduces_to_control_turnover (test_bmcapl.T.test_no_flip_reduces_to_control_turnover) ... ok
+test_removal_control_differs (test_bmcapl.T.test_removal_control_differs) ... ok
+test_tipping_shrinks_feasible_turnover (test_bmcapl.T.test_tipping_shrinks_feasible_turnover) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.973s
+
+OK

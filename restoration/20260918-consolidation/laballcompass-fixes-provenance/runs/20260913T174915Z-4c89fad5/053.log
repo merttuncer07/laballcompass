@@ -1,0 +1,13 @@
+test_energy_baseline_differs (test_spitwmr.T.test_energy_baseline_differs) ... ok
+test_full_retention_zero_error (test_spitwmr.T.test_full_retention_zero_error) ... ok
+test_normalized_target (test_spitwmr.T.test_normalized_target) ... ok
+test_policy_state_retained (test_spitwmr.T.test_policy_state_retained) ... ok
+test_shape_rejected (test_spitwmr.T.test_shape_rejected) ... ok
+test_status (test_spitwmr.T.test_status) ... ok
+test_target_error_better (test_spitwmr.T.test_target_error_better) ... ok
+test_zero_target_rejected (test_spitwmr.T.test_zero_target_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

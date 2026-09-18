@@ -1,0 +1,9 @@
+test_forecast_spread_increases (test_aptc.Tests.test_forecast_spread_increases) ... ok
+test_internal_field_cancels_flux_separation (test_aptc.Tests.test_internal_field_cancels_flux_separation) ... ok
+test_neutral_limit_matches_ambipolar_formula (test_aptc.Tests.test_neutral_limit_matches_ambipolar_formula) ... ok
+test_non_neutral_profile_is_flagged (test_aptc.Tests.test_non_neutral_profile_is_flagged) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

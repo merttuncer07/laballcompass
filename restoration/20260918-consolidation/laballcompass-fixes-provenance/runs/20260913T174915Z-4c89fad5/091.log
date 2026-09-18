@@ -1,0 +1,8 @@
+test_filtered_step_preserves_constraints (test_ccvc.CCVCTests.test_filtered_step_preserves_constraints) ... ok
+test_outward_uncontrolled_boundary_is_rejected (test_ccvc.CCVCTests.test_outward_uncontrolled_boundary_is_rejected) ... ok
+test_safe_manifold_vertices_are_certified (test_ccvc.CCVCTests.test_safe_manifold_vertices_are_certified) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.018s
+
+OK

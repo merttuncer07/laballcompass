@@ -1,0 +1,17 @@
+test_acquisition_reduces_total_expected_loss (test_bivcp.T.test_acquisition_reduces_total_expected_loss) ... ok
+test_channel_named (test_bivcp.T.test_channel_named) ... ok
+test_cost_cap_skips (test_bivcp.T.test_cost_cap_skips) ... ok
+test_empty_actions_rejected (test_bivcp.T.test_empty_actions_rejected) ... ok
+test_expensive_channel_skips (test_bivcp.T.test_expensive_channel_skips) ... ok
+test_far_prior_skips (test_bivcp.T.test_far_prior_skips) ... ok
+test_information_value_positive_when_acquired (test_bivcp.T.test_information_value_positive_when_acquired) ... ok
+test_mechanism_removing_comparator_is_baseline (test_bivcp.T.test_mechanism_removing_comparator_is_baseline) ... ok
+test_near_boundary_acquires (test_bivcp.T.test_near_boundary_acquires) ... ok
+test_probabilities_normalized (test_bivcp.T.test_probabilities_normalized) ... ok
+test_status (test_bivcp.T.test_status) ... ok
+test_zero_mass_rejected (test_bivcp.T.test_zero_mass_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+OK

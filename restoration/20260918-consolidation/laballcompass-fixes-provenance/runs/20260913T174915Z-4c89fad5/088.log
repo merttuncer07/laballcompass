@@ -1,0 +1,13 @@
+test_closed_prior_generation_can_train_next_generation (test_relevance_learning.RelevanceLearningTests.test_closed_prior_generation_can_train_next_generation) ... ok
+test_feedback_snapshot_change_invalidates_incremental_cache (test_relevance_learning.RelevanceLearningTests.test_feedback_snapshot_change_invalidates_incremental_cache) ... ok
+test_frozen_snapshot_is_immutable_to_later_ledger_append (test_relevance_learning.RelevanceLearningTests.test_frozen_snapshot_is_immutable_to_later_ledger_append) ... ok
+test_out_of_scope_shell_does_not_transfer_without_shared_tags (test_relevance_learning.RelevanceLearningTests.test_out_of_scope_shell_does_not_transfer_without_shared_tags) ... ok
+test_pair_feedback_is_consumer_specific (test_relevance_learning.RelevanceLearningTests.test_pair_feedback_is_consumer_specific) ... ok
+test_protected_validation_never_trains_even_later (test_relevance_learning.RelevanceLearningTests.test_protected_validation_never_trains_even_later) ... ok
+test_router_uses_pair_prior_only_for_supplier_surface (test_relevance_learning.RelevanceLearningTests.test_router_uses_pair_prior_only_for_supplier_surface) ... ok
+test_same_generation_feedback_is_quarantined (test_relevance_learning.RelevanceLearningTests.test_same_generation_feedback_is_quarantined) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

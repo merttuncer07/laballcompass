@@ -6,6 +6,7 @@ from types import MappingProxyType
 from graphlib import TopologicalSorter, CycleError
 import hashlib
 import json
+from .limits import LINEAGE_NODES, LINEAGE_RULE_INPUTS
 
 
 @dataclass(frozen=True)
@@ -35,8 +36,9 @@ class DependencyProblem:
         if heads & self.bases.keys():
             raise ValueError('An input proposition cannot also be a derived proposition')
         known = set(self.bases) | heads
-        if len(known) > 20000 or sum(len(b) for _, b in self.rules) > 200000:
-            raise ValueError('Pilot task size exceeded: 20,000 nodes / 200,000 rule inputs')
+        if len(known) > LINEAGE_NODES or sum(len(b) for _, b in self.rules) > LINEAGE_RULE_INPUTS:
+            raise ValueError(
+                f'Pilot task size exceeded: {LINEAGE_NODES:,} nodes / {LINEAGE_RULE_INPUTS:,} rule inputs')
         if not self.targets or len(set(self.targets)) != len(self.targets):
             raise ValueError('Targets must be nonempty and unique')
         if not set(self.targets) <= known or any(not set(b) <= known for _, b in self.rules):

@@ -1,0 +1,15 @@
+# B9 provisional diagnostic (plain reversal; NOT Q195)
+n0=1 d=3: cols=6 rank=6 nullity=0
+n0=1 d=5: cols=12 rank=12 nullity=0
+n0=1 d=7: cols=18 rank=18 nullity=0
+n0=1 d=9: cols=24 rank=22 nullity=2
+n0=1 d=11: cols=30 rank=30 nullity=0
+n0=1 d=13: cols=36 rank=36 nullity=0
+n0=1 d=15: cols=42 rank=36 nullity=6
+n0=2 d=3: cols=6 rank=6 nullity=0
+n0=2 d=5: cols=12 rank=12 nullity=0
+n0=2 d=7: cols=18 rank=18 nullity=0
+n0=2 d=9: cols=24 rank=24 nullity=0
+n0=2 d=11: cols=30 rank=30 nullity=0
+n0=2 d=13: cols=36 rank=36 nullity=0
+n0=2 d=15: cols=42 rank=42 nullity=0

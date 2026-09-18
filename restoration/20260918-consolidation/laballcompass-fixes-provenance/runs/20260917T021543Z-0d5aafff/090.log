@@ -1,0 +1,9 @@
+test_deletes_low_impact_feature (test_tsrc.TargetSufficientReductionCertifierTests.test_deletes_low_impact_feature) ... ok
+test_evaluation_rejects_values_outside_declared_deletion_shell (test_tsrc.TargetSufficientReductionCertifierTests.test_evaluation_rejects_values_outside_declared_deletion_shell) ... ok
+test_evaluation_reports_no_action_change_when_certificate_holds (test_tsrc.TargetSufficientReductionCertifierTests.test_evaluation_reports_no_action_change_when_certificate_holds) ... ok
+test_optimizer_respects_error_budget (test_tsrc.TargetSufficientReductionCertifierTests.test_optimizer_respects_error_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK

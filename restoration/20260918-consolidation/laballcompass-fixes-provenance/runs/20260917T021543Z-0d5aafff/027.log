@@ -1,0 +1,17 @@
+test_certified_shell_requires_provenance (test_idasro.IDASROTests.test_certified_shell_requires_provenance) ... ok
+test_directional_robust_solution_soft_thresholds_parallel_component (test_idasro.IDASROTests.test_directional_robust_solution_soft_thresholds_parallel_component) ... ok
+test_exact_radius_mapping_from_scalar_identification_interval (test_idasro.IDASROTests.test_exact_radius_mapping_from_scalar_identification_interval) ... ok
+test_invalid_vector_or_z_contract_is_rejected (test_idasro.IDASROTests.test_invalid_vector_or_z_contract_is_rejected) ... ok
+test_larger_identification_se_never_increases_parallel_exposure (test_idasro.IDASROTests.test_larger_identification_se_never_increases_parallel_exposure) ... ok
+test_missing_sensitivity_certificate_fails_closed (test_idasro.IDASROTests.test_missing_sensitivity_certificate_fails_closed) ... ok
+test_orthogonal_component_is_unchanged (test_idasro.IDASROTests.test_orthogonal_component_is_unchanged) ... ok
+test_p025_invalid_gap_rejected (test_idasro.IDASROTests.test_p025_invalid_gap_rejected) ... ok
+test_p025_stable_system_survives (test_idasro.IDASROTests.test_p025_stable_system_survives) ... ok
+test_p025_uncertainty_can_revoke_certificate (test_idasro.IDASROTests.test_p025_uncertainty_can_revoke_certificate) ... ok
+test_p025_zero_rate_limit_preserved (test_idasro.IDASROTests.test_p025_zero_rate_limit_preserved) ... ok
+test_zero_sensitivity_exactly_reuses_nominal_action (test_idasro.IDASROTests.test_zero_sensitivity_exactly_reuses_nominal_action) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.068s
+
+OK

@@ -8,6 +8,7 @@ import tempfile
 import unittest
 
 from openpyxl import Workbook
+from openpyxl.worksheet.formula import ArrayFormula
 from workbench.cli import main, save_workbook_analysis
 from workbench.content import compare_content
 from workbench.workbooks import open_workbooks
@@ -45,6 +46,14 @@ class SameLayoutTests(unittest.TestCase):
         formula = next(c for c in block['cells'] if c['left'] == 'B1')
         self.assertEqual(formula['comparison'], 'same_formula')
         self.assertFalse(formula['equal'])  # Text equality never asserts evaluated equality.
+
+    def test_identical_array_formula_text_is_compared_without_cached_values(self):
+        for book in self.books:
+            book.active['D1'] = ArrayFormula(ref='D1', text='=SUM(A1:C1)')
+        block = self.report()['blocks'][0]
+        formula = next(c for c in block['cells'] if c['left'] == 'D1')
+        self.assertEqual(formula['comparison'], 'same_formula')
+        self.assertEqual(block['uncompared_cells'], 0)
 
     def test_changes_and_unknowns_have_distinct_counts_and_impacts(self):
         for book in self.books:

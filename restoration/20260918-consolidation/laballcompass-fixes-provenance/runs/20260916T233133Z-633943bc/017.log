@@ -1,0 +1,8 @@
+test_capacity_and_anchor_limits_hold (test_lcm.LiquidityConversionMapTests.test_capacity_and_anchor_limits_hold) ... ok
+test_nominal_is_not_deployable (test_lcm.LiquidityConversionMapTests.test_nominal_is_not_deployable) ... ok
+test_verification_has_measurable_marginal_value (test_lcm.LiquidityConversionMapTests.test_verification_has_measurable_marginal_value) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK

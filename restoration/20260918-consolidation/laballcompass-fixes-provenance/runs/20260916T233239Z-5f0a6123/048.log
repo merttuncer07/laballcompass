@@ -1,0 +1,23 @@
+test_constant_evidence_cannot_certify_independence (test_scig.DependenceRepairTests.test_constant_evidence_cannot_certify_independence) ... ok
+test_model_gain_is_not_reported_as_empirical_reality (test_scig.DependenceRepairTests.test_model_gain_is_not_reported_as_empirical_reality) ... ok
+test_negative_association_is_not_merged_as_shared_failure (test_scig.DependenceRepairTests.test_negative_association_is_not_merged_as_shared_failure) ... ok
+test_nonfinite_ambiguity_band_is_rejected (test_scig.DependenceRepairTests.test_nonfinite_ambiguity_band_is_rejected) ... ok
+test_regularization_cannot_hide_strong_observed_dependence (test_scig.DependenceRepairTests.test_regularization_cannot_hide_strong_observed_dependence) ... ok
+test_already_declared_common_family_collapses_to_parent_semantics (test_scig.T.test_already_declared_common_family_collapses_to_parent_semantics) ... ok
+test_ambiguous_dependence_abstains (test_scig.T.test_ambiguous_dependence_abstains) ... ok
+test_bad_dimension_rejected (test_scig.T.test_bad_dimension_rejected) ... ok
+test_bad_support_mask_rejected (test_scig.T.test_bad_support_mask_rejected) ... ok
+test_candidate_does_not_exhaust_budget_blindly (test_scig.T.test_candidate_does_not_exhaust_budget_blindly) ... ok
+test_candidate_improves_objective_under_its_assumed_partition (test_scig.T.test_candidate_improves_objective_under_its_assumed_partition) ... ok
+test_covariance_merges_nominally_distinct_families (test_scig.T.test_covariance_merges_nominally_distinct_families) ... ok
+test_deterministic (test_scig.T.test_deterministic) ... ok
+test_no_supported_cross_family_edge_collapses (test_scig.T.test_no_supported_cross_family_edge_collapses) ... ok
+test_permutation_preserves_selected_safeguard_set (test_scig.T.test_permutation_preserves_selected_safeguard_set) ... ok
+test_portfolio_changes (test_scig.T.test_portfolio_changes) ... ok
+test_strong_raw_dependence_without_declared_support_abstains (test_scig.T.test_strong_raw_dependence_without_declared_support_abstains) ... ok
+test_supported_but_clearly_weak_dependence_collapses (test_scig.T.test_supported_but_clearly_weak_dependence_collapses) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.012s
+
+OK
