@@ -13,6 +13,15 @@ def test_desktop_modules_do_not_depend_on_browser_engines():
         assert "QtWebEngine" not in source
 
 
+def test_desktop_changed_since_use_copy_does_not_make_audit_conclusions():
+    source = open(importlib.import_module("desktop.main_window").__file__,
+                  encoding="utf-8").read().lower()
+    for prohibited in ("redo testing", "workpaper failed", "audit work invalid",
+                       "audit work is wrong", "workpaper is stale"):
+        assert prohibited not in source
+    assert "evidence changed since use" in source
+
+
 def test_application_starts_headlessly_without_workspace(monkeypatch):
     monkeypatch.setenv("QT_QPA_PLATFORM", "offscreen")
     application, window = build_application()

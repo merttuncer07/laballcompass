@@ -1,5 +1,19 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## Evidence use baselines
+
+Bir `EvidenceVersion`, desktop ağacındaki context menu ile kullanım checkpoint'i
+olarak işaretlenebilir. Checkpoint serbest metin bir amaç/reference ve isteğe
+bağlı not saklar; audit workpaper/test ontology'si yaratmaz. Aynı artifact için
+daha yeni confirmed version geldiğinde workspace **Changed since use** bölümünde
+checkpoint version → güncel version çiftini gösterir. v1 checkpoint'i ve v3
+güncel version varsa analiz doğrudan v1→v3'tür.
+
+Bu durum yalnızca evidence'ın checkpoint'ten sonra değiştiğini söyler. Audit
+işinin yanlış, geçersiz veya tekrar yapılması gerektiği sonucunu üretmez.
+Checkpoint metadata correction ve withdrawal işlemleri decision history'de
+korunur.
+
 ## Native evidence workspace
 
 Ana ürün yolu artık yerel PySide6 masaüstü uygulamasıdır:

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-09-19",
+  "source": "Genuine public Ofgem ED2 PCFM revisions plus SONI control workbook",
+  "workspace_schema_before_open": 2,
+  "workspace_schema_after_open": 3,
+  "measurement": {
+    "checkpoint_count": 1,
+    "current_checkpoint_count": 0,
+    "changed_since_use_count": 1,
+    "comparison_from_checkpoint_to_latest": "v1→v2",
+    "triage_group_count": 362,
+    "raw_change_count": 4201,
+    "resolved_impact_group_count": 83,
+    "unresolved_coverage": true,
+    "unresolved_formula_count": 36996
+  },
+  "identity": {
+    "checkpoint_id": "use_f329c49449bf4ad28c81",
+    "artifact_id": "art_7404c0660808400781af",
+    "version_id": "ev_ee61993d08a14f56a22e",
+    "blob_id": "blob_794fde9ebae9c407f1ae",
+    "purpose": "REV-03 testing"
+  },
+  "restart_persisted": true,
+  "desktop": {
+    "changed_section_count": 1,
+    "triage_rows": 362,
+    "heading": "Evidence changed since use · REV-03 testing",
+    "coverage_text": "Incomplete — resolved reach is not exhaustive. 36996 workbook formulas unresolved."
+  },
+  "performance": {
+    "checkpoint_to_latest_analysis_seconds": 0.012639,
+    "cache_or_reuse": "Existing adjacent Ofgem analysis reused and registered for the version pair."
+  },
+  "semantic_boundary": "Evidence changed since this checkpoint; no audit validity, failure, staleness, risk or re-performance conclusion is made.",
+  "test_suite": {
+    "pytest_tests_passed": 208,
+    "unittest_subtests_passed": 21,
+    "warnings": 2,
+    "lab_receipt": "runs/20260918T222306Z-79586981/receipt.json"
+  }
+}

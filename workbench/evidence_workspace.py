@@ -19,7 +19,8 @@ import uuid
 from .content import compare_content, formula_descriptor
 from .evidence_schema import (SCHEMA_VERSION, blob_id as make_blob_id,
                               candidate_id as make_candidate_id,
-                              create_schema_v2, migrate_v1_to_v2)
+                              create_schema_v2, migrate_v1_to_v2,
+                              migrate_v2_to_v3)
 from .cli import save_workbook_analysis
 from .workbooks import open_workbooks
 
@@ -60,6 +61,9 @@ def _connect(path):
     version = connection.execute("PRAGMA user_version").fetchone()[0]
     if version == 1:
         migrate_v1_to_v2(connection)
+        version = connection.execute("PRAGMA user_version").fetchone()[0]
+    if version == 2:
+        migrate_v2_to_v3(connection)
         version = connection.execute("PRAGMA user_version").fetchone()[0]
     if version != SCHEMA_VERSION:
         connection.close()
@@ -386,13 +390,15 @@ def _artifact_order(connection, artifact_id):
 
 def _record_history(connection, event_type, *, artifact_id=None, version_id=None,
                     relationship_id=None, candidate_id=None, before=None, after=None,
-                    reason=None, recorded_at=None):
+                    checkpoint_id=None, reason=None, recorded_at=None):
     history_id = "hist_" + uuid.uuid4().hex[:20]
     connection.execute(
         """INSERT INTO decision_history
            (id, event_type, artifact_id, version_id, relationship_id, candidate_id,
-            before_json, after_json, reason, recorded_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            checkpoint_id, before_json, after_json, reason, recorded_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (history_id, event_type, artifact_id, version_id, relationship_id, candidate_id,
+         checkpoint_id,
          _json(before) if before is not None else None,
          _json(after) if after is not None else None, reason, recorded_at or _now()))
     return history_id
@@ -528,6 +534,186 @@ def _ensure_comparison(root, connection, relationship_id):
             ("cmp_" + uuid.uuid4().hex[:20], relationship_id, report_relative,
              structural_relative, _now()))
     return root / report_relative
+
+
+def _ensure_version_comparison(root, connection, artifact_id, before_version_id,
+                               after_version_id):
+    """Persist triage for any ordered pair in one artifact, including v1→v3."""
+    versions = {row["id"]: row for row in connection.execute(
+        "SELECT * FROM evidence_versions WHERE artifact_id = ?", (artifact_id,))}
+    if before_version_id not in versions or after_version_id not in versions:
+        raise ValueError("Both versions must belong to the same evidence artifact")
+    order, ambiguous = _artifact_order(connection, artifact_id)
+    if ambiguous:
+        raise ValueError("Version ordering is ambiguous; correct it before comparing checkpoints")
+    if order.index(before_version_id) >= order.index(after_version_id):
+        raise ValueError("Checkpoint version must precede the current version")
+
+    existing = connection.execute(
+        """SELECT * FROM version_comparison_runs
+           WHERE before_version_id = ? AND after_version_id = ?""",
+        (before_version_id, after_version_id)).fetchone()
+    if existing:
+        triage = root / Path(existing["report_path"]).parents[1] / "triage" / "triage.json"
+        if triage.is_file():
+            return dict(existing)
+
+    adjacent = connection.execute(
+        """SELECT cr.* FROM version_relationships vr
+           JOIN comparison_runs cr ON cr.relationship_id = vr.id
+           WHERE vr.artifact_id = ? AND vr.before_version_id = ?
+             AND vr.after_version_id = ? AND vr.status = 'active'""",
+        (artifact_id, before_version_id, after_version_id)).fetchone()
+    if adjacent:
+        report_path = adjacent["report_path"]
+        structural_path = adjacent["structural_report_path"]
+    else:
+        pair_key = hashlib.sha256(
+            (before_version_id + "\0" + after_version_id).encode()).hexdigest()[:20]
+        relative_root = Path("comparisons") / "version-pairs" / ("pair_" + pair_key)
+        final = root / relative_root
+        temporary_report = final.with_name(final.name + ".tmp-" + uuid.uuid4().hex)
+        temporary_report.mkdir(parents=True)
+        structural_path = None
+        try:
+            with tempfile.TemporaryDirectory(prefix="evidence-checkpoint-") as temporary:
+                inputs = _comparison_inputs(root, connection, before_version_id,
+                                            after_version_id, temporary)
+                save_workbook_analysis(inputs, temporary_report / "exact", same_layout=True)
+                before_blob = versions[before_version_id]["blob_id"]
+                after_blob = versions[after_version_id]["blob_id"]
+                pair = tuple(sorted((before_blob, after_blob)))
+                candidate = connection.execute(
+                    """SELECT evidence_json FROM candidates
+                       WHERE left_blob_id = ? AND right_blob_id = ?""", pair).fetchone()
+                evidence = _load_json(candidate["evidence_json"]) if candidate else {}
+                if evidence.get("general_correspondence"):
+                    save_workbook_analysis(inputs, temporary_report / "structural",
+                                           same_layout=False, preserve_order=True)
+                    structural_path = (relative_root / "structural" / "index.html").as_posix()
+                from .revision_triage import write_revision_triage
+                structural_content = temporary_report / "structural" / "content.json"
+                write_revision_triage(
+                    temporary_report / "exact" / "content.json",
+                    temporary_report / "triage",
+                    structural_content if structural_content.is_file() else None,
+                )
+            if final.exists():
+                shutil.rmtree(final)
+            temporary_report.replace(final)
+        except Exception:
+            if temporary_report.exists():
+                shutil.rmtree(temporary_report)
+            raise
+        report_path = (relative_root / "exact" / "index.html").as_posix()
+
+    comparison_id = existing["id"] if existing else "vcp_" + uuid.uuid4().hex[:20]
+    timestamp = _now()
+    if existing:
+        connection.execute(
+            """UPDATE version_comparison_runs
+               SET report_path = ?, structural_report_path = ?, created_at = ? WHERE id = ?""",
+            (report_path, structural_path, timestamp, comparison_id))
+    else:
+        connection.execute(
+            """INSERT INTO version_comparison_runs
+               (id, artifact_id, before_version_id, after_version_id, report_path,
+                structural_report_path, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (comparison_id, artifact_id, before_version_id, after_version_id,
+             report_path, structural_path, timestamp))
+    return {
+        "id": comparison_id, "artifact_id": artifact_id,
+        "before_version_id": before_version_id, "after_version_id": after_version_id,
+        "report_path": report_path, "structural_report_path": structural_path,
+        "created_at": timestamp,
+    }
+
+
+def ensure_version_comparison(workspace, artifact_id, before_version_id, after_version_id):
+    root = _workspace_path(workspace)
+    with _connect(root) as connection:
+        comparison = _ensure_version_comparison(
+            root, connection, artifact_id, before_version_id, after_version_id)
+    triage_path = root / Path(comparison["report_path"]).parents[1] / "triage" / "triage.json"
+    result = json.loads(triage_path.read_text(encoding="utf-8"))
+    result["comparison"] = comparison
+    return result
+
+
+def create_use_checkpoint(workspace, version_id, purpose, note=None):
+    root = _workspace_path(workspace)
+    if not isinstance(purpose, str) or not purpose.strip():
+        raise ValueError("Purpose / reference is required")
+    with _connect(root) as connection:
+        version = connection.execute(
+            "SELECT * FROM evidence_versions WHERE id = ?", (version_id,)).fetchone()
+        if version is None:
+            raise ValueError("Unknown evidence version")
+        checkpoint_id = "use_" + uuid.uuid4().hex[:20]
+        timestamp = _now()
+        connection.execute(
+            """INSERT INTO use_checkpoints
+               (id, artifact_id, version_id, blob_id, purpose, note, status,
+                created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, 'active', ?, ?)""",
+            (checkpoint_id, version["artifact_id"], version_id, version["blob_id"],
+             purpose.strip(), note.strip() if isinstance(note, str) and note.strip() else None,
+             timestamp, timestamp))
+        after = {"checkpoint_id": checkpoint_id,
+                 "artifact_id": version["artifact_id"], "version_id": version_id,
+                 "blob_id": version["blob_id"], "purpose": purpose.strip(),
+                 "note": note.strip() if isinstance(note, str) and note.strip() else None,
+                 "status": "active"}
+        _record_history(connection, "use_checkpoint_created",
+                        artifact_id=version["artifact_id"], version_id=version_id,
+                        checkpoint_id=checkpoint_id, after=after,
+                        reason="User marked exact evidence version as used",
+                        recorded_at=timestamp)
+    return after | {"created_at": timestamp, "updated_at": timestamp}
+
+
+def update_use_checkpoint(workspace, checkpoint_id, *, purpose, note=None, reason):
+    root = _workspace_path(workspace)
+    reason = _require_reason(reason)
+    if not isinstance(purpose, str) or not purpose.strip():
+        raise ValueError("Purpose / reference is required")
+    with _connect(root) as connection:
+        checkpoint = connection.execute(
+            "SELECT * FROM use_checkpoints WHERE id = ?", (checkpoint_id,)).fetchone()
+        if checkpoint is None or checkpoint["status"] != "active":
+            raise ValueError("Only an active checkpoint can be corrected")
+        clean_note = note.strip() if isinstance(note, str) and note.strip() else None
+        before = {"purpose": checkpoint["purpose"], "note": checkpoint["note"]}
+        after = {"purpose": purpose.strip(), "note": clean_note}
+        timestamp = _now()
+        connection.execute(
+            "UPDATE use_checkpoints SET purpose = ?, note = ?, updated_at = ? WHERE id = ?",
+            (purpose.strip(), clean_note, timestamp, checkpoint_id))
+        _record_history(connection, "use_checkpoint_metadata_corrected",
+                        artifact_id=checkpoint["artifact_id"],
+                        version_id=checkpoint["version_id"], checkpoint_id=checkpoint_id,
+                        before=before, after=after, reason=reason, recorded_at=timestamp)
+    return {"checkpoint_id": checkpoint_id, **after, "updated_at": timestamp}
+
+
+def withdraw_use_checkpoint(workspace, checkpoint_id, reason):
+    root = _workspace_path(workspace)
+    reason = _require_reason(reason)
+    with _connect(root) as connection:
+        checkpoint = connection.execute(
+            "SELECT * FROM use_checkpoints WHERE id = ?", (checkpoint_id,)).fetchone()
+        if checkpoint is None or checkpoint["status"] != "active":
+            raise ValueError("Only an active checkpoint can be withdrawn")
+        timestamp = _now()
+        connection.execute(
+            """UPDATE use_checkpoints SET status = 'withdrawn', withdrawn_at = ?,
+               updated_at = ? WHERE id = ?""", (timestamp, timestamp, checkpoint_id))
+        _record_history(connection, "use_checkpoint_withdrawn",
+                        artifact_id=checkpoint["artifact_id"],
+                        version_id=checkpoint["version_id"], checkpoint_id=checkpoint_id,
+                        before={"status": "active"}, after={"status": "withdrawn"},
+                        reason=reason, recorded_at=timestamp)
+    return {"checkpoint_id": checkpoint_id, "status": "withdrawn",
+            "withdrawn_at": timestamp}
 
 
 def _artifact_for_confirmation(connection, blob_pair, artifact_id, artifact_name):
@@ -669,6 +855,10 @@ def reassign_version(workspace, version_id, *, artifact_id=None, artifact_name=N
         version = connection.execute("SELECT * FROM evidence_versions WHERE id = ?", (version_id,)).fetchone()
         if version is None:
             raise ValueError("Unknown evidence version")
+        if connection.execute(
+                "SELECT 1 FROM use_checkpoints WHERE version_id = ? AND status = 'active'",
+                (version_id,)).fetchone():
+            raise ValueError("Withdraw active use checkpoints before reassigning this version")
         if artifact_id and artifact_name:
             raise ValueError("Specify artifact ID or a new artifact name, not both")
         target = _create_artifact(connection, artifact_name) if artifact_name else artifact_id
@@ -794,6 +984,10 @@ def workspace_state(workspace):
             artifacts.append(item)
         comparisons = [dict(row) for row in connection.execute(
             "SELECT * FROM comparison_runs ORDER BY created_at, id")]
+        version_comparisons = [dict(row) for row in connection.execute(
+            "SELECT * FROM version_comparison_runs ORDER BY created_at, id")]
+        checkpoints = [dict(row) for row in connection.execute(
+            "SELECT * FROM use_checkpoints ORDER BY created_at, id")]
         history = [dict(row) for row in connection.execute(
             "SELECT * FROM decision_history ORDER BY recorded_at, id")]
         for event in history:
@@ -802,4 +996,5 @@ def workspace_state(workspace):
     return {"schema_version": SCHEMA_VERSION, "workspace_path": str(root),
             "workspace": workspace_row, "file_blobs": blobs, "evidence_versions": versions,
             "candidates": candidates, "artifacts": artifacts, "comparisons": comparisons,
-            "decision_history": history}
+            "version_comparisons": version_comparisons,
+            "use_checkpoints": checkpoints, "decision_history": history}

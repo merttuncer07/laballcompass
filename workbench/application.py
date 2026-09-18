@@ -12,11 +12,15 @@ from pathlib import Path
 from .evidence_workspace import (
     confirm_candidate as _confirm_candidate,
     correct_order as _correct_order,
+    create_use_checkpoint as _create_use_checkpoint,
     create_workspace as _create_workspace,
     import_folder as _import_folder,
+    ensure_version_comparison as _ensure_version_comparison,
     reassign_version as _reassign_version,
     reject_candidate as _reject_candidate,
     rename_artifact as _rename_artifact,
+    update_use_checkpoint as _update_use_checkpoint,
+    withdraw_use_checkpoint as _withdraw_use_checkpoint,
     withdraw_relationship as _withdraw_relationship,
     workspace_state,
 )
@@ -70,6 +74,51 @@ class EvidenceApplication:
 
     def list_unassigned_evidence(self):
         return self.snapshot()["unassigned_evidence"]
+
+    def create_use_checkpoint(self, version_id, purpose, note=None):
+        result = _create_use_checkpoint(
+            self._require_workspace(), version_id, purpose, note)
+        return {"operation": result, "workspace": self.snapshot()}
+
+    def list_use_checkpoints(self, *, include_withdrawn=False):
+        rows = self.snapshot()["use_checkpoints"]
+        return [row for row in rows if include_withdrawn or row["status"] == "active"]
+
+    def update_checkpoint_metadata(self, checkpoint_id, *, purpose, note=None, reason):
+        result = _update_use_checkpoint(
+            self._require_workspace(), checkpoint_id, purpose=purpose,
+            note=note, reason=reason)
+        return {"operation": result, "workspace": self.snapshot()}
+
+    def withdraw_use_checkpoint(self, checkpoint_id, reason):
+        result = _withdraw_use_checkpoint(
+            self._require_workspace(), checkpoint_id, reason)
+        return {"operation": result, "workspace": self.snapshot()}
+
+    def list_changed_since_use(self):
+        return [row for row in self.list_use_checkpoints()
+                if row["change_state"] == "NEWER_VERSION_EXISTS"]
+
+    def get_changed_since_use(self, checkpoint_id, *, include_analysis=True):
+        checkpoint = self._by_id(
+            self.list_use_checkpoints(include_withdrawn=True), checkpoint_id,
+            "use checkpoint")
+        result = dict(checkpoint)
+        if checkpoint["status"] != "active":
+            return result
+        if checkpoint["change_state"] != "NEWER_VERSION_EXISTS":
+            return result
+        if include_analysis:
+            triage = _ensure_version_comparison(
+                self._require_workspace(), checkpoint["artifact_id"],
+                checkpoint["version_id"], checkpoint["latest_version_id"])
+            result["triage"] = triage
+            result["comparison_available"] = True
+            coverage = triage.get("dependency_coverage", {})
+            result["analysis_partial"] = (
+                not coverage.get("lineage_available", False)
+                or bool(coverage.get("unresolved_formula_count")))
+        return result
 
     def confirm_candidate(self, candidate_id, before_blob_id, *, artifact_id=None,
                           artifact_name=None, override_no_match=False):
@@ -142,6 +191,7 @@ class EvidenceApplication:
 
         artifacts = []
         relationships = []
+        version_view = {}
         for source in state["artifacts"]:
             artifact = {key: value for key, value in source.items()
                         if key not in ("version_order", "relationships")}
@@ -156,6 +206,7 @@ class EvidenceApplication:
                     "size_bytes": blob["size_bytes"],
                 })
                 artifact_versions.append(version)
+                version_view[version_id] = version
             artifact["versions"] = artifact_versions
             artifact["ordering_ambiguous"] = source["ordering_ambiguous"]
             artifact["relationships"] = [dict(row) for row in source["relationships"]]
@@ -179,14 +230,51 @@ class EvidenceApplication:
                     "occurrences": blob["occurrences"],
                 })
 
+        artifacts_by_id = {row["id"]: row for row in artifacts}
+        checkpoints = []
+        for source in state.get("use_checkpoints", []):
+            row = dict(source)
+            artifact = artifacts_by_id.get(row["artifact_id"])
+            version = version_view.get(row["version_id"])
+            if artifact is None or version is None:
+                row.update({"change_state": "IDENTITY_MISMATCH",
+                            "latest_version_id": None})
+            else:
+                latest = artifact["versions"][-1] if artifact["versions"] else None
+                unresolved_order = artifact["ordering_ambiguous"]
+                row.update({
+                    "artifact_name": artifact["name"],
+                    "used_version_number": version["version_number"],
+                    "used_display_name": version["display_name"],
+                    "sha256": version["sha256"],
+                    "latest_version_id": latest["id"] if latest and not unresolved_order else None,
+                    "latest_version_number": (latest["version_number"]
+                                              if latest and not unresolved_order else None),
+                    "latest_display_name": (latest["display_name"]
+                                            if latest and not unresolved_order else None),
+                    "change_state": (
+                        "ORDERING_UNRESOLVED" if unresolved_order else
+                        "CURRENT" if latest and latest["id"] == row["version_id"] else
+                        "NEWER_VERSION_EXISTS"),
+                })
+            checkpoints.append(row)
+
         return {
             "schema_version": state["schema_version"],
             "workspace_path": state["workspace_path"],
             "workspace": state["workspace"],
             "artifacts": artifacts,
             "unassigned_evidence": unassigned,
+            "use_checkpoints": checkpoints,
+            "changed_since_use_count": sum(
+                row["status"] == "active" and
+                row["change_state"] == "NEWER_VERSION_EXISTS" for row in checkpoints),
+            "current_checkpoint_count": sum(
+                row["status"] == "active" and row["change_state"] == "CURRENT"
+                for row in checkpoints),
             "candidates": candidates,
             "relationships": relationships,
             "comparisons": state["comparisons"],
+            "version_comparisons": state.get("version_comparisons", []),
             "decision_history": state["decision_history"],
         }

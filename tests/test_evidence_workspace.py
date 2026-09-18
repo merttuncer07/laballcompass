@@ -20,6 +20,7 @@ from workbench.evidence_workspace import (
     withdraw_relationship,
     workspace_state,
 )
+from workbench.evidence_schema import migrate_v2_to_v3
 
 
 class EvidenceWorkspaceTests(unittest.TestCase):
@@ -31,6 +32,28 @@ class EvidenceWorkspaceTests(unittest.TestCase):
         self.incoming.mkdir()
         self.workspace = self.root / "workspace"
         create_workspace(self.workspace, "Revenue evidence")
+
+    def test_schema_v2_migrates_use_checkpoints_and_pair_comparisons(self):
+        database = sqlite3.connect(self.root / "schema-v2.sqlite3")
+        database.executescript("""
+            CREATE TABLE artifacts(id TEXT PRIMARY KEY);
+            CREATE TABLE file_blobs(id TEXT PRIMARY KEY);
+            CREATE TABLE evidence_versions(id TEXT PRIMARY KEY);
+            CREATE TABLE decision_history(
+                id TEXT PRIMARY KEY,event_type TEXT,artifact_id TEXT,version_id TEXT,
+                relationship_id TEXT,candidate_id TEXT,before_json TEXT,after_json TEXT,
+                reason TEXT,recorded_at TEXT);
+            PRAGMA user_version=2;
+        """)
+        migrate_v2_to_v3(database)
+        self.assertEqual(database.execute("PRAGMA user_version").fetchone()[0], 3)
+        tables = {row[0] for row in database.execute(
+            "SELECT name FROM sqlite_master WHERE type='table'")}
+        self.assertIn("use_checkpoints", tables)
+        self.assertIn("version_comparison_runs", tables)
+        columns = {row[1] for row in database.execute("PRAGMA table_info(decision_history)")}
+        self.assertIn("checkpoint_id", columns)
+        database.close()
 
     def workbook(self, path, *, changed_row=None, unrelated=False, reordered=False):
         book = Workbook()
@@ -218,7 +241,7 @@ class EvidenceWorkspaceTests(unittest.TestCase):
     def test_workspace_create_is_safe_and_idempotent(self):
         second = create_workspace(self.workspace, "Ignored new name")
         self.assertFalse(second["created"])
-        self.assertEqual((second["name"], second["schema_version"]), ("Revenue evidence", 2))
+        self.assertEqual((second["name"], second["schema_version"]), ("Revenue evidence", 3))
         nonempty = self.root / "not-empty"
         nonempty.mkdir()
         (nonempty / "keep.txt").write_text("keep")
@@ -271,14 +294,14 @@ class MissionOneMigrationTests(unittest.TestCase):
             database.close()
 
             state = workspace_state(root)
-            self.assertEqual(state["schema_version"], 2)
+            self.assertEqual(state["schema_version"], 3)
             self.assertEqual((len(state["file_blobs"]), len(state["evidence_versions"])), (2, 2))
             self.assertEqual(state["artifacts"][0]["version_order"], ["ev_old1", "ev_old2"])
             self.assertEqual(state["artifacts"][0]["relationships"][0]["status"], "active")
             self.assertEqual(state["decision_history"][0]["event_type"], "candidate_confirmed")
             self.assertEqual(state["comparisons"][0]["report_path"], "comparisons/rel_old/exact/index.html")
             with sqlite3.connect(root / "workspace.sqlite3") as connection:
-                self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 2)
+                self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 3)
                 self.assertEqual(connection.execute("PRAGMA foreign_key_check").fetchall(), [])
 
 

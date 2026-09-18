@@ -1,14 +1,14 @@
-"""SQLite schema and v1-to-v2 migration for evidence identity workspaces."""
+"""SQLite schema and migrations for evidence identity workspaces."""
 from __future__ import annotations
 
 import hashlib
 import json
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
-TABLES_V2 = (
+TABLES_V3 = (
     """CREATE TABLE workspace (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
@@ -73,6 +73,18 @@ TABLES_V2 = (
     """CREATE UNIQUE INDEX active_version_relationship_pair
         ON version_relationships(artifact_id, before_version_id, after_version_id)
         WHERE status = 'active'""",
+    """CREATE TABLE use_checkpoints (
+        id TEXT PRIMARY KEY,
+        artifact_id TEXT NOT NULL REFERENCES artifacts(id),
+        version_id TEXT NOT NULL REFERENCES evidence_versions(id),
+        blob_id TEXT NOT NULL REFERENCES file_blobs(id),
+        purpose TEXT NOT NULL,
+        note TEXT,
+        status TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL,
+        withdrawn_at TEXT
+    )""",
     """CREATE TABLE decision_history (
         id TEXT PRIMARY KEY,
         event_type TEXT NOT NULL,
@@ -80,6 +92,7 @@ TABLES_V2 = (
         version_id TEXT REFERENCES evidence_versions(id),
         relationship_id TEXT REFERENCES version_relationships(id),
         candidate_id TEXT REFERENCES candidates(id),
+        checkpoint_id TEXT REFERENCES use_checkpoints(id),
         before_json TEXT,
         after_json TEXT,
         reason TEXT,
@@ -92,6 +105,17 @@ TABLES_V2 = (
         structural_report_path TEXT,
         created_at TEXT NOT NULL
     )""",
+    """CREATE TABLE version_comparison_runs (
+        id TEXT PRIMARY KEY,
+        artifact_id TEXT NOT NULL REFERENCES artifacts(id),
+        before_version_id TEXT NOT NULL REFERENCES evidence_versions(id),
+        after_version_id TEXT NOT NULL REFERENCES evidence_versions(id),
+        report_path TEXT NOT NULL,
+        structural_report_path TEXT,
+        created_at TEXT NOT NULL,
+        UNIQUE(before_version_id, after_version_id),
+        CHECK(before_version_id <> after_version_id)
+    )""",
 )
 
 
@@ -100,7 +124,8 @@ def blob_id(sha256):
 
 
 def create_schema_v2(connection):
-    for statement in TABLES_V2:
+    """Create the current schema; historical name retained for callers."""
+    for statement in TABLES_V3:
         connection.execute(statement)
     connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
 
@@ -213,6 +238,38 @@ def migrate_v1_to_v2(connection):
         raise
     finally:
         connection.execute("PRAGMA foreign_keys = ON")
+
+
+def migrate_v2_to_v3(connection):
+    """Add immutable evidence-use markers and cached arbitrary version comparisons."""
+    if connection.execute("PRAGMA user_version").fetchone()[0] != 2:
+        raise ValueError("Only schema v2 can be migrated to schema v3")
+    connection.execute("""CREATE TABLE use_checkpoints (
+        id TEXT PRIMARY KEY,
+        artifact_id TEXT NOT NULL REFERENCES artifacts(id),
+        version_id TEXT NOT NULL REFERENCES evidence_versions(id),
+        blob_id TEXT NOT NULL REFERENCES file_blobs(id),
+        purpose TEXT NOT NULL,
+        note TEXT,
+        status TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL,
+        withdrawn_at TEXT
+    )""")
+    connection.execute(
+        "ALTER TABLE decision_history ADD COLUMN checkpoint_id TEXT REFERENCES use_checkpoints(id)")
+    connection.execute("""CREATE TABLE version_comparison_runs (
+        id TEXT PRIMARY KEY,
+        artifact_id TEXT NOT NULL REFERENCES artifacts(id),
+        before_version_id TEXT NOT NULL REFERENCES evidence_versions(id),
+        after_version_id TEXT NOT NULL REFERENCES evidence_versions(id),
+        report_path TEXT NOT NULL,
+        structural_report_path TEXT,
+        created_at TEXT NOT NULL,
+        UNIQUE(before_version_id, after_version_id),
+        CHECK(before_version_id <> after_version_id)
+    )""")
+    connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
 
 
 def candidate_id(left_blob_id, right_blob_id):

@@ -4,8 +4,9 @@ import json
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QAbstractItemView, QComboBox, QFileDialog, QFormLayout, QHBoxLayout,
-    QInputDialog, QLabel, QMainWindow, QMessageBox, QPushButton, QSplitter,
+    QAbstractItemView, QComboBox, QDialog, QDialogButtonBox, QFileDialog,
+    QFormLayout, QHBoxLayout, QInputDialog, QLabel, QLineEdit, QMainWindow,
+    QMessageBox, QPushButton, QSplitter,
     QPlainTextEdit, QTableWidget, QTableWidgetItem, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
     QWidget,
 )
@@ -24,6 +25,7 @@ class AuditMainWindow(QMainWindow):
         self._snapshot = None
         self._triage = None
         self._relationship_id = None
+        self._checkpoint_id = None
         self.setWindowTitle("Audit Evidence Workspace")
         self.resize(1440, 850)
         self._build_ui()
@@ -153,6 +155,19 @@ class AuditMainWindow(QMainWindow):
     def refresh(self):
         self._snapshot = self.application.snapshot()
         self.evidence_tree.clear()
+        changed_rows = [row for row in self._snapshot["use_checkpoints"]
+                        if row["status"] == "active" and
+                        row["change_state"] == "NEWER_VERSION_EXISTS"]
+        changed = QTreeWidgetItem(["Changed since use", str(len(changed_rows))])
+        self.evidence_tree.addTopLevelItem(changed)
+        for checkpoint in changed_rows:
+            item = self._tree_item(
+                f'{checkpoint["artifact_name"]} · {checkpoint["purpose"]}',
+                "checkpoint", checkpoint["id"])
+            item.setText(
+                1, f'v{checkpoint["used_version_number"]} → '
+                   f'v{checkpoint["latest_version_number"]}')
+            changed.addChild(item)
         artifacts = QTreeWidgetItem(["Artifacts", str(len(self._snapshot["artifacts"]))])
         self.evidence_tree.addTopLevelItem(artifacts)
         for artifact in self._snapshot["artifacts"]:
@@ -167,6 +182,17 @@ class AuditMainWindow(QMainWindow):
                     "version", version["id"])
                 version_item.setText(1, version["sha256"][:10] + "…")
                 item.addChild(version_item)
+                for checkpoint in self._snapshot["use_checkpoints"]:
+                    if checkpoint["status"] != "active" or checkpoint["version_id"] != version["id"]:
+                        continue
+                    marker = {
+                        "NEWER_VERSION_EXISTS": "changed",
+                        "CURRENT": "current",
+                    }.get(checkpoint["change_state"], "ordering unresolved")
+                    checkpoint_item = self._tree_item(
+                        checkpoint["purpose"], "checkpoint", checkpoint["id"])
+                    checkpoint_item.setText(1, marker)
+                    version_item.addChild(checkpoint_item)
                 relationship = relationship_by_after.get(version["id"])
                 if relationship:
                     revision = self._tree_item(
@@ -187,7 +213,7 @@ class AuditMainWindow(QMainWindow):
             item = self._tree_item(f'{row["left_name"]} ↔ {row["right_name"]}', "candidate", row["id"])
             item.setText(1, row["classification"])
             candidates.addChild(item)
-        for node in (artifacts, unassigned, candidates): node.setExpanded(True)
+        for node in (changed, artifacts, unassigned, candidates): node.setExpanded(True)
         self.setWindowTitle(f'Audit Evidence Workspace — {self._snapshot["workspace"]["name"]}')
         self.statusBar().showMessage(self._snapshot["workspace_path"])
 
@@ -214,6 +240,8 @@ class AuditMainWindow(QMainWindow):
                 f'common formula texts {structure.get("common_formula_text_hashes", 0)}. {reasons}')
         elif kind == "relationship":
             self._load_triage(item_id)
+        elif kind == "checkpoint":
+            self._load_checkpoint(item_id)
 
     def _load_triage(self, relationship_id):
         try:
@@ -222,16 +250,56 @@ class AuditMainWindow(QMainWindow):
             return self._error(error)
         self._relationship_id = relationship_id
         relation = self._triage["relationship"]
+        self._checkpoint_id = None
+        self._present_triage(
+            self._triage, relation["before_version_id"], relation["after_version_id"])
+
+    def _load_checkpoint(self, checkpoint_id):
+        checkpoint = next(row for row in self._snapshot["use_checkpoints"]
+                          if row["id"] == checkpoint_id)
+        self._checkpoint_id = checkpoint_id
+        self.candidate_explanation.setText(
+            f'{checkpoint["purpose"]} · used v{checkpoint["used_version_number"]} · '
+            f'state {checkpoint["change_state"].replace("_", " ").title()}')
+        if checkpoint["change_state"] == "CURRENT":
+            self._triage = None
+            self.revision_title.setText("Evidence use checkpoint is current")
+            self.summary_label.setText(
+                f'{checkpoint["purpose"]} references the latest confirmed version. '
+                "The checkpoint remains attached to its exact evidence bytes.")
+            self.group_table.setRowCount(0)
+            return
+        if checkpoint["change_state"] != "NEWER_VERSION_EXISTS":
+            self._triage = None
+            self.revision_title.setText("Checkpoint comparison unavailable")
+            self.summary_label.setText(
+                "The confirmed version ordering is incomplete or ambiguous. "
+                "Correct the version relationship before comparing this checkpoint.")
+            self.group_table.setRowCount(0)
+            return
+        self.statusBar().showMessage("Comparing checkpoint version to current version…")
+        try:
+            result = self.application.get_changed_since_use(checkpoint_id)
+        except (ValueError, OSError, json.JSONDecodeError) as error:
+            return self._error(error)
+        self._triage = result["triage"]
+        self._relationship_id = None
+        self._present_triage(
+            self._triage, checkpoint["version_id"], checkpoint["latest_version_id"],
+            heading=f'Evidence changed since use · {checkpoint["purpose"]}')
+
+    def _present_triage(self, triage, before_version_id, after_version_id, heading=None):
         self.revision_title.setText(
-            f'{self._version_label(relation["before_version_id"])} → '
-            f'{self._version_label(relation["after_version_id"])}')
-        summary, coverage = self._triage["summary"], self._triage["dependency_coverage"]
+            heading or (f'{self._version_label(before_version_id)} → '
+                        f'{self._version_label(after_version_id)}'))
+        summary, coverage = triage["summary"], triage["dependency_coverage"]
         self.summary_label.setText(
+            f'{self._version_label(before_version_id)} → {self._version_label(after_version_id)}. '
             f'{summary["raw_change_count"]:,} raw changes → {summary["triage_group_count"]:,} groups '
             f'({summary["compression_ratio"]:.2f}× compression). '
             f'Dependency resolution: {coverage.get("resolved_formula_count", 0):,} of '
             f'{coverage.get("formula_count", 0):,} formulas.')
-        types = sorted({row["category"] for row in self._triage["groups"]})
+        types = sorted({row["category"] for row in triage["groups"]})
         self.type_filter.blockSignals(True); self.type_filter.clear()
         self.type_filter.addItem("All change types", None)
         for value in types: self.type_filter.addItem(value.replace("_", " ").title(), value)
@@ -346,7 +414,11 @@ class AuditMainWindow(QMainWindow):
             menu.addAction("Withdraw relationship", lambda: self._withdraw_relationship(item_id))
             menu.addAction("Reverse version order", lambda: self._reverse_order(item_id))
         elif kind == "version":
+            menu.addAction("Mark as used", lambda: self._create_checkpoint(item_id))
             menu.addAction("Reassign version", lambda: self._reassign_version(item_id))
+        elif kind == "checkpoint":
+            menu.addAction("Correct purpose / note", lambda: self._edit_checkpoint(item_id))
+            menu.addAction("Withdraw checkpoint", lambda: self._withdraw_checkpoint(item_id))
         if not menu.isEmpty(): menu.exec(self.evidence_tree.viewport().mapToGlobal(point))
 
     def _reason(self, title):
@@ -357,6 +429,46 @@ class AuditMainWindow(QMainWindow):
         name, accepted = QInputDialog.getText(self, "Rename artifact", "New name")
         reason = self._reason("Rename reason") if accepted and name.strip() else ""
         if reason: self._run(lambda: self.application.rename_artifact(artifact_id, name, reason))
+
+    def _checkpoint_values(self, title, purpose="", note=""):
+        dialog = QDialog(self)
+        dialog.setWindowTitle(title)
+        layout = QVBoxLayout(dialog)
+        form = QFormLayout()
+        purpose_input = QLineEdit(purpose)
+        note_input = QLineEdit(note)
+        form.addRow("Purpose / reference", purpose_input)
+        form.addRow("Optional note", note_input)
+        layout.addLayout(form)
+        buttons = QDialogButtonBox(
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
+        buttons.accepted.connect(dialog.accept); buttons.rejected.connect(dialog.reject)
+        layout.addWidget(buttons)
+        if dialog.exec() != QDialog.DialogCode.Accepted or not purpose_input.text().strip():
+            return None
+        return purpose_input.text().strip(), note_input.text().strip() or None
+
+    def _create_checkpoint(self, version_id):
+        values = self._checkpoint_values("Mark evidence version as used")
+        if values:
+            self._run(lambda: self.application.create_use_checkpoint(
+                version_id, values[0], values[1]))
+
+    def _edit_checkpoint(self, checkpoint_id):
+        checkpoint = next(row for row in self._snapshot["use_checkpoints"]
+                          if row["id"] == checkpoint_id)
+        values = self._checkpoint_values(
+            "Correct checkpoint metadata", checkpoint["purpose"], checkpoint.get("note") or "")
+        if not values: return
+        reason = self._reason("Correction reason")
+        if reason:
+            self._run(lambda: self.application.update_checkpoint_metadata(
+                checkpoint_id, purpose=values[0], note=values[1], reason=reason))
+
+    def _withdraw_checkpoint(self, checkpoint_id):
+        reason = self._reason("Withdraw checkpoint")
+        if reason:
+            self._run(lambda: self.application.withdraw_use_checkpoint(checkpoint_id, reason))
 
     def _withdraw_relationship(self, relationship_id):
         reason = self._reason("Withdraw relationship")

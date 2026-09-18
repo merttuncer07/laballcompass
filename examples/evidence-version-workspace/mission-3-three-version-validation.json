@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-09-19",
+  "fixture": "Synthetic three-version workbook family; used only to prove chain semantics.",
+  "measurement": {
+    "checkpoint_count": 1,
+    "current_checkpoint_count": 0,
+    "changed_since_use_count": 1,
+    "comparison_from_checkpoint_to_latest": "v1→v3",
+    "triage_group_count": 1,
+    "resolved_impact_group_count": 1,
+    "unresolved_coverage": false
+  },
+  "direct_pair": {
+    "before_is_checkpoint_version": true,
+    "after_is_latest_version": true,
+    "did_not_use_adjacent_v2_as_before": true,
+    "cache_path": "comparisons/version-pairs/pair_17a38f9c460ad3276978/exact/index.html"
+  },
+  "checkpoint_identity_unchanged": true,
+  "restart_persisted": true,
+  "original_files_unchanged": true,
+  "performance": {
+    "uncached_v1_to_v3_analysis_seconds": 0.008062
+  },
+  "test_suite": {
+    "pytest_tests_passed": 208,
+    "unittest_subtests_passed": 21,
+    "warnings": 2,
+    "lab_receipt": "runs/20260918T222306Z-79586981/receipt.json"
+  }
+}
