@@ -1,5 +1,22 @@
 # LabAllCompass — onarılmış çalışma laboratuvarı
 
+Evidence-version ürünü artık browser açmayan yerel bir masaüstü uygulamasına
+sahip:
+
+```sh
+./Open-Audit-Evidence.command
+```
+
+Mevcut bir workspace doğrudan da açılabilir:
+
+```sh
+.venv/bin/python -m desktop --workspace /path/to/workspace
+```
+
+Qt arayüzü `workbench.application.EvidenceApplication` servis sınırını kullanır;
+SQLite sorgulamaz, Excel parse etmez ve candidate/triage hesabı yapmaz. HTML
+çıktıları yalnızca eski diagnostic/export yüzeyleri olarak kalır.
+
 15 Eylül 2026. Bu sürümde mevcut motorların hesaplamaları, ürünlerin birbirini çağırması ve çalıştırma yolları onarıldı. Eski proje ve indirilen arşivler korunuyor. Çalışma kodu `LAC_REPRO_R210/` altında; bu klasör özgün arşivin değiştirilmiş bir kopyasıdır.
 
 ## Yeni motor ve ürün onarımları

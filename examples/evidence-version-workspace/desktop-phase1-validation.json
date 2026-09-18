@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-09-18",
+  "workspace": "Evidence Version Intelligence demo",
+  "desktop_path": {
+    "opened_without_browser": true,
+    "pane_count": 3,
+    "artifact_count": 1,
+    "version_count": 2,
+    "unassigned_evidence_count": 1,
+    "active_revision_count": 1,
+    "triage_loaded_from_service": true,
+    "visible_group_rows": 362,
+    "selected_group_details_visible": true
+  },
+  "ofgem_revision_triage": {
+    "raw_change_count": 4201,
+    "triage_group_count": 362,
+    "compression_ratio": 11.604972,
+    "dependency_coverage": {
+      "lineage_available": true,
+      "formula_count": 41738,
+      "resolved_formula_count": 4742,
+      "unresolved_formula_count": 36996
+    }
+  },
+  "coverage_language": "Incomplete — resolved reach is not exhaustive. 36996 workbook formulas unresolved.",
+  "original_files_unchanged": true,
+  "screenshot_check": "Rendered native Qt window offscreen and captured for visual inspection.",
+  "performance": {
+    "open_workspace_and_render_triage_seconds": 0.284522,
+    "measurement_scope": "Open persisted Ofgem workspace, construct native window, load 362 groups, select first group, offscreen render."
+  },
+  "test_suite": {
+    "pytest_tests_passed": 203,
+    "unittest_subtests_passed": 21,
+    "warnings": 2,
+    "lab_receipt": "runs/20260918T133732Z-c47e9999/receipt.json"
+  }
+}

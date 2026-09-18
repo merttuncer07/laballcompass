@@ -1,5 +1,22 @@
 # Kaynak bağımlılığı: çalışan ilk uygulama
 
+## Native evidence workspace
+
+Ana ürün yolu artık yerel PySide6 masaüstü uygulamasıdır:
+
+```sh
+./Open-Audit-Evidence.command
+```
+
+Workspace oluşturma/açma, klasör importu, unassigned evidence, revision-candidate
+onay/red, artifact version geçmişi, revision triage, grup detayı ve Mission #1.1
+correction işlemleri desteklenir. Widget'lar `workbench/application.py` servis
+sınırını kullanır. Mevcut HTML sayfaları legacy diagnostic olarak kalır ve
+desktop akışı bunları browser'da açmaz.
+
+Gerçek Ofgem + SONI desktop doğrulaması
+`examples/evidence-version-workspace/desktop-phase1-validation.json` içindedir.
+
 ## 18 Eylül: Revision Triage
 
 Confirmed iki komşu EvidenceVersion için workspace artık otomatik olarak
